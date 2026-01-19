@@ -1,4 +1,5 @@
 import HeroSection from '../components/HeroSection';
+import RevenueAccelerationSection from '../components/RevenueAccelerationSection';
 import VerticalSection from '../components/VerticalSection';
 import { homeContent } from '../../data/homeContent';
 import { ArrowRight, MessageCircle } from 'lucide-react';
@@ -14,6 +15,9 @@ export default function Home() {
         <main className="bg-background min-h-screen">
             {/* Section 1: Hero */}
             <HeroSection />
+
+            {/* New Section: AI-Powered Revenue Acceleration */}
+            <RevenueAccelerationSection />
 
             {/* Section 2: Unified AI Revenue Operating System */}
             <VerticalSection data={unifiedOS} index={0} />
