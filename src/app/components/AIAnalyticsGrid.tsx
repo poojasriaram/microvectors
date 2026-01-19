@@ -63,17 +63,17 @@ const getColorClasses = (color: string) => {
 
 export default function AIAnalyticsGrid() {
   return (
-    <section className="py-20 lg:py-32 bg-[#020617]">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold mb-6">
             AI Analytics Driven{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Sales Transformation
             </span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-600">
             Leverage cutting-edge AI analytics to transform every aspect of your sales process
           </p>
         </div>
@@ -82,17 +82,23 @@ export default function AIAnalyticsGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {capabilities.map((capability, index) => {
             const Icon = capability.icon;
-            const colors = getColorClasses(capability.color);
+
+            // Simplified color mapping for light theme
+            const colors = {
+              blue: 'bg-blue-50 text-blue-600 border-blue-200 group-hover:border-blue-400 group-hover:shadow-blue-500/10',
+              purple: 'bg-purple-50 text-purple-600 border-purple-200 group-hover:border-purple-400 group-hover:shadow-purple-500/10',
+              cyan: 'bg-cyan-50 text-cyan-600 border-cyan-200 group-hover:border-cyan-400 group-hover:shadow-cyan-500/10'
+            }[capability.color] || 'bg-blue-50 text-blue-600 border-blue-200';
 
             return (
               <div
                 key={index}
-                className={`group relative bg-gradient-to-br ${colors.bg} backdrop-blur-sm rounded-xl p-6 border ${colors.border} transition-all hover:scale-105 hover:shadow-xl ${colors.glow}`}
+                className="group relative bg-white rounded-xl p-6 border border-slate-200 transition-all hover:-translate-y-1 hover:shadow-lg hover:border-slate-300"
               >
-                <div className={`inline-flex p-3 rounded-lg bg-[#0F172A] border border-white/5 shadow-sm mb-4 ${colors.icon}`}>
+                <div className={`inline-flex p-3 rounded-lg border mb-4 ${colors.split(' ').filter(c => c.startsWith('bg') || c.startsWith('text') || c.startsWith('border-blue-200')).join(' ')}`}>
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-white font-semibold leading-snug">
+                <h3 className="text-slate-900 font-bold leading-snug text-lg">
                   {capability.title}
                 </h3>
               </div>

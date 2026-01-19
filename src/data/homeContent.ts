@@ -8,7 +8,7 @@ export interface ConversionBlockData {
     id: string;
     title: string;
     subtitle?: string;
-    stats: { label: string; value: string; subtext?: string }[];
+    stats: { label: string; value: string; suffix?: string; subtext?: string }[];
     portfolio: { icon: any; title: string; desc?: string }[];
     tabs: { title: string; content: string }[];
     cta: { text: string; action?: string };
@@ -21,9 +21,9 @@ export const homeContent: ConversionBlockData[] = [
         title: 'The Unified AI Revenue Operating System',
         subtitle: 'Your entire growth engine running on autonomous intelligence.',
         stats: [
-            { label: 'Revenue Velocity', value: '5X Faster Growth' },
-            { label: 'Forecast Accuracy', value: '98% Precision' },
-            { label: 'Pipeline Scale', value: 'Infinite AI-Nurtured Leads' },
+            { label: 'Revenue Velocity', value: '5X', suffix: 'Faster Growth' },
+            { label: 'Forecast Accuracy', value: '98%', suffix: 'Precision' },
+            { label: 'Pipeline Scale', value: '∞', suffix: '' }, // Using suffix='' to clear it or I can just remove the prop. Removing text as requested.
         ],
         portfolio: [
             { icon: Cpu, title: 'Revenue Brain', desc: 'AI intelligence core' },
@@ -42,9 +42,9 @@ export const homeContent: ConversionBlockData[] = [
         id: 'demand-discovery',
         title: 'AI-Powered Demand Discovery Engine',
         stats: [
-            { label: 'Hidden Market Discovery', value: '1000X Faster' },
-            { label: 'Segment Precision', value: 'Micro-Segmentation' },
-            { label: 'Opportunity Detection', value: 'Real-Time Signals' },
+            { label: 'Hidden Market Discovery', value: '1000X', suffix: 'Faster' },
+            { label: 'Segment Precision', value: 'Micro-', suffix: 'Segmentation' },
+            { label: 'Opportunity Detection', value: 'Real-Time', suffix: 'Signals' },
         ],
         portfolio: [
             { icon: Compass, title: 'Market Radar' },
@@ -63,9 +63,9 @@ export const homeContent: ConversionBlockData[] = [
         id: 'demand-generation',
         title: 'AI Demand Generation Powerhouse',
         stats: [
-            { label: 'Lead Speed', value: '1000X Faster' },
-            { label: 'Pipeline Automation', value: '80% AI-Sourced' },
-            { label: 'Campaign ROI', value: '5X Performance' },
+            { label: 'Lead Speed', value: '1000X', suffix: 'Faster' },
+            { label: 'Pipeline Automation', value: '80%', suffix: 'AI-Sourced' },
+            { label: 'Campaign ROI', value: '5X', suffix: 'Performance' },
         ],
         portfolio: [
             { icon: Target, title: 'Campaign AI' },
@@ -84,9 +84,9 @@ export const homeContent: ConversionBlockData[] = [
         id: 'autonomous-sales',
         title: 'Autonomous Sales Execution Engine',
         stats: [
-            { label: 'Sales Cycle', value: '50% Faster' },
-            { label: 'SQL Automation', value: '80% Auto-Generated' },
-            { label: 'Cost of Sales', value: '65% Reduction' },
+            { label: 'Sales Cycle', value: '50%', suffix: 'Faster' },
+            { label: 'SQL Automation', value: '80%', suffix: 'Auto-Generated' },
+            { label: 'Cost of Sales', value: '65%', suffix: 'Reduction' },
         ],
         portfolio: [
             { icon: MessageSquare, title: 'Digital Sales Reps' },
@@ -106,8 +106,8 @@ export const homeContent: ConversionBlockData[] = [
         title: 'AI Revenue Intelligence Platform',
         stats: [
             { label: 'Pipeline Visibility', value: 'Real-Time' },
-            { label: 'Revenue Forecasting', value: '98% Accuracy' },
-            { label: 'KPI Monitoring', value: '47+ KPIs' },
+            { label: 'Revenue Forecasting', value: '98%', suffix: 'Accuracy' },
+            { label: 'KPI Monitoring', value: '47+', suffix: 'KPIs' },
         ],
         portfolio: [
             { icon: BarChart3, title: 'Revenue Dashboard' },
@@ -212,9 +212,9 @@ export const homeContent: ConversionBlockData[] = [
         id: 'conversational-ai',
         title: 'AI Conversational Revenue Engine',
         stats: [
-            { label: '24/7 Sales', value: 'Always On' },
-            { label: 'Lead Capture', value: 'Automated' },
-            { label: 'Conversion AI', value: 'optimized' },
+            { label: '24/7 Sales', value: '24/7', suffix: 'Always On' },
+            { label: 'Lead Capture', value: '100%', suffix: 'Automated' },
+            { label: 'Conversion AI', value: 'Max', suffix: 'Optimized' },
         ],
         portfolio: [
             { icon: MessageSquare, title: 'Website AI' },

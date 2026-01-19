@@ -39,17 +39,17 @@ const getColorClasses = (color: string) => {
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#020617]">
+    <section className="py-20 lg:py-32 bg-slate-50 border-t border-slate-200">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold mb-6 tracking-tight">
             Customer{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Success Stories
             </span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-600 leading-relaxed font-normal">
             See how leading B2B companies are achieving exponential growth with TrustFlow AI
           </p>
         </div>
@@ -61,25 +61,25 @@ export default function TestimonialsSection() {
               key={index}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-              <div className="relative bg-[#0F172A] backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 hover:border-blue-500/30 transition-all shadow-lg">
+              <div className="relative bg-white rounded-3xl p-8 border border-slate-200 hover:border-blue-200 transition-all shadow-sm hover:shadow-lg">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-lg">{testimonial.logo}</span>
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center shadow-sm border border-blue-50">
+                      <span className="text-blue-700 font-bold text-lg">{testimonial.logo}</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{testimonial.company}</h3>
-                      <p className="text-sm text-slate-400">{testimonial.author}</p>
+                      <h3 className="text-xl font-bold text-slate-900">{testimonial.company}</h3>
+                      <p className="text-sm text-slate-500 font-medium">{testimonial.author}</p>
                     </div>
                   </div>
-                  <Quote className="w-8 h-8 text-blue-500/30" />
+                  <Quote className="w-8 h-8 text-blue-100" />
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-slate-300 leading-relaxed mb-8 italic">
+                <p className="text-slate-600 leading-relaxed mb-8 italic">
                   "{testimonial.testimonial}"
                 </p>
 
@@ -90,11 +90,11 @@ export default function TestimonialsSection() {
                     return (
                       <div
                         key={metricIndex}
-                        className="bg-[#020617] rounded-xl p-4 border border-slate-800"
+                        className="bg-slate-50 rounded-xl p-4 border border-slate-100 hover:border-blue-100 transition-colors"
                       >
                         <div className="flex items-center gap-2 mb-2">
                           <Icon className={`w-4 h-4 bg-gradient-to-r ${getColorClasses(metric.color)} bg-clip-text text-transparent`} />
-                          <span className="text-xs text-slate-400">{metric.label}</span>
+                          <span className="text-xs text-slate-500 font-semibold">{metric.label}</span>
                         </div>
                         <div className={`text-2xl font-bold bg-gradient-to-r ${getColorClasses(metric.color)} bg-clip-text text-transparent`}>
                           {metric.value}

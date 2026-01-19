@@ -66,17 +66,17 @@ const features = [
 
 export default function LeanSalesSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#020617]">
+    <section className="py-20 lg:py-32 bg-slate-50">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold mb-6">
             AI Driven Lean Sales &{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Sales Transformation
             </span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-600 font-medium">
             Transform your sales process with lean, AI-powered operations
           </p>
         </div>
@@ -89,39 +89,39 @@ export default function LeanSalesSection() {
 
             const colors = {
               blue: {
-                bg: 'from-blue-500/10 to-blue-600/10',
-                border: 'border-blue-500/20 group-hover:border-blue-500/40',
-                icon: 'bg-blue-500/10 text-blue-400',
-                glow: 'group-hover:shadow-[0_0_20px_rgba(37,99,235,0.2)]'
+                bg: 'bg-white',
+                border: 'border-slate-200 group-hover:border-blue-300',
+                icon: 'bg-blue-50 text-blue-600',
+                glow: 'group-hover:shadow-lg group-hover:shadow-blue-500/10'
               },
               purple: {
-                bg: 'from-purple-500/10 to-purple-600/10',
-                border: 'border-purple-500/20 group-hover:border-purple-500/40',
-                icon: 'bg-purple-500/10 text-purple-400',
-                glow: 'group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]'
+                bg: 'bg-white',
+                border: 'border-slate-200 group-hover:border-purple-300',
+                icon: 'bg-purple-50 text-purple-600',
+                glow: 'group-hover:shadow-lg group-hover:shadow-purple-500/10'
               },
               cyan: {
-                bg: 'from-cyan-500/10 to-cyan-600/10',
-                border: 'border-cyan-500/20 group-hover:border-cyan-500/40',
-                icon: 'bg-cyan-500/10 text-cyan-400',
-                glow: 'group-hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]'
+                bg: 'bg-white',
+                border: 'border-slate-200 group-hover:border-cyan-300',
+                icon: 'bg-cyan-50 text-cyan-600',
+                glow: 'group-hover:shadow-lg group-hover:shadow-cyan-500/10'
               }
             }[colorClass];
 
             return (
               <div
                 key={index}
-                className={`group relative bg-gradient-to-br ${colors.bg} backdrop-blur-sm rounded-xl p-6 border ${colors.border} transition-all hover:scale-105 hover:shadow-xl ${colors.glow}`}
+                className={`group relative ${colors.bg} rounded-xl p-6 border ${colors.border} transition-all duration-300 hover:-translate-y-1 ${colors.glow}`}
               >
                 <div className={`inline-flex p-3 rounded-lg ${colors.icon} mb-4`}>
                   <Icon className="w-6 h-6" />
                 </div>
 
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   {feature.title}
                 </h3>
 
-                <p className="text-sm text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
                   {feature.description}
                 </p>
               </div>

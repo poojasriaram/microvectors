@@ -55,22 +55,22 @@ const features = [
 
 export default function DemandGenerationSection() {
   return (
-    <section className="py-20 lg:py-32 bg-[#020617]">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-300 font-medium">Automated Powerhouse</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span className="text-sm text-blue-700 font-bold">Automated Powerhouse</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold mb-6">
             AI-Driven Automated Demand Generation Powerhouse —{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               1000X Faster, No Holidays
             </span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Transform your demand generation with AI automation that never sleeps
           </p>
         </div>
@@ -82,21 +82,21 @@ export default function DemandGenerationSection() {
               key={index}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-              <div className="relative bg-[#0F172A] backdrop-blur-sm rounded-2xl p-8 border border-white/5 hover:border-blue-500/30 transition-all shadow-sm hover:shadow-lg">
+              <div className="relative bg-white rounded-2xl p-8 border border-slate-200 hover:border-blue-300 transition-all shadow-sm hover:shadow-lg">
                 {/* Number Badge */}
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-4">
-                  <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 mb-4 group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors">
+                  <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {feature.number}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold text-white mb-3">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed font-medium">
                   {feature.description}
                 </p>
 

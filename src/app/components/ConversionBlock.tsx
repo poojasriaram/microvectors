@@ -18,7 +18,7 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
     const themeGradient = getColorTheme(index);
 
     return (
-        <section className={`py-20 lg:py-32 relative overflow-hidden ${isAltBackground ? 'bg-[#050B1D]' : 'bg-[#020617]'}`}>
+        <section className={`py-20 lg:py-32 relative overflow-hidden ${isAltBackground ? 'bg-slate-50' : 'bg-white'}`}>
 
             {/* Background Ambience */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -36,11 +36,11 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
                             {data.title}
                         </h2>
                         {data.subtitle && (
-                            <p className="text-xl text-slate-400 max-w-2xl border-l-4 border-blue-500 pl-6">
+                            <p className="text-xl text-slate-600 max-w-2xl border-l-4 border-blue-600 pl-6 font-medium">
                                 {data.subtitle}
                             </p>
                         )}
@@ -61,20 +61,21 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1, duration: 0.5 }}
-                                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors group"
+                                    className="bg-white border border-slate-200 rounded-2xl p-6 transition-all shadow-sm hover:shadow-md hover:border-blue-200 group"
                                 >
-                                    <p className="text-slate-400 text-sm font-medium mb-1">{stat.label}</p>
-                                    <div className={`text-2xl font-bold bg-gradient-to-r ${themeGradient} bg-clip-text text-transparent`}>
+                                    <p className="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">{stat.label}</p>
+                                    <div className={`text-3xl font-bold bg-gradient-to-r ${themeGradient} bg-clip-text text-transparent`}>
                                         {stat.value}
+                                        {stat.suffix && <span className="text-lg text-slate-400 ml-1">{stat.suffix}</span>}
                                     </div>
-                                    {stat.subtext && <p className="text-xs text-slate-500 mt-1">{stat.subtext}</p>}
+                                    {stat.subtext && <p className="text-xs text-slate-400 mt-2 font-medium">{stat.subtext}</p>}
                                 </motion.div>
                             ))}
                         </div>
 
                         {/* PANEL 3: Portfolio Cards */}
                         <div className="space-y-4">
-                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Core Capabilities</h4>
+                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Core Capabilities</h4>
                             {data.portfolio.map((item, i) => {
                                 const Icon = item.icon;
                                 return (
@@ -84,14 +85,14 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.3 + (i * 0.1), duration: 0.5 }}
-                                        className="flex items-center space-x-4 p-4 rounded-xl bg-[#0F172A] border border-slate-800 hover:border-slate-700 transition-all"
+                                        className="flex items-center space-x-4 p-4 rounded-xl bg-white border border-slate-200 hover:border-blue-300 transition-all shadow-sm hover:shadow-md"
                                     >
-                                        <div className={`p-2 rounded-lg bg-gradient-to-br ${themeGradient} bg-opacity-10`}>
-                                            <Icon className="w-5 h-5 text-white" />
+                                        <div className={`p-2.5 rounded-lg bg-gradient-to-br ${themeGradient} bg-opacity-10 text-white`}>
+                                            <Icon className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h5 className="text-white font-medium">{item.title}</h5>
-                                            {item.desc && <p className="text-xs text-slate-500">{item.desc}</p>}
+                                            <h5 className="text-slate-900 font-bold">{item.title}</h5>
+                                            {item.desc && <p className="text-xs text-slate-500 font-medium">{item.desc}</p>}
                                         </div>
                                     </motion.div>
                                 );
@@ -103,7 +104,7 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                     <div className="lg:col-span-8 space-y-12">
 
                         {/* PANEL 4: Vertical Tab Engine */}
-                        <div className="bg-slate-900/50 rounded-2xl p-2 border border-white/5 shadow-2xl">
+                        <div className="bg-white rounded-3xl p-2 border border-slate-200 shadow-xl">
                             <VerticalTabEngine tabs={data.tabs} />
                         </div>
 
@@ -115,9 +116,9 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                             transition={{ delay: 0.5 }}
                             className="flex justify-start md:justify-end"
                         >
-                            <button className="group relative px-8 py-4 bg-white text-slate-900 font-bold rounded-lg overflow-hidden hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300">
+                            <button className="group relative px-8 py-4 bg-slate-900 text-white font-bold rounded-full overflow-hidden hover:shadow-xl transition-all duration-300">
                                 <div className={`absolute inset-0 bg-gradient-to-r ${themeGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                                <span className="relative z-10 flex items-center space-x-2 group-hover:text-white transition-colors">
+                                <span className="relative z-10 flex items-center space-x-2 transition-colors">
                                     <span>{data.cta.text}</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </span>
