@@ -1,177 +1,170 @@
-import { MapPin, Mail, Phone, Shield, Award, CheckCircle } from 'lucide-react';
-import TrustflowLogo from '../../assets/Trustflow-logo.png';
+import React from 'react';
+import { Facebook, Twitter, Linkedin, Instagram, MapPin, Mail, Phone, Globe, Shield, Award, CheckCircle2, Cloud, Share2, LayoutGrid, Box, Server } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/Trustflow-logo.png';
 
 export default function Footer() {
-  return (
-    <footer className="bg-[#020617] border-t border-slate-800">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6 mb-12">
-          {/* Brand & Contact */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <img src={TrustflowLogo} alt="TrustFlow AI" className="h-20 w-auto p-1" />
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              AI-Powered Sales & Revenue Acceleration for B2B Companies
-            </p>
+    return (
+        <footer className="bg-slate-50 pt-20 pb-10 border-t border-slate-200 text-slate-600 font-sans">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            {/* Contact Info moved here to save space */}
-            <div className="space-y-2 mb-6">
-              <a href="mailto:cs@trustflow.in" className="flex items-center gap-2 text-slate-400 hover:text-blue-600 transition-colors text-sm">
-                <Mail className="w-4 h-4" />
-                <span>cs@trustflow.in</span>
-              </a>
-              <a href="tel:+919513088612" className="flex items-center gap-2 text-slate-400 hover:text-blue-600 transition-colors text-sm">
-                <Phone className="w-4 h-4" />
-                <span>+91 9513088612</span>
-              </a>
-            </div>
+                {/* Top Section: Brand & Contact vs Navigation Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-2">
-              <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 border border-blue-200 rounded-full">
-                <Shield className="w-3 h-3 text-blue-600" />
-                <span className="text-[10px] text-blue-700">Secure</span>
-              </div>
-              <div className="flex items-center gap-1 px-2 py-1 bg-purple-50 border border-purple-200 rounded-full">
-                <Award className="w-3 h-3 text-purple-600" />
-                <span className="text-[10px] text-purple-700">Certified</span>
-              </div>
-            </div>
-          </div>
+                    {/* Brand & Contact (Left 4 Columns) */}
+                    <div className="lg:col-span-4 space-y-8">
+                        {/* Brand */}
+                        <div>
+                            <div className="flex items-center gap-2 mb-4">
+                                <img src={logo} alt="TrustFlow.ai Logo" className="h-16 w-auto" />
+                            </div>
+                            <p className="text-slate-500 leading-relaxed mb-6 font-medium">
+                                AI-Powered Sales & Revenue Acceleration for B2B Companies
+                            </p>
+                            <div className="flex flex-col gap-2 text-sm text-slate-500 mb-6">
+                                <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                    <Mail className="w-4 h-4" /> cs@trustflow.in
+                                </a>
+                                <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                    <Phone className="w-4 h-4" /> +91 9513088612
+                                </a>
+                            </div>
+                            <div className="flex gap-4">
+                                <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm hover:shadow-md">
+                                    <Linkedin className="w-4 h-4" />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm hover:shadow-md">
+                                    <Twitter className="w-4 h-4" />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:border-blue-200 transition-all shadow-sm hover:shadow-md">
+                                    <Facebook className="w-4 h-4" />
+                                </a>
+                            </div>
+                        </div>
 
-          {/* Global Offices */}
-          <div className="lg:col-span-1">
-            <h3 className="text-slate-50 font-semibold mb-4">Global Offices</h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0 mt-1" />
-                <div>
-                  <div className="text-slate-50 text-sm font-medium mb-1">Mumbai</div>
-                  <div className="text-slate-400 text-xs leading-relaxed">
-                    WeWork, Raheja Platinum,<br />
-                    Andheri East,<br />
-                    Mumbai 400059
-                  </div>
+
+                    </div>
+
+                    {/* Navigation Grid (Right 8 Columns) */}
+                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-6">Company</h3>
+                            <ul className="space-y-3 text-sm">
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">About Us</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Leadership Team</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Careers</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Press & Media</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Partners Program</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Affiliate Program</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-6">Resources</h3>
+                            <ul className="space-y-3 text-sm">
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Blog & Insights</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Case Studies</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Whitepapers</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Webinars</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">ROI Calculators</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Implementation Guides</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-6">Support</h3>
+                            <ul className="space-y-3 text-sm">
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Help Center</Link></li>
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Documentation</Link></li>
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">API Reference</Link></li>
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Status Page</Link></li>
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Community Forum</Link></li>
+                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Contact Support</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-6">Legal</h3>
+                            <ul className="space-y-3 text-sm">
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Security Overview</Link></li>
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">GDPR Compliance</Link></li>
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Data Processing Agreement</Link></li>
+                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Cookie Policy</Link></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-purple-600 flex-shrink-0 mt-1" />
-                <div>
-                  <div className="text-slate-50 text-sm font-medium mb-1">Bangalore</div>
-                  <div className="text-slate-400 text-xs leading-relaxed">
-                    WeWork, Tin Factory,<br />
-                    Old Madras Rd,<br />
-                    Bengaluru 560016
-                  </div>
+
+                {/* Partners & Recognition */}
+                <div className="border-t border-slate-200 py-10 space-y-8">
+                    {/* Certified Partners */}
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <span className="text-sm font-bold text-slate-900 uppercase tracking-wide">Certified Partners</span>
+                        <div className="flex flex-wrap items-center justify-center gap-8 transition-all duration-500">
+                            <div className="flex items-center gap-2 group cursor-default">
+                                <Cloud className="w-5 h-5 text-[#00A1E0]" />
+                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#00A1E0] transition-colors">Salesforce</span>
+                            </div>
+                            <div className="flex items-center gap-2 group cursor-default">
+                                <Share2 className="w-5 h-5 text-[#FF7A59]" />
+                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#FF7A59] transition-colors">HubSpot</span>
+                            </div>
+                            <div className="flex items-center gap-2 group cursor-default">
+                                <LayoutGrid className="w-5 h-5 text-[#00A4EF]" />
+                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#00A4EF] transition-colors">Microsoft</span>
+                            </div>
+                            <div className="flex items-center gap-2 group cursor-default">
+                                <Box className="w-5 h-5 text-[#FF9900]" />
+                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#FF9900] transition-colors">AWS</span>
+                            </div>
+                            <div className="flex items-center gap-2 group cursor-default">
+                                <Server className="w-5 h-5 text-[#4285F4]" />
+                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#4285F4] transition-colors">Google Cloud</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Recognition */}
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-amber-50 rounded-lg">
+                                <Award className="w-6 h-6 text-amber-500" />
+                            </div>
+                            <div>
+                                <span className="block font-bold text-slate-900">Gartner</span>
+                                <span className="text-sm font-medium text-slate-500">Cool Vendor 2025</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-blue-50 rounded-lg">
+                                <Award className="w-6 h-6 text-blue-600" />
+                            </div>
+                            <div>
+                                <span className="block font-bold text-slate-900">Forrester</span>
+                                <span className="text-sm font-medium text-slate-500">Wave Leader</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-green-50 rounded-lg">
+                                <Award className="w-6 h-6 text-green-600" />
+                            </div>
+                            <div>
+                                <span className="block font-bold text-slate-900">G2</span>
+                                <span className="text-sm font-medium text-slate-500">Top 50 AI Platform</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
 
+                {/* Bottom Bar */}
+                <div className="flex flex-col items-center gap-6 text-sm text-slate-600 pt-8 border-t border-slate-200">
+                    <p className="font-bold">&copy; 2026 TrustFlow AI. All rights reserved.</p>
+                    <div className="flex items-center gap-6">
+                        <Link to="/" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
+                        <Link to="/" className="hover:text-slate-900 transition-colors">Terms of Service</Link>
+                        <Link to="/" className="hover:text-slate-900 transition-colors">Security</Link>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              {['About Us', 'Leadership Team', 'Careers', 'Press & Media', 'Partners Program', 'Affiliate Program'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {['Blog & Insights', 'Case Studies', 'Whitepapers', 'Webinars', 'ROI Calculators', 'Implementation Guides'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
-              {['Help Center', 'Documentation', 'API Reference', 'Status Page', 'Community Forum', 'Contact Support'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {['Privacy Policy', 'Terms of Service', 'Security Overview', 'GDPR Compliance', 'Data Processing Agreement', 'Cookie Policy'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Partners & Recognition */}
-        <div className="grid md:grid-cols-2 gap-8 border-t border-slate-200 pt-8 mb-8">
-          {/* Certified Partners */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Certified Partners</h3>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
-              <span>Salesforce</span>
-              <span>HubSpot</span>
-              <span>Microsoft</span>
-              <span>AWS</span>
-              <span>Google Cloud</span>
-            </div>
-          </div>
-
-          {/* Recognition */}
-          <div>
-            <h3 className="text-slate-50 font-semibold mb-4">Recognition</h3>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
-              <span>Gartner Cool Vendor 2025</span>
-              <span>Forrester Wave Leader</span>
-              <span>G2 Top 50 AI Platform 2026</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-200">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-slate-400">
-              © {new Date().getFullYear()} TrustFlow AI. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a href="#privacy" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#terms" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                Terms of Service
-              </a>
-              <a href="#security" className="text-sm text-slate-400 hover:text-blue-600 transition-colors">
-                Security
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+        </footer>
+    );
 }

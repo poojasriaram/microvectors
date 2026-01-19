@@ -11,7 +11,7 @@ export default function Home() {
     const outcomes = homeContent.find(c => c.id === 'revenue-intelligence') || homeContent[4];
 
     return (
-        <main className="bg-[#020617] min-h-screen">
+        <main className="bg-background min-h-screen">
             {/* Section 1: Hero */}
             <HeroSection />
 
@@ -28,27 +28,27 @@ export default function Home() {
             <VerticalSection data={outcomes} index={3} />
 
             {/* Section 6: Global Call to Action */}
-            <section className="py-32 relative overflow-hidden border-t border-white/5">
+            <section className="py-24 relative overflow-hidden bg-slate-50 border-t border-slate-200">
                 {/* Background Gradients */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#020617] to-blue-950/20"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-50"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-400/10 rounded-full blur-[120px]"></div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
                         Ready to Stop Guessing?
                     </h2>
-                    <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl mx-auto font-light">
+                    <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
                         Your revenue is leaking. Our AI diagnostic finds the holes and builds the patch.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <button className="px-10 py-5 bg-white text-slate-900 text-lg font-bold rounded-full shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 flex items-center">
+                        <button className="px-10 py-5 bg-blue-600 text-white text-lg font-bold rounded-full shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-105 transition-all duration-300 flex items-center">
                             Book Free AI Revenue Diagnostic
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </button>
-                        <button className="px-10 py-5 bg-transparent border border-slate-700 text-white text-lg font-bold rounded-full hover:bg-slate-800 hover:border-slate-600 transition-all duration-300 flex items-center">
+                        <button className="px-10 py-5 bg-white border border-slate-200 text-slate-700 text-lg font-bold rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center shadow-sm">
                             Chat with TrustFlow AI
-                            <MessageCircle className="ml-2 w-5 h-5" />
+                            <MessageCircle className="ml-2 w-5 h-5 text-blue-600" />
                         </button>
                     </div>
                 </div>

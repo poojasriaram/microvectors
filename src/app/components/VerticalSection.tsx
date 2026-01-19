@@ -16,16 +16,16 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <section className="py-24 relative border-t border-white/5">
-            <div className="max-w-7xl mx-auto px-6 space-y-20">
+        <section className="py-12 relative border-t border-slate-100 bg-white">
+            <div className="max-w-6xl mx-auto px-6 space-y-8">
 
                 {/* 1. Section Header */}
-                <div className="text-center space-y-6 max-w-4xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <div className="text-center space-y-4 max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
                         {data.title}
                     </h2>
                     {data.subtitle && (
-                        <p className="text-xl text-slate-400 font-light">
+                        <p className="text-xl text-slate-600 font-normal leading-relaxed">
                             {data.subtitle}
                         </p>
                     )}
@@ -38,6 +38,7 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                             key={i}
                             label={stat.label}
                             value={stat.value}
+                            suffix={stat.suffix}
                             subtext={stat.subtext}
                             index={i}
                         />
@@ -59,7 +60,7 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
 
                 {/* 4. Engine Selector & Active Panel */}
                 <div className="space-y-8">
-                    <div className="flex flex-wrap justify-center gap-4 bg-white/5 p-2 rounded-full md:inline-flex md:left-1/2 md:relative md:-translate-x-1/2 backdrop-blur-sm border border-white/10">
+                    <div className="flex flex-wrap justify-center gap-2 bg-slate-100 p-1.5 rounded-full md:inline-flex md:left-1/2 md:relative md:-translate-x-1/2 border border-slate-200">
                         {data.tabs.map((tab, i) => (
                             <EngineTab
                                 key={i}
@@ -77,7 +78,7 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                 </div>
 
                 {/* CTA for Section */}
-                <div className="flex justify-center pt-8">
+                <div className="flex justify-center pt-6">
                     <button className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] flex items-center gap-2">
                         {data.cta?.text || "Learn More"}
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

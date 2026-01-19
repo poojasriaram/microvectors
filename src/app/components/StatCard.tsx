@@ -3,27 +3,35 @@ import React from 'react';
 interface StatCardProps {
   label: string;
   value: string;
+  suffix?: string;
   subtext?: string;
   index: number;
 }
 
-export default function StatCard({ label, value, subtext, index }: StatCardProps) {
+export default function StatCard({ label, value, suffix, subtext, index }: StatCardProps) {
   return (
-    <div 
-      className="relative group p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all duration-500 hover:border-blue-500/30 overflow-hidden"
+    <div
+      className="relative group p-4 md:p-5 rounded-2xl bg-white border border-slate-200 hover:shadow-xl hover:border-blue-200 transition-all duration-300 overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-blue-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 transition-all duration-500"></div>
-      
-      <div className="relative z-10">
-        <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent mb-2">
-          {value}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+
+      <div className="relative z-10 flex flex-col items-center text-center">
+        <div className="flex items-baseline justify-center gap-2 mb-1 flex-wrap">
+          <div className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            {value}
+          </div>
+          {suffix && (
+            <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider relative -top-1">
+              {suffix}
+            </div>
+          )}
         </div>
-        <div className="text-sm font-medium text-blue-400 uppercase tracking-widest mb-1">
+        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
           {label}
         </div>
         {subtext && (
-          <div className="text-xs text-slate-500 font-light">
+          <div className="text-xs text-slate-400 font-medium">
             {subtext}
           </div>
         )}

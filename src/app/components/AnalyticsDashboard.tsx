@@ -26,37 +26,37 @@ const metrics = [
 
 export default function AnalyticsDashboard() {
   return (
-    <section className="py-20 lg:py-32 bg-[#020617]">
+    <section className="py-20 lg:py-32 bg-slate-50 border-t border-slate-200">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-slate-900 font-bold mb-6">
             Analytics Driven Sales &{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Revenue Situation Analytics
             </span>
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-600">
             Real-time dashboard for complete sales and revenue visibility
           </p>
         </div>
 
         {/* Dashboard Container */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-200/50 to-purple-200/50 rounded-3xl blur-2xl opacity-50"></div>
 
-          <div className="relative bg-[#0F172A]/80 backdrop-blur-xl rounded-3xl p-6 lg:p-10 border border-slate-700/50 shadow-xl">
+          <div className="relative bg-white rounded-3xl p-6 lg:p-10 border border-slate-200 shadow-xl">
             {/* Dashboard Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-6 border-b border-slate-700/50">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 pb-6 border-b border-slate-100">
               <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
                   Sales Analytics Dashboard
                 </h3>
-                <p className="text-slate-400">Real-time metrics and insights</p>
+                <p className="text-slate-500">Real-time metrics and insights</p>
               </div>
-              <div className="flex items-center gap-2 mt-4 sm:mt-0">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm text-green-400 font-medium">Live Data</span>
+              <div className="flex items-center gap-2 mt-4 sm:mt-0 px-3 py-1 bg-green-50 rounded-full border border-green-100">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-green-700 font-bold">Live Data</span>
               </div>
             </div>
 
@@ -69,33 +69,33 @@ export default function AnalyticsDashboard() {
                 return (
                   <div
                     key={index}
-                    className="group relative bg-[#020617] rounded-xl p-5 border border-slate-700/50 hover:border-blue-500/50 transition-all hover:scale-105 shadow-sm"
+                    className="group relative bg-slate-50 rounded-xl p-5 border border-slate-200 hover:border-blue-300 transition-all hover:-translate-y-1 shadow-sm hover:shadow-md"
                   >
                     {/* Icon */}
                     <div className="flex items-start justify-between mb-4">
-                      <div className="p-2 rounded-lg bg-blue-500/10">
-                        <Icon className="w-5 h-5 text-blue-400" />
+                      <div className="p-2 rounded-lg bg-white border border-slate-100 shadow-sm">
+                        <Icon className="w-5 h-5 text-blue-600" />
                       </div>
-                      <span className={`text-xs font-semibold px-2 py-1 rounded ${isPositive
-                        ? 'bg-green-500/10 text-green-400'
-                        : 'bg-orange-500/10 text-orange-400'
+                      <span className={`text-xs font-bold px-2 py-1 rounded-full ${isPositive
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-orange-100 text-orange-700'
                         }`}>
                         {metric.trend}
                       </span>
                     </div>
 
                     {/* Value */}
-                    <div className="text-2xl font-bold text-white mb-1">
+                    <div className="text-2xl font-bold text-slate-900 mb-1">
                       {metric.value}
                     </div>
 
                     {/* Label */}
-                    <div className="text-xs text-slate-400 leading-tight">
+                    <div className="text-xs text-slate-500 font-semibold leading-tight uppercase tracking-wide">
                       {metric.label}
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="mt-4 h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="mt-4 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all"
                         style={{ width: `${Math.random() * 40 + 60}%` }}
@@ -107,13 +107,13 @@ export default function AnalyticsDashboard() {
             </div>
 
             {/* Chart Preview */}
-            <div className="mt-8 bg-[#020617] rounded-xl p-6 border border-slate-700/50">
+            <div className="mt-8 bg-slate-50 rounded-xl p-6 border border-slate-200">
               <div className="flex items-center justify-between mb-6">
-                <h4 className="text-white font-semibold">Revenue Velocity Trend</h4>
+                <h4 className="text-slate-900 font-bold">Revenue Velocity Trend</h4>
                 <div className="flex gap-2">
-                  <button className="px-3 py-1 text-xs bg-blue-500/10 text-blue-400 rounded-lg font-medium">7D</button>
-                  <button className="px-3 py-1 text-xs bg-slate-800 text-slate-400 rounded-lg hover:text-white">30D</button>
-                  <button className="px-3 py-1 text-xs bg-slate-800 text-slate-400 rounded-lg hover:text-white">90D</button>
+                  <button className="px-3 py-1 text-xs bg-white border border-slate-200 text-blue-700 rounded-lg font-bold shadow-sm">7D</button>
+                  <button className="px-3 py-1 text-xs text-slate-500 rounded-lg hover:bg-white hover:text-slate-900 transition-colors">30D</button>
+                  <button className="px-3 py-1 text-xs text-slate-500 rounded-lg hover:bg-white hover:text-slate-900 transition-colors">90D</button>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ export default function AnalyticsDashboard() {
                   return (
                     <div key={i} className="flex-1 flex flex-col items-center gap-2">
                       <div
-                        className="w-full bg-gradient-to-t from-blue-500 to-purple-500 rounded-t transition-all hover:from-blue-400 hover:to-purple-400"
+                        className="w-full bg-gradient-to-t from-blue-400 to-purple-400 rounded-t-sm opacity-80 hover:opacity-100 transition-opacity"
                         style={{ height: `${height}%` }}
                       ></div>
                     </div>

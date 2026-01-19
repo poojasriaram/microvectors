@@ -22,24 +22,24 @@ export default function VerticalTabEngine({ tabs }: VerticalTabEngineProps) {
                     <button
                         key={index}
                         onClick={() => setActiveTab(index)}
-                        className={`relative p-4 text-left rounded-lg transition-all duration-300 group ${activeTab === index
-                                ? 'bg-blue-500/10 border border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                                : 'bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20'
+                        className={`relative p-4 text-left rounded-xl transition-all duration-300 group ${activeTab === index
+                            ? 'bg-white border border-blue-200 shadow-sm'
+                            : 'bg-transparent border border-transparent hover:bg-slate-50'
                             }`}
                     >
                         <div className="flex items-center justify-between">
-                            <span className={`font-medium ${activeTab === index ? 'text-blue-400' : 'text-slate-300 group-hover:text-white'}`}>
+                            <span className={`font-bold transition-colors ${activeTab === index ? 'text-blue-700' : 'text-slate-500 group-hover:text-slate-800'}`}>
                                 {tab.title}
                             </span>
                             {activeTab === index && (
-                                <ChevronRight className="w-4 h-4 text-blue-400" />
+                                <ChevronRight className="w-4 h-4 text-blue-600" />
                             )}
                         </div>
-                        {/* Progress Bar for Active Tab (Optional visual flare) */}
+                        {/* Progress Bar for Active Tab */}
                         {activeTab === index && (
                             <motion.div
                                 layoutId="activeTabGlow"
-                                className="absolute inset-0 rounded-lg bg-blue-500/5"
+                                className="absolute inset-0 rounded-xl bg-blue-50/50 -z-10"
                                 initial={false}
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                             />
@@ -49,31 +49,30 @@ export default function VerticalTabEngine({ tabs }: VerticalTabEngineProps) {
             </div>
 
             {/* Tab Content Panel */}
-            <div className="flex-1 relative bg-slate-900/50 backdrop-blur-md rounded-xl border border-white/10 p-6 md:p-8 overflow-hidden">
+            <div className="flex-1 relative bg-white rounded-2xl border border-slate-200 p-8 md:p-10 overflow-hidden shadow-sm">
                 {/* Decorative Grid Background */}
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent"></div>
+                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-slate-50/50 to-white"></div>
 
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeTab}
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative z-10 h-full flex flex-col justify-center"
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="relative z-10 h-full flex flex-col justify-center items-start"
                     >
-                        <h4 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                        <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
                             {tabs[activeTab].title}
                         </h4>
-                        <p className="text-slate-300 text-lg leading-relaxed">
+                        <p className="text-slate-600 text-lg leading-relaxed mb-6">
                             {tabs[activeTab].content}
                         </p>
 
-                        {/* Visual Flair specific to content can go here if we had more specific data types */}
-                        <div className="mt-6 flex items-center space-x-2 text-sm text-blue-400 font-mono">
-                            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                            <span>System Active</span>
+                        <div className="mt-auto flex items-center space-x-2 text-sm text-blue-700 font-bold bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
+                            <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                            <span className="uppercase tracking-wider text-xs">System Active</span>
                         </div>
                     </motion.div>
                 </AnimatePresence>
