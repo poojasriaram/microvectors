@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     TrendingUp,
     Zap,
@@ -31,9 +32,11 @@ export default function Outcomes() {
                         See how TrustFlow AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
-                            Book a Demo
-                        </Button>
+                        <Link to="/book-demo">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
+                                Book a Demo
+                            </Button>
+                        </Link>
                         <Button variant="outline" className="text-lg px-8 py-6 h-auto border-slate-300 text-slate-600 hover:bg-slate-50 hover:text-slate-900">
                             Talk to a Revenue Expert
                         </Button>
@@ -265,9 +268,11 @@ export default function Outcomes() {
                             Whether you're scaling from $1M to $100M ARR or optimizing a complex enterprise revenue motion, TrustFlow AI gives you the intelligence, automation, and execution power to win.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 h-auto text-lg w-full sm:w-auto font-bold shadow-lg">
-                                Book a Demo
-                            </Button>
+                            <Link to="/book-demo" className="w-full sm:w-auto">
+                                <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 h-auto text-lg w-full sm:w-auto font-bold shadow-lg">
+                                    Book a Demo
+                                </Button>
+                            </Link>
                             <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg w-full sm:w-auto backdrop-blur-sm">
                                 Talk to a Revenue Expert
                             </Button>

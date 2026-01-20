@@ -26,7 +26,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-slate-900 tracking-tight">
+              <span className="text-2xl font-bold text-slate-900 tracking-wider uppercase">
                 TrustFlow<span className="text-blue-600">.ai</span>
               </span>
             </Link>
@@ -50,9 +50,11 @@ export default function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-full shadow-md hover:shadow-lg transition-all font-semibold">
-              Book a Demo
-            </Button>
+            <Link to="/book-demo">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-full shadow-md hover:shadow-lg transition-all font-semibold">
+                Book a Demo
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -83,9 +85,11 @@ export default function Navigation() {
               </Link>
             ))}
             <div className="pt-4">
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 rounded-lg">
-                Book a Demo
-              </Button>
+              <Link to="/book-demo" onClick={() => setMobileMenuOpen(false)}>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 rounded-lg">
+                  Book a Demo
+                </Button>
+              </Link>
             </div>
           </div>
         )}

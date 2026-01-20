@@ -7,16 +7,10 @@ import MarketValidationSection from '../components/MarketValidationSection';
 import CustomerJourneySection from '../components/CustomerJourneySection';
 import StartupMVPSection from '../components/StartupMVPSection';
 import LeadGenerationSection from '../components/LeadGenerationSection';
-import VerticalSection from '../components/VerticalSection';
-import { homeContent } from '../../data/homeContent';
+
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
 export default function Home() {
-    // Mapping content to sections
-    const unifiedOS = homeContent.find(c => c.id === 'revenue-os') || homeContent[0];
-    const coreCapabilities = homeContent.find(c => c.id === 'demand-discovery') || homeContent[1];
-    const growthEngine = homeContent.find(c => c.id === 'autonomous-sales') || homeContent[3];
-    const outcomes = homeContent.find(c => c.id === 'revenue-intelligence') || homeContent[4];
 
     return (
         <main className="bg-background min-h-screen">
@@ -46,18 +40,6 @@ export default function Home() {
 
             {/* New Section: AI-Driven Lead Generation Acceleration */}
             <LeadGenerationSection />
-
-            {/* Section 2: Unified AI Revenue Operating System */}
-            <VerticalSection data={unifiedOS} index={0} />
-
-            {/* Section 3: Core Capabilities */}
-            <VerticalSection data={coreCapabilities} index={1} />
-
-            {/* Section 4: AI Growth Engine */}
-            <VerticalSection data={growthEngine} index={2} />
-
-            {/* Section 5: Outcomes */}
-            <VerticalSection data={outcomes} index={3} />
 
             {/* Section 6: Global Call to Action */}
             <section className="py-24 relative overflow-hidden bg-slate-50 border-t border-slate-200">

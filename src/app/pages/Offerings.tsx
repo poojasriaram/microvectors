@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Check,
     ArrowRight,
@@ -208,9 +209,11 @@ export default function Offerings() {
                         Each offering is engineered to solve a critical revenue growth challenge — from demand creation and sales execution to revenue operations and expansion.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
-                            Book a Demo
-                        </Button>
+                        <Link to="/book-demo">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
+                                Book a Demo
+                            </Button>
+                        </Link>
                         <Button variant="outline" className="text-lg px-8 py-6 h-auto border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900">
                             Talk to an Expert
                         </Button>
@@ -378,9 +381,11 @@ export default function Offerings() {
                     Ready to scale revenue with AI? Build Your Predictable Revenue Engine with TrustFlow AI today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg shadow-lg">
-                        Book a Demo
-                    </Button>
+                    <Link to="/book-demo">
+                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg shadow-lg">
+                            Book a Demo
+                        </Button>
+                    </Link>
                     <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-6 h-auto text-lg">
                         Talk to a Revenue Expert
                     </Button>

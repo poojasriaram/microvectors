@@ -46,122 +46,110 @@ export default function Footer() {
                     </div>
 
                     {/* Navigation Grid (Right 8 Columns) */}
-                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                         <div>
-                            <h3 className="font-bold text-slate-900 mb-6">Company</h3>
-                            <ul className="space-y-3 text-sm">
+                            <h3 className="font-bold text-slate-900 mb-2">Solutions</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">Business Growth</Link></li>
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">Demand Intelligence</Link></li>
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">Performance Growth</Link></li>
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">Sales Agents</Link></li>
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">RevOps Optimization</Link></li>
+                                <li><Link to="/solutions" className="hover:text-blue-600 transition-colors">Revenue Expansion</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-2">Industries</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link to="/industries" className="hover:text-blue-600 transition-colors">B2B SaaS</Link></li>
+                                <li><Link to="/industries" className="hover:text-blue-600 transition-colors">Fintech</Link></li>
+                                <li><Link to="/industries" className="hover:text-blue-600 transition-colors">Healthcare</Link></li>
+                                <li><Link to="/industries" className="hover:text-blue-600 transition-colors">Manufacturing</Link></li>
+                                <li><Link to="/crypto" className="hover:text-blue-600 transition-colors">Crypto & Web3</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900 mb-2">Company</h3>
+                            <ul className="space-y-2 text-sm">
                                 <li><Link to="/company" className="hover:text-blue-600 transition-colors">About Us</Link></li>
                                 <li><Link to="/company" className="hover:text-blue-600 transition-colors">Leadership Team</Link></li>
-                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Careers</Link></li>
-                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Press & Media</Link></li>
-                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Partners Program</Link></li>
-                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Affiliate Program</Link></li>
+                                <li><Link to="/company" className="hover:text-blue-600 transition-colors">Our Offices</Link></li>
+                                <li><a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors">Contact Us</a></li>
                             </ul>
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-900 mb-6">Resources</h3>
-                            <ul className="space-y-3 text-sm">
-                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Blog & Insights</Link></li>
+                            <h3 className="font-bold text-slate-900 mb-2">Resources</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Playbooks</Link></li>
                                 <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Case Studies</Link></li>
                                 <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Whitepapers</Link></li>
-                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Webinars</Link></li>
-                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">ROI Calculators</Link></li>
-                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Implementation Guides</Link></li>
+                                <li><Link to="/resources" className="hover:text-blue-600 transition-colors">Blog & Insights</Link></li>
+                                <li><Link to="/sitemap" className="hover:text-blue-600 transition-colors">Sitemap</Link></li>
                             </ul>
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-900 mb-6">Support</h3>
-                            <ul className="space-y-3 text-sm">
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Help Center</Link></li>
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Documentation</Link></li>
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">API Reference</Link></li>
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Status Page</Link></li>
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Community Forum</Link></li>
-                                <li><Link to="/contact" className="hover:text-blue-600 transition-colors">Contact Support</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="font-bold text-slate-900 mb-6">Legal</h3>
-                            <ul className="space-y-3 text-sm">
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Security Overview</Link></li>
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">GDPR Compliance</Link></li>
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Data Processing Agreement</Link></li>
-                                <li><Link to="/" className="hover:text-blue-600 transition-colors">Cookie Policy</Link></li>
+                            <h3 className="font-bold text-slate-900 mb-2">Legal & Help</h3>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link to="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+                                <li><Link to="/terms" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+                                <li><Link to="/security" className="hover:text-blue-600 transition-colors">Security Overview</Link></li>
+                                <li><Link to="/cookies" className="hover:text-blue-600 transition-colors">Cookie Policy</Link></li>
+                                <li><a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors">Help Center</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 {/* Partners & Recognition */}
-                <div className="border-t border-slate-200 py-10 space-y-8">
+                <div className="border-t border-slate-200 py-6">
                     {/* Certified Partners */}
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <span className="text-sm font-bold text-slate-900 uppercase tracking-wide">Certified Partners</span>
-                        <div className="flex flex-wrap items-center justify-center gap-8 transition-all duration-500">
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <Cloud className="w-5 h-5 text-[#00A1E0]" />
-                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#00A1E0] transition-colors">Salesforce</span>
+                    {/* Certified Partners - Redesigned */}
+                    <div className="flex flex-col items-center justify-center gap-5">
+                        <span className="text-xs font-semibold text-slate-400 uppercase tracking-[0.2em]">Certified Partners</span>
+                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+                            {/* Salesforce */}
+                            <div className="flex items-center gap-2.5 group cursor-default transition-all duration-300 hover:-translate-y-1">
+                                <Cloud className="w-6 h-6 text-slate-400 group-hover:text-[#00A1E0] transition-colors" />
+                                <span className="font-bold text-slate-400 text-lg group-hover:text-slate-700 transition-colors">Salesforce</span>
                             </div>
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <Share2 className="w-5 h-5 text-[#FF7A59]" />
-                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#FF7A59] transition-colors">HubSpot</span>
+                            {/* HubSpot */}
+                            <div className="flex items-center gap-2.5 group cursor-default transition-all duration-300 hover:-translate-y-1">
+                                <Share2 className="w-5 h-5 text-slate-400 group-hover:text-[#FF7A59] transition-colors" />
+                                <span className="font-bold text-slate-400 text-lg group-hover:text-slate-700 transition-colors">HubSpot</span>
                             </div>
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <LayoutGrid className="w-5 h-5 text-[#00A4EF]" />
-                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#00A4EF] transition-colors">Microsoft</span>
+                            {/* Microsoft */}
+                            <div className="flex items-center gap-2.5 group cursor-default transition-all duration-300 hover:-translate-y-1">
+                                <LayoutGrid className="w-5 h-5 text-slate-400 group-hover:text-[#00A4EF] transition-colors" />
+                                <span className="font-bold text-slate-400 text-lg group-hover:text-slate-700 transition-colors">Microsoft</span>
                             </div>
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <Box className="w-5 h-5 text-[#FF9900]" />
-                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#FF9900] transition-colors">AWS</span>
+                            {/* AWS */}
+                            <div className="flex items-center gap-2.5 group cursor-default transition-all duration-300 hover:-translate-y-1">
+                                <Box className="w-6 h-6 text-slate-400 group-hover:text-[#FF9900] transition-colors" />
+                                <span className="font-bold text-slate-400 text-lg group-hover:text-slate-700 transition-colors">AWS</span>
                             </div>
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <Server className="w-5 h-5 text-[#4285F4]" />
-                                <span className="font-bold text-slate-600 text-lg group-hover:text-[#4285F4] transition-colors">Google Cloud</span>
+                            {/* Google Cloud */}
+                            <div className="flex items-center gap-2.5 group cursor-default transition-all duration-300 hover:-translate-y-1">
+                                <Server className="w-5 h-5 text-slate-400 group-hover:text-[#4285F4] transition-colors" />
+                                <span className="font-bold text-slate-400 text-lg group-hover:text-slate-700 transition-colors">Google Cloud</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Recognition */}
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-amber-50 rounded-lg">
-                                <Award className="w-6 h-6 text-amber-500" />
-                            </div>
-                            <div>
-                                <span className="block font-bold text-slate-900">Gartner</span>
-                                <span className="text-sm font-medium text-slate-500">Cool Vendor 2025</span>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-blue-50 rounded-lg">
-                                <Award className="w-6 h-6 text-blue-600" />
-                            </div>
-                            <div>
-                                <span className="block font-bold text-slate-900">Forrester</span>
-                                <span className="text-sm font-medium text-slate-500">Wave Leader</span>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-green-50 rounded-lg">
-                                <Award className="w-6 h-6 text-green-600" />
-                            </div>
-                            <div>
-                                <span className="block font-bold text-slate-900">G2</span>
-                                <span className="text-sm font-medium text-slate-500">Top 50 AI Platform</span>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="flex flex-col items-center gap-6 text-sm text-slate-600 pt-8 border-t border-slate-200">
-                    <p className="font-bold">&copy; 2026 TrustFlow AI. All rights reserved.</p>
-                    <div className="flex items-center gap-6">
-                        <Link to="/" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
-                        <Link to="/" className="hover:text-slate-900 transition-colors">Terms of Service</Link>
-                        <Link to="/" className="hover:text-slate-900 transition-colors">Security</Link>
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-slate-200 mt-6">
+                    <p className="text-sm text-slate-500">
+                        &copy; {new Date().getFullYear()} TrustFlow AI. All rights reserved.
+                    </p>
+                    <div className="flex items-center gap-8 text-sm font-medium text-slate-500">
+                        <Link to="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
+                        <Link to="/terms" className="hover:text-blue-600 transition-colors">Terms of Service</Link>
+                        <Link to="/security" className="hover:text-blue-600 transition-colors">Security</Link>
+                        <Link to="/copyright" className="hover:text-blue-600 transition-colors">Copyright</Link>
+                        <Link to="/cookies" className="hover:text-blue-600 transition-colors">Cookies</Link>
+                        <Link to="/sitemap" className="hover:text-blue-600 transition-colors">Sitemap</Link>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Target,
     BarChart3,
@@ -277,10 +278,12 @@ export default function Solutions() {
                         Transform your growth trajectory with our modular AI solutions.
                         Start building your future today.
                     </p>
-                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg font-bold py-4 px-8 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 flex items-center gap-3 mx-auto group">
-                        Design Your AI Revenue Architecture
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <Link to="/book-demo" className="inline-block">
+                        <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg font-bold py-4 px-8 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 flex items-center gap-3 mx-auto group">
+                            Design Your AI Revenue Architecture
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

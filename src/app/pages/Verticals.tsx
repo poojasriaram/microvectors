@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import VerticalBlock from '../components/VerticalBlock';
@@ -52,10 +53,12 @@ export default function Verticals() {
                     </h2>
 
                     <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg font-bold rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
-                            Book a Demo
-                            <ArrowRight className="w-5 h-5" />
-                        </Button>
+                        <Link to="/book-demo">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg font-bold rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
+                                Book a Demo
+                                <ArrowRight className="w-5 h-5" />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>

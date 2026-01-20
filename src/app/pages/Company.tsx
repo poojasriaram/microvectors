@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Target,
     Zap,
@@ -100,9 +101,11 @@ export default function Company() {
                         TrustFlow AI is an enterprise revenue acceleration platform helping modern organizations build predictable pipeline, close deals faster, and scale ARR using AI intelligence.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-5 text-lg h-auto rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:scale-105">
-                            Book a Demo
-                        </Button>
+                        <Link to="/book-demo">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-5 text-lg h-auto rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:scale-105">
+                                Book a Demo
+                            </Button>
+                        </Link>
                         <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-5 text-lg h-auto rounded-full transition-all">
                             Talk to a Revenue Expert
                         </Button>
@@ -306,9 +309,11 @@ export default function Company() {
                                 Talk to our revenue experts and see how TrustFlow AI can scale your pipeline and ARR.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-5 h-auto font-bold shadow-lg rounded-full">
-                                    Book a Demo
-                                </Button>
+                                <Link to="/book-demo">
+                                    <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-5 h-auto font-bold shadow-lg rounded-full">
+                                        Book a Demo
+                                    </Button>
+                                </Link>
                                 <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-5 h-auto backdrop-blur-sm rounded-full">
                                     Talk to a Revenue Expert
                                 </Button>
