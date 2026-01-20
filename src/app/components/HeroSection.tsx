@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 
 export default function HeroSection() {
@@ -38,13 +39,15 @@ export default function HeroSection() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center pt-6">
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-14 text-lg rounded-full shadow-[0_10px_40px_-10px_rgba(37,99,235,0.4)] hover:shadow-[0_20px_60px_-10px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-1"
-            >
-              Book a Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link to="/book-demo">
+              <Button
+                size="lg"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-14 text-lg rounded-full shadow-[0_10px_40px_-10px_rgba(37,99,235,0.4)] hover:shadow-[0_20px_60px_-10px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-1"
+              >
+                Book a Demo
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"

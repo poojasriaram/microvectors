@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     BookOpen,
     FileText,
@@ -89,9 +90,11 @@ export default function Resources() {
                             <Button className="bg-white text-blue-900 hover:bg-slate-50 px-8 py-6 h-auto text-lg font-bold shadow-lg">
                                 Explore Resources
                             </Button>
-                            <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg backdrop-blur-sm">
-                                Book a Demo
-                            </Button>
+                            <Link to="/book-demo">
+                                <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg backdrop-blur-sm">
+                                    Book a Demo
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
