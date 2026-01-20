@@ -59,8 +59,10 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                 </div>
 
                 {/* 4. Engine Selector & Active Panel */}
-                <div className="space-y-8">
-                    <div className="flex flex-wrap justify-center gap-2 bg-slate-100 p-1.5 rounded-full md:inline-flex md:left-1/2 md:relative md:-translate-x-1/2 border border-slate-200">
+                <div className="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/40 overflow-hidden flex flex-col md:flex-row">
+
+                    {/* Left Column: Vertical Tabs */}
+                    <div className="md:w-1/3 bg-slate-50/80 border-b md:border-b-0 md:border-r border-slate-200 p-4 md:p-6 flex flex-col gap-2">
                         {data.tabs.map((tab, i) => (
                             <EngineTab
                                 key={i}
@@ -71,10 +73,13 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                         ))}
                     </div>
 
-                    <ActiveEnginePanel
-                        title={data.tabs[activeTab].title}
-                        content={data.tabs[activeTab].content}
-                    />
+                    {/* Right Column: Active Panel Content */}
+                    <div className="md:w-2/3 bg-white p-8 md:p-10 relative overflow-hidden">
+                        <ActiveEnginePanel
+                            title={data.tabs[activeTab].title}
+                            content={data.tabs[activeTab].content}
+                        />
+                    </div>
                 </div>
 
                 {/* CTA for Section */}
