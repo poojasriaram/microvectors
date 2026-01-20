@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '../components/ui/card';
+import OutcomeBlock from '../components/OutcomeBlock';
+import { salesAccelerationContent, growthEnginesContent } from '../../data/outcomesContent';
 
 export default function Outcomes() {
     return (
@@ -66,6 +68,46 @@ export default function Outcomes() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </div>
+
+            {/* AI-Powered Growth & Revenue Engines Section */}
+            <div className="bg-white pb-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                    <span className="px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-bold text-sm uppercase tracking-wider border border-blue-100 mb-4 inline-block">
+                        AI Growth Architecture
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                        AI-Powered Growth & Revenue Engines
+                    </h2>
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
+                        A closed-loop growth system transforming fragmented GTM efforts into predictable, scalable revenue engines.
+                    </p>
+                </div>
+                <div>
+                    {growthEnginesContent.map((block, index) => (
+                        <OutcomeBlock key={index} data={block} index={index} />
+                    ))}
+                </div>
+            </div>
+
+            {/* AI-Driven Sales Acceleration Section */}
+            <div className="bg-white pb-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                    <span className="px-4 py-2 rounded-full bg-purple-50 text-purple-700 font-bold text-sm uppercase tracking-wider border border-purple-100 mb-4 inline-block">
+                        Sales Acceleration
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                        AI-Driven Sales Acceleration
+                    </h2>
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
+                        Transforming sales from effort-driven execution into outcome-driven growth across enterprise, digital, and high-velocity models.
+                    </p>
+                </div>
+                <div>
+                    {salesAccelerationContent.map((block, index) => (
+                        <OutcomeBlock key={index} data={block} index={index} />
+                    ))}
                 </div>
             </div>
 

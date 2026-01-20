@@ -6,6 +6,7 @@ import GrowthAccelerationSection from '../components/GrowthAccelerationSection';
 import MarketValidationSection from '../components/MarketValidationSection';
 import CustomerJourneySection from '../components/CustomerJourneySection';
 import StartupMVPSection from '../components/StartupMVPSection';
+import LeadGenerationSection from '../components/LeadGenerationSection';
 import VerticalSection from '../components/VerticalSection';
 import { homeContent } from '../../data/homeContent';
 import { ArrowRight, MessageCircle } from 'lucide-react';
@@ -42,6 +43,9 @@ export default function Home() {
 
             {/* New Section: AI-Powered Startup MVP Acceleration Engine */}
             <StartupMVPSection />
+
+            {/* New Section: AI-Driven Lead Generation Acceleration */}
+            <LeadGenerationSection />
 
             {/* Section 2: Unified AI Revenue Operating System */}
             <VerticalSection data={unifiedOS} index={0} />
