@@ -1,6 +1,11 @@
 import HeroSection from '../components/HeroSection';
 import RevenueAccelerationSection from '../components/RevenueAccelerationSection';
 import DemandDiscoverySection from '../components/DemandDiscoverySection';
+import PerformanceMarketingSection from '../components/PerformanceMarketingSection';
+import GrowthAccelerationSection from '../components/GrowthAccelerationSection';
+import MarketValidationSection from '../components/MarketValidationSection';
+import CustomerJourneySection from '../components/CustomerJourneySection';
+import StartupMVPSection from '../components/StartupMVPSection';
 import VerticalSection from '../components/VerticalSection';
 import { homeContent } from '../../data/homeContent';
 import { ArrowRight, MessageCircle } from 'lucide-react';
@@ -22,6 +27,21 @@ export default function Home() {
 
             {/* New Section: AI-Powered Demand Discovery Engine */}
             <DemandDiscoverySection />
+
+            {/* New Section: AI-Powered Performance Revenue Engine */}
+            <PerformanceMarketingSection />
+
+            {/* New Section: AI-Powered Growth Acceleration Engine */}
+            <GrowthAccelerationSection />
+
+            {/* New Section: AI-Powered Market Validation Intelligence Engine */}
+            <MarketValidationSection />
+
+            {/* New Section: AI-Powered Customer Journey Intelligence Engine */}
+            <CustomerJourneySection />
+
+            {/* New Section: AI-Powered Startup MVP Acceleration Engine */}
+            <StartupMVPSection />
 
             {/* Section 2: Unified AI Revenue Operating System */}
             <VerticalSection data={unifiedOS} index={0} />

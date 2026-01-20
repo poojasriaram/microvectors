@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { demandDiscoveryData } from '../../data/demandDiscovery';
+import { performanceMarketingData } from '../../data/performanceMarketing';
 import { ArrowRight, CheckCircle2, XCircle, Zap } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
-export default function DemandDiscoverySection() {
-    const { title, tagline, description, kpis, portfolio, verticalTabs } = demandDiscoveryData;
+export default function PerformanceMarketingSection() {
+    const { title, tagline, description, kpis, portfolio, verticalTabs } = performanceMarketingData;
     const [activeTab, setActiveTab] = useState(0);
 
     return (
         <section className="py-24 bg-white relative border-t border-slate-100 overflow-hidden">
             {/* Background Decorations - Blue Theme */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-indigo-50/50 rounded-full blur-[100px]" />
+                <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-indigo-50/50 rounded-full blur-[100px]" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-20">
@@ -33,8 +33,8 @@ export default function DemandDiscoverySection() {
                 {/* 2. KPI Performance Grid */}
                 <div className="space-y-8">
                     <div className="text-center">
-                        <h3 className="text-2xl font-bold text-slate-900">Measureable Impact</h3>
-                        <p className="text-slate-500 mt-2">Real outcomes from proactive demand discovery</p>
+                        <h3 className="text-2xl font-bold text-slate-900">Offering Performance</h3>
+                        <p className="text-slate-500 mt-2">Measurable outcomes from AI-driven execution</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {kpis.map((stat, i) => (
@@ -59,8 +59,8 @@ export default function DemandDiscoverySection() {
                 {/* 3. Services Portfolio Grid */}
                 <div className="space-y-8">
                     <div className="text-center">
-                        <h3 className="text-2xl font-bold text-slate-900">Offering Cards</h3>
-                        <p className="text-slate-500 mt-2">The components of our demand engine</p>
+                        <h3 className="text-2xl font-bold text-slate-900">Services Portfolio</h3>
+                        <p className="text-slate-500 mt-2">Our performance marketing capabilities</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {portfolio.map((item, i) => {
@@ -87,8 +87,8 @@ export default function DemandDiscoverySection() {
                 {/* 4. Deep Dive Vertical Tabs */}
                 <div className="space-y-10">
                     <div className="text-center">
-                        <h3 className="text-2xl font-bold text-slate-900">Detailed Capabilities</h3>
-                        <p className="text-slate-500 mt-2">Explore specific challenges and AI-driven solutions</p>
+                        <h3 className="text-2xl font-bold text-slate-900">Operational Excellence</h3>
+                        <p className="text-slate-500 mt-2">Solving critical marketing challenges</p>
                     </div>
 
                     <div className="flex flex-col lg:flex-row gap-8">
@@ -190,14 +190,6 @@ export default function DemandDiscoverySection() {
                         </div>
                     </div>
                 </div>
-
-                {/* 5. Outcome Summary */}
-                <div className="text-center max-w-4xl mx-auto">
-                    <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-relaxed italic">
-                        "The AI-Powered Demand Discovery Engine transforms how enterprises find growth—shifting from lead chasing to demand creation, from reactive selling to predictive revenue leadership."
-                    </p>
-                </div>
-
 
             </div>
         </section>
