@@ -59,10 +59,10 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                 </div>
 
                 {/* 4. Engine Selector & Active Panel */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
 
                     {/* Left Column: Vertical Tabs */}
-                    <div className="md:col-span-4 flex flex-col gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                    <div className="md:col-span-4 flex flex-col gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-100 h-full">
                         {data.tabs.map((tab, i) => (
                             <EngineTab
                                 key={i}
@@ -74,7 +74,7 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                     </div>
 
                     {/* Right Column: Active Panel */}
-                    <div className="md:col-span-8">
+                    <div className="md:col-span-8 h-full">
                         <ActiveEnginePanel
                             title={data.tabs[activeTab].title}
                             content={data.tabs[activeTab].content}
