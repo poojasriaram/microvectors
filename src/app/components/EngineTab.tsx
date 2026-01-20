@@ -11,19 +11,21 @@ export default function EngineTab({ title, isActive, onClick }: EngineTabProps) 
         <button
             onClick={onClick}
             className={`
-        relative px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap
+        relative px-6 py-4 rounded-xl text-sm font-semibold transition-all duration-300 w-full text-left flex items-center justify-between group
         ${isActive
-                    ? 'text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    ? 'text-white shadow-lg shadow-blue-900/10 scale-[1.02]'
+                    : 'text-slate-500 hover:text-slate-900 hover:bg-white hover:shadow-sm'
                 }
       `}
         >
+            <span className="relative z-10">{title}</span>
+
             {isActive && (
-                <div className="absolute inset-0 bg-blue-600 rounded-full -z-10">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full"></div>
+                <div className="absolute inset-0 bg-blue-600 rounded-xl -z-10">
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-100"></div>
                 </div>
             )}
-            {title}
         </button>
     );
 }
