@@ -18,7 +18,7 @@ export default function EngineTab({ title, isActive, onClick }: EngineTabProps) 
                 }
       `}
         >
-            <span className="relative z-10">{title}</span>
+            <span className={`relative z-10 group-hover:text-blue-600 transition-colors ${isActive ? 'text-white group-hover:text-white' : ''}`}>{title}</span>
 
             {/* Active Indicator or Chevron */}
             <div className={`transition-transform duration-300 ${isActive ? 'translate-x-1 opacity-100' : 'opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}`}>
