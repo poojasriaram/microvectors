@@ -1,5 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import RevenueAccelerationSection from '../components/RevenueAccelerationSection';
+import DemandDiscoverySection from '../components/DemandDiscoverySection';
 import VerticalSection from '../components/VerticalSection';
 import { homeContent } from '../../data/homeContent';
 import { ArrowRight, MessageCircle } from 'lucide-react';
@@ -18,6 +19,9 @@ export default function Home() {
 
             {/* New Section: AI-Powered Revenue Acceleration */}
             <RevenueAccelerationSection />
+
+            {/* New Section: AI-Powered Demand Discovery Engine */}
+            <DemandDiscoverySection />
 
             {/* Section 2: Unified AI Revenue Operating System */}
             <VerticalSection data={unifiedOS} index={0} />
