@@ -111,7 +111,7 @@ export default function RevenueAccelerationSection() {
 
                         {/* Tab Content Panel */}
                         <div className="lg:w-3/4">
-                            <div className="bg-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl overflow-hidden relative min-h-[500px]">
+                            <div className="bg-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl overflow-hidden relative">
                                 {/* Glass Effect */}
                                 <div className="absolute inset-0 bg-white/5 backdrop-blur-sm pointer-events-none" />
 
