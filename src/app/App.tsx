@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Verticals from './pages/Verticals';
+import Crypto from './pages/Crypto';
 import Outcomes from './pages/Outcomes';
 import Solutions from './pages/Solutions';
 import Industries from './pages/Industries';
@@ -17,6 +19,8 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/verticals" element={<Verticals />} />
+            <Route path="/crypto" element={<Crypto />} />
             <Route path="/outcomes" element={<Outcomes />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/industries" element={<Industries />} />

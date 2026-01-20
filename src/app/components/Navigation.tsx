@@ -9,6 +9,8 @@ export default function Navigation() {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'Verticals', path: '/verticals' },
+    { name: 'Crypto', path: '/crypto' },
     { name: 'Outcomes', path: '/outcomes' },
     { name: 'Solutions', path: '/solutions' },
     { name: 'Industries', path: '/industries' },
