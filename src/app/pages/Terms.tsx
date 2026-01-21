@@ -127,7 +127,7 @@ export default function Terms() {
                                 <h3 className="font-bold text-slate-900">Have questions about our Terms?</h3>
                                 <p className="text-slate-500 text-sm">Our legal team is here to help.</p>
                             </div>
-                            <a href="mailto:cs@trustflow.in" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-bold rounded-lg border border-blue-200 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                            <a href="mailto:connect@trustgrid.ai" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-bold rounded-lg border border-blue-200 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                                 <span>Contact Us</span>
                                 <ArrowLeft className="w-4 h-4 rotate-180" />
                             </a>

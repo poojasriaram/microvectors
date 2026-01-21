@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Shield, Lock, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Shield, Lock, FileText, CheckCircle2, Eye, Scale, Cookie, Share2, Globe, Database, UserCheck, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Privacy() {
@@ -33,152 +33,273 @@ export default function Privacy() {
             </div>
 
             {/* Main Content */}
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="prose prose-slate prose-lg max-w-none">
-                    <p className="text-xl text-slate-600 leading-relaxed mb-12">
-                        TrustFlow ("we", "our", "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://trustflow.in" className="text-blue-600 no-underline hover:underline">trustflow.in</a> and use our services.
-                    </p>
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-                    <div className="space-y-12">
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                    {/* Introduction */}
+                    <div className="p-8 sm:p-10 border-b border-slate-100 bg-slate-50/50">
+                        <p className="text-slate-600 leading-relaxed text-lg">
+                            At <strong>TRUSTGRID.AI</strong>, we are committed to protecting your privacy and ensuring the responsible handling of your personal and business information. This Privacy Policy explains what information we collect, how we use it, with whom we share it, and the rights you have in relation to your data.
+                        </p>
+                    </div>
+
+                    <div className="p-8 sm:p-10 space-y-10">
                         {/* Section 1 */}
-                        <section className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 text-sm font-bold">1</span>
-                                Information We Collect
+                        <section>
+                            <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                                    <FileText className="w-5 h-5" />
+                                </div>
+                                1. Information We Collect
                             </h2>
-                            <p className="text-slate-600 mb-6">We may collect the following types of information:</p>
+                            <p className="text-slate-600 mb-6 text-sm ml-12">We collect information necessary to deliver, improve, secure, and personalize our Services.</p>
 
-                            <div className="grid md:grid-cols-2 gap-8">
+                            <div className="space-y-6 ml-12">
                                 <div>
-                                    <h3 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                                        Personal Information
-                                    </h3>
-                                    <ul className="space-y-2 text-slate-600 pl-4 border-l-2 border-slate-100">
-                                        <li>Name</li>
-                                        <li>Email address</li>
-                                        <li>Phone number</li>
-                                        <li>Company name</li>
-                                        <li>Job title</li>
-                                        <li>Any information submitted via forms</li>
+                                    <h3 className="font-bold text-slate-900 mb-2 text-base">1.1 Personal Information</h3>
+                                    <p className="text-slate-600 mb-2 text-sm">We collect personal information you voluntarily provide when interacting with us, including but not limited to:</p>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-blue-500">
+                                        <li>Full name, Email address, Phone number</li>
+                                        <li>Company or organization name, Job title or role</li>
+                                        <li>Login credentials (e.g., username, password – securely hashed)</li>
+                                        <li>Information submitted via contact forms, demo requests, support tickets, newsletter sign-ups</li>
                                     </ul>
                                 </div>
+
                                 <div>
-                                    <h3 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                                        Technical Information
-                                    </h3>
-                                    <ul className="space-y-2 text-slate-600 pl-4 border-l-2 border-slate-100">
-                                        <li>IP address</li>
-                                        <li>Browser type</li>
-                                        <li>Device information</li>
-                                        <li>Location (approximate)</li>
-                                        <li>Cookies & usage data</li>
+                                    <h3 className="font-bold text-slate-900 mb-2 text-base">1.2 Business & Enterprise Data</h3>
+                                    <p className="text-slate-600 mb-2 text-sm">For enterprise customers and platform users, we may process:</p>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-blue-500">
+                                        <li>Business contact details (e.g., billing/admin contacts)</li>
+                                        <li>System configuration settings, Usage metadata, Platform interaction logs</li>
+                                    </ul>
+                                    <div className="mt-3 text-xs text-slate-500 bg-slate-50 p-3 rounded border border-slate-100 inline-block">
+                                        Note: TRUSTGRID.AI acts as a Data Processor for enterprise customer data and processes such data solely in accordance with our Data Processing Agreement (DPA) and your instructions.
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-2 text-base">1.3 Non-Personal & Technical Information</h3>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-blue-500">
+                                        <li>IP address, Browser type, version, and language</li>
+                                        <li>Device type, model, and operating system</li>
+                                        <li>Pages visited, clickstream data, session duration, referral URLs</li>
+                                        <li>Cookies, pixels, beacons, and similar tracking technologies</li>
                                     </ul>
                                 </div>
                             </div>
                         </section>
+
+                        <div className="h-px bg-slate-100 w-full" />
 
                         {/* Section 2 */}
                         <section>
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-600 text-sm font-bold">2</span>
-                                How We Use Your Information
+                            <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                <div className="p-2 bg-purple-100 text-purple-600 rounded-lg">
+                                    <Eye className="w-5 h-5" />
+                                </div>
+                                2. How We Use Your Information
                             </h2>
-                            <p className="text-slate-600 mb-6">We use your information to:</p>
-                            <ul className="grid sm:grid-cols-2 gap-3">
-                                {[
-                                    "Provide and operate our services",
-                                    "Respond to inquiries and requests",
-                                    "Improve our website and offerings",
-                                    "Send product updates & marketing",
-                                    "Analyze usage patterns",
-                                    "Ensure platform security",
-                                    "Comply with legal obligations"
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
-                                        <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                                        <span className="text-slate-700 font-medium text-sm">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </section>
 
-                        {/* Section 3 */}
-                        <section className="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 text-sm font-bold">3</span>
-                                Sharing of Information
-                            </h2>
-                            <p className="text-slate-600 mb-4">We may share your information with:</p>
-                            <ul className="space-y-2 mb-6">
-                                <li className="flex items-center gap-2 text-slate-700">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-                                    Service providers and technology partners
-                                </li>
-                                <li className="flex items-center gap-2 text-slate-700">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-                                    Analytics and CRM platforms
-                                </li>
-                                <li className="flex items-center gap-2 text-slate-700">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-                                    Cloud infrastructure providers
-                                </li>
-                                <li className="flex items-center gap-2 text-slate-700">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-                                    Legal authorities when required by law
-                                </li>
-                            </ul>
-                            <div className="flex items-center gap-3 bg-white p-4 rounded-xl border border-blue-100 shadow-sm">
-                                <Shield className="w-5 h-5 text-blue-600" />
-                                <span className="font-bold text-slate-900">We do not sell your personal data.</span>
+                            <div className="space-y-6 ml-12">
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-2 text-base">2.1 Use of Personal Information</h3>
+                                    <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
+                                        {[
+                                            "Deliver, operate, and maintain Services",
+                                            "Respond to inquiries & provide support",
+                                            "Personalize experience & recommendations",
+                                            "Send service-related communications",
+                                            "Share marketing content (opt-out available)",
+                                            "Fulfill contractual obligations",
+                                            "Detect & prevent fraud/security incidents"
+                                        ].map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                                                <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-slate-900 mb-2 text-base">2.2 Use of Non-Personal & Aggregated Data</h3>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-purple-500">
+                                        <li>Analyze trends, user behavior, and platform performance</li>
+                                        <li>Optimize website navigation and user interface</li>
+                                        <li>Monitor system reliability, uptime, and threat patterns</li>
+                                        <li>Generate internal reports and business insights</li>
+                                    </ul>
+                                </div>
                             </div>
                         </section>
 
-                        {/* Additional Sections Grouped */}
-                        <div className="space-y-10 border-l px-6 border-slate-200 ml-4">
+                        <div className="h-px bg-slate-100 w-full" />
+
+                        {/* Section 3 */}
+                        <section>
+                            <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                                    <Scale className="w-5 h-5" />
+                                </div>
+                                3. Legal Basis for Processing
+                            </h2>
+                            <div className="ml-12">
+                                <p className="text-slate-600 mb-3 text-sm">Our processing of personal data is based on one or more of the following lawful grounds:</p>
+                                <ul className="grid sm:grid-cols-2 gap-3 text-sm">
+                                    <li className="bg-slate-50 p-3 rounded border border-slate-100"><strong>Consent</strong><br /><span className="text-slate-500 text-xs">e.g., for marketing communications</span></li>
+                                    <li className="bg-slate-50 p-3 rounded border border-slate-100"><strong>Contractual necessity</strong><br /><span className="text-slate-500 text-xs">to provide requested Services</span></li>
+                                    <li className="bg-slate-50 p-3 rounded border border-slate-100"><strong>Legal compliance</strong><br /><span className="text-slate-500 text-xs">e.g., tax, audit, regulatory</span></li>
+                                    <li className="bg-slate-50 p-3 rounded border border-slate-100"><strong>Legitimate interests</strong><br /><span className="text-slate-500 text-xs">e.g., platform security</span></li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <div className="h-px bg-slate-100 w-full" />
+
+                        {/* Section 4 */}
+                        <section>
+                            <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                <div className="p-2 bg-orange-100 text-orange-600 rounded-lg">
+                                    <Cookie className="w-5 h-5" />
+                                </div>
+                                4. Cookies & Tracking Technologies
+                            </h2>
+                            <div className="ml-12">
+                                <p className="text-slate-600 mb-2 text-sm">We use cookies and similar technologies to:</p>
+                                <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-orange-500 mb-3">
+                                    <li>Enable essential website functions (e.g., login sessions) and remember preferences</li>
+                                    <li>Analyze traffic, measure campaign effectiveness, and enhance performance</li>
+                                </ul>
+                                <p className="text-slate-600 text-sm italic">You may manage or disable non-essential cookies via your browser settings.</p>
+                            </div>
+                        </section>
+
+                        <div className="h-px bg-slate-100 w-full" />
+
+                        {/* Middle Sections Grid */}
+                        <div className="grid md:grid-cols-2 gap-10">
+                            {/* Section 5 */}
                             <section>
-                                <h2 className="text-xl font-bold text-slate-900 mb-4">4. Data Security</h2>
-                                <p className="text-slate-600 mb-4">We implement industry-standard security measures including secure cloud infrastructure, access controls, data encryption, and regular security audits. However, no system is 100% secure.</p>
+                                <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                    <div className="p-2 bg-red-100 text-red-600 rounded-lg">
+                                        <Shield className="w-5 h-5" />
+                                    </div>
+                                    5. Data Protection
+                                </h2>
+                                <div className="ml-2">
+                                    <p className="text-slate-600 mb-2 text-sm">We implement industry-standard safeguards:</p>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-red-500">
+                                        <li>Encryption in transit (TLS 1.2+) & at rest (AES-256)</li>
+                                        <li>Role-based access controls & MFA</li>
+                                        <li>Secure cloud infrastructure (AWS, Azure)</li>
+                                        <li>Regular security assessments</li>
+                                    </ul>
+                                </div>
                             </section>
 
+                            {/* Section 6 */}
                             <section>
-                                <h2 className="text-xl font-bold text-slate-900 mb-4">5. Your Rights</h2>
-                                <p className="text-slate-600 mb-4">You have the right to access your data, request correction or deletion, withdraw consent, and opt out of marketing communications.</p>
-                            </section>
-
-                            <section>
-                                <h2 className="text-xl font-bold text-slate-900 mb-4">6. Cookies & Updates</h2>
-                                <p className="text-slate-600 mb-4">We use cookies as described in our Cookie Policy. We may update this policy from time to time. Updates will be posted on this page.</p>
+                                <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                                    <div className="p-2 bg-teal-100 text-teal-600 rounded-lg">
+                                        <Share2 className="w-5 h-5" />
+                                    </div>
+                                    6. Sharing of Info
+                                </h2>
+                                <div className="ml-2">
+                                    <p className="text-slate-600 mb-2 text-sm">We do not sell your personal data. Disclosed only to:</p>
+                                    <ul className="list-disc pl-5 space-y-1 text-slate-600 text-sm marker:text-teal-500">
+                                        <li>Trusted third-party service providers</li>
+                                        <li>Legal authorities when required by law</li>
+                                        <li>Protect rights/safety of TRUSTGRID.AI</li>
+                                        <li>Aggregated/anonymized forms</li>
+                                    </ul>
+                                </div>
                             </section>
                         </div>
 
-                        {/* Contact Section */}
-                        <section className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl">
-                            <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                                        <span className="text-xl">📧</span>
-                                    </div>
-                                    <div>
-                                        <p className="text-slate-400 text-sm font-medium">Email Support</p>
-                                        <a href="mailto:cs@trustflow.in" className="text-lg font-bold hover:text-blue-400 transition-colors">cs@trustflow.in</a>
-                                    </div>
+                        <div className="h-px bg-slate-100 w-full" />
+
+                        {/* Remaining Sections List */}
+                        <div className="space-y-8">
+                            {/* Section 7 */}
+                            <section className="flex gap-4">
+                                <div className="p-2 bg-gray-100 text-gray-600 rounded-lg h-fit shrink-0">
+                                    <Globe className="w-5 h-5" />
                                 </div>
-                                <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                                        <span className="text-xl">🌐</span>
-                                    </div>
-                                    <div>
-                                        <p className="text-slate-400 text-sm font-medium">Visit Website</p>
-                                        <a href="https://trustflow.in" className="text-lg font-bold hover:text-blue-400 transition-colors">trustflow.in</a>
-                                    </div>
+                                <div>
+                                    <h2 className="text-lg font-bold text-slate-900 mb-2">7. Third-Party Links & Services</h2>
+                                    <p className="text-slate-600 text-sm">Our platform may link to third-party services. We are not responsible for their content or privacy practices.</p>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+
+                            {/* Section 8 */}
+                            <section className="flex gap-4">
+                                <div className="p-2 bg-gray-100 text-gray-600 rounded-lg h-fit shrink-0">
+                                    <Database className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h2 className="text-lg font-bold text-slate-900 mb-2">8. Data Retention</h2>
+                                    <p className="text-slate-600 text-sm">We retain information only as long as necessary. Upon request, we delete or anonymize data unless legally required.</p>
+                                </div>
+                            </section>
+
+                            {/* Section 9 */}
+                            <section className="flex gap-4">
+                                <div className="p-2 bg-gray-100 text-gray-600 rounded-lg h-fit shrink-0">
+                                    <UserCheck className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h2 className="text-lg font-bold text-slate-900 mb-2">9. Your Rights & Choices</h2>
+                                    <p className="text-slate-600 text-sm mb-2">You have the right to access, correct, delete, withdraw consent, and object to processing.</p>
+                                    <p className="text-slate-500 text-xs">Contact us to exercise rights. We respond within 30 days.</p>
+                                </div>
+                            </section>
+
+                            {/* Section 10 */}
+                            <section className="flex gap-4">
+                                <div className="p-2 bg-gray-100 text-gray-600 rounded-lg h-fit shrink-0">
+                                    <Globe className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h2 className="text-lg font-bold text-slate-900 mb-2">10. International Data Transfers</h2>
+                                    <p className="text-slate-600 text-sm">Data may be processed internationally with appropriate safeguards (SCCs, Adequacy Decisions).</p>
+                                </div>
+                            </section>
+
+                            {/* Section 11 & 12 */}
+                            <section className="flex gap-4">
+                                <div className="p-2 bg-gray-100 text-gray-600 rounded-lg h-fit shrink-0">
+                                    <FileText className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <h2 className="text-lg font-bold text-slate-900 mb-2">11 & 12. Policy Changes & Acceptance</h2>
+                                    <p className="text-slate-600 text-sm">We may update this policy periodically. Continued use constitutes acceptance.</p>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
+
+                {/* Section 13: Contact - Highlighted */}
+                <div className="mt-8 bg-slate-900 text-white p-8 rounded-3xl shadow-xl border border-slate-800">
+                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold">13</span>
+                        Contact Us
+                    </h2>
+                    <p className="text-slate-300 mb-6">For questions, concerns, or to submit a data subject request, please contact our Data Protection Team:</p>
+                    <div className="flex flex-col sm:flex-row gap-6">
+                        <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 pr-8">
+                            <div className="w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-400">
+                                <Mail className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Email Support</p>
+                                <a href="mailto:compliance@trustgrid.ai" className="text-lg font-bold text-white hover:text-blue-400 transition-colors">compliance@trustgrid.ai</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

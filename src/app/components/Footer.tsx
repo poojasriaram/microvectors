@@ -22,11 +22,11 @@ export default function Footer() {
                                 AI-Powered Sales & Revenue Acceleration for B2B Companies
                             </p>
                             <div className="flex flex-col gap-2 text-sm text-slate-500 mb-6">
-                                <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors flex items-center gap-2">
-                                    <Mail className="w-4 h-4" /> cs@trustflow.in
+                                <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                    <Mail className="w-4 h-4" /> connect@trustgrid.ai
                                 </a>
-                                <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors flex items-center gap-2">
-                                    <Phone className="w-4 h-4" /> +91 9513088612
+                                <a href="tel:+919513288612" className="hover:text-blue-600 transition-colors flex items-center gap-2">
+                                    <Phone className="w-4 h-4" /> +91 9513288612
                                 </a>
                             </div>
                             <div className="flex gap-4">
@@ -74,7 +74,7 @@ export default function Footer() {
                                 <li><Link to="/company" className="hover:text-blue-600 transition-colors">About Us</Link></li>
                                 <li><Link to="/company" className="hover:text-blue-600 transition-colors">Leadership Team</Link></li>
                                 <li><Link to="/company" className="hover:text-blue-600 transition-colors">Our Offices</Link></li>
-                                <li><a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors">Contact Us</a></li>
+                                <li><a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors">Contact Us</a></li>
                             </ul>
                         </div>
                         <div>
@@ -94,7 +94,7 @@ export default function Footer() {
                                 <li><Link to="/terms" className="hover:text-blue-600 transition-colors">Terms of Service</Link></li>
                                 <li><Link to="/security" className="hover:text-blue-600 transition-colors">Security Overview</Link></li>
                                 <li><Link to="/cookies" className="hover:text-blue-600 transition-colors">Cookie Policy</Link></li>
-                                <li><a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors">Help Center</a></li>
+                                <li><a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors">Help Center</a></li>
                             </ul>
                         </div>
                     </div>

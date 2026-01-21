@@ -44,26 +44,33 @@ export default function Company() {
             "address": [
                 {
                     "@type": "PostalAddress",
-                    "streetAddress": "WeWork, Raheja Platinum, Andheri East",
-                    "addressLocality": "Mumbai",
-                    "addressRegion": "Maharashtra",
-                    "postalCode": "400059",
-                    "addressCountry": "IN"
+                    "streetAddress": "501 E Kennedy Blvd Suite 1400",
+                    "addressLocality": "Tampa",
+                    "addressRegion": "FL",
+                    "postalCode": "33602",
+                    "addressCountry": "US"
                 },
                 {
                     "@type": "PostalAddress",
-                    "streetAddress": "WeWork, Salarpuria Magnificia, Old Madras Road",
+                    "streetAddress": "5 Temasek Boulevard, 17th Floor",
+                    "addressLocality": "Singapore",
+                    "postalCode": "038985",
+                    "addressCountry": "SG"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Suite : 32 , 235, BINNAMANGALA, 2nd Floor, 13th Cross Road, Indira Nagar 2nd Stage, Hoysala Nagar",
                     "addressLocality": "Bengaluru",
                     "addressRegion": "Karnataka",
-                    "postalCode": "560016",
+                    "postalCode": "560038",
                     "addressCountry": "IN"
                 }
             ],
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-9513088612",
+                "telephone": "+91-9513288612",
                 "contactType": "sales",
-                "email": "cs@trustflow.in"
+                "email": "connect@trustgrid.ai"
             }
         };
 
@@ -228,38 +235,104 @@ export default function Company() {
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Our Offices</h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-                        {/* Mumbai */}
+                    <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
+                        {/* US Office */}
                         <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-blue-600 w-full"></div>
-                            <CardContent className="p-8 flex flex-col items-center text-center">
+                            <CardContent className="p-5 flex flex-col items-center text-center">
                                 <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
                                     <Building2 className="w-8 h-8 text-blue-600 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Mumbai Office</h3>
-                                <div className="space-y-1 text-slate-600">
-                                    <p className="font-bold text-slate-900 text-lg">WeWork, Raheja Platinum</p>
-                                    <div className="flex items-center justify-center gap-2 text-sm font-medium text-slate-500 pt-1">
-                                        <MapPin className="w-4 h-4 text-blue-500 flex-shrink-0" />
-                                        <p>Andheri East, Mumbai 400059</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">US Office</h3>
+                                <div className="space-y-3 text-slate-600">
+                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">501 E Kennedy Blvd Suite 1400<br />Tampa, FL 33602, United States</p>
+                                    <div className="flex flex-col gap-1 text-sm">
+                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors tracking-wide">connect@trustgrid.ai</a>
+                                        <a href="tel:+919513288612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513288612</a>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
 
-                        {/* Bangalore */}
+                        {/* Singapore Office */}
                         <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-purple-600 w-full"></div>
-                            <CardContent className="p-8 flex flex-col items-center text-center">
+                            <CardContent className="p-5 flex flex-col items-center text-center">
                                 <div className="p-3 bg-purple-50 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Building2 className="w-8 h-8 text-purple-600 group-hover:text-white" />
+                                    <Globe className="w-8 h-8 text-purple-600 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Bangalore Office</h3>
-                                <div className="space-y-1 text-slate-600">
-                                    <p className="font-bold text-slate-900 text-lg">WeWork, Salarpuria Magnificia</p>
-                                    <div className="flex items-center justify-center gap-2 text-sm font-medium text-slate-500 pt-1">
-                                        <MapPin className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                                        <p>Old Madras Road, Bengaluru 560016</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Singapore Office</h3>
+                                <div className="space-y-3 text-slate-600">
+                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">5 Temasek Boulevard, 17th Floor<br />Singapore 038985</p>
+                                    <div className="flex flex-col gap-1 text-sm">
+                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors tracking-wide">connect@trustgrid.ai</a>
+                                        <a href="tel:+6560505235" className="hover:text-blue-600 transition-colors tracking-wide">+65 6050 5235</a>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* India Office */}
+                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                            <div className="h-1 bg-green-600 w-full"></div>
+                            <CardContent className="p-5 flex flex-col items-center text-center">
+                                <div className="p-3 bg-green-50 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <MapPin className="w-8 h-8 text-green-600 group-hover:text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">India Office</h3>
+                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">TRUSTGRID.AI INNNOVATION PVT LTD</p>
+                                <div className="space-y-3 text-slate-600">
+                                    <p className="font-medium text-slate-900 text-sm leading-relaxed tracking-wide">
+                                        Suite : 32 , 235, BINNAMANGALA,<br />
+                                        2nd Floor, 13th Cross Road,<br />
+                                        Indira Nagar 2nd Stage, Hoysala Nagar,<br />
+                                        Bengaluru – 560038 , India
+                                    </p>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Mumbai Office */}
+                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                            <div className="h-1 bg-orange-600 w-full"></div>
+                            <CardContent className="p-5 flex flex-col items-center text-center">
+                                <div className="p-3 bg-orange-50 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Building2 className="w-8 h-8 text-orange-600 group-hover:text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Mumbai Office</h3>
+                                <div className="space-y-3 text-slate-600">
+                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">
+                                        WeWork, Raheja Platinum,<br />
+                                        Road, off Andheri - Kurla Road,<br />
+                                        Sag Baug, Marol, Andheri East,<br />
+                                        Mumbai, Maharashtra 400059
+                                    </p>
+                                    <div className="flex flex-col gap-1 text-sm">
+                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors tracking-wide">cs@trustflow.in</a>
+                                        <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513088612</a>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Bangalore Office (WeWork) */}
+                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                            <div className="h-1 bg-cyan-600 w-full"></div>
+                            <CardContent className="p-5 flex flex-col items-center text-center">
+                                <div className="p-3 bg-cyan-50 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Building2 className="w-8 h-8 text-cyan-600 group-hover:text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Bangalore Office</h3>
+                                <div className="space-y-3 text-slate-600">
+                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">
+                                        WeWork, 13th floor, Tin Factory,<br />
+                                        Salarpuria Magnificia, 78, Old Madras Rd,<br />
+                                        next to KR Puram, Mahadevapura,<br />
+                                        Bengaluru, Karnataka 560016
+                                    </p>
+                                    <div className="flex flex-col gap-1 text-sm">
+                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors tracking-wide">cs@trustflow.in</a>
+                                        <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513088612</a>
                                     </div>
                                 </div>
                             </CardContent>
@@ -269,24 +342,24 @@ export default function Company() {
                     {/* Contact Details */}
                     <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1 cursor-pointer">
-                            <CardContent className="p-8 flex flex-col items-center text-center">
+                            <CardContent className="p-5 flex flex-col items-center text-center">
                                 <div className="p-3 bg-green-50 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
                                     <Mail className="w-8 h-8 text-green-600 group-hover:text-white" />
                                 </div>
                                 <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Email Us</h3>
-                                <a href="mailto:cs@trustflow.in" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors">cs@trustflow.in</a>
+                                <a href="mailto:connect@trustgrid.ai" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">connect@trustgrid.ai</a>
                             </CardContent>
                         </Card>
 
                         <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1 cursor-pointer">
-                            <CardContent className="p-8 flex flex-col items-center text-center">
+                            <CardContent className="p-5 flex flex-col items-center text-center">
                                 <div className="p-3 bg-indigo-50 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
                                     <Phone className="w-8 h-8 text-indigo-600 group-hover:text-white" />
                                 </div>
                                 <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Call Us</h3>
                                 <div className="flex flex-col gap-1">
-                                    <a href="tel:+919513088612" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors">+91 9513088612</a>
-                                    <a href="tel:+919513188611" className="text-lg font-medium text-slate-500 hover:text-blue-600 transition-colors">+91 9513188611</a>
+                                    <a href="tel:+919513288612" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">+91 9513288612</a>
+                                    <a href="tel:+6560505235" className="text-lg font-medium text-slate-500 hover:text-blue-600 transition-colors tracking-tight">+65 6050 5235</a>
                                 </div>
                             </CardContent>
                         </Card>
