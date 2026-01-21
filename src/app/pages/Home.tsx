@@ -7,8 +7,10 @@ import MarketValidationSection from '../components/MarketValidationSection';
 import CustomerJourneySection from '../components/CustomerJourneySection';
 import StartupMVPSection from '../components/StartupMVPSection';
 import LeadGenerationSection from '../components/LeadGenerationSection';
+import LeadershipSection from '../components/LeadershipSection';
 
 import { ArrowRight, MessageCircle } from 'lucide-react';
+
 
 export default function Home() {
 
@@ -40,6 +42,9 @@ export default function Home() {
 
             {/* New Section: AI-Driven Lead Generation Acceleration */}
             <LeadGenerationSection />
+
+            {/* Section: Leadership & Teams */}
+            <LeadershipSection />
 
             {/* Section 6: Global Call to Action */}
             <section className="py-24 relative overflow-hidden bg-slate-50 border-t border-slate-200">

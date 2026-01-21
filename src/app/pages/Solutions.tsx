@@ -21,79 +21,106 @@ export default function Solutions() {
     const solutions = [
         {
             title: "AI Business Growth Strategy",
-            description: "Align your entire organization around a unified, AI-driven growth engine.",
+            tagline: "Design a predictable, scalable, AI-powered revenue engine for your entire organization.",
             icon: Target,
             details: {
-                situations: ["Growth is inconsistent or founder-dependent", "Strategy does not translate into execution"],
-                painPoints: ["No single growth narrative", "Fragmented data and KPIs"],
-                challenges: ["Aligning AI with revenue outcomes", "Prioritizing markets and investments"],
-                offerings: ["AI-led growth diagnostics", "Market & ICP intelligence", "Revenue-aligned GTM roadmap", "Governance & KPI frameworks"],
-                outcomes: ["Predictable growth execution", "Lower CAC, higher LTV"],
-                capabilities: ["Growth modeling", "Scenario simulation", "Executive dashboards"]
+                situations: ["Growth depends on founders or a few key leaders", "Revenue targets are consistently missed", "Expansion into new markets feels risky", "No clarity on which segment to prioritize"],
+                challenges: ["No unified growth narrative", "Fragmented leadership execution", "No market prioritization framework", "Siloed KPIs and reporting"],
+                offerings: ["AI models ICPs, market demand, product-market fit, competitive positioning, and revenue performance to design a complete growth operating system."],
+                outcomes: ["Revenue predictability ↑", "Execution velocity ↑", "CAC ↓ 30–50%", "LTV ↑ 2–4×", "Expansion success rate ↑", "Market penetration ↑"],
+                benefits: ["Executive growth clarity", "AI-backed expansion decisions", "Predictable revenue planning", "Unified GTM execution"],
+                problemKpis: ["Revenue volatility & missed targets", "Founder-dependent growth execution", "High CAC and declining margins", "Disconnected GTM motions", "Failed market expansions", "No scalable growth blueprint"]
             }
         },
         {
             title: "AI Market Strategy & Demand Intelligence",
-            description: "Decode market signals and buyer intent with precision.",
+            tagline: "Turn real market demand into revenue certainty.",
             icon: Brain,
             details: {
-                situations: ["Weak inbound demand", "Poor visibility into real demand"],
-                offerings: ["AI demand discovery", "Competitive demand tracing", "Behavioral micro-segmentation", "Offer & pricing optimization"],
-                outcomes: ["+247% lead velocity", "Faster product-market fit"]
+                situations: ["Inbound demand is weak", "No clarity on where real demand exists", "GTM decisions are based on assumptions", "Pricing is guesswork"],
+                challenges: ["No visibility into buyer intent", "Poor ICP definition", "Inaccurate TAM/SAM/SOM", "No competitive demand mapping"],
+                offerings: ["AI demand intelligence platform that decodes buyer intent, competitive traction, and market signals to drive smarter GTM decisions, pricing, positioning, and acquisition strategy."],
+                outcomes: ["Lead velocity ↑ 247%", "SQL quality ↑ 3×", "Cost per lead ↓ 45%", "Time-to-PMF ↓ 60%", "Win rate ↑"],
+                benefits: ["Demand clarity", "Market-backed ICP definition", "Predictive GTM strategy", "Confident pricing decisions"],
+                problemKpis: ["Weak inbound pipeline", "Poor ICP targeting", "Low MQL → SQL conversion", "Slow product-market fit", "Ineffective positioning"]
             }
         },
         {
             title: "AI-Driven Growth Hacking Engine",
-            description: "Rapidly experiment and scale what works.",
+            tagline: "Launch faster. Learn faster. Scale smarter.",
             icon: Rocket,
             details: {
-                offerings: ["AI hypothesis generation", "Automated A/B/n experiments", "Funnel elasticity analysis", "Viral & referral intelligence"],
-                outcomes: ["Faster breakout growth", "Scalable growth playbooks"]
+                situations: ["Growth has plateaued", "Marketing channels are saturated", "Acquisition costs are rising"],
+                challenges: ["Manual experimentation", "No learning system", "No repeatable playbooks"],
+                offerings: ["Self-learning AI growth engine that continuously generates growth hypotheses, runs experiments, optimizes funnels, and scales winning growth loops."],
+                outcomes: ["Experiment velocity ↑ 5×", "Funnel conversion ↑ 2–4×", "Viral coefficient ↑", "Time-to-scale ↓"],
+                benefits: ["Always-on experimentation", "Rapid learning cycles", "Compounding growth loops"],
+                problemKpis: ["Growth stagnation", "Slow experimentation cycles", "Poor funnel conversion", "No viral or referral loops"]
             }
         },
         {
             title: "AI-Driven Performance Marketing",
-            description: "Maximize ROAS with predictive allocation and optimization.",
+            tagline: "Turn every marketing dollar into measurable growth.",
             icon: BarChart3,
             details: {
-                offerings: ["Predictive CAC & ROI modeling", "Cross-channel attribution", "Creative & spend optimization"],
-                outcomes: ["Lower CAC", "Higher ROAS"]
+                situations: ["Paid marketing costs are rising", "ROI is unclear", "Attribution is broken"],
+                challenges: ["Channel inefficiencies", "Creative fatigue", "Poor targeting"],
+                offerings: ["Predictive AI marketing engine that reallocates spend in real time, optimizes creatives, and maximizes ROI across channels."],
+                outcomes: ["CAC ↓ 35–60%", "ROAS ↑ 2–5×", "Conversion rate ↑", "Spend efficiency ↑"],
+                benefits: ["Smart budget allocation", "High-performing creatives", "Predictable CAC"],
+                problemKpis: ["Rising CAC", "Low ROAS", "Poor attribution", "Inefficient spend"]
             }
         },
         {
             title: "AI Auto Sales Pilot (Autonomous Sales Agents)",
-            description: "Scale your sales reach with intelligent 24/7 agents.",
+            tagline: "Your best SDR, working 24/7.",
             icon: Users,
             details: {
-                offerings: ["24/7 AI sales agents", "Lead qualification & routing", "Meeting scheduling & escalation"],
-                outcomes: ["Near-zero response time", "Higher inbound conversion"]
+                situations: ["Leads arrive outside business hours", "Reps are overloaded", "High inbound volume"],
+                challenges: ["Manual qualification", "Delayed response", "Missed opportunities"],
+                offerings: ["Autonomous AI sales agents that qualify, engage, book meetings, and route leads automatically."],
+                outcomes: ["Response time < 60 seconds", "Meeting rate ↑ 3×", "Pipeline velocity ↑", "Conversion rate ↑"],
+                benefits: ["24/7 selling", "Zero lead leakage", "Higher conversion"],
+                problemKpis: ["Slow lead response", "Lead leakage", "Rep burnout", "Low inbound conversion"]
             }
         },
         {
             title: "AI Sales Process Optimization",
-            description: "Streamline workflows and remove friction from the sales cycle.",
+            tagline: "Remove friction. Close faster.",
             icon: Workflow,
             details: {
-                offerings: ["AI lead scoring", "Funnel velocity analytics", "Objection intelligence", "Sales workflow automation"],
-                outcomes: ["24X conversion improvement", "~50% cycle-time reduction"]
+                situations: ["Deals get stuck", "Reps waste time", "Forecasts are unreliable"],
+                challenges: ["Manual pipeline management", "No deal intelligence", "Inconsistent execution"],
+                offerings: ["AI-powered sales optimization engine that improves every stage of the sales funnel."],
+                outcomes: ["Cycle time ↓ 50%", "Win rate ↑ 2–3×", "Forecast accuracy ↑", "Rep productivity ↑"],
+                benefits: ["Faster deals", "Higher rep productivity", "Predictable revenue"],
+                problemKpis: ["Long sales cycles", "Low close rates", "Poor pipeline hygiene"]
             }
         },
         {
             title: "AI Revenue Operations (AI RevOps)",
-            description: "Unify data and forecasts for total revenue command.",
+            tagline: "One command center for total revenue.",
             icon: Database,
             details: {
-                offerings: ["Unified RevOps data layer", "Predictive revenue forecasting", "Revenue leakage detection", "Executive command center"],
-                outcomes: ["CFO-grade predictability", "Reduced revenue leakage"]
+                situations: ["No revenue visibility", "Missed forecasts", "Tool sprawl"],
+                challenges: ["No single source of truth", "Manual reporting", "Data chaos"],
+                offerings: ["Unified AI RevOps platform that consolidates all revenue data into a single intelligence layer."],
+                outcomes: ["Forecast accuracy ↑ 95%+", "Revenue leakage ↓ 40%", "ARR predictability ↑"],
+                benefits: ["Revenue control", "Executive dashboards", "Predictive insights"],
+                problemKpis: ["Revenue leakage", "Poor forecasting", "Siloed data"]
             }
         },
         {
             title: "AI Revenue Acceleration & Expansion",
-            description: "Maximize customer value and lifetime revenue.",
+            tagline: "Grow faster from the customers you already have.",
             icon: LineChart,
             details: {
-                offerings: ["Upsell & cross-sell intelligence", "Churn prediction", "Customer health scoring"],
-                outcomes: ["Faster ARR realization", "Higher LTV"]
+                situations: ["Customers disengage", "Expansion is reactive"],
+                challenges: ["No churn prediction", "No expansion intelligence"],
+                offerings: ["AI-powered expansion and retention engine that maximizes customer lifetime value."],
+                outcomes: ["Net Revenue Retention ↑ 130%+", "Expansion ARR ↑ 3×", "Churn ↓ 40–60%"],
+                benefits: ["Proactive retention", "Smart upsell"],
+                problemKpis: ["High churn", "Low expansion revenue", "Poor customer health visibility"]
             }
         }
     ];
@@ -123,7 +150,6 @@ export default function Solutions() {
                 <div className="flex flex-col gap-8">
                     {solutions.map((solution, index) => {
                         const Icon = solution.icon;
-                        const isEven = index % 2 === 0;
 
                         return (
                             <div key={index} className="group relative">
@@ -141,15 +167,16 @@ export default function Solutions() {
                                                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
                                                     {solution.title}
                                                 </h2>
-                                                <p className="text-slate-600 text-base font-medium leading-relaxed">
-                                                    {solution.description}
+                                                <p className="text-slate-600 text-base font-medium leading-relaxed italic">
+                                                    "{solution.tagline}"
                                                 </p>
                                             </div>
 
+                                            {/* Outcome KPIs */}
                                             {solution.details.outcomes && (
                                                 <div className="p-5 rounded-xl bg-blue-50 border border-blue-100 mt-4">
                                                     <h4 className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                                        <Zap className="w-3 h-3" /> Impact
+                                                        <Zap className="w-3 h-3" /> Outcome KPIs
                                                     </h4>
                                                     <div className="space-y-2">
                                                         {solution.details.outcomes.map((outcome, idx) => (
@@ -164,19 +191,19 @@ export default function Solutions() {
                                         </div>
 
                                         {/* Detailed Content Grid */}
-                                        <div className="lg:w-2/3 grid md:grid-cols-2 gap-6">
+                                        <div className="lg:w-2/3 grid md:grid-cols-2 gap-8">
 
                                             {/* Offerings */}
                                             {solution.details.offerings && (
                                                 <div className="space-y-3">
                                                     <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                                                         <Shield className="w-4 h-4 text-purple-600" />
-                                                        Offerings
+                                                        Offering
                                                     </h3>
                                                     <ul className="space-y-2">
                                                         {solution.details.offerings.map((item, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-slate-600 text-sm font-medium">
-                                                                <CheckCircle2 className="w-3.5 h-3.5 text-purple-500 mt-0.5 flex-shrink-0" />
+                                                            <li key={idx} className="flex items-start gap-2 text-slate-600 text-sm font-medium leading-relaxed">
+                                                                <CheckCircle2 className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
                                                                 <span>{item}</span>
                                                             </li>
                                                         ))}
@@ -202,24 +229,6 @@ export default function Solutions() {
                                                 </div>
                                             )}
 
-                                            {/* Pain Points */}
-                                            {solution.details.painPoints && (
-                                                <div className="space-y-3">
-                                                    <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                                                        <AlertCircle className="w-4 h-4 text-red-500" />
-                                                        Pain Points
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        {solution.details.painPoints.map((item, idx) => (
-                                                            <li key={idx} className="flex items-start gap-2 text-slate-600 text-sm font-medium">
-                                                                <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 flex-shrink-0" />
-                                                                <span>{item}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                </div>
-                                            )}
-
                                             {/* Challenges */}
                                             {solution.details.challenges && (
                                                 <div className="space-y-3">
@@ -238,15 +247,15 @@ export default function Solutions() {
                                                 </div>
                                             )}
 
-                                            {/* Capabilities */}
-                                            {solution.details.capabilities && (
+                                            {/* Benefits */}
+                                            {solution.details.benefits && (
                                                 <div className="space-y-3">
                                                     <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                                                        <Workflow className="w-4 h-4 text-emerald-600" />
-                                                        Capabilities
+                                                        <Rocket className="w-4 h-4 text-emerald-600" />
+                                                        Benefits
                                                     </h3>
                                                     <ul className="space-y-2">
-                                                        {solution.details.capabilities.map((item, idx) => (
+                                                        {solution.details.benefits.map((item, idx) => (
                                                             <li key={idx} className="flex items-start gap-2 text-slate-600 text-sm font-medium">
                                                                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0" />
                                                                 <span>{item}</span>
@@ -255,6 +264,25 @@ export default function Solutions() {
                                                     </ul>
                                                 </div>
                                             )}
+
+                                            {/* Problem KPIs */}
+                                            {solution.details.problemKpis && (
+                                                <div className="space-y-3 md:col-span-2 bg-red-50/50 p-4 rounded-xl border border-red-100">
+                                                    <h3 className="text-base font-bold text-red-900 flex items-center gap-2 mb-2">
+                                                        <LineChart className="w-4 h-4 text-red-600" />
+                                                        KPIs at Risk (Without This Solution)
+                                                    </h3>
+                                                    <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2">
+                                                        {solution.details.problemKpis.map((item, idx) => (
+                                                            <div key={idx} className="flex items-center gap-2 text-slate-700 text-sm font-medium">
+                                                                <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                                                <span>{item}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+
 
                                         </div>
                                     </div>

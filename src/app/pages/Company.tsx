@@ -340,27 +340,34 @@ export default function Company() {
                     </div>
 
                     {/* Contact Details */}
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1 cursor-pointer">
-                            <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-green-50 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Mail className="w-8 h-8 text-green-600 group-hover:text-white" />
-                                </div>
-                                <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Email Us</h3>
-                                <a href="mailto:connect@trustgrid.ai" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">connect@trustgrid.ai</a>
-                            </CardContent>
-                        </Card>
+                    <div className="max-w-3xl mx-auto">
+                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                            <CardContent className="p-8 flex flex-col md:flex-row items-center justify-around text-center gap-8 md:gap-0">
 
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1 cursor-pointer">
-                            <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-indigo-50 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Phone className="w-8 h-8 text-indigo-600 group-hover:text-white" />
+                                {/* Email Section */}
+                                <div className="flex flex-col items-center w-full md:w-1/2">
+                                    <div className="p-3 bg-green-50 rounded-xl mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
+                                        <Mail className="w-8 h-8 text-green-600 group-hover:text-white" />
+                                    </div>
+                                    <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Email Us</h3>
+                                    <a href="mailto:connect@trustgrid.ai" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">connect@trustgrid.ai</a>
                                 </div>
-                                <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Call Us</h3>
-                                <div className="flex flex-col gap-1">
-                                    <a href="tel:+919513288612" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">+91 9513288612</a>
-                                    <a href="tel:+6560505235" className="text-lg font-medium text-slate-500 hover:text-blue-600 transition-colors tracking-tight">+65 6050 5235</a>
+
+                                {/* Divider */}
+                                <div className="hidden md:block w-px h-24 bg-slate-100"></div>
+
+                                {/* Phone Section */}
+                                <div className="flex flex-col items-center w-full md:w-1/2">
+                                    <div className="p-3 bg-indigo-50 rounded-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
+                                        <Phone className="w-8 h-8 text-indigo-600 group-hover:text-white" />
+                                    </div>
+                                    <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Call Us</h3>
+                                    <div className="flex flex-col gap-1 items-center">
+                                        <a href="tel:+919513288612" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">+91 9513288612</a>
+                                        <a href="tel:+6560505235" className="text-lg font-medium text-slate-500 hover:text-blue-600 transition-colors tracking-tight">+65 6050 5235</a>
+                                    </div>
                                 </div>
+
                             </CardContent>
                         </Card>
                     </div>
