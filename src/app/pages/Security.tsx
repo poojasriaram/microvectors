@@ -120,7 +120,7 @@ export default function Security() {
                                 <h3 className="font-bold text-slate-900">Report a Security Issue</h3>
                                 <p className="text-slate-500 text-sm">Found a vulnerability? Let us know securely.</p>
                             </div>
-                            <a href="mailto:cs@trustflow.in" className="px-6 py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors shadow-lg shadow-slate-200">
+                            <a href="mailto:connect@trustgrid.ai" className="px-6 py-2.5 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-colors shadow-lg shadow-slate-200">
                                 Contact Security Team
                             </a>
                         </div>
