@@ -38,7 +38,7 @@ export default function RevenueAccelerationSection() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {kpis.map((stat, i) => (
-                            <div key={i} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div key={i} className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                                 <div className="flex items-baseline gap-2 mb-2">
                                     <span className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                                         {stat.value}
@@ -111,37 +111,37 @@ export default function RevenueAccelerationSection() {
 
                         {/* Tab Content Panel */}
                         <div className="lg:w-3/4">
-                            <div className="bg-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl overflow-hidden relative">
-                                {/* Glass Effect */}
-                                <div className="absolute inset-0 bg-white/5 backdrop-blur-sm pointer-events-none" />
+                            <div className="bg-white rounded-3xl p-6 text-slate-900 shadow-xl border border-slate-200 overflow-hidden relative">
+                                {/* Glass Effect - Removed for clean white */}
+                                {/* <div className="absolute inset-0 bg-white/5 backdrop-blur-sm pointer-events-none" /> */}
 
-                                <div className="relative z-10 grid md:grid-cols-2 gap-12">
+                                <div className="relative z-10 grid md:grid-cols-2 gap-8">
                                     {/* Left Column: Challenges */}
-                                    <div className="space-y-8">
+                                    <div className="space-y-6">
                                         <div>
-                                            <h4 className="flex items-center gap-2 text-red-300 font-bold mb-4 uppercase tracking-wider text-sm">
+                                            <h4 className="flex items-center gap-2 text-red-600 font-bold mb-3 uppercase tracking-wider text-sm">
                                                 <XCircle className="w-5 h-5" /> Challenges & Pain Points
                                             </h4>
 
-                                            <div className="space-y-6">
-                                                <div className="bg-white/5 p-4 rounded-xl border border-white/10">
-                                                    <h5 className="font-semibold text-white mb-2">Business Situations</h5>
+                                            <div className="space-y-4">
+                                                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                                    <h5 className="font-semibold text-slate-900 mb-2">Business Situations</h5>
                                                     <ul className="space-y-2">
                                                         {verticalTabs[activeTab].challenges.map((c, idx) => (
-                                                            <li key={idx} className="text-slate-300 text-sm flex items-start gap-2">
-                                                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5" />
+                                                            <li key={idx} className="text-slate-600 text-sm flex items-start gap-2">
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5" />
                                                                 {c}
                                                             </li>
                                                         ))}
                                                     </ul>
                                                 </div>
 
-                                                <div className="bg-white/5 p-4 rounded-xl border border-white/10">
-                                                    <h5 className="font-semibold text-white mb-2">Specific Pain Points</h5>
+                                                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                                    <h5 className="font-semibold text-slate-900 mb-2">Specific Pain Points</h5>
                                                     <ul className="space-y-2">
                                                         {verticalTabs[activeTab].painPoints.map((p, idx) => (
-                                                            <li key={idx} className="text-slate-300 text-sm flex items-start gap-2">
-                                                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5" />
+                                                            <li key={idx} className="text-slate-600 text-sm flex items-start gap-2">
+                                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5" />
                                                                 {p}
                                                             </li>
                                                         ))}
@@ -152,31 +152,31 @@ export default function RevenueAccelerationSection() {
                                     </div>
 
                                     {/* Right Column: Solutions */}
-                                    <div className="space-y-8">
+                                    <div className="space-y-6">
                                         <div>
-                                            <h4 className="flex items-center gap-2 text-emerald-300 font-bold mb-4 uppercase tracking-wider text-sm">
+                                            <h4 className="flex items-center gap-2 text-emerald-600 font-bold mb-3 uppercase tracking-wider text-sm">
                                                 <CheckCircle2 className="w-5 h-5" /> Solutions & Benefits
                                             </h4>
 
-                                            <div className="space-y-6">
-                                                <div className="bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
-                                                    <h5 className="font-semibold text-emerald-50 mb-2">Solutions Provided</h5>
+                                            <div className="space-y-4">
+                                                <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                                    <h5 className="font-semibold text-emerald-900 mb-2">Solutions Provided</h5>
                                                     <ul className="space-y-2">
                                                         {verticalTabs[activeTab].solutions.map((s, idx) => (
-                                                            <li key={idx} className="text-emerald-100 text-sm flex items-start gap-2">
-                                                                <Zap className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                                                            <li key={idx} className="text-slate-700 text-sm flex items-start gap-2">
+                                                                <Zap className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                                                                 {s}
                                                             </li>
                                                         ))}
                                                     </ul>
                                                 </div>
 
-                                                <div className="bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
-                                                    <h5 className="font-semibold text-emerald-50 mb-2">Key Benefits</h5>
+                                                <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                                    <h5 className="font-semibold text-emerald-900 mb-2">Key Benefits</h5>
                                                     <ul className="space-y-2">
                                                         {verticalTabs[activeTab].benefits.map((b, idx) => (
-                                                            <li key={idx} className="text-emerald-100 text-sm flex items-start gap-2">
-                                                                <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                                                            <li key={idx} className="text-slate-700 text-sm flex items-start gap-2">
+                                                                <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
                                                                 {b}
                                                             </li>
                                                         ))}

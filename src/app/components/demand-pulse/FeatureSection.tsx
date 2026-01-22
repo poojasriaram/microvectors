@@ -26,46 +26,46 @@ export default function FeatureSection({
     outcomeKPIs,
 }: FeatureSectionProps) {
     return (
-        <section className="py-24 relative overflow-hidden border-t border-slate-800/50 bg-[#0B0F19]">
+        <section className="py-16 relative overflow-hidden border-t border-slate-200 bg-white">
             {/* Background Gradients */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-900/0 to-slate-900/0 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50/0 to-slate-50/0 pointer-events-none"></div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
-                <div className="mb-16">
+                <div className="mb-10">
                     <div className="flex items-center gap-4 mb-4">
-                        <span className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 opacity-40 font-mono">
+                        <span className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 opacity-20 font-mono">
                             {number}
                         </span>
                         <div className="h-px flex-1 bg-gradient-to-r from-blue-500/30 to-transparent"></div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
                         {title}
                     </h2>
-                    <p className="text-xl md:text-2xl text-blue-100/80 font-light max-w-4xl leading-relaxed">
+                    <p className="text-xl md:text-2xl text-slate-600 font-light max-w-4xl leading-relaxed">
                         {tagline}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
                     {/* Left Col: Success Story & Use Cases (7 cols) */}
-                    <div className="lg:col-span-7 space-y-8">
+                    <div className="lg:col-span-7 space-y-6">
                         {/* Success Example Card */}
-                        <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 relative overflow-hidden group hover:border-blue-500/40 transition-all shadow-2xl shadow-blue-900/5">
+                        <div className="bg-white border border-blue-100 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-300 transition-all shadow-xl shadow-blue-900/5">
                             <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                                <TrendingUp className="w-32 h-32 text-blue-400" />
+                                <TrendingUp className="w-32 h-32 text-blue-600" />
                             </div>
                             <div className="relative z-10">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="p-2 bg-blue-500/10 rounded-lg">
-                                        <Zap className="w-6 h-6 text-blue-400" />
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="p-2 bg-blue-50 rounded-lg">
+                                        <Zap className="w-6 h-6 text-blue-600" />
                                     </div>
-                                    <h3 className="text-lg font-bold text-blue-100 uppercase tracking-widest">
+                                    <h3 className="text-lg font-bold text-blue-900 uppercase tracking-widest">
                                         Success Example
                                     </h3>
                                 </div>
-                                <p className="text-lg text-slate-300 leading-relaxed">
+                                <p className="text-lg text-slate-600 leading-relaxed">
                                     {successExample}
                                 </p>
                             </div>
@@ -73,15 +73,15 @@ export default function FeatureSection({
 
                         {/* Use Cases */}
                         <div>
-                            <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                                <Layers className="w-5 h-5 text-indigo-400" />
+                            <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
+                                <Layers className="w-5 h-5 text-indigo-600" />
                                 Strategic Use Cases
                             </h3>
                             <div className="grid gap-4">
                                 {useCases.map((useCase, idx) => (
-                                    <div key={idx} className="group flex gap-4 p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all duration-300 hover:translate-x-1">
-                                        <span className="text-blue-400 font-bold whitespace-nowrap min-w-[80px]">{useCase.sector}:</span>
-                                        <span className="text-slate-400 group-hover:text-slate-200 transition-colors">{useCase.description}</span>
+                                    <div key={idx} className="group flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200 hover:bg-slate-100 transition-all duration-300 hover:translate-x-1">
+                                        <span className="text-blue-600 font-bold whitespace-nowrap min-w-[80px]">{useCase.sector}:</span>
+                                        <span className="text-slate-600 group-hover:text-slate-900 transition-colors">{useCase.description}</span>
                                     </div>
                                 ))}
                             </div>
@@ -89,28 +89,28 @@ export default function FeatureSection({
                     </div>
 
                     {/* Right Col: The AI Tech & KPIs (5 cols) */}
-                    <div className="lg:col-span-5 space-y-8 flex flex-col">
+                    <div className="lg:col-span-5 space-y-6 flex flex-col">
 
                         {/* How AI Delivered It */}
-                        <div className="bg-gradient-to-b from-indigo-900/20 to-slate-900/40 border border-indigo-500/20 rounded-2xl p-8 backdrop-blur-md">
-                            <h3 className="flex items-center gap-2 text-lg font-bold text-indigo-300 mb-4">
+                        <div className="bg-gradient-to-b from-indigo-50 to-white border border-indigo-100 rounded-2xl p-6 backdrop-blur-md">
+                            <h3 className="flex items-center gap-2 text-lg font-bold text-indigo-700 mb-4">
                                 <Brain className="w-5 h-5" /> How AI Delivered It
                             </h3>
-                            <p className="text-lg text-slate-300 font-medium leading-relaxed">
+                            <p className="text-lg text-slate-600 font-medium leading-relaxed">
                                 {howAiDeliveredIt}
                             </p>
                         </div>
 
                         {/* Outcome KPIs */}
-                        <div className="flex-1 bg-slate-900/30 border border-emerald-500/10 rounded-2xl p-8">
-                            <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-6 border-b border-emerald-500/10 pb-4">
+                        <div className="flex-1 bg-emerald-50 border border-emerald-100 rounded-2xl p-6">
+                            <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-widest mb-6 border-b border-emerald-200 pb-4">
                                 Outcome KPIs
                             </h3>
                             <div className="space-y-4">
                                 {outcomeKPIs.map((kpi, idx) => (
                                     <div key={idx} className="flex items-start gap-4">
-                                        <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0 mt-0.5" />
-                                        <span className="text-emerald-100 font-medium text-lg leading-tight">{kpi}</span>
+                                        <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+                                        <span className="text-emerald-900 font-medium text-lg leading-tight">{kpi}</span>
                                     </div>
                                 ))}
                             </div>

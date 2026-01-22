@@ -4,29 +4,29 @@ import { Sparkles, ArrowRight, PlayCircle } from 'lucide-react';
 
 export default function DemandPulse() {
     return (
-        <main className="bg-[#0B0F19] min-h-screen text-slate-200 selection:bg-blue-500/30">
+        <main className="bg-white min-h-screen text-slate-600 selection:bg-blue-100 selection:text-blue-900">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden">
-                <div className="absolute inset-0 bg-[#0B0F19]">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] opacity-30"></div>
-                    <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] opacity-20"></div>
+                <div className="absolute inset-0 bg-white">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-100/60 rounded-full blur-[120px] opacity-60"></div>
+                    <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] opacity-50"></div>
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-sm mb-8 backdrop-blur-md">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-600 font-mono text-sm mb-8 backdrop-blur-md">
                         <Sparkles className="w-4 h-4" />
                         <span>INTELLIGENCE REDEFINED</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none">
-                        DemandPulse AI<span className="text-blue-500">™</span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 mb-6 tracking-tight leading-none">
+                        DemandPulse AI<span className="text-blue-600">™</span>
                     </h1>
 
-                    <p className="text-2xl md:text-3xl font-light text-slate-300 mb-8 tracking-wide">
+                    <p className="text-2xl md:text-3xl font-light text-slate-500 mb-8 tracking-wide">
                         The Autonomous Demand Engine
                     </p>
 
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
                         “Generate High-Intent, Revenue-Ready Demand 24/7—1000X Faster, Smarter, and Always On.”
                     </p>
 
@@ -35,8 +35,8 @@ export default function DemandPulse() {
                             Deploy DemandPulse
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
-                        <button className="px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-lg font-semibold rounded-full backdrop-blur-md transition-all flex items-center gap-3">
-                            <PlayCircle className="w-5 h-5 text-blue-400" />
+                        <button className="px-10 py-5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3">
+                            <PlayCircle className="w-5 h-5 text-blue-600" />
                             Watch the Demo
                         </button>
                     </div>
