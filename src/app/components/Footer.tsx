@@ -1,11 +1,12 @@
+
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, MapPin, Mail, Phone, Globe, Shield, Award, CheckCircle2, Cloud, Share2, LayoutGrid, Box, Server } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Mail, Phone, Cloud, Share2, LayoutGrid, Box, Server } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Trustflow-logo.png';
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-50 pt-20 pb-10 border-t border-slate-200 text-slate-600 font-sans">
+        <footer className="bg-white pt-20 pb-10 border-t border-slate-200 text-slate-600 font-sans">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Top Section: Brand & Contact vs Navigation Grid */}
