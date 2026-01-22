@@ -18,6 +18,7 @@ import Cookies from './pages/Cookies';
 
 import Copyright from './pages/Copyright';
 import Sitemap from './pages/Sitemap';
+import DemandPulse from './pages/DemandPulse';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/copyright" element={<Copyright />} />
             <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/demand-pulse" element={<DemandPulse />} />
           </Routes>
         </main>
         <Footer />
