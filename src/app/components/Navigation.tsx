@@ -16,7 +16,8 @@ export default function Navigation() {
     { name: 'Industries', path: '/industries' },
     { name: 'Offerings', path: '/offerings' },
     { name: 'Resources', path: '/resources' },
-    { name: 'Company', path: '/company' }
+    { name: 'Company', path: '/company' },
+    { name: 'Cards', path: '/cards' }
   ];
 
   return (
