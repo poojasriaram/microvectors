@@ -16,9 +16,12 @@ import Terms from './pages/Terms';
 import Security from './pages/Security';
 import Cookies from './pages/Cookies';
 
+
 import Copyright from './pages/Copyright';
 import Sitemap from './pages/Sitemap';
 import DemandPulse from './pages/DemandPulse';
+import CookieConsent from './components/CookieConsent';
+
 
 
 export default function App() {
@@ -47,7 +50,9 @@ export default function App() {
             <Route path="/demand-pulse" element={<DemandPulse />} />
 
           </Routes>
+
         </main>
+        <CookieConsent />
         <Footer />
       </div>
     </Router>
