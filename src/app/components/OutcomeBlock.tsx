@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ArrowRight, Zap, TrendingUp } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
+
+import { ChevronRight, Zap, TrendingUp, Target, CheckCircle2 } from 'lucide-react';
 
 interface OutcomeBlockProps {
     data: {
@@ -12,6 +12,11 @@ interface OutcomeBlockProps {
         metrics: { label: string; value: string }[];
         portfolioCards: { title: string; icon: any }[];
         verticalTabs: { title: string; content: string; icon: any }[];
+        icp: {
+            title: string;
+            audience: string[];
+            outcome: string;
+        };
     };
     index: number;
 }
@@ -54,6 +59,30 @@ export default function OutcomeBlock({ data, index }: OutcomeBlockProps) {
                                     <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{metric.label}</div>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* ICP Subsection */}
+                        <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200 shadow-sm">
+                            <h4 className="flex items-center gap-2 font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
+                                <Target className="w-4 h-4 text-blue-600" />
+                                {data.icp.title}
+                            </h4>
+                            <ul className="space-y-3 mb-4">
+                                {data.icp.audience.map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-700 leading-relaxed font-medium">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="pt-4 border-t border-slate-200">
+                                <div className="flex items-start gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                                    <p className="text-sm font-semibold text-slate-700">
+                                        Outcome: <span className="text-slate-500 font-normal">{data.icp.outcome}</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Portfolio Cards */}
@@ -159,5 +188,6 @@ export default function OutcomeBlock({ data, index }: OutcomeBlockProps) {
         </div>
     );
 }
+
 
 

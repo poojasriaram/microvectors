@@ -58,7 +58,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Late-stage surprises, internal buyer misalignment, forecast volatility", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Early risk detection, stakeholder mapping, predictive deal scoring", icon: Brain },
             { title: "Business Impact", content: "Faster closures, higher win rates, predictable enterprise revenue", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Enterprise Acceleration?",
+            audience: [
+                "CROs & VPs managing complex deal cycles",
+                "Teams selling 6-7 figure ACV solutions",
+                "Organizations with multi-stakeholder buying committees",
+                "Sales leaders demanding accurate forecasts"
+            ],
+            outcome: "Close high-value deals faster with less ecosystem risk."
+        }
     },
     {
         title: "Digital & Inside Sales Acceleration",
@@ -82,7 +92,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Manual prioritization, missed high-intent leads, low rep efficiency", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "AI-guided prioritization, next-best actions, automated workflows", icon: Brain },
             { title: "Business Impact", content: "Higher productivity, consistent execution, scalable digital revenue", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs High-Velocity Sales?",
+            audience: [
+                "SDR/BDR Managers scaling outreach",
+                "High-growth tech companies scaling teams",
+                "Teams drowning in unqaulified leads",
+                "Sales Ops seeking efficiency gains"
+            ],
+            outcome: "Scale revenue per rep without linearly adding headcount."
+        }
     },
     {
         title: "D2C & High-Velocity Sales Growth",
@@ -106,7 +126,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Generic targeting, weak personalization, low loyalty", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Intent detection, micro-segmentation, predictive engagement", icon: Brain },
             { title: "Business Impact", content: "Higher ROAS, repeat revenue, sustainable growth", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs D2C Acceleration?",
+            audience: [
+                "E-commerce & D2C Brands",
+                "Subscription Services optimizing churn",
+                "Growth Marketers focused on LTV",
+                "Retention Teams fighting churn"
+            ],
+            outcome: "Transformation from one-time transactions to lifetime value."
+        }
     },
     {
         title: "BFSI Sales Acceleration",
@@ -130,7 +160,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Manual verification, high drop-offs, slow monetization", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Pre-qualification, risk scoring, compliant prioritization", icon: Brain },
             { title: "Business Impact", content: "Higher approvals, faster revenue, lower risk", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs BFSI Acceleration?",
+            audience: [
+                "Banks & Fintech Lenders",
+                "Insurance Providers & Brokers",
+                "Wealth Management Firms",
+                "Compliance-heavy sales organizations"
+            ],
+            outcome: "Acquire high-quality, eligible customers faster and compliant-first."
+        }
     },
     {
         title: "Transition from Traditional to Digital Sales",
@@ -154,7 +194,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Gut-based decisions, poor scalability, slow growth", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Digital intelligence, AI guidance, scalable execution", icon: Brain },
             { title: "Business Impact", content: "Lower cost of sales, predictable growth, future-ready GTM", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Sales Transformation?",
+            audience: [
+                "Traditional Manufacturers going D2C/B2B",
+                "Logistics & Supply Chain Firms",
+                "Legacy Service Providers digitizing sales",
+                "Sales Leaders bridging field & digital"
+            ],
+            outcome: "Modernize sales execution without losing the human touch."
+        }
     },
     {
         title: "Sales to Customer Success Continuity",
@@ -178,7 +228,17 @@ export const salesAccelerationContent = [
             { title: "Pain Points", content: "Poor onboarding, churn risk, missed expansion", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Contextual handoff, predictive lifecycle insights", icon: Brain },
             { title: "Business Impact", content: "Higher LTV, stronger relationships, compounding ARR", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Lifecycle Intelligence?",
+            audience: [
+                "VP Customer Success & Account Mgmt",
+                "SaaS companies with high churn risk",
+                "Usage-based pricing models",
+                "Teams focused on NRR (Net Revenue Retention)"
+            ],
+            outcome: "Zero-drop handoffs that drive expansion and retention."
+        }
     }
 ];
 
@@ -205,7 +265,17 @@ export const growthEnginesContent = [
             { title: "Pain Points", content: "Late pipeline entry, low differentiation, poor timing.", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Early intent detection, buyer journey visibility, predictive demand scoring.", icon: Brain },
             { title: "Business Impact", content: "First-mover advantage, higher win rates, predictable pipeline creation.", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Demand Discovery?",
+            audience: [
+                "CMOs & Demand Gen Leaders",
+                "ABM Teams targeting strategic accounts",
+                "Companies in crowded markets",
+                "Teams needing efficient pipeline growth"
+            ],
+            outcome: "Engage buyers before they even fill out a form."
+        }
     },
     {
         title: "AI-Driven Revenue Acceleration",
@@ -219,7 +289,7 @@ export const growthEnginesContent = [
             { label: "Revenue leakage", value: "Reduced" }
         ],
         portfolioCards: [
-            { title: "Deal Health Intelligence", icon: Heart }, // Note Heart need import
+            { title: "Deal Health Intelligence", icon: Heart },
             { title: "Revenue Forecasting & Risk Detection", icon: LineChart },
             { title: "Pipeline-to-ARR Optimization", icon: TrendingUp },
             { title: "Expansion & Renewal Signals", icon: RefreshCw }
@@ -229,7 +299,17 @@ export const growthEnginesContent = [
             { title: "Pain Points", content: "Forecast surprises, stalled deals, missed expansion.", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Predictive deal scoring, early risk alerts, revenue orchestration.", icon: Brain },
             { title: "Business Impact", content: "Faster ARR realization, higher confidence forecasts, sustained growth.", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Revenue Acceleration?",
+            audience: [
+                "CROs & RevOps Leaders",
+                "Companies preparing for funding/IPO",
+                "Boards demanding forecast predictability",
+                "Complex revenue orgs (Direct + Partner + PLG)"
+            ],
+            outcome: "Turn pipeline potential into banked revenue with high confidence."
+        }
     },
     {
         title: "AI-Driven Growth Hacking",
@@ -253,7 +333,17 @@ export const growthEnginesContent = [
             { title: "Pain Points", content: "Slow experiments, inconclusive results, wasted spend.", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Automated experimentation, AI-validated insights, rapid iteration.", icon: Brain },
             { title: "Business Impact", content: "Repeatable growth playbooks, faster scaling, lower risk innovation.", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Growth Acceleration?",
+            audience: [
+                "Growth Product Managers",
+                "Startup Founders & Scale-up Leads",
+                "Innovation Labs & Ventures",
+                "Marketing teams seeking efficiency"
+            ],
+            outcome: "Systematic, data-driven scaling that eliminates guesswork."
+        }
     },
     {
         title: "AI-Driven Performance Marketing",
@@ -277,8 +367,16 @@ export const growthEnginesContent = [
             { title: "Pain Points", content: "High CAC, low attribution clarity, diminishing returns.", icon: AlertTriangle },
             { title: "AI-Driven Outcome", content: "Real-time optimization, intent-aligned targeting, outcome-based attribution.", icon: Brain },
             { title: "Business Impact", content: "Higher ROI, efficient spend, scalable performance marketing.", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Performance AI?",
+            audience: [
+                "Performance Marketers",
+                "User Acquisition (UA) Managers",
+                "E-commerce Growth Teams",
+                "CFOs monitoring Ad Spend efficiency"
+            ],
+            outcome: "Maximize return on every marketing dollar spent."
+        }
     }
 ];
-
-

@@ -28,6 +28,43 @@ export default function DemandDiscoverySection() {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
                         {description}
                     </p>
+
+                    {/* ICP Subsection */}
+                    <div className="mt-12 p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-left max-w-4xl mx-auto shadow-sm">
+                        <h4 className="font-bold text-slate-900 mb-6 text-lg tracking-tight">Best Fit ICP for Demand Discovery</h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">Target Organizations</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Companies entering new markets, verticals, or regions",
+                                        "Revenue teams missing early-stage buying signals",
+                                        "ABM teams struggling to identify real in-market accounts"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">Roles That Gain Immediate Value</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Head of Demand Generation",
+                                        "ABM & Enterprise Sales Leaders",
+                                        "Market Expansion & Strategy Teams"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. KPI Performance Grid */}

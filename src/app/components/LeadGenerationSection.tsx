@@ -28,6 +28,34 @@ export default function LeadGenerationSection() {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
                         {description}
                     </p>
+
+                    {/* ICP Subsection */}
+                    <div className="mt-12 p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-left max-w-4xl mx-auto shadow-sm">
+                        <h4 className="font-bold text-slate-900 mb-6 text-lg tracking-tight">Designed for Teams That Value Lead Quality Over Volume</h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">Best fit for:</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Sales teams rejecting marketing leads",
+                                        "Organizations with outdated or unclear ICPs",
+                                        "Demand teams measured on SALs, SQLs, and pipeline impact"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-white p-6 rounded-xl border border-slate-200 h-full shadow-sm flex flex-col justify-center">
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-2">ICP Buying Signal</h5>
+                                <p className="text-slate-700 text-base italic leading-relaxed">
+                                    "High MQL volume, but low SQO conversion."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. KPI Performance Grid */}

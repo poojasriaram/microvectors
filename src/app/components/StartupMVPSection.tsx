@@ -28,6 +28,43 @@ export default function StartupMVPSection() {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
                         {description}
                     </p>
+
+                    {/* ICP Subsection */}
+                    <div className="mt-12 p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-left max-w-4xl mx-auto shadow-sm">
+                        <h4 className="font-bold text-slate-900 mb-6 text-lg tracking-tight">Purpose-Built for Founders & Innovation Teams</h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">Ideal for:</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Early-stage to Series A startups",
+                                        "Corporate innovation and venture studios",
+                                        "Founders replacing intuition with validated demand"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">ICP Risk Profile</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "High cost of wrong MVP decisions",
+                                        "Limited runway",
+                                        "Need for fast signal validation"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. KPI Performance Grid */}

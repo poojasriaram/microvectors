@@ -28,6 +28,27 @@ export default function RevenueAccelerationSection() {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
                         {description}
                     </p>
+
+                    {/* ICP Subsection: Overview */}
+                    <div className="mt-12 p-8 bg-blue-50/50 rounded-2xl border border-blue-100 text-left max-w-4xl mx-auto shadow-sm">
+                        <h4 className="font-bold text-slate-900 mb-4 text-lg tracking-tight">Who Benefits Most from This Capability</h4>
+                        <ul className="space-y-3 mb-6">
+                            {[
+                                "Mid-market & enterprise B2B organizations with multi-touch buyer journeys",
+                                "Teams struggling to align marketing, sales, and revenue ops",
+                                "Leaders seeking one intelligence layer across demand → deal → revenue"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-start gap-3 text-base text-slate-700 leading-relaxed">
+                                    <div className="w-2 h-2 rounded-full bg-blue-600 mt-2 shrink-0" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-sm flex items-start gap-3">
+                            <span className="font-bold text-blue-800 text-sm whitespace-nowrap mt-0.5">Typical ICP Challenge:</span>
+                            <span className="text-slate-600 text-sm italic">“We have data everywhere, but no unified view of what actually drives revenue.”</span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. KPI Performance Grid */}
@@ -53,6 +74,42 @@ export default function RevenueAccelerationSection() {
                                 </p>
                             </div>
                         ))}
+                    </div>
+
+                    {/* ICP Subsection: KPIs */}
+                    <div className="bg-slate-50/80 rounded-2xl p-8 border border-slate-200 shadow-sm">
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="font-bold text-slate-900 mb-4 text-lg tracking-tight">Revenue Teams Measured on Outcomes — Not Activity</h4>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Are measured on ARR growth, pipeline velocity, and CAC efficiency",
+                                        "Need board-level metrics, not vanity dashboards",
+                                        "Require AI to directly impact conversion, sales cycle length, and forecast confidence"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-slate-900 mb-4 text-lg tracking-tight">Ideal For:</h4>
+                                <ul className="space-y-3">
+                                    {[
+                                        "CROs preparing quarterly and annual forecasts",
+                                        "RevOps teams responsible for predictability",
+                                        "Growth leaders optimizing ROI across the funnel"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -81,6 +138,31 @@ export default function RevenueAccelerationSection() {
                                 </Card>
                             );
                         })}
+                    </div>
+
+                    {/* ICP Subsection: Portfolio */}
+                    <div className="bg-indigo-50/50 rounded-2xl p-8 border border-indigo-100 shadow-sm">
+                        <h4 className="font-bold text-indigo-900 mb-4 text-lg tracking-tight">Who This Portfolio Is Designed For</h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <ul className="space-y-3">
+                                {[
+                                    "Have multiple GTM motions (inbound, outbound, ABM, paid)",
+                                    "Want AI-orchestrated execution, not point tools",
+                                    "Are scaling fast and cannot rely on manual processes"
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-sm text-indigo-800 leading-relaxed font-medium">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-600 mt-1.5 shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="bg-white p-5 rounded-xl border border-indigo-100 flex items-center shadow-sm">
+                                <div>
+                                    <h5 className="font-bold text-indigo-900 text-sm mb-1 uppercase tracking-wide">Common ICP Signal</h5>
+                                    <p className="text-indigo-700 text-sm italic">Rapid growth has outpaced operational maturity.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

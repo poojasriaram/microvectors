@@ -84,6 +84,38 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
+
+          {/* ICP Subsection */}
+          <div className="mt-20 pt-12 border-t border-slate-100/80">
+            <div className="bg-blue-50/40 rounded-3xl p-10 border border-blue-100 text-left relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100/50 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2" />
+
+              <div className="relative z-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 tracking-tight">
+                  Designed For Revenue Leaders Who Need Predictable Growth
+                </h3>
+                <p className="text-slate-700 mb-8 text-xl leading-relaxed font-medium max-w-5xl">
+                  This platform is built for revenue, sales, and growth leaders who are accountable for pipeline velocity, conversion rates, and forecast accuracy — and need AI to operate their revenue engine continuously, not manually.
+                </p>
+
+                <div className="space-y-5">
+                  <h4 className="font-bold text-blue-700 uppercase tracking-widest text-xs">Best Fit If You:</h4>
+                  <div className="grid sm:grid-cols-3 gap-5">
+                    {[
+                      "Own aggressive revenue targets",
+                      "Manage complex B2B buying cycles",
+                      "Need AI to replace fragmented sales and marketing ops"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 text-slate-800 bg-white p-5 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="w-2 h-2 rounded-full bg-blue-600 mt-2.5 shrink-0" />
+                        <span className="text-base font-semibold leading-snug">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

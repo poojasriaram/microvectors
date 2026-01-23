@@ -44,7 +44,17 @@ export const cryptoContent = [
             { title: "Pain Points", content: "Volatile revenue, poor predictability", icon: Grid },
             { title: "AI Outcome", content: "Revenue intelligence across wallets, users, and transactions", icon: Cpu },
             { title: "Business Impact", content: "Sustainable, forecastable crypto revenue", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Revenue Acceleration?",
+            audience: [
+                "DeFi Protocols with high TVL but low revenue capture",
+                "L1/L2 Foundations seeking ecosystem sustainability",
+                "Web3 Gaming Studios needing player monetization",
+                "Exchanges (CEX/DEX) maximizing trading fees"
+            ],
+            outcome: "Transformation from speculative volume to predictable, recurring revenue."
+        }
     },
     {
         title: "AI-Powered Crypto Demand Discovery Engine",
@@ -68,7 +78,17 @@ export const cryptoContent = [
             { title: "Pain Points", content: "Speculative users, poor conversion", icon: Target },
             { title: "AI Outcome", content: "Early intent detection and demand scoring", icon: Search },
             { title: "Business Impact", content: "First-mover advantage, higher adoption", icon: Rocket }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Demand Discovery?",
+            audience: [
+                "New Token Launches & ICOs/IDOs",
+                "NFT Collections seeking genuine collectors",
+                "Protocols entering new market segments",
+                "Marketing leads struggling with attribution"
+            ],
+            outcome: "Identify and capture high-quality users before competitors do."
+        }
     },
     {
         title: "AI-Powered Performance Revenue Engine",
@@ -83,16 +103,26 @@ export const cryptoContent = [
         ],
         portfolioCards: [
             { title: "Channel-to-Revenue Attribution", icon: Grid },
-            { title: "Incentive & Reward Optimization", icon: Gift }, // Gift might need import or substitution
+            { title: "Incentive & Reward Optimization", icon: Gift },
             { title: "Conversion Path Intelligence", icon: Map },
-            { title: "ROI-Based Spend Allocation", icon: DollarSign } // DollarSign needed
+            { title: "ROI-Based Spend Allocation", icon: DollarSign }
         ],
         verticalTabs: [
             { title: "Business Situation", content: "Spend grows, revenue doesn’t", icon: TrendingUp },
             { title: "Pain Points", content: "Incentive abuse, poor attribution", icon: Shield },
             { title: "AI Outcome", content: "Revenue-linked performance optimization", icon: Cpu },
             { title: "Business Impact", content: "Profitable growth, efficient spend", icon: CheckCircle2 }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Performance Optimization?",
+            audience: [
+                "Growth Teams at Centralized Exchanges",
+                "DeFi projects running liquidity mining programs",
+                "Projects with high marketing spend but low retention",
+                "Teams fighting 'airdrop farmers' and bots"
+            ],
+            outcome: "Ensure every token and dollar spent drives real user activation."
+        }
     },
     {
         title: "AI Growth Acceleration Engine",
@@ -116,7 +146,17 @@ export const cryptoContent = [
             { title: "Pain Points", content: "Random experiments, no learning loop", icon: Target },
             { title: "AI Outcome", content: "AI-validated growth playbooks", icon: Rocket },
             { title: "Business Impact", content: "Repeatable, scalable growth", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Growth Acceleration?",
+            audience: [
+                "Post-Launch Projects hitting a growth plateau",
+                "Scale-up DAOs managing growth treasuries",
+                "Ecosystem funds supporting portfolio project",
+                "Founders looking for repeatable growth loops"
+            ],
+            outcome: "Systematic, data-driven scaling beyond the initial hype cycle."
+        }
     },
     {
         title: "AI Market Validation Intelligence",
@@ -133,14 +173,24 @@ export const cryptoContent = [
             { title: "Market Signal Intelligence", icon: Activity },
             { title: "Demand Readiness Scoring", icon: Target },
             { title: "Competitive Analysis", icon: Search },
-            { title: "Launch Timing Prediction", icon: Clock } // Clock needed
+            { title: "Launch Timing Prediction", icon: Clock }
         ],
         verticalTabs: [
             { title: "Business Situation", content: "Unclear product-market fit", icon: Search },
             { title: "Pain Points", content: "Costly failed launches", icon: Shield },
             { title: "AI Outcome", content: "Evidence-based validation", icon: CheckCircle2 },
             { title: "Business Impact", content: "Lower risk, higher launch success", icon: Rocket }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Market Validation?",
+            audience: [
+                "Pre-Token Founders & Builders",
+                "Venture Studios incubating new protocols",
+                "Corporate Web3 divisions entering the space",
+                "Investors conducting due diligence"
+            ],
+            outcome: "Launch with confidence, knowing there is real market demand."
+        }
     },
     {
         title: "AI Customer Journey Intelligence",
@@ -164,7 +214,17 @@ export const cryptoContent = [
             { title: "Pain Points", content: "Poor journey visibility", icon: Search },
             { title: "AI Outcome", content: "Predictive journey intelligence", icon: Map },
             { title: "Business Impact", content: "Stronger ecosystems, higher LTV", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs Journey Intelligence?",
+            audience: [
+                "Wallet Providers & Interface designs",
+                "dApps with complex user flows",
+                "Ecosystems focused on long-term retention",
+                "Product Managers optimizing conversion"
+            ],
+            outcome: "Seamless user experiences that retain users and liquidity."
+        }
     },
     {
         title: "AI Startup MVP Acceleration Engine",
@@ -188,8 +248,16 @@ export const cryptoContent = [
             { title: "Pain Points", content: "Slow builds, weak validation", icon: Shield },
             { title: "AI Outcome", content: "Accelerated, evidence-based MVPs", icon: Rocket },
             { title: "Business Impact", content: "Faster traction, lower risk", icon: TrendingUp }
-        ]
+        ],
+        icp: {
+            title: "Who Needs MVP Acceleration?",
+            audience: [
+                "Early-Stage Crypto Founders",
+                "Hackathon Winners transitioning to startups",
+                "Builders seeking their first users",
+                "Accelerators supporting new cohorts"
+            ],
+            outcome: "Build the right product faster and secure initial traction."
+        }
     }
 ];
-
-
