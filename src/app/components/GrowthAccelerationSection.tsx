@@ -28,6 +28,41 @@ export default function GrowthAccelerationSection() {
                     <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
                         {description}
                     </p>
+
+                    {/* ICP Subsection */}
+                    <div className="mt-12 p-8 bg-slate-50/80 rounded-2xl border border-slate-200 text-left max-w-4xl mx-auto shadow-sm">
+                        <h4 className="font-bold text-slate-900 mb-6 text-lg tracking-tight">Ideal for Organizations Engineering Growth at Scale</h4>
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">Best suited for:</h5>
+                                <ul className="space-y-3">
+                                    {[
+                                        "Product-led and growth-led B2B companies",
+                                        "Teams running frequent experiments but learning too slowly",
+                                        "Leaders seeking repeatable, compounding growth loops"
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed font-medium">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 className="font-bold text-slate-900 text-xs uppercase tracking-wider mb-3">ICP Maturity Level</h5>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3 text-base text-slate-700 font-medium">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                                        Post-PMF
+                                    </li>
+                                    <li className="flex items-start gap-3 text-base text-slate-700 font-medium">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                                        Scaling acquisition, engagement, retention, and monetization
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* 2. KPI Performance Grid */}

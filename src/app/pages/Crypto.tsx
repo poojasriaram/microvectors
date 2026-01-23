@@ -1,9 +1,10 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import OutcomeBlock from '../components/OutcomeBlock';
 import { cryptoContent } from '../../data/cryptoContent';
+import CryptoGlobalICPSection from '../components/CryptoGlobalICPSection';
 
 export default function Crypto() {
     return (
@@ -22,6 +23,9 @@ export default function Crypto() {
                     </p>
                 </div>
             </div>
+
+            {/* Global Crypto ICP Section */}
+            <CryptoGlobalICPSection />
 
             {/* Crypto Content Blocks */}
             <div className="bg-slate-50">
