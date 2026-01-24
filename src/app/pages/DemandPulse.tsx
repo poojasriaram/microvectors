@@ -1,12 +1,20 @@
 import React from 'react';
+
 import FeatureSection from '../components/demand-pulse/FeatureSection';
+import DemandPulseCarousel from '../components/demand-pulse/DemandPulseCarousel';
 import { Sparkles, ArrowRight, PlayCircle } from 'lucide-react';
 
 export default function DemandPulse() {
     return (
+
         <main className="bg-white min-h-screen text-slate-600 selection:bg-blue-100 selection:text-blue-900">
+            {/* Premium Interactive Carousel - Now First Section */}
+            <div className="pt-20"> {/* Add padding for fixed nav */}
+                <DemandPulseCarousel />
+            </div>
+
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
+            <section className="relative pt-12 pb-20 overflow-hidden">
                 <div className="absolute inset-0 bg-white">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-100/60 rounded-full blur-[120px] opacity-60"></div>
                     <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] opacity-50"></div>
@@ -41,11 +49,13 @@ export default function DemandPulse() {
                         </button>
                     </div>
                 </div>
+
+
             </section>
 
             {/* Feature 01 */}
             <FeatureSection
-                number="01"
+                number="1"
                 title="AI-Driven Demand Discovery"
                 tagline="Uncover Hidden Buyer Clusters Before Competitors Do"
                 successExample="A Series B HR SaaS platform struggled to expand beyond enterprise clients. Using DemandPulse AI, they discovered a surge in intent from mid-market e-commerce brands hiring “remote compliance managers” and searching for “global payroll + contractor management.” Within 30 days, they launched a tailored micro-offer—and generated $1.2M in pipeline from a segment they didn’t know existed."
@@ -64,7 +74,7 @@ export default function DemandPulse() {
 
             {/* Feature 02 */}
             <FeatureSection
-                number="02"
+                number="2"
                 title="AI-Driven Demand Generation"
                 tagline="Your 24/7 Autonomous Lead Factory—Zero Downtime, Infinite Scale"
                 successExample="A fintech lending platform lost 68% of weekend applicants due to delayed responses. After deploying DemandPulse AI, it engaged leads via WhatsApp + email within 47 seconds—even at 2 AM—using pre-approved offers based on open banking data. Weekend conversions jumped by 210%, and CAC dropped by 52%."
@@ -83,7 +93,7 @@ export default function DemandPulse() {
 
             {/* Feature 03 */}
             <FeatureSection
-                number="03"
+                number="3"
                 title="Competitive Demand Tracing"
                 tagline="Intercept Buyers Evaluating Competitors—Before They Convert"
                 successExample="A B2B analytics SaaS noticed declining win rates against a rival. DemandPulse AI flagged accounts visiting G2 comparison pages and reading negative reviews about the competitor’s “poor onboarding.” The system auto-deployed LinkedIn ads: “Why 200+ teams switched after [Competitor]’s onboarding failed them”—with a side-by-side onboarding timeline. Win rate increased from 28% to 51% in 6 weeks."
@@ -101,7 +111,7 @@ export default function DemandPulse() {
 
             {/* Feature 04 */}
             <FeatureSection
-                number="04"
+                number="4"
                 title="Micro-Segmentation Analytics"
                 tagline="From “Marketers” to “B2B SaaS Growth Marketers Using HubSpot + Running LinkedIn Ads”"
                 successExample="A D2C protein brand was wasting budget targeting “fitness enthusiasts.” AI segmented users into: “Vegan gym-goers in Bangalore who follow @FitIndia and bought plant-based snacks in last 30 days.” Campaigns to this group achieved 7.4% CTR and 22% repeat purchase rate—vs. 1.1% CTR for broad campaigns."
@@ -119,7 +129,7 @@ export default function DemandPulse() {
 
             {/* Feature 05 */}
             <FeatureSection
-                number="05"
+                number="5"
                 title="Offer Refinement & Optimization Analytics"
                 tagline="Optimize Pricing, Packaging & Messaging Based on Real Buyer Behavior"
                 successExample="A project management SaaS had 40% churn in its “Pro” plan. AI analyzed support tickets and found users couldn’t collaborate with external clients. It recommended a “Client Portal” add-on. After bundling it, churn dropped to 12%, and ARPU increased by 28%."
@@ -137,7 +147,7 @@ export default function DemandPulse() {
 
             {/* Feature 06 */}
             <FeatureSection
-                number="06"
+                number="6"
                 title="Multi-Channel Demand Gen Automation"
                 tagline="Orchestrate 15+ Channels Like a Single, Intelligent System"
                 successExample="A fintech neobank ran siloed campaigns: Meta ads, Google Search, email. Attribution was chaotic. After unifying channels under DemandPulse AI, it discovered TikTok drove awareness, but WhatsApp closed deals. AI shifted budget dynamically—resulting in 5.8x ROAS and 41% lower CAC."
@@ -155,7 +165,7 @@ export default function DemandPulse() {
 
             {/* Feature 07 */}
             <FeatureSection
-                number="07"
+                number="7"
                 title="Product-Market Fit (PMF) Acceleration"
                 tagline="Validate PMF in 30 Days—Not 6 Months"
                 successExample="An AI-powered accounting SaaS for freelancers launched with low traction. AI found that users who connected 2+ bank accounts + ran quarterly reports had 92% 90-day retention. The team redesigned onboarding to drive those actions—PMF confirmed in 28 days, and seed round extended."
@@ -173,7 +183,7 @@ export default function DemandPulse() {
 
             {/* Feature 08 */}
             <FeatureSection
-                number="08"
+                number="8"
                 title="Behavioral Segmentation & Targeting"
                 tagline="Target What People Do—Not Just Who They Are"
                 successExample="A cybersecurity SaaS saw low engagement from “CISOs.” AI revealed that only those who visited compliance pages + downloaded SOC2 templates converted. It created a “Compliance-Ready CISO” segment—campaigns to this group had 41% meeting-book rate vs. 6% for generic lists."
@@ -191,7 +201,7 @@ export default function DemandPulse() {
 
             {/* Feature 09 */}
             <FeatureSection
-                number="09"
+                number="9"
                 title="AI-Driven Campaign Optimization"
                 tagline="Self-Optimizing Campaigns That Get Smarter Every Hour"
                 successExample="A D2C beauty brand ran static Meta ads. CTR dropped 60% in 3 weeks. DemandPulse AI tested 120 variants/day—discovering that “before/after” UGC videos with real customer names outperformed polished ads by 4.7x. ROAS jumped from 2.4x → 6.1x in 21 days."

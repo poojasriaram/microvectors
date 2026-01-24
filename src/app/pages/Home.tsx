@@ -8,15 +8,23 @@ import CustomerJourneySection from '../components/CustomerJourneySection';
 import StartupMVPSection from '../components/StartupMVPSection';
 import LeadGenerationSection from '../components/LeadGenerationSection';
 import LeadershipSection from '../components/LeadershipSection';
+
 import GlobalICPSection from '../components/GlobalICPSection';
+import HomeCarousel from '../components/HomeCarousel';
 
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
 
 export default function Home() {
 
+
     return (
         <main className="bg-background min-h-screen">
+            {/* Premium Home Carousel - First Section */}
+            <div className="pt-20">
+                <HomeCarousel />
+            </div>
+
             {/* Section 1: Hero */}
             <HeroSection />
 

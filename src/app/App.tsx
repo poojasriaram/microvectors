@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import { MessagesSquare } from 'lucide-react';
 import Home from './pages/Home';
 import BookDemo from './pages/BookDemo';
 import Verticals from './pages/Verticals';
@@ -20,6 +21,8 @@ import Cookies from './pages/Cookies';
 import Copyright from './pages/Copyright';
 import Sitemap from './pages/Sitemap';
 import DemandPulse from './pages/DemandPulse';
+import Partners from './pages/Partners';
+import Career from './pages/Career';
 import CookieConsent from './components/CookieConsent';
 
 
@@ -48,13 +51,29 @@ export default function App() {
             <Route path="/copyright" element={<Copyright />} />
             <Route path="/sitemap" element={<Sitemap />} />
             <Route path="/demand-pulse" element={<DemandPulse />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/career" element={<Career />} />
 
           </Routes>
-
         </main>
+
+        {/* Floating WhatsApp Button */}
+        <a
+          href="https://wa.me/919513288612"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-green-500/30 transition-all hover:scale-110 duration-300 flex items-center justify-center group"
+          aria-label="Contact us on WhatsApp"
+        >
+          <MessagesSquare className="w-7 h-7" />
+          <span className="absolute right-full mr-3 bg-white text-slate-900 px-3 py-1 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Chat with us
+          </span>
+        </a>
+
         <CookieConsent />
         <Footer />
       </div>
-    </Router>
+    </Router >
   );
 }

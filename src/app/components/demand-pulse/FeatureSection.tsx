@@ -33,8 +33,10 @@ export default function FeatureSection({
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="mb-10">
+
+
                     <div className="flex items-center gap-4 mb-4">
-                        <span className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 opacity-20 font-mono">
+                        <span className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-600 font-mono">
                             {number}
                         </span>
                         <div className="h-px flex-1 bg-gradient-to-r from-blue-500/30 to-transparent"></div>
