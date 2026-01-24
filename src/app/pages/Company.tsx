@@ -4,10 +4,8 @@ import {
     Target,
     Zap,
     TrendingUp,
-    Users,
     Building2,
     Globe,
-    Award,
     ArrowRight,
     MapPin,
     Mail,
@@ -87,63 +85,72 @@ export default function Company() {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
 
-            {/* 1. Hero Section - Compact */}
-            <section className="relative bg-slate-50 border-b border-slate-200 text-slate-900 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-                {/* Abstract Background Shapes */}
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-100/50 to-transparent pointer-events-none"></div>
-                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100 rounded-full blur-3xl pointer-events-none"></div>
+            {/* 1. Hero Section - Premium */}
+            <section className="relative bg-white text-slate-900 pt-32 pb-24 overflow-hidden">
+                {/* Premium Background Effects */}
+                <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-slate-50 via-white to-white pointer-events-none"></div>
+                <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none animate-pulse-slow"></div>
+                <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-sm font-bold mb-4">
-                        <Building2 className="w-4 h-4" />
-                        <span>Enterprise Revenue Intelligence</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                        <Building2 className="w-4 h-4 text-blue-600" />
+                        <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Enterprise Revenue Intelligence</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight text-slate-900">
+
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
                         Building the Future of <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
                             AI-Driven Revenue Growth
                         </span>
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed font-medium">
+
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
                         TrustFlow AI is an enterprise revenue acceleration platform helping modern organizations build predictable pipeline, close deals faster, and scale ARR using AI intelligence.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
                         <Link to="/book-demo">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-5 text-lg h-auto rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all hover:scale-105">
+                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
                                 Book a Demo
                             </Button>
                         </Link>
-                        <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-5 text-lg h-auto rounded-full transition-all">
+                        <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-700 px-10 py-6 text-lg h-auto rounded-full transition-all hover:border-blue-200 shadow-sm hover:shadow">
                             Talk to a Revenue Expert
                         </Button>
                     </div>
                 </div>
             </section>
 
-            {/* 2. Mission & What We Do - Compact */}
-            <section className="py-16 bg-white border-t border-slate-100">
+            {/* 2. Mission & What We Do - Premium */}
+            <section className="py-24 bg-white relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 gap-16 items-center">
                         {/* Mission */}
-                        <div className="space-y-6">
-                            <div className="inline-flex items-center justify-center p-3 bg-blue-50 rounded-xl border border-blue-100">
-                                <Target className="w-6 h-6 text-blue-600" />
+                        <div className="space-y-8">
+                            <div className="inline-flex items-center justify-center p-3 bg-blue-50/50 rounded-2xl border border-blue-100 shadow-sm">
+                                <Target className="w-8 h-8 text-blue-600" />
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Our Mission</h2>
-                            <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                                To help enterprises build predictable, scalable, and compounding revenue engines powered by AI.
-                            </p>
-                            <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                            <div>
+                                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Our Mission</h2>
+                                <p className="text-xl text-slate-600/90 leading-relaxed font-medium">
+                                    To help enterprises build <span className="text-blue-700 font-semibold">predictable</span>, <span className="text-indigo-700 font-semibold">scalable</span>, and <span className="text-purple-700 font-semibold">compounding</span> revenue engines powered by AI.
+                                </p>
+                            </div>
+                            <div className="h-1.5 w-24 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full opacity-80"></div>
                         </div>
 
                         {/* What We Do */}
-                        <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200 shadow-lg relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 pointer-events-none opacity-50"></div>
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-slate-900 relative z-10">
-                                <Zap className="w-5 h-5 text-amber-500 fill-current" />
+                        <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_60px_-12px_rgba(59,130,246,0.1)] transition-all duration-500 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none group-hover:bg-blue-100/40 transition-colors"></div>
+
+                            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-slate-900 relative z-10">
+                                <div className="p-2 bg-amber-50 rounded-lg border border-amber-100">
+                                    <Zap className="w-5 h-5 text-amber-500 fill-current" />
+                                </div>
                                 What We Do
                             </h3>
-                            <ul className="space-y-3 relative z-10">
+                            <ul className="space-y-4 relative z-10">
                                 {[
                                     "AI-powered demand generation",
                                     "Sales intelligence & automation",
@@ -151,13 +158,13 @@ export default function Company() {
                                     "ARR acceleration & retention",
                                     "Predictive revenue forecasting"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <div className="mt-1 min-w-[16px]">
-                                            <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center border border-green-200">
-                                                <ArrowRight className="w-2.5 h-2.5 text-green-600" />
+                                    <li key={i} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition-colors duration-300">
+                                        <div className="mt-1 min-w-[20px]">
+                                            <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center border border-green-200">
+                                                <ArrowRight className="w-3 h-3 text-green-700" />
                                             </div>
                                         </div>
-                                        <span className="text-slate-700 font-medium text-base">{item}</span>
+                                        <span className="text-slate-700 font-semibold text-lg">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -166,60 +173,68 @@ export default function Company() {
                 </div>
             </section>
 
-            {/* 3. Impact & Credibility (KPIs) - Compact */}
-            <section className="py-16 bg-slate-50 border-t border-slate-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-slate-900">Real Business Impact</h2>
-                        <p className="text-slate-600 text-lg font-medium">Delivering measurable outcomes for enterprise revenue teams.</p>
+            {/* 3. Impact & Credibility (KPIs) - Premium */}
+            <section className="py-24 bg-slate-50 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Real Business Impact</h2>
+                        <p className="text-slate-600 text-xl font-medium max-w-2xl mx-auto">Delivering measurable outcomes for enterprise revenue teams.</p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                         {[
-                            { value: "24×", label: "increase in high-quality leads", icon: <BarChart3 className="w-5 h-5 text-blue-600" /> },
-                            { value: "3×", label: "improvement in conversion rate", icon: <TrendingUp className="w-5 h-5 text-green-600" /> },
-                            { value: "50%", label: "reduction in sales cycle", icon: <Zap className="w-5 h-5 text-amber-500" /> },
-                            { value: "65%", label: "reduction in cost of sales", icon: <PieChart className="w-5 h-5 text-purple-600" /> },
-                            { value: "120%+", label: "net revenue retention", icon: <LineChart className="w-5 h-5 text-indigo-600" /> },
+                            { value: "24×", label: "increase in high-quality leads", icon: <BarChart3 className="w-6 h-6 text-blue-600" /> },
+                            { value: "3×", label: "improvement in conversion rate", icon: <TrendingUp className="w-6 h-6 text-green-600" /> },
+                            { value: "50%", label: "reduction in sales cycle", icon: <Zap className="w-6 h-6 text-amber-500" /> },
+                            { value: "65%", label: "reduction in cost of sales", icon: <PieChart className="w-6 h-6 text-purple-600" /> },
+                            { value: "120%+", label: "net revenue retention", icon: <LineChart className="w-6 h-6 text-indigo-600" /> },
                         ].map((stat, idx) => (
-                            <div key={idx} className="bg-white border border-slate-200 p-5 rounded-xl text-center hover:border-blue-300 hover:shadow-lg transition-all group">
-                                <div className="flex justify-center mb-3 opacity-90 group-hover:opacity-100 transition-opacity">
-                                    <div className="p-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors">
-                                        {stat.icon}
+                            <div key={idx} className="bg-white border border-slate-100 p-8 rounded-2xl text-center hover:border-blue-200 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="relative z-10">
+                                    <div className="flex justify-center mb-5">
+                                        <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-white group-hover:shadow-sm transition-all duration-300 border border-slate-100 group-hover:border-blue-100">
+                                            {stat.icon}
+                                        </div>
                                     </div>
+                                    <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-br from-slate-900 to-slate-700 group-hover:from-blue-600 group-hover:to-indigo-600 mb-2 transition-all duration-300">
+                                        {stat.value}
+                                    </div>
+                                    <p className="text-xs text-slate-500 font-bold leading-normal tracking-wider uppercase group-hover:text-slate-700 transition-colors">
+                                        {stat.label}
+                                    </p>
                                 </div>
-                                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-1">
-                                    {stat.value}
-                                </div>
-                                <p className="text-xs text-slate-500 font-bold leading-tight tracking-wide uppercase">
-                                    {stat.label}
-                                </p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 4. Leadership & Culture - Compact */}
-            <section className="py-16 bg-white border-t border-slate-200">
+            {/* 4. Leadership & Culture - Premium */}
+            <section className="py-24 bg-white border-t border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Leadership & Culture</h2>
-                        <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Leadership & Culture</h2>
+                        <p className="text-xl text-slate-600 leading-relaxed mb-12 font-medium">
                             TrustFlow AI is built by revenue, growth, and AI experts passionate about building the next generation of enterprise revenue technology.
                         </p>
 
-                        <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col md:flex-row items-center gap-8 shadow-sm justify-center">
-                            <div className="flex -space-x-4">
+                        <div className="p-10 bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200/60 flex flex-col md:flex-row items-center gap-10 shadow-lg shadow-slate-200/40 justify-center group hover:border-blue-200/50 transition-colors duration-500">
+                            <div className="flex -space-x-6">
                                 {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="w-14 h-14 rounded-full bg-slate-200 border-4 border-white flex items-center justify-center text-slate-500 text-[10px] font-bold shadow-sm">
+                                    <div key={i} className="w-16 h-16 rounded-full bg-slate-200 border-4 border-white flex items-center justify-center text-slate-500 text-[10px] font-bold shadow-md hover:-translate-y-2 transition-transform duration-300 relative z-10 hover:z-20">
                                         Expert
                                     </div>
                                 ))}
+                                <div className="w-16 h-16 rounded-full bg-blue-50 border-4 border-white flex items-center justify-center text-blue-600 text-lg font-bold shadow-md relative z-0">
+                                    +
+                                </div>
                             </div>
                             <div className="text-left">
-                                <h3 className="text-lg font-bold text-slate-900 mb-1">Built by Experts</h3>
-                                <p className="text-slate-500 text-sm font-medium">
+                                <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">Built by Experts</h3>
+                                <p className="text-slate-500 text-lg font-medium max-w-sm">
                                     Our team combines decades of experience in B2B sales, machine learning, and enterprise software.
                                 </p>
                             </div>
@@ -229,60 +244,70 @@ export default function Company() {
             </section>
 
             {/* 5. Offices & Contact - Compact */}
-            <section className="py-16 bg-slate-50 border-t border-slate-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                        alt="Office Building"
+                        className="w-full h-full object-cover opacity-40 mix-blend-overlay"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90"></div>
+                </div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Our Offices</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Our Offices</h2>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
                         {/* US Office */}
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-blue-600 w-full"></div>
                             <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Building2 className="w-8 h-8 text-blue-600 group-hover:text-white" />
+                                <div className="p-3 bg-blue-500/20 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Building2 className="w-8 h-8 text-blue-400 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">US Office</h3>
-                                <div className="space-y-3 text-slate-600">
-                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">501 E Kennedy Blvd Suite 1400<br />Tampa, FL 33602, United States</p>
+                                <h3 className="text-xl font-bold text-white mb-4 tracking-tight">US Office</h3>
+                                <div className="space-y-3 text-slate-300">
+                                    <p className="font-medium text-slate-100 leading-relaxed tracking-wide">501 E Kennedy Blvd Suite 1400<br />Tampa, FL 33602, United States</p>
                                     <div className="flex flex-col gap-1 text-sm">
-                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors tracking-wide">connect@trustgrid.ai</a>
-                                        <a href="tel:+919513288612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513288612</a>
+                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-400 transition-colors tracking-wide">connect@trustgrid.ai</a>
+                                        <a href="tel:+919513288612" className="hover:text-blue-400 transition-colors tracking-wide">+91 9513288612</a>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
 
                         {/* Singapore Office */}
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-purple-600 w-full"></div>
                             <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-purple-50 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Globe className="w-8 h-8 text-purple-600 group-hover:text-white" />
+                                <div className="p-3 bg-purple-500/20 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Globe className="w-8 h-8 text-purple-400 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Singapore Office</h3>
-                                <div className="space-y-3 text-slate-600">
-                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">5 Temasek Boulevard, 17th Floor<br />Singapore 038985</p>
+                                <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Singapore Office</h3>
+                                <div className="space-y-3 text-slate-300">
+                                    <p className="font-medium text-slate-100 leading-relaxed tracking-wide">5 Temasek Boulevard, 17th Floor<br />Singapore 038985</p>
                                     <div className="flex flex-col gap-1 text-sm">
-                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-600 transition-colors tracking-wide">connect@trustgrid.ai</a>
-                                        <a href="tel:+6560505235" className="hover:text-blue-600 transition-colors tracking-wide">+65 6050 5235</a>
+                                        <a href="mailto:connect@trustgrid.ai" className="hover:text-blue-400 transition-colors tracking-wide">connect@trustgrid.ai</a>
+                                        <a href="tel:+6560505235" className="hover:text-blue-400 transition-colors tracking-wide">+65 6050 5235</a>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
 
                         {/* India Office */}
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-green-600 w-full"></div>
                             <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-green-50 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <MapPin className="w-8 h-8 text-green-600 group-hover:text-white" />
+                                <div className="p-3 bg-green-500/20 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <MapPin className="w-8 h-8 text-green-400 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">India Office</h3>
-                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">TRUSTGRID.AI INNNOVATION PVT LTD</p>
-                                <div className="space-y-3 text-slate-600">
-                                    <p className="font-medium text-slate-900 text-sm leading-relaxed tracking-wide">
+                                <h3 className="text-xl font-bold text-white mb-2 tracking-tight">India Office</h3>
+                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">TRUSTGRID.AI INNNOVATION PVT LTD</p>
+                                <div className="space-y-3 text-slate-300">
+                                    <p className="font-medium text-slate-100 text-sm leading-relaxed tracking-wide">
                                         Suite : 32 , 235, BINNAMANGALA,<br />
                                         2nd Floor, 13th Cross Road,<br />
                                         Indira Nagar 2nd Stage, Hoysala Nagar,<br />
@@ -293,46 +318,46 @@ export default function Company() {
                         </Card>
 
                         {/* Mumbai Office */}
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-orange-600 w-full"></div>
                             <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-orange-50 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Building2 className="w-8 h-8 text-orange-600 group-hover:text-white" />
+                                <div className="p-3 bg-orange-500/20 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Building2 className="w-8 h-8 text-orange-400 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Mumbai Office</h3>
-                                <div className="space-y-3 text-slate-600">
-                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">
+                                <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Mumbai Office</h3>
+                                <div className="space-y-3 text-slate-300">
+                                    <p className="font-medium text-slate-100 leading-relaxed tracking-wide">
                                         WeWork, Raheja Platinum,<br />
                                         Road, off Andheri - Kurla Road,<br />
                                         Sag Baug, Marol, Andheri East,<br />
                                         Mumbai, Maharashtra 400059
                                     </p>
                                     <div className="flex flex-col gap-1 text-sm">
-                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors tracking-wide">cs@trustflow.in</a>
-                                        <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513088612</a>
+                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustflow.in</a>
+                                        <a href="tel:+919513088612" className="hover:text-blue-400 transition-colors tracking-wide">+91 9513088612</a>
                                     </div>
                                 </div>
                             </CardContent>
                         </Card>
 
                         {/* Bangalore Office (WeWork) */}
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <div className="h-1 bg-cyan-600 w-full"></div>
                             <CardContent className="p-5 flex flex-col items-center text-center">
-                                <div className="p-3 bg-cyan-50 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
-                                    <Building2 className="w-8 h-8 text-cyan-600 group-hover:text-white" />
+                                <div className="p-3 bg-cyan-500/20 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors mb-6 group-hover:scale-110 duration-300">
+                                    <Building2 className="w-8 h-8 text-cyan-400 group-hover:text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Bangalore Office</h3>
-                                <div className="space-y-3 text-slate-600">
-                                    <p className="font-medium text-slate-900 leading-relaxed tracking-wide">
+                                <h3 className="text-xl font-bold text-white mb-4 tracking-tight">Bangalore Office</h3>
+                                <div className="space-y-3 text-slate-300">
+                                    <p className="font-medium text-slate-100 leading-relaxed tracking-wide">
                                         WeWork, 13th floor, Tin Factory,<br />
                                         Salarpuria Magnificia, 78, Old Madras Rd,<br />
                                         next to KR Puram, Mahadevapura,<br />
                                         Bengaluru, Karnataka 560016
                                     </p>
                                     <div className="flex flex-col gap-1 text-sm">
-                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-600 transition-colors tracking-wide">cs@trustflow.in</a>
-                                        <a href="tel:+919513088612" className="hover:text-blue-600 transition-colors tracking-wide">+91 9513088612</a>
+                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustflow.in</a>
+                                        <a href="tel:+919513088612" className="hover:text-blue-400 transition-colors tracking-wide">+91 9513088612</a>
                                     </div>
                                 </div>
                             </CardContent>
@@ -341,30 +366,30 @@ export default function Company() {
 
                     {/* Contact Details */}
                     <div className="max-w-3xl mx-auto">
-                        <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 bg-white overflow-hidden group rounded-2xl hover:-translate-y-1">
+                        <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <CardContent className="p-8 flex flex-col md:flex-row items-center justify-around text-center gap-8 md:gap-0">
 
                                 {/* Email Section */}
                                 <div className="flex flex-col items-center w-full md:w-1/2">
-                                    <div className="p-3 bg-green-50 rounded-xl mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
-                                        <Mail className="w-8 h-8 text-green-600 group-hover:text-white" />
+                                    <div className="p-3 bg-green-500/20 rounded-xl mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
+                                        <Mail className="w-8 h-8 text-green-400 group-hover:text-white" />
                                     </div>
-                                    <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Email Us</h3>
-                                    <a href="mailto:connect@trustgrid.ai" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">connect@trustgrid.ai</a>
+                                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Email Us</h3>
+                                    <a href="mailto:connect@trustgrid.ai" className="text-xl font-bold text-white hover:text-blue-400 transition-colors tracking-tight">connect@trustgrid.ai</a>
                                 </div>
 
                                 {/* Divider */}
-                                <div className="hidden md:block w-px h-24 bg-slate-100"></div>
+                                <div className="hidden md:block w-px h-24 bg-white/10"></div>
 
                                 {/* Phone Section */}
                                 <div className="flex flex-col items-center w-full md:w-1/2">
-                                    <div className="p-3 bg-indigo-50 rounded-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
-                                        <Phone className="w-8 h-8 text-indigo-600 group-hover:text-white" />
+                                    <div className="p-3 bg-indigo-500/20 rounded-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300 group-hover:scale-110">
+                                        <Phone className="w-8 h-8 text-indigo-400 group-hover:text-white" />
                                     </div>
-                                    <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-2">Call Us</h3>
+                                    <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Call Us</h3>
                                     <div className="flex flex-col gap-1 items-center">
-                                        <a href="tel:+919513288612" className="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors tracking-tight">+91 9513288612</a>
-                                        <a href="tel:+6560505235" className="text-lg font-medium text-slate-500 hover:text-blue-600 transition-colors tracking-tight">+65 6050 5235</a>
+                                        <a href="tel:+919513288612" className="text-xl font-bold text-white hover:text-blue-400 transition-colors tracking-tight">+91 9513288612</a>
+                                        <a href="tel:+6560505235" className="text-lg font-medium text-slate-400 hover:text-blue-400 transition-colors tracking-tight">+65 6050 5235</a>
                                     </div>
                                 </div>
 
