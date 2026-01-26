@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
     Cloud,
     Landmark,
@@ -25,6 +25,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { Badge } from '../components/ui/badge';
 
 export default function Industries() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     const industries = [
         {
             title: "SaaS & Digital Platforms",
@@ -200,7 +217,7 @@ export default function Industries() {
             <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 mb-24">
                 <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                     {industries.map((industry, index) => (
-                        <Card key={index} className="flex flex-col h-full hover:shadow-2xl transition-all duration-300 border-slate-200 bg-white group hover:-translate-y-1 overflow-hidden">
+                        <Card key={index} id={industry.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="flex flex-col h-full hover:shadow-2xl transition-all duration-300 border-slate-200 bg-white group hover:-translate-y-1 overflow-hidden scroll-mt-32">
                             <CardHeader className="pb-4 bg-slate-50/50 border-b border-slate-100">
                                 <div className="flex items-start justify-between gap-4">
                                     <div className={`p-3 rounded-xl border ${getColorClass(industry.color)} transition-transform group-hover:scale-110 duration-500`}>

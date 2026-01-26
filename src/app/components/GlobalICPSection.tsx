@@ -4,92 +4,111 @@ import { Target, Users, AlertTriangle, CheckCircle2, ArrowUpRight } from 'lucide
 
 export default function GlobalICPSection() {
     return (
-        <section className="py-24 bg-slate-50 border-b border-slate-200 relative overflow-hidden">
-            {/* Subtle Pattern Background */}
-            <div className="absolute inset-0 opacity-[0.4] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+        <section className="py-16 bg-slate-950 border-b border-slate-800 relative overflow-hidden">
+            {/* Premium Background Image */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-slate-950/90 mix-blend-multiply z-10"></div>
+                <img
+                    src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000"
+                    alt="Background"
+                    className="w-full h-full object-cover opacity-40"
+                />
+            </div>
+
+            {/* Subtle Grid Pattern */}
+            <div className="absolute inset-0 opacity-[0.1] pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-16 shadow-2xl shadow-slate-200/60 border border-white ring-1 ring-slate-200/50">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 rounded-full text-xs font-bold tracking-widest uppercase mb-6 shadow-sm border border-blue-100/50">
+                <div className="bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] p-6 md:p-10 shadow-2xl border border-white/10 ring-1 ring-white/5">
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-blue-500/10 text-blue-400 rounded-full text-xs font-bold tracking-widest uppercase mb-4 border border-blue-500/20">
                             <Target className="w-4 h-4" />
-                            Ideal Customer Profile
+                            Crypto Ideal Customer Profile
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tighter leading-[1.1]">
-                            Trustflow AI is purpose-built for:
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tighter leading-[1.1]">
+                            Built for High-Velocity <br />
+                            <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Web3 & Crypto Ecosystems</span>
                         </h2>
-                        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-                            Designed for high-velocity revenue teams who need to move faster than the market.
-                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                         {/* Column 1: Who it's for */}
-                        <div className="group p-8 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-blue-900/5 hover:border-blue-100 transition-all duration-500">
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-500">
-                                <Users className="w-7 h-7 text-white" />
+                        <div className="group p-6 rounded-3xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 hover:border-blue-500/30 transition-all duration-500">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                                    <Users className="w-5 h-5 text-blue-400" />
+                                </div>
+                                <h3 className="text-lg font-bold text-white tracking-tight">
+                                    Target Ecosystems
+                                </h3>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">
-                                Target Organizations
-                            </h3>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3.5 text-slate-600 text-[17px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
-                                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-1" />
-                                    <span>B2B SaaS, Technology, AI, and Digital-First Enterprises</span>
+                            <ul className="space-y-3">
+                                <li className="flex items-start gap-3.5 text-slate-300 text-[14px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
+                                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                                    <span>L1 & L2 Protocols scaling their ecosystem</span>
                                 </li>
-                                <li className="flex items-start gap-3.5 text-slate-600 text-[17px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
-                                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-1" />
-                                    <span>Growth-stage to enterprise organizations ($5M–$500M+ ARR)</span>
+                                <li className="flex items-start gap-3.5 text-slate-300 text-[14px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
+                                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                                    <span>DeFi Platforms & DEXs seeking sustainable liquidity</span>
                                 </li>
-                                <li className="flex items-start gap-3.5 text-slate-600 text-[17px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
-                                    <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-1" />
-                                    <span>Revenue-owning leaders targeting pipeline velocity</span>
+                                <li className="flex items-start gap-3.5 text-slate-300 text-[14px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
+                                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                                    <span>Web3 Gaming & Metaverse Projects launching tokens</span>
+                                </li>
+                                <li className="flex items-start gap-3.5 text-slate-300 text-[14px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
+                                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                                    <span>Centralized Exchanges (CEX) driving user adoption</span>
                                 </li>
                             </ul>
                         </div>
 
                         {/* Column 2: Champions */}
-                        <div className="group p-8 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-indigo-900/5 hover:border-indigo-100 transition-all duration-500">
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-8 shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform duration-500">
-                                <Target className="w-7 h-7 text-white" />
+                        <div className="group p-6 rounded-3xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 hover:border-indigo-500/30 transition-all duration-500">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-colors">
+                                    <Target className="w-5 h-5 text-indigo-400" />
+                                </div>
+                                <h3 className="text-lg font-bold text-white tracking-tight">
+                                    Core Champions
+                                </h3>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">
-                                Primary Buyer & Champions
-                            </h3>
-                            <ul className="space-y-3">
+                            <ul className="space-y-2.5">
                                 {[
-                                    "Chief Revenue Officer (CRO)",
-                                    "VP / Head of Growth",
-                                    "VP Sales & Revenue Ops",
-                                    "Head of Demand Gen",
-                                    "Performance Marketing Leaders"
+                                    "Founders & Protocol Architects",
+                                    "Heads of Growth & Marketing",
+                                    "Tokenomics & Ecosystem Leads",
+                                    "Community Managers",
+                                    "DAOs & Governance Councils"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3.5 text-slate-600 text-[17px] font-medium p-2 rounded-lg hover:bg-slate-50 transition-all duration-300 group/item hover:pl-3">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 group-hover/item:scale-150 transition-transform"></div>
-                                        <span className="group-hover/item:text-slate-900 transition-colors">{item}</span>
+                                    <li key={i} className="flex items-center gap-3.5 text-slate-300 text-[14px] font-medium p-1.5 rounded-lg hover:bg-slate-700/50 transition-all duration-300 group/item hover:pl-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 group-hover/item:scale-150 transition-transform"></div>
+                                        <span className="group-hover/item:text-white transition-colors">{item}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
                         {/* Column 3: Mission Critical */}
-                        <div className="group p-8 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-amber-900/5 hover:border-amber-100 transition-all duration-500">
-                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-8 shadow-lg shadow-orange-500/20 group-hover:scale-110 transition-transform duration-500">
-                                <AlertTriangle className="w-7 h-7 text-white" />
+                        <div className="group p-6 rounded-3xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 hover:border-amber-500/30 transition-all duration-500">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500/20 transition-colors">
+                                    <AlertTriangle className="w-5 h-5 text-amber-400" />
+                                </div>
+                                <h3 className="text-lg font-bold text-white tracking-tight">
+                                    When It's Mission-Critical
+                                </h3>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 tracking-tight">
-                                When It Becomes Critical
-                            </h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-3">
                                 {[
-                                    "Revenue growth has plateaued despite increased spend",
-                                    "Lead volume exists, but quality is inconsistent",
-                                    "Sales cycles are long and forecasting is unreliable",
-                                    "Teams rely on manual analysis and gut decisions"
+                                    "TVL is high, but daily active user count is stagnant",
+                                    "Incentive programs are bleeding funds to bots/farmers",
+                                    "Token launch is approaching with unclear demand",
+                                    "Community sentiment is disconnected from on-chain reality",
+                                    "Struggling to convert airdrop hunters into long-term users"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3.5 text-slate-600 text-[17px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
-                                        <div className="p-0.5 bg-amber-100 rounded-full mt-1">
-                                            <ArrowUpRight className="w-3.5 h-3.5 text-amber-600" />
+                                    <li key={i} className="flex items-start gap-3.5 text-slate-300 text-[14px] leading-relaxed font-medium transition-transform duration-300 hover:translate-x-1">
+                                        <div className="p-0.5 bg-amber-500/10 rounded-full mt-1">
+                                            <ArrowUpRight className="w-3 h-3 text-amber-400" />
                                         </div>
                                         <span>{item}</span>
                                     </li>

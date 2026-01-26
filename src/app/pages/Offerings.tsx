@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
     Check,
-    ArrowRight,
     Brain,
     TrendingUp,
     Zap,
@@ -19,6 +18,23 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function Offerings() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     const offerings = [
         {
             title: "AI Demand Generation Engine",
@@ -209,13 +225,11 @@ export default function Offerings() {
                         Each offering is engineered to solve a critical revenue growth challenge — from demand creation and sales execution to revenue operations and expansion.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/book-demo">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
-                                Book a Demo
-                            </Button>
-                        </Link>
-                        <Button variant="outline" className="text-lg px-8 py-6 h-auto border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900">
-                            Talk to an Expert
+                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
+                            <Link to="/book-demo">Book a Demo</Link>
+                        </Button>
+                        <Button asChild variant="outline" className="text-lg px-8 py-6 h-auto border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-slate-900">
+                            <Link to="/talk-to-expert">Talk to an Expert</Link>
                         </Button>
                     </div>
                 </div>
@@ -291,7 +305,7 @@ export default function Offerings() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {offerings.map((offering, index) => (
-                        <Card key={index} className="flex flex-col h-full hover:shadow-xl hover:shadow-blue-900/5 transition-all border-slate-200 bg-white hover:border-blue-300 group">
+                        <Card key={index} id={offering.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="flex flex-col h-full hover:shadow-xl hover:shadow-blue-900/5 transition-all border-slate-200 bg-white hover:border-blue-300 group scroll-mt-32">
                             <CardHeader>
                                 <div className="mb-4 p-3 bg-slate-50 w-fit rounded-lg border border-slate-100 group-hover:bg-blue-50 transition-colors">
                                     {offering.icon}
@@ -381,13 +395,11 @@ export default function Offerings() {
                     Ready to scale revenue with AI? Build Your Predictable Revenue Engine with TrustFlow AI today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link to="/book-demo">
-                        <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg shadow-lg">
-                            Book a Demo
-                        </Button>
-                    </Link>
-                    <Button variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-6 h-auto text-lg">
-                        Talk to a Revenue Expert
+                    <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg shadow-lg">
+                        <Link to="/book-demo">Book a Demo</Link>
+                    </Button>
+                    <Button asChild variant="outline" className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-6 h-auto text-lg">
+                        <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>
                     </Button>
                 </div>
                 <div className="mt-8">

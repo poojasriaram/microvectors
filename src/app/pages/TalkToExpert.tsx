@@ -1,22 +1,20 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { submitToAirtable } from '../../lib/airtable';
 import {
     CheckCircle2,
-    Calendar,
-    ArrowRight,
-    Building2,
-    Users,
+    Search,
     TrendingUp,
-    Shield
+    Lightbulb,
+    Target
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
-import { submitToAirtable } from '../../lib/airtable';
 
-export default function BookDemo() {
-    React.useEffect(() => {
+export default function TalkToExpert() {
+    useEffect(() => {
+        document.title = "Talk to a Revenue Expert | TrustFlow AI";
         window.scrollTo(0, 0);
     }, []);
 
@@ -27,8 +25,7 @@ export default function BookDemo() {
         phone: '',
         company: '',
         jobTitle: '',
-        revenue: '',
-        interest: '',
+        challenge: '',
         message: ''
     });
 
@@ -40,22 +37,22 @@ export default function BookDemo() {
         setIsSubmitting(true);
 
         try {
-            await submitToAirtable('Book Demo', {
+            await submitToAirtable('Talk to Expert', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,
                 "Phone": formData.phone,
                 "Company": formData.company,
+                "Job Title": formData.jobTitle,
+                "Challenge": formData.challenge,
+                "Message": formData.message,
                 "Status": "New",
-                "Source": "Book Demo Page",
-                "Annual Revenue": formData.revenue,
-                "Interest": formData.interest,
-                "Message": formData.message
+                "Source": "Talk to Expert Page"
             });
             setSubmitted(true);
-        } catch (error: any) {
-            console.error("Error submitting form:", error);
-            alert("Submission failed. Please try again or contact us directly.");
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -82,28 +79,28 @@ export default function BookDemo() {
                     <div className="lg:w-1/2 space-y-10">
                         <div>
                             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-700 font-bold text-xs uppercase tracking-wider mb-6 border border-blue-100 shadow-sm">
-                                <Calendar className="w-4 h-4" />
-                                Schedule a Consultation
+                                <Search className="w-4 h-4" />
+                                Expert Consultation
                             </span>
                             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 mb-6 tracking-tighter leading-[1.05]">
-                                Architect Your <br />
+                                Solve Your <br />
                                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                    AI Revenue Engine
+                                    Revenue Puzzles
                                 </span>
                             </h1>
                             <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-lg">
-                                Book a personalized demo with our revenue architects. See how TrustFlow AI can transform your unstructured data into predictable growth.
+                                Connect with senior revenue architects who have scaled unicorns. Get actionable advice on your GTM strategy, RevOps, and AI adoption.
                             </p>
                         </div>
 
                         <div className="space-y-6">
-                            <h3 className="text-xl font-bold text-slate-900 tracking-tight">What you'll get:</h3>
+                            <h3 className="text-xl font-bold text-slate-900 tracking-tight">Why talk to us?</h3>
                             <ul className="space-y-4">
                                 {[
-                                    { text: "Full platform walkthrough customized to your vertical", icon: Users },
-                                    { text: "AI readiness assessment for your current stack", icon: Shield },
-                                    { text: "Revenue acceleration roadmap & ROI projection", icon: TrendingUp },
-                                    { text: "Competitive whitespace analysis preview", icon: Building2 }
+                                    { text: "Unbiased audit of your revenue stack", icon: Target },
+                                    { text: "Strategic roadmap for AI implementation", icon: Lightbulb },
+                                    { text: "Benchmarks against industry leaders", icon: TrendingUp },
+                                    { text: "Actionable quick-wins for this quarter", icon: CheckCircle2 }
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-md transition-all group">
                                         <div className="bg-blue-50 p-2.5 rounded-xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -116,24 +113,13 @@ export default function BookDemo() {
                         </div>
 
                         <div className="pt-8 border-t border-slate-200/60">
-                            <div className="flex items-center gap-5">
-                                <div className="flex -space-x-4">
-                                    {[1, 2, 3, 4].map((i) => (
-                                        <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden shadow-sm">
-                                            <img src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="User" className="w-full h-full object-cover" />
-                                        </div>
+                            <div className="flex items-center gap-4">
+                                <div className="flex -space-x-3">
+                                    {[1, 2, 3].map(i => (
+                                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
                                     ))}
                                 </div>
-                                <div>
-                                    <div className="flex items-center gap-0.5 mb-1.5">
-                                        {[1, 2, 3, 4, 5].map(i => (
-                                            <svg key={i} className="w-4 h-4 text-amber-400 fill-current drop-shadow-sm" viewBox="0 0 20 20">
-                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                        ))}
-                                    </div>
-                                    <p className="text-sm font-bold text-slate-700 tracking-wide">Trusted by 500+ Revenue Leaders</p>
-                                </div>
+                                <p className="text-sm font-semibold text-slate-600">Join 100+ leaders optimizing revenue with TrustFlow.</p>
                             </div>
                         </div>
                     </div>
@@ -147,9 +133,9 @@ export default function BookDemo() {
                                     <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6 shadow-sm border border-green-100 animate-bounce">
                                         <CheckCircle2 className="w-12 h-12 text-green-600" />
                                     </div>
-                                    <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Request Received!</h2>
+                                    <h2 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Request Sent!</h2>
                                     <p className="text-lg text-slate-600 max-w-md mx-auto mb-8 font-medium">
-                                        Thanks for your interest, {formData.firstName}. Our revenue architects will review your profile and contact you shortly.
+                                        Your request has been prioritized. A senior expert will reach out to you within 24 hours.
                                     </p>
                                     <Button
                                         onClick={() => setSubmitted(false)}
@@ -162,8 +148,8 @@ export default function BookDemo() {
                             ) : null}
 
                             <div className="relative z-10 mb-8">
-                                <h2 className="text-2xl font-bold text-slate-900 mb-2">Get Started</h2>
-                                <p className="text-slate-500">Fill out the form below to schedule your demo.</p>
+                                <h2 className="text-2xl font-bold text-slate-900 mb-2">Speak to an Expert</h2>
+                                <p className="text-slate-500">No commitment. Just clear, strategic advice.</p>
                             </div>
 
                             <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
@@ -209,58 +195,42 @@ export default function BookDemo() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="company">Company</Label>
-                                        <Input
-                                            id="company" name="company" required
-                                            value={formData.company} onChange={handleChange}
-                                            placeholder="Acme Corp"
-                                            className="h-10 md:h-11"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="revenue">Annual Revenue</Label>
-                                        <div className="relative">
-                                            <select
-                                                id="revenue" name="revenue"
-                                                value={formData.revenue} onChange={handleChange}
-                                                className={`flex h-10 md:h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formData.revenue === "" ? "text-slate-500" : "text-slate-900"}`}
-                                            >
-                                                <option value="" className="text-slate-400">Select Range</option>
-                                                <option value="Seed - Series A">Seed - Series A</option>
-                                                <option value="Series B - C ($10M - $50M)">Series B - C ($10M - $50M)</option>
-                                                <option value="Enterprise ($50M+)">Enterprise ($50M+)</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="company">Company</Label>
+                                    <Input
+                                        id="company" name="company" required
+                                        value={formData.company} onChange={handleChange}
+                                        placeholder="Acme Corp"
+                                        className="h-10 md:h-11"
+                                    />
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="interest">Primary Interest</Label>
+                                    <Label htmlFor="challenge">Biggest Revenue Challenge</Label>
                                     <div className="relative">
                                         <select
-                                            id="interest" name="interest" required
-                                            value={formData.interest} onChange={handleChange}
-                                            className={`flex h-10 md:h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formData.interest === "" ? "text-slate-500" : "text-slate-900"}`}
+                                            id="challenge" name="challenge" required
+                                            value={formData.challenge} onChange={handleChange}
+                                            className={`flex h-10 md:h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formData.challenge === "" ? "text-slate-500" : "text-slate-900"}`}
                                         >
-                                            <option value="" className="text-slate-400">Select a Solution</option>
-                                            <option value="AI Sales Acceleration">AI Sales Acceleration</option>
-                                            <option value="Demand Discovery Engine">Demand Discovery Engine</option>
-                                            <option value="Revenue Operations (RevOps)">Revenue Operations (RevOps)</option>
-                                            <option value="Performance Marketing">Performance Marketing</option>
-                                            <option value="Other / General Inquiry">Other / General Inquiry</option>
+                                            <option value="" className="text-slate-400">Select Challenge</option>
+                                            <option value="Unpredictable Pipeline">Unpredictable Pipeline</option>
+                                            <option value="Low Sales Productivity">Low Sales Productivity</option>
+                                            <option value="Data Silos & Hygiene">Data Silos & Hygiene</option>
+                                            <option value="Scaling GTM Team">Scaling GTM Team</option>
+                                            <option value="AI Adoption Strategy">AI Adoption Strategy</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <Label htmlFor="message">Message (Optional)</Label>
+                                    <Label htmlFor="message">Specific questions? (Optional)</Label>
                                     <Textarea
                                         id="message" name="message"
                                         value={formData.message} onChange={handleChange}
                                         className="min-h-[100px] resize-none"
-                                        placeholder="Tell us about your current challenges..."
+                                        placeholder="Briefly describe what you'd like to discuss..."
                                     />
                                 </div>
 
@@ -270,11 +240,11 @@ export default function BookDemo() {
                                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? 'Submitting...' : 'Book Your Demo'}
+                                    {isSubmitting ? 'Requesting...' : 'Talk to an Expert'}
                                 </Button>
 
                                 <p className="text-xs text-center text-slate-500 mt-4">
-                                    By submitting this form, you agree to our Terms of Service and Privacy Policy.
+                                    Your information is secure. We don't share data with third parties.
                                 </p>
                             </form>
                         </div>

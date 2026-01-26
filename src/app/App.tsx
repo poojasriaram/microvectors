@@ -23,13 +23,22 @@ import Sitemap from './pages/Sitemap';
 import DemandPulse from './pages/DemandPulse';
 import Partners from './pages/Partners';
 import Career from './pages/Career';
+import TalkToExpert from './pages/TalkToExpert';
 import CookieConsent from './components/CookieConsent';
 
 
 
+import { useTrafficAnalysis } from '../hooks/useTrafficAnalysis';
+
+function TrafficTracker() {
+  useTrafficAnalysis();
+  return null;
+}
+
 export default function App() {
   return (
     <Router>
+      <TrafficTracker />
       <div className="min-h-screen bg-white">
         <Navigation />
         <main>
@@ -53,6 +62,7 @@ export default function App() {
             <Route path="/demand-pulse" element={<DemandPulse />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/career" element={<Career />} />
+            <Route path="/talk-to-expert" element={<TalkToExpert />} />
 
           </Routes>
         </main>

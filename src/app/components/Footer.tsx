@@ -5,6 +5,40 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/Trustflow-logo.png';
 
 export default function Footer() {
+
+    const solutionsLinks: { [key: string]: string } = {
+        'Business Growth': '/solutions?section=ai-business-growth-strategy',
+        'Demand Intelligence': '/solutions?section=ai-market-strategy-demand-intelligence',
+        'Performance Growth': '/solutions?section=ai-driven-performance-marketing',
+        'Sales Agents': '/solutions?section=ai-auto-sales-pilot-autonomous-sales-agents',
+        'RevOps Optimization': '/solutions?section=ai-revenue-operations-ai-revops'
+    };
+
+    const industriesLinks: { [key: string]: string } = {
+        'B2B SaaS': '/industries?section=saas-digital-platforms',
+        'Fintech': '/industries?section=bfsi-fintech',
+        'Healthcare': '/industries?section=insurance',
+        'Manufacturing': '/industries?section=manufacturing-industrial',
+        'Crypto & Web3': '/crypto'
+    };
+
+    const companyLinks: { [key: string]: string } = {
+        'About Us': '/company',
+        'Leadership Team': '/company?section=leadership-culture',
+        'Our Offices': '/company?section=our-offices',
+        'Careers': '/career',
+        'Contact Us': '/company?section=contact-details' // Update Company.tsx to have this ID if not present, but for now /company is fine or I check.
+    };
+
+    const offeringsLinks: { [key: string]: string } = {
+        'Demand Generation': '/offerings?section=ai-demand-generation-engine',
+        'Growth Hacking Engine': '/offerings?section=ai-growth-hacking-engine',
+        'Lean Sales': '/offerings?section=ai-lean-sales-sales-transformation',
+        'RevOps Platform': '/offerings?section=ai-revenue-operations-revops',
+        'ARR Acceleration': '/offerings?section=arr-acceleration-program',
+        'Resources': '/resources'
+    };
+
     return (
         <footer className="bg-slate-50 pt-16 pb-12 border-t border-slate-200 font-sans text-slate-600 relative overflow-hidden">
             {/* Background Decoration */}
@@ -61,9 +95,9 @@ export default function Footer() {
                         <div className="space-y-4">
                             <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Solutions</h3>
                             <ul className="space-y-2 text-[13px]">
-                                {['Business Growth', 'Demand Intelligence', 'Performance Growth', 'Sales Agents', 'RevOps Optimization'].map((item, i) => (
+                                {Object.keys(solutionsLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to="/solutions" className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
+                                        <Link to={solutionsLinks[item]} className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
                                             <span>{item}</span>
                                             <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                         </Link>
@@ -74,9 +108,9 @@ export default function Footer() {
                         <div className="space-y-4">
                             <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Industries</h3>
                             <ul className="space-y-2 text-[13px]">
-                                {['B2B SaaS', 'Fintech', 'Healthcare', 'Manufacturing', 'Crypto & Web3'].map((item, i) => (
+                                {Object.keys(industriesLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={item.includes('Crypto') ? '/crypto' : '/industries'} className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
+                                        <Link to={industriesLinks[item]} className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
                                             <span>{item}</span>
                                             <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                         </Link>
@@ -87,9 +121,12 @@ export default function Footer() {
                         <div className="space-y-4">
                             <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Company</h3>
                             <ul className="space-y-2 text-[13px]">
-                                {['About Us', 'Leadership Team', 'Our Offices', 'Careers', 'Contact Us'].map((item, i) => (
+                                {Object.keys(companyLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to="/company" className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
+                                        <Link
+                                            to={companyLinks[item]}
+                                            className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+                                        >
                                             <span>{item}</span>
                                             <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                         </Link>
@@ -98,11 +135,14 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div className="space-y-4">
-                            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Resources</h3>
+                            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Offerings</h3>
                             <ul className="space-y-2 text-[13px]">
-                                {['Playbooks', 'Case Studies', 'Whitepapers', 'Blog & Insights'].map((item, i) => (
+                                {Object.keys(offeringsLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to="/resources" className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group">
+                                        <Link
+                                            to={offeringsLinks[item]}
+                                            className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+                                        >
                                             <span>{item}</span>
                                             <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                                         </Link>
