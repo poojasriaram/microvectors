@@ -70,6 +70,17 @@ export default function Sitemap() {
                         "Implementation Options",
                         "Pricing Models"
                     ]
+                },
+                {
+                    name: "Resources",
+                    path: "/resources",
+                    sections: [
+                        "AI Revenue Playbooks",
+                        "Demand Gen Frameworks",
+                        "Sales Guides",
+                        "RevOps Best Practices",
+                        "Case Studies & Whitepapers"
+                    ]
                 }
             ]
         },
@@ -108,7 +119,7 @@ export default function Sitemap() {
             ]
         },
         {
-            category: "Company & Resources",
+            category: "Company",
             icon: Users,
             links: [
                 {
@@ -122,14 +133,12 @@ export default function Sitemap() {
                     ]
                 },
                 {
-                    name: "Resources",
-                    path: "/resources",
+                    name: "Careers",
+                    path: "/career",
                     sections: [
-                        "AI Revenue Playbooks",
-                        "Demand Gen Frameworks",
-                        "Sales Guides",
-                        "RevOps Best Practices",
-                        "Case Studies & Whitepapers"
+                        "Our Values",
+                        "Open Positions",
+                        "Join the Team"
                     ]
                 }
             ]

@@ -43,21 +43,23 @@ export default function HeroSection() {
           {/* CTAs */}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Link to="/book-demo">
-              <Button
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base rounded-full shadow-[0_6px_20px_-5px_rgba(37,99,235,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-0.5 font-bold"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base rounded-full shadow-[0_6px_20px_-5px_rgba(37,99,235,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-0.5 font-bold"
+            >
+              <Link to="/book-demo">
                 Book a Demo
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-slate-200 bg-white text-slate-600 hover:bg-slate-50 h-12 text-base rounded-full px-8 hover:text-slate-900 shadow-sm hover:shadow-md transition-all font-semibold"
             >
-              Talk to a Revenue Expert
+              <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>
             </Button>
           </div>
 

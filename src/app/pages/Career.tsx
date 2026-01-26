@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { submitToAirtable } from '../../lib/airtable';
 import {
     Rocket,
     Heart,
@@ -36,11 +37,27 @@ export default function Career() {
         setIsApplyOpen(true);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would handle the actual submission
-        alert(`Application for ${selectedRole} submitted successfully!`);
-        setIsApplyOpen(false);
+        const form = e.currentTarget as HTMLFormElement;
+        const formData = new FormData(form);
+
+        try {
+            await submitToAirtable('Job Applications', {
+                "First Name": formData.get('firstName'),
+                "Last Name": formData.get('lastName'),
+                "Email": formData.get('email'),
+                "LinkedIn Profile": formData.get('linkedin'),
+                "Role Applied For": selectedRole,
+                "Cover Letter": formData.get('coverLetter'),
+                "Status": "New"
+            });
+            alert(`Application for ${selectedRole} submitted successfully!`);
+            setIsApplyOpen(false);
+        } catch (error) {
+            console.error(error);
+            alert("Application failed. Please try again.");
+        }
     };
 
     const slides = [
@@ -230,22 +247,22 @@ export default function Career() {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Label htmlFor="firstName">First name</Label>
-                                <Input id="firstName" placeholder="Jane" required />
+                                <Input id="firstName" name="firstName" placeholder="Jane" required />
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="lastName">Last name</Label>
-                                <Input id="lastName" placeholder="Doe" required />
+                                <Input id="lastName" name="lastName" placeholder="Doe" required />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
-                            <Input id="email" type="email" placeholder="jane@example.com" required />
+                            <Input id="email" name="email" type="email" placeholder="jane@example.com" required />
                         </div>
 
                         <div className="space-y-2">
                             <Label htmlFor="linkedin">LinkedIn Profile URL</Label>
-                            <Input id="linkedin" placeholder="https://linkedin.com/in/janedoe" />
+                            <Input id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/janedoe" />
                         </div>
 
                         <div className="space-y-2">
@@ -258,6 +275,7 @@ export default function Career() {
                             <Label htmlFor="coverLetter">Cover Letter (Optional)</Label>
                             <Textarea
                                 id="coverLetter"
+                                name="coverLetter"
                                 placeholder="Tell us why you want to join TrustFlow AI..."
                                 className="min-h-[100px]"
                             />

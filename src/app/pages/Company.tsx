@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
     Target,
     Zap,
@@ -18,6 +18,23 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
 export default function Company() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     // SEO & Meta Title
     useEffect(() => {
         document.title = "About TrustFlow AI | AI Revenue Acceleration Platform";
@@ -213,7 +230,7 @@ export default function Company() {
             </section>
 
             {/* 4. Leadership & Culture - Premium */}
-            <section className="py-24 bg-white border-t border-slate-100">
+            <section id="leadership-culture" className="py-24 bg-white border-t border-slate-100 scroll-mt-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Leadership & Culture</h2>
@@ -244,7 +261,7 @@ export default function Company() {
             </section>
 
             {/* 5. Offices & Contact - Compact */}
-            <section className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden">
+            <section id="our-offices" className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden scroll-mt-32">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -365,7 +382,7 @@ export default function Company() {
                     </div>
 
                     {/* Contact Details */}
-                    <div className="max-w-3xl mx-auto">
+                    <div id="contact-details" className="max-w-3xl mx-auto scroll-mt-32">
                         <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <CardContent className="p-8 flex flex-col md:flex-row items-center justify-around text-center gap-8 md:gap-0">
 

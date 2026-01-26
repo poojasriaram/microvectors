@@ -1,11 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
     Target,
     BarChart3,
     Zap,
     Users,
-    MessageSquare,
     Workflow,
     Database,
     LineChart,
@@ -18,6 +17,23 @@ import {
 } from 'lucide-react';
 
 export default function Solutions() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     const solutions = [
         {
             title: "AI Business Growth Strategy",
@@ -152,7 +168,7 @@ export default function Solutions() {
                         const Icon = solution.icon;
 
                         return (
-                            <div key={index} className="group relative">
+                            <div key={index} id={solution.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="group relative scroll-mt-32">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <div className="relative bg-white border border-slate-200 rounded-2xl p-6 lg:p-8 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-lg">
                                     <div className="flex flex-col lg:flex-row gap-8 items-start">

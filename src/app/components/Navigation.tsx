@@ -8,7 +8,16 @@ import logo from '../../assets/Trustflow-logo.png';
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+    const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const location = useLocation();
+
+    const toggleExpanded = (name: string) => {
+        setExpandedItems(prev =>
+            prev.includes(name)
+                ? prev.filter(item => item !== name)
+                : [...prev, name]
+        );
+    };
 
     // Define navigation structure with dropdowns for specific items
     const navItems = [
@@ -57,13 +66,18 @@ export default function Navigation() {
                 "Growth Hacking Engine",
                 "Lean Sales",
                 "RevOps Platform",
-                "ARR Acceleration"
+                "ARR Acceleration",
+                { name: "Resources", path: "/resources" }
             ]
         },
-        { name: 'Resources', path: '/resources' },
         { name: 'Partners', path: '/partners' },
-        { name: 'Careers', path: '/career' },
-        { name: 'Company', path: '/company' },
+        {
+            name: 'Company',
+            path: '/company',
+            dropdown: [
+                { name: "Careers", path: "/career" }
+            ]
+        },
     ];
 
     return (
@@ -110,16 +124,22 @@ export default function Navigation() {
                                         <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
 
                                         <ul className="py-1">
-                                            {item.dropdown.map((subItem, idx) => (
-                                                <li key={idx}>
-                                                    <Link
-                                                        to={`${item.path}?section=${encodeURIComponent(subItem)}`}
-                                                        className="block px-4 py-2.5 text-sm text-black hover:text-blue-600 hover:bg-blue-50/50 rounded-lg transition-colors font-medium border-b border-slate-50 last:border-0"
-                                                    >
-                                                        {subItem}
-                                                    </Link>
-                                                </li>
-                                            ))}
+                                            {item.dropdown.map((subItem, idx) => {
+                                                const isString = typeof subItem === 'string';
+                                                const label = isString ? subItem : subItem.name;
+                                                const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
+
+                                                return (
+                                                    <li key={idx}>
+                                                        <Link
+                                                            to={linkPath}
+                                                            className="block px-4 py-2.5 text-sm text-black hover:text-blue-600 hover:bg-blue-50/50 rounded-lg transition-colors font-medium border-b border-slate-50 last:border-0"
+                                                        >
+                                                            {label}
+                                                        </Link>
+                                                    </li>
+                                                );
+                                            })}
                                         </ul>
                                     </div>
                                 )}
@@ -146,71 +166,126 @@ export default function Navigation() {
                     </div>
 
                     {/* Mobile menu button */}
-                    <div className="lg:hidden">
+                    <div className="lg:hidden flex items-center gap-4">
+                        <Link to="/book-demo" className="text-sm font-bold text-blue-600">
+                            Book Demo
+                        </Link>
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="text-slate-700 hover:text-slate-900 p-2"
+                            className="text-slate-700 hover:text-slate-900 p-2 -mr-2"
                         >
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                         </button>
                     </div>
                 </div>
+            </div>
 
-                {/* Mobile Navigation Panel */}
-                {mobileMenuOpen && (
-                    <div className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white z-40 overflow-y-auto border-t border-slate-100">
-                        <div className="p-4 space-y-1">
-                            {navItems.map((item) => (
-                                <div key={item.name} className="border-b border-slate-50 last:border-0">
-                                    <Link
-                                        to={item.path}
-                                        className={`block py-4 text-base font-semibold px-2 ${location.pathname === item.path
-                                            ? 'text-blue-600'
-                                            : 'text-black'
-                                            }`}
-                                        onClick={() => setMobileMenuOpen(false)}
+            {/* Mobile Navigation Panel */}
+            {mobileMenuOpen && (
+                <div className="lg:hidden fixed inset-x-0 top-20 h-[calc(100vh-5rem)] bg-white/95 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/80 z-40 overflow-y-auto border-t border-slate-100 pb-20 shadow-2xl">
+                    <div className="flex flex-col p-6 space-y-2 min-h-full bg-gradient-to-b from-transparent to-slate-50/50">
+                        {navItems.map((item) => (
+                            <div key={item.name} className="border-b border-slate-100/80 last:border-0">
+                                <div className={`flex flex-col transition-all duration-300 ${expandedItems.includes(item.name) ? 'bg-slate-50/50 rounded-2xl mb-2' : ''}`}>
+                                    <div
+                                        className="flex items-center justify-between py-3 px-2 cursor-pointer group"
+                                        onClick={() => {
+                                            if (item.dropdown) {
+                                                toggleExpanded(item.name);
+                                            } else {
+                                                setMobileMenuOpen(false);
+                                            }
+                                        }}
                                     >
-                                        {item.name}
-                                    </Link>
+                                        <Link
+                                            to={item.path}
+                                            className={`flex-1 text-lg font-bold tracking-tight transition-colors ${location.pathname === item.path
+                                                ? 'text-blue-600'
+                                                : 'text-slate-800 group-hover:text-blue-600'
+                                                }`}
+                                            onClick={(e) => {
+                                                if (item.dropdown) {
+                                                    setMobileMenuOpen(false);
+                                                } else {
+                                                    setMobileMenuOpen(false);
+                                                }
+                                            }}
+                                        >
+                                            {item.name}
+                                        </Link>
+
+                                        {item.dropdown && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    e.preventDefault();
+                                                    toggleExpanded(item.name);
+                                                }}
+                                                className="p-2 text-slate-400 hover:text-blue-600 focus:outline-none transition-colors"
+                                            >
+                                                <ChevronDown
+                                                    className={`w-5 h-5 transition-transform duration-300 ${expandedItems.includes(item.name) ? 'rotate-180 text-blue-600' : ''
+                                                        }`}
+                                                />
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    {/* Mobile Dropdown Items */}
                                     {item.dropdown && (
-                                        <div className="pl-6 pb-4 space-y-3 bg-slate-50/50 rounded-lg mb-2">
-                                            {item.dropdown.map((subItem, idx) => (
-                                                <Link
-                                                    key={idx}
-                                                    to={`${item.path}?section=${encodeURIComponent(subItem)}`}
-                                                    className="block text-sm text-black font-medium pt-3 first:pt-4"
-                                                    onClick={() => setMobileMenuOpen(false)}
-                                                >
-                                                    {subItem}
-                                                </Link>
-                                            ))}
+                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedItems.includes(item.name) ? 'max-h-[800px] opacity-100 pb-4' : 'max-h-0 opacity-0'
+                                            }`}>
+                                            <div className="px-4 space-y-1 border-l-2 border-blue-100 ml-4 mb-2">
+                                                {item.dropdown.map((subItem, idx) => {
+                                                    const isString = typeof subItem === 'string';
+                                                    const label = isString ? subItem : subItem.name;
+                                                    const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
+
+                                                    return (
+                                                        <Link
+                                                            key={idx}
+                                                            to={linkPath}
+                                                            className="block py-2.5 px-4 text-[15px] text-slate-600 font-medium hover:text-blue-600 hover:bg-blue-50/50 rounded-lg transition-all"
+                                                            onClick={() => setMobileMenuOpen(false)}
+                                                        >
+                                                            {label}
+                                                        </Link>
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
                                     )}
                                 </div>
-                            ))}
-                            <div className="pt-6 px-2">
-                                <Link to="/book-demo" onClick={() => setMobileMenuOpen(false)}>
-                                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white h-12 rounded-lg font-bold shadow-lg">
-                                        Book a Demo
-                                    </Button>
-                                </Link>
-                                <a
-                                    href="https://wa.me/919513288612"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block mt-3"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    <Button className="w-full bg-green-500 hover:bg-green-600 text-white h-12 rounded-lg font-bold shadow-lg flex items-center justify-center gap-2">
-                                        <MessageCircle className="w-5 h-5" />
-                                        Contact Us
-                                    </Button>
-                                </a>
                             </div>
+                        ))}
+
+                        <div className="mt-auto pt-8 px-2 space-y-4">
+                            <Link
+                                to="/book-demo"
+                                className="block w-full"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white h-14 rounded-xl font-bold text-lg shadow-xl shadow-blue-500/20 active:scale-[0.98] transition-all">
+                                    Book a Demo
+                                </Button>
+                            </Link>
+
+                            <a
+                                href="https://wa.me/919513288612"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block w-full"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <Button className="w-full bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 h-14 rounded-xl font-bold text-lg shadow-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+                                    <MessageCircle className="w-5 h-5 text-green-500" />
+                                    Contact Us
+                                </Button>
+                            </a>
                         </div>
                     </div>
-                )}
-            </div>
+                </div>
+            )}
         </nav>
     );
 }
