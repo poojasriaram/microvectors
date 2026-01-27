@@ -22,18 +22,6 @@ export default function Navigation() {
     // Define navigation structure with dropdowns for specific items
     const navItems = [
         { name: 'Home', path: '/' },
-        {
-            name: 'Verticals',
-            path: '/verticals',
-            dropdown: [
-                "SaaS & Enterprise",
-                "BFSI & Fintech",
-                "D2C & Consumer",
-                "Crypto & Web3",
-                "Education & EdTech",
-                "Manufacturing"
-            ]
-        },
         { name: 'Crypto', path: '/crypto' },
         {
             name: 'Outcomes',
@@ -57,7 +45,18 @@ export default function Navigation() {
                 "RevOps"
             ]
         },
-        { name: 'Industries', path: '/industries' },
+        {
+            name: 'Industries',
+            path: '/industries',
+            dropdown: [
+                "SaaS & Enterprise Software",
+                "BFSI – Banking, Lending & Insurance",
+                "FinTech",
+                "D2C & Consumer Brands",
+                "Crypto, Web3 & Digital Assets",
+                "Education & EdTech"
+            ]
+        },
         {
             name: 'Offerings',
             path: '/offerings',
@@ -113,14 +112,14 @@ export default function Navigation() {
                                     )}
                                 </Link>
 
-                                {/* Dropdown Menu - Simple Popup Style */}
+                                {/* Dropdown Menu */}
                                 {item.dropdown && (
                                     <div
                                         className={`absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-xl border border-slate-100 p-2 transform transition-all duration-200 origin-top z-50 mt-2
                                         ${hoveredItem === item.name ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'}
                                     `}
                                     >
-                                        {/* Invisible bridge to prevent menu from closing when moving cursor */}
+                                        {/* Invisible bridge */}
                                         <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
 
                                         <ul className="py-1">
@@ -205,7 +204,7 @@ export default function Navigation() {
                                                 }`}
                                             onClick={(e) => {
                                                 if (item.dropdown) {
-                                                    setMobileMenuOpen(false);
+                                                    // Do nothing, let the expanded toggle handle it via the parent div click or button click
                                                 } else {
                                                     setMobileMenuOpen(false);
                                                 }

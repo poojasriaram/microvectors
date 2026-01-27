@@ -104,14 +104,14 @@ export default function FeatureSection({
                         </div>
 
                         {/* Outcome KPIs */}
-                        <div className="flex-1 bg-emerald-50 border border-emerald-100 rounded-2xl p-6">
-                            <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-widest mb-6 border-b border-emerald-200 pb-4">
+                        <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5">
+                            <h3 className="text-sm font-bold text-emerald-700 uppercase tracking-widest mb-4 border-b border-emerald-200 pb-3">
                                 Outcome KPIs
                             </h3>
-                            <div className="space-y-4">
+                            <div className="space-y-3">
                                 {outcomeKPIs.map((kpi, idx) => (
-                                    <div key={idx} className="flex items-start gap-4">
-                                        <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+                                    <div key={idx} className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                                         <span className="text-emerald-900 font-medium text-lg leading-tight">{kpi}</span>
                                     </div>
                                 ))}

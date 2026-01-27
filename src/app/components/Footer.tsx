@@ -27,7 +27,7 @@ export default function Footer() {
         'Leadership Team': '/company?section=leadership-culture',
         'Our Offices': '/company?section=our-offices',
         'Careers': '/career',
-        'Contact Us': '/company?section=contact-details' // Update Company.tsx to have this ID if not present, but for now /company is fine or I check.
+        'Contact Us': '/company?section=contact-details'
     };
 
     const offeringsLinks: { [key: string]: string } = {
@@ -37,6 +37,10 @@ export default function Footer() {
         'RevOps Platform': '/offerings?section=ai-revenue-operations-revops',
         'ARR Acceleration': '/offerings?section=arr-acceleration-program',
         'Resources': '/resources'
+    };
+
+    const productLinks: { [key: string]: string } = {
+        'Demand Pulse': '/demand-pulse'
     };
 
     return (
@@ -91,7 +95,7 @@ export default function Footer() {
                     </div>
 
                     {/* Navigation Grid (Right 8 Columns) */}
-                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-5 gap-8">
                         <div className="space-y-4">
                             <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Solutions</h3>
                             <ul className="space-y-2 text-[13px]">
@@ -141,6 +145,22 @@ export default function Footer() {
                                     <li key={i}>
                                         <Link
                                             to={offeringsLinks[item]}
+                                            className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group"
+                                        >
+                                            <span>{item}</span>
+                                            <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="space-y-4">
+                            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Products</h3>
+                            <ul className="space-y-2 text-[13px]">
+                                {Object.keys(productLinks).map((item, i) => (
+                                    <li key={i}>
+                                        <Link
+                                            to={productLinks[item]}
                                             className="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1 group"
                                         >
                                             <span>{item}</span>

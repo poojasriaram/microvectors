@@ -23,10 +23,10 @@ export const verticalsContent = [
         tagline: "Identify Buying Intent Early. Convert Faster. Scale ARR Predictably.",
         description: "Demand in SaaS builds quietly through research, trials, peer validation, and internal alignment. The AI engine surfaces early buying signals, maps buying committees, and converts latent interest into sales-ready pipeline—bridging product-led and sales-led motions.",
         kpis: [
-            { label: "Increase in leads", value: "3X" }, // sales-accepted leads
-            { label: "Sales cycle reduction", value: "40–55%" },
-            { label: "Demo-to-deal conv.", value: "25–40%" },
-            { label: "ARR acceleration", value: "30%+" }
+            { label: "Increase in Qualified Leads", value: "6X" },
+            { label: "Reduction in Sales Cycle", value: "66%" },
+            { label: "More ARR Compounding", value: "40%" },
+            { label: "Reduction in Cost of Sales", value: "66%" }
         ],
         verticalTabs: [
             {
@@ -38,11 +38,6 @@ export const verticalsContent = [
                 title: "Pain Points",
                 icon: Target,
                 content: "Weak ICP fit; Delayed sales engagement; Low expansion visibility"
-            },
-            {
-                title: "Solutions",
-                icon: Zap,
-                content: "AI-based intent + product usage correlation; Buying committee mapping; Predictive opportunity scoring"
             },
             {
                 title: "Benefits",
@@ -74,11 +69,6 @@ export const verticalsContent = [
                 content: "Manual eligibility checks; Low trust signals; Slow closures"
             },
             {
-                title: "Solutions",
-                icon: Shield,
-                content: "AI-based financial intent & eligibility scoring; Pre-qualification before sales engagement; Risk-aware lead prioritization"
-            },
-            {
                 title: "Benefits",
                 icon: TrendingUp,
                 content: "Higher conversion and approval rates; Lower compliance risk; Faster revenue realization"
@@ -106,11 +96,6 @@ export const verticalsContent = [
                 title: "Pain Points",
                 icon: Target,
                 content: "Speculative leads; Weak onboarding engagement; Poor churn predictability"
-            },
-            {
-                title: "Solutions",
-                icon: Zap,
-                content: "AI-driven intent + financial behavior modeling; Predictive activation scoring; Personalized onboarding journeys"
             },
             {
                 title: "Benefits",
@@ -142,11 +127,6 @@ export const verticalsContent = [
                 content: "Poor personalization; Generic targeting; Low engagement"
             },
             {
-                title: "Solutions",
-                icon: Users,
-                content: "AI micro-segmentation; Intent-based retargeting; Predictive repeat-buy modeling"
-            },
-            {
                 title: "Benefits",
                 icon: TrendingUp,
                 content: "Higher ROAS; Stronger brand loyalty; Compounding revenue growth"
@@ -176,11 +156,6 @@ export const verticalsContent = [
                 content: "Speculative users; Low retention; Regulatory ambiguity"
             },
             {
-                title: "Solutions",
-                icon: Search,
-                content: "AI-based credibility & intent scoring; Community-to-conversion mapping; Predictive retention analytics"
-            },
-            {
                 title: "Benefits",
                 icon: Globe,
                 content: "Higher-quality growth; Sustainable ecosystems; Improved long-term value"
@@ -208,11 +183,6 @@ export const verticalsContent = [
                 title: "Pain Points",
                 icon: Target,
                 content: "Low follow-up efficiency; Drop-offs post inquiry; Resource constraints"
-            },
-            {
-                title: "Solutions",
-                icon: CheckCircle2,
-                content: "AI-based learner intent scoring; Automated prioritization; Personalized nurture journeys"
             },
             {
                 title: "Benefits",
