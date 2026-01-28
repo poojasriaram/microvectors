@@ -18,18 +18,19 @@ import {
     Briefcase,
     DollarSign,
     Gift,
-    Clock
+    Clock,
+    Scale
 } from 'lucide-react';
 
 export const cryptoContent = [
     {
-        title: "AI-Powered Revenue Acceleration for Crypto",
-        tagline: "Turn Users, Liquidity, and Ecosystems into Predictable Revenue.",
+        title: "AI-Powered Revenue Acceleration Engine",
+        tagline: "Convert Speculative Volume into Recurring Revenue Streams.",
         description: "Crypto businesses struggle to translate users, volume, and community into sustainable revenue. This engine connects demand, activation, monetization, and retention into a single AI-driven revenue layer—optimizing token economics, transaction flows, subscriptions, and protocol fees.",
         icon: Bitcoin,
         metrics: [
             { label: "Improvement in revenue velocity", value: "30–50%" },
-            { label: "Monetization per active wallet", value: "Higher" },
+            { label: "Monetization per active wallet", value: "20-40%" },
             { label: "Revenue leakage", value: "Reduced" },
             { label: "Income predictability", value: "High" }
         ],
@@ -40,10 +41,15 @@ export const cryptoContent = [
             { title: "Revenue Forecasting", icon: BarChart3 }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "High activity, weak monetization", icon: Activity },
-            { title: "Pain Points", content: "Volatile revenue, poor predictability", icon: Grid },
-            { title: "AI Outcome", content: "Revenue intelligence across wallets, users, and transactions", icon: Cpu },
-            { title: "Business Impact", content: "Sustainable, forecastable crypto revenue", icon: TrendingUp }
+            { title: "Centralized Exchange (CEX)", content: "AI optimizes fee structures and forecasts revenue based on market data. Impact: 30-50% revenue velocity increase.", icon: Activity },
+            { title: "Decentralized Exchange (DEX)", content: "Real-time on-chain analysis to enhance protocol fees and liquidity incentives. Impact: 20-40% higher monetization per swap.", icon: Grid },
+            { title: "Wallet Services", content: "Expansion signals detect upsell opportunities like premium features. Impact: 20-40% LTV boost per wallet.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "AI forecasts defaults and optimizes rates using blockchain data. Impact: 30-50% revenue uplift from spreads.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "Monetization dashboards track secondary sales and automate fee collection. Impact: 20-40% increase in recurring royalties.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Forecasting tools model token economics for long-term fees. Impact: 30-50% better post-launch revenue.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "AI optimizes node rewards and fee distribution. Impact: 20-40% more predictable rewards.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Dynamic fee adjustments and revenue dashboards. Impact: 30-50% velocity boost; 20% higher merchant LTV.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Integration for fee optimization across protocols. Impact: 20-40% higher yields; reduced leakage.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Revenue Acceleration?",
@@ -58,14 +64,14 @@ export const cryptoContent = [
     },
     {
         title: "AI-Powered Crypto Demand Discovery Engine",
-        tagline: "Identify Real Intent Before the Market Speculates.",
+        tagline: "Uncover Real Adoption Intent Before Speculation Hits.",
         description: "Crypto demand is noisy and speculative. This engine separates real adoption intent from hype by analyzing on-chain signals, off-chain behavior, community sentiment, and ecosystem activity—surfacing demand before it becomes obvious.",
         icon: Search,
         metrics: [
             { label: "Increase in high-intent signals", value: "15X–25X" },
-            { label: "Acquisition quality", value: "Higher" },
+            { label: "Acquisition quality", value: "30-50%" },
             { label: "Go-to-market alignment", value: "Faster" },
-            { label: "Wasted acquisition spend", value: "Reduced" }
+            { label: "Wasted acquisition spend", value: "-40%" }
         ],
         portfolioCards: [
             { title: "On-Chain Intent Intelligence", icon: Globe },
@@ -74,10 +80,15 @@ export const cryptoContent = [
             { title: "Market Timing Intelligence", icon: Activity }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "High traffic, unclear demand", icon: Globe },
-            { title: "Pain Points", content: "Speculative users, poor conversion", icon: Target },
-            { title: "AI Outcome", content: "Early intent detection and demand scoring", icon: Search },
-            { title: "Business Impact", content: "First-mover advantage, higher adoption", icon: Rocket }
+            { title: "Centralized Exchange (CEX)", content: "Wallet scoring identifies high-volume traders. Impact: 15X intent signals; 30-50% better acquisition quality.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "On-chain signal analysis for genuine LP intent. Impact: 30-50% improved LP acquisition.", icon: users },
+            { title: "Wallet Services", content: "Behavior analysis scores demand for features like staking. Impact: 15X high-intent users; 40% spend reduction.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Ecosystem activity models predict participation. Impact: 30-50% quality uplift; higher utilization.", icon: Activity },
+            { title: "NFT Marketplace", content: "Sentiment tools uncover collector intent. Impact: 15X signals; 40% less wasted spend.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Demand scoring for pre-launch targeting. Impact: 30-50% better raise quality; faster funding.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Market timing for reward seekers. Impact: 15X intent; 40% acquisition efficiency.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Off-chain behavior analysis for integration leads. Impact: 30-50% quality; reduced CAC.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Activity scoring filters genuine yield seekers. Impact: 15X signals; 40% better retention.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Demand Discovery?",
@@ -92,14 +103,14 @@ export const cryptoContent = [
     },
     {
         title: "AI-Powered Performance Revenue Engine",
-        tagline: "Optimize Every Dollar, Token, and Transaction.",
+        tagline: "Optimize Every Campaign for Maximum Revenue Contribution.",
         description: "Performance in crypto is not about clicks—it’s about activation, liquidity, and monetization. This engine continuously optimizes campaigns, incentives, and channels based on revenue contribution, not vanity metrics.",
         icon: BarChart3,
         metrics: [
             { label: "Improvement in ROAS", value: "25–45%" },
-            { label: "Cost per activated user", value: "Lower" },
+            { label: "Cost per activated user", value: "-20-35%" },
             { label: "Transaction conversion", value: "Higher" },
-            { label: "Incentive wastage", value: "Reduced" }
+            { label: "Incentive wastage", value: "-40%" }
         ],
         portfolioCards: [
             { title: "Channel-to-Revenue Attribution", icon: Grid },
@@ -108,10 +119,15 @@ export const cryptoContent = [
             { title: "ROI-Based Spend Allocation", icon: DollarSign }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "Spend grows, revenue doesn’t", icon: TrendingUp },
-            { title: "Pain Points", content: "Incentive abuse, poor attribution", icon: Shield },
-            { title: "AI Outcome", content: "Revenue-linked performance optimization", icon: Cpu },
-            { title: "Business Impact", content: "Profitable growth, efficient spend", icon: CheckCircle2 }
+            { title: "Centralized Exchange (CEX)", content: "Attribution tracks trading fees; optimizes incentives. Impact: 25-45% ROAS boost.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "Funnel detection for protocol fees; anti-fraud tweaks. Impact: 40% wastage reduction.", icon: Grid },
+            { title: "Wallet Services", content: "ROI allocation for feature upsells. Impact: 25-45% better ROAS; 20-35% activation cost drop.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Conversion intelligence for interest revenue. Impact: 40% less wastage; higher contributions.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "Breakpoint detection for sales funnels. Impact: 25-45% ROAS; 20-35% user cost reduction.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Incentive optimization for investor paths. Impact: 40% wastage cut; better funding ROI.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Attribution for node engagements. Impact: 25-45% uplift; 20-35% cost savings.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Spend allocation for transaction fees. Impact: 40% reduction in wastage.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Optimization for aggregator fees. Impact: 25-45% ROAS; 20-35% lower costs.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Performance Optimization?",
@@ -126,13 +142,13 @@ export const cryptoContent = [
     },
     {
         title: "AI Growth Acceleration Engine",
-        tagline: "Discover What Scales—Eliminate What Doesn’t.",
+        tagline: "Scale Winning Strategies with AI-Led Experimentation.",
         description: "Crypto growth is often driven by intuition and rapid experiments. This engine replaces guesswork with AI-led experimentation, identifying scalable growth levers across acquisition, activation, liquidity, and retention.",
         icon: Rocket,
         metrics: [
             { label: "Faster experimentation cycles", value: "5X–10X" },
-            { label: "Activation-to-retention conv.", value: "Higher" },
-            { label: "Cost of failed experiments", value: "Lower" },
+            { label: "Activation-to-retention conv.", value: "30-50%" },
+            { label: "Cost of failed experiments", value: "-40%" },
             { label: "Scaling winning strategies", value: "Faster" }
         ],
         portfolioCards: [
@@ -142,10 +158,15 @@ export const cryptoContent = [
             { title: "Scale Readiness Scoring", icon: CheckCircle2 }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "Growth stalls after launch", icon: Activity },
-            { title: "Pain Points", content: "Random experiments, no learning loop", icon: Target },
-            { title: "AI Outcome", content: "AI-validated growth playbooks", icon: Rocket },
-            { title: "Business Impact", content: "Repeatable, scalable growth", icon: TrendingUp }
+            { title: "Centralized Exchange (CEX)", content: "A/B testing for trading incentives; scale scoring. Impact: 5X faster cycles; 30-50% retention boost.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "Experiment intelligence for pools. Impact: 40% lower failure costs; exponential TVL.", icon: Grid },
+            { title: "Wallet Services", content: "Predictive funnels for user loops. Impact: 5X speed; 30-50% conversion uplift.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Levers for yield adjustments. Impact: 40% cost reduction; better scaling.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "A/B for community incentives. Impact: 5X cycles; 30-50% retention.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Scale readiness for token strategies. Impact: 40% lower costs; faster ecosystem build.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Adoption levers for rewards. Impact: 5X speed; 30-50% growth.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Funnel optimization for integrations. Impact: 40% reduction; exponential users.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Experiment frameworks for yields. Impact: 5X faster; 30-50% retention.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Growth Acceleration?",
@@ -160,13 +181,13 @@ export const cryptoContent = [
     },
     {
         title: "AI Market Validation Intelligence",
-        tagline: "Validate Demand Before You Ship Tokens or Code.",
+        tagline: "Validate Demand and Fit Before Your Token Launch.",
         description: "Many crypto products fail due to weak market validation. This engine validates problem–solution fit, demand readiness, and pricing logic before major investments in protocol development or token launches.",
         icon: CheckCircle2,
         metrics: [
-            { label: "Faster validation cycles", value: "Yes" },
-            { label: "Go-to-market risk", value: "Reduced" },
-            { label: "Launch success rates", value: "Higher" },
+            { label: "Faster validation cycles", value: "50%" },
+            { label: "Go-to-market risk", value: "-30-40%" },
+            { label: "Launch success rates", value: "50-70%" },
             { label: "Product–market fit", value: "Better" }
         ],
         portfolioCards: [
@@ -176,10 +197,15 @@ export const cryptoContent = [
             { title: "Launch Timing Prediction", icon: Clock }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "Unclear product-market fit", icon: Search },
-            { title: "Pain Points", content: "Costly failed launches", icon: Shield },
-            { title: "AI Outcome", content: "Evidence-based validation", icon: CheckCircle2 },
-            { title: "Business Impact", content: "Lower risk, higher launch success", icon: Rocket }
+            { title: "Centralized Exchange (CEX)", content: "Demand scoring for new listings; timing predictions. Impact: 50% faster cycles; 30-40% risk cut.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "Competitive analysis for liquidity models. Impact: 50-70% success rate; lower burn.", icon: Grid },
+            { title: "Wallet Services", content: "On-chain surveys for user needs. Impact: 50% cycle reduction; 30-40% risk drop.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Simulations for rate fits. Impact: 50-70% launch success; efficient capital.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "Market signals for trends. Impact: 50% faster; 30-40% risk reduction.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Readiness scoring for investors. Impact: 50-70% success; confident funding.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Predictive timing for networks. Impact: 50% reduction; 30-40% lower burn.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Risk assessments for integrations. Impact: 50-70% success; efficient use.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Competitive simulations. Impact: 50% cycles; 30-40% risk cut.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Market Validation?",
@@ -194,13 +220,13 @@ export const cryptoContent = [
     },
     {
         title: "AI Customer Journey Intelligence",
-        tagline: "Understand Every Wallet’s Path to Value.",
+        tagline: "Map and Monetize Every Wallet Interaction.",
         description: "Crypto journeys span discovery, onboarding, activation, usage, governance, and expansion. This engine maps end-to-end wallet and user journeys, identifying friction, churn risk, and monetization opportunities.",
         icon: Map,
         metrics: [
-            { label: "Activation and retention", value: "Higher" },
-            { label: "Churn after onboarding", value: "Reduced" },
-            { label: "Lifetime value per wallet", value: "Increased" },
+            { label: "Activation and retention", value: "25-45%" },
+            { label: "Churn after onboarding", value: "-30%" },
+            { label: "Lifetime value per wallet", value: "20-40%" },
             { label: "Ecosystem engagement", value: "Improved" }
         ],
         portfolioCards: [
@@ -210,10 +236,15 @@ export const cryptoContent = [
             { title: "Lifecycle Intelligence", icon: Activity }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "Users drop off post-onboarding", icon: Users },
-            { title: "Pain Points", content: "Poor journey visibility", icon: Search },
-            { title: "AI Outcome", content: "Predictive journey intelligence", icon: Map },
-            { title: "Business Impact", content: "Stronger ecosystems, higher LTV", icon: TrendingUp }
+            { title: "Centralized Exchange (CEX)", content: "Journey mapping for personalized nudges. Impact: 25-45% retention; 30% churn drop.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "Churn prediction for liquidity paths. Impact: 20-40% LTV boost; loyal users.", icon: Grid },
+            { title: "Wallet Services", content: "Lifecycle intelligence for expansions. Impact: 25-45% rates; 30% less churn.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Retention prediction for yields. Impact: 20-40% LTV; recurring engagement.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "Opportunity detection for collections. Impact: 25-45% retention; 30% churn reduction.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Monetization nudges for ecosystems. Impact: 20-40% LTV; loyal holders.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Journey personalization for rewards. Impact: 25-45% activation; 30% churn drop.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Expansion detection for transactions. Impact: 20-40% LTV; better engagement.", icon: DollarSign },
+            { title: "Yield Farming / Aggregators", content: "Prediction for yield paths. Impact: 25-45% retention; 30% less churn.", icon: Activity }
         ],
         icp: {
             title: "Who Needs Journey Intelligence?",
@@ -228,13 +259,13 @@ export const cryptoContent = [
     },
     {
         title: "AI Startup MVP Acceleration Engine",
-        tagline: "From Idea to Market-Validated MVP—Fast.",
+        tagline: "From Idea to MVP and GTM in Record Time.",
         description: "Crypto startups must validate fast without burning capital. This engine accelerates idea validation, MVP design, early traction, and GTM readiness, ensuring founders build what the market will adopt.",
         icon: Zap,
         metrics: [
             { label: "Reduction in MVP time-to-market", value: "40–60%" },
-            { label: "User and partner validation", value: "Faster" },
-            { label: "Burn rate pre-launch", value: "Lower" },
+            { label: "User and partner validation", value: "30-50%" },
+            { label: "Burn rate pre-launch", value: "-25%" },
             { label: "Investor readiness", value: "Higher" }
         ],
         portfolioCards: [
@@ -244,10 +275,15 @@ export const cryptoContent = [
             { title: "Investor Narrative Validation", icon: Briefcase }
         ],
         verticalTabs: [
-            { title: "Business Situation", content: "Early-stage uncertainty", icon: Search },
-            { title: "Pain Points", content: "Slow builds, weak validation", icon: Shield },
-            { title: "AI Outcome", content: "Accelerated, evidence-based MVPs", icon: Rocket },
-            { title: "Business Impact", content: "Faster traction, lower risk", icon: TrendingUp }
+            { title: "Centralized Exchange (CEX)", content: "Prototyping for new tools; GTM scoring. Impact: 40-60% faster TTM; 30-50% validation speed.", icon: BarChart3 },
+            { title: "Decentralized Exchange (DEX)", content: "Demand signals for early MVPs. Impact: 25% lower burn; faster entry.", icon: Grid },
+            { title: "Wallet Services", content: "Narrative validation for funding. Impact: 40-60% TTM reduction; better readiness.", icon: Wallet },
+            { title: "DeFi Lending/Borrowing", content: "Feedback loops for prototypes. Impact: 30-50% speed; 25% burn cut.", icon: TrendingUp },
+            { title: "NFT Marketplace", content: "User networks for validation. Impact: 40-60% faster; accelerated funding.", icon: Shop },
+            { title: "ICO/IDO/IEO", content: "Investor tools for narratives. Impact: 30-50% validation; 25% lower burn.", icon: Rocket },
+            { title: "Mining/Staking Operations", content: "Partner matching for MVPs. Impact: 40-60% TTM; faster market.", icon: Cpu },
+            { title: "Crypto Payment Gateways", content: "Early signals for GTM. Impact: 30-50% speed; 25% burn reduction.", icon: DollarSign },
+            { title: "Yield Farming/Aggregators", content: "Prototyping with AI loops. Impact: 40-60% faster; better entry.", icon: Activity }
         ],
         icp: {
             title: "Who Needs MVP Acceleration?",
@@ -261,3 +297,9 @@ export const cryptoContent = [
         }
     }
 ];
+
+// Helper to provide a Shop icon fallback since it's not in lucide-react default export in some versions
+// Actually, 'Shop' isn't in lucide-react, I will use 'ShoppingBag' or similar. 
+// Wait, I will use simple icons from lucide-react that are available.
+// 'Store' or 'ShoppingBag'. I will use 'Store'.
+import { Store as Shop, Users as users } from 'lucide-react'; 

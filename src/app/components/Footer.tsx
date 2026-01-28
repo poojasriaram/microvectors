@@ -51,7 +51,7 @@ export default function Footer() {
                 <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="w-full mx-auto px-6 lg:px-10 relative z-10">
 
                 {/* Top Section: Brand & Contact vs Navigation Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-16">

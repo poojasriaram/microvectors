@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     Target,
@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import LeadershipSection from '../components/LeadershipSection';
 
 export default function Company() {
     const location = useLocation();
@@ -139,8 +140,80 @@ export default function Company() {
                 </div>
             </section>
 
-            {/* 2. Mission & What We Do - Premium */}
-            <section className="py-24 bg-white relative">
+            {/* 2. About Us - Premium */}
+            <section id="about-us" className="py-24 bg-white relative scroll-mt-32">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-12 gap-16 items-center">
+                        {/* Text Content */}
+                        <div className="lg:col-span-6 space-y-8">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider">
+                                About Us
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                                Pioneering the Science of <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Revenue Engineering</span>
+                            </h2>
+                            <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed font-sans">
+                                <p>
+                                    At TrustFlow AI, we believe that revenue growth shouldn't be a guessing game. It's an engineering problem solvable with data, intelligence, and precision.
+                                </p>
+                                <p>
+                                    Born from a convergence of enterprise sales expertise and advanced machine learning, we've built the world's most comprehensive Revenue Intelligence Platform. We don't just provide data; we provide the <strong>flow</strong>—the seamless connection between market signals, sales execution, and predictable revenue outcomes.
+                                </p>
+                                <p>
+                                    We partner with forward-thinking enterprises to dismantle silos, automate complex revenue workflows, and empower teams to achieve what was previously impossible: <strong>Growth on Autopilot.</strong>
+                                </p>
+                            </div>
+
+                            <div className="pt-4 flex flex-wrap gap-4">
+                                <div className="flex items-center gap-3 px-5 py-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <div className="bg-blue-100 p-2 rounded-lg">
+                                        <Globe className="w-5 h-5 text-blue-600" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Global Reach</p>
+                                        <p className="text-slate-900 font-bold">20+ Countries</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 px-5 py-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                    <div className="bg-purple-100 p-2 rounded-lg">
+                                        <Zap className="w-5 h-5 text-purple-600" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Impact</p>
+                                        <p className="text-slate-900 font-bold">$5B+ Generated</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Visual Content */}
+                        <div className="lg:col-span-6 relative">
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
+                                <img
+                                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+                                    alt="Team collaboration"
+                                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                />
+                                {/* Floating Badge */}
+                                <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50 max-w-xs z-20 hidden md:block animate-fade-in-up">
+                                    <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Our DNA</p>
+                                    <p className="text-slate-900 font-bold text-lg leading-tight">
+                                        Where Human Ingenuity Meets Artificial Intelligence
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Decorative Elements */}
+                            <div className="absolute -top-12 -right-12 w-64 h-64 bg-indigo-50 rounded-full blur-3xl opacity-60 -z-10 mix-blend-multiply"></div>
+                            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-60 -z-10 mix-blend-multiply"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. Mission & What We Do - Premium */}
+            <section id="mission" className="py-24 bg-white relative scroll-mt-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         {/* Mission */}
@@ -230,35 +303,9 @@ export default function Company() {
             </section>
 
             {/* 4. Leadership & Culture - Premium */}
-            <section id="leadership-culture" className="py-24 bg-white border-t border-slate-100 scroll-mt-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Leadership & Culture</h2>
-                        <p className="text-xl text-slate-600 leading-relaxed mb-12 font-medium">
-                            TrustFlow AI is built by revenue, growth, and AI experts passionate about building the next generation of enterprise revenue technology.
-                        </p>
-
-                        <div className="p-10 bg-gradient-to-br from-slate-50 to-white rounded-3xl border border-slate-200/60 flex flex-col md:flex-row items-center gap-10 shadow-lg shadow-slate-200/40 justify-center group hover:border-blue-200/50 transition-colors duration-500">
-                            <div className="flex -space-x-6">
-                                {[1, 2, 3, 4].map((i) => (
-                                    <div key={i} className="w-16 h-16 rounded-full bg-slate-200 border-4 border-white flex items-center justify-center text-slate-500 text-[10px] font-bold shadow-md hover:-translate-y-2 transition-transform duration-300 relative z-10 hover:z-20">
-                                        Expert
-                                    </div>
-                                ))}
-                                <div className="w-16 h-16 rounded-full bg-blue-50 border-4 border-white flex items-center justify-center text-blue-600 text-lg font-bold shadow-md relative z-0">
-                                    +
-                                </div>
-                            </div>
-                            <div className="text-left">
-                                <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">Built by Experts</h3>
-                                <p className="text-slate-500 text-lg font-medium max-w-sm">
-                                    Our team combines decades of experience in B2B sales, machine learning, and enterprise software.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div id="leadership-culture" className="scroll-mt-32">
+                <LeadershipSection />
+            </div>
 
             {/* 5. Offices & Contact - Compact */}
             <section id="our-offices" className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden scroll-mt-32">
@@ -382,7 +429,7 @@ export default function Company() {
                     </div>
 
                     {/* Contact Details */}
-                    <div id="contact-details" className="max-w-3xl mx-auto scroll-mt-32">
+                    <div id="contact-us" className="max-w-3xl mx-auto scroll-mt-32">
                         <Card className="border border-white/10 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/5 backdrop-blur-sm overflow-hidden group rounded-2xl hover:-translate-y-1">
                             <CardContent className="p-8 flex flex-col md:flex-row items-center justify-around text-center gap-8 md:gap-0">
 

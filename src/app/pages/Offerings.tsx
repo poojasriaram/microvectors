@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     Check,
@@ -1194,21 +1194,21 @@ export default function Offerings() {
                                                         </div>
                                                         Tailored Solutions by Stage
                                                     </h4>
-                                                    <Tabs defaultValue={offeringStages[offering.title][0].name} className="w-full flex-1 flex flex-col">
-                                                        <TabsList className="w-full justify-start h-auto flex-wrap gap-3 bg-transparent p-0 mb-8">
+                                                    <Tabs defaultValue={offeringStages[offering.title][0].name} className="w-full flex-1 flex flex-col lg:flex-row gap-8">
+                                                        <TabsList className="w-full lg:w-[28%] justify-start h-auto flex-col gap-3 bg-transparent p-0">
                                                             {offeringStages[offering.title].map((stage, i) => (
                                                                 <TabsTrigger
                                                                     key={i}
                                                                     value={stage.name}
-                                                                    className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-indigo-500/25 bg-white text-slate-600 rounded-full px-5 py-2.5 h-auto text-sm font-semibold border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-300"
+                                                                    className="w-full justify-start text-left data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-indigo-500/25 bg-white text-slate-600 rounded-xl px-5 py-3 h-auto text-sm font-semibold border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-300"
                                                                 >
                                                                     {stage.name}
                                                                 </TabsTrigger>
                                                             ))}
                                                         </TabsList>
-                                                        <div className="flex-1">
+                                                        <div className="flex-1 lg:w-[72%]">
                                                             {offeringStages[offering.title].map((stage, i) => (
-                                                                <TabsContent key={i} value={stage.name} className="mt-0 animate-in fade-in slide-in-from-bottom-2 duration-300 h-full">
+                                                                <TabsContent key={i} value={stage.name} className="mt-0 animate-in fade-in slide-in-from-right-4 duration-300 h-full">
                                                                     <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden">
                                                                         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
                                                                         <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 relative z-10">
@@ -1216,6 +1216,7 @@ export default function Offerings() {
                                                                             {stage.subtitle && (
                                                                                 <span className="text-indigo-600 text-xs font-bold uppercase tracking-wider bg-indigo-100/50 px-3 py-1 rounded-full border border-indigo-100">{stage.subtitle}</span>
                                                                             )}
+
                                                                         </div>
                                                                         <ul className="grid sm:grid-cols-1 gap-4 relative z-10">
                                                                             {stage.points.map((point, idx) => {

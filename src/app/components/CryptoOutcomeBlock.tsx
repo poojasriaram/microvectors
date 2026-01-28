@@ -111,9 +111,9 @@ export default function CryptoOutcomeBlock({ data, index }: OutcomeBlockProps) {
                     </div>
 
                     {/* Right Column: Vertical Tabs (Interactive) */}
-                    <div className="lg:w-1/2 w-full bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 overflow-hidden flex flex-col md:flex-row h-full min-h-[550px] ring-1 ring-white/5">
+                    <div className="lg:w-1/2 w-full flex flex-col md:flex-row gap-6 h-full min-h-[550px]">
                         {/* Tab List */}
-                        <div className="md:w-1/3 bg-slate-950/50 border-r border-slate-800 flex flex-col">
+                        <div className="md:w-5/12 flex flex-col gap-4">
                             {data.verticalTabs.map((tab, idx) => {
                                 const TabIcon = tab.icon;
                                 const isActive = activeTab === idx;
@@ -121,23 +121,22 @@ export default function CryptoOutcomeBlock({ data, index }: OutcomeBlockProps) {
                                     <button
                                         key={idx}
                                         onClick={() => setActiveTab(idx)}
-                                        className={`flex items-center gap-3 p-6 text-left transition-all duration-300 relative border-b border-slate-800 last:border-0 group ${isActive
-                                            ? 'bg-slate-800/50 text-white shadow-[inset_3px_0_0_0_#3b82f6]'
-                                            : 'text-slate-500 hover:bg-slate-900 hover:text-slate-300'
+                                        className={`flex items-center gap-3 p-4 text-left transition-all duration-300 relative rounded-xl border w-full group ${isActive
+                                            ? 'bg-slate-800 border-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]'
+                                            : 'bg-slate-900/50 border-slate-800 text-slate-500 hover:bg-slate-800 hover:text-slate-300 hover:border-slate-700'
                                             }`}
                                     >
-                                        <TabIcon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]' : 'text-slate-600 group-hover:text-slate-400'}`} />
-                                        <span className={`font-semibold text-sm transition-colors ${isActive ? 'text-white' : ''}`}>{tab.title}</span>
-                                        {isActive && (
-                                            <ChevronRight className="w-4 h-4 ml-auto text-blue-400" />
-                                        )}
+                                        <div className={`p-2 rounded-lg transition-all ${isActive ? 'bg-blue-500' : 'bg-slate-800 group-hover:bg-slate-700'}`}>
+                                            <TabIcon className={`w-4 h-4 transition-colors ${isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`} />
+                                        </div>
+                                        <span className={`font-semibold text-sm transition-colors text-left flex-1 break-words min-w-0 leading-tight ${isActive ? 'text-white' : ''}`}>{tab.title}</span>
                                     </button>
                                 );
                             })}
                         </div>
 
                         {/* Tab Content */}
-                        <div className="md:w-2/3 p-10 flex flex-col justify-center relative bg-slate-900">
+                        <div className="md:w-7/12 bg-slate-900 rounded-3xl border border-slate-800 p-10 flex flex-col justify-center relative shadow-2xl overflow-hidden">
                             {/* Content Background Glow */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -150,41 +149,27 @@ export default function CryptoOutcomeBlock({ data, index }: OutcomeBlockProps) {
                                     transition={{ duration: 0.3 }}
                                     className="space-y-8 relative z-10"
                                 >
-                                    <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-700 shadow-xl mb-6 group">
-                                        {/* Render the icon relative to the active tab */}
-                                        {React.createElement(data.verticalTabs[activeTab].icon, { className: "w-7 h-7 text-blue-400 group-hover:scale-110 transition-transform duration-300" })}
+                                    <div className="flex flex-col h-full justify-center">
+                                        <div className="text-xl md:text-2xl font-medium text-slate-300 leading-relaxed text-balance">
+                                            {data.verticalTabs[activeTab].content.split('. ').map((sentence, sIdx) => (
+                                                <div key={sIdx} className="mb-4 last:mb-0 flex items-start gap-3">
+                                                    {sentence.trim() && (
+                                                        <>
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
+                                                            <span>{sentence.trim()}{sentence.trim().endsWith('.') ? '' : '.'}</span>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
 
-                                    <div>
-                                        <h4 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-3">
-                                            {data.verticalTabs[activeTab].title}
-                                        </h4>
-                                        <p className="text-xl md:text-3xl font-bold text-white leading-tight">
-                                            {data.verticalTabs[activeTab].content}
-                                        </p>
-                                    </div>
-
-                                    {/* Contextual dynamic footer based on tab */}
-                                    <div className="pt-8 border-t border-slate-800 mt-auto">
-                                        {activeTab === 0 && (
-                                            <p className="text-sm text-slate-500 italic font-medium">"Recognizing the situation is the first step to transformation."</p>
-                                        )}
-                                        {activeTab === 1 && (
-                                            <p className="text-sm text-slate-500 italic font-medium">"Pain points are just opportunities for AI intervention."</p>
-                                        )}
-                                        {activeTab === 2 && (
-                                            <div className="flex items-center gap-3 text-blue-400 font-bold text-sm uppercase tracking-wide">
-                                                <Zap className="w-4 h-4 text-blue-400 fill-current" />
-                                                <span className="drop-shadow-[0_0_5px_rgba(96,165,250,0.8)]">AI Engine Active</span>
-                                            </div>
-                                        )}
-                                        {activeTab === 3 && (
-                                            <div className="flex items-center gap-3 text-emerald-400 font-bold text-sm uppercase tracking-wide">
-                                                <TrendingUp className="w-4 h-4" />
-                                                <span>Revenue Impact Verified</span>
-                                            </div>
-                                        )}
-                                    </div>
+                                    {/* Quote Footer - Kept as purely decorative/thematic element if needed, 
+                                        but reducing its visual weight or removing if it interferes. 
+                                        I'll keep a unified, simpler quote footer for all tabs to match the "clean" request, 
+                                        or just remove the dynamic one to simplify. 
+                                        The user said "Directly make the Bullet Points", so I'll just keep the footer simple/static or remove.
+                                        I will remove the complex dynamic footer to declutter. */}
                                 </motion.div>
                             </AnimatePresence>
                         </div>
