@@ -21,28 +21,61 @@ export default function Navigation() {
 
     // Define navigation structure with dropdowns for specific items
     const navItems = [
-        { name: 'Home', path: '/' },
-        { name: 'Crypto', path: '/crypto' },
+        {
+            name: 'Home',
+            path: '/',
+            dropdown: [
+                "AI-Powered Revenue Acceleration",
+                "Demand Discovery",
+                "Performance Revenue",
+                "Growth Acceleration",
+                "Market Validation",
+                "Customer Journey",
+                "Startup MVP",
+                "Lead Generation"
+            ]
+        },
+        {
+            name: 'Crypto',
+            path: '/crypto',
+            dropdown: [
+                "AI-Powered Revenue Acceleration for Crypto",
+                "AI-Powered Crypto Demand Discovery Engine",
+                "AI-Powered Performance Revenue Engine",
+                "AI Growth Acceleration Engine",
+                "AI Market Validation Intelligence",
+                "AI Customer Journey Intelligence",
+                "AI Startup MVP Acceleration Engine"
+            ]
+        },
         {
             name: 'Outcomes',
             path: '/outcomes',
             dropdown: [
-                "Revenue Acceleration",
-                "Digital Sales",
-                "D2C Growth",
-                "Sales Transformation"
+                "AI Demand Discovery",
+                "AI-Driven Revenue Acceleration",
+                "AI-Driven Growth Hacking",
+                "AI-Driven Performance Marketing",
+                "Enterprise Sales Acceleration",
+                "Digital & Inside Sales Acceleration",
+                "D2C & High-Velocity Sales Growth",
+                "BFSI Sales Acceleration",
+                "Transition from Traditional to Digital Sales",
+                "Sales to Customer Success Continuity"
             ]
         },
         {
             name: 'Solutions',
             path: '/solutions',
             dropdown: [
-                "Business Growth Strategy",
-                "Market Strategy",
-                "Growth Hacking",
-                "Performance Marketing",
-                "Auto Sales Pilot",
-                "RevOps"
+                "AI Business Growth Strategy",
+                "AI Market Strategy & Demand Intelligence",
+                "AI-Driven Growth Hacking Engine",
+                "AI-Driven Performance Marketing",
+                "AI Auto Sales Pilot (Autonomous Sales Agents)",
+                "AI Sales Process Optimization",
+                "AI Revenue Operations (AI RevOps)",
+                "AI Revenue Acceleration & Expansion"
             ]
         },
         {
@@ -61,12 +94,14 @@ export default function Navigation() {
             name: 'Offerings',
             path: '/offerings',
             dropdown: [
-                "Demand Generation",
-                "Growth Hacking Engine",
-                "Lean Sales",
-                "RevOps Platform",
-                "ARR Acceleration",
-                { name: "Resources", path: "/resources" }
+                "AI-Powered Sales Intelligence & Execution",
+                "Revenue Operations & Intelligence",
+                "AI-Driven Digital Marketing & Demand Generation",
+                "Market & Demand Intelligence",
+                "Market Validation & Research",
+                "Product-Market Fit Validation",
+                "Product Scaling & Growth Intelligence",
+                "Customer Success & Retention Intelligence"
             ]
         },
         { name: 'Partners', path: '/partners' },
@@ -74,6 +109,11 @@ export default function Navigation() {
             name: 'Company',
             path: '/company',
             dropdown: [
+                "About Us",
+                "Mission",
+                "Leadership & Culture",
+                "Our Offices",
+                "Contact Us",
                 { name: "Careers", path: "/career" }
             ]
         },
@@ -81,7 +121,7 @@ export default function Navigation() {
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-slate-100">
-            <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full mx-auto px-6 lg:px-10">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <div className="flex-shrink-0 mr-8">
@@ -91,59 +131,73 @@ export default function Navigation() {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-end">
-                        {navItems.map((item) => (
-                            <div
-                                key={item.name}
-                                className="relative group h-full flex items-center"
-                                onMouseEnter={() => setHoveredItem(item.name)}
-                                onMouseLeave={() => setHoveredItem(null)}
-                            >
-                                <Link
-                                    to={item.path}
-                                    className={`text-[15px] font-medium transition-colors flex items-center gap-1 py-2 ${location.pathname === item.path
-                                        ? 'text-blue-600 font-semibold'
-                                        : 'text-black hover:text-blue-600'
-                                        }`}
+                    <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
+                        {navItems.map((item) => {
+                            const isMegaMenu = item.dropdown && item.dropdown.length > 5;
+                            const dropdownWidth = isMegaMenu ? 'w-[640px]' : 'w-72';
+                            const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
+
+                            return (
+                                <div
+                                    key={item.name}
+                                    className="relative group h-full flex items-center"
+                                    onMouseEnter={() => setHoveredItem(item.name)}
+                                    onMouseLeave={() => setHoveredItem(null)}
                                 >
-                                    {item.name}
-                                    {item.dropdown && (
-                                        <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
-                                    )}
-                                </Link>
-
-                                {/* Dropdown Menu */}
-                                {item.dropdown && (
-                                    <div
-                                        className={`absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-xl border border-slate-100 p-2 transform transition-all duration-200 origin-top z-50 mt-2
-                                        ${hoveredItem === item.name ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'}
-                                    `}
+                                    <Link
+                                        to={item.path}
+                                        className={`text-[15px] font-semibold transition-all duration-300 flex items-center gap-1.5 py-2 px-3 rounded-full ${location.pathname === item.path
+                                            ? 'text-blue-600 bg-blue-50/50'
+                                            : 'text-black hover:text-blue-600 hover:bg-slate-50/50'
+                                            } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/50' : ''}`}
                                     >
-                                        {/* Invisible bridge */}
-                                        <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
+                                        {item.name}
+                                        {item.dropdown && (
+                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                                        )}
+                                    </Link>
 
-                                        <ul className="py-1">
-                                            {item.dropdown.map((subItem, idx) => {
-                                                const isString = typeof subItem === 'string';
-                                                const label = isString ? subItem : subItem.name;
-                                                const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
+                                    {/* Ultra-Premium Dropdown / Mega Menu */}
+                                    {item.dropdown && (
+                                        <div
+                                            className={`absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 ${dropdownWidth} 
+                                            bg-white 
+                                            rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 ring-1 ring-black/5 
+                                            p-5 transform transition-all duration-300 ease-out origin-top z-50
+                                            ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-2 invisible pointer-events-none'}
+                                        `}
+                                        >
+                                            {/* Invisible bridge to prevent closing on gap hover */}
+                                            <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
 
-                                                return (
-                                                    <li key={idx}>
+                                            {/* Decorative top sheen */}
+                                            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent" />
+
+                                            <div className={`grid ${gridCols} gap-3`}>
+                                                {item.dropdown.map((subItem, idx) => {
+                                                    const isString = typeof subItem === 'string';
+                                                    const label = isString ? subItem : subItem.name;
+                                                    const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
+
+                                                    return (
                                                         <Link
+                                                            key={idx}
                                                             to={linkPath}
-                                                            className="block px-4 py-2.5 text-sm text-black hover:text-blue-600 hover:bg-blue-50/50 rounded-lg transition-colors font-medium border-b border-slate-50 last:border-0"
+                                                            className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-gradient-to-r hover:from-white hover:to-blue-50/50 transition-all duration-300 group/item border border-transparent hover:border-blue-100/30 hover:shadow-sm hover:translate-x-1"
                                                         >
-                                                            {label}
+                                                            <div className="w-2 h-2 rounded-full bg-slate-300 group-hover/item:bg-blue-500 group-hover/item:shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all duration-300 flex-shrink-0" />
+                                                            <span className="text-[14px] font-semibold text-slate-600 group-hover/item:text-blue-700 transition-colors leading-snug">
+                                                                {label}
+                                                            </span>
                                                         </Link>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* Desktop CTA */}
@@ -181,7 +235,7 @@ export default function Navigation() {
 
             {/* Mobile Navigation Panel */}
             {mobileMenuOpen && (
-                <div className="lg:hidden fixed inset-x-0 top-20 h-[calc(100vh-5rem)] bg-white/95 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/80 z-40 overflow-y-auto border-t border-slate-100 pb-20 shadow-2xl">
+                <div className="lg:hidden fixed inset-x-0 top-20 h-[calc(100vh-5rem)] bg-white z-40 overflow-y-auto border-t border-slate-100 pb-20 shadow-2xl">
                     <div className="flex flex-col p-6 space-y-2 min-h-full bg-gradient-to-b from-transparent to-slate-50/50">
                         {navItems.map((item) => (
                             <div key={item.name} className="border-b border-slate-100/80 last:border-0">
@@ -202,7 +256,7 @@ export default function Navigation() {
                                                 ? 'text-blue-600'
                                                 : 'text-slate-800 group-hover:text-blue-600'
                                                 }`}
-                                            onClick={(e) => {
+                                            onClick={() => {
                                                 if (item.dropdown) {
                                                     // Do nothing, let the expanded toggle handle it via the parent div click or button click
                                                 } else {

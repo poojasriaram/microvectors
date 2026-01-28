@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
     TrendingUp,
     Zap,
@@ -10,15 +10,31 @@ import {
     ArrowRight,
     Target,
     Users,
-    Shield,
     Rocket
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '../components/ui/card';
+import { Card, CardContent, CardHeader, CardFooter } from '../components/ui/card';
 import OutcomeBlock from '../components/OutcomeBlock';
 import { salesAccelerationContent, growthEnginesContent } from '../../data/outcomesContent';
 
 export default function Outcomes() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
+
     return (
         <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-white text-slate-900">
             {/* Hero Section */}
@@ -89,7 +105,9 @@ export default function Outcomes() {
                 </div>
                 <div>
                     {growthEnginesContent.map((block, index) => (
-                        <OutcomeBlock key={index} data={block} index={index} />
+                        <div key={index} id={block.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="scroll-mt-32">
+                            <OutcomeBlock data={block} index={index} />
+                        </div>
                     ))}
                 </div>
             </div>
@@ -109,7 +127,9 @@ export default function Outcomes() {
                 </div>
                 <div>
                     {salesAccelerationContent.map((block, index) => (
-                        <OutcomeBlock key={index} data={block} index={index} />
+                        <div key={index} id={block.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="scroll-mt-32">
+                            <OutcomeBlock data={block} index={index} />
+                        </div>
                     ))}
                 </div>
             </div>

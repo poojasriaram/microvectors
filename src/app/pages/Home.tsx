@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import RevenueAccelerationSection from '../components/RevenueAccelerationSection';
 import DemandDiscoverySection from '../components/DemandDiscoverySection';
@@ -7,7 +9,6 @@ import MarketValidationSection from '../components/MarketValidationSection';
 import CustomerJourneySection from '../components/CustomerJourneySection';
 import StartupMVPSection from '../components/StartupMVPSection';
 import LeadGenerationSection from '../components/LeadGenerationSection';
-import LeadershipSection from '../components/LeadershipSection';
 
 import GlobalICPSection from '../components/GlobalICPSection';
 import HomeCarousel from '../components/HomeCarousel';
@@ -16,7 +17,22 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 
 export default function Home() {
+    const location = useLocation();
 
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const section = params.get('section');
+
+        if (section) {
+            setTimeout(() => {
+                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, [location]);
 
     return (
         <main className="bg-background min-h-screen">
@@ -32,31 +48,44 @@ export default function Home() {
             <GlobalICPSection />
 
             {/* New Section: AI-Powered Revenue Acceleration */}
-            <RevenueAccelerationSection />
+            <div id="ai-powered-revenue-acceleration" className="scroll-mt-32">
+                <RevenueAccelerationSection />
+            </div>
 
             {/* New Section: AI-Powered Demand Discovery Engine */}
-            <DemandDiscoverySection />
+            <div id="demand-discovery" className="scroll-mt-32">
+                <DemandDiscoverySection />
+            </div>
 
             {/* New Section: AI-Powered Performance Revenue Engine */}
-            <PerformanceMarketingSection />
+            <div id="performance-revenue" className="scroll-mt-32">
+                <PerformanceMarketingSection />
+            </div>
 
             {/* New Section: AI-Powered Growth Acceleration Engine */}
-            <GrowthAccelerationSection />
+            <div id="growth-acceleration" className="scroll-mt-32">
+                <GrowthAccelerationSection />
+            </div>
 
             {/* New Section: AI-Powered Market Validation Intelligence Engine */}
-            <MarketValidationSection />
+            <div id="market-validation" className="scroll-mt-32">
+                <MarketValidationSection />
+            </div>
 
             {/* New Section: AI-Powered Customer Journey Intelligence Engine */}
-            <CustomerJourneySection />
+            <div id="customer-journey" className="scroll-mt-32">
+                <CustomerJourneySection />
+            </div>
 
             {/* New Section: AI-Powered Startup MVP Acceleration Engine */}
-            <StartupMVPSection />
+            <div id="startup-mvp" className="scroll-mt-32">
+                <StartupMVPSection />
+            </div>
 
             {/* New Section: AI-Driven Lead Generation Acceleration */}
-            <LeadGenerationSection />
-
-            {/* Section: Leadership & Teams */}
-            <LeadershipSection />
+            <div id="lead-generation" className="scroll-mt-32">
+                <LeadGenerationSection />
+            </div>
 
             {/* Section 6: Global Call to Action */}
             <section className="py-24 relative overflow-hidden bg-white border-t border-slate-200">
