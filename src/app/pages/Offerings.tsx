@@ -20,7 +20,8 @@ import {
     Layout
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Card } from '../components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 
 export default function Offerings() {
     const location = useLocation();
@@ -39,6 +40,597 @@ export default function Offerings() {
             }, 100);
         }
     }, [location]);
+
+    const offeringStages: Record<string, { name: string; subtitle?: string; points: string[] }[]> = {
+        "AI-Powered Sales Intelligence & Execution": [
+            {
+                name: "Startups",
+                subtitle: "Pre-Series A, <$2M ARR",
+                points: [
+                    "Foundational pipeline discipline - Track every deal without CRM complexity",
+                    "Early-stage pattern recognition - Identify what winning looks like from limited data",
+                    "Founder-led sales optimization - Maximize founder time on highest-probability deals",
+                    "Investor-ready forecasting - Credible projections for funding rounds",
+                    "Essential automation only - Focus on what moves needles, not features"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                subtitle: "Series A-C, $2M-$20M ARR",
+                points: [
+                    "Sales team scaling intelligence - Hire and onboard with predictive success models",
+                    "Repeatable sales motion design - Systemize what's working across growing teams",
+                    "Deal velocity acceleration - Reduce cycle times as complexity increases",
+                    "Channel partner enablement - Scale through partners with co-selling intelligence",
+                    "Mid-market readiness - Transition from SMB to mid-market with confidence"
+                ]
+            },
+            {
+                name: "SMEs",
+                subtitle: "$20M-$100M Revenue",
+                points: [
+                    "Territory optimization - Balance coverage across expanding markets",
+                    "Sales manager enablement - Coach teams with data-driven insights",
+                    "Complex deal navigation - Handle multi-stakeholder enterprise sales",
+                    "Competitive displacement strategies - Systematically take market share",
+                    "Sales process standardization - Create consistency across regions"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                subtitle: "$100M-$500M Revenue",
+                points: [
+                    "Sales operations scaling - Support 50-200 sales reps efficiently",
+                    "Vertical specialization - Customize approaches for industry verticals",
+                    "Deal desk integration - Streamline legal, finance, and sales collaboration",
+                    "Global sales coordination - Manage multi-region, multi-timezone teams",
+                    "Board-level forecasting - Executive confidence in quarterly projections"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                subtitle: "$500M-$2B Revenue",
+                points: [
+                    "Global sales standardization - Consistent processes across 10+ countries",
+                    "Strategic account intelligence - 360-degree view of top 100 customers",
+                    "M&A sales integration - Rapidly incorporate acquired sales teams",
+                    "Sales compensation optimization - Align incentives with strategic goals",
+                    "Regulatory compliance automation - Ensure sales practices meet global standards"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                subtitle: "$2B+ Revenue",
+                points: [
+                    "Multi-product sales orchestration - Coordinate complex solution selling",
+                    "Global pricing harmonization - Balance local market needs with global strategy",
+                    "Sales talent intelligence - Identify and develop future sales leaders",
+                    "Emerging market entry strategies - Data-driven expansion into new regions",
+                    "Corporate sales innovation - Test and scale new sales methodologies"
+                ]
+            },
+            {
+                name: "Industry-Specific",
+                points: [
+                    "Regulatory sales frameworks - Industry-specific compliance automation",
+                    "Vertical ecosystem selling - Coordinate with partners, distributors, integrators",
+                    "Long-cycle deal management - Navigate 12+ month sales cycles with precision",
+                    "Solution complexity management - Handle $1M+ deals with multiple stakeholders",
+                    "Public sector/GOV sales - Specialized processes for government procurement"
+                ]
+            }
+        ],
+        "Revenue Operations & Intelligence": [
+            {
+                name: "Startups",
+                points: [
+                    "Lightweight RevOps foundation - Essential processes without bureaucracy",
+                    "Founder-friendly reporting - Simple dashboards that founders actually use",
+                    "Early-stage KPI definition - Establish metrics that matter for growth stage",
+                    "Investor narrative building - Tell compelling growth stories with data",
+                    "Budget-conscious tools - Maximum value from minimum investment"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "First RevOps hire enablement - Tools to multiply impact of initial hire",
+                    "Cross-functional alignment - Connect marketing, sales, and success data",
+                    "Process documentation - Systemize what works before scaling chaos",
+                    "Board deck automation - Reduce monthly reporting from days to hours",
+                    "Fundraising data room - Investor-ready metrics for next round"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "Dedicated RevOps team scaling - Support 3-5 person team efficiency",
+                    "Territory planning automation - Optimize coverage as headcount grows",
+                    "Sales tool stack consolidation - Reduce cost and complexity",
+                    "Marketing-sales handoff optimization - Improve lead-to-revenue conversion",
+                    "Executive dashboard creation - C-suite visibility without manual work"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Enterprise system integration - Connect Salesforce, Marketo, HubSpot, etc.",
+                    "Regional performance tracking - Compare and optimize across locations",
+                    "Advanced forecasting models - Predictive analytics beyond simple spreadsheets",
+                    "Audit-ready reporting - Financial compliance and transparency",
+                    "M&A integration frameworks - Rapidly incorporate acquired company data"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Global RevOps standardization - Consistent processes worldwide",
+                    "Real-time revenue intelligence - Minute-by-minute visibility across business units",
+                    "Regulatory compliance automation - GDPR, CCPA, SOX requirements built-in",
+                    "Strategic planning integration - Connect RevOps to annual planning cycles",
+                    "Multi-currency, multi-language support - Global business complexity handled"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "24/7 operations monitoring - Continuous intelligence across time zones",
+                    "Public company reporting - SEC-compliant revenue disclosures",
+                    "Corporate strategy alignment - Connect revenue data to 5-year plans",
+                    "Global benchmarking - Compare performance across regions and business units",
+                    "Advanced scenario modeling - What-if analysis for strategic decisions"
+                ]
+            },
+            {
+                name: "Regulated Industries",
+                points: [
+                    "Industry-specific compliance - Healthcare, finance, government requirements",
+                    "Audit trail automation - Complete transparency for regulatory reviews",
+                    "Partner revenue tracking - Complex channel and distribution models",
+                    "Contract compliance monitoring - Ensure revenue recognition follows agreements",
+                    "Security certification readiness - SOC 2, ISO 27001, etc. built-in"
+                ]
+            }
+        ],
+        "AI-Driven Digital Marketing & Demand Generation": [
+            {
+                name: "Startups",
+                points: [
+                    "Founder-led marketing efficiency - Maximize impact with minimal budget",
+                    "Organic growth optimization - SEO and content that delivers early pipeline",
+                    "Early adopter targeting - Find ideal first customers with precision",
+                    "Product-led growth integration - Connect marketing to product usage signals",
+                    "Investor story validation - Prove market demand for funding rounds"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "First marketing team scaling - Enable small team to punch above weight",
+                    "Channel diversification intelligence - Identify best-performing new channels",
+                    "ABM foundation building - Start account-based marketing before enterprise",
+                    "Marketing-sales SLA optimization - Improve handoffs and conversion rates",
+                    "Event ROI measurement - Track conference and webinar impact clearly"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "Multi-channel campaign coordination - Manage 5-7 channels efficiently",
+                    "Marketing automation scaling - Beyond basic email to sophisticated nurturing",
+                    "Regional campaign optimization - Tailor messaging for different markets",
+                    "Competitive response intelligence - Monitor and respond to competitor moves",
+                    "Content ROI optimization - Focus on what drives pipeline, not vanity metrics"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Enterprise ABM implementation - Full account-based marketing programs",
+                    "Multi-touch attribution - Understand complex buyer journeys",
+                    "Global campaign management - Coordinate across regions and languages",
+                    "Partner marketing optimization - Scale through channel partners effectively",
+                    "Brand tracking integration - Connect demand gen to brand health metrics"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Global brand consistency - Maintain messaging integrity worldwide",
+                    "Corporate vs. BU marketing alignment - Balance central and local needs",
+                    "M&A marketing integration - Rapidly incorporate acquired company campaigns",
+                    "Privacy-compliant targeting - Navigate cookie restrictions and regulations",
+                    "Executive visibility dashboards - CMO to CEO pipeline transparency"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "24/7 campaign optimization - Continuous improvement across time zones",
+                    "Localization intelligence - Optimize content and campaigns by region",
+                    "Global budget optimization - Allocate spend across 20+ countries",
+                    "Crisis response monitoring - Track and respond to market events",
+                    "Market share tracking - Monitor position against global competitors"
+                ]
+            },
+            {
+                name: "Complex Sales Cycles",
+                points: [
+                    "Long-funnel optimization - Nurture leads over 6-18 month cycles",
+                    "Committee buying intelligence - Target all stakeholders in complex deals",
+                    "Regulatory messaging compliance - Industry-specific content requirements",
+                    "Channel conflict avoidance - Manage direct vs. indirect marketing",
+                    "RFP response optimization - Improve win rates on formal bids"
+                ]
+            }
+        ],
+        "Market & Demand Intelligence": [
+            {
+                name: "Startups",
+                points: [
+                    "Early market validation - Prove demand before building product",
+                    "Initial ICP refinement - Continuously improve ideal customer profile",
+                    "Competitor gap analysis - Find openings against established players",
+                    "Early trend detection - Spot emerging opportunities in your space",
+                    "Founder-led research efficiency - Maximum insights with minimal resources"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "Expansion market identification - Where to grow after initial success",
+                    "Competitor response tracking - Monitor how incumbents react to you",
+                    "Market size validation - Prove TAM for next funding round",
+                    "New persona discovery - Identify additional buyer types to target",
+                    "Channel opportunity mapping - Find indirect routes to market"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "Market segmentation optimization - Focus resources on best segments",
+                    "Competitor pricing intelligence - Optimize pricing against market",
+                    "Regional expansion analysis - Data-driven decisions on new geographies",
+                    "Industry vertical prioritization - Which verticals offer most potential",
+                    "Partner ecosystem mapping - Identify key influencers and partners"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Market share tracking - Monitor position relative to competitors",
+                    "M&A opportunity identification - Strategic acquisition targets",
+                    "Global market entry analysis - Data-driven international expansion",
+                    "Technology trend monitoring - Stay ahead of disruptive innovations",
+                    "Customer advisory board insights - Formalize feedback from key accounts"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Market disruption early warning - Detect threats before they impact revenue",
+                    "Regulatory change impact analysis - How new regulations affect markets",
+                    "Global economic trend correlation - Connect macro trends to micro impacts",
+                    "Competitor strategy decoding - Reverse engineer competitor moves",
+                    "Innovation opportunity scanning - Identify white space for R&D investment"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "Geopolitical risk assessment - Monitor political impacts on markets",
+                    "Global competitor intelligence - Track 20+ competitors worldwide",
+                    "Cross-border opportunity analysis - Identify international synergies",
+                    "Emerging market volatility monitoring - Risk assessment for developing regions",
+                    "Global regulatory landscape tracking - Compliance across 50+ countries"
+                ]
+            },
+            {
+                name: "Technology/SaaS",
+                points: [
+                    "Developer community intelligence - Monitor open source and tech trends",
+                    "API ecosystem analysis - Partner and integration opportunities",
+                    "Platform shift detection - Cloud, mobile, AI adoption trends",
+                    "Startup competitor tracking - Monitor emerging disruptors",
+                    "Technology adoption curves - Predict when markets will mature"
+                ]
+            }
+        ],
+        "Market Validation & Research": [
+            {
+                name: "Startups",
+                points: [
+                    "Idea validation framework - Test concepts before writing code",
+                    "Early adopter identification - Find ideal first users for feedback",
+                    "Minimum viable pricing testing - Simple experiments to gauge willingness to pay",
+                    "Competitive positioning clarity - How to stand out with limited resources",
+                    "Investor validation evidence - Data to support funding pitches"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "Product expansion validation - Test new features before development",
+                    "Market expansion testing - Validate new segments or geographies",
+                    "Pricing tier optimization - Refine packages based on customer value",
+                    "Channel validation - Test distribution partners before signing deals",
+                    "Brand positioning refinement - Evolve messaging as company grows"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "New product line validation - Expand offerings with confidence",
+                    "Enterprise readiness assessment - When and how to move upmarket",
+                    "International market testing - Validate expansion before heavy investment",
+                    "M&A target validation - Assess acquisition opportunities rigorously",
+                    "Customer segmentation refinement - Identify most profitable segments"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Strategic initiative validation - Test major bets before full commitment",
+                    "Corporate venture testing - Validate innovation investments",
+                    "Channel partner program validation - Test new distribution models",
+                    "Brand extension testing - New markets under existing brand",
+                    "Technology partnership validation - Assess integration opportunities"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Business unit strategy validation - Test divisional initiatives independently",
+                    "Market disruption response testing - Validate competitive counter-moves",
+                    "Corporate innovation validation - Test startup-like initiatives",
+                    "Global rollout validation - Test in one region before worldwide launch",
+                    "Strategic alliance validation - Test partnership opportunities"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "Cross-border initiative validation - Test global programs locally first",
+                    "Emerging market entry validation - High-risk market testing",
+                    "Global brand campaign testing - Validate messaging across cultures",
+                    "Regulatory impact validation - Test compliance initiatives",
+                    "Crisis response validation - Test communication strategies"
+                ]
+            },
+            {
+                name: "Product-Led Growth",
+                points: [
+                    "Freemium conversion validation - Test upgrade triggers and pricing",
+                    "Product virality testing - Validate referral and network effects",
+                    "Usage-based pricing validation - Test different metric and pricing models",
+                    "In-product messaging testing - Validate upgrade prompts and CTAs",
+                    "Community-driven validation - Leverage user communities for insights"
+                ]
+            }
+        ],
+        "Product-Market Fit Validation": [
+            {
+                name: "Startups",
+                subtitle: "Pre-PMF",
+                points: [
+                    "Early user behavior tracking - Simple metrics that actually matter",
+                    "Problem-solution fit validation - Are you solving a real problem?",
+                    "Core value prop testing - Does the product deliver promised value?",
+                    "User feedback triage - Prioritize what to fix vs. what to ignore",
+                    "PMF signal detection - Early indicators of product-market fit"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                subtitle: "Achieving PMF",
+                points: [
+                    "Expansion use case validation - Beyond early adopters to mainstream",
+                    "Retention optimization - Improve stickiness and reduce churn",
+                    "Feature adoption analysis - What features drive value and retention",
+                    "User segment PMF analysis - Different fit for different segments",
+                    "Scalability signal detection - When to shift from validation to scaling"
+                ]
+            },
+            {
+                name: "SMEs",
+                subtitle: "Post-PMF Optimization",
+                points: [
+                    "Market segment expansion validation - New customer types",
+                    "Geographic expansion testing - PMF in new regions",
+                    "Product line extension validation - New features and modules",
+                    "Pricing model optimization - Maximize value capture",
+                    "Competitive response testing - How PMF holds up vs. new entrants"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                subtitle: "Enterprise PMF",
+                points: [
+                    "Enterprise feature validation - What large companies need vs. SMBs",
+                    "Integration ecosystem validation - Partner and API requirements",
+                    "Security and compliance validation - Enterprise buyer requirements",
+                    "Implementation process validation - Onboarding and time-to-value",
+                    "Support and success validation - Post-sale requirements"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                subtitle: "Platform PMF",
+                points: [
+                    "Platform ecosystem validation - Developer and partner adoption",
+                    "Multi-product synergy validation - Cross-selling opportunities",
+                    "Global localization validation - PMF across cultures and languages",
+                    "Industry vertical validation - Specialized versions and features",
+                    "Acquisition integration validation - PMF for acquired products"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                subtitle: "Multi-Market PMF",
+                points: [
+                    "Regional PMF variation analysis - Different fits in different markets",
+                    "Cultural adaptation validation - Product adjustments for local markets",
+                    "Regulatory compliance validation - Local legal requirements",
+                    "Local competitor response testing - How PMF holds up locally",
+                    "Global feature prioritization - What to build for which markets"
+                ]
+            },
+            {
+                name: "B2B2C/Platform",
+                points: [
+                    "Two-sided market validation - Both buyer and seller PMF",
+                    "Network effects validation - Do more users create more value?",
+                    "Marketplace liquidity validation - Supply-demand balance",
+                    "Platform governance validation - Rules and standards that work",
+                    "Ecosystem health metrics - Overall platform vitality"
+                ]
+            }
+        ],
+        "Product Scaling & Growth Intelligence": [
+            {
+                name: "Startups",
+                points: [
+                    "Core feature optimization - Maximize adoption of essential features",
+                    "User onboarding improvement - Reduce time to first value",
+                    "Early expansion signals - Identify upsell opportunities in first users",
+                    "Product-led growth foundations - Build virality and referrals early",
+                    "Usage-based pricing validation - Test different monetization models"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "Feature adoption acceleration - Drive usage across growing user base",
+                    "Expansion revenue optimization - Systematize upsell and cross-sell",
+                    "User segmentation strategies - Different approaches for different segments",
+                    "Product-qualified lead generation - Turn usage into sales pipeline",
+                    "Community building integration - Leverage users to drive growth"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "Enterprise feature adoption - Drive usage in larger accounts",
+                    "Multi-product expansion - Cross-sell additional products successfully",
+                    "International feature adoption - Scale usage across regions",
+                    "Partner ecosystem adoption - Drive usage through channel partners",
+                    "Customer advocacy scaling - Turn users into references and case studies"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Product suite optimization - Coordinate adoption across product portfolio",
+                    "Industry vertical adoption - Customize for specific verticals",
+                    "Global feature rollout - Coordinate worldwide feature releases",
+                    "Platform ecosystem adoption - Drive third-party integration usage",
+                    "Customer education scaling - Systematize training and enablement"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Product portfolio management - Optimize across 10+ products",
+                    "Global adoption benchmarking - Compare usage across regions",
+                    "M&A product integration - Incorporate acquired product usage",
+                    "Enterprise deployment optimization - Large-scale rollout management",
+                    "Product governance frameworks - Standards and best practices"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "24/7 adoption monitoring - Continuous optimization across time zones",
+                    "Cross-cultural adoption patterns - Understand regional usage differences",
+                    "Global user community management - Scale advocacy worldwide",
+                    "Multi-language feature adoption - Optimize for local languages",
+                    "International compliance adoption - Ensure features meet local regulations"
+                ]
+            },
+            {
+                name: "API/Developers",
+                points: [
+                    "Developer adoption optimization - Drive API usage and integration",
+                    "Partner ecosystem scaling - Grow third-party app development",
+                    "API usage monetization - Optimize pricing based on usage patterns",
+                    "Developer experience optimization - Improve documentation and support",
+                    "Platform health monitoring - Overall ecosystem vitality"
+                ]
+            }
+        ],
+        "Customer Success & Retention Intelligence": [
+            {
+                name: "Startups",
+                points: [
+                    "Early warning churn detection - Spot risks in first 100 customers",
+                    "Founder-led success scaling - Maximize impact with minimal team",
+                    "Product usage health scoring - Simple metrics that predict retention",
+                    "Early expansion opportunity identification - First upsell signals",
+                    "Customer feedback systemization - Collect and act on feedback efficiently"
+                ]
+            },
+            {
+                name: "Scale-ups",
+                points: [
+                    "First CS team enablement - Scale success beyond founders",
+                    "Segmentation-based success - Different approaches for different segments",
+                    "Expansion revenue systemization - Turn ad-hoc upsells into processes",
+                    "Customer advocacy program building - Reference and case study generation",
+                    "Cross-functional success integration - Connect success to product and sales"
+                ]
+            },
+            {
+                name: "SMEs",
+                points: [
+                    "Enterprise success scaling - Handle larger, more complex customers",
+                    "Multi-product success management - Success across product portfolio",
+                    "Partner success enablement - Success through channel partners",
+                    "Customer community building - Scale advocacy through communities",
+                    "Executive business reviews - Systematize strategic customer meetings"
+                ]
+            },
+            {
+                name: "Mid-Market",
+                points: [
+                    "Global success coordination - Manage customers across regions",
+                    "Industry vertical specialization - Success processes by industry",
+                    "Customer health standardization - Consistent scoring across segments",
+                    "Expansion forecasting accuracy - Predictable growth from existing customers",
+                    "Success technology stack optimization - Tools for scaling efficiency"
+                ]
+            },
+            {
+                name: "Large Enterprises",
+                points: [
+                    "Strategic account success - Top 100 customer management",
+                    "Global success standardization - Consistent processes worldwide",
+                    "M&A customer integration - Success for acquired company customers",
+                    "Executive sponsorship programs - C-level relationship management",
+                    "Customer advisory board management - Formal strategic feedback"
+                ]
+            },
+            {
+                name: "Global Enterprises",
+                points: [
+                    "24/7 success monitoring - Continuous coverage across time zones",
+                    "Cross-cultural success approaches - Adapt methods to local cultures",
+                    "Global customer advocacy - Reference customers worldwide",
+                    "International compliance success - Ensure success meets local regulations",
+                    "Global customer community - Worldwide user networking"
+                ]
+            },
+            {
+                name: "Enterprise/Complex",
+                points: [
+                    "Multi-stakeholder success - Manage relationships across buyer committee",
+                    "Implementation success tracking - Onboarding and deployment health",
+                    "Integration success management - Third-party integration health",
+                    "Regulatory compliance success - Ensure customers meet requirements",
+                    "Partner co-success management - Success with implementation partners"
+                ]
+            }
+        ]
+    };
 
     const offerings = [
         {
@@ -471,106 +1063,181 @@ export default function Offerings() {
                     <div className="space-y-16">
                         {offerings.map((offering, index) => (
                             <div key={index} id={offering.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="scroll-mt-32">
-                                <Card className="overflow-hidden border-0 bg-white/80 backdrop-blur-sm shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-indigo-900/10 transition-all duration-500 group ring-1 ring-slate-100 rounded-[2rem]">
-                                    <div className="grid lg:grid-cols-12 gap-0 overflow-hidden rounded-[2rem]">
-                                        {/* Header & Main Info */}
-                                        <div className="lg:col-span-4 bg-slate-50/50 p-6 border-r border-slate-100 flex flex-col justify-between relative group-hover:bg-slate-50/80 transition-colors">
-                                            <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-indigo-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                            <div>
-                                                <div className="flex items-center gap-4 mb-8">
-                                                    <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100 group-hover:scale-110 transition-transform duration-300">
-                                                        {offering.icon}
-                                                    </div>
-                                                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-xs font-bold uppercase tracking-wider border border-slate-200">
-                                                        Module {index + 1}
-                                                    </span>
-                                                </div>
-                                                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-indigo-900 transition-colors">{offering.title}</h3>
-                                                <p className="text-indigo-600 font-medium mb-8 text-lg">{offering.subtitle}</p>
+                                <Card className="overflow-hidden border border-white/50 bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(79,70,229,0.06)] transition-all duration-500 group rounded-[2.5rem] p-8 md:p-14 relative z-0">
+                                    {/* Subtle decorative background gradient */}
+                                    <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-gradient-to-b from-slate-50/80 to-transparent rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                                                <div className="space-y-6">
-                                                    {/* Styled like Crypto ICP Section */}
-                                                    <div className="bg-white rounded-xl p-6 border border-slate-100 shadow-sm relative overflow-hidden group/challenges">
-                                                        <div className="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-50"></div>
-                                                        <h4 className="font-bold text-slate-800 text-xs uppercase tracking-[0.1em] mb-4 flex items-center gap-2">
-                                                            <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                                                            Business Challenges
-                                                        </h4>
-                                                        <ul className="space-y-3 relative z-10">
-                                                            {offering.challenges.slice(0, 3).map((challenge, idx) => ( // limit to 3 for design balance
-                                                                <li key={idx} className="text-sm">
-                                                                    <span className="font-bold text-slate-700 block mb-0.5">{challenge.title}</span>
-                                                                    <span className="text-slate-500 leading-snug">{challenge.desc}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
+                                    {/* 1. Header Section: Title & Tag Line */}
+                                    <div className="flex flex-col items-center text-center mb-16 relative">
+                                        <div className="mb-8 p-5 bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100/80 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_10px_30px_rgba(79,70,229,0.1)] transition-all duration-500 relative z-10">
+                                            {offering.icon}
+                                        </div>
+                                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 text-slate-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-6 shadow-sm">
+                                            Module {index + 1}
+                                        </div>
+                                        <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">{offering.title}</h3>
+                                        <p className="text-xl md:text-2xl text-indigo-600/90 font-medium max-w-3xl leading-relaxed">{offering.subtitle}</p>
+                                    </div>
+
+                                    {/* 2. Challenges & KPI Grid */}
+                                    <div className="grid lg:grid-cols-2 gap-8 md:gap-16 mb-16">
+                                        {/* Business Challenges */}
+                                        <div className="bg-gradient-to-br from-amber-50/40 via-orange-50/20 to-transparent rounded-3xl p-8 md:p-10 border border-amber-100/50 relative overflow-hidden group/challenges">
+                                            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-100/30 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none transition-opacity duration-500 group-hover/challenges:opacity-100 opacity-60"></div>
+                                            <h4 className="font-bold text-amber-950/80 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
+                                                <div className="bg-amber-100 p-1.5 rounded-lg text-amber-600">
+                                                    <AlertTriangle className="w-4 h-4" />
+                                                </div>
+                                                Business Challenges
+                                            </h4>
+                                            <ul className="space-y-6 relative z-10">
+                                                {offering.challenges.map((challenge, idx) => (
+                                                    <li key={idx} className="flex gap-5 group/item">
+                                                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0 ring-4 ring-amber-50 group-hover/item:bg-amber-500 transition-colors"></div>
+                                                        <div>
+                                                            <span className="font-bold text-slate-800 block mb-1.5 text-[0.95rem] group-hover/item:text-slate-900 transition-colors">{challenge.title}</span>
+                                                            <span className="text-slate-500 text-sm leading-relaxed">{challenge.desc}</span>
+                                                        </div>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        {/* KPI Pain Points (Number Cards) */}
+                                        <div className="flex flex-col h-full">
+                                            <h4 className="font-bold text-slate-400 text-xs uppercase tracking-[0.2em] mb-8 text-center lg:text-left flex items-center gap-3 lg:justify-start justify-center">
+                                                <span className="w-8 h-[1px] bg-slate-200 inline-block"></span>
+                                                KPI Pain Points
+                                            </h4>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 h-full">
+                                                {offering.kpiPainPoints.map((kpi, idx) => {
+                                                    const match = kpi.match(/([<>]\d+%?|\d+%)/);
+                                                    const highlight = match ? match[0] : null;
+                                                    const text = highlight ? kpi.replace(highlight, '').trim().replace(/[()]/g, '') : kpi;
+
+                                                    return (
+                                                        <div key={idx} className="bg-white p-8 rounded-3xl border border-red-50/60 shadow-[0_2px_15px_-4px_rgba(239,68,68,0.08)] hover:shadow-[0_8px_25px_-4px_rgba(239,68,68,0.12)] hover:border-red-100 transition-all duration-300 group/kpi flex flex-col justify-center items-center text-center h-full hover:-translate-y-1">
+                                                            {highlight && (
+                                                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-rose-600 mb-3 block group-hover/kpi:scale-110 transition-transform duration-300">{highlight}</span>
+                                                            )}
+                                                            <span className="text-slate-600 font-semibold text-sm leading-snug">{text}</span>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* 3. Our Solutions (Portfolio Cards) */}
+                                    <div className="mb-16">
+                                        <h4 className="font-bold text-slate-900 text-xl mb-10 flex items-center gap-4">
+                                            <div className="bg-indigo-50 p-2 rounded-xl text-indigo-600">
+                                                <Target className="w-5 h-5" />
+                                            </div>
+                                            Our Solutions
+                                        </h4>
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            {offering.solutions.map((item, idx) => {
+                                                const [title, desc] = item.includes('–') ? item.split('–') : [item, ''];
+                                                return (
+                                                    <div key={idx} className="bg-white hover:bg-slate-50/50 p-8 rounded-[1.5rem] border border-slate-100 hover:border-indigo-100/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_30px_-10px_rgba(79,70,229,0.1)] transition-all duration-300 group/card hover:-translate-y-1">
+                                                        <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover/card:bg-indigo-600 transition-all duration-300 group-hover/card:rotate-3 shadow-inner">
+                                                            <Check className="w-5 h-5 text-indigo-500 group-hover/card:text-white transition-colors" />
+                                                        </div>
+                                                        <h5 className="font-bold text-lg text-slate-900 mb-3 group-hover/card:text-indigo-700 transition-colors">{title.trim()}</h5>
+                                                        {desc && <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc.trim()}</p>}
                                                     </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+
+                                    {/* 4. Business Impact & Tailored Solutions */}
+                                    <div className="grid lg:grid-cols-3 gap-8 md:gap-16 pt-12 border-t border-slate-100/80">
+                                        {/* Business Impact */}
+                                        <div className="lg:col-span-1">
+                                            <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl shadow-indigo-900/20 group/bi hover:scale-[1.02] transition-transform duration-300">
+                                                {/* Gradient Overlay */}
+                                                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-violet-600/20 opacity-100"></div>
+                                                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+                                                <h4 className="font-bold text-white/90 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
+                                                    <div className="bg-white/10 p-1.5 rounded-lg backdrop-blur-sm">
+                                                        <TrendingUp className="w-4 h-4 text-emerald-300" />
+                                                    </div>
+                                                    Business Impact
+                                                </h4>
+                                                <ul className="space-y-5 relative z-10">
+                                                    {offering.outcomes.map((outcome, idx) => (
+                                                        <li key={idx} className="flex items-start gap-4">
+                                                            <div className="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
+                                                                <Check className="w-3 h-3 text-emerald-400" />
+                                                            </div>
+                                                            <span className="text-[0.9rem] font-medium text-slate-200 leading-snug">{outcome}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <div className="mt-10 pt-6 border-t border-white/10 flex items-center gap-2.5 text-indigo-200 text-xs font-bold tracking-wide">
+                                                    <Zap className="w-4 h-4 text-indigo-400" />
+                                                    <span>ROI VERIFIED</span>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Solutions & Outcomes (Right Side) */}
-                                        <div className="lg:col-span-8 p-6 bg-white">
-                                            <div className="grid md:grid-cols-2 gap-6">
-                                                {/* Column 1: Solutions & KPIs */}
-                                                <div className="space-y-10">
-                                                    <div>
-                                                        <h4 className="font-bold text-slate-400 text-xs uppercase tracking-[0.2em] mb-5 flex items-center gap-2">
-                                                            <Target className="w-4 h-4 text-indigo-500" />
-                                                            Our Solutions
-                                                        </h4>
-                                                        <ul className="space-y-3">
-                                                            {offering.solutions.map((item, idx) => (
-                                                                <li key={idx} className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition-all group/sol">
-                                                                    <div className="w-2 h-2 rounded-full bg-indigo-400 group-hover/sol:scale-125 transition-transform"></div>
-                                                                    <span className="text-sm font-medium text-slate-700">{item.split('–')[0].trim()}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-
-                                                    <div>
-                                                        <h4 className="font-bold text-slate-400 text-xs uppercase tracking-[0.2em] mb-4">KPI Pain Points</h4>
-                                                        <div className="grid grid-cols-2 gap-3">
-                                                            {offering.kpiPainPoints.map((kpi, idx) => (
-                                                                <div key={idx} className="bg-red-50/50 p-2.5 rounded-md border border-red-50 hover:border-red-100 transition-colors">
-                                                                    <span className="text-red-700 text-xs font-bold block">
-                                                                        {kpi}
-                                                                    </span>
-                                                                </div>
-                                                            ))}
+                                        {/* Tailored Solutions Tabs */}
+                                        <div className="lg:col-span-2">
+                                            {offeringStages[offering.title] && (
+                                                <div className="h-full flex flex-col">
+                                                    <h4 className="font-bold text-slate-800 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
+                                                        <div className="bg-indigo-50 p-1.5 rounded-lg text-indigo-600">
+                                                            <Layout className="w-4 h-4" />
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Column 2: Business Impact */}
-                                                <div className="flex flex-col">
-                                                    <div className="bg-gradient-to-b from-blue-50/50 to-indigo-50/50 rounded-xl p-6 border border-blue-100/50 relative overflow-hidden group/impact">
-                                                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full blur-[60px] pointer-events-none opacity-0 group-hover/impact:opacity-100 transition-opacity duration-500"></div>
-
-                                                        <h4 className="font-bold text-indigo-900 text-xs uppercase tracking-[0.2em] mb-6 flex items-center gap-2 relative z-10">
-                                                            <TrendingUp className="w-4 h-4 text-indigo-600" />
-                                                            Business Impact
-                                                        </h4>
-
-                                                        <div className="space-y-4 relative z-10">
-                                                            {offering.outcomes.map((outcome, idx) => (
-                                                                <div key={idx} className="bg-white p-3 rounded-lg shadow-sm border border-slate-100/50 flex items-start gap-3 hover:scale-105 transition-transform duration-300 cursor-default">
-                                                                    <div className="bg-green-100 p-1.5 rounded-lg mt-0.5">
-                                                                        <Check className="w-3.5 h-3.5 text-green-700" />
+                                                        Tailored Solutions by Stage
+                                                    </h4>
+                                                    <Tabs defaultValue={offeringStages[offering.title][0].name} className="w-full flex-1 flex flex-col">
+                                                        <TabsList className="w-full justify-start h-auto flex-wrap gap-3 bg-transparent p-0 mb-8">
+                                                            {offeringStages[offering.title].map((stage, i) => (
+                                                                <TabsTrigger
+                                                                    key={i}
+                                                                    value={stage.name}
+                                                                    className="data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-indigo-500/25 bg-white text-slate-600 rounded-full px-5 py-2.5 h-auto text-sm font-semibold border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-300"
+                                                                >
+                                                                    {stage.name}
+                                                                </TabsTrigger>
+                                                            ))}
+                                                        </TabsList>
+                                                        <div className="flex-1">
+                                                            {offeringStages[offering.title].map((stage, i) => (
+                                                                <TabsContent key={i} value={stage.name} className="mt-0 animate-in fade-in slide-in-from-bottom-2 duration-300 h-full">
+                                                                    <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden">
+                                                                        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+                                                                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 relative z-10">
+                                                                            <h5 className="font-bold text-slate-900 text-xl">{stage.name}</h5>
+                                                                            {stage.subtitle && (
+                                                                                <span className="text-indigo-600 text-xs font-bold uppercase tracking-wider bg-indigo-100/50 px-3 py-1 rounded-full border border-indigo-100">{stage.subtitle}</span>
+                                                                            )}
+                                                                        </div>
+                                                                        <ul className="grid sm:grid-cols-1 gap-4 relative z-10">
+                                                                            {stage.points.map((point, idx) => {
+                                                                                const [title, desc] = point.includes(' - ') ? point.split(' - ') : [point, ''];
+                                                                                return (
+                                                                                    <li key={idx} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/60 transition-colors">
+                                                                                        <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.5)]"></div>
+                                                                                        <span className="text-sm">
+                                                                                            <span className="font-bold text-slate-900">{title}</span>
+                                                                                            {desc && <span className="text-slate-500 block mt-0.5">{desc}</span>}
+                                                                                        </span>
+                                                                                    </li>
+                                                                                );
+                                                                            })}
+                                                                        </ul>
                                                                     </div>
-                                                                    <span className="text-slate-800 font-semibold text-sm leading-snug">{outcome}</span>
-                                                                </div>
+                                                                </TabsContent>
                                                             ))}
                                                         </div>
-
-                                                        <div className="mt-8 pt-6 border-t border-indigo-100/50 flex items-center gap-2 text-indigo-600/70 text-sm font-medium">
-                                                            <Zap className="w-4 h-4" />
-                                                            <span>ROI Verified</span>
-                                                        </div>
-                                                    </div>
+                                                    </Tabs>
                                                 </div>
-                                            </div>
+                                            )}
                                         </div>
                                     </div>
                                 </Card>
