@@ -103,14 +103,46 @@ export default function Company() {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
 
-            {/* 1. Hero Section - Premium */}
-            <section className="relative bg-white text-slate-900 pt-32 pb-24 overflow-hidden">
-                {/* Premium Background Effects */}
-                <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-slate-50 via-white to-white pointer-events-none"></div>
-                <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none animate-pulse-slow"></div>
-                <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none"></div>
+            {/* 1. Hero Section - Premium (Background Slideshow - White Theme) */}
+            <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden bg-white">
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                {/* Background Slideshow */}
+                <div className="absolute inset-0 z-0">
+                    <style>{`
+                        @keyframes fadeZoom {
+                            0% { opacity: 0; transform: scale(1); }
+                            5% { opacity: 1; transform: scale(1.05); }
+                            20% { opacity: 1; transform: scale(1.1); }
+                            25% { opacity: 0; transform: scale(1.15); }
+                            100% { opacity: 0; transform: scale(1); }
+                        }
+                        .animate-slide-1 { animation: fadeZoom 25s infinite 0s; }
+                        .animate-slide-2 { animation: fadeZoom 25s infinite 5s; }
+                        .animate-slide-3 { animation: fadeZoom 25s infinite 10s; }
+                        .animate-slide-4 { animation: fadeZoom 25s infinite 15s; }
+                        .animate-slide-5 { animation: fadeZoom 25s infinite 20s; }
+                    `}</style>
+
+                    {[
+                        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
+                        "https://images.unsplash.com/photo-1553877615-2a33715ce9e2?auto=format&fit=crop&w=1920&q=80",
+                        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
+                        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
+                        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80"
+                    ].map((img, idx) => (
+                        <div
+                            key={idx}
+                            className={`absolute inset-0 bg-cover bg-center opacity-0 animate-slide-${idx + 1}`}
+                            style={{ backgroundImage: `url(${img})` }}
+                        />
+                    ))}
+
+                    {/* White Overlay for Text Readability (White Theme) */}
+                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80"></div>
+                </div>
+
+                {/* Content */}
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
                         <Building2 className="w-4 h-4 text-blue-600" />
                         <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Enterprise Revenue Intelligence</span>
@@ -133,7 +165,7 @@ export default function Company() {
                                 Book a Demo
                             </Button>
                         </Link>
-                        <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-700 px-10 py-6 text-lg h-auto rounded-full transition-all hover:border-blue-200 shadow-sm hover:shadow">
+                        <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-700 px-10 py-6 text-lg h-auto rounded-full transition-all hover:border-blue-200 shadow-sm hover:shadow bg-white/50 backdrop-blur-sm">
                             Talk to a Revenue Expert
                         </Button>
                     </div>

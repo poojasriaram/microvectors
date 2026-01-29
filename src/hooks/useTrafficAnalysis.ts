@@ -42,27 +42,38 @@ export const useTrafficAnalysis = () => {
             return "Desktop";
         };
 
-        // Capture Data
-        const trafficData = {
-            "Visitor ID": visitorId,
-            "Page URL": window.location.href,
-            "Page Path": location.pathname,
-            "Page Title": document.title,
-            "Referrer": document.referrer || "Direct",
-            "IP Address": "IP Tracking requires backend/proxy", // Frontend JS cannot reliably get client IP directly without external service
-            "Timestamp": new Date().toISOString(),
-            "Session ID": sessionId,
-            "Is Repeat Visitor": isRepeatVisitor ? "Yes" : "No",
-            "User Agent": navigator.userAgent,
-            "Screen": `${window.screen.width}x${window.screen.height}`,
-            "Device Type": getDeviceType()
+        const logTraffic = async () => {
+            let ipAddress = 'Unknown';
+            try {
+                const res = await fetch('https://api.ipify.org?format=json');
+                const data = await res.json();
+                ipAddress = data.ip;
+            } catch (e) {
+                console.debug('Failed to fetch IP', e);
+            }
+
+            const trafficData = {
+                "Visitor ID": visitorId,
+                "Page URL": window.location.href,
+                "Page Path": location.pathname,
+                "Page Title": document.title,
+                "Referrer": document.referrer || "Direct",
+                "IP Address": ipAddress,
+                "Timestamp": new Date().toISOString(),
+                "Session ID": sessionId,
+                "Is Repeat Visitor": isRepeatVisitor ? "Yes" : "No",
+                "User Agent": navigator.userAgent,
+                "Screen": `${window.screen.width}x${window.screen.height}`,
+                "Device Type": getDeviceType()
+            };
+
+            // Fire and Forget submission to avoid blocking UI
+            submitToAirtable('Traffic Analysis', trafficData).catch(err => {
+                // Silently fail for analytics to not disturb user exp
+                console.debug("Traffic analytics error", err);
+            });
         };
 
-        // Fire and Forget submission to avoid blocking UI
-        submitToAirtable('Traffic Analysis', trafficData).catch(err => {
-            // Silently fail for analytics to not disturb user exp
-            console.debug("Traffic analytics error", err);
-        });
-
+        logTraffic();
     }, [location.pathname]); // Run on every route change
 };

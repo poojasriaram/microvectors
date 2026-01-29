@@ -121,19 +121,19 @@ export default function Navigation() {
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-slate-100">
-            <div className="w-full mx-auto px-6 lg:px-10">
+            <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <div className="flex-shrink-0 mr-8">
+                    <div className="flex-shrink-0 mr-4 xl:mr-8">
                         <Link to="/" className="flex items-center gap-2">
-                            <img src={logo} alt="TrustFlow.ai" className="h-14 w-auto object-contain" />
+                            <img src={logo} alt="TrustFlow.ai" className="h-10 md:h-12 lg:h-14 w-auto object-contain" />
                         </Link>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-1 flex-1 justify-end">
+                    <div className="hidden lg:flex items-center gap-0.5 xl:gap-2 flex-1 justify-end">
                         {navItems.map((item) => {
-                            const isMegaMenu = item.dropdown && item.dropdown.length > 5;
+                            const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company';
                             const dropdownWidth = isMegaMenu ? 'w-[640px]' : 'w-72';
                             const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
 
@@ -146,14 +146,14 @@ export default function Navigation() {
                                 >
                                     <Link
                                         to={item.path}
-                                        className={`text-[15px] font-semibold transition-all duration-300 flex items-center gap-1.5 py-2 px-3 rounded-full ${location.pathname === item.path
+                                        className={`text-[13px] xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 xl:gap-1.5 py-2 px-2 xl:px-3 rounded-full ${location.pathname === item.path
                                             ? 'text-blue-600 bg-blue-50/50'
                                             : 'text-black hover:text-blue-600 hover:bg-slate-50/50'
                                             } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/50' : ''}`}
                                     >
                                         {item.name}
                                         {item.dropdown && (
-                                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                                            <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
                                         )}
                                     </Link>
 
@@ -201,9 +201,9 @@ export default function Navigation() {
                     </div>
 
                     {/* Desktop CTA */}
-                    <div className="hidden lg:flex items-center ml-6 gap-4">
+                    <div className="hidden lg:flex items-center ml-3 xl:ml-6 gap-2 xl:gap-4 shrink-0">
                         <Link to="/book-demo">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 h-auto text-sm font-bold rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all">
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-6 py-2 xl:py-2.5 h-auto text-xs xl:text-sm font-bold rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all whitespace-nowrap">
                                 Book a Demo
                             </Button>
                         </Link>
@@ -211,9 +211,9 @@ export default function Navigation() {
                             href="https://wa.me/919513288612"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-green-500 hover:bg-green-600 text-white px-4 py-2.5 h-auto text-sm font-bold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-green-500/30 transition-all flex items-center gap-2 whitespace-nowrap"
+                            className="bg-green-500 hover:bg-green-600 text-white px-3 xl:px-4 py-2 xl:py-2.5 h-auto text-xs xl:text-sm font-bold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-green-500/30 transition-all flex items-center gap-2 whitespace-nowrap"
                         >
-                            <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                            <MessageCircle className="w-3.5 h-3.5 xl:w-4 xl:h-4 flex-shrink-0" />
                             <span>Contact Us</span>
                         </a>
                     </div>
