@@ -36,6 +36,19 @@ export default function Navigation() {
             ]
         },
         {
+            name: 'Products',
+            path: '/products',
+            dropdown: [
+                { name: "Demand Pulse", path: "/demand-pulse" },
+                { name: "AI Demand Discovery", path: "/ai-demand-discovery" },
+                { name: "AI Lead Generation", path: "/ai-lead-generation" },
+                { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
+                { name: "AI MVP Validation", path: "/ai-mvp-validation" },
+                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" },
+                { name: "Crypto", path: "/crypto" }
+            ]
+        },
+        {
             name: 'Crypto',
             path: '/crypto',
             dropdown: [
@@ -134,7 +147,7 @@ export default function Navigation() {
                     <div className="hidden lg:flex items-center gap-0.5 xl:gap-2 flex-1 justify-end">
                         {navItems.map((item) => {
                             const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company';
-                            const dropdownWidth = isMegaMenu ? 'w-[640px]' : 'w-72';
+                            const dropdownWidth = isMegaMenu ? 'w-[560px]' : 'w-64';
                             const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
 
                             return (
@@ -144,18 +157,27 @@ export default function Navigation() {
                                     onMouseEnter={() => setHoveredItem(item.name)}
                                     onMouseLeave={() => setHoveredItem(null)}
                                 >
-                                    <Link
-                                        to={item.path}
-                                        className={`text-[13px] xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 xl:gap-1.5 py-2 px-2 xl:px-3 rounded-full ${location.pathname === item.path
-                                            ? 'text-blue-600 bg-blue-50/50'
-                                            : 'text-black hover:text-blue-600 hover:bg-slate-50/50'
-                                            } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/50' : ''}`}
-                                    >
-                                        {item.name}
-                                        {item.dropdown && (
-                                            <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
-                                        )}
-                                    </Link>
+                                    {/* Determine if active (exact match or child match) */}
+                                    {(() => {
+                                        const isActive = location.pathname === item.path || (item.dropdown && item.dropdown.some((subItem: any) => {
+                                            return typeof subItem === 'object' && subItem.path === location.pathname;
+                                        }));
+
+                                        return (
+                                            <Link
+                                                to={item.path}
+                                                className={`text-[13px] xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 xl:gap-1.5 py-2 px-2 xl:px-3 rounded-full ${isActive
+                                                    ? 'text-blue-600 bg-blue-50/50'
+                                                    : 'text-black hover:text-blue-600 hover:bg-slate-50/50'
+                                                    } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/50' : ''}`}
+                                            >
+                                                {item.name}
+                                                {item.dropdown && (
+                                                    <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                                                )}
+                                            </Link>
+                                        );
+                                    })()}
 
                                     {/* Ultra-Premium Dropdown / Mega Menu */}
                                     {item.dropdown && (
@@ -163,7 +185,7 @@ export default function Navigation() {
                                             className={`absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 ${dropdownWidth} 
                                             bg-white 
                                             rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 ring-1 ring-black/5 
-                                            p-5 transform transition-all duration-300 ease-out origin-top z-50
+                                            p-3 transform transition-all duration-300 ease-out origin-top z-50
                                             ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-2 invisible pointer-events-none'}
                                         `}
                                         >
@@ -173,7 +195,7 @@ export default function Navigation() {
                                             {/* Decorative top sheen */}
                                             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent" />
 
-                                            <div className={`grid ${gridCols} gap-3`}>
+                                            <div className={`grid ${gridCols} gap-1`}>
                                                 {item.dropdown.map((subItem, idx) => {
                                                     const isString = typeof subItem === 'string';
                                                     const label = isString ? subItem : subItem.name;
@@ -183,7 +205,7 @@ export default function Navigation() {
                                                         <Link
                                                             key={idx}
                                                             to={linkPath}
-                                                            className="flex items-center gap-3.5 p-3 rounded-xl hover:bg-gradient-to-r hover:from-white hover:to-blue-50/50 transition-all duration-300 group/item border border-transparent hover:border-blue-100/30 hover:shadow-sm hover:translate-x-1"
+                                                            className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-gradient-to-r hover:from-white hover:to-blue-50/50 transition-all duration-300 group/item border border-transparent hover:border-blue-100/30 hover:shadow-sm hover:translate-x-1"
                                                         >
                                                             <div className="w-2 h-2 rounded-full bg-slate-300 group-hover/item:bg-blue-500 group-hover/item:shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all duration-300 flex-shrink-0" />
                                                             <span className="text-[14px] font-semibold text-slate-600 group-hover/item:text-blue-700 transition-colors leading-snug">

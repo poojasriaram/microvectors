@@ -40,7 +40,13 @@ export default function Footer() {
     };
 
     const productLinks: { [key: string]: string } = {
-        'Demand Pulse': '/demand-pulse'
+        'Demand Pulse': '/demand-pulse',
+        'AI Demand Discovery': '/ai-demand-discovery',
+        'AI Lead Generation': '/ai-lead-generation',
+        'AI Lead Nurturing': '/ai-lead-nurturing',
+        'AI MVP Validation': '/ai-mvp-validation',
+        'Crypto': '/crypto',
+        'Sales Transformation': '/ai-lead-sales-transformation'
     };
 
     return (

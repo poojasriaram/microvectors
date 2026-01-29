@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import { MessagesSquare } from 'lucide-react';
@@ -23,6 +23,11 @@ import DemandPulse from './pages/DemandPulse';
 import Partners from './pages/Partners';
 import Career from './pages/Career';
 import TalkToExpert from './pages/TalkToExpert';
+import AIDemandDiscovery from './pages/AIDemandDiscovery';
+import AILeadGeneration from './pages/AILeadGeneration';
+import AILeadNurturing from './pages/AILeadNurturing';
+import AIMVPValidation from './pages/AIMVPValidation';
+import AILeadSalesTransformation from './pages/AILeadSalesTransformation';
 import CookieConsent from './components/CookieConsent';
 
 
@@ -61,6 +66,12 @@ export default function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/career" element={<Career />} />
             <Route path="/talk-to-expert" element={<TalkToExpert />} />
+            <Route path="/ai-demand-discovery" element={<AIDemandDiscovery />} />
+            <Route path="/ai-lead-generation" element={<AILeadGeneration />} />
+            <Route path="/ai-lead-nurturing" element={<AILeadNurturing />} />
+            <Route path="/ai-mvp-validation" element={<AIMVPValidation />} />
+            <Route path="/ai-lead-sales-transformation" element={<AILeadSalesTransformation />} />
+            <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
 
           </Routes>
         </main>
