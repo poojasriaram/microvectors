@@ -52,41 +52,23 @@ export default function DemandPulseCarousel() {
         });
     };
 
-    const variants = {
-        enter: (direction: number) => ({
-            x: direction > 0 ? 1000 : -1000,
-            opacity: 0,
-            scale: 1.1
-        }),
-        center: {
-            zIndex: 1,
-            x: 0,
-            opacity: 1,
-            scale: 1
-        },
-        exit: (direction: number) => ({
-            zIndex: 0,
-            x: direction < 0 ? 1000 : -1000,
-            opacity: 0,
-            scale: 1.1
-        })
-    };
+
 
     return (
-        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-slate-900 border-b border-slate-200 overflow-hidden group">
-            <AnimatePresence initial={false} custom={direction}>
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                     key={currentIndex}
                     custom={direction}
-                    variants={variants}
+                    variants={{
+                        enter: { opacity: 0, scale: 1.05 },
+                        center: { opacity: 1, scale: 1 },
+                        exit: { opacity: 0 }
+                    }}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.5 },
-                        scale: { duration: 0.8 }
-                    }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full"
                 >
                     {/* Background Image */}
@@ -95,25 +77,25 @@ export default function DemandPulseCarousel() {
                         style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
                     />
 
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                    {/* White Overlay for Premium Feel */}
+                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/90 via-white/40 to-white/90" />
 
                     {/* Content */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 flex justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center pt-8">
                             <motion.div
-                                initial={{ y: 20, opacity: 0 }}
+                                initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.3 }}
-                                className="bg-white/10 backdrop-blur-md border border-white/20 p-8 md:p-12 rounded-[2rem] max-w-2xl shadow-2xl"
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                                className="max-w-4xl mx-auto"
                             >
-                                <div className="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-bold uppercase tracking-widest mb-4 border border-blue-500/30">
+                                <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
                                     DemandPulse OS
                                 </div>
-                                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+                                <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-none drop-shadow-sm">
                                     {slides[currentIndex].title}
                                 </h2>
-                                <p className="text-lg md:text-xl text-slate-200 font-medium leading-relaxed">
+                                <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto tracking-wide">
                                     {slides[currentIndex].subtitle}
                                 </p>
                             </motion.div>
@@ -125,19 +107,19 @@ export default function DemandPulseCarousel() {
             {/* Navigation Buttons */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100 z-20"
+                className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
             >
                 <ChevronLeft className="w-6 h-6" />
             </button>
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-all opacity-0 group-hover:opacity-100 z-20"
+                className="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
             >
                 <ChevronRight className="w-6 h-6" />
             </button>
 
             {/* Pagination Dots */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20 bg-white/50 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-sm">
                 {slides.map((_, idx) => (
                     <button
                         key={idx}
@@ -145,7 +127,7 @@ export default function DemandPulseCarousel() {
                             setDirection(idx > currentIndex ? 1 : -1);
                             setCurrentIndex(idx);
                         }}
-                        className={`transition-all duration-300 rounded-full ${currentIndex === idx ? 'w-10 h-1.5 bg-blue-500' : 'w-2 h-1.5 bg-white/50 hover:bg-white/80'}`}
+                        className={`transition-all duration-300 rounded-full ${currentIndex === idx ? 'w-8 h-1.5 bg-blue-600' : 'w-1.5 h-1.5 bg-slate-400 hover:bg-slate-600'}`}
                     />
                 ))}
             </div>

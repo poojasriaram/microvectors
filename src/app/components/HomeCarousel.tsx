@@ -76,99 +76,74 @@ export default function HomeCarousel() {
         });
     };
 
-    const variants = {
-        enter: (direction: number) => ({
-            x: direction > 0 ? 1000 : -1000,
-            opacity: 0,
-            scale: 1.1
-        }),
-        center: {
-            zIndex: 1,
-            x: 0,
-            opacity: 1,
-            scale: 1
-        },
-        exit: (direction: number) => ({
-            zIndex: 0,
-            x: direction < 0 ? 1000 : -1000,
-            opacity: 0,
-            scale: 1.1
-        })
-    };
+
 
     return (
-        <section className="relative w-full h-[550px] md:h-[650px] lg:h-[750px] bg-slate-900 border-b border-slate-200 overflow-hidden group">
-            <AnimatePresence initial={false} custom={direction}>
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                     key={currentIndex}
                     custom={direction}
-                    variants={variants}
+                    variants={{
+                        enter: { opacity: 0, scale: 1.05 },
+                        center: { opacity: 1, scale: 1 },
+                        exit: { opacity: 0 }
+                    }}
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.5 },
-                        scale: { duration: 0.8 }
-                    }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full"
                 >
                     {/* Background Image */}
                     <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-[2000ms] scale-105"
+                        className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
                     />
 
-                    {/* Overlay Gradient - Stronger for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/30" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-950/40 to-slate-950/80" />
+                    {/* White Overlay for Premium Feel (Matches Company Page) */}
+                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/90 via-white/40 to-white/90" />
 
                     {/* Content */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 flex justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center pt-10">
                             <motion.div
-                                initial={{ y: 20, opacity: 0, scale: 0.95 }}
-                                animate={{ y: 0, opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                                className="w-full max-w-5xl min-h-[400px] md:min-h-[480px] mx-auto bg-white/5 backdrop-blur-3xl border border-white/10 p-10 md:p-16 rounded-[3rem] shadow-[0_0_60px_-15px_rgba(59,130,246,0.25)] relative overflow-hidden flex flex-col justify-center items-center text-center"
+                                initial={{ y: 30, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                                className="max-w-5xl mx-auto"
                             >
-                                {/* Decorative Glow */}
-                                <div className="absolute -top-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px]" />
-                                <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-purple-500/15 rounded-full blur-[100px]" />
-
-                                <div className="z-10 relative">
-                                    <div className="inline-block px-5 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-200 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-8 border border-blue-400/20 shadow-lg shadow-blue-500/5 backdrop-blur-md">
-                                        TrustFlow Intelligence
-                                    </div>
-                                    <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-blue-200 mb-8 tracking-tight leading-[1.1] drop-shadow-lg max-w-4xl mx-auto">
-                                        {slides[currentIndex].title}
-                                    </h2>
-                                    <p className="text-lg md:text-2xl text-slate-300 font-medium leading-relaxed max-w-3xl mx-auto text-balance tracking-wide">
-                                        {slides[currentIndex].subtitle}
-                                    </p>
+                                <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
+                                    TrustFlow Intelligence
                                 </div>
+                                <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
+                                    {slides[currentIndex].title}
+                                </h2>
+                                <p className="text-lg md:text-2xl text-slate-600 font-medium leading-relaxed max-w-3xl mx-auto tracking-wide">
+                                    {slides[currentIndex].subtitle}
+                                </p>
                             </motion.div>
                         </div>
                     </div>
                 </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Buttons */}
+            {/* Navigation Buttons - Dark for Light Theme */}
             <button
                 onClick={() => paginate(-1)}
-                className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 active:scale-95"
+                className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
             >
-                <ChevronLeft className="w-8 h-8 opacity-70 hover:opacity-100" />
+                <ChevronLeft className="w-6 h-6" />
             </button>
             <button
                 onClick={() => paginate(1)}
-                className="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 active:scale-95"
+                className="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
             >
-                <ChevronRight className="w-8 h-8 opacity-70 hover:opacity-100" />
+                <ChevronRight className="w-6 h-6" />
             </button>
 
             {/* Pagination Dots */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20 bg-black/20 backdrop-blur-xl px-6 py-3 rounded-full border border-white/5">
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20 bg-white/50 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-sm">
                 {slides.map((_, idx) => (
                     <button
                         key={idx}
@@ -177,8 +152,8 @@ export default function HomeCarousel() {
                             setCurrentIndex(idx);
                         }}
                         className={`transition-all duration-300 rounded-full ${currentIndex === idx
-                            ? 'w-8 h-1.5 bg-gradient-to-r from-blue-500 to-blue-400 shadow-[0_0_10px_1px_rgba(59,130,246,0.5)]'
-                            : 'w-1.5 h-1.5 bg-white/30 hover:bg-white/60'
+                            ? 'w-8 h-1.5 bg-blue-600'
+                            : 'w-1.5 h-1.5 bg-slate-400 hover:bg-slate-600'
                             }`}
                     />
                 ))}

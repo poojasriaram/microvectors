@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import logo from '../../assets/Trustflow-logo.png';
@@ -133,9 +134,9 @@ export default function Navigation() {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-slate-100">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300 border-b border-slate-200/60 support-backdrop-blur:bg-white/90">
             <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-                <div className="flex items-center justify-between h-20">
+                <div className="flex items-center justify-between h-[88px]">
                     {/* Logo */}
                     <div className="flex-shrink-0 mr-4 xl:mr-8">
                         <Link to="/" className="flex items-center gap-2">
@@ -166,14 +167,14 @@ export default function Navigation() {
                                         return (
                                             <Link
                                                 to={item.path}
-                                                className={`text-[13px] xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-1 xl:gap-1.5 py-2 px-2 xl:px-3 rounded-full ${isActive
-                                                    ? 'text-blue-600 bg-blue-50/50'
-                                                    : 'text-black hover:text-blue-600 hover:bg-slate-50/50'
-                                                    } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/50' : ''}`}
+                                                className={`text-[14px] font-medium transition-all duration-200 flex items-center gap-1.5 py-2.5 px-3.5 rounded-full ${isActive
+                                                    ? 'text-blue-700 bg-blue-50/80 font-semibold'
+                                                    : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50/80'
+                                                    } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/80' : ''}`}
                                             >
                                                 {item.name}
                                                 {item.dropdown && (
-                                                    <ChevronDown className={`w-3 h-3 xl:w-3.5 xl:h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
+                                                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
                                                 )}
                                             </Link>
                                         );
@@ -182,7 +183,7 @@ export default function Navigation() {
                                     {/* Ultra-Premium Dropdown / Mega Menu */}
                                     {item.dropdown && (
                                         <div
-                                            className={`absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 ${dropdownWidth} 
+                                            className={`absolute top-[calc(100%+0.5rem)] ${item.name === 'Home' ? 'left-0' : 'left-1/2 -translate-x-1/2'} ${dropdownWidth} 
                                             bg-white 
                                             rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 ring-1 ring-black/5 
                                             p-3 transform transition-all duration-300 ease-out origin-top z-50
@@ -207,7 +208,7 @@ export default function Navigation() {
                                                             to={linkPath}
                                                             className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-gradient-to-r hover:from-white hover:to-blue-50/50 transition-all duration-300 group/item border border-transparent hover:border-blue-100/30 hover:shadow-sm hover:translate-x-1"
                                                         >
-                                                            <div className="w-2 h-2 rounded-full bg-slate-300 group-hover/item:bg-blue-500 group-hover/item:shadow-[0_0_8px_rgba(59,130,246,0.6)] transition-all duration-300 flex-shrink-0" />
+
                                                             <span className="text-[14px] font-semibold text-slate-600 group-hover/item:text-blue-700 transition-colors leading-snug">
                                                                 {label}
                                                             </span>
@@ -223,20 +224,20 @@ export default function Navigation() {
                     </div>
 
                     {/* Desktop CTA */}
-                    <div className="hidden lg:flex items-center ml-3 xl:ml-6 gap-2 xl:gap-4 shrink-0">
+                    <div className="hidden lg:flex items-center ml-4 xl:ml-8 gap-3 shrink-0">
                         <Link to="/book-demo">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-6 py-2 xl:py-2.5 h-auto text-xs xl:text-sm font-bold rounded-lg shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all whitespace-nowrap">
+                            <Button className="min-w-[130px] justify-center bg-white text-slate-900 border border-slate-200 hover:border-blue-300/50 hover:bg-blue-50/30 px-4 py-2.5 h-auto text-sm font-semibold rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out whitespace-nowrap">
                                 Book a Demo
                             </Button>
                         </Link>
                         <a
-                            href="https://wa.me/919513288612"
+                            href="https://wa.me/919944499988"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-green-500 hover:bg-green-600 text-white px-3 xl:px-4 py-2 xl:py-2.5 h-auto text-xs xl:text-sm font-bold rounded-lg shadow-lg shadow-green-500/20 hover:shadow-green-500/30 transition-all flex items-center gap-2 whitespace-nowrap"
+                            className="min-w-[130px] justify-center bg-white text-slate-900 border border-slate-200 hover:border-green-300/50 hover:bg-green-50/30 px-4 py-2.5 h-auto text-sm font-semibold rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out flex items-center gap-2 whitespace-nowrap"
                         >
-                            <MessageCircle className="w-3.5 h-3.5 xl:w-4 xl:h-4 flex-shrink-0" />
-                            <span>Contact Us</span>
+                            <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                            <span>WhatsApp</span>
                         </a>
                     </div>
 
@@ -340,27 +341,28 @@ export default function Navigation() {
                                 className="block w-full"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
-                                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white h-14 rounded-xl font-bold text-lg shadow-xl shadow-blue-500/20 active:scale-[0.98] transition-all">
+                                <Button className="w-full bg-white text-slate-900 border border-blue-200 hover:bg-blue-50 h-14 rounded-xl font-bold text-lg shadow-sm active:scale-[0.98] transition-all">
                                     Book a Demo
                                 </Button>
                             </Link>
 
                             <a
-                                href="https://wa.me/919513288612"
+                                href="https://wa.me/919944499988"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block w-full"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <Button className="w-full bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 h-14 rounded-xl font-bold text-lg shadow-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
-                                    <MessageCircle className="w-5 h-5 text-green-500" />
-                                    Contact Us
+                                    <WhatsAppIcon className="w-5 h-5 text-green-500" />
+                                    WhatsApp
                                 </Button>
                             </a>
                         </div>
                     </div>
                 </div>
             )}
+            {/* Floating WhatsApp Chat Widget Removed */}
         </nav>
     );
 }
