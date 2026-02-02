@@ -116,7 +116,7 @@ export const useContextAwareChat = () => {
                             // Mark as triggered
                             triggeredContexts.add(uniqueKey);
                             timeoutRef.current = null;
-                        }, 3500); // > 3.5 Seconds
+                        }, 2000); // > 2 Seconds
                     }
                 } else {
                     // Left the section before timer finished
@@ -217,7 +217,7 @@ export const useContextAwareChat = () => {
                 triggeredContexts.add(path);
             }
 
-        }, 5000); // 5 seconds on page
+        }, 2000); // 2 seconds on page
 
         return () => {
             observerRef.current?.disconnect();
