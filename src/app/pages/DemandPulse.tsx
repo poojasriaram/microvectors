@@ -55,6 +55,7 @@ export default function DemandPulse() {
 
             {/* Feature 01 */}
             <FeatureSection
+                id="feature-demand-discovery"
                 number="1"
                 title="AI-Driven Demand Discovery"
                 tagline="Uncover Hidden Buyer Clusters Before Competitors Do"
@@ -74,6 +75,7 @@ export default function DemandPulse() {
 
             {/* Feature 02 */}
             <FeatureSection
+                id="feature-demand-generation"
                 number="2"
                 title="AI-Driven Demand Generation"
                 tagline="Your 24/7 Autonomous Lead Factory—Zero Downtime, Infinite Scale"
@@ -93,6 +95,7 @@ export default function DemandPulse() {
 
             {/* Feature 03 */}
             <FeatureSection
+                id="feature-competitive-tracing"
                 number="3"
                 title="Competitive Demand Tracing"
                 tagline="Intercept Buyers Evaluating Competitors—Before They Convert"
@@ -111,6 +114,7 @@ export default function DemandPulse() {
 
             {/* Feature 04 */}
             <FeatureSection
+                id="feature-micro-segmentation"
                 number="4"
                 title="Micro-Segmentation Analytics"
                 tagline="From “Marketers” to “B2B SaaS Growth Marketers Using HubSpot + Running LinkedIn Ads”"
@@ -129,6 +133,7 @@ export default function DemandPulse() {
 
             {/* Feature 05 */}
             <FeatureSection
+                id="feature-offer-optimization"
                 number="5"
                 title="Offer Refinement & Optimization Analytics"
                 tagline="Optimize Pricing, Packaging & Messaging Based on Real Buyer Behavior"
@@ -147,6 +152,7 @@ export default function DemandPulse() {
 
             {/* Feature 06 */}
             <FeatureSection
+                id="feature-multi-channel-automation"
                 number="6"
                 title="Multi-Channel Demand Gen Automation"
                 tagline="Orchestrate 15+ Channels Like a Single, Intelligent System"
@@ -165,6 +171,7 @@ export default function DemandPulse() {
 
             {/* Feature 07 */}
             <FeatureSection
+                id="feature-pmf-acceleration"
                 number="7"
                 title="Product-Market Fit (PMF) Acceleration"
                 tagline="Validate PMF in 30 Days—Not 6 Months"
@@ -183,6 +190,7 @@ export default function DemandPulse() {
 
             {/* Feature 08 */}
             <FeatureSection
+                id="feature-behavioral-targeting"
                 number="8"
                 title="Behavioral Segmentation & Targeting"
                 tagline="Target What People Do—Not Just Who They Are"
@@ -201,6 +209,7 @@ export default function DemandPulse() {
 
             {/* Feature 09 */}
             <FeatureSection
+                id="feature-campaign-optimization"
                 number="9"
                 title="AI-Driven Campaign Optimization"
                 tagline="Self-Optimizing Campaigns That Get Smarter Every Hour"
@@ -219,6 +228,7 @@ export default function DemandPulse() {
 
             {/* Feature 10 */}
             <FeatureSection
+                id="feature-conversational-marketing"
                 number="10"
                 title="AI ChatGPT Conversational Marketing Engine"
                 tagline="Your 24/7 AI Sales Rep—Trained on Your Playbook"

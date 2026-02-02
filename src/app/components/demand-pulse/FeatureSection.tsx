@@ -14,6 +14,7 @@ interface FeatureSectionProps {
     useCases: UseCase[];
     howAiDeliveredIt: string;
     outcomeKPIs: string[];
+    id?: string;
 }
 
 export default function FeatureSection({
@@ -24,9 +25,10 @@ export default function FeatureSection({
     useCases,
     howAiDeliveredIt,
     outcomeKPIs,
+    id,
 }: FeatureSectionProps) {
     return (
-        <section className="py-16 relative overflow-hidden border-t border-slate-200 bg-white">
+        <section id={id} className="py-16 relative overflow-hidden border-t border-slate-200 bg-white">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50/0 to-slate-50/0 pointer-events-none"></div>
 
