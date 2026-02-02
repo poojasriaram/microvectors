@@ -9,7 +9,7 @@ import logo from '../../assets/Trustflow-logo.png';
 const SYSTEM_PROMPT = `
 You are the Trustflow AI Assistant, an expert virtual assistant for the Trustflow-AI platform focused on AI-driven sales acceleration. Your job is to:
 
-1. Greet visitors politely and ask what they are looking for (Product Info, Pricing, Demo, Support).
+1. Greet visitors politely and ask what they are looking for (Product Info, Demo, Support).
 2. Understand the user’s intent from their message.
 3. Provide clear, concise and accurate answers.
 `;
@@ -23,7 +23,6 @@ type Message = {
 
 const QUICK_ACTIONS = [
     { label: "Book a Demo", text: "I'd like to book a demo." },
-    { label: "View Pricing", text: "What are your pricing plans?" },
     { label: "Key Features", text: "What features do you offer?" },
 ];
 
@@ -32,7 +31,46 @@ export default function ChatBot() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [agentName, setAgentName] = useState('Pooja');
+    const [agentRole, setAgentRole] = useState('Digital Success Manager');
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    // Fetch IP to determine Agent Name
+    useEffect(() => {
+        const fetchLocation = async () => {
+            try {
+                // Fetch country from a free IP API (client-side)
+                const response = await fetch('https://ipapi.co/json/');
+                const data = await response.json();
+                const country = data.country_code; // AE, GB, IN, etc.
+                const region = data.region_code;
+
+                // Logic for naming based on Region/Country
+                const arabCountries = ['AE', 'SA', 'QA', 'KW', 'OM', 'BH', 'EG', 'IQ', 'JO', 'LB'];
+
+                if (arabCountries.includes(country)) {
+                    setAgentName('Mustafa');
+                } else if (country === 'GB') {
+                    setAgentName('Charles');
+                } else {
+                    // Default to Pooja or Reshmi (Asia/India/Global)
+                    setAgentName('Pooja');
+                }
+            } catch (error) {
+                // Fallback using Timezone if API fails/blocks
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (timezone.includes('Dubai') || timezone.includes('Riyadh') || timezone.includes('Qatar')) {
+                    setAgentName('Mustafa');
+                } else if (timezone.includes('London')) {
+                    setAgentName('Charles');
+                } else {
+                    setAgentName('Pooja');
+                }
+            }
+        };
+
+        fetchLocation();
+    }, []);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -44,18 +82,46 @@ export default function ChatBot() {
 
     // Initial Greeting
     useEffect(() => {
-        console.log("ChatBot initialized with prompt length:", SYSTEM_PROMPT.length);
         if (messages.length === 0) {
             setMessages([
                 {
                     id: '1',
                     role: 'assistant',
-                    content: "Hello! 👋 I'm the Trustflow AI Assistant.\n\nI can help you with product info, pricing, or scheduling a demo. How can I help your sales team today?",
+                    content: `Hello! 👋 I'm the ${agentName} ( ${agentRole} ) .. \nWe understand that you are interested in AI Sales Acceleration. \nHow can we help you?`,
                     timestamp: new Date()
                 }
             ]);
         }
-    }, [messages.length]);
+    }, [messages.length, agentName, agentRole]);
+
+    // Listen for Context-Aware Triggers
+    useEffect(() => {
+        const handleContextTrigger = (e: CustomEvent<{ message: string, contextName?: string }>) => {
+            const { message, contextName } = e.detail;
+
+            // Format: Hello! 👋 I'm the [Name] ( [Role] ) .. We understand that you are interested in < Context > . How can we help you? . Shall we call you or set up a call to share more details on the topic ?
+            const context = contextName || "AI Solutions";
+            const formattedMessage = `Hello! 👋 I'm the ${agentName} ( ${agentRole} ) .. \nWe understand that you are interested in ${context} . \nHow can we help you? . \nShall we call you or set up a call to share more details on the topic ?`;
+
+            setIsOpen(true);
+
+            // Avoid duplicate messages if the last one is identical
+            setMessages(prev => {
+                const lastMsg = prev[prev.length - 1];
+                if (lastMsg?.content === formattedMessage) return prev;
+
+                return [...prev, {
+                    id: Date.now().toString(),
+                    role: 'assistant',
+                    content: formattedMessage,
+                    timestamp: new Date()
+                }];
+            });
+        };
+
+        window.addEventListener('open_chat_with_context' as any, handleContextTrigger);
+        return () => window.removeEventListener('open_chat_with_context' as any, handleContextTrigger);
+    }, [agentName, agentRole]);
 
     const generateResponse = (text: string) => {
         const lowerText = text.toLowerCase();
@@ -63,9 +129,7 @@ export default function ChatBot() {
         if (lowerText.includes('demo') || lowerText.includes('book')) {
             return "That's great! 🚀 To get started with booking a demo, could you please share your name, company, and your preferred email address?";
         }
-        if (lowerText.includes('pricing') || lowerText.includes('cost')) {
-            return "We offer flexible pricing tiers tailored to your team's size and needs, starting with our Growth plan. 💼\n\nCould you tell me a bit about your team size so I can recommend the best plan for you?";
-        }
+
         if (lowerText.includes('feature') || lowerText.includes('what does') || lowerText.includes('how does')) {
             return "Trustflow AI specializes in AI-driven sales acceleration. Our key features include:\n\n✨ Automated Lead Generation\n✨ Predictive Revenue Insights\n✨ Real-time Objection Handling\n\nWhich of these would you like to explore further?";
         }
@@ -136,7 +200,7 @@ export default function ChatBot() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-slate-800 text-base leading-none">Trustflow AI</h3>
-                                    <p className="text-slate-500 text-xs mt-1">Typically replies in seconds</p>
+                                    <p className="text-slate-500 text-xs mt-1">{agentName} • {agentRole}</p>
                                 </div>
                             </div>
                             <button

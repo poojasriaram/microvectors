@@ -169,7 +169,7 @@ export default function Navigation() {
                                                 to={item.path}
                                                 className={`text-[14px] font-medium transition-all duration-200 flex items-center gap-1.5 py-2.5 px-3.5 rounded-full ${isActive
                                                     ? 'text-blue-700 bg-blue-50/80 font-semibold'
-                                                    : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50/80'
+                                                    : 'text-black hover:text-blue-600 hover:bg-slate-50/80'
                                                     } ${hoveredItem === item.name ? 'text-blue-600 bg-slate-50/80' : ''}`}
                                             >
                                                 {item.name}
@@ -226,7 +226,7 @@ export default function Navigation() {
                     {/* Desktop CTA */}
                     <div className="hidden lg:flex items-center ml-4 xl:ml-8 gap-3 shrink-0">
                         <Link to="/book-demo">
-                            <Button className="min-w-[130px] justify-center bg-white text-slate-900 border border-slate-200 hover:border-blue-300/50 hover:bg-blue-50/30 px-4 py-2.5 h-auto text-sm font-semibold rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out whitespace-nowrap">
+                            <Button className="min-w-[130px] justify-center bg-black text-white border border-black hover:bg-slate-800 hover:border-slate-800 px-4 py-2.5 h-auto text-sm font-semibold rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all duration-200 ease-out whitespace-nowrap">
                                 Book a Demo
                             </Button>
                         </Link>
@@ -243,7 +243,7 @@ export default function Navigation() {
 
                     {/* Mobile menu button */}
                     <div className="lg:hidden flex items-center gap-4">
-                        <Link to="/book-demo" className="text-sm font-bold text-blue-600">
+                        <Link to="/book-demo" className="text-sm font-bold text-black">
                             Book Demo
                         </Link>
                         <button
@@ -341,7 +341,7 @@ export default function Navigation() {
                                 className="block w-full"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
-                                <Button className="w-full bg-white text-slate-900 border border-blue-200 hover:bg-blue-50 h-14 rounded-xl font-bold text-lg shadow-sm active:scale-[0.98] transition-all">
+                                <Button className="w-full bg-black text-white border border-black hover:bg-slate-800 h-14 rounded-xl font-bold text-lg shadow-sm active:scale-[0.98] transition-all">
                                     Book a Demo
                                 </Button>
                             </Link>

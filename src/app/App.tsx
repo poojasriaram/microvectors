@@ -33,17 +33,19 @@ import CookieConsent from './components/CookieConsent';
 
 
 
-import { useTrafficAnalysis } from '../hooks/useTrafficAnalysis';
+import { useAnalytics } from '../hooks/useAnalytics';
+import { useContextAwareChat } from '../hooks/useContextAwareChat';
 
-function TrafficTracker() {
-  useTrafficAnalysis();
+function AnalyticsTracker() {
+  useAnalytics();
+  useContextAwareChat();
   return null;
 }
 
 export default function App() {
   return (
     <Router>
-      <TrafficTracker />
+      <AnalyticsTracker />
       <div className="min-h-screen bg-white">
         <Navigation />
         <main>

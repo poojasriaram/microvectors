@@ -110,20 +110,7 @@ export default function CryptoHeroSlides() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Indicators */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-                {slides.map((_, idx) => (
-                    <button
-                        key={idx}
-                        onClick={() => setCurrentIndex(idx)}
-                        className={`transition-all duration-300 rounded-full ${idx === currentIndex
-                            ? "w-8 h-2 bg-blue-500"
-                            : "w-2 h-2 bg-slate-700 hover:bg-slate-600"
-                            }`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                    />
-                ))}
-            </div>
+            {/* Indicators Removed */}
         </div>
     );
 }
