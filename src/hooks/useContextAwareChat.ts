@@ -140,12 +140,14 @@ export const useContextAwareChat = () => {
         // 2. Click Listener for Immediate Trigger
         const handleGlobalClick = (event: MouseEvent) => {
             let target = event.target as HTMLElement | null;
+            let contextName = '';
 
             // Helper to dispatch the event
             const triggerChat = (name: string) => {
-                const message = `I noticed you clicked on ${name}. Would you like to deep dive into our ${name} solutions?`;
+                const finalName = name || document.title.split('|')[0].trim() || 'TrustFlow AI';
+                const message = `I noticed you're interested in ${finalName}. How can I help you with that?`;
                 window.dispatchEvent(new CustomEvent('open_chat_with_context', {
-                    detail: { message, contextName: name }
+                    detail: { message, contextName: finalName }
                 }));
             };
 
@@ -156,40 +158,68 @@ export const useContextAwareChat = () => {
                     .trim();
             };
 
+            // Check if we clicked an interactive element (button, link, input) to avoid annoyance?
+            // User requested "every click need to open", but usually we don't want to block navigation.
+            // However, we satisfy "open" alongside the action.
+
             while (target && target !== document.body) {
                 const tagName = target.tagName.toLowerCase();
 
                 // 1. Priority: Defined Triggers (Curated List)
                 if (target.id) {
-                    const config = triggers.find(t => t.id === target.id);
+                    const currentId = target.id;
+                    const config = triggers.find(t => t.id === currentId);
                     if (config) {
                         triggerChat(config.name);
                         return;
                     }
                 }
 
-                // 2. Priority: Heading Tags (H1-H6) - If user clicked directly on a title
+                // 2. Priority: Heading Tags (H1-H6)
                 if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tagName)) {
-                    const text = target.innerText?.trim();
-                    if (text && text.length > 2 && text.length < 50) {
-                        triggerChat(text);
+                    contextName = target.innerText?.trim();
+                    if (contextName && contextName.length < 60) {
+                        triggerChat(contextName);
                         return;
                     }
                 }
 
-                // 3. Priority: Semantic Sections with ANY ID
-                // If it's a <section> or a major container with an ID that looks meaningful
-                if (target.id && (tagName === 'section' || target.id.includes('section') || target.id.includes('container'))) {
-                    // Filter out auto-generated IDs if possible (simple heuristic)
-                    if (!target.id.startsWith('radix-') && target.id.length > 3) {
-                        const name = prettyPrintId(target.id);
-                        triggerChat(name);
+                // 3. Priority: Semantic Sections (even without ID) or any large container
+                if (tagName === 'section' || tagName === 'main' || tagName === 'article' || (target.id && target.id.includes('section'))) {
+                    // Try to get ID
+                    if (target.id && !target.id.startsWith('radix-')) {
+                        contextName = prettyPrintId(target.id);
+                    }
+                    // Fallback: Try to find the first header in this section
+                    if (!contextName) {
+                        const firstHeader = target.querySelector('h1, h2, h3');
+                        if (firstHeader && firstHeader instanceof HTMLElement) {
+                            contextName = firstHeader.innerText?.trim();
+                        }
+                    }
+
+                    // Fallback to Page Title if still nothing, but we found a significant container
+                    if (contextName) {
+                        triggerChat(contextName);
                         return;
                     }
                 }
 
                 target = target.parentElement;
             }
+
+            // 4. Fallback: If we clicked anywhere valid in the body (and didn't hit a specific trigger above but loop finished)
+            // We should still open the chat as per "every click need to open"
+            // We exclude clicks on the chatbot itself usually, but that is handled by the ChatBot component preventing propagation or being outside this listener scope if possible.
+            // Since this listener is on window, we need to be careful not to trigger if clicking INSIDE the chat window.
+            // Assumption: Chat window or Toggle has a specific ID.
+            if (event.target instanceof HTMLElement && event.target.closest('#chatbot-container, #chatbot-toggle')) {
+                return;
+            }
+
+            // If we are here, we clicked somewhere on the page but didn't find a specific section context.
+            // Just open with general context.
+            triggerChat('');
         };
 
         window.addEventListener('click', handleGlobalClick);

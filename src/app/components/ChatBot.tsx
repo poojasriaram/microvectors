@@ -183,6 +183,7 @@ export default function ChatBot() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="chatbot-container"
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -337,6 +338,7 @@ export default function ChatBot() {
             {/* Toggle Button */}
             {!isOpen && (
                 <motion.button
+                    id="chatbot-toggle"
                     initial={{ scale: 0, rotate: 180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     whileHover={{ scale: 1.1 }}
