@@ -22,6 +22,7 @@ import {
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
+import { Reveal } from '../components/ui/Reveal';
 
 export default function Offerings() {
     const location = useLocation();
@@ -1063,185 +1064,187 @@ export default function Offerings() {
                     <div className="space-y-16">
                         {offerings.map((offering, index) => (
                             <div key={index} id={offering.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="scroll-mt-32">
-                                <Card className="overflow-hidden border border-white/50 bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(79,70,229,0.06)] transition-all duration-500 group rounded-[2.5rem] p-8 md:p-14 relative z-0">
-                                    {/* Subtle decorative background gradient */}
-                                    <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-gradient-to-b from-slate-50/80 to-transparent rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                                <Reveal width="100%" delay={0.1}>
+                                    <Card className="overflow-hidden border border-white/50 bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(79,70,229,0.06)] transition-all duration-500 group rounded-[2.5rem] p-8 md:p-14 relative z-0">
+                                        {/* Subtle decorative background gradient */}
+                                        <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-gradient-to-b from-slate-50/80 to-transparent rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                                    {/* 1. Header Section: Title & Tag Line */}
-                                    <div className="flex flex-col items-center text-center mb-16 relative">
-                                        <div className="mb-8 p-5 bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100/80 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_10px_30px_rgba(79,70,229,0.1)] transition-all duration-500 relative z-10">
-                                            {offering.icon}
+                                        {/* 1. Header Section: Title & Tag Line */}
+                                        <div className="flex flex-col items-center text-center mb-16 relative">
+                                            <div className="mb-8 p-5 bg-white rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100/80 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_10px_30px_rgba(79,70,229,0.1)] transition-all duration-500 relative z-10">
+                                                {offering.icon}
+                                            </div>
+                                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 text-slate-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-6 shadow-sm">
+                                                Module {index + 1}
+                                            </div>
+                                            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">{offering.title}</h3>
+                                            <p className="text-xl md:text-2xl text-indigo-600/90 font-medium max-w-3xl leading-relaxed">{offering.subtitle}</p>
                                         </div>
-                                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/60 text-slate-500 text-[11px] font-bold uppercase tracking-[0.15em] mb-6 shadow-sm">
-                                            Module {index + 1}
-                                        </div>
-                                        <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">{offering.title}</h3>
-                                        <p className="text-xl md:text-2xl text-indigo-600/90 font-medium max-w-3xl leading-relaxed">{offering.subtitle}</p>
-                                    </div>
 
-                                    {/* 2. Challenges & KPI Grid */}
-                                    <div className="grid lg:grid-cols-2 gap-8 md:gap-16 mb-16">
-                                        {/* Business Challenges */}
-                                        <div className="bg-gradient-to-br from-amber-50/40 via-orange-50/20 to-transparent rounded-3xl p-8 md:p-10 border border-amber-100/50 relative overflow-hidden group/challenges">
-                                            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-100/30 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none transition-opacity duration-500 group-hover/challenges:opacity-100 opacity-60"></div>
-                                            <h4 className="font-bold text-amber-950/80 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
-                                                <div className="bg-amber-100 p-1.5 rounded-lg text-amber-600">
-                                                    <AlertTriangle className="w-4 h-4" />
+                                        {/* 2. Challenges & KPI Grid */}
+                                        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 mb-16">
+                                            {/* Business Challenges */}
+                                            <div className="bg-gradient-to-br from-amber-50/40 via-orange-50/20 to-transparent rounded-3xl p-8 md:p-10 border border-amber-100/50 relative overflow-hidden group/challenges">
+                                                <div className="absolute top-0 right-0 w-48 h-48 bg-amber-100/30 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none transition-opacity duration-500 group-hover/challenges:opacity-100 opacity-60"></div>
+                                                <h4 className="font-bold text-amber-950/80 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
+                                                    <div className="bg-amber-100 p-1.5 rounded-lg text-amber-600">
+                                                        <AlertTriangle className="w-4 h-4" />
+                                                    </div>
+                                                    Business Challenges
+                                                </h4>
+                                                <ul className="space-y-6 relative z-10">
+                                                    {offering.challenges.map((challenge, idx) => (
+                                                        <li key={idx} className="flex gap-5 group/item">
+                                                            <div className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0 ring-4 ring-amber-50 group-hover/item:bg-amber-500 transition-colors"></div>
+                                                            <div>
+                                                                <span className="font-bold text-slate-800 block mb-1.5 text-[0.95rem] group-hover/item:text-slate-900 transition-colors">{challenge.title}</span>
+                                                                <span className="text-slate-500 text-sm leading-relaxed">{challenge.desc}</span>
+                                                            </div>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+
+                                            {/* KPI Pain Points (Number Cards) */}
+                                            <div className="flex flex-col h-full">
+                                                <h4 className="font-bold text-slate-400 text-xs uppercase tracking-[0.2em] mb-8 text-center lg:text-left flex items-center gap-3 lg:justify-start justify-center">
+                                                    <span className="w-8 h-[1px] bg-slate-200 inline-block"></span>
+                                                    KPI Pain Points
+                                                </h4>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 h-full">
+                                                    {offering.kpiPainPoints.map((kpi, idx) => {
+                                                        const match = kpi.match(/([<>]\d+%?|\d+%)/);
+                                                        const highlight = match ? match[0] : null;
+                                                        const text = highlight ? kpi.replace(highlight, '').trim().replace(/[()]/g, '') : kpi;
+
+                                                        return (
+                                                            <div key={idx} className="bg-white p-8 rounded-3xl border border-red-50/60 shadow-[0_2px_15px_-4px_rgba(239,68,68,0.08)] hover:shadow-[0_8px_25px_-4px_rgba(239,68,68,0.12)] hover:border-red-100 transition-all duration-300 group/kpi flex flex-col justify-center items-center text-center h-full hover:-translate-y-1">
+                                                                {highlight && (
+                                                                    <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-rose-600 mb-3 block group-hover/kpi:scale-110 transition-transform duration-300">{highlight}</span>
+                                                                )}
+                                                                <span className="text-slate-600 font-semibold text-sm leading-snug">{text}</span>
+                                                            </div>
+                                                        );
+                                                    })}
                                                 </div>
-                                                Business Challenges
-                                            </h4>
-                                            <ul className="space-y-6 relative z-10">
-                                                {offering.challenges.map((challenge, idx) => (
-                                                    <li key={idx} className="flex gap-5 group/item">
-                                                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0 ring-4 ring-amber-50 group-hover/item:bg-amber-500 transition-colors"></div>
-                                                        <div>
-                                                            <span className="font-bold text-slate-800 block mb-1.5 text-[0.95rem] group-hover/item:text-slate-900 transition-colors">{challenge.title}</span>
-                                                            <span className="text-slate-500 text-sm leading-relaxed">{challenge.desc}</span>
-                                                        </div>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            </div>
                                         </div>
 
-                                        {/* KPI Pain Points (Number Cards) */}
-                                        <div className="flex flex-col h-full">
-                                            <h4 className="font-bold text-slate-400 text-xs uppercase tracking-[0.2em] mb-8 text-center lg:text-left flex items-center gap-3 lg:justify-start justify-center">
-                                                <span className="w-8 h-[1px] bg-slate-200 inline-block"></span>
-                                                KPI Pain Points
+                                        {/* 3. Our Solutions (Portfolio Cards) */}
+                                        <div className="mb-16">
+                                            <h4 className="font-bold text-slate-900 text-xl mb-10 flex items-center gap-4">
+                                                <div className="bg-indigo-50 p-2 rounded-xl text-indigo-600">
+                                                    <Target className="w-5 h-5" />
+                                                </div>
+                                                Our Solutions
                                             </h4>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 h-full">
-                                                {offering.kpiPainPoints.map((kpi, idx) => {
-                                                    const match = kpi.match(/([<>]\d+%?|\d+%)/);
-                                                    const highlight = match ? match[0] : null;
-                                                    const text = highlight ? kpi.replace(highlight, '').trim().replace(/[()]/g, '') : kpi;
-
+                                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                {offering.solutions.map((item, idx) => {
+                                                    const [title, desc] = item.includes('–') ? item.split('–') : [item, ''];
                                                     return (
-                                                        <div key={idx} className="bg-white p-8 rounded-3xl border border-red-50/60 shadow-[0_2px_15px_-4px_rgba(239,68,68,0.08)] hover:shadow-[0_8px_25px_-4px_rgba(239,68,68,0.12)] hover:border-red-100 transition-all duration-300 group/kpi flex flex-col justify-center items-center text-center h-full hover:-translate-y-1">
-                                                            {highlight && (
-                                                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-rose-600 mb-3 block group-hover/kpi:scale-110 transition-transform duration-300">{highlight}</span>
-                                                            )}
-                                                            <span className="text-slate-600 font-semibold text-sm leading-snug">{text}</span>
+                                                        <div key={idx} className="bg-white hover:bg-slate-50/50 p-8 rounded-[1.5rem] border border-slate-100 hover:border-indigo-100/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_30px_-10px_rgba(79,70,229,0.1)] transition-all duration-300 group/card hover:-translate-y-1">
+                                                            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover/card:bg-indigo-600 transition-all duration-300 group-hover/card:rotate-3 shadow-inner">
+                                                                <Check className="w-5 h-5 text-indigo-500 group-hover/card:text-white transition-colors" />
+                                                            </div>
+                                                            <h5 className="font-bold text-lg text-slate-900 mb-3 group-hover/card:text-indigo-700 transition-colors">{title.trim()}</h5>
+                                                            {desc && <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc.trim()}</p>}
                                                         </div>
                                                     );
                                                 })}
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* 3. Our Solutions (Portfolio Cards) */}
-                                    <div className="mb-16">
-                                        <h4 className="font-bold text-slate-900 text-xl mb-10 flex items-center gap-4">
-                                            <div className="bg-indigo-50 p-2 rounded-xl text-indigo-600">
-                                                <Target className="w-5 h-5" />
-                                            </div>
-                                            Our Solutions
-                                        </h4>
-                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                            {offering.solutions.map((item, idx) => {
-                                                const [title, desc] = item.includes('–') ? item.split('–') : [item, ''];
-                                                return (
-                                                    <div key={idx} className="bg-white hover:bg-slate-50/50 p-8 rounded-[1.5rem] border border-slate-100 hover:border-indigo-100/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_10px_30px_-10px_rgba(79,70,229,0.1)] transition-all duration-300 group/card hover:-translate-y-1">
-                                                        <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover/card:bg-indigo-600 transition-all duration-300 group-hover/card:rotate-3 shadow-inner">
-                                                            <Check className="w-5 h-5 text-indigo-500 group-hover/card:text-white transition-colors" />
+                                        {/* 4. Business Impact & Tailored Solutions */}
+                                        <div className="grid lg:grid-cols-3 gap-8 md:gap-16 pt-12 border-t border-slate-100/80">
+                                            {/* Business Impact */}
+                                            <div className="lg:col-span-1">
+                                                <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl shadow-indigo-900/20 group/bi hover:scale-[1.02] transition-transform duration-300">
+                                                    {/* Gradient Overlay */}
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-violet-600/20 opacity-100"></div>
+                                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+                                                    <h4 className="font-bold text-white/90 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
+                                                        <div className="bg-white/10 p-1.5 rounded-lg backdrop-blur-sm">
+                                                            <TrendingUp className="w-4 h-4 text-emerald-300" />
                                                         </div>
-                                                        <h5 className="font-bold text-lg text-slate-900 mb-3 group-hover/card:text-indigo-700 transition-colors">{title.trim()}</h5>
-                                                        {desc && <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc.trim()}</p>}
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-
-                                    {/* 4. Business Impact & Tailored Solutions */}
-                                    <div className="grid lg:grid-cols-3 gap-8 md:gap-16 pt-12 border-t border-slate-100/80">
-                                        {/* Business Impact */}
-                                        <div className="lg:col-span-1">
-                                            <div className="bg-slate-900 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl shadow-indigo-900/20 group/bi hover:scale-[1.02] transition-transform duration-300">
-                                                {/* Gradient Overlay */}
-                                                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-violet-600/20 opacity-100"></div>
-                                                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/30 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
-                                                <h4 className="font-bold text-white/90 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3 relative z-10">
-                                                    <div className="bg-white/10 p-1.5 rounded-lg backdrop-blur-sm">
-                                                        <TrendingUp className="w-4 h-4 text-emerald-300" />
-                                                    </div>
-                                                    Business Impact
-                                                </h4>
-                                                <ul className="space-y-5 relative z-10">
-                                                    {offering.outcomes.map((outcome, idx) => (
-                                                        <li key={idx} className="flex items-start gap-4">
-                                                            <div className="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
-                                                                <Check className="w-3 h-3 text-emerald-400" />
-                                                            </div>
-                                                            <span className="text-[0.9rem] font-medium text-slate-200 leading-snug">{outcome}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                                <div className="mt-10 pt-6 border-t border-white/10 flex items-center gap-2.5 text-indigo-200 text-xs font-bold tracking-wide">
-                                                    <Zap className="w-4 h-4 text-indigo-400" />
-                                                    <span>ROI VERIFIED</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Tailored Solutions Tabs */}
-                                        <div className="lg:col-span-2">
-                                            {offeringStages[offering.title] && (
-                                                <div className="h-full flex flex-col">
-                                                    <h4 className="font-bold text-slate-800 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
-                                                        <div className="bg-indigo-50 p-1.5 rounded-lg text-indigo-600">
-                                                            <Layout className="w-4 h-4" />
-                                                        </div>
-                                                        Tailored Solutions by Stage
+                                                        Business Impact
                                                     </h4>
-                                                    <Tabs defaultValue={offeringStages[offering.title][0].name} className="w-full flex-1 flex flex-col lg:flex-row gap-8">
-                                                        <TabsList className="w-full lg:w-[28%] justify-start h-auto flex-col gap-3 bg-transparent p-0">
-                                                            {offeringStages[offering.title].map((stage, i) => (
-                                                                <TabsTrigger
-                                                                    key={i}
-                                                                    value={stage.name}
-                                                                    className="w-full justify-start text-left data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-indigo-500/25 bg-white text-slate-600 rounded-xl px-5 py-3 h-auto text-sm font-semibold border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-300"
-                                                                >
-                                                                    {stage.name}
-                                                                </TabsTrigger>
-                                                            ))}
-                                                        </TabsList>
-                                                        <div className="flex-1 lg:w-[72%]">
-                                                            {offeringStages[offering.title].map((stage, i) => (
-                                                                <TabsContent key={i} value={stage.name} className="mt-0 animate-in fade-in slide-in-from-right-4 duration-300 h-full">
-                                                                    <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden">
-                                                                        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
-                                                                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 relative z-10">
-                                                                            <h5 className="font-bold text-slate-900 text-xl">{stage.name}</h5>
-                                                                            {stage.subtitle && (
-                                                                                <span className="text-indigo-600 text-xs font-bold uppercase tracking-wider bg-indigo-100/50 px-3 py-1 rounded-full border border-indigo-100">{stage.subtitle}</span>
-                                                                            )}
-
-                                                                        </div>
-                                                                        <ul className="grid sm:grid-cols-1 gap-4 relative z-10">
-                                                                            {stage.points.map((point, idx) => {
-                                                                                const [title, desc] = point.includes(' - ') ? point.split(' - ') : [point, ''];
-                                                                                return (
-                                                                                    <li key={idx} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/60 transition-colors">
-                                                                                        <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.5)]"></div>
-                                                                                        <span className="text-sm">
-                                                                                            <span className="font-bold text-slate-900">{title}</span>
-                                                                                            {desc && <span className="text-slate-500 block mt-0.5">{desc}</span>}
-                                                                                        </span>
-                                                                                    </li>
-                                                                                );
-                                                                            })}
-                                                                        </ul>
-                                                                    </div>
-                                                                </TabsContent>
-                                                            ))}
-                                                        </div>
-                                                    </Tabs>
+                                                    <ul className="space-y-5 relative z-10">
+                                                        {offering.outcomes.map((outcome, idx) => (
+                                                            <li key={idx} className="flex items-start gap-4">
+                                                                <div className="mt-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
+                                                                    <Check className="w-3 h-3 text-emerald-400" />
+                                                                </div>
+                                                                <span className="text-[0.9rem] font-medium text-slate-200 leading-snug">{outcome}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                    <div className="mt-10 pt-6 border-t border-white/10 flex items-center gap-2.5 text-indigo-200 text-xs font-bold tracking-wide">
+                                                        <Zap className="w-4 h-4 text-indigo-400" />
+                                                        <span>ROI VERIFIED</span>
+                                                    </div>
                                                 </div>
-                                            )}
+                                            </div>
+
+                                            {/* Tailored Solutions Tabs */}
+                                            <div className="lg:col-span-2">
+                                                {offeringStages[offering.title] && (
+                                                    <div className="h-full flex flex-col">
+                                                        <h4 className="font-bold text-slate-800 text-xs uppercase tracking-[0.2em] mb-8 flex items-center gap-3">
+                                                            <div className="bg-indigo-50 p-1.5 rounded-lg text-indigo-600">
+                                                                <Layout className="w-4 h-4" />
+                                                            </div>
+                                                            Tailored Solutions by Stage
+                                                        </h4>
+                                                        <Tabs defaultValue={offeringStages[offering.title][0].name} className="w-full flex-1 flex flex-col lg:flex-row gap-8">
+                                                            <TabsList className="w-full lg:w-[28%] justify-start h-auto flex-col gap-3 bg-transparent p-0">
+                                                                {offeringStages[offering.title].map((stage, i) => (
+                                                                    <TabsTrigger
+                                                                        key={i}
+                                                                        value={stage.name}
+                                                                        className="w-full justify-start text-left data-[state=active]:bg-indigo-600 data-[state=active]:text-white data-[state=active]:shadow-lg data-[state=active]:shadow-indigo-500/25 bg-white text-slate-600 rounded-xl px-5 py-3 h-auto text-sm font-semibold border border-slate-200 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-300"
+                                                                    >
+                                                                        {stage.name}
+                                                                    </TabsTrigger>
+                                                                ))}
+                                                            </TabsList>
+                                                            <div className="flex-1 lg:w-[72%]">
+                                                                {offeringStages[offering.title].map((stage, i) => (
+                                                                    <TabsContent key={i} value={stage.name} className="mt-0 animate-in fade-in slide-in-from-right-4 duration-300 h-full">
+                                                                        <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 h-full relative overflow-hidden">
+                                                                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-[80px] pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+                                                                            <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6 relative z-10">
+                                                                                <h5 className="font-bold text-slate-900 text-xl">{stage.name}</h5>
+                                                                                {stage.subtitle && (
+                                                                                    <span className="text-indigo-600 text-xs font-bold uppercase tracking-wider bg-indigo-100/50 px-3 py-1 rounded-full border border-indigo-100">{stage.subtitle}</span>
+                                                                                )}
+
+                                                                            </div>
+                                                                            <ul className="grid sm:grid-cols-1 gap-4 relative z-10">
+                                                                                {stage.points.map((point, idx) => {
+                                                                                    const [title, desc] = point.includes(' - ') ? point.split(' - ') : [point, ''];
+                                                                                    return (
+                                                                                        <li key={idx} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/60 transition-colors">
+                                                                                            <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.5)]"></div>
+                                                                                            <span className="text-sm">
+                                                                                                <span className="font-bold text-slate-900">{title}</span>
+                                                                                                {desc && <span className="text-slate-500 block mt-0.5">{desc}</span>}
+                                                                                            </span>
+                                                                                        </li>
+                                                                                    );
+                                                                                })}
+                                                                            </ul>
+                                                                        </div>
+                                                                    </TabsContent>
+                                                                ))}
+                                                            </div>
+                                                        </Tabs>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                </Card>
+                                    </Card>
+                                </Reveal>
                             </div>
                         ))}
                     </div>

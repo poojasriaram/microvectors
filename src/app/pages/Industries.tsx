@@ -23,6 +23,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 
 import VerticalBlock from '../components/VerticalBlock';
 import { verticalsContent } from '../../data/verticalsContent';
+import { Reveal } from '../components/ui/Reveal';
 
 export default function Industries() {
     const location = useLocation();
@@ -205,22 +206,24 @@ export default function Industries() {
                 <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
-                        <Factory className="w-4 h-4 text-blue-600" />
-                        <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Vertical-Specific Intelligence</span>
-                    </div>
+                    <Reveal width="100%">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                            <Factory className="w-4 h-4 text-blue-600" />
+                            <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Vertical-Specific Intelligence</span>
+                        </div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
-                        AI Growth Architectures <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                            By Industry
-                        </span>
-                    </h1>
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
+                            AI Growth Architectures <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                                By Industry
+                            </span>
+                        </h1>
 
-                    <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                        Tailored AI solution stacks designed to address the unique revenue challenges
-                        and growth mechanics of your specific sector.
-                    </p>
+                        <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                            Tailored AI solution stacks designed to address the unique revenue challenges
+                            and growth mechanics of your specific sector.
+                        </p>
+                    </Reveal>
                 </div>
             </section>
 
@@ -229,119 +232,121 @@ export default function Industries() {
                 <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {industries.map((industry, index) => (
-                            <Card key={index} id={industry.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="flex flex-col h-full hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 border-slate-200/60 bg-white/80 backdrop-blur-xl group hover:-translate-y-2 overflow-hidden scroll-mt-32 ring-1 ring-slate-200/50 hover:ring-blue-200/50">
-                                <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${industry.color === 'blue' ? 'from-blue-500 to-indigo-500' :
-                                    industry.color === 'purple' ? 'from-purple-500 to-pink-500' :
-                                        industry.color === 'indigo' ? 'from-indigo-500 to-purple-500' :
-                                            industry.color === 'teal' ? 'from-teal-500 to-emerald-500' :
-                                                industry.color === 'amber' ? 'from-amber-500 to-orange-500' :
-                                                    industry.color === 'emerald' ? 'from-emerald-500 to-teal-500' :
-                                                        industry.color === 'pink' ? 'from-pink-500 to-rose-500' :
-                                                            industry.color === 'orange' ? 'from-orange-500 to-red-500' :
-                                                                'from-cyan-500 to-blue-500'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                            <Reveal width="100%" delay={index * 0.1}>
+                                <Card id={industry.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="flex flex-col h-full hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 border-slate-200/60 bg-white/80 backdrop-blur-xl group hover:-translate-y-2 overflow-hidden scroll-mt-32 ring-1 ring-slate-200/50 hover:ring-blue-200/50">
+                                    <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${industry.color === 'blue' ? 'from-blue-500 to-indigo-500' :
+                                        industry.color === 'purple' ? 'from-purple-500 to-pink-500' :
+                                            industry.color === 'indigo' ? 'from-indigo-500 to-purple-500' :
+                                                industry.color === 'teal' ? 'from-teal-500 to-emerald-500' :
+                                                    industry.color === 'amber' ? 'from-amber-500 to-orange-500' :
+                                                        industry.color === 'emerald' ? 'from-emerald-500 to-teal-500' :
+                                                            industry.color === 'pink' ? 'from-pink-500 to-rose-500' :
+                                                                industry.color === 'orange' ? 'from-orange-500 to-red-500' :
+                                                                    'from-cyan-500 to-blue-500'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
 
-                                <CardHeader className="pb-4 bg-slate-50/30 border-b border-slate-100/60">
-                                    <div className="flex items-start justify-between gap-4">
-                                        <div className={`p-3.5 rounded-2xl border ${getColorClass(industry.color)} transition-transform group-hover:scale-110 duration-500 shadow-sm`}>
-                                            {industry.icon}
+                                    <CardHeader className="pb-4 bg-slate-50/30 border-b border-slate-100/60">
+                                        <div className="flex items-start justify-between gap-4">
+                                            <div className={`p-3.5 rounded-2xl border ${getColorClass(industry.color)} transition-transform group-hover:scale-110 duration-500 shadow-sm`}>
+                                                {industry.icon}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <CardTitle className="text-2xl font-bold text-slate-900 mt-5 tracking-tight group-hover:text-blue-700 transition-colors">{industry.title}</CardTitle>
-                                    <div className="flex flex-wrap gap-2 mt-4">
-                                        {industry.keyVerticals.map((vertical, i) => (
-                                            <span key={i} className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100/80 border border-slate-200 px-2 py-1 rounded-md">
-                                                {vertical}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </CardHeader>
-                                <CardContent className="flex-grow pt-6 space-y-6">
-                                    <p className="text-slate-600 text-base leading-relaxed font-medium">
-                                        {industry.offeringDescription}
-                                    </p>
+                                        <CardTitle className="text-2xl font-bold text-slate-900 mt-5 tracking-tight group-hover:text-blue-700 transition-colors">{industry.title}</CardTitle>
+                                        <div className="flex flex-wrap gap-2 mt-4">
+                                            {industry.keyVerticals.map((vertical, i) => (
+                                                <span key={i} className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-slate-100/80 border border-slate-200 px-2 py-1 rounded-md">
+                                                    {vertical}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="flex-grow pt-6 space-y-6">
+                                        <p className="text-slate-600 text-base leading-relaxed font-medium">
+                                            {industry.offeringDescription}
+                                        </p>
 
-                                    <Tabs defaultValue="challenges" className="w-full">
-                                        <TabsList className="grid w-full grid-cols-3 mb-6 bg-slate-100/50 p-1 rounded-xl">
-                                            <TabsTrigger value="challenges" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Challenges</TabsTrigger>
-                                            <TabsTrigger value="solution" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Solution</TabsTrigger>
-                                            <TabsTrigger value="impact" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Impact</TabsTrigger>
-                                        </TabsList>
+                                        <Tabs defaultValue="challenges" className="w-full">
+                                            <TabsList className="grid w-full grid-cols-3 mb-6 bg-slate-100/50 p-1 rounded-xl">
+                                                <TabsTrigger value="challenges" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Challenges</TabsTrigger>
+                                                <TabsTrigger value="solution" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Solution</TabsTrigger>
+                                                <TabsTrigger value="impact" className="text-xs sm:text-xs font-bold uppercase tracking-wide data-[state=active]:bg-white data-[state=active]:text-blue-700 data-[state=active]:shadow-sm rounded-lg py-2">Impact</TabsTrigger>
+                                            </TabsList>
 
-                                        {/* Tab: Challenges */}
-                                        <TabsContent value="challenges" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                            <div className="space-y-4">
-                                                <div className="flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest">
-                                                    <AlertTriangle className="w-3.5 h-3.5" /> High-Stakes Pain Points
-                                                </div>
-                                                <ul className="space-y-3">
-                                                    {industry.details.challenges.map((item, idx) => (
-                                                        <li key={idx} className="flex items-start gap-3 text-slate-600 text-sm leading-snug">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
-                                                            <span>{item}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                            <div className="bg-slate-50 border border-slate-100 rounded-lg p-3 mt-4">
-                                                <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Common Situations</span>
-                                                <div className="space-y-1.5">
-                                                    {industry.details.situations.slice(0, 2).map((sit, idx) => (
-                                                        <p key={idx} className="text-xs text-slate-500 italic">"{sit}"</p>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </TabsContent>
-
-                                        {/* Tab: Solution */}
-                                        <TabsContent value="solution" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                            <div className="space-y-4">
-                                                <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest">
-                                                    <Lightbulb className="w-3.5 h-3.5" /> Intelligence Layer
-                                                </div>
-                                                <p className="text-slate-700 text-sm leading-relaxed font-medium">
-                                                    {industry.details.solution}
-                                                </p>
-                                            </div>
-                                            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-4 rounded-xl border border-indigo-100/50 mt-4 shadow-sm group-hover:shadow-md transition-shadow">
-                                                <div className="flex gap-3 items-start">
-                                                    <div className="p-1.5 bg-white rounded-lg shadow-sm">
-                                                        <Zap className="w-3.5 h-3.5 text-indigo-600" />
+                                            {/* Tab: Challenges */}
+                                            <TabsContent value="challenges" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest">
+                                                        <AlertTriangle className="w-3.5 h-3.5" /> High-Stakes Pain Points
                                                     </div>
-                                                    <div>
-                                                        <p className="text-[10px] font-bold text-indigo-900 uppercase tracking-widest mb-1.5">Proven Success</p>
-                                                        <p className="text-sm text-slate-700 italic border-l-2 border-indigo-200 pl-2 leading-relaxed">"{industry.details.example}"</p>
+                                                    <ul className="space-y-3">
+                                                        {industry.details.challenges.map((item, idx) => (
+                                                            <li key={idx} className="flex items-start gap-3 text-slate-600 text-sm leading-snug">
+                                                                <div className="w-1.5 h-1.5 rounded-full bg-amber-400/80 mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
+                                                                <span>{item}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                                <div className="bg-slate-50 border border-slate-100 rounded-lg p-3 mt-4">
+                                                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Common Situations</span>
+                                                    <div className="space-y-1.5">
+                                                        {industry.details.situations.slice(0, 2).map((sit, idx) => (
+                                                            <p key={idx} className="text-xs text-slate-500 italic">"{sit}"</p>
+                                                        ))}
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </TabsContent>
+                                            </TabsContent>
 
-                                        {/* Tab: Impact */}
-                                        <TabsContent value="impact" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                            <div className="space-y-4">
-                                                <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest">
-                                                    <TrendingUp className="w-3.5 h-3.5" /> Measurable Outcomes
+                                            {/* Tab: Solution */}
+                                            <TabsContent value="solution" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest">
+                                                        <Lightbulb className="w-3.5 h-3.5" /> Intelligence Layer
+                                                    </div>
+                                                    <p className="text-slate-700 text-sm leading-relaxed font-medium">
+                                                        {industry.details.solution}
+                                                    </p>
                                                 </div>
-                                                <div className="grid grid-cols-1 gap-2">
-                                                    {industry.details.outcomes.map((item, idx) => (
-                                                        <div key={idx} className="bg-emerald-50/50 p-2.5 rounded-lg flex items-center gap-3 border border-emerald-100/80 hover:bg-emerald-50 transition-colors">
-                                                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                                                            <span className="text-emerald-900 text-sm font-bold">{item}</span>
+                                                <div className="bg-gradient-to-br from-indigo-50 to-blue-50 p-4 rounded-xl border border-indigo-100/50 mt-4 shadow-sm group-hover:shadow-md transition-shadow">
+                                                    <div className="flex gap-3 items-start">
+                                                        <div className="p-1.5 bg-white rounded-lg shadow-sm">
+                                                            <Zap className="w-3.5 h-3.5 text-indigo-600" />
                                                         </div>
-                                                    ))}
+                                                        <div>
+                                                            <p className="text-[10px] font-bold text-indigo-900 uppercase tracking-widest mb-1.5">Proven Success</p>
+                                                            <p className="text-sm text-slate-700 italic border-l-2 border-indigo-200 pl-2 leading-relaxed">"{industry.details.example}"</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="space-y-3 mt-4 pt-4 border-t border-slate-100">
-                                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Advantages</span>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {industry.details.benefits.map((ben, idx) => (
-                                                        <span key={idx} className="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md">{ben}</span>
-                                                    ))}
+                                            </TabsContent>
+
+                                            {/* Tab: Impact */}
+                                            <TabsContent value="impact" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
+                                                <div className="space-y-4">
+                                                    <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest">
+                                                        <TrendingUp className="w-3.5 h-3.5" /> Measurable Outcomes
+                                                    </div>
+                                                    <div className="grid grid-cols-1 gap-2">
+                                                        {industry.details.outcomes.map((item, idx) => (
+                                                            <div key={idx} className="bg-emerald-50/50 p-2.5 rounded-lg flex items-center gap-3 border border-emerald-100/80 hover:bg-emerald-50 transition-colors">
+                                                                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                                                                <span className="text-emerald-900 text-sm font-bold">{item}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </TabsContent>
-                                    </Tabs>
-                                </CardContent>
-                            </Card>
+                                                <div className="space-y-3 mt-4 pt-4 border-t border-slate-100">
+                                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Advantages</span>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {industry.details.benefits.map((ben, idx) => (
+                                                            <span key={idx} className="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-md">{ben}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </TabsContent>
+                                        </Tabs>
+                                    </CardContent>
+                                </Card>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -350,54 +355,60 @@ export default function Industries() {
             {/* Verticals Content Blocks */}
             <div className="bg-white relative z-10">
                 {verticalsContent.map((block, index) => (
-                    <VerticalBlock key={index} data={block} index={index} />
+                    <Reveal key={index} width="100%" delay={index % 2 === 0 ? 0.1 : 0.2}>
+                        <div id={block.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="scroll-mt-32">
+                            <VerticalBlock data={block} index={index} />
+                        </div>
+                    </Reveal>
                 ))}
             </div>
 
             {/* CTA Section */}
             <div className="max-w-5xl mx-auto px-4 pb-24 pt-12 relative z-10">
-                <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 border border-slate-800/60 shadow-2xl shadow-blue-900/20 group hover:shadow-blue-900/30 transition-shadow duration-500">
-                    {/* Background Effects */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-600/10 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
+                <Reveal width="100%" direction="up">
+                    <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 border border-slate-800/60 shadow-2xl shadow-blue-900/20 group hover:shadow-blue-900/30 transition-shadow duration-500">
+                        {/* Background Effects */}
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-600/10 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
+                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
 
-                    <div className="relative z-10 px-8 py-16 md:py-24 text-center">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-700 text-blue-400 text-xs font-bold uppercase tracking-wider mb-8 backdrop-blur-md">
-                            <Rocket className="w-4 h-4" /> Ready to Scale?
-                        </div>
+                        <div className="relative z-10 px-8 py-16 md:py-24 text-center">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-700 text-blue-400 text-xs font-bold uppercase tracking-wider mb-8 backdrop-blur-md">
+                                <Rocket className="w-4 h-4" /> Ready to Scale?
+                            </div>
 
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-white tracking-tight leading-[1.1]">
-                            Architect Your <br className="hidden md:block" />
-                            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                                Industry-Specific AI Engine
-                            </span>
-                        </h2>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-white tracking-tight leading-[1.1]">
+                                Architect Your <br className="hidden md:block" />
+                                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                                    Industry-Specific AI Engine
+                                </span>
+                            </h2>
 
-                        <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-                            Stop relying on generic tools. Deploy a revenue engine engineered
-                            specifically for the <span className="text-blue-300 font-semibold">nuances of your vertical</span>.
-                        </p>
+                            <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+                                Stop relying on generic tools. Deploy a revenue engine engineered
+                                specifically for the <span className="text-blue-300 font-semibold">nuances of your vertical</span>.
+                            </p>
 
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                            <Link to="/book-demo">
-                                <Button className="bg-white text-slate-950 hover:bg-blue-50 hover:text-blue-700 px-10 py-7 h-auto text-lg font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1">
-                                    Start Building Now
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                            <div className="flex flex-col items-center gap-2">
-                                <p className="text-slate-500 text-sm font-medium sm:ml-6 flex items-center gap-2">
-                                    <span className="text-green-400 relative flex h-2.5 w-2.5">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                                    </span>
-                                    Operational in weeks, not months
-                                </p>
+                            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                                <Link to="/book-demo">
+                                    <Button className="bg-white text-slate-950 hover:bg-blue-50 hover:text-blue-700 px-10 py-7 h-auto text-lg font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1">
+                                        Start Building Now
+                                        <ArrowRight className="w-5 h-5" />
+                                    </Button>
+                                </Link>
+                                <div className="flex flex-col items-center gap-2">
+                                    <p className="text-slate-500 text-sm font-medium sm:ml-6 flex items-center gap-2">
+                                        <span className="text-green-400 relative flex h-2.5 w-2.5">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                        </span>
+                                        Operational in weeks, not months
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </Reveal>
             </div>
         </div>
     );

@@ -58,32 +58,32 @@ export default function CryptoHeroSlides() {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="absolute w-full h-full"
                 >
-                    <div className="h-full bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl relative overflow-hidden group hover:border-blue-500/30 transition-all duration-500 flex flex-col md:flex-row">
+                    <div className="h-full bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl shadow-xl relative overflow-hidden group hover:border-blue-300 transition-all duration-500 flex flex-col md:flex-row">
 
                         {/* Glow Effect */}
-                        <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${slides[currentIndex].color} opacity-10 blur-[100px] rounded-full pointer-events-none transition-opacity duration-1000`}></div>
-                        <div className={`absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr ${slides[currentIndex].color} opacity-5 blur-[100px] rounded-full pointer-events-none transition-opacity duration-1000`}></div>
+                        <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${slides[currentIndex].color} opacity-20 blur-[100px] rounded-full pointer-events-none transition-opacity duration-1000`}></div>
+                        <div className={`absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr ${slides[currentIndex].color} opacity-10 blur-[100px] rounded-full pointer-events-none transition-opacity duration-1000`}></div>
 
                         {/* Content Side */}
                         <div className="relative z-10 flex flex-col justify-center p-8 sm:p-12 md:w-3/5 h-full">
                             <div className="flex items-center gap-4 mb-6">
-                                <div className={`p-3 rounded-2xl bg-gradient-to-br ${slides[currentIndex].color} bg-opacity-10 border border-white/5 shadow-inner`}>
-                                    {React.createElement(slides[currentIndex].icon, { className: "w-6 h-6 text-white" })}
+                                <div className={`p-3 rounded-2xl bg-gradient-to-br ${slides[currentIndex].color} bg-opacity-10 border border-slate-100 shadow-sm`}>
+                                    {React.createElement(slides[currentIndex].icon, { className: "w-6 h-6 text-slate-700" })}
                                 </div>
                                 <span className={`text-sm font-bold uppercase tracking-wider bg-gradient-to-r ${slides[currentIndex].color} bg-clip-text text-transparent`}>
                                     Premium Feature
                                 </span>
                             </div>
 
-                            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight leading-tight">
+                            <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">
                                 {slides[currentIndex].title}
                             </h3>
-                            <p className="text-slate-400 text-lg leading-relaxed font-medium mb-8">
+                            <p className="text-slate-600 text-lg leading-relaxed font-medium mb-8">
                                 {slides[currentIndex].description}
                             </p>
 
                             {/* Progress Bar inside content area */}
-                            <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                            <div className="w-full h-1 bg-slate-200 rounded-full overflow-hidden">
                                 <motion.div
                                     key={currentIndex + "progress"}
                                     initial={{ width: "0%" }}
@@ -96,7 +96,7 @@ export default function CryptoHeroSlides() {
 
                         {/* Image Side */}
                         <div className="hidden md:block md:w-2/5 relative h-full overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-l from-slate-900/90 to-transparent z-10" />
+                            <div className="absolute inset-0 bg-gradient-to-l from-white/90 to-transparent z-10" />
                             <motion.img
                                 src={slides[currentIndex].image}
                                 alt={slides[currentIndex].title}

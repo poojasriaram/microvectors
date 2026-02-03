@@ -22,8 +22,12 @@ type Message = {
 };
 
 const QUICK_ACTIONS = [
-    { label: "Book a Demo", text: "I'd like to book a demo." },
-    { label: "Key Features", text: "What features do you offer?" },
+    { label: "Speak to our Experts", text: "I'd like to speak to your experts." },
+    { label: "Our Offerings", text: "Can you tell me about your offerings?" },
+    { label: "Thought Leadership", text: "I'd like to explore your thought leadership content." },
+    { label: "Partner with us", text: "I'm interested in partnering with Trustflow AI." },
+    { label: "Job Openings", text: "Do you have any job openings?" },
+    { label: "Just Browsing", text: "I'm just browsing, thanks!" }
 ];
 
 export default function ChatBot() {

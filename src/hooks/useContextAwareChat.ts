@@ -213,7 +213,7 @@ export const useContextAwareChat = () => {
             // We exclude clicks on the chatbot itself usually, but that is handled by the ChatBot component preventing propagation or being outside this listener scope if possible.
             // Since this listener is on window, we need to be careful not to trigger if clicking INSIDE the chat window.
             // Assumption: Chat window or Toggle has a specific ID.
-            if (event.target instanceof HTMLElement && event.target.closest('#chatbot-container, #chatbot-toggle')) {
+            if (event.target instanceof Element && event.target.closest('#chatbot-container, #chatbot-toggle')) {
                 return;
             }
 
