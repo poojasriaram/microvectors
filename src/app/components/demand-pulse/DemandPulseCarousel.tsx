@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 const slides = [
     {
@@ -42,15 +42,7 @@ export default function DemandPulseCarousel() {
         return () => clearInterval(timer);
     }, []);
 
-    const paginate = (newDirection: number) => {
-        setDirection(newDirection);
-        setCurrentIndex((prev) => {
-            let nextIndex = prev + newDirection;
-            if (nextIndex < 0) nextIndex = slides.length - 1;
-            if (nextIndex >= slides.length) nextIndex = 0;
-            return nextIndex;
-        });
-    };
+
 
 
 
@@ -104,33 +96,8 @@ export default function DemandPulseCarousel() {
                 </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Buttons */}
-            <button
-                onClick={() => paginate(-1)}
-                className="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
-            >
-                <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-                onClick={() => paginate(1)}
-                className="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 hover:bg-white transition-all opacity-0 group-hover:opacity-100 z-20 hover:scale-110 shadow-lg"
-            >
-                <ChevronRight className="w-6 h-6" />
-            </button>
+            {/* Navigation Buttons and Pagination Dots Removed by User Request */}
 
-            {/* Pagination Dots */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20 bg-white/50 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-sm">
-                {slides.map((_, idx) => (
-                    <button
-                        key={idx}
-                        onClick={() => {
-                            setDirection(idx > currentIndex ? 1 : -1);
-                            setCurrentIndex(idx);
-                        }}
-                        className={`transition-all duration-300 rounded-full ${currentIndex === idx ? 'w-8 h-1.5 bg-blue-600' : 'w-1.5 h-1.5 bg-slate-400 hover:bg-slate-600'}`}
-                    />
-                ))}
-            </div>
         </section>
     );
 }

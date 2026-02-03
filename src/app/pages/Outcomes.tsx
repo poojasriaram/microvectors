@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     TrendingUp,
@@ -16,9 +16,25 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardFooter } from '../components/ui/card';
 import OutcomeBlock from '../components/OutcomeBlock';
 import { salesAccelerationContent, growthEnginesContent } from '../../data/outcomesContent';
+import { Reveal } from '../components/ui/Reveal';
 
 export default function Outcomes() {
     const location = useLocation();
+    const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+    const backgroundSlides = [
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Business Architecture
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop", // Team Collaboration
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data Analytics
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"  // Growth
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -36,39 +52,62 @@ export default function Outcomes() {
     }, [location]);
 
     return (
-        <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-white text-slate-900">
-            {/* Hero Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-                <div className="text-center max-w-4xl mx-auto">
-                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 tracking-tight leading-[1.1]">
-                        Real Business Outcomes <br />
-                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Powered by AI Revenue Acceleration</span>
-                    </h1>
-                    <p className="text-xl sm:text-2xl text-slate-600 mb-8 font-medium leading-relaxed max-w-3xl mx-auto">
-                        See how TrustFlow AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/book-demo">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-6 h-auto shadow-lg shadow-blue-500/20">
-                                Book a Demo
-                            </Button>
-                        </Link>
-                        <Button variant="outline" className="text-lg px-8 py-6 h-auto border-slate-300 text-slate-600 hover:bg-slate-50 hover:text-slate-900">
-                            Talk to a Revenue Expert
-                        </Button>
-                    </div>
+        <div className="min-h-screen bg-white text-slate-900">
+            {/* Hero Section with Moving Backgrounds */}
+            <div className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
+                {/* Background Slideshow */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                    {backgroundSlides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-40" : "opacity-0"}`}
+                            style={{
+                                backgroundImage: `url('${slide}')`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}
+                        />
+                    ))}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white/90" />
+                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
+                </div>
+
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <Reveal width="100%">
+                        <div className="text-center max-w-4xl mx-auto">
+                            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
+                                Real Business Outcomes <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 drop-shadow-sm">Powered by AI Revenue Acceleration</span>
+                            </h1>
+                            <p className="text-xl sm:text-2xl text-slate-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
+                                See how TrustFlow AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                                <Link to="/book-demo">
+                                    <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-7 h-auto shadow-[0_10px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] transition-all rounded-full font-bold">
+                                        Book a Demo
+                                    </Button>
+                                </Link>
+                                <Button variant="outline" className="text-lg px-8 py-7 h-auto bg-white/50 border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 hover:border-slate-300 rounded-full font-medium backdrop-blur-sm shadow-sm transition-all">
+                                    Talk to a Revenue Expert
+                                </Button>
+                            </div>
+                        </div>
+                    </Reveal>
                 </div>
             </div>
 
             {/* Section 1: Revenue Impact Overview */}
             <div className="bg-slate-50 py-20 border-y border-slate-200 mb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Proven Revenue Results Across Industries</h2>
-                        <p className="text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-                            TrustFlow AI delivers measurable, boardroom-ready outcomes for modern revenue teams. Our AI-powered revenue acceleration platform helps enterprises build predictable pipelines, increase deal velocity, and drive compounding ARR growth.
-                        </p>
-                    </div>
+                    <Reveal width="100%">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">Proven Revenue Results Across Industries</h2>
+                            <p className="text-lg text-slate-600 max-w-3xl mx-auto font-medium">
+                                TrustFlow AI delivers measurable, boardroom-ready outcomes for modern revenue teams. Our AI-powered revenue acceleration platform helps enterprises build predictable pipelines, increase deal velocity, and drive compounding ARR growth.
+                            </p>
+                        </div>
+                    </Reveal>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
@@ -80,11 +119,13 @@ export default function Outcomes() {
                             { value: "80%", label: "Of SQLs auto-generated by AI", icon: <Zap className="w-6 h-6 text-amber-500" /> },
                             { value: "5×", label: "Increase in revenue velocity", icon: <Rocket className="w-6 h-6 text-indigo-600" /> },
                         ].map((stat, index) => (
-                            <div key={index} className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-slate-200 hover:shadow-lg hover:shadow-blue-500/10 transition-all hover:-translate-y-1">
-                                <div className="mb-3 p-3 bg-slate-50 rounded-full shadow-sm">{stat.icon}</div>
-                                <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">{stat.value}</div>
-                                <div className="text-sm font-bold text-slate-500 uppercase tracking-wide">{stat.label}</div>
-                            </div>
+                            <Reveal key={index} width="100%" delay={index * 0.1}>
+                                <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-slate-200 hover:shadow-lg hover:shadow-blue-500/10 transition-all hover:-translate-y-1 h-full">
+                                    <div className="mb-3 p-3 bg-slate-50 rounded-full shadow-sm">{stat.icon}</div>
+                                    <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">{stat.value}</div>
+                                    <div className="text-sm font-bold text-slate-500 uppercase tracking-wide">{stat.label}</div>
+                                </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -136,106 +177,114 @@ export default function Outcomes() {
 
             {/* Section 2: Customer Success Stories */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-                <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Customer Success Stories</h2>
+                <Reveal width="100%">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Customer Success Stories</h2>
+                </Reveal>
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Case Study 1 */}
-                    <Card className="flex flex-col h-full border-slate-200 bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all">
-                        <CardHeader className="bg-slate-50 border-b border-slate-100 pb-6 rounded-t-xl">
-                            <div className="flex justify-between items-start mb-4">
+                    <Reveal width="100%" delay={0.1}>
+                        <Card className="flex flex-col h-full border-slate-200 bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all">
+                            <CardHeader className="bg-slate-50 border-b border-slate-100 pb-6 rounded-t-xl">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-slate-900">TalentVector.AI</h3>
+                                        <p className="text-slate-500 font-medium">AI & Talent Intelligence</p>
+                                    </div>
+                                    <div className="bg-blue-50 p-2 rounded-lg border border-blue-100">
+                                        <Users className="w-6 h-6 text-blue-600" />
+                                    </div>
+                                </div>
+                            </CardHeader>
+                            <CardContent className="pt-6 flex-grow space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900">TalentVector.AI</h3>
-                                    <p className="text-slate-500 font-medium">AI & Talent Intelligence</p>
+                                    <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Challenge</h4>
+                                    <p className="text-slate-600 font-medium">Scaling lead generation and improving conversion efficiency in a competitive enterprise AI market.</p>
                                 </div>
-                                <div className="bg-blue-50 p-2 rounded-lg border border-blue-100">
-                                    <Users className="w-6 h-6 text-blue-600" />
+                                <div>
+                                    <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
+                                    <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s AI-driven sales acceleration and demand generation platform.</p>
                                 </div>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="pt-6 flex-grow space-y-6">
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Challenge</h4>
-                                <p className="text-slate-600 font-medium">Scaling lead generation and improving conversion efficiency in a competitive enterprise AI market.</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
-                                <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s AI-driven sales acceleration and demand generation platform.</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
-                                <ul className="space-y-2">
-                                    {[
-                                        "24× increase in high-quality leads",
-                                        "3× increase in conversion rate",
-                                        "50% faster sales cycle",
-                                        "6× increase in company valuation",
-                                        "Significant growth in revenue and profitability"
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                                            <span className="text-slate-700 text-sm font-semibold">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </CardContent>
-                        <CardFooter className="pt-2 pb-6 border-t border-slate-100 bg-slate-50 mt-auto rounded-b-xl">
-                            <Button variant="ghost" className="w-full text-blue-600 hover:text-blue-700 hover:bg-blue-50 font-bold flex items-center justify-center gap-2">
-                                View Case Study <ArrowRight className="w-4 h-4" />
-                            </Button>
-                        </CardFooter>
-                    </Card>
+                                <div>
+                                    <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
+                                    <ul className="space-y-2">
+                                        {[
+                                            "24× increase in high-quality leads",
+                                            "3× increase in conversion rate",
+                                            "50% faster sales cycle",
+                                            "6× increase in company valuation",
+                                            "Significant growth in revenue and profitability"
+                                        ].map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2">
+                                                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                                                <span className="text-slate-700 text-sm font-semibold">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </CardContent>
+                            <CardFooter className="pt-2 pb-6 border-t border-slate-100 bg-slate-50 mt-auto rounded-b-xl">
+                                <Button variant="ghost" className="w-full text-blue-600 hover:text-blue-700 hover:bg-blue-50 font-bold flex items-center justify-center gap-2">
+                                    View Case Study <ArrowRight className="w-4 h-4" />
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    </Reveal>
 
                     {/* Case Study 2 */}
-                    <Card className="flex flex-col h-full border-slate-200 bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all">
-                        <CardHeader className="bg-slate-50 border-b border-slate-100 pb-6 rounded-t-xl">
-                            <div className="flex justify-between items-start mb-4">
+                    <Reveal width="100%" delay={0.2}>
+                        <Card className="flex flex-col h-full border-slate-200 bg-white hover:shadow-xl hover:shadow-blue-900/5 transition-all">
+                            <CardHeader className="bg-slate-50 border-b border-slate-100 pb-6 rounded-t-xl">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-slate-900">EPSUNSOL</h3>
+                                        <p className="text-slate-500 font-medium">Solar & Wind Energy</p>
+                                    </div>
+                                    <div className="bg-green-50 p-2 rounded-lg border border-green-100">
+                                        <Zap className="w-6 h-6 text-green-600" />
+                                    </div>
+                                </div>
+                            </CardHeader>
+                            <CardContent className="pt-6 flex-grow space-y-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900">EPSUNSOL</h3>
-                                    <p className="text-slate-500 font-medium">Solar & Wind Energy</p>
+                                    <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Challenge</h4>
+                                    <p className="text-slate-600 font-medium">High sales cost and inefficient lead qualification.</p>
                                 </div>
-                                <div className="bg-green-50 p-2 rounded-lg border border-green-100">
-                                    <Zap className="w-6 h-6 text-green-600" />
+                                <div>
+                                    <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
+                                    <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s sales automation and AI demand generation engine.</p>
                                 </div>
-                            </div>
-                        </CardHeader>
-                        <CardContent className="pt-6 flex-grow space-y-6">
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Challenge</h4>
-                                <p className="text-slate-600 font-medium">High sales cost and inefficient lead qualification.</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
-                                <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s sales automation and AI demand generation engine.</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
-                                <ul className="space-y-2">
-                                    {[
-                                        "65% reduction in cost of sales",
-                                        "80% of SQLs auto-generated using TrustFlow AI",
-                                        "Faster deal velocity and improved sales efficiency"
-                                    ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-2">
-                                            <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
-                                            <span className="text-slate-700 text-sm font-semibold">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </CardContent>
-                        <CardFooter className="pt-2 pb-6 border-t border-slate-100 bg-slate-50 mt-auto rounded-b-xl">
-                            <Button variant="ghost" className="w-full text-blue-600 hover:text-blue-700 hover:bg-blue-50 font-bold flex items-center justify-center gap-2">
-                                View Case Study <ArrowRight className="w-4 h-4" />
-                            </Button>
-                        </CardFooter>
-                    </Card>
+                                <div>
+                                    <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
+                                    <ul className="space-y-2">
+                                        {[
+                                            "65% reduction in cost of sales",
+                                            "80% of SQLs auto-generated using TrustFlow AI",
+                                            "Faster deal velocity and improved sales efficiency"
+                                        ].map((item, i) => (
+                                            <li key={i} className="flex items-start gap-2">
+                                                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                                                <span className="text-slate-700 text-sm font-semibold">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </CardContent>
+                            <CardFooter className="pt-2 pb-6 border-t border-slate-100 bg-slate-50 mt-auto rounded-b-xl">
+                                <Button variant="ghost" className="w-full text-blue-600 hover:text-blue-700 hover:bg-blue-50 font-bold flex items-center justify-center gap-2">
+                                    View Case Study <ArrowRight className="w-4 h-4" />
+                                </Button>
+                            </CardFooter>
+                        </Card>
+                    </Reveal>
                 </div>
             </div>
 
             {/* Section 3: Platform-Level Outcomes */}
             <div className="bg-slate-900 py-20 mb-20 text-white border-y border-slate-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-12 text-white">Platform-Wide Business Impact</h2>
+                    <Reveal width="100%">
+                        <h2 className="text-3xl font-bold text-center mb-12 text-white">Platform-Wide Business Impact</h2>
+                    </Reveal>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                         {[
                             { value: "2×–5×", label: "Pipeline Growth" },
@@ -245,10 +294,12 @@ export default function Outcomes() {
                             { value: "120%+", label: "Net Revenue Retention" },
                             { value: "90%+", label: "Forecast Accuracy" },
                         ].map((stat, index) => (
-                            <div key={index} className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors text-center group hover:shadow-lg hover:shadow-blue-500/10">
-                                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">{stat.value}</div>
-                                <div className="text-slate-300 font-semibold">{stat.label}</div>
-                            </div>
+                            <Reveal key={index} width="100%" delay={index * 0.1}>
+                                <div className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors text-center group hover:shadow-lg hover:shadow-blue-500/10 h-full">
+                                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">{stat.value}</div>
+                                    <div className="text-slate-300 font-semibold">{stat.label}</div>
+                                </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -256,54 +307,58 @@ export default function Outcomes() {
 
             {/* Section 4: Why Enterprises Choose TrustFlow AI */}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 text-center">
-                <h2 className="text-3xl font-bold text-slate-900 mb-10">Built for Predictable, Scalable Growth</h2>
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-left p-8 bg-white rounded-2xl shadow-xl border border-slate-200">
-                    {[
-                        "Unified AI Revenue Platform",
-                        "Enterprise-grade security and scalability",
-                        "Plug-and-play with existing CRM and marketing stacks",
-                        "Rapid deployment",
-                        "Proven enterprise revenue impact"
-                    ].map((item, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                            <div className="bg-green-100 p-1 rounded-full flex-shrink-0">
-                                <CheckCircle2 className="w-5 h-5 text-green-600" />
+                <Reveal width="100%">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-10">Built for Predictable, Scalable Growth</h2>
+                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-left p-8 bg-white rounded-2xl shadow-xl border border-slate-200">
+                        {[
+                            "Unified AI Revenue Platform",
+                            "Enterprise-grade security and scalability",
+                            "Plug-and-play with existing CRM and marketing stacks",
+                            "Rapid deployment",
+                            "Proven enterprise revenue impact"
+                        ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-3">
+                                <div className="bg-green-100 p-1 rounded-full flex-shrink-0">
+                                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                                </div>
+                                <span className="text-lg text-slate-700 font-semibold">{item}</span>
                             </div>
-                            <span className="text-lg text-slate-700 font-semibold">{item}</span>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Reveal>
             </div>
 
 
             {/* Section 5: Call To Action */}
             <div className="text-center max-w-4xl mx-auto px-4 pb-20">
-                <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden border border-white/10">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+                <Reveal width="100%">
+                    <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden border border-white/10">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-                    <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Your Predictable Revenue Engine with TrustFlow AI</h2>
-                        <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-medium">
-                            Whether you're scaling from $1M to $100M ARR or optimizing a complex enterprise revenue motion, TrustFlow AI gives you the intelligence, automation, and execution power to win.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Link to="/book-demo" className="w-full sm:w-auto">
-                                <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 h-auto text-lg w-full sm:w-auto font-bold shadow-lg">
-                                    Book a Demo
+                        <div className="relative z-10">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Your Predictable Revenue Engine with TrustFlow AI</h2>
+                            <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-medium">
+                                Whether you're scaling from $1M to $100M ARR or optimizing a complex enterprise revenue motion, TrustFlow AI gives you the intelligence, automation, and execution power to win.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                                <Link to="/book-demo" className="w-full sm:w-auto">
+                                    <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 h-auto text-lg w-full sm:w-auto font-bold shadow-lg">
+                                        Book a Demo
+                                    </Button>
+                                </Link>
+                                <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg w-full sm:w-auto backdrop-blur-sm">
+                                    Talk to a Revenue Expert
                                 </Button>
-                            </Link>
-                            <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg w-full sm:w-auto backdrop-blur-sm">
-                                Talk to a Revenue Expert
-                            </Button>
-                        </div>
-                        <div className="mt-8">
-                            <a href="#" className="inline-flex items-center text-blue-100 font-semibold hover:text-white transition-colors">
-                                Start Your AI Revenue Journey <ArrowRight className="ml-2 w-4 h-4" />
-                            </a>
+                            </div>
+                            <div className="mt-8">
+                                <a href="#" className="inline-flex items-center text-blue-100 font-semibold hover:text-white transition-colors">
+                                    Start Your AI Revenue Journey <ArrowRight className="ml-2 w-4 h-4" />
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Reveal>
             </div>
         </div>
     );

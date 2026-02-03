@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
     Handshake,
     Zap,
     Users,
     CheckCircle2,
-    BarChart3,
-    ArrowRight
+    BarChart3
 } from 'lucide-react';
+import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -18,6 +17,22 @@ import { submitToAirtable } from '../../lib/airtable';
 export default function Partners() {
     useEffect(() => {
         document.title = "Partners | TrustFlow AI";
+    }, []);
+
+    const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+    const backgroundSlides = [
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop", // Meeting/Handshake
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop", // Collaboration
+        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop", // Agreement
+        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2071&auto=format&fit=crop"  // Growth
+    ];
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
     }, []);
 
     const [formData, setFormData] = useState({
@@ -63,32 +78,47 @@ export default function Partners() {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* 1. Hero Section */}
-            <section className="relative bg-white text-slate-900 pt-32 pb-24 overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-slate-50 via-white to-white pointer-events-none"></div>
-                <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none animate-pulse-slow"></div>
-                <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none"></div>
+            <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
+                {/* Background Slideshow */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                    {backgroundSlides.map((slide, index) => (
+                        <div
+                            key={index}
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-30" : "opacity-0"}`}
+                            style={{
+                                backgroundImage: `url('${slide}')`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                            }}
+                        />
+                    ))}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white/90" />
+                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
+                </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
-                        <Handshake className="w-4 h-4 text-blue-600" />
-                        <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Partner Program</span>
-                    </div>
+                    <Reveal width="100%">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                            <Handshake className="w-4 h-4 text-blue-600" />
+                            <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Partner Program</span>
+                        </div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
-                        Grow with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">TrustFlow AI</span>
-                    </h1>
+                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
+                            Grow with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">TrustFlow AI</span>
+                        </h1>
 
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                        Join our ecosystem of industry-leading partners. Accelerate your growth by delivering the world's most advanced AI revenue platform to your clients.
-                    </p>
+                        <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                            Join our ecosystem of industry-leading partners. Accelerate your growth by delivering the world's most advanced AI revenue platform to your clients.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <a href="#partner-form">
-                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
-                                Become a Partner
-                            </Button>
-                        </a>
-                    </div>
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                            <a href="#partner-form">
+                                <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
+                                    Become a Partner
+                                </Button>
+                            </a>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 
@@ -118,15 +148,17 @@ export default function Partners() {
                                 description: "Access dedicated partner support, co-marketing resources, and sales enablement tools to help you win."
                             }
                         ].map((item, idx) => (
-                            <Card key={idx} className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white">
-                                <CardContent className="p-8">
-                                    <div className="p-4 bg-slate-50 rounded-2xl w-fit mb-6 border border-slate-100">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
-                                    <p className="text-slate-600 leading-relaxed">{item.description}</p>
-                                </CardContent>
-                            </Card>
+                            <Reveal key={idx} width="100%" delay={idx * 0.1}>
+                                <Card className="border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white h-full">
+                                    <CardContent className="p-8">
+                                        <div className="p-4 bg-slate-50 rounded-2xl w-fit mb-6 border border-slate-100">
+                                            {item.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h3>
+                                        <p className="text-slate-600 leading-relaxed">{item.description}</p>
+                                    </CardContent>
+                                </Card>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -136,51 +168,55 @@ export default function Partners() {
             <section className="py-24 bg-white relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Partner Programs tailored to your business</h2>
-                            <p className="text-xl text-slate-600 leading-relaxed font-medium mb-10">
-                                Whether you're a consultancy, technology provider, or agency, we have a program designed for your success.
-                            </p>
+                        <Reveal width="100%">
+                            <div>
+                                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 mt-4">Partner Programs tailored to your business</h2>
+                                <p className="text-xl text-slate-600 leading-relaxed font-medium mb-10">
+                                    Whether you're a consultancy, technology provider, or agency, we have a program designed for your success.
+                                </p>
 
-                            <div className="space-y-6">
-                                {[
-                                    { title: "Solution Partners", desc: "Consultancies and SIs implementation TrustFlow AI." },
-                                    { title: "Technology Partners", desc: "ISVs and Tech platforms integrating with our ecosystem." },
-                                    { title: "Referral Partners", desc: "Agencies and individuals referring qualified leads." }
-                                ].map((prog, i) => (
-                                    <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
-                                        <div className="mt-1">
-                                            <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center border border-green-200">
-                                                <CheckCircle2 className="w-3.5 h-3.5 text-green-700" />
+                                <div className="space-y-6">
+                                    {[
+                                        { title: "Solution Partners", desc: "Consultancies and SIs implementation TrustFlow AI." },
+                                        { title: "Technology Partners", desc: "ISVs and Tech platforms integrating with our ecosystem." },
+                                        { title: "Referral Partners", desc: "Agencies and individuals referring qualified leads." }
+                                    ].map((prog, i) => (
+                                        <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                                            <div className="mt-1">
+                                                <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center border border-green-200">
+                                                    <CheckCircle2 className="w-3.5 h-3.5 text-green-700" />
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-lg font-bold text-slate-900">{prog.title}</h4>
+                                                <p className="text-slate-600">{prog.desc}</p>
                                             </div>
                                         </div>
-                                        <div>
-                                            <h4 className="text-lg font-bold text-slate-900">{prog.title}</h4>
-                                            <p className="text-slate-600">{prog.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 blur-sm opacity-20"></div>
-                            <div className="relative bg-slate-900 rounded-2xl p-10 text-white overflow-hidden shadow-2xl">
-                                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[80px] -mr-20 -mt-20"></div>
-                                <QuoteIcon className="w-12 h-12 text-blue-400 mb-6 opacity-50" />
-                                <blockquote className="text-2xl font-medium leading-relaxed mb-8 relative z-10">
-                                    "Partnering with TrustFlow AI has been a game-changer for our agency. We've not only increased our revenue but also deepened our client relationships by delivering tangible ROI."
-                                </blockquote>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-xl font-bold">
-                                        JD
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-lg">John Doe</div>
-                                        <div className="text-slate-400">CEO, GrowthAgency</div>
+                        </Reveal>
+                        <Reveal width="100%" delay={0.2}>
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 blur-sm opacity-20"></div>
+                                <div className="relative bg-slate-900 rounded-2xl p-10 text-white overflow-hidden shadow-2xl">
+                                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[80px] -mr-20 -mt-20"></div>
+                                    <QuoteIcon className="w-12 h-12 text-blue-400 mb-6 opacity-50" />
+                                    <blockquote className="text-2xl font-medium leading-relaxed mb-8 relative z-10">
+                                        "Partnering with TrustFlow AI has been a game-changer for our agency. We've not only increased our revenue but also deepened our client relationships by delivering tangible ROI."
+                                    </blockquote>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-xl font-bold">
+                                            JD
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-lg">John Doe</div>
+                                            <div className="text-slate-400">CEO, GrowthAgency</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Reveal>
                     </div>
                 </div>
             </section>
@@ -188,119 +224,123 @@ export default function Partners() {
             {/* 4. Partner Application Form */}
             <section id="partner-form" className="py-24 bg-slate-50 border-t border-slate-200">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Become a Partner</h2>
-                        <p className="text-slate-600 text-xl font-medium max-w-2xl mx-auto">
-                            Fill out the form below to join our partner ecosystem.
-                        </p>
-                    </div>
+                    <Reveal width="100%">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Become a Partner</h2>
+                            <p className="text-slate-600 text-xl font-medium max-w-2xl mx-auto">
+                                Fill out the form below to join our partner ecosystem.
+                            </p>
+                        </div>
+                    </Reveal>
 
-                    <div className="bg-white rounded-[2rem] shadow-xl border border-slate-100 p-8 sm:p-12">
-                        {submitted ? (
-                            <div className="text-center py-12">
-                                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <CheckCircle2 className="w-10 h-10 text-green-600" />
+                    <Reveal width="100%" delay={0.2}>
+                        <div className="bg-white rounded-[2rem] shadow-xl border border-slate-100 p-8 sm:p-12">
+                            {submitted ? (
+                                <div className="text-center py-12">
+                                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <CheckCircle2 className="w-10 h-10 text-green-600" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received!</h3>
+                                    <p className="text-lg text-slate-600 max-w-md mx-auto mb-8">
+                                        Thank you for your interest in partnering with TrustFlow AI. Our partnership team will review your application and be in touch shortly.
+                                    </p>
+                                    <Button onClick={() => setSubmitted(false)} variant="outline">
+                                        Submit Another Application
+                                    </Button>
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received!</h3>
-                                <p className="text-lg text-slate-600 max-w-md mx-auto mb-8">
-                                    Thank you for your interest in partnering with TrustFlow AI. Our partnership team will review your application and be in touch shortly.
-                                </p>
-                                <Button onClick={() => setSubmitted(false)} variant="outline">
-                                    Submit Another Application
-                                </Button>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-2 gap-5">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="firstName">First Name</Label>
-                                        <Input
-                                            id="firstName" name="firstName" required
-                                            value={formData.firstName} onChange={handleChange}
-                                            placeholder="John"
-                                            className="h-11"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="lastName">Last Name</Label>
-                                        <Input
-                                            id="lastName" name="lastName" required
-                                            value={formData.lastName} onChange={handleChange}
-                                            placeholder="Doe"
-                                            className="h-11"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="email">Work Email</Label>
-                                        <Input
-                                            id="email" name="email" type="email" required
-                                            value={formData.email} onChange={handleChange}
-                                            placeholder="john@company.com"
-                                            className="h-11"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="company">Company Name</Label>
-                                        <Input
-                                            id="company" name="company" required
-                                            value={formData.company} onChange={handleChange}
-                                            placeholder="Acme Inc."
-                                            className="h-11"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="website">Company Website</Label>
-                                        <Input
-                                            id="website" name="website" required
-                                            value={formData.website} onChange={handleChange}
-                                            placeholder="https://company.com"
-                                            className="h-11"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="partnerType">Partner Type</Label>
-                                        <div className="relative">
-                                            <select
-                                                id="partnerType" name="partnerType" required
-                                                value={formData.partnerType} onChange={handleChange}
-                                                className={`flex h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formData.partnerType === "" ? "text-slate-500" : "text-slate-900"}`}
-                                            >
-                                                <option value="" className="text-slate-400">Select Type</option>
-                                                <option value="Solution Partner">Solution Partner (SI/Consultancy)</option>
-                                                <option value="Technology Partner">Technology Partner (ISV)</option>
-                                                <option value="Referral Partner">Referral Partner</option>
-                                            </select>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="grid grid-cols-2 gap-5">
+                                        <div className="space-y-2">
+                                            <Label htmlFor="firstName">First Name</Label>
+                                            <Input
+                                                id="firstName" name="firstName" required
+                                                value={formData.firstName} onChange={handleChange}
+                                                placeholder="John"
+                                                className="h-11"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="lastName">Last Name</Label>
+                                            <Input
+                                                id="lastName" name="lastName" required
+                                                value={formData.lastName} onChange={handleChange}
+                                                placeholder="Doe"
+                                                className="h-11"
+                                            />
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="space-y-2">
-                                    <Label htmlFor="message">How can we work together?</Label>
-                                    <Textarea
-                                        id="message" name="message" required
-                                        value={formData.message} onChange={handleChange}
-                                        placeholder="Tell us about your business and partnership goals..."
-                                        className="min-h-[120px] resize-none"
-                                    />
-                                </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div className="space-y-2">
+                                            <Label htmlFor="email">Work Email</Label>
+                                            <Input
+                                                id="email" name="email" type="email" required
+                                                value={formData.email} onChange={handleChange}
+                                                placeholder="john@company.com"
+                                                className="h-11"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="company">Company Name</Label>
+                                            <Input
+                                                id="company" name="company" required
+                                                value={formData.company} onChange={handleChange}
+                                                placeholder="Acme Inc."
+                                                className="h-11"
+                                            />
+                                        </div>
+                                    </div>
 
-                                <Button
-                                    type="submit"
-                                    size="lg"
-                                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
-                                    disabled={isSubmitting}
-                                >
-                                    {isSubmitting ? 'Submitting Application...' : 'Apply to Partner Program'}
-                                </Button>
-                            </form>
-                        )}
-                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div className="space-y-2">
+                                            <Label htmlFor="website">Company Website</Label>
+                                            <Input
+                                                id="website" name="website" required
+                                                value={formData.website} onChange={handleChange}
+                                                placeholder="https://company.com"
+                                                className="h-11"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="partnerType">Partner Type</Label>
+                                            <div className="relative">
+                                                <select
+                                                    id="partnerType" name="partnerType" required
+                                                    value={formData.partnerType} onChange={handleChange}
+                                                    className={`flex h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${formData.partnerType === "" ? "text-slate-500" : "text-slate-900"}`}
+                                                >
+                                                    <option value="" className="text-slate-400">Select Type</option>
+                                                    <option value="Solution Partner">Solution Partner (SI/Consultancy)</option>
+                                                    <option value="Technology Partner">Technology Partner (ISV)</option>
+                                                    <option value="Referral Partner">Referral Partner</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <Label htmlFor="message">How can we work together?</Label>
+                                        <Textarea
+                                            id="message" name="message" required
+                                            value={formData.message} onChange={handleChange}
+                                            placeholder="Tell us about your business and partnership goals..."
+                                            className="min-h-[120px] resize-none"
+                                        />
+                                    </div>
+
+                                    <Button
+                                        type="submit"
+                                        size="lg"
+                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'Submitting Application...' : 'Apply to Partner Program'}
+                                    </Button>
+                                </form>
+                            )}
+                        </div>
+                    </Reveal>
                 </div>
             </section>
         </div>

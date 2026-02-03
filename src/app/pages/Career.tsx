@@ -9,6 +9,7 @@ import {
     Brain,
     Globe
 } from 'lucide-react';
+import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import {
@@ -145,29 +146,31 @@ export default function Career() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
-                        <Briefcase className="w-4 h-4" />
-                        <span>We're Hiring</span>
-                    </div>
+                    <Reveal width="100%">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                            <Briefcase className="w-4 h-4" />
+                            <span>We're Hiring</span>
+                        </div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-white drop-shadow-lg">
-                        Build the Future of <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-                            Revenue Intelligence
-                        </span>
-                    </h1>
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-white drop-shadow-lg">
+                            Build the Future of <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+                                Revenue Intelligence
+                            </span>
+                        </h1>
 
-                    <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                        Join a team of world-class engineers, researchers, and operators building the next generation of AI-powered enterprise software.
-                    </p>
+                        <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                            Join a team of world-class engineers, researchers, and operators building the next generation of AI-powered enterprise software.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <a href="#open-roles">
-                            <Button className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-6 text-lg h-auto rounded-full font-bold shadow-lg transition-all hover:-translate-y-1">
-                                View Open Roles
-                            </Button>
-                        </a>
-                    </div>
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                            <a href="#open-roles">
+                                <Button className="bg-white text-slate-900 hover:bg-slate-100 px-10 py-6 text-lg h-auto rounded-full font-bold shadow-lg transition-all hover:-translate-y-1">
+                                    View Open Roles
+                                </Button>
+                            </a>
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 
@@ -181,15 +184,17 @@ export default function Career() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {values.map((val, idx) => (
-                            <div key={idx} className="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-colors">
-                                <div className="mb-4 p-3 bg-white rounded-xl shadow-sm w-fit border border-slate-100">
-                                    {val.icon}
+                            <Reveal key={idx} width="100%" delay={idx * 0.1}>
+                                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 transition-colors h-full">
+                                    <div className="mb-4 p-3 bg-white rounded-xl shadow-sm w-fit border border-slate-100">
+                                        {val.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3">{val.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed text-sm">
+                                        {val.desc}
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{val.title}</h3>
-                                <p className="text-slate-600 leading-relaxed text-sm">
-                                    {val.desc}
-                                </p>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -205,25 +210,27 @@ export default function Career() {
 
                     <div className="space-y-4">
                         {openRoles.map((role, idx) => (
-                            <div key={idx} className="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                <div>
-                                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-1">{role.title}</h3>
-                                    <div className="flex flex-wrap gap-3 text-sm text-slate-500 font-medium">
-                                        <span className="flex items-center gap-1"><Code2 className="w-3.5 h-3.5" /> {role.dept}</span>
-                                        <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-                                        <span className="flex items-center gap-1"><Globe className="w-3.5 h-3.5" /> {role.loc}</span>
-                                        <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-                                        <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" /> {role.type}</span>
+                            <Reveal key={idx} width="100%" delay={idx * 0.1}>
+                                <div className="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                    <div>
+                                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-1">{role.title}</h3>
+                                        <div className="flex flex-wrap gap-3 text-sm text-slate-500 font-medium">
+                                            <span className="flex items-center gap-1"><Code2 className="w-3.5 h-3.5" /> {role.dept}</span>
+                                            <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                            <span className="flex items-center gap-1"><Globe className="w-3.5 h-3.5" /> {role.loc}</span>
+                                            <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                            <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" /> {role.type}</span>
+                                        </div>
                                     </div>
+                                    <Button
+                                        onClick={() => handleApply(role.title)}
+                                        variant="outline"
+                                        className="border-slate-200 group-hover:bg-blue-50 group-hover:text-blue-700 group-hover:border-blue-200 transition-all rounded-full px-6"
+                                    >
+                                        Apply Now
+                                    </Button>
                                 </div>
-                                <Button
-                                    onClick={() => handleApply(role.title)}
-                                    variant="outline"
-                                    className="border-slate-200 group-hover:bg-blue-50 group-hover:text-blue-700 group-hover:border-blue-200 transition-all rounded-full px-6"
-                                >
-                                    Apply Now
-                                </Button>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
 
