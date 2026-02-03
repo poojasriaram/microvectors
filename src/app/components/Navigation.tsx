@@ -45,8 +45,7 @@ export default function Navigation() {
                 { name: "AI Lead Generation", path: "/ai-lead-generation" },
                 { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
                 { name: "AI MVP Validation", path: "/ai-mvp-validation" },
-                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" },
-                { name: "Crypto", path: "/crypto" }
+                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" }
             ]
         },
         {
@@ -147,8 +146,8 @@ export default function Navigation() {
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-0.5 xl:gap-2 flex-1 justify-end">
                         {navItems.map((item) => {
-                            const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company';
-                            const dropdownWidth = isMegaMenu ? 'w-[560px]' : 'w-64';
+                            const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Products';
+                            const dropdownWidth = isMegaMenu ? 'w-[560px]' : (item.name === 'Products' ? 'w-72' : 'w-64');
                             const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
 
                             return (

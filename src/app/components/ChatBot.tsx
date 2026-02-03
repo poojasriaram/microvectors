@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User, Sparkles, Paperclip, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import logo from '../../assets/Trustflow-logo.png';
 
 // SYSTEM PROMPT CONTENT (For Reference / Future Backend Integration)
@@ -34,6 +34,7 @@ export default function ChatBot() {
     const [agentName, setAgentName] = useState('Pooja');
     const [agentRole, setAgentRole] = useState('Digital Success Manager');
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const dragControls = useDragControls();
 
     // Fetch IP to determine Agent Name
     useEffect(() => {
@@ -182,25 +183,33 @@ export default function ChatBot() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="chatbot-container"
                         initial={{ opacity: 0, y: 20, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
+                        drag
+                        dragListener={false}
+                        dragControls={dragControls}
+                        dragMomentum={false}
                         className="fixed bottom-36 right-6 w-[380px] max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-12rem)] bg-white rounded-2xl shadow-2xl border border-slate-100/50 z-[999] flex flex-col overflow-hidden font-sans ring-1 ring-slate-900/5"
                     >
                         {/* Premium Header */}
-                        <div className="bg-white p-4 flex items-center justify-between border-b border-slate-100 shrink-0 relative overflow-hidden">
+                        <div
+                            onPointerDown={(e) => dragControls.start(e)}
+                            className="bg-white p-4 flex items-center justify-between border-b border-slate-100 shrink-0 relative overflow-hidden cursor-move touch-none"
+                        >
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 -z-10" />
                             <div className="flex items-center gap-3">
                                 <div className="relative">
                                     <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shadow-blue-500/10 overflow-hidden border border-slate-200 p-1">
-                                        <img src={logo} alt="Trustflow AI" className="w-full h-full object-contain" />
+                                        <img src={logo} alt="Trustflow AI" className="w-full h-full object-contain pointer-events-none" />
                                     </div>
                                     <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-slate-800 text-base leading-none">Trustflow AI</h3>
-                                    <p className="text-slate-500 text-xs mt-1">{agentName} • {agentRole}</p>
+                                    <h3 className="font-bold text-slate-800 text-base leading-none pointer-events-none">Trustflow AI</h3>
+                                    <p className="text-slate-500 text-xs mt-1 pointer-events-none">{agentName} • {agentRole}</p>
                                 </div>
                             </div>
                             <button
@@ -329,6 +338,7 @@ export default function ChatBot() {
             {/* Toggle Button */}
             {!isOpen && (
                 <motion.button
+                    id="chatbot-toggle"
                     initial={{ scale: 0, rotate: 180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     whileHover={{ scale: 1.1 }}
