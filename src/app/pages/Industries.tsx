@@ -22,8 +22,9 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 
 import VerticalBlock from '../components/VerticalBlock';
-import { verticalsContent } from '../../data/verticalsContent';
 import { Reveal } from '../components/ui/Reveal';
+import IndustriesCarousel from '../components/IndustriesCarousel';
+import { verticalsContent } from '../../data/verticalsContent';
 
 export default function Industries() {
     const location = useLocation();
@@ -198,30 +199,18 @@ export default function Industries() {
 
     return (
         <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 composition-layer">
-            {/* 1. Hero Section - Premium */}
-            <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-                {/* Premium Background Effects */}
-                <div className="absolute top-0 inset-x-0 h-[800px] bg-gradient-to-b from-slate-50 via-white to-white pointer-events-none"></div>
-                <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none animate-pulse-slow"></div>
-                <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] opacity-60 mix-blend-multiply pointer-events-none"></div>
+            {/* Premium Industries Carousel - First Section */}
+            <div className="pt-20">
+                <IndustriesCarousel />
+            </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            {/* 1. Static Intro Section (Replaces old Hero) */}
+            <section className="relative py-16 overflow-hidden">
+                <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                     <Reveal width="100%">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
-                            <Factory className="w-4 h-4 text-blue-600" />
-                            <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Vertical-Specific Intelligence</span>
-                        </div>
-
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
-                            AI Growth Architectures <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                                By Industry
-                            </span>
-                        </h1>
-
-                        <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                            Tailored AI solution stacks designed to address the unique revenue challenges
-                            and growth mechanics of your specific sector.
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6">Vertical-Specific Revenue Engineering</h2>
+                        <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                            TrustFlow AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We don't just provide tools; we architect the entire revenue lifecycle for your specific market nuances.
                         </p>
                     </Reveal>
                 </div>

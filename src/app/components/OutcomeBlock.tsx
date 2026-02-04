@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ChevronRight, Zap, TrendingUp, Target, CheckCircle2 } from 'lucide-react';
+import { Target, CheckCircle2, Users } from 'lucide-react';
 
 interface OutcomeBlockProps {
     data: {
@@ -108,79 +108,64 @@ export default function OutcomeBlock({ data, index }: OutcomeBlockProps) {
                     </div>
 
                     {/* Right Column: Vertical Tabs (Interactive) */}
-                    <div className="lg:w-1/2 w-full bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col md:flex-row h-full min-h-[500px]">
-                        {/* Tab List */}
-                        <div className="md:w-1/3 bg-slate-50 border-r border-slate-100 flex flex-col">
-                            {data.verticalTabs.map((tab, idx) => {
-                                const TabIcon = tab.icon;
-                                const isActive = activeTab === idx;
-                                return (
-                                    <button
-                                        key={idx}
-                                        onClick={() => setActiveTab(idx)}
-                                        className={`flex items-center gap-3 p-5 text-left transition-all duration-300 relative border-b border-slate-100 last:border-0 ${isActive
-                                            ? 'bg-white text-blue-600 shadow-[inset_3px_0_0_0_#2563eb]'
-                                            : 'text-slate-500 hover:bg-white hover:text-slate-700'
-                                            }`}
-                                    >
-                                        <TabIcon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
-                                        <span className={`font-semibold text-sm ${isActive ? 'text-slate-900' : ''}`}>{tab.title}</span>
-                                        {isActive && (
-                                            <ChevronRight className="w-4 h-4 ml-auto text-blue-600" />
-                                        )}
-                                    </button>
-                                );
-                            })}
+                    <div className="lg:w-1/2 w-full bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden flex flex-col h-full min-h-[260px]">
+                        {/* Tab Header Bar */}
+                        <div className="px-6 py-2.5 bg-slate-50/50 border-b border-slate-100 flex items-center gap-3">
+                            <Users className="w-4 h-4 text-slate-500" />
+                            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest flex-1">
+                                Industry Context & Impact
+                            </h4>
                         </div>
 
-                        {/* Tab Content */}
-                        <div className="md:w-2/3 p-8 flex flex-col justify-center relative bg-white">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeTab}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="space-y-6"
-                                >
-                                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100 mb-4">
-                                        {/* Render the icon relative to the active tab */}
-                                        {React.createElement(data.verticalTabs[activeTab].icon, { className: "w-6 h-6 text-blue-600" })}
-                                    </div>
+                        <div className="flex flex-col md:flex-row flex-grow">
+                            {/* Tab List */}
+                            <div className="md:w-[35%] bg-slate-50/30 border-r border-slate-100 flex flex-col">
+                                {data.verticalTabs.map((tab, idx) => {
+                                    const TabIcon = tab.icon;
+                                    const isActive = activeTab === idx;
+                                    return (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setActiveTab(idx)}
+                                            className={`flex items-center gap-3 p-4 text-left transition-all duration-300 relative border-b border-slate-100 last:border-0 ${isActive
+                                                ? 'bg-white text-blue-600 shadow-[inset_3px_0_0_0_#2563eb]'
+                                                : 'text-slate-500 hover:bg-white hover:text-slate-700'
+                                                }`}
+                                        >
+                                            <TabIcon className={`w-5 h-5 flex-shrink-0 transition-colors ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                                            <span className={`font-semibold text-sm ${isActive ? 'text-slate-900' : ''}`}>{tab.title}</span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
 
-                                    <div>
-                                        <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">
-                                            {data.verticalTabs[activeTab].title}
-                                        </h4>
-                                        <p className="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
-                                            {data.verticalTabs[activeTab].content}
-                                        </p>
-                                    </div>
-
-                                    {/* Contextual dynamic footer based on tab */}
-                                    <div className="pt-8 border-t border-slate-100 mt-auto">
-                                        {activeTab === 0 && (
-                                            <p className="text-sm text-slate-500 italic">"Recognizing the situation is the first step to transformation."</p>
-                                        )}
-                                        {activeTab === 1 && (
-                                            <p className="text-sm text-slate-500 italic">"Pain points are just opportunities for AI intervention."</p>
-                                        )}
-                                        {activeTab === 2 && (
-                                            <div className="flex items-center gap-2 text-blue-600 font-semibold text-sm">
-                                                <Zap className="w-4 h-4" />
-                                                <span>AI Engine Active</span>
-                                            </div>
-                                        )}
-                                        {activeTab === 3 && (
-                                            <div className="flex items-center gap-2 text-green-600 font-semibold text-sm">
-                                                <TrendingUp className="w-4 h-4" />
-                                                <span>Revenue Impact Verified</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
+                            {/* Tab Content */}
+                            <div className="md:w-[65%] p-8 flex flex-col bg-white">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTab}
+                                        initial={{ opacity: 0, x: 10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="h-full flex flex-col justify-center"
+                                    >
+                                        <ul className="space-y-4">
+                                            {(data.verticalTabs[activeTab].content.includes(',')
+                                                ? data.verticalTabs[activeTab].content.split(',')
+                                                : data.verticalTabs[activeTab].content.split('; ')
+                                            ).map((item, i) => (
+                                                <li key={i} className="flex items-start gap-3 group">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-transform" />
+                                                    <span className="text-slate-700 font-semibold text-lg leading-snug">
+                                                        {item.trim()}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
                 </div>

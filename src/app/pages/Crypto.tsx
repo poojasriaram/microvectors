@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Sparkles, Zap, TrendingUp } from 'lucide-react';
@@ -8,25 +8,12 @@ import { cryptoContent } from '../../data/cryptoContent';
 import GlobalICPSection from '../components/GlobalICPSection';
 import CryptoOutcomeBlock from '../components/CryptoOutcomeBlock';
 import CryptoHeroSlides from '../components/CryptoHeroSlides';
+import CryptoCarousel from '../components/CryptoCarousel';
 
 export default function Crypto() {
     const location = useLocation();
 
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
-
-    const backgroundSlides = [
-        "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000",
-        "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&q=80&w=2000",
-        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=2000",
-        "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?auto=format&fit=crop&q=80&w=2000"
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
+    // Redundant backgroundSlides removed in favor of CryptoCarousel
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -45,20 +32,9 @@ export default function Crypto() {
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 relative overflow-hidden font-sans selection:bg-blue-500/30">
-            {/* Background Slideshow */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                {backgroundSlides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-30" : "opacity-0"}`}
-                        style={{
-                            backgroundImage: `url('${slide}')`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    />
-                ))}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white/90" />
+            {/* Premium Crypto Carousel - First Section */}
+            <div className="pt-20">
+                <CryptoCarousel />
             </div>
 
             {/* Global Background Noise & Gradients */}

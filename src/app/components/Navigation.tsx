@@ -163,7 +163,7 @@ export default function Navigation() {
                         </div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-1 xl:gap-2 h-full justify-end">
+                        <div className="hidden lg:flex items-center h-full justify-end">
                             {navItems.map((item) => {
                                 const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Products';
                                 const dropdownWidth = isMegaMenu ? 'w-[600px]' : (item.name === 'Products' ? 'w-[320px]' : 'w-72');

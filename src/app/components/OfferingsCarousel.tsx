@@ -1,0 +1,101 @@
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+
+const slides = [
+    {
+        id: 1,
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+        title: "AI-Powered Revenue Acceleration for Modern Enterprises",
+        subtitle: "The full-stack AI platform designed to help enterprises build predictable pipeline and scale ARR."
+    },
+    {
+        id: 2,
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
+        title: "Sales Intelligence & Execution Mastery",
+        subtitle: "Close more deals with predictive precision and autonomous sales orchestration."
+    },
+    {
+        id: 3,
+        image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=2670&auto=format&fit=crop",
+        title: "Unified Revenue Operations & Intelligence",
+        subtitle: "A single intelligent nervous system to replace siloed marketing, sales, and success tools."
+    },
+    {
+        id: 4,
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop",
+        title: "Global Demand Generation Engineering",
+        subtitle: "Transform digital awareness into high-quality pipeline across every channel and region."
+    },
+    {
+        id: 5,
+        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop",
+        title: "Market & Demand Signal Intelligence",
+        subtitle: "Discover hidden opportunities and competitive movements before they impact your revenue."
+    }
+];
+
+export default function OfferingsCarousel() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setDirection(1);
+            setCurrentIndex((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                <motion.div
+                    key={currentIndex}
+                    custom={direction}
+                    variants={{
+                        enter: { opacity: 0, scale: 1.05 },
+                        center: { opacity: 1, scale: 1 },
+                        exit: { opacity: 0 }
+                    }}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                >
+                    {/* Background Image */}
+                    <div
+                        className="absolute inset-0 bg-cover bg-center opacity-30"
+                        style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
+                    />
+
+                    {/* Premium White Overlay */}
+                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/95 via-white/40 to-white/95" />
+
+                    {/* Content */}
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center pt-10">
+                            <motion.div
+                                initial={{ y: 30, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                                className="max-w-5xl mx-auto"
+                            >
+                                <div className="inline-block px-4 py-1.5 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
+                                    TrustFlow Offering OS
+                                </div>
+                                <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
+                                    {slides[currentIndex].title}
+                                </h2>
+                                <p className="text-lg md:text-2xl text-slate-600 font-medium leading-relaxed max-w-3xl mx-auto tracking-wide">
+                                    {slides[currentIndex].subtitle}
+                                </p>
+                            </motion.div>
+                        </div>
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+        </section>
+    );
+}
