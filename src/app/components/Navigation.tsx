@@ -144,26 +144,26 @@ export default function Navigation() {
     return (
         <>
             <nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b ${scrolled
-                    ? 'bg-white/70 backdrop-blur-xl border-white/20 shadow-md py-2'
-                    : 'bg-transparent border-transparent py-4'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b h-16 lg:h-20 flex items-center ${scrolled
+                    ? 'bg-white/80 backdrop-blur-xl border-slate-200 shadow-md'
+                    : 'bg-transparent border-transparent'
                     }`}
             >
-                <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-                    <div className="flex items-center justify-between h-[60px] lg:h-[70px]">
+                <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-full">
+                    <div className="flex items-center justify-between h-full">
                         {/* Logo */}
                         <div className="flex-shrink-0 mr-4 xl:mr-8 relative z-50">
                             <Link to="/" className="flex items-center gap-2 group">
                                 <img
                                     src={logo}
                                     alt="Trustflow.ai"
-                                    className={`w-auto object-contain transition-all duration-500 ${scrolled ? 'h-9 md:h-10' : 'h-10 md:h-12'}`}
+                                    className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'}`}
                                 />
                             </Link>
                         </div>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-1 xl:gap-2 flex-1 justify-end">
+                        <div className="hidden lg:flex items-center gap-1 xl:gap-2 h-full justify-end">
                             {navItems.map((item) => {
                                 const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Products';
                                 const dropdownWidth = isMegaMenu ? 'w-[600px]' : (item.name === 'Products' ? 'w-[320px]' : 'w-72');
@@ -186,8 +186,8 @@ export default function Navigation() {
                                                 <Link
                                                     to={item.path}
                                                     className={`
-                                                        relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2 px-3 rounded-none
-                                                        ${isActive ? 'text-blue-600 bg-blue-50/50' : 'text-black hover:text-blue-600 hover:bg-slate-50/50'}
+                                                        relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2.5 px-3 rounded-none
+                                                        ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-black hover:text-blue-600 hover:bg-slate-50/50'}
                                                     `}
                                                 >
                                                     {item.name}
@@ -252,7 +252,7 @@ export default function Navigation() {
                         </div>
 
                         {/* Desktop CTA */}
-                        <div className="hidden lg:flex items-center ml-4 xl:ml-8 gap-3 shrink-0">
+                        <div className="hidden lg:flex items-center ml-4 xl:ml-8 gap-3 shrink-0 h-full">
                             <Link to="/book-demo">
                                 <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-6 py-2.5 h-auto text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
                                     <span className="relative z-10 flex items-center gap-2">
@@ -295,7 +295,7 @@ export default function Navigation() {
                     transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)
                     ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-[20px] pointer-events-none'}
                 `}
-                style={{ top: '0px', paddingTop: '80px' }}
+                style={{ top: '0px', paddingTop: scrolled ? '64px' : '64px' }}
             >
                 <div className="flex flex-col p-6 space-y-2 min-h-full">
                     {navItems.map((item) => (
