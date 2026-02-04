@@ -16,13 +16,13 @@ import {
     Globe,
     AlertTriangle,
     ArrowRight,
-    Sparkles,
     Layout
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Reveal } from '../components/ui/Reveal';
+import OfferingsCarousel from '../components/OfferingsCarousel';
 
 export default function Offerings() {
     const location = useLocation();
@@ -955,38 +955,24 @@ export default function Offerings() {
     ];
 
     return (
-        <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-slate-50 text-slate-900 overflow-hidden relative selection:bg-indigo-100">
-            {/* Ambient Background */}
-            <div className="fixed inset-0 pointer-events-none z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[1000px] h-[1000px] bg-indigo-50/50 rounded-full blur-[150px] mix-blend-multiply opacity-60"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-blue-50/50 rounded-full blur-[150px] mix-blend-multiply opacity-60"></div>
+        <div className="min-h-screen bg-slate-50 text-slate-900 overflow-hidden relative selection:bg-indigo-100">
+            {/* Premium Offerings Carousel - First Section */}
+            <div className="pt-20">
+                <OfferingsCarousel />
             </div>
 
             <div className="relative z-10">
-                {/* Hero Section */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-                    <div className="text-center max-w-4xl mx-auto">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-indigo-100 text-indigo-600 text-sm font-semibold mb-8 shadow-sm">
-                            <Sparkles className="w-4 h-4 text-indigo-500" />
-                            <span>Enterprise-Grade AI Solutions</span>
-                        </div>
-                        <h1 className="text-5xl sm:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
-                            AI-Powered Revenue Acceleration <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-blue-600">for Modern Enterprises</span>
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-slate-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
-                            TrustFlow AI delivers a full-stack AI revenue platform designed to help enterprises build predictable pipeline, accelerate deal velocity, and scale ARR.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                            <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white text-lg px-10 py-7 h-auto shadow-[0_10px_30px_rgba(79,70,229,0.3)] transition-all hover:-translate-y-1 rounded-full font-bold">
-                                <Link to="/book-demo">Book a Demo</Link>
-                            </Button>
-                            <Button asChild variant="outline" className="text-lg px-10 py-7 h-auto border-slate-200 text-slate-700 hover:bg-white hover:text-indigo-600 bg-white/50 backdrop-blur-sm rounded-full font-medium hover:shadow-lg transition-all">
-                                <Link to="/talk-to-expert">Talk to an Expert</Link>
-                            </Button>
-                        </div>
+                {/* 1. Static Intro Section (Replaces old Hero) */}
+                <section className="relative py-16 overflow-hidden">
+                    <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                        <Reveal width="100%">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Autonomous Revenue Engineering</h2>
+                            <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                                TrustFlow AI delivers a comprehensive suite of AI-native offerings designed to modernize the enterprise revenue stack. We transform manual, siloed processes into a unified, predictive engine that accelerates growth at every stage of the customer lifecycle.
+                            </p>
+                        </Reveal>
                     </div>
-                </div>
+                </section>
 
                 {/* Platform Overview */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
