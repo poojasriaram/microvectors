@@ -46,7 +46,9 @@ export default function Footer() {
         'AI Lead Nurturing': '/ai-lead-nurturing',
         'AI MVP Validation': '/ai-mvp-validation',
         'Crypto': '/crypto',
-        'Sales Transformation': '/ai-lead-sales-transformation'
+        'Sales Transformation': '/ai-lead-sales-transformation',
+        'AI Revenue Operations': '/ai-revenue-operations',
+        'AI Revenue Acceleration': '/ai-revenue-acceleration'
     };
 
     return (

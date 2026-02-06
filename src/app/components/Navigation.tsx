@@ -54,7 +54,9 @@ export default function Navigation() {
                 { name: "AI Lead Generation", path: "/ai-lead-generation" },
                 { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
                 { name: "AI MVP Validation", path: "/ai-mvp-validation" },
-                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" }
+                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" },
+                { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
+                { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
             ]
         },
         {
