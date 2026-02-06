@@ -8,10 +8,9 @@ export default function HeroSection() {
     <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-white">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/50 via-white to-white"></div>
-        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[120px] mix-blend-multiply animate-pulse"></div>
-        <div className="absolute -top-[10%] -right-[10%] w-[600px] h-[600px] bg-purple-100/30 rounded-full blur-[120px] mix-blend-multiply animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/30 via-white to-white"></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-blue-100/20 rounded-full blur-[120px] mix-blend-multiply animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.015]"></div>
       </div>
 
       <div className="relative w-full max-w-[90%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">

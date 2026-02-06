@@ -187,7 +187,7 @@ export default function Navigation() {
                                                     to={item.path}
                                                     className={`
                                                         relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2.5 px-3 rounded-none
-                                                        ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-black hover:text-blue-600 hover:bg-slate-50/50'}
+                                                        ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-slate-900 hover:text-blue-600 hover:bg-slate-50/50'}
                                                     `}
                                                 >
                                                     {item.name}
@@ -237,7 +237,7 @@ export default function Navigation() {
                                                                 "
                                                             >
                                                                 <ArrowRight className="mt-0.5 w-3.5 h-3.5 text-blue-400 group-hover/item:text-blue-600 group-hover/item:translate-x-0.5 transition-all mr-3 shrink-0" />
-                                                                <span className="text-[14px] font-semibold text-black group-hover/item:text-blue-700 transition-colors leading-snug">
+                                                                <span className="text-[14px] font-semibold text-slate-900 group-hover/item:text-blue-700 transition-colors leading-snug">
                                                                     {label}
                                                                 </span>
                                                             </Link>

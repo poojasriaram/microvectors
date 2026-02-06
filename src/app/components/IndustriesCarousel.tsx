@@ -66,12 +66,12 @@ export default function IndustriesCarousel() {
                 >
                     {/* Background Image */}
                     <div
-                        className="absolute inset-0 bg-cover bg-center opacity-30"
+                        className="absolute inset-0 bg-cover bg-center opacity-40"
                         style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
                     />
 
-                    {/* Premium White Overlay */}
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/95 via-white/40 to-white/95" />
+                    {/* Premium Unified Overlay */}
+                    <div className="absolute inset-0 bg-white/50 bg-gradient-to-b from-white via-white/20 to-white" />
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
