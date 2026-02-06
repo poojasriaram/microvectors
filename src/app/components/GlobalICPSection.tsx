@@ -7,11 +7,11 @@ export default function GlobalICPSection() {
         <section className="py-16 bg-white border-b border-slate-200 relative overflow-hidden">
             {/* Premium Background Image */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-white/90 z-10"></div>
+                <div className="absolute inset-0 bg-white/70 z-10"></div>
                 <img
                     src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000"
                     alt="Background"
-                    className="w-full h-full object-cover opacity-20"
+                    className="w-full h-full object-cover opacity-30"
                 />
             </div>
 
