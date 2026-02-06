@@ -29,6 +29,8 @@ import AILeadGeneration from './pages/AILeadGeneration';
 import AILeadNurturing from './pages/AILeadNurturing';
 import AIMVPValidation from './pages/AIMVPValidation';
 import AILeadSalesTransformation from './pages/AILeadSalesTransformation';
+import AIRevenueOperations from './pages/AIRevenueOperations';
+import AIRevenueAcceleration from './pages/AIRevenueAcceleration';
 import CookieConsent from './components/CookieConsent';
 
 
@@ -74,6 +76,8 @@ export default function App() {
             <Route path="/ai-lead-nurturing" element={<AILeadNurturing />} />
             <Route path="/ai-mvp-validation" element={<AIMVPValidation />} />
             <Route path="/ai-lead-sales-transformation" element={<AILeadSalesTransformation />} />
+            <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
+            <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
             <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
 
           </Routes>
