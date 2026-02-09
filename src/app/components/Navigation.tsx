@@ -46,7 +46,7 @@ export default function Navigation() {
             ]
         },
         {
-            name: 'Products',
+            name: 'Capabilities',
             path: '/products',
             dropdown: [
                 { name: "Demand Pulse", path: "/demand-pulse" },
@@ -167,8 +167,8 @@ export default function Navigation() {
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center h-full justify-end">
                             {navItems.map((item) => {
-                                const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Products';
-                                const dropdownWidth = isMegaMenu ? 'w-[600px]' : (item.name === 'Products' ? 'w-[320px]' : 'w-72');
+                                const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Capabilities';
+                                const dropdownWidth = isMegaMenu ? 'w-[600px]' : (item.name === 'Capabilities' ? 'w-[320px]' : 'w-72');
                                 const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
 
                                 return (
