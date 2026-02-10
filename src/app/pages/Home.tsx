@@ -15,6 +15,7 @@ import HomeCarousel from '../components/HomeCarousel';
 
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
+import HeroAROSMindMap from '../components/HeroAROSMindMap';
 
 
 export default function Home() {
@@ -44,6 +45,10 @@ export default function Home() {
 
             {/* Section 1: Hero */}
             <HeroSection />
+
+            <Reveal width="100%" direction="up">
+                <HeroAROSMindMap />
+            </Reveal>
 
             {/* Global ICP Section */}
             <Reveal width="100%" direction="up">
