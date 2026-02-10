@@ -7,7 +7,7 @@ import {
 export const performanceMarketingData = {
     title: "AI-Powered Performance Revenue Engine",
     tagline: "Turn Every Marketing Dollar into Predictable Revenue Growth",
-    description: "The AI-Driven Performance Marketing Engine transforms marketing from a cost center into a revenue engine. By combining real-time audience intelligence, autonomous campaign optimization, conversion science, and predictive attribution, Trustflow AI enables enterprises to drive sustained growth with precision, speed, and accountability. The platform continuously learns from customer behavior, channel performance, and revenue outcomes — ensuring every campaign delivers measurable business impact.",
+    description: "The AI-Driven Performance Marketing Engine transforms marketing from a cost center into a revenue engine. By combining real-time audience intelligence, autonomous campaign optimization, conversion science, and predictive attribution, Trustgrid AI enables enterprises to drive sustained growth with precision, speed, and accountability. The platform continuously learns from customer behavior, channel performance, and revenue outcomes — ensuring every campaign delivers measurable business impact.",
     kpis: [
         { label: "ROI on Ad Spend", value: "5X–12X", suffix: "Return", description: "ROI on marketing spend." },
         { label: "Conversion Rates", value: "3X", suffix: "Increase", description: "increase in conversion rates." },

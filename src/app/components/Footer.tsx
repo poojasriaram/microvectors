@@ -2,7 +2,7 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Mail, Phone, Cloud, Share2, LayoutGrid, Box, Server, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/Trustflow-logo.png';
+import logo from '../../assets/Trustgrid-logo.png';
 
 export default function Footer() {
 
@@ -70,7 +70,7 @@ export default function Footer() {
                         <div>
                             <Link to="/" className="inline-block mb-1">
                                 <div className="flex items-center gap-2">
-                                    <img src={logo} alt="TrustFlow.ai Logo" className="h-9 md:h-12 w-auto" />
+                                    <img src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
                                 </div>
                             </Link>
                             <p className="text-slate-500 leading-relaxed mb-6 font-medium text-sm max-w-sm">
@@ -208,13 +208,13 @@ export default function Footer() {
                             {
                                 title: 'Mumbai Office',
                                 address: ['WeWork, Raheja Platinum, Sag Baug,', 'Marol, Andheri East, Mumbai 400059'],
-                                email: 'cs@trustflow.in',
+                                email: 'cs@trustgrid.in',
                                 phone: '+91 9513088612'
                             },
                             {
                                 title: 'Bangalore Office',
                                 address: ['WeWork, 13th floor, Tin Factory,', 'Old Madras Rd, Bengaluru 560016'],
-                                email: 'cs@trustflow.in',
+                                email: 'cs@trustgrid.in',
                                 phone: '+91 9513088612'
                             }
                         ].map((office, idx) => (
@@ -284,7 +284,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200/60 mt-2">
                     <p className="text-xs text-slate-500 font-medium">
-                        &copy; {new Date().getFullYear()} TrustFlow AI. All rights reserved.
+                        &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6 text-xs font-medium text-slate-500">
                         {['Privacy Policy', 'Terms of Service', 'Security', 'Copyright', 'Cookies', 'Sitemap'].map((item, i) => {

@@ -106,7 +106,7 @@ class AnalyticsService {
     }
 
     private hasConsent(): boolean {
-        return localStorage.getItem('trustflow_cookie_consent') !== 'declined';
+        return localStorage.getItem('trustgrid_cookie_consent') !== 'declined';
     }
 
     private getCurrentUser(): string {

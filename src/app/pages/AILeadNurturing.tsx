@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AILeadNurturing() {
     useEffect(() => {
-        document.title = "AI Lead Nurturing | TrustFlow AI";
+        document.title = "AI Lead Nurturing | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 

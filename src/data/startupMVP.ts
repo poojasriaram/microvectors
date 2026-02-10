@@ -7,7 +7,7 @@ import {
 export const startupMVPData = {
     title: "AI Startup MVP Acceleration Engine",
     tagline: "Build Only What the Market Will Buy.",
-    description: "The AI-Driven Startup MVP Breakthrough Engine enables founders to design, validate, and scale MVPs with real demand, validated ICPs, and revenue-ready positioning. Trustflow AI removes founder bias and replaces assumptions with market intelligence.",
+    description: "The AI-Driven Startup MVP Breakthrough Engine enables founders to design, validate, and scale MVPs with real demand, validated ICPs, and revenue-ready positioning. Trustgrid AI removes founder bias and replaces assumptions with market intelligence.",
     kpis: [
         { label: "MVP Launch Cycles", value: "70%", suffix: "Faster", description: "faster MVP launch cycles." },
         { label: "PMF Confidence", value: "5X", suffix: "Higher", description: "higher PMF confidence." },

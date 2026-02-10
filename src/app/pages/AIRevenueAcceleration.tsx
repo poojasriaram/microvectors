@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueAcceleration() {
     useEffect(() => {
-        document.title = "AI Revenue Acceleration ™ 2.0 | TrustFlow AI";
+        document.title = "AI Revenue Acceleration ™ 2.0 | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 

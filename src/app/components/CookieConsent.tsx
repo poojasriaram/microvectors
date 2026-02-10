@@ -10,7 +10,7 @@ export default function CookieConsent() {
 
     useEffect(() => {
         // Check if user has already accepted cookies
-        const consent = localStorage.getItem('trustflow_cookie_consent');
+        const consent = localStorage.getItem('trustgrid_cookie_consent');
         if (!consent) {
             // Show popup after a small delay for better UX
             const timer = setTimeout(() => setIsVisible(true), 1500);
@@ -19,12 +19,12 @@ export default function CookieConsent() {
     }, []);
 
     const handleAccept = () => {
-        localStorage.setItem('trustflow_cookie_consent', 'accepted');
+        localStorage.setItem('trustgrid_cookie_consent', 'accepted');
         setIsVisible(false);
     };
 
     const handleDecline = () => {
-        localStorage.setItem('trustflow_cookie_consent', 'declined');
+        localStorage.setItem('trustgrid_cookie_consent', 'declined');
         setIsVisible(false);
     };
 

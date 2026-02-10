@@ -15,7 +15,7 @@ import { Label } from '../components/ui/label';
 
 export default function TalkToExpert() {
     useEffect(() => {
-        document.title = "Talk to a Revenue Expert | TrustFlow AI";
+        document.title = "Talk to a Revenue Expert | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 
@@ -138,7 +138,7 @@ export default function TalkToExpert() {
                                             <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
                                         ))}
                                     </div>
-                                    <p className="text-sm font-semibold text-slate-600">Join 100+ leaders optimizing revenue with TrustFlow.</p>
+                                    <p className="text-sm font-semibold text-slate-600">Join 100+ leaders optimizing revenue with TrustGrid.</p>
                                 </div>
                             </Reveal>
                         </div>

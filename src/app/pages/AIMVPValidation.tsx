@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIMVPValidation() {
     useEffect(() => {
-        document.title = "AI MVP Validation | TrustFlow AI";
+        document.title = "AI MVP Validation | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 

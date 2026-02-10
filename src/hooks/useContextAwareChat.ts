@@ -144,7 +144,7 @@ export const useContextAwareChat = () => {
 
             // Helper to dispatch the event
             const triggerChat = (name: string) => {
-                const finalName = name || document.title.split('|')[0].trim() || 'TrustFlow AI';
+                const finalName = name || document.title.split('|')[0].trim() || 'TrustGrid AI';
                 const message = `I noticed you're interested in ${finalName}. How can I help you with that?`;
                 window.dispatchEvent(new CustomEvent('open_chat_with_context', {
                     detail: { message, contextName: finalName }
