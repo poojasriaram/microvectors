@@ -7,7 +7,7 @@ import { Reveal } from '../components/ui/Reveal';
 import { cryptoContent } from '../../data/cryptoContent';
 import GlobalICPSection from '../components/GlobalICPSection';
 import CryptoOutcomeBlock from '../components/CryptoOutcomeBlock';
-import CryptoHeroSlides from '../components/CryptoHeroSlides';
+import CryptoMindMap from '../components/CryptoMindMap';
 import CryptoCarousel from '../components/CryptoCarousel';
 
 export default function Crypto() {
@@ -76,9 +76,9 @@ export default function Crypto() {
                         </div>
                     </div>
 
-                    {/* Premium Hero Slides */}
-                    <div className="w-full flex justify-center perspective-[2000px]">
-                        <CryptoHeroSlides />
+                    {/* Premium Hero Mind Map - Seamlessly Integrated */}
+                    <div className="w-full mt-20 relative">
+                        <CryptoMindMap />
                     </div>
                 </div>
 

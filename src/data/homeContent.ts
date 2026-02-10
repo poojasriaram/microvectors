@@ -1,7 +1,7 @@
 import {
     Target, TrendingUp, Compass, BarChart3, Navigation, Zap, Lightbulb, MessageSquare,
     Settings, RefreshCw, FileText, Activity, Layers, Users, Globe, Shield, Database,
-    Cpu, Lock, Search, Share2, PieChart, Box, Truck
+    Cpu, Lock, Search, Share2, PieChart, Box, Truck, Calendar
 } from 'lucide-react';
 
 export interface ConversionBlockData {
@@ -359,6 +359,4 @@ export const homeContent: ConversionBlockData[] = [
     }
 ];
 
-// Helper to provide a Calendar icon since Lucide might not export it directly as Calendar in all versions or simply for completeness if I missed it in import above.
-// Re-checking imports: Calendar was NOT in the top import list. I'll add it now.
-import { Calendar } from 'lucide-react';
+

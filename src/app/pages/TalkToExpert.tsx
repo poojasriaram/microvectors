@@ -37,6 +37,10 @@ export default function TalkToExpert() {
         e.preventDefault();
         setIsSubmitting(true);
 
+        // Update analytics identity immediately
+        const fullName = `${formData.firstName} ${formData.lastName}`;
+        localStorage.setItem('user_name', fullName);
+
         try {
             await submitToAirtable('Talk to Expert', {
                 "First Name": formData.firstName,
@@ -60,9 +64,17 @@ export default function TalkToExpert() {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+
+        // Sync name to analytics in real-time
+        if (name === 'firstName' || name === 'lastName') {
+            const currentName = name === 'firstName' ? `${value} ${formData.lastName}` : `${formData.firstName} ${value}`;
+            localStorage.setItem('user_name', currentName.trim());
+        }
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: value
         });
     };
 

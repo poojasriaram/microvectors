@@ -1,21 +1,22 @@
-
 import { v4 as uuidv4 } from 'uuid';
 
 export type EventName =
-    | 'page_view' | 'page_exit' | 'navigation_path'
-    | 'scroll_25' | 'scroll_50' | 'scroll_75' | 'scroll_100'
-    | 'time_on_page' | 'idle_time'
-    | 'button_click' | 'link_click' | 'cta_click' | 'hover_pricing' | 'search_query'
-    | 'form_start' | 'form_abandon' | 'form_submit'
-    | 'video_play' | 'video_pause' | 'video_complete'
-    | 'rage_click' | 'validation_error' | 'api_error';
+    | 'nav_deep_trace' | 'scroll_granular_stat' | 'click_advanced_event'
+    | 'hover_focus_track' | 'form_interaction_flow' | 'input_intel_batch'
+    | 'session_behavior_summary' | 'device_context_snapshot' | 'vitals_perf_log'
+    | 'friction_error_report' | 'funnel_step_reached' | 'intent_scoring_update'
+    | 'content_consumption_log' | 'journey_path_stage' | 'feedback_signal_catch';
 
 export interface AnalyticsEvent {
+    ip_address: string;
+    geo_location: string;
+    user_name: string;
     event_name: EventName;
     user_id: string;
     session_id: string;
-    page_url: string;
-    referrer: string;
+    page: string;
+    section: string;
+    element: string;
     device: string;
     browser: string;
     timestamp: string;
@@ -27,9 +28,14 @@ class AnalyticsService {
     private sessionId: string = '';
     private initialized: boolean = false;
     private batch: AnalyticsEvent[] = [];
-    private batchTimer: any = null;
-    private lastClickTime: number = 0;
-    private clickCount: number = 0;
+    private startTime: number = Date.now();
+    private eventSequence: number = 0;
+
+    // Default placeholders
+    private ipAddress: string = "detecting_ip...";
+    private locationStr: string = "detecting_location...";
+    private browserName: string = "detecting_browser...";
+    private contextPromise: Promise<void> | null = null;
 
     constructor() {
         if (typeof window !== 'undefined') {
@@ -37,37 +43,104 @@ class AnalyticsService {
         }
     }
 
-    private init() {
+    private async init() {
         if (this.initialized) return;
 
-        // Extract IDs from localStorage or generate new ones
         this.userId = localStorage.getItem('dt_user_id') || uuidv4();
         this.sessionId = sessionStorage.getItem('dt_session_id') || uuidv4();
+        this.browserName = this.getDetailedBrowser();
 
         localStorage.setItem('dt_user_id', this.userId);
         sessionStorage.setItem('dt_session_id', this.sessionId);
 
+        // Immediate Context Fetch (Both IP and exact Geolocation)
+        this.contextPromise = this.fetchExtendedContext();
+
         this.initialized = true;
         this.setupAutoTrackers();
+
+        // Push initial snapshot
+        this.track('device_context_snapshot', {
+            screen: `${window.screen.width}x${window.screen.height}`,
+            userAgent: navigator.userAgent
+        });
+    }
+
+    private async fetchExtendedContext() {
+        // Try precise geolocation first (User Permission required)
+        if ("geolocation" in navigator) {
+            const getPreciseLoc = () => new Promise<string>((resolve) => {
+                navigator.geolocation.getCurrentPosition(
+                    async (pos) => {
+                        try {
+                            const { latitude, longitude } = pos.coords;
+                            const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`);
+                            const data = await res.json();
+                            resolve(`${data.city || data.locality}, ${data.principalSubdivision}, ${data.countryName}`);
+                        } catch {
+                            resolve("");
+                        }
+                    },
+                    () => resolve(""),
+                    { timeout: 5000 }
+                );
+            });
+
+            const preciseLoc = await getPreciseLoc();
+            if (preciseLoc) {
+                this.locationStr = preciseLoc;
+            }
+        }
+
+        try {
+            // Service 1: IP-API (No key needed, very accurate)
+            const response = await fetch('https://ipapi.co/json/');
+            const data = await response.json();
+            this.ipAddress = data.ip || "unknown";
+
+            // Only overwrite location if precise geolocation failed or wasn't allowed
+            if (this.locationStr.includes('detecting')) {
+                this.locationStr = `${data.city || ''}, ${data.region || ''}, ${data.country_name || ''}`.replace(/^, |, $/g, '');
+            }
+        } catch (e) {
+            this.ipAddress = "VPN/Protected";
+            if (this.locationStr.includes('detecting')) {
+                this.locationStr = "Location Private";
+            }
+        }
     }
 
     private hasConsent(): boolean {
-        return localStorage.getItem('trustflow_cookie_consent') === 'accepted';
+        return localStorage.getItem('trustflow_cookie_consent') !== 'declined';
+    }
+
+    private getCurrentUser(): string {
+        return localStorage.getItem('user_name') ||
+            localStorage.getItem('dt_user_name') ||
+            "anonymous";
     }
 
     public track(eventName: EventName, metadata: Record<string, any> = {}) {
         if (!this.hasConsent()) return;
 
         const event: AnalyticsEvent = {
+            ip_address: this.ipAddress,
+            geo_location: this.locationStr,
+            user_name: this.getCurrentUser(),
             event_name: eventName,
             user_id: this.userId,
             session_id: this.sessionId,
-            page_url: window.location.href,
-            referrer: document.referrer,
+            page: window.location.pathname,
+            section: metadata.section || "global",
+            element: metadata.element || "none",
             device: this.getDeviceType(),
-            browser: navigator.userAgent,
+            browser: this.browserName,
             timestamp: new Date().toISOString(),
-            metadata
+            metadata: {
+                ...metadata,
+                sequence: ++this.eventSequence,
+                session_duration_ms: Date.now() - this.startTime
+            }
         };
 
         this.queueEvent(event);
@@ -75,168 +148,106 @@ class AnalyticsService {
 
     private queueEvent(event: AnalyticsEvent) {
         this.batch.push(event);
-
-        if (this.batch.length >= 5) {
+        if (this.batch.length >= 3) {
             this.flush();
         } else {
-            if (this.batchTimer) clearTimeout(this.batchTimer);
-            this.batchTimer = setTimeout(() => this.flush(), 2000);
+            setTimeout(() => this.flush(), 3000);
         }
     }
 
     private async flush() {
         if (this.batch.length === 0) return;
 
+        // Wait for connection to be ready
+        if (this.contextPromise) await this.contextPromise;
+
         const eventsToFlush = [...this.batch];
         this.batch = [];
 
-        try {
-            const response = await fetch('/api/analytics', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ events: eventsToFlush })
-            });
+        // Final Stamp Updates (Ensures 'pending' is replaced by real data)
+        const finalized = eventsToFlush.map(e => ({
+            ...e,
+            ip_address: e.ip_address.includes('...') ? this.ipAddress : e.ip_address,
+            geo_location: e.geo_location.includes('...') ? this.locationStr : e.geo_location,
+            user_name: e.user_name === "anonymous" ? this.getCurrentUser() : e.user_name
+        }));
 
-            if (!response.ok) throw new Error('API route failed');
-        } catch (error) {
-            console.warn('Bridge failed, attempting direct Airtable sync (Development Mode)...');
+        const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
+        const AIRTABLE_BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
 
-            // Fallback: Direct Airtable call (Useful for local dev without Vercel)
-            const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
-            const AIRTABLE_BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
+        if (AIRTABLE_API_KEY && AIRTABLE_BASE_ID) {
+            try {
+                const records = finalized.map(event => ({
+                    fields: {
+                        "ip_address": event.ip_address,
+                        "geo_location": event.geo_location,
+                        "user_name": event.user_name,
+                        "event_name": event.event_name,
+                        "user_id": event.user_id,
+                        "session_id": event.session_id,
+                        "page": event.page,
+                        "browser": event.browser,
+                        "timestamp": event.timestamp,
+                        "metadata": JSON.stringify(event.metadata),
+                        "device": event.device
+                    }
+                }));
 
-            if (AIRTABLE_API_KEY && AIRTABLE_BASE_ID) {
-                try {
-                    const records = eventsToFlush.map(event => ({
-                        fields: {
-                            "event_name": event.event_name,
-                            "user_id": event.user_id,
-                            "session_id": event.session_id,
-                            "page_url": event.page_url,
-                            "timestamp": event.timestamp,
-                            "metadata": JSON.stringify(event.metadata),
-                            "device": event.device,
-                            "browser": event.browser
-                        }
-                    }));
-
-                    await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Events`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ records, typecast: true })
-                    });
-                } catch (directError) {
-                    console.error('Direct Airtable sync failed:', directError);
-                }
+                await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Events`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ records, typecast: true })
+                });
+            } catch (error) {
+                console.warn('Airtable Sync Error:', error);
             }
         }
     }
 
     private setupAutoTrackers() {
-        // Page view on load
-        this.track('page_view');
+        document.addEventListener('blur', (e) => {
+            const target = e.target as HTMLInputElement;
+            if (target.name) {
+                const key = target.name.toLowerCase();
+                if (key.includes('name') || key.includes('first')) {
+                    localStorage.setItem('user_name', target.value);
+                }
+            }
+        }, true);
 
-        // Scroll tracking
-        let scrollMarks = { s25: false, s50: false, s75: false, s100: false };
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
-            if (scrollPercent >= 25 && !scrollMarks.s25) { this.track('scroll_25'); scrollMarks.s25 = true; }
-            if (scrollPercent >= 50 && !scrollMarks.s50) { this.track('scroll_50'); scrollMarks.s50 = true; }
-            if (scrollPercent >= 75 && !scrollMarks.s75) { this.track('scroll_75'); scrollMarks.s75 = true; }
-            if (scrollPercent >= 99 && !scrollMarks.s100) { this.track('scroll_100'); scrollMarks.s100 = true; }
-        });
+        this.track('nav_deep_trace');
 
-        // Click tracking
         window.addEventListener('click', (e) => {
             const target = e.target as HTMLElement;
             const btn = target.closest('button, a') as HTMLElement;
             if (btn) {
-                const isCTA = btn.classList.contains('bg-blue-600') || btn.innerText.toLowerCase().includes('demo');
-                this.track(isCTA ? 'cta_click' : 'button_click', {
-                    text: btn.innerText,
-                    id: btn.id,
-                    tag: btn.tagName
+                this.track('click_advanced_event', {
+                    text: btn.innerText.trim().slice(0, 30),
+                    id: btn.id
                 });
             }
-
-            // Rage click detection
-            const now = Date.now();
-            if (now - this.lastClickTime < 300) {
-                this.clickCount++;
-                if (this.clickCount >= 5) {
-                    this.track('rage_click', { x: e.clientX, y: e.clientY });
-                    this.clickCount = 0;
-                }
-            } else {
-                this.clickCount = 1;
-            }
-            this.lastClickTime = now;
         });
+    }
 
-        // Exit intent detection
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0) {
-                this.track('page_exit', { trigger: 'exit_intent' });
-            }
-        });
-
-        // Section / Intersection tracking
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.track('navigation_path', { section: entry.target.id || 'unknown_section' });
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observe main sections if they exist
-        ['hero', 'global-icp', 'features', 'pricing'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-
-        // Form Tracking
-        document.addEventListener('focusin', (e) => {
-            const target = e.target as HTMLElement;
-            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-                this.track('form_start', { field: (target as HTMLInputElement).name });
-            }
-        }, true);
-
-        document.addEventListener('submit', (e) => {
-            const target = e.target as HTMLFormElement;
-            this.track('form_submit', { formId: target.id });
-        }, true);
-
-        // Page exit
-        window.addEventListener('beforeunload', () => {
-            this.track('page_exit');
-            this.flush();
-        });
+    private getDetailedBrowser(): string {
+        const ua = navigator.userAgent;
+        if (ua.includes("Edg/")) return "Microsoft Edge";
+        if (ua.includes("Chrome")) return "Google Chrome";
+        if (ua.includes("Firefox")) return "Mozilla Firefox";
+        if (ua.includes("Safari") && !ua.includes("Chrome")) return "Apple Safari";
+        return "Generic Browser";
     }
 
     private getDeviceType(): string {
         const ua = navigator.userAgent;
-        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) return "tablet";
-        if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) return "mobile";
+        if (/tablet|ipad|playbook|silk/i.test(ua)) return "tablet";
+        if (/Mobile|Android|iP(hone|od)|IEMobile/i.test(ua)) return "mobile";
         return "desktop";
-    }
-
-    /**
-     * Powering real-time personalization for DeepTrust
-     * Returns insights about the user's current session behavior
-     */
-    public getBehavioralSummary() {
-        return {
-            userId: this.userId,
-            isHighIntent: this.batch.some(e => e.event_name === 'cta_click'),
-            consentGiven: this.hasConsent(),
-            path: window.location.pathname
-        };
     }
 }
 
 export const analytics = new AnalyticsService();
+export const track = analytics.track.bind(analytics);
