@@ -3,7 +3,7 @@ import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
-import logo from '../../assets/Trustflow-logo.png';
+import logo from '../../assets/Trustgrid-logo.png';
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -158,7 +158,7 @@ export default function Navigation() {
                             <Link to="/" className="flex items-center gap-2 group">
                                 <img
                                     src={logo}
-                                    alt="Trustflow.ai"
+                                    alt="Trustgrid.ai"
                                     className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'}`}
                                 />
                             </Link>

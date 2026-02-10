@@ -26,7 +26,7 @@ import { Textarea } from "../components/ui/textarea";
 
 export default function Career() {
     useEffect(() => {
-        document.title = "Careers | TrustFlow AI";
+        document.title = "Careers | TrustGrid AI";
     }, []);
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -236,7 +236,7 @@ export default function Career() {
 
                     <div className="mt-12 text-center">
                         <p className="text-slate-600 text-lg font-medium">
-                            Don't see your role? <a href="mailto:careers@trustflow.ai" className="text-blue-600 hover:underline">Email us</a> your resume.
+                            Don't see your role? <a href="mailto:careers@trustgrid.ai" className="text-blue-600 hover:underline">Email us</a> your resume.
                         </p>
                     </div>
                 </div>
@@ -283,7 +283,7 @@ export default function Career() {
                             <Textarea
                                 id="coverLetter"
                                 name="coverLetter"
-                                placeholder="Tell us why you want to join TrustFlow AI..."
+                                placeholder="Tell us why you want to join TrustGrid AI..."
                                 className="min-h-[100px]"
                             />
                         </div>

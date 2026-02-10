@@ -15,7 +15,6 @@ import HomeCarousel from '../components/HomeCarousel';
 
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
-import HeroAROSMindMap from '../components/HeroAROSMindMap';
 
 
 export default function Home() {
@@ -45,10 +44,6 @@ export default function Home() {
 
             {/* Section 1: Hero */}
             <HeroSection />
-
-            <Reveal width="100%" direction="up">
-                <HeroAROSMindMap />
-            </Reveal>
 
             {/* Global ICP Section */}
             <Reveal width="100%" direction="up">
@@ -132,7 +127,7 @@ export default function Home() {
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </button>
                             <button className="px-10 py-5 bg-white border border-slate-200 text-slate-700 text-lg font-bold rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 flex items-center shadow-sm">
-                                Chat with TrustFlow AI
+                                Chat with TrustGrid AI
                                 <MessageCircle className="ml-2 w-5 h-5 text-blue-600" />
                             </button>
                         </div>

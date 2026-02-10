@@ -80,7 +80,7 @@ export default function Outcomes() {
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 drop-shadow-sm">Powered by AI Revenue Acceleration</span>
                             </h1>
                             <p className="text-xl sm:text-2xl text-slate-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
-                                See how TrustFlow AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
+                                See how TrustGrid AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-5 justify-center">
                                 <Link to="/book-demo">
@@ -104,7 +104,7 @@ export default function Outcomes() {
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">Proven Revenue Results Across Industries</h2>
                             <p className="text-lg text-slate-600 max-w-3xl mx-auto font-medium">
-                                TrustFlow AI delivers measurable, boardroom-ready outcomes for modern revenue teams. Our AI-powered revenue acceleration platform helps enterprises build predictable pipelines, increase deal velocity, and drive compounding ARR growth.
+                                TrustGrid AI delivers measurable, boardroom-ready outcomes for modern revenue teams. Our AI-powered revenue acceleration platform helps enterprises build predictable pipelines, increase deal velocity, and drive compounding ARR growth.
                             </p>
                         </div>
                     </Reveal>
@@ -202,7 +202,7 @@ export default function Outcomes() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
-                                    <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s AI-driven sales acceleration and demand generation platform.</p>
+                                    <p className="text-slate-600 font-medium">Implemented TrustGrid AI’s AI-driven sales acceleration and demand generation platform.</p>
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
@@ -251,14 +251,14 @@ export default function Outcomes() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wider">Solution</h4>
-                                    <p className="text-slate-600 font-medium">Implemented TrustFlow AI’s sales automation and AI demand generation engine.</p>
+                                    <p className="text-slate-600 font-medium">Implemented TrustGrid AI’s sales automation and AI demand generation engine.</p>
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-slate-800 mb-3 text-sm uppercase tracking-wider">Results</h4>
                                     <ul className="space-y-2">
                                         {[
                                             "65% reduction in cost of sales",
-                                            "80% of SQLs auto-generated using TrustFlow AI",
+                                            "80% of SQLs auto-generated using TrustGrid AI",
                                             "Faster deal velocity and improved sales efficiency"
                                         ].map((item, i) => (
                                             <li key={i} className="flex items-start gap-2">
@@ -305,7 +305,7 @@ export default function Outcomes() {
                 </div>
             </div>
 
-            {/* Section 4: Why Enterprises Choose TrustFlow AI */}
+            {/* Section 4: Why Enterprises Choose TrustGrid AI */}
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 text-center">
                 <Reveal width="100%">
                     <h2 className="text-3xl font-bold text-slate-900 mb-10">Built for Predictable, Scalable Growth</h2>
@@ -337,9 +337,9 @@ export default function Outcomes() {
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
                         <div className="relative z-10">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Your Predictable Revenue Engine with TrustFlow AI</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Your Predictable Revenue Engine with TrustGrid AI</h2>
                             <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto font-medium">
-                                Whether you're scaling from $1M to $100M ARR or optimizing a complex enterprise revenue motion, TrustFlow AI gives you the intelligence, automation, and execution power to win.
+                                Whether you're scaling from $1M to $100M ARR or optimizing a complex enterprise revenue motion, TrustGrid AI gives you the intelligence, automation, and execution power to win.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <Link to="/book-demo" className="w-full sm:w-auto">

@@ -4,7 +4,7 @@ const testimonials = [
   {
     company: 'TalentVector.AI',
     logo: 'TV',
-    testimonial: 'TrustFlow AI completely transformed our sales process. The AI-driven approach helped us identify bottlenecks we didn\'t even know existed.',
+    testimonial: 'TrustGrid AI completely transformed our sales process. The AI-driven approach helped us identify bottlenecks we didn\'t even know existed.',
     author: 'CEO & Founder',
     metrics: [
       { icon: Users, label: 'High-Quality Leads', value: '24X', color: 'blue' },
@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed font-normal">
-            See how leading B2B companies are achieving exponential growth with TrustFlow AI
+            See how leading B2B companies are achieving exponential growth with TrustGrid AI
           </p>
         </div>
 

@@ -3,11 +3,11 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User, Sparkles, Paperclip, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion, AnimatePresence, useDragControls } from 'motion/react';
-import logo from '../../assets/Trustflow-logo.png';
+import logo from '../../assets/Trustgrid-logo.png';
 
 // SYSTEM PROMPT CONTENT (For Reference / Future Backend Integration)
 const SYSTEM_PROMPT = `
-You are the Trustflow AI Assistant, an expert virtual assistant for the Trustflow-AI platform focused on AI-driven sales acceleration. Your job is to:
+You are the Trustgrid AI Assistant, an expert virtual assistant for the Trustgrid-AI platform focused on AI-driven sales acceleration. Your job is to:
 
 1. Greet visitors politely and ask what they are looking for (Product Info, Demo, Support).
 2. Understand the user’s intent from their message.
@@ -25,7 +25,7 @@ const QUICK_ACTIONS = [
     { label: "Speak to our Experts", text: "I'd like to speak to your experts." },
     { label: "Our Offerings", text: "Can you tell me about your offerings?" },
     { label: "Thought Leadership", text: "I'd like to explore your thought leadership content." },
-    { label: "Partner with us", text: "I'm interested in partnering with Trustflow AI." },
+    { label: "Partner with us", text: "I'm interested in partnering with Trustgrid AI." },
     { label: "Job Openings", text: "Do you have any job openings?" },
     { label: "Just Browsing", text: "I'm just browsing, thanks!" }
 ];
@@ -136,13 +136,13 @@ export default function ChatBot() {
         }
 
         if (lowerText.includes('feature') || lowerText.includes('what does') || lowerText.includes('how does')) {
-            return "Trustflow AI specializes in AI-driven sales acceleration. Our key features include:\n\n✨ Automated Lead Generation\n✨ Predictive Revenue Insights\n✨ Real-time Objection Handling\n\nWhich of these would you like to explore further?";
+            return "Trustgrid AI specializes in AI-driven sales acceleration. Our key features include:\n\n✨ Automated Lead Generation\n✨ Predictive Revenue Insights\n✨ Real-time Objection Handling\n\nWhich of these would you like to explore further?";
         }
         if (lowerText.includes('support') || lowerText.includes('help')) {
-            return "For support inquiries, you can reach our team directly at support@trustflow.ai 📧, or I can have someone contact you. Would you like me to arrange a callback?";
+            return "For support inquiries, you can reach our team directly at support@trustgrid.ai 📧, or I can have someone contact you. Would you like me to arrange a callback?";
         }
 
-        return "I understand. Trustflow AI helps B2B teams accelerate conversions and optimize processes. 💡\n\nWould you like to see a specific use case or schedule a demo to see it in action?";
+        return "I understand. Trustgrid AI helps B2B teams accelerate conversions and optimize processes. 💡\n\nWould you like to see a specific use case or schedule a demo to see it in action?";
     };
 
     const handleSend = async (text?: string) => {
@@ -206,12 +206,12 @@ export default function ChatBot() {
                             <div className="flex items-center gap-3.5">
                                 <div className="relative">
                                     <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.06)] overflow-hidden border border-slate-100 p-1">
-                                        <img src={logo} alt="Trustflow AI" className="w-full h-full object-contain pointer-events-none" />
+                                        <img src={logo} alt="Trustgrid AI" className="w-full h-full object-contain pointer-events-none" />
                                     </div>
                                     <span className="absolute bottom-0 right-0.5 w-3.5 h-3.5 bg-[#22c55e] border-2 border-white rounded-full"></span>
                                 </div>
                                 <div className="flex flex-col">
-                                    <h3 className="font-bold text-[#0f172a] text-[15px] leading-none pointer-events-none tracking-tight">Trustflow AI</h3>
+                                    <h3 className="font-bold text-[#0f172a] text-[15px] leading-none pointer-events-none tracking-tight">Trustgrid AI</h3>
                                     <p className="text-[#64748b] text-[11px] -mt-0.5 pointer-events-none font-medium leading-none">{agentName} • {agentRole}</p>
                                 </div>
                             </div>
@@ -330,7 +330,7 @@ export default function ChatBot() {
                             <div className="flex justify-center mt-3">
                                 <span className="text-[10px] text-slate-400 flex items-center gap-1.5">
                                     <Sparkles className="w-3 h-3 text-slate-300" />
-                                    Powered by Trustflow AI
+                                    Powered by Trustgrid AI
                                 </span>
                             </div>
                         </div>

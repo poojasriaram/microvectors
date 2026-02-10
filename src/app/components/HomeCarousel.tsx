@@ -6,7 +6,7 @@ const slides = [
     {
         id: 1,
         image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
-        title: "Increase 5× Sales Velocity in 12 Months with TRUSTFLOW.AI",
+        title: "Increase 5× Sales Velocity in 12 Months with TRUSTGRID.AI",
         subtitle: "AI-Powered Sales Operations for High-Growth B2B Teams"
     },
     {
@@ -105,7 +105,7 @@ export default function HomeCarousel() {
                                 className="max-w-5xl mx-auto"
                             >
                                 <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-                                    TrustFlow Intelligence
+                                    TrustGrid Intelligence
                                 </div>
                                 <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
                                     {slides[currentIndex].title}

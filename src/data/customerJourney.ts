@@ -7,7 +7,7 @@ import {
 export const customerJourneyData = {
     title: "AI Customer Journey Intelligence Engine",
     tagline: "Decode Buyer Behavior. Engineer Conversion.",
-    description: "The AI-Driven Customer Journey Discovery Engine reconstructs real buyer journeys across channels, touchpoints, and decision stages. Trustflow AI reveals how customers move, decide, hesitate, and convert — enabling enterprises to design frictionless, high-conversion experiences.",
+    description: "The AI-Driven Customer Journey Discovery Engine reconstructs real buyer journeys across channels, touchpoints, and decision stages. Trustgrid AI reveals how customers move, decide, hesitate, and convert — enabling enterprises to design frictionless, high-conversion experiences.",
     kpis: [
         { label: "Journey Conversion", value: "3X", suffix: "Increase", description: "increase in journey conversion rates." },
         { label: "Funnel Friction", value: "50%", suffix: "Reduction", description: "reduction in funnel friction." },

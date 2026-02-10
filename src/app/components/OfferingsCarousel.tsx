@@ -83,7 +83,7 @@ export default function OfferingsCarousel() {
                                 className="max-w-5xl mx-auto"
                             >
                                 <div className="inline-block px-4 py-1.5 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-                                    TrustFlow Offering OS
+                                    TrustGrid Offering OS
                                 </div>
                                 <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
                                     {slides[currentIndex].title}

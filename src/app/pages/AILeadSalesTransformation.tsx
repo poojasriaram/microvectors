@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AILeadSalesTransformation() {
     useEffect(() => {
-        document.title = "AI Sales Transformation | TrustFlow AI";
+        document.title = "AI Sales Transformation | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 

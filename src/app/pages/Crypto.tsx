@@ -87,7 +87,7 @@ export default function Crypto() {
                     <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center mb-24">
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Revolutionizing Crypto Business Models</h2>
                         <p className="text-xl text-slate-600 leading-relaxed font-medium">
-                            Welcome to TrustFlow AI's integrated platform for revolutionizing crypto business models, ICOs, and spot markets. As an AI-driven sales expert, we deliver unparalleled acceleration in sales, revenue, and demand generation. Our AI-Native Revenue Protocol transforms users, liquidity, and ecosystems into predictable revenue streams.
+                            Welcome to TrustGrid AI's integrated platform for revolutionizing crypto business models, ICOs, and spot markets. As an AI-driven sales expert, we deliver unparalleled acceleration in sales, revenue, and demand generation. Our AI-Native Revenue Protocol transforms users, liquidity, and ecosystems into predictable revenue streams.
                         </p>
                     </div>
                 </Reveal>
@@ -104,7 +104,7 @@ export default function Crypto() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
                                 <Sparkles className="w-3.5 h-3.5" /> Intelligence Hub
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">TrustFlow AI for Crypto Business Models</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">TrustGrid AI for Crypto Business Models</h2>
                             <p className="text-lg text-slate-600 text-balance font-medium">
                                 Focused benefits and offerings tailored to specific crypto business models, integrating our engines for sales acceleration.
                             </p>
@@ -234,7 +234,7 @@ export default function Crypto() {
                     ))}
                 </div>
 
-                {/* TrustFlow AI Case Studies */}
+                {/* TrustGrid AI Case Studies */}
                 <div className="relative z-20 py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <div className="mb-16 md:text-center max-w-3xl mx-auto">
@@ -243,7 +243,7 @@ export default function Crypto() {
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Crypto Success Stories</h2>
                             <p className="text-lg text-slate-600 text-balance font-medium">
-                                See how leading protocols and exchanges are using TrustFlow AI to accelerate growth.
+                                See how leading protocols and exchanges are using TrustGrid AI to accelerate growth.
                             </p>
                         </div>
 
@@ -317,7 +317,7 @@ export default function Crypto() {
                             </h2>
 
                             <p className="text-xl text-blue-50 mb-12 max-w-2xl mx-auto font-medium">
-                                Join the fastest growing protocols and exchanges using TrustFlow AI to dominate the market.
+                                Join the fastest growing protocols and exchanges using TrustGrid AI to dominate the market.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">

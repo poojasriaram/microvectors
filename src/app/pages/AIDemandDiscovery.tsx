@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIDemandDiscovery() {
     useEffect(() => {
-        document.title = "AI Demand Discovery | TrustFlow AI";
+        document.title = "AI Demand Discovery | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 
@@ -71,7 +71,7 @@ export default function AIDemandDiscovery() {
                     </h1>
 
                     <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                        Identify high-intent buyers before your competitors do. TrustFlow AI scans millions of signals to pinpoint who is ready to buy now.
+                        Identify high-intent buyers before your competitors do. TrustGrid AI scans millions of signals to pinpoint who is ready to buy now.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">

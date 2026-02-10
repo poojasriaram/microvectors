@@ -93,7 +93,7 @@ export default function BookDemo() {
                                     </span>
                                 </h1>
                                 <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-lg">
-                                    Book a personalized demo with our revenue architects. See how TrustFlow AI can transform your unstructured data into predictable growth.
+                                    Book a personalized demo with our revenue architects. See how TrustGrid AI can transform your unstructured data into predictable growth.
                                 </p>
                             </div>
                         </Reveal>

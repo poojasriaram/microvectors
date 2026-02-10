@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueOperations() {
     useEffect(() => {
-        document.title = "AI Revenue Operations (AROS) | TrustFlow AI";
+        document.title = "AI Revenue Operations (AROS) | TrustGrid AI";
         window.scrollTo(0, 0);
     }, []);
 

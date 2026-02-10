@@ -231,7 +231,7 @@ export default function StartupMVPSection() {
                 {/* 5. Outcome Summary */}
                 <div className="text-center max-w-4xl mx-auto">
                     <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-relaxed italic">
-                        "Trustflow AI transforms how startups build — shifting from intuition-driven MVPs to intelligence-driven market winners."
+                        "Trustgrid AI transforms how startups build — shifting from intuition-driven MVPs to intelligence-driven market winners."
                     </p>
                 </div>
 

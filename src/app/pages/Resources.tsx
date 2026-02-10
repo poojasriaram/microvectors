@@ -73,7 +73,7 @@ export default function Resources() {
                             </span>
                         </h1>
                         <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium mb-10">
-                            TrustFlow AI is building a comprehensive knowledge hub for modern revenue leaders. Our resources are designed to help founders, CROs, and revenue teams build predictable, scalable growth engines.
+                            TrustGrid AI is building a comprehensive knowledge hub for modern revenue leaders. Our resources are designed to help founders, CROs, and revenue teams build predictable, scalable growth engines.
                         </p>
                     </Reveal>
                 </div>

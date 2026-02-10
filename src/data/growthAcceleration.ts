@@ -7,7 +7,7 @@ import {
 export const growthAccelerationData = {
     title: "AI Growth Acceleration Engine",
     tagline: "Engineer Growth. Automate Scale. Dominate Markets.",
-    description: "The AI-Driven Growth Hacking Engine is designed to systematically unlock exponential growth by automating experimentation, optimizing user journeys, and continuously discovering scalable growth levers. Trustflow AI replaces guesswork with machine-driven insights, enabling companies to achieve compounding growth across acquisition, activation, engagement, retention, and monetization.",
+    description: "The AI-Driven Growth Hacking Engine is designed to systematically unlock exponential growth by automating experimentation, optimizing user journeys, and continuously discovering scalable growth levers. Trustgrid AI replaces guesswork with machine-driven insights, enabling companies to achieve compounding growth across acquisition, activation, engagement, retention, and monetization.",
     kpis: [
         { label: "Experimentation Cycles", value: "10X", suffix: "Faster", description: "faster growth experimentation cycles." },
         { label: "Activation Rates", value: "3X–5X", suffix: "Improvement", description: "improvement in activation rates." },

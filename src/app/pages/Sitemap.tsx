@@ -198,7 +198,7 @@ export default function Sitemap() {
                         Detailed Sitemap
                     </h1>
                     <p className="text-lg text-slate-600 max-w-2xl">
-                        A complete overview of all pages and their key sections on TrustFlow.ai
+                        A complete overview of all pages and their key sections on TrustGrid.ai
                     </p>
                 </div>
             </div>

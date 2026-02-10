@@ -7,7 +7,7 @@ import {
 export const revenueAccelerationData = {
     title: "AI-Powered Revenue Acceleration",
     tagline: "Predictive AI That Drives Demand, Boosts Conversions & Scales Revenue",
-    description: "Trustflow AI delivers an integrated suite of AI-driven growth solutions that transform how B2B organizations generate demand, accelerate sales cycles, optimize revenue operations, and unlock predictable growth. By combining advanced machine learning, automated workflows, and predictive insights, we help enterprises reduce manual friction, amplify pipeline velocity, and turn data into measurable revenue outcomes — from demand discovery to closed-won deals.",
+    description: "Trustgrid AI delivers an integrated suite of AI-driven growth solutions that transform how B2B organizations generate demand, accelerate sales cycles, optimize revenue operations, and unlock predictable growth. By combining advanced machine learning, automated workflows, and predictive insights, we help enterprises reduce manual friction, amplify pipeline velocity, and turn data into measurable revenue outcomes — from demand discovery to closed-won deals.",
     kpis: [
         { label: "High-Quality Leads", value: "24X", suffix: "Increase", description: "generated through automated demand discovery and nurturing." },
         { label: "Conversion Rates", value: "3X", suffix: "Boost", description: "across key funnel stages." },

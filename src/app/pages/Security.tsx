@@ -26,7 +26,7 @@ export default function Security() {
                         Security Policy
                     </h1>
                     <p className="text-lg text-slate-300 max-w-2xl">
-                        TrustFlow is committed to maintaining the highest standards of security and integrity for customer data and systems.
+                        TrustGrid is committed to maintaining the highest standards of security and integrity for customer data and systems.
                     </p>
                 </div>
             </div>

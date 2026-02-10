@@ -968,7 +968,7 @@ export default function Offerings() {
                         <Reveal width="100%">
                             <h2 className="text-3xl font-bold text-slate-900 mb-6">Autonomous Revenue Engineering</h2>
                             <p className="text-xl text-slate-600 leading-relaxed font-medium">
-                                TrustFlow AI delivers a comprehensive suite of AI-native offerings designed to modernize the enterprise revenue stack. We transform manual, siloed processes into a unified, predictive engine that accelerates growth at every stage of the customer lifecycle.
+                                TrustGrid AI delivers a comprehensive suite of AI-native offerings designed to modernize the enterprise revenue stack. We transform manual, siloed processes into a unified, predictive engine that accelerates growth at every stage of the customer lifecycle.
                             </p>
                         </Reveal>
                     </div>
@@ -982,7 +982,7 @@ export default function Offerings() {
                             <div>
                                 <h2 className="text-4xl font-bold text-slate-900 mb-6 tracking-tight">One Intelligence Platform. <br /> <span className="text-indigo-600">Infinite Growth.</span></h2>
                                 <p className="text-lg text-slate-600 mb-8 font-medium leading-relaxed">
-                                    TrustFlow AI unifies marketing, sales, and customer success into a single intelligent revenue engine, replacing siloed tools with a unified nervous system.
+                                    TrustGrid AI unifies marketing, sales, and customer success into a single intelligent revenue engine, replacing siloed tools with a unified nervous system.
                                 </p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
                                     {[
@@ -1275,9 +1275,9 @@ export default function Offerings() {
                                 </ul>
                             </div>
 
-                            {/* The TrustFlow.ai Difference */}
+                            {/* The TrustGrid.ai Difference */}
                             <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-violet-500/30 hover:bg-white/10 transition-all group">
-                                <h3 className="text-xl font-bold mb-6 text-white group-hover:text-violet-400 transition-colors">The TrustFlow.ai Difference</h3>
+                                <h3 className="text-xl font-bold mb-6 text-white group-hover:text-violet-400 transition-colors">The TrustGrid.ai Difference</h3>
                                 <p className="text-slate-400 text-sm mb-6 leading-relaxed">Transforming your organization from reactive to proactive:</p>
                                 <ul className="space-y-4">
                                     {[
@@ -1299,7 +1299,7 @@ export default function Offerings() {
                             {/* Measurable Transformation Impact */}
                             <div className="bg-gradient-to-br from-indigo-900/40 to-blue-900/40 border border-indigo-500/20 rounded-3xl p-8 hover:border-indigo-500/40 transition-colors shadow-lg shadow-indigo-900/20">
                                 <h3 className="text-xl font-bold mb-6 text-white">Measurable Impact</h3>
-                                <p className="text-slate-300 text-sm mb-6 leading-relaxed">Companies using TrustFlow.ai achieve:</p>
+                                <p className="text-slate-300 text-sm mb-6 leading-relaxed">Companies using TrustGrid.ai achieve:</p>
                                 <ul className="space-y-4">
                                     {[
                                         "40-60% faster revenue growth",
@@ -1330,7 +1330,7 @@ export default function Offerings() {
                 <div className="text-center max-w-3xl mx-auto px-4 pb-32 pt-10">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to Scale?</h2>
                     <p className="text-xl text-slate-600 mb-10 font-medium">
-                        Join the forward-thinking enterprises building their predictable revenue engine with TrustFlow AI.
+                        Join the forward-thinking enterprises building their predictable revenue engine with TrustGrid AI.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
                         <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 h-auto text-lg shadow-xl shadow-indigo-200 rounded-xl font-bold">

@@ -28,7 +28,7 @@ export default function Copyright() {
                         Copyright Notice
                     </h1>
                     <p className="text-lg text-slate-600 max-w-2xl">
-                        Protection of TrustFlow's intellectual property, content, and brand assets.
+                        Protection of TrustGrid's intellectual property, content, and brand assets.
                     </p>
                 </div>
             </div>
@@ -47,14 +47,14 @@ export default function Copyright() {
                             © Copyright Notice
                         </h2>
                         <p className="text-slate-900 font-bold text-lg mb-4">
-                            Copyright © {currentYear} TrustFlow. All Rights Reserved.
+                            Copyright © {currentYear} TrustGrid. All Rights Reserved.
                         </p>
                         <p className="text-slate-600 leading-relaxed">
-                            All content published on this website, including but not limited to text, graphics, logos, icons, images, videos, software, code, UI/UX design, data, and documentation, is the exclusive property of TrustFlow and is protected by applicable copyright, trademark, and intellectual property laws.
+                            All content published on this website, including but not limited to text, graphics, logos, icons, images, videos, software, code, UI/UX design, data, and documentation, is the exclusive property of TrustGrid and is protected by applicable copyright, trademark, and intellectual property laws.
                         </p>
                         <div className="mt-6 p-4 bg-red-50 border border-red-100 rounded-lg text-red-800 text-sm font-medium flex gap-3">
                             <AlertTriangle className="w-5 h-5 shrink-0" />
-                            <p>Unauthorized copying, reproduction, modification, distribution, transmission, republication, display, or performance of any content on this website is strictly prohibited without prior written permission from TrustFlow.</p>
+                            <p>Unauthorized copying, reproduction, modification, distribution, transmission, republication, display, or performance of any content on this website is strictly prohibited without prior written permission from TrustGrid.</p>
                         </div>
                     </section>
 
@@ -66,7 +66,7 @@ export default function Copyright() {
                         </h2>
                         <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
                             <p className="text-slate-600 mb-6">
-                                All intellectual property rights in the website and its content belong to TrustFlow or its licensors. This includes but is not limited to:
+                                All intellectual property rights in the website and its content belong to TrustGrid or its licensors. This includes but is not limited to:
                             </p>
                             <div className="grid sm:grid-cols-2 gap-4">
                                 {[
@@ -98,7 +98,7 @@ export default function Copyright() {
                                 {[
                                     "View and browse the website",
                                     "Download publicly available materials for personal or internal business use",
-                                    "Share links to TrustFlow content with attribution"
+                                    "Share links to TrustGrid content with attribution"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-slate-600 text-sm">
                                         <span className="text-green-500 font-bold">•</span>
@@ -113,7 +113,7 @@ export default function Copyright() {
                             </h2>
                             <ul className="space-y-3">
                                 {[
-                                    "Republish TrustFlow content as your own",
+                                    "Republish TrustGrid content as your own",
                                     "Use content for commercial resale",
                                     "Scrape or extract data using bots",
                                     "Reverse engineer software or systems"
@@ -132,7 +132,7 @@ export default function Copyright() {
                         <section>
                             <h2 className="text-xl font-bold text-slate-900 mb-4">Trademark Notice</h2>
                             <p className="text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200 inline-block">
-                                <strong>"TrustFlow"</strong>, the TrustFlow logo, product names, service names, and brand assets are trademarks of TrustFlow. All other trademarks belong to their respective owners.
+                                <strong>"TrustGrid"</strong>, the TrustGrid logo, product names, service names, and brand assets are trademarks of TrustGrid. All other trademarks belong to their respective owners.
                             </p>
                         </section>
 
@@ -152,7 +152,7 @@ export default function Copyright() {
                                     </ul>
                                     <div className="flex items-center gap-2 text-white font-bold bg-white/10 p-3 rounded-lg inline-flex">
                                         <span>📧</span>
-                                        <a href="mailto:cs@trustflow.in" className="hover:text-blue-300 transition-colors">cs@trustflow.in</a>
+                                        <a href="mailto:cs@trustgrid.in" className="hover:text-blue-300 transition-colors">cs@trustgrid.in</a>
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@ export default function Copyright() {
                             <div>
                                 <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-1">Legal Disclaimer</h3>
                                 <p className="text-sm text-slate-500">
-                                    TrustFlow makes no warranties regarding the accuracy or completeness of the information on this website. The content is provided for informational purposes only and does not constitute legal, financial, or business advice.
+                                    TrustGrid makes no warranties regarding the accuracy or completeness of the information on this website. The content is provided for informational purposes only and does not constitute legal, financial, or business advice.
                                 </p>
                             </div>
                         </div>

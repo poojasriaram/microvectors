@@ -25,7 +25,7 @@ export default function Cookies() {
                         Cookie Policy
                     </h1>
                     <p className="text-lg text-slate-600 max-w-2xl">
-                        TrustFlow uses cookies to enhance user experience and analyze website performance.
+                        TrustGrid uses cookies to enhance user experience and analyze website performance.
                     </p>
                 </div>
             </div>
@@ -103,7 +103,7 @@ export default function Cookies() {
                     {/* Updates & Contact */}
                     <section className="border-t border-slate-200 pt-8 text-center">
                         <p className="text-slate-500 mb-6">We may update this policy periodically. Last updated: {new Date().toLocaleDateString()}</p>
-                        <a href="mailto:cs@trustflow.in" className="inline-flex items-center text-blue-600 font-bold hover:underline">
+                        <a href="mailto:cs@trustgrid.in" className="inline-flex items-center text-blue-600 font-bold hover:underline">
                             Contact Us regarding Cookies
                         </a>
                     </section>

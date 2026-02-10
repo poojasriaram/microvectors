@@ -55,7 +55,7 @@ export default function Industries() {
                 situations: ["ARR growth is slowing", "CAC is rising across channels", "Pipeline is unpredictable", "Expansion is reactive"],
                 challenges: ["Weak demand quality", "Poor funnel visibility", "Low NRR", "Fragmented RevOps"],
                 solution: "AI discovers high-intent buyers, optimizes acquisition, automates sales qualification, and predicts expansion opportunities.",
-                example: "A B2B SaaS firm scaled from $4M to $16M ARR in 14 months using TrustFlow’s AI revenue engine.",
+                example: "A B2B SaaS firm scaled from $4M to $16M ARR in 14 months using TrustGrid’s AI revenue engine.",
                 benefits: ["Predictable ARR engine", "Lower CAC", "Intelligent expansion"],
                 outcomes: ["3× ARR growth", "45% CAC reduction", "NRR above 130%"]
             }
@@ -210,7 +210,7 @@ export default function Industries() {
                     <Reveal width="100%">
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Vertical-Specific Revenue Engineering</h2>
                         <p className="text-xl text-slate-600 leading-relaxed font-medium">
-                            TrustFlow AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We don't just provide tools; we architect the entire revenue lifecycle for your specific market nuances.
+                            TrustGrid AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We don't just provide tools; we architect the entire revenue lifecycle for your specific market nuances.
                         </p>
                     </Reveal>
                 </div>

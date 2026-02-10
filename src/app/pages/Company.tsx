@@ -40,14 +40,14 @@ export default function Company() {
 
     // SEO & Meta Title
     useEffect(() => {
-        document.title = "About TrustFlow AI | AI Revenue Acceleration Platform";
+        document.title = "About TrustGrid AI | AI Revenue Acceleration Platform";
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
-            metaDescription.setAttribute('content', 'Learn about TrustFlow AI — the AI-powered revenue acceleration platform helping enterprises scale pipeline, close deals faster, and grow ARR predictably.');
+            metaDescription.setAttribute('content', 'Learn about TrustGrid AI — the AI-powered revenue acceleration platform helping enterprises scale pipeline, close deals faster, and grow ARR predictably.');
         } else {
             const meta = document.createElement('meta');
             meta.name = 'description';
-            meta.content = 'Learn about TrustFlow AI — the AI-powered revenue acceleration platform helping enterprises scale pipeline, close deals faster, and grow ARR predictably.';
+            meta.content = 'Learn about TrustGrid AI — the AI-powered revenue acceleration platform helping enterprises scale pipeline, close deals faster, and grow ARR predictably.';
             document.head.appendChild(meta);
         }
 
@@ -55,9 +55,9 @@ export default function Company() {
         const schema = {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "TrustFlow AI",
-            "url": "https://trustflow.ai",
-            "logo": "https://trustflow.ai/logo.png",
+            "name": "TrustGrid AI",
+            "url": "https://trustgrid.ai",
+            "logo": "https://trustgrid.ai/logo.png",
             "description": "AI-powered revenue acceleration platform helping enterprises scale pipeline, close deals faster, and grow ARR predictably.",
             "address": [
                 {
@@ -157,7 +157,7 @@ export default function Company() {
                         </h1>
 
                         <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                            TrustFlow AI is an enterprise revenue acceleration platform helping modern organizations build predictable pipeline, close deals faster, and scale ARR using AI intelligence.
+                            TrustGrid AI is an enterprise revenue acceleration platform helping modern organizations build predictable pipeline, close deals faster, and scale ARR using AI intelligence.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-5 justify-center">
@@ -189,7 +189,7 @@ export default function Company() {
                                 </h2>
                                 <div className="space-y-6 text-lg text-slate-600 font-medium leading-relaxed font-sans mt-6">
                                     <p>
-                                        At TrustFlow AI, we believe that revenue growth shouldn't be a guessing game. It's an engineering problem solvable with data, intelligence, and precision.
+                                        At TrustGrid AI, we believe that revenue growth shouldn't be a guessing game. It's an engineering problem solvable with data, intelligence, and precision.
                                     </p>
                                     <p>
                                         Born from a convergence of enterprise sales expertise and advanced machine learning, we've built the world's most comprehensive Revenue Intelligence Platform. We don't just provide data; we provide the <strong>flow</strong>—the seamless connection between market signals, sales execution, and predictable revenue outcomes.
@@ -448,7 +448,7 @@ export default function Company() {
                                             Mumbai, Maharashtra 400059
                                         </p>
                                         <div className="flex flex-col gap-1 text-sm">
-                                            <a href="mailto:cs@trustflow.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustflow.in</a>
+                                            <a href="mailto:cs@trustgrid.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustgrid.in</a>
                                             <a href="tel:+919513088612" className="hover:text-blue-400 transition-colors tracking-wide">+91 9513088612</a>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@ export default function Company() {
                                             Bengaluru, Karnataka 560016
                                         </p>
                                         <div className="flex flex-col gap-1 text-sm">
-                                            <a href="mailto:cs@trustflow.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustflow.in</a>
+                                            <a href="mailto:cs@trustgrid.in" className="hover:text-blue-400 transition-colors tracking-wide">cs@trustgrid.in</a>
                                             <a href="tel:+919513088612" className="hover:text-blue-400 transition-colors tracking-wide">+91 9513088612</a>
                                         </div>
                                     </div>
@@ -532,7 +532,7 @@ export default function Company() {
                             <Reveal width="100%" direction="up">
                                 <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Build Your Predictable Revenue Engine</h2>
                                 <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto font-medium">
-                                    Talk to our revenue experts and see how TrustFlow AI can scale your pipeline and ARR.
+                                    Talk to our revenue experts and see how TrustGrid AI can scale your pipeline and ARR.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Link to="/book-demo">

@@ -7,7 +7,7 @@ import {
 export const marketValidationData = {
     title: "AI Market Validation Intelligence Engine",
     tagline: "Validate Demand Before You Build. Win Markets Before You Enter.",
-    description: "The AI-Driven Market Validation Engine eliminates market risk by validating demand, pricing, positioning, and buyer readiness before product launches and GTM investments. Trustflow AI enables enterprises and startups to test, measure, and validate real market signals using live demand data — not assumptions.",
+    description: "The AI-Driven Market Validation Engine eliminates market risk by validating demand, pricing, positioning, and buyer readiness before product launches and GTM investments. Trustgrid AI enables enterprises and startups to test, measure, and validate real market signals using live demand data — not assumptions.",
     kpis: [
         { label: "Launch Risk", value: "70%–90%", suffix: "Reduction", description: "reduction in product launch risk." },
         { label: "GTM Readiness", value: "3X", suffix: "Faster", description: "faster go-to-market readiness." },

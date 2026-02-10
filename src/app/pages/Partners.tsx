@@ -16,7 +16,7 @@ import { submitToAirtable } from '../../lib/airtable';
 
 export default function Partners() {
     useEffect(() => {
-        document.title = "Partners | TrustFlow AI";
+        document.title = "Partners | TrustGrid AI";
     }, []);
 
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
@@ -104,7 +104,7 @@ export default function Partners() {
                         </div>
 
                         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
-                            Grow with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">TrustFlow AI</span>
+                            Grow with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">TrustGrid AI</span>
                         </h1>
 
                         <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
@@ -177,7 +177,7 @@ export default function Partners() {
 
                                 <div className="space-y-6">
                                     {[
-                                        { title: "Solution Partners", desc: "Consultancies and SIs implementation TrustFlow AI." },
+                                        { title: "Solution Partners", desc: "Consultancies and SIs implementation TrustGrid AI." },
                                         { title: "Technology Partners", desc: "ISVs and Tech platforms integrating with our ecosystem." },
                                         { title: "Referral Partners", desc: "Agencies and individuals referring qualified leads." }
                                     ].map((prog, i) => (
@@ -203,7 +203,7 @@ export default function Partners() {
                                     <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[80px] -mr-20 -mt-20"></div>
                                     <QuoteIcon className="w-12 h-12 text-blue-400 mb-6 opacity-50" />
                                     <blockquote className="text-2xl font-medium leading-relaxed mb-8 relative z-10">
-                                        "Partnering with TrustFlow AI has been a game-changer for our agency. We've not only increased our revenue but also deepened our client relationships by delivering tangible ROI."
+                                        "Partnering with TrustGrid AI has been a game-changer for our agency. We've not only increased our revenue but also deepened our client relationships by delivering tangible ROI."
                                     </blockquote>
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center text-xl font-bold">
@@ -242,7 +242,7 @@ export default function Partners() {
                                     </div>
                                     <h3 className="text-2xl font-bold text-slate-900 mb-4">Application Received!</h3>
                                     <p className="text-lg text-slate-600 max-w-md mx-auto mb-8">
-                                        Thank you for your interest in partnering with TrustFlow AI. Our partnership team will review your application and be in touch shortly.
+                                        Thank you for your interest in partnering with TrustGrid AI. Our partnership team will review your application and be in touch shortly.
                                     </p>
                                     <Button onClick={() => setSubmitted(false)} variant="outline">
                                         Submit Another Application
