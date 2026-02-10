@@ -15,6 +15,7 @@ export interface AnalyticsEvent {
     user_id: string;
     session_id: string;
     page: string;
+    page_url: string;
     section: string;
     element: string;
     device: string;
@@ -31,7 +32,6 @@ class AnalyticsService {
     private startTime: number = Date.now();
     private eventSequence: number = 0;
 
-    // Default placeholders
     private ipAddress: string = "detecting_ip...";
     private locationStr: string = "detecting_location...";
     private browserName: string = "detecting_browser...";
@@ -53,13 +53,11 @@ class AnalyticsService {
         localStorage.setItem('dt_user_id', this.userId);
         sessionStorage.setItem('dt_session_id', this.sessionId);
 
-        // Immediate Context Fetch (Both IP and exact Geolocation)
         this.contextPromise = this.fetchExtendedContext();
 
         this.initialized = true;
         this.setupAutoTrackers();
 
-        // Push initial snapshot
         this.track('device_context_snapshot', {
             screen: `${window.screen.width}x${window.screen.height}`,
             userAgent: navigator.userAgent
@@ -67,7 +65,6 @@ class AnalyticsService {
     }
 
     private async fetchExtendedContext() {
-        // Try precise geolocation first (User Permission required)
         if ("geolocation" in navigator) {
             const getPreciseLoc = () => new Promise<string>((resolve) => {
                 navigator.geolocation.getCurrentPosition(
@@ -93,12 +90,10 @@ class AnalyticsService {
         }
 
         try {
-            // Service 1: IP-API (No key needed, very accurate)
             const response = await fetch('https://ipapi.co/json/');
             const data = await response.json();
             this.ipAddress = data.ip || "unknown";
 
-            // Only overwrite location if precise geolocation failed or wasn't allowed
             if (this.locationStr.includes('detecting')) {
                 this.locationStr = `${data.city || ''}, ${data.region || ''}, ${data.country_name || ''}`.replace(/^, |, $/g, '');
             }
@@ -131,6 +126,7 @@ class AnalyticsService {
             user_id: this.userId,
             session_id: this.sessionId,
             page: window.location.pathname,
+            page_url: window.location.href, // Capturing full URL
             section: metadata.section || "global",
             element: metadata.element || "none",
             device: this.getDeviceType(),
@@ -158,13 +154,11 @@ class AnalyticsService {
     private async flush() {
         if (this.batch.length === 0) return;
 
-        // Wait for connection to be ready
         if (this.contextPromise) await this.contextPromise;
 
         const eventsToFlush = [...this.batch];
         this.batch = [];
 
-        // Final Stamp Updates (Ensures 'pending' is replaced by real data)
         const finalized = eventsToFlush.map(e => ({
             ...e,
             ip_address: e.ip_address.includes('...') ? this.ipAddress : e.ip_address,
@@ -186,6 +180,7 @@ class AnalyticsService {
                         "user_id": event.user_id,
                         "session_id": event.session_id,
                         "page": event.page,
+                        "page_url": event.page_url, // Added to mapping
                         "browser": event.browser,
                         "timestamp": event.timestamp,
                         "metadata": JSON.stringify(event.metadata),
