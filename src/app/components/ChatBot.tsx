@@ -5,14 +5,7 @@ import { Button } from './ui/button';
 import { motion, AnimatePresence, useDragControls } from 'motion/react';
 import logo from '../../assets/Trustgrid-logo.png';
 
-// SYSTEM PROMPT CONTENT (For Reference / Future Backend Integration)
-const SYSTEM_PROMPT = `
-You are the Trustgrid AI Assistant, an expert virtual assistant for the Trustgrid-AI platform focused on AI-driven sales acceleration. Your job is to:
 
-1. Greet visitors politely and ask what they are looking for (Product Info, Demo, Support).
-2. Understand the user’s intent from their message.
-3. Provide clear, concise and accurate answers.
-`;
 
 type Message = {
     id: string;
@@ -36,7 +29,7 @@ export default function ChatBot() {
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [agentName, setAgentName] = useState('Pooja');
-    const [agentRole, setAgentRole] = useState('Digital Success Manager');
+    const [agentRole] = useState('Digital Success Manager');
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const dragControls = useDragControls();
 
@@ -49,6 +42,7 @@ export default function ChatBot() {
                 const data = await response.json();
                 const country = data.country_code; // AE, GB, IN, etc.
                 const region = data.region_code;
+                console.log('User region:', region);
 
                 // Logic for naming based on Region/Country
                 const arabCountries = ['AE', 'SA', 'QA', 'KW', 'OM', 'BH', 'EG', 'IQ', 'JO', 'LB'];
@@ -92,7 +86,7 @@ export default function ChatBot() {
                 {
                     id: '1',
                     role: 'assistant',
-                    content: `Hello! 👋 I'm ${agentName} (${agentRole}). \nWe understand that you are interested in AI Sales Acceleration. \nHow can we help you?`,
+                    content: `Hello! 👋 I'm ${agentName} (${agentRole}).\nWe understand that you are interested in AI Sales Acceleration.\nHow can we help you?`,
                     timestamp: new Date()
                 }
             ]);
@@ -102,11 +96,11 @@ export default function ChatBot() {
     // Listen for Context-Aware Triggers
     useEffect(() => {
         const handleContextTrigger = (e: CustomEvent<{ message: string, contextName?: string }>) => {
-            const { message, contextName } = e.detail;
+            const { contextName } = e.detail;
 
             // Format: Hello! 👋 I'm the [Name] ( [Role] ) .. We understand that you are interested in < Context > . How can we help you? . Shall we call you or set up a call to share more details on the topic ?
             const context = contextName || "AI Solutions";
-            const formattedMessage = `Hello! 👋 I'm ${agentName} (${agentRole}). \n\nWe understand that you are interested in ${context}. \n\nHow can we help you? Shall we set up a quick call to share more details on the topic?`;
+            const formattedMessage = `Hello! 👋 I'm ${agentName} (${agentRole}).\nWe understand that you are interested in ${context}.\nHow can we help you? Shall we set up a quick call to share more details on the topic?`;
 
             setIsOpen(true);
 
@@ -136,13 +130,13 @@ export default function ChatBot() {
         }
 
         if (lowerText.includes('feature') || lowerText.includes('what does') || lowerText.includes('how does')) {
-            return "Trustgrid AI specializes in AI-driven sales acceleration. Our key features include:\n\n✨ Automated Lead Generation\n✨ Predictive Revenue Insights\n✨ Real-time Objection Handling\n\nWhich of these would you like to explore further?";
+            return "Trustgrid AI specializes in AI-driven sales acceleration. Our key features include:\n✨ Automated Lead Generation\n✨ Predictive Revenue Insights\n✨ Real-time Objection Handling\nWhich of these would you like to explore further?";
         }
         if (lowerText.includes('support') || lowerText.includes('help')) {
             return "For support inquiries, you can reach our team directly at support@trustgrid.ai 📧, or I can have someone contact you. Would you like me to arrange a callback?";
         }
 
-        return "I understand. Trustgrid AI helps B2B teams accelerate conversions and optimize processes. 💡\n\nWould you like to see a specific use case or schedule a demo to see it in action?";
+        return "I understand. Trustgrid AI helps B2B teams accelerate conversions and optimize processes. 💡\nWould you like to see a specific use case or schedule a demo to see it in action?";
     };
 
     const handleSend = async (text?: string) => {
@@ -248,13 +242,13 @@ export default function ChatBot() {
                                         </div>
                                         <div className="flex flex-col gap-1 max-w-[80%]">
                                             <div
-                                                className={`p-3 text-[13px] leading-relaxed shadow-sm
+                                                className={`p-3 text-[12px] leading-relaxed shadow-sm
                                                     ${msg.role === 'assistant'
                                                         ? 'bg-white text-slate-700 rounded-2xl rounded-bl-none border border-slate-200/60'
-                                                        : 'bg-blue-600 text-white rounded-2xl rounded-br-none shadow-blue-500/20'
+                                                        : 'bg-white text-slate-700 rounded-2xl rounded-br-none border border-slate-200/60 shadow-slate-200/50'
                                                     }`}
                                             >
-                                                <p className="whitespace-pre-wrap">{msg.content}</p>
+                                                <p className="whitespace-pre-wrap font-bold !text-[12px]">{msg.content}</p>
                                             </div>
                                             <span className={`text-[9px] px-1 opacity-50 ${msg.role === 'user' ? 'text-right' : ''}`}>
                                                 {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -316,7 +310,7 @@ export default function ChatBot() {
                                     onKeyDown={handleKeyDown}
                                     placeholder="Write a message..."
                                     rows={1}
-                                    className="flex-1 bg-transparent border-none p-2 max-h-32 text-[13px] focus:ring-0 resize-none placeholder:text-slate-400 text-slate-700 min-h-[44px] py-3"
+                                    className="flex-1 bg-transparent border-none p-2 max-h-32 text-[12px] focus:ring-0 resize-none placeholder:text-slate-400 text-slate-700 min-h-[44px] py-3"
                                     style={{ scrollbarWidth: 'none' }}
                                 />
                                 <Button

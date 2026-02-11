@@ -1,5 +1,4 @@
-import React from 'react';
-import { User, Users } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 const teamMembers = [
     { name: "Balaji Venkatraman", role: "Director Growth" },
@@ -8,6 +7,7 @@ const teamMembers = [
     { name: "Dinesh Kumar", role: "Lead AI Engineer" },
     { name: "Hemalata", role: "AI Engineer & Tech Lead" },
     { name: "Prithivin L", role: "Project Lead - EscrowChain" },
+    { name: "Nirmal Ullas", role: "Project Leader - Full Stack AI/ML" },
     { name: "Shiva Kumar", role: "Senior Product Architect" },
     { name: "Natarajan", role: "Sr Blockchain Architect" },
     { name: "Ritin", role: "Senior AI Architect" },
