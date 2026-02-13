@@ -65,7 +65,7 @@ export const Reveal = ({
             style={{ width, position: 'relative', overflow: 'hidden' }}
         >
             <div
-                className={`transition-all duration-1000 ease-out ${getTransform()} ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                className={`transition-all duration-1000 ease-out ${getTransform()} ${isVisible ? 'opacity-100' : 'opacity-0'} ${className.includes('h-full') ? 'h-full' : ''}`}
                 style={{
                     transitionDelay: `${delay}s`,
                     // We use cubic-bezier for that premium "spring" feel without JS
