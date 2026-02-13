@@ -205,10 +205,10 @@ export default function Industries() {
             </div>
 
             {/* 1. Static Intro Section (Replaces old Hero) */}
-            <section className="relative py-16 overflow-hidden">
+            <section className="relative pt-24 pb-16 overflow-hidden">
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                     <Reveal width="100%">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6">Vertical-Specific Revenue Engineering</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Vertical-Specific Revenue Engineering</h2>
                         <p className="text-xl text-slate-600 leading-relaxed font-medium">
                             TrustGrid AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We don't just provide tools; we architect the entire revenue lifecycle for your specific market nuances.
                         </p>
@@ -217,11 +217,11 @@ export default function Industries() {
             </section>
 
             {/* Industries Grid with Tabs */}
-            <section className="relative z-10 -mt-20 pb-24">
+            <section className="relative z-10 pb-24 mt-12">
                 <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {industries.map((industry, index) => (
-                            <Reveal width="100%" delay={index * 0.1}>
+                            <Reveal width="100%" delay={index * 0.1} className="h-full">
                                 <Card id={industry.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="flex flex-col h-full hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 border-slate-200/60 bg-white/80 backdrop-blur-xl group hover:-translate-y-2 overflow-hidden scroll-mt-32 ring-1 ring-slate-200/50 hover:ring-blue-200/50">
                                     <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${industry.color === 'blue' ? 'from-blue-500 to-indigo-500' :
                                         industry.color === 'purple' ? 'from-purple-500 to-pink-500' :
@@ -261,8 +261,8 @@ export default function Industries() {
                                             </TabsList>
 
                                             {/* Tab: Challenges */}
-                                            <TabsContent value="challenges" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                                <div className="space-y-4">
+                                            <TabsContent value="challenges" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none h-full">
+                                                <div className="space-y-4 min-h-[160px]">
                                                     <div className="flex items-center gap-2 text-amber-600 font-bold text-xs uppercase tracking-widest">
                                                         <AlertTriangle className="w-3.5 h-3.5" /> High-Stakes Pain Points
                                                     </div>
@@ -286,8 +286,8 @@ export default function Industries() {
                                             </TabsContent>
 
                                             {/* Tab: Solution */}
-                                            <TabsContent value="solution" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                                <div className="space-y-4">
+                                            <TabsContent value="solution" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none h-full">
+                                                <div className="space-y-4 min-h-[160px]">
                                                     <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest">
                                                         <Lightbulb className="w-3.5 h-3.5" /> Intelligence Layer
                                                     </div>
@@ -309,8 +309,8 @@ export default function Industries() {
                                             </TabsContent>
 
                                             {/* Tab: Impact */}
-                                            <TabsContent value="impact" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none">
-                                                <div className="space-y-4">
+                                            <TabsContent value="impact" className="space-y-4 animate-in fade-in-50 duration-300 focus-visible:outline-none h-full">
+                                                <div className="space-y-4 min-h-[160px]">
                                                     <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-widest">
                                                         <TrendingUp className="w-3.5 h-3.5" /> Measurable Outcomes
                                                     </div>

@@ -151,10 +151,10 @@ export default function Navigation() {
                     : 'bg-transparent border-transparent'
                     }`}
             >
-                <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-full">
+                <div className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-12 h-full max-w-[1920px]">
                     <div className="flex items-center justify-between h-full">
                         {/* Logo */}
-                        <div className="flex-shrink-0 mr-4 xl:mr-8 relative z-50">
+                        <div className="flex-shrink-0 mr-4 lg:mr-2 xl:mr-8 relative z-50">
                             <Link to="/" className="flex items-center gap-2 group">
                                 <img
                                     src={logo}
@@ -174,7 +174,7 @@ export default function Navigation() {
                                 return (
                                     <div
                                         key={item.name}
-                                        className="relative group h-full flex items-center px-1"
+                                        className="relative group h-full flex items-center px-1 lg:px-0 xl:px-1"
                                         onMouseEnter={() => setHoveredItem(item.name)}
                                         onMouseLeave={() => setHoveredItem(null)}
                                     >
@@ -188,7 +188,7 @@ export default function Navigation() {
                                                 <Link
                                                     to={item.path}
                                                     className={`
-                                                        relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2.5 px-3 rounded-none
+                                                        relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2.5 px-3 lg:px-1 xl:px-3 rounded-none whitespace-nowrap
                                                         ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-slate-900 hover:text-blue-600 hover:bg-slate-50/50'}
                                                     `}
                                                 >
@@ -254,7 +254,7 @@ export default function Navigation() {
                         </div>
 
                         {/* Desktop CTA */}
-                        <div className="hidden lg:flex items-center ml-4 xl:ml-8 gap-3 shrink-0 h-full">
+                        <div className="hidden lg:flex items-center ml-4 lg:ml-2 xl:ml-8 gap-3 shrink-0 h-full">
                             <Link to="/book-demo">
                                 <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-6 py-2.5 h-auto text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
                                     <span className="relative z-10 flex items-center gap-2">
