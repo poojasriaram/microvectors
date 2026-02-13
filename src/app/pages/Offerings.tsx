@@ -957,7 +957,7 @@ export default function Offerings() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 overflow-hidden relative selection:bg-indigo-100">
             {/* Premium Offerings Carousel - First Section */}
-            <div className="pt-20">
+            <div>
                 <OfferingsCarousel />
             </div>
 

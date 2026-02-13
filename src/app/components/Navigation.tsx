@@ -147,7 +147,7 @@ export default function Navigation() {
         <>
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b h-16 lg:h-20 flex items-center ${scrolled
-                    ? 'bg-white/80 backdrop-blur-xl border-slate-200 shadow-md'
+                    ? 'bg-white/30 backdrop-blur-xl bg-gradient-to-b from-white/80 via-white/20 to-white/80 border-white/40 shadow-sm'
                     : 'bg-transparent border-transparent'
                     }`}
             >

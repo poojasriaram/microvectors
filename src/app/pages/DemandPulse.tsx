@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import FeatureSection from '../components/demand-pulse/FeatureSection';
 import DemandPulseCarousel from '../components/demand-pulse/DemandPulseCarousel';
@@ -9,7 +9,7 @@ export default function DemandPulse() {
 
         <main className="bg-white min-h-screen text-slate-600 selection:bg-blue-100 selection:text-blue-900">
             {/* Premium Interactive Carousel - Now First Section */}
-            <div className="pt-20"> {/* Add padding for fixed nav */}
+            <div>
                 <DemandPulseCarousel />
             </div>
 

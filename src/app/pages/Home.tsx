@@ -38,7 +38,7 @@ export default function Home() {
     return (
         <main className="bg-background min-h-screen overflow-x-hidden">
             {/* Premium Home Carousel - First Section */}
-            <div className="pt-20">
+            <div>
                 <HomeCarousel />
             </div>
 
