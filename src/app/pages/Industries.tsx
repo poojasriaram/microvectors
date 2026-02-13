@@ -200,7 +200,7 @@ export default function Industries() {
     return (
         <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100 composition-layer">
             {/* Premium Industries Carousel - First Section */}
-            <div className="pt-20">
+            <div>
                 <IndustriesCarousel />
             </div>
 

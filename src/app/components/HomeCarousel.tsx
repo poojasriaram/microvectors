@@ -87,13 +87,15 @@ export default function HomeCarousel() {
                     className="absolute inset-0 w-full h-full"
                 >
                     {/* Background Image */}
-                    <div
-                        className="absolute inset-0 bg-cover bg-center opacity-40"
+                    <motion.div
+                        className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
+                        animate={{ scale: [1, 1.1] }}
+                        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                     />
 
-                    {/* Premium Unified Overlay */}
-                    <div className="absolute inset-0 bg-white/50 bg-gradient-to-b from-white via-white/20 to-white" />
+                    {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
+                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80" />
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">

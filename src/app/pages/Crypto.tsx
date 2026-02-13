@@ -33,7 +33,7 @@ export default function Crypto() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-900 relative overflow-hidden font-sans selection:bg-blue-500/30">
             {/* Premium Crypto Carousel - First Section */}
-            <div className="pt-20">
+            <div>
                 <CryptoCarousel />
             </div>
 
