@@ -151,7 +151,7 @@ export default function Navigation() {
                     : 'bg-transparent border-transparent'
                     }`}
             >
-                <div className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-12 h-full max-w-[1920px]">
+                <div className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-4 2xl:px-12 h-full max-w-[1920px]">
                     <div className="flex items-center justify-between h-full">
                         {/* Logo */}
                         <div className="flex-shrink-0 mr-4 lg:mr-2 xl:mr-8 relative z-50">
@@ -159,7 +159,7 @@ export default function Navigation() {
                                 <img
                                     src={logo}
                                     alt="Trustgrid.ai"
-                                    className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'}`}
+                                    className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-7 md:h-8 lg:h-9' : 'h-8 md:h-10 lg:h-11'}`}
                                 />
                             </Link>
                         </div>
@@ -188,7 +188,7 @@ export default function Navigation() {
                                                 <Link
                                                     to={item.path}
                                                     className={`
-                                                        relative text-[14px] font-semibold transition-all duration-300 flex items-center gap-1 py-2.5 px-3 lg:px-1 xl:px-3 rounded-none whitespace-nowrap
+                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-bold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 rounded-none whitespace-nowrap
                                                         ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-slate-900 hover:text-blue-600 hover:bg-slate-50/50'}
                                                     `}
                                                 >
@@ -254,9 +254,9 @@ export default function Navigation() {
                         </div>
 
                         {/* Desktop CTA */}
-                        <div className="hidden lg:flex items-center ml-4 lg:ml-2 xl:ml-8 gap-3 shrink-0 h-full">
+                        <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-3 shrink-0 h-full">
                             <Link to="/book-demo">
-                                <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-6 py-2.5 h-auto text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
+                                <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-3 lg:px-3 xl:px-5 py-2 lg:py-2 xl:py-2.5 h-auto text-xs lg:text-xs xl:text-sm 2xl:text-base font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
                                     <span className="relative z-10 flex items-center gap-2">
                                         Book a Demo
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -267,10 +267,10 @@ export default function Navigation() {
                                 href="https://wa.me/919944499988"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-4 py-2.5 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-sm font-semibold transition-all duration-300 flex items-center gap-2 hover:shadow-md hover:shadow-green-100"
+                                className="px-3 lg:px-2 xl:px-4 py-2 lg:py-2 xl:py-2.5 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-xs lg:text-xs xl:text-sm 2xl:text-base font-bold transition-all duration-300 flex items-center gap-2 hover:shadow-md hover:shadow-green-100"
                             >
-                                <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
-                                <span className="hidden xl:inline">WhatsApp</span>
+                                <WhatsAppIcon className="w-4 h-4 2xl:w-4.5 2xl:h-4.5 text-[#25D366]" />
+                                <span className="hidden 2xl:inline">WhatsApp</span>
                             </a>
                         </div>
 
