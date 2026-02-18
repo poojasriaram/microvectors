@@ -2,7 +2,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { submitToAirtable } from '../lib/airtable';
 
 const STORAGE_KEYS = {
     VISITOR_ID: 'tf_visitor_id',
@@ -68,7 +67,14 @@ export const useTrafficAnalysis = () => {
             };
 
             // Fire and Forget submission to avoid blocking UI
-            submitToAirtable('Traffic Analysis', trafficData).catch(err => {
+            fetch('/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    table: 'Traffic Analysis',
+                    fields: trafficData
+                })
+            }).catch(err => {
                 // Silently fail for analytics to not disturb user exp
                 console.debug("Traffic analytics error", err);
             });
