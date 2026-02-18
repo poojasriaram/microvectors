@@ -188,8 +188,8 @@ export default function Navigation() {
                                                 <Link
                                                     to={item.path}
                                                     className={`
-                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-bold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 rounded-none whitespace-nowrap
-                                                        ${isActive ? 'text-blue-600 bg-blue-50/50 outline outline-1 outline-blue-100/50' : 'text-slate-900 hover:text-blue-600 hover:bg-slate-50/50'}
+                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-bold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 whitespace-nowrap
+                                                        ${isActive ? 'text-blue-600' : 'text-slate-900 hover:text-blue-600'}
                                                     `}
                                                 >
                                                     {item.name}

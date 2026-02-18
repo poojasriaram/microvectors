@@ -166,38 +166,21 @@ class AnalyticsService {
             user_name: e.user_name === "anonymous" ? this.getCurrentUser() : e.user_name
         }));
 
-        const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
-        const AIRTABLE_BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
-
-        if (AIRTABLE_API_KEY && AIRTABLE_BASE_ID) {
+        if (finalized.length > 0) {
             try {
-                const records = finalized.map(event => ({
-                    fields: {
-                        "ip_address": event.ip_address,
-                        "geo_location": event.geo_location,
-                        "user_name": event.user_name,
-                        "event_name": event.event_name,
-                        "user_id": event.user_id,
-                        "session_id": event.session_id,
-                        "page": event.page,
-                        "page_url": event.page_url, // Added to mapping
-                        "browser": event.browser,
-                        "timestamp": event.timestamp,
-                        "metadata": JSON.stringify(event.metadata),
-                        "device": event.device
-                    }
-                }));
-
-                await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Events`, {
+                const response = await fetch('/api/analytics', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ records, typecast: true })
+                    body: JSON.stringify({ events: finalized })
                 });
+
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.status}`);
+                }
             } catch (error) {
-                console.warn('Airtable Sync Error:', error);
+                console.warn('Analytics Bridge Error:', error);
             }
         }
     }

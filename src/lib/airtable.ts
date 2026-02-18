@@ -12,22 +12,21 @@ export const submitToAirtable = async (table: string, fields: Record<string, any
     }
 
     try {
-        const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(table)}`, {
+        const response = await fetch(`/api/submit`, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ fields })
+            body: JSON.stringify({ table, fields })
         });
 
+        const result = await response.json();
+
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            console.error(`[Airtable] Submission failed: ${response.status} ${response.statusText}`, errorData);
-            throw new Error(errorData.error?.message || `Airtable Error: ${response.status}`);
+            console.error(`[Airtable] Submission failed: ${response.status}`, result);
+            throw new Error(result.error || `Airtable Error: ${response.status}`);
         }
 
-        const result = await response.json();
         console.log(`[Airtable] Success:`, result);
         return result;
 
