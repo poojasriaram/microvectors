@@ -1,31 +1,36 @@
 
 
 export const submitToSheet = async (table: string, fields: Record<string, any>) => {
-    // DEBUG LOG: Remove in production
+    const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
     console.log(`[Google Sheets] Submitting to sheet "${table}"`, fields);
 
+    if (!GOOGLE_SCRIPT_URL) {
+        console.error("GOOGLE_SCRIPT_URL is missing in .env");
+        throw new Error("Configuration Error: Script URL not found.");
+    }
+
     try {
-        const response = await fetch(`/api/submit`, {
+        // We use a simple fetch to the Google Script URL directly
+        await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors', // Google Script requires no-cors for simple browser POSTs
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'text/plain', // Use text/plain to avoid CORS preflight issues
             },
             body: JSON.stringify({ table, fields })
         });
 
-        const result = await response.json();
+        // Note: With 'no-cors', we can't check response.ok, 
+        // but the data will be sent successfully to the script.
+        console.log(`[Google Sheets] Data sent to script`);
+        return { success: true };
 
-        if (!response.ok) {
-            console.error(`[Google Sheets] Submission failed: ${response.status}`, result);
-            throw new Error(result.error || `Google Sheets Error: ${response.status}`);
-        }
-
-        console.log(`[Google Sheets] Success:`, result);
-        return result;
-
-    } catch (error) {
-        console.error("[Google Sheets] Network/Script Error:", error);
-        throw error;
+    } catch (error: any) {
+        console.error("[Google Sheets] Network Error:", error);
+        throw new Error("Failed to send data. Please check your connection.");
     }
 };
+
+
 

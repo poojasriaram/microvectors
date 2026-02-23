@@ -16,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         await submitToGoogleScript({
-            table: 'Events',
+            table: 'User Behavior',
             events: events
         });
 

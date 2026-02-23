@@ -11,7 +11,7 @@ Follow these steps to connect your website forms and analytics to Google Sheets 
     *   `Partners`
     *   `Book Demo`
     *   `Job Applications`
-    *   `Events`
+    *   `User Behavior`
     *   `Traffic Analysis`
 
 ## 2. Add the Script
