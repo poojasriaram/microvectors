@@ -111,19 +111,41 @@ function handleUserBehavior(ss, body) {
 // ── Lead Form Handler ─────────────────────────────────────────────────────────
 function handleLeadForm(ss, tableName, body) {
     const sheet = getOrCreateSheet(ss, tableName, null);
-    const { table, ...fields } = body;
+
+    // The frontend sends { table: 'Book Demo', fields: { "First Name": "...", ... } }
+    // We need to read the nested `fields` object.
+    // Fallback: if fields key not present, spread entire body minus 'table'.
+    let dataFields = {};
+    if (body.fields && typeof body.fields === 'object' && !Array.isArray(body.fields)) {
+        dataFields = body.fields;
+    } else {
+        // Legacy / direct submission fallback
+        const { table, ...rest } = body;
+        dataFields = rest;
+    }
+
+    // Add a submitted_at timestamp if not already present
+    if (!dataFields['Timestamp'] && !dataFields['submitted_at']) {
+        dataFields['Timestamp'] = new Date().toISOString();
+    }
 
     // Auto-create headers from data keys if sheet is empty
     if (sheet.getLastRow() === 0) {
-        const headers = Object.keys(fields).concat(['Timestamp']);
+        const headers = Object.keys(dataFields);
         sheet.appendRow(headers);
+        // Style the header row
+        const headerRange = sheet.getRange(1, 1, 1, headers.length);
+        headerRange.setFontWeight('bold');
+        headerRange.setBackground('#1e293b');
+        headerRange.setFontColor('#ffffff');
+        sheet.setFrozenRows(1);
     }
 
-    // Match to existing headers
+    // Match row values to existing header order
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
     const row = headers.map(function (h) {
         if (h === 'Timestamp') return new Date().toISOString();
-        return fields[h] !== undefined ? fields[h] : '';
+        return dataFields[h] !== undefined ? dataFields[h] : '';
     });
 
     sheet.appendRow(row);
