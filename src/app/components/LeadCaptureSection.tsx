@@ -1,7 +1,10 @@
+
 import React, { useState } from 'react';
 import { Send, Calendar, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { submitToSheet } from '../../lib/sheets';
+
 
 export default function LeadCaptureSection() {
   const [formData, setFormData] = useState({
@@ -10,53 +13,21 @@ export default function LeadCaptureSection() {
     phone: ''
   });
   const [submitted, setSubmitted] = useState(false);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
-    const AIRTABLE_BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
-    const AIRTABLE_TABLE_NAME = import.meta.env.VITE_AIRTABLE_TABLE_NAME || 'Inbound Leads';
-
-    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) {
-      console.error("Airtable configuration missing.");
-      // Fallback simulation
-      setTimeout(() => {
-        setSubmitted(true);
-        setIsSubmitting(false);
-        setFormData({ name: '', email: '', phone: '' });
-      }, 1500);
-      return;
-    }
-
     try {
-      const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${AIRTABLE_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          fields: {
-            "First Name": formData.name.split(' ')[0] || formData.name,
-            "Last Name": formData.name.split(' ').slice(1).join(' ') || '-',
-            "Email": formData.email,
-            "Phone": formData.phone, // Note: You need to add this column to Airtable
-            "Status": "New",
-            "Source": "Get Started Section"
-          }
-        })
+      await submitToSheet('Inbound Leads', {
+        "First Name": formData.name.split(' ')[0] || formData.name,
+        "Last Name": formData.name.split(' ').slice(1).join(' ') || '-',
+        "Email": formData.email,
+        "Phone": formData.phone,
+        "Status": "New",
+        "Source": "Get Started Section"
       });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error("Airtable submission failed:", response.status, errorData);
-        const errorMessage = errorData.error?.message || errorData.error || "Connection refused";
-        throw new Error(`Airtable Error: ${errorMessage}`);
-      }
 
       setSubmitted(true);
       setFormData({ name: '', email: '', phone: '' });
@@ -67,6 +38,7 @@ export default function LeadCaptureSection() {
       setIsSubmitting(false);
     }
   };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({

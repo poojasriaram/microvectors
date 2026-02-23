@@ -13,7 +13,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
-import { submitToAirtable } from '../../lib/airtable';
+import { submitToSheet } from '../../lib/sheets';
 
 export default function BookDemo() {
     React.useEffect(() => {
@@ -40,7 +40,7 @@ export default function BookDemo() {
         setIsSubmitting(true);
 
         try {
-            await submitToAirtable('Book Demo', {
+            await submitToSheet('Book Demo', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,

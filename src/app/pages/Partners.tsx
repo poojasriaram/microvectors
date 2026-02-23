@@ -12,11 +12,28 @@ import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
-import { submitToAirtable } from '../../lib/airtable';
+import { submitToSheet } from '../../lib/sheets';
 
 export default function Partners() {
     useEffect(() => {
         document.title = "Partners | TrustGrid AI";
+    }, []);
+
+    // Scroll to hash section on load or navigation
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            // Small delay to let the page render first
+            const timer = setTimeout(() => {
+                const el = document.getElementById(hash);
+                if (el) {
+                    const offset = 90;
+                    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            }, 100);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
@@ -56,7 +73,7 @@ export default function Partners() {
         setIsSubmitting(true);
 
         try {
-            await submitToAirtable('Partners', {
+            await submitToSheet('Partners', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,
@@ -78,7 +95,7 @@ export default function Partners() {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* 1. Hero Section */}
-            <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
+            <section id="partner-hero" className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
                 {/* Background Slideshow */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                     <style>{`
@@ -133,7 +150,7 @@ export default function Partners() {
             </section>
 
             {/* 2. Why Partner Section */}
-            <section className="py-24 bg-slate-50 relative">
+            <section id="why-partner" className="py-24 bg-slate-50 relative" style={{ scrollMarginTop: '80px' }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Why Partner with Us?</h2>
@@ -175,7 +192,7 @@ export default function Partners() {
             </section>
 
             {/* 3. Partner Categories */}
-            <section className="py-24 bg-white relative">
+            <section id="partner-programs" className="py-24 bg-white relative" style={{ scrollMarginTop: '80px' }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <Reveal width="100%">
@@ -187,11 +204,11 @@ export default function Partners() {
 
                                 <div className="space-y-6">
                                     {[
-                                        { title: "Solution Partners", desc: "Consultancies and SIs implementation TrustGrid AI." },
-                                        { title: "Technology Partners", desc: "ISVs and Tech platforms integrating with our ecosystem." },
-                                        { title: "Referral Partners", desc: "Agencies and individuals referring qualified leads." }
+                                        { id: "solution-partners", title: "Solution Partners", desc: "Consultancies and SIs implementation TrustGrid AI." },
+                                        { id: "technology-partners", title: "Technology Partners", desc: "ISVs and Tech platforms integrating with our ecosystem." },
+                                        { id: "referral-partners", title: "Referral Partners", desc: "Agencies and individuals referring qualified leads." }
                                     ].map((prog, i) => (
-                                        <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                                        <div key={i} id={prog.id} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100" style={{ scrollMarginTop: '100px' }}>
                                             <div className="mt-1">
                                                 <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center border border-green-200">
                                                     <CheckCircle2 className="w-3.5 h-3.5 text-green-700" />
