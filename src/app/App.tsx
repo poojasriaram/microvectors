@@ -36,10 +36,12 @@ import CookieConsent from './components/CookieConsent';
 
 
 import { useAnalytics } from '../hooks/useAnalytics';
+import { useTrafficAnalysis } from '../hooks/useTrafficAnalysis';
 import { useContextAwareChat } from '../hooks/useContextAwareChat';
 
 function AnalyticsTracker() {
   useAnalytics();
+  useTrafficAnalysis();
   useContextAwareChat();
   return null;
 }

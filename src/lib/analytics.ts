@@ -389,7 +389,11 @@ class AnalyticsService {
 
     private async sendToSheet(event: AnalyticsEvent) {
         const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
-        if (!GOOGLE_SCRIPT_URL) return;
+
+        if (!GOOGLE_SCRIPT_URL) {
+            console.warn('Analytics disabled: VITE_GOOGLE_SCRIPT_URL not found in environment.');
+            return;
+        }
 
         try {
             await fetch(GOOGLE_SCRIPT_URL, {
@@ -401,8 +405,9 @@ class AnalyticsService {
                     fields: event
                 })
             });
+            console.log('Analytics synced:', event.event_name);
         } catch (e) {
-            console.warn('Analytics Send Failed');
+            console.warn('Analytics Send Failed:', e);
         }
     }
 
