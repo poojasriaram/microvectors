@@ -15,11 +15,12 @@ export default function Footer() {
     };
 
     const industriesLinks: { [key: string]: string } = {
-        'B2B SaaS': '/industries?section=saas-digital-platforms',
-        'Fintech': '/industries?section=bfsi-fintech',
-        'Healthcare': '/industries?section=insurance',
-        'Manufacturing': '/industries?section=manufacturing-industrial',
-        'Crypto & Web3': '/crypto'
+        'E-commerce': '/industries?section=e-commerce',
+        'Banking': '/industries?section=banking',
+        'Financial Services': '/industries?section=financial-services',
+        'Manufacturing': '/industries?section=manufacturing',
+        'Real Estate': '/industries?section=real-estate',
+        'Tourism & Hospitality': '/industries?section=tourism-hospitality'
     };
 
     const companyLinks: { [key: string]: string } = {

@@ -2,20 +2,24 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     ArrowRight,
-    Cloud,
     Landmark,
     Factory,
-    Briefcase,
     Rocket,
     CheckCircle2,
     ShieldCheck,
     Coins,
-    GraduationCap,
     Building2,
     Zap,
     AlertTriangle,
     Lightbulb,
-    TrendingUp
+    TrendingUp,
+    ShoppingBag,
+    Home,
+    ShoppingCart,
+    Gem,
+    Code,
+    Film,
+    Plane
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
@@ -46,138 +50,198 @@ export default function Industries() {
 
     const industries = [
         {
-            title: "SaaS & Digital Platforms",
-            icon: <Cloud className="w-6 h-6" />,
+            title: "E-commerce",
+            icon: <ShoppingBag className="w-6 h-6" />,
             color: "blue",
-            offeringDescription: "An end-to-end AI revenue engine for SaaS and digital platforms that accelerates ARR growth, optimizes acquisition costs, improves funnel conversion, and maximizes expansion revenue.",
-            keyVerticals: ["B2B SaaS", "B2C SaaS", "Marketplaces", "Subscription", "API Platforms"],
+            offeringDescription: "AI-powered demand engine for retailers and marketplaces that optimizes conversion rates, reduces cart abandonment, and maximizes repeat purchase value.",
+            keyVerticals: ["B2C Retail", "Online Marketplaces", "D2C Brands", "Social Commerce"],
             details: {
-                situations: ["ARR growth is slowing", "CAC is rising across channels", "Pipeline is unpredictable", "Expansion is reactive"],
-                challenges: ["Weak demand quality", "Poor funnel visibility", "Low NRR", "Fragmented RevOps"],
-                solution: "AI discovers high-intent buyers, optimizes acquisition, automates sales qualification, and predicts expansion opportunities.",
-                example: "A B2B SaaS firm scaled from $4M to $16M ARR in 14 months using TrustGrid’s AI revenue engine.",
-                benefits: ["Predictable ARR engine", "Lower CAC", "Intelligent expansion"],
-                outcomes: ["3× ARR growth", "45% CAC reduction", "NRR above 130%"]
+                situations: ["Cart abandonment is above 70%", "Customer lifetime value is declining", "ROAS is plateauing on Meta/Google"],
+                challenges: ["Unable to identify high-intent browsers", "Generic email marketing underperforming", "High cost of manual retargeting"],
+                solution: "AI separates browsing from buying intent, personalizes product discovery in real-time, and automates high-conversion recovery loops.",
+                example: "A fashion D2C brand increased revenue by 34% using predictive cart recovery.",
+                benefits: ["Higher average order value", "Lower dependence on ads", "Increased repeat purchase rate"],
+                outcomes: ["25% Higher Conversion", "40% Lower CAC", "30% Growth in Repeat Sales"]
             }
         },
         {
-            title: "BFSI & FinTech",
-            icon: <Landmark className="w-6 h-6" />,
-            color: "purple",
-            offeringDescription: "A compliance-aware AI growth stack for financial services that powers high-intent demand, automated qualification, and lifetime value maximization.",
-            keyVerticals: ["Digital banks", "Lending", "InsurTech", "WealthTech", "Payments"],
+            title: "Consumer Durables",
+            icon: <Home className="w-6 h-6" />,
+            color: "orange",
+            offeringDescription: "Intelligent revenue stack for home appliances, electronics, and durable goods that connects digital demand with distribution networks.",
+            keyVerticals: ["Home Appliances", "Consumer Electronics", "Furniture", "Smart Home"],
             details: {
-                situations: ["Lead volume is high but quality is low", "Activation rates are weak", "Cross-sell is underperforming"],
-                challenges: ["Low trust conversion", "Complex onboarding", "Weak financial personalization"],
-                solution: "AI identifies high-intent financial buyers, predicts activation probability, and personalizes journeys.",
-                example: "A lending platform increased funded accounts by 2.8× using AI demand intelligence.",
-                benefits: ["High-quality acquisition", "Faster onboarding", "Higher wallet share"],
-                outcomes: ["3× high-intent leads", "2× activation rate", "2.5× LTV growth"]
+                situations: ["High funnel drop-offs on high-ticket items", "Dealers reporting low quality leads", "No visibility into the research phase"],
+                challenges: ["Long and complex buyer journeys", "Attribution gaps between online and offline", "Low post-sale service revenue"],
+                solution: "AI captures early research signals, qualifies buyers across the hybrid digital-dealer journey, and automates lifecycle engagement.",
+                example: "A premium appliance manufacturer saw a 40% increase in dealer-attributed sales using TrustGrid.",
+                benefits: ["Unified buyer view", "Stronger dealer alignment", "Predictable high-ticket pipeline"],
+                outcomes: ["2.5× Lead Volume", "35% Faster Sales Cycle", "40% Better Dealer Conversion"]
+            }
+        },
+        {
+            title: "Banking",
+            icon: <Landmark className="w-6 h-6" />,
+            color: "teal",
+            offeringDescription: "High-intent demand discovery and automated qualification for retail, corporate, and digital banking services.",
+            keyVerticals: ["Retail Banking", "Corporate Banking", "Digital Wallets", "SME Lending"],
+            details: {
+                situations: ["Accounts opened but inactive", "High friction in lending applications", "Massive marketing spend on low-intent leads"],
+                challenges: ["High cost of physical verification", "Fragmented customer data", "Strict regulatory compliance barriers"],
+                solution: "AI identifies high-propensity account holders, predicts lending readiness, and automates compliant qualification funnels.",
+                example: "A leading digital bank tripled its funded account rate using AI intent scoring.",
+                benefits: ["Lower cost per account", "Reduced application drop-outs", "Higher share of wallet"],
+                outcomes: ["3× Account Openings", "50% Faster Activation", "2× Cross-Sell Revenue"]
+            }
+        },
+        {
+            title: "FMCG",
+            icon: <ShoppingCart className="w-6 h-6" />,
+            color: "emerald",
+            offeringDescription: "Data-driven demand intelligence for fast-moving consumer goods to optimize supply chain alignment and distributor performance.",
+            keyVerticals: ["Food & Beverage", "Personal Care", "Household Goods", "Packaged Foods"],
+            details: {
+                situations: ["Zero visibility into secondary sales demand", "Rising trade promotion costs", "Stock-outs and inventory imbalance"],
+                challenges: ["Distributor network inefficiency", "Generic retail pushes", "No direct consumer intent signals"],
+                solution: "AI aggregates regional demand signals, predicts retailer stock-out risks, and optimizes distributor sales focus.",
+                example: "A snacks brand reduced inventory holding costs by 20% while increasing sales by 15%.",
+                benefits: ["Real-time demand visibility", "Optimized trade spend", "Higher distributor ROI"],
+                outcomes: ["20% Inventory Optimization", "30% Higher Distributor Yield", "15% Margin Expansion"]
+            }
+        },
+        {
+            title: "Financial Services",
+            icon: <Coins className="w-6 h-6" />,
+            color: "purple",
+            offeringDescription: "AI-driven growth for wealth management, investment platforms, and non-banking financial companies.",
+            keyVerticals: ["Wealth Management", "Mutual Funds", "Stock Broking", "Lending"],
+            details: {
+                situations: ["AUM growth is stagnant", "Advisors spend 80% time on cold leads", "Client churn during market volatility"],
+                challenges: ["Building trust at scale", "Inconsistent advisory quality", "Poor personalization of investment advice"],
+                solution: "AI predicts investment intent from behavioral data, automates advisor outreach prompts, and personalizes wealth journeys.",
+                example: "An AMC platform increased SIP registrations by 40% using behavioral triggers.",
+                benefits: ["Scalable wealth advisory", "Higher client retention", "Improved advisor productivity"],
+                outcomes: ["2.8× AUM Growth", "40% Higher SIP Activation", "3× Advisory Productivity"]
+            }
+        },
+        {
+            title: "Electric Vehicles (EV)",
+            icon: <Zap className="w-6 h-6" />,
+            color: "amber",
+            offeringDescription: "Specialized demand engine for the EV ecosystem, from vehicle sales to charging infrastructure and battery tech.",
+            keyVerticals: ["EV OEMs", "Charging Networks", "Battery Technology", "Fleet Management"],
+            details: {
+                situations: ["Test drive requests aren't converting", "High inquiry volume but low network readiness", "Confusion over charging and subsidies"],
+                challenges: ["Consumer range and battery anxiety", "Complex hybrid sales models", "High education overhead per lead"],
+                solution: "AI identifies 'segment-swappers' early, automates education on EV TCO, and qualifies charger installation readiness.",
+                example: "An EV startup doubled its pre-booking conversion using AI-led educational funnels.",
+                benefits: ["Higher intent test drives", "Lower education costs", "Faster network expansion"],
+                outcomes: ["2.2× Test Drive Bookings", "45% Higher Fleet Conversion", "30% Faster Network Expansion"]
+            }
+        },
+        {
+            title: "Gems & Jewellery",
+            icon: <Gem className="w-6 h-6" />,
+            color: "pink",
+            offeringDescription: "High-trust AI revenue engine for luxury goods, focusing on high-ticket demand discovery and personalized boutique experiences.",
+            keyVerticals: ["Fine Jewellery", "Luxury Watches", "Gemstones", "Custom Design"],
+            details: {
+                situations: ["High traffic at boutiques but low conversion", "Difficulty tracking high-net-worth buyers", "Seasonal demand spikes are hard to manage"],
+                challenges: ["Building extreme high-ticket trust", "Low frequency of purchase", "Inconsistent clienteling across showrooms"],
+                solution: "AI identifies high-net-worth intent signals, optimizes luxury appointment bookings, and automates high-touch clienteling.",
+                example: "A luxury jewellery house increased private viewing conversions by 50% using TrustGrid.",
+                benefits: ["Elite customer experience", "Higher referral rates", "Efficient high-ticket boutique operations"],
+                outcomes: ["35% Higher High-Ticket Closures", "2× Referral Rate", "50% Better Clienteling Efficiency"]
             }
         },
         {
             title: "Insurance",
             icon: <ShieldCheck className="w-6 h-6" />,
             color: "indigo",
-            offeringDescription: "An AI-powered insurance growth stack that drives high-intent policy demand, automates agent selling, and maximizes renewals and cross-sell revenue.",
-            keyVerticals: ["Life insurance", "Health", "General", "InsurTech"],
+            offeringDescription: "Predictive growth stack for life, health, and general insurance that identifies high-intent policy buyers.",
+            keyVerticals: ["Life Insurance", "Health", "General", "Reinsurance"],
             details: {
-                situations: ["Lead volume is high but conversions are low", "Agents are overloaded", "Renewal revenue is declining"],
-                challenges: ["Poor buyer intent visibility", "Manual agent selling", "Weak renewal intelligence"],
-                solution: "AI scores buyer intent, predicts policy conversion, and automates agent engagement.",
-                example: "A health insurer increased policy conversion by 2.6× using AI-based intent scoring.",
-                benefits: ["Faster policy closures", "Higher renewal income", "Intelligent cross-sell"],
-                outcomes: ["2–3× policy conversion", "40% cost reduction", "35% renewal growth"]
+                situations: ["High lead wastage from aggregators", "Agents struggle with cold calling", "Renewals are falling through the cracks"],
+                challenges: ["Price-driven buyer behavior", "Complex policy comparisons", "Low customer engagement between renewals"],
+                solution: "AI scores leads for multi-policy propensity, automates renewal triggers, and qualifies buyers for upsell.",
+                example: "A general insurer reduced policy acquisition cost by 40% using intent modeling.",
+                benefits: ["Predictable renewal revenue", "Higher multi-policy density", "Increased agent productivity"],
+                outcomes: ["2.6× Policy Sales", "40% Lower Acquisition Cost", "35% Renewal Growth"]
             }
         },
         {
-            title: "Banking & Mutual Funds",
-            icon: <Coins className="w-6 h-6" />,
-            color: "teal",
-            offeringDescription: "A compliant AI revenue engine for banks and investment platforms that drives high-intent acquisition, faster activation, and intelligent wealth expansion.",
-            keyVerticals: ["Retail banks", "Digital banks", "Mutual Funds", "Wealth Mgmt"],
+            title: "IT & BPM",
+            icon: <Code className="w-6 h-6" />,
+            color: "blue",
+            offeringDescription: "B2B demand discovery for technology services and business process management at a global scale.",
+            keyVerticals: ["Software Services", "BPO", "IT Consulting", "Managed Services"],
             details: {
-                situations: ["Accounts are opened but not activated", "Customers only hold savings", "AUM growth is slow"],
-                challenges: ["Low trust conversion", "Poor personalization", "Reactive advisory"],
-                solution: "AI predicts investment intent, personalizes engagement, and triggers advisor actions.",
-                example: "A mutual fund platform increased SIP activation by 3.1× using AI intent modeling.",
-                benefits: ["Higher activation", "Smarter advisory", "Stronger wallet share"],
-                outcomes: ["2× activation rate", "2.5× AUM growth", "3× cross-sell"]
+                situations: ["RFPs are low quality", "Sales team is reactive to referrals", "Pipeline is lumpy and unpredictable"],
+                challenges: ["Complex global buying committees", "Difficulty scaling outbound efforts", "Noisy enterprise software market"],
+                solution: "AI maps intent across global enterprise accounts, automates account-based qualification, and optimizes deal value.",
+                example: "A mid-tier IT services firm grew its global pipeline by 3.2× in 12 months.",
+                benefits: ["Repeatable B2B engine", "Higher contract values", "Stronger enterprise positioning"],
+                outcomes: ["3.2× Pipeline Growth", "25% Better Deal Win-Rate", "2× Resource Utilization"]
             }
         },
         {
-            title: "Manufacturing & Industrial",
+            title: "Manufacturing",
             icon: <Factory className="w-6 h-6" />,
             color: "amber",
-            offeringDescription: "An AI-powered demand discovery and sales acceleration platform for complex industrial and OEM sales.",
-            keyVerticals: ["Heavy mfg", "Industrial automation", "OEMs", "EPC & engineering"],
+            offeringDescription: "Industrial-grade demand intelligence for OEMs and component manufacturers to drive complex B2B sales.",
+            keyVerticals: ["Industrial Machinery", "Automotive OEMs", "Chemicals", "Electronics Mfg"],
             details: {
-                situations: ["Sales cycles take 6–18 months", "Dealer networks underperform", "Inbound demand is weak"],
-                challenges: ["No buyer intent visibility", "Poor funnel intelligence", "Channel inefficiency"],
-                solution: "AI maps buying committees, identifies high-intent accounts, and accelerates deal progression.",
-                example: "An industrial OEM reduced sales cycles by 47% using AI deal intelligence.",
-                benefits: ["Faster deal velocity", "Stronger dealer performance", "Predictable revenue"],
-                outcomes: ["45% shorter cycles", "2× win rate", "3× dealer productivity"]
+                situations: ["OEM sales cycles exceeding 12 months", "Dealer networks are underperforming", "Marketing is disconnected from shop floor"],
+                challenges: ["Limited visibility into capital equipment intent", "Fragmented channel partner data", "Slow quote-to-order transition"],
+                solution: "AI identifies replacement cycles, qualify dealer leads automatically, and prioritizes OEM direct sales.",
+                example: "A construction equipment group reduced sales cycles by 5 months using AI-led discovery.",
+                benefits: ["Shorter inventory cycles", "Stronger dealer loyalty", "Efficient capital allocation"],
+                outcomes: ["47% Shorter Sales Cycles", "2× Dealer Productivity", "3× Inbound Quality"]
             }
         },
         {
-            title: "Professional Services",
-            icon: <Briefcase className="w-6 h-6" />,
-            color: "emerald",
-            offeringDescription: "An AI revenue system that turns expertise into a predictable, scalable pipeline and expansion engine.",
-            keyVerticals: ["IT services", "Consulting", "Agencies", "Legal & accounting"],
+            title: "Media & Entertainment",
+            icon: <Film className="w-6 h-6" />,
+            color: "purple",
+            offeringDescription: "AI-driven audience growth and monetization engine for streaming, broadcasting, and content platforms.",
+            keyVerticals: ["Streaming Services", "Digital Media", "Gaming", "Advertising Tech"],
             details: {
-                situations: ["Deals depend on referrals", "Utilization is inconsistent", "Sales is founder-led"],
-                challenges: ["No repeatable GTM motion", "Weak expansion strategy", "No demand intelligence"],
-                solution: "AI identifies buying intent, automates pipeline generation, and triggers expansion plays.",
-                example: "A consulting firm grew pipeline by 3.2× in 6 months using AI demand discovery.",
-                benefits: ["Predictable deal flow", "Higher utilization", "Intelligent expansion"],
-                outcomes: ["3× pipeline growth", "25% margin improvement", "2× deal size"]
+                situations: ["Subscription churn is rising", "Ad inventory is undersold", "Audience engagement is fragmented"],
+                challenges: ["High cost of content discovery", "Passive viewer behavior", "Low first-party data utilization"],
+                solution: "AI predicts churn risk before it happens, personalizes content discovery, and optimizes ad-yield through intent-mapping.",
+                example: "A streaming platform cut subscriber churn by 40% using predictive retention plays.",
+                benefits: ["Higher average revenue per user", "Longer audience retention", "Premium ad-inventory yield"],
+                outcomes: ["40% Churn Reduction", "2× Ad Yield", "35% Higher Subscription Value"]
             }
         },
         {
-            title: "Startups & Scaleups",
-            icon: <Rocket className="w-6 h-6" />,
-            color: "pink",
-            offeringDescription: "An AI growth engine that accelerates PMF discovery, builds autonomous GTM, and prepares startups for hypergrowth.",
-            keyVerticals: ["SaaS startups", "Web3", "FinTech", "Marketplaces"],
-            details: {
-                situations: ["Growth is inconsistent", "GTM is founder-led", "Burn rate is high"],
-                challenges: ["No growth playbook", "No repeatable acquisition", "Weak monetization"],
-                solution: "AI discovers demand, runs experiments, and builds scalable acquisition loops.",
-                example: "A SaaS startup achieved PMF in 90 days using AI growth intelligence.",
-                benefits: ["Faster traction", "Capital efficiency", "Investor-ready metrics"],
-                outcomes: ["Faster fundraising", "Stronger growth curves", "Scalable revenue engine"]
-            }
-        },
-        {
-            title: "Education & EdTech",
-            icon: <GraduationCap className="w-6 h-6" />,
-            color: "orange",
-            offeringDescription: "An AI-powered enrollment, demand discovery, and performance marketing engine for education providers.",
-            keyVerticals: ["Universities", "EdTech", "Coaching", "Corporate training"],
-            details: {
-                situations: ["High inquiries but low enrollments", "Counselors are overloaded", "Drop-offs after demos"],
-                challenges: ["Poor student intent visibility", "Manual counseling", "Weak personalization"],
-                solution: "AI qualifies learners, automates counseling journeys, and optimizes enrollment funnels.",
-                example: "An EdTech platform increased enrollments by 2.9× using AI-driven qualification.",
-                benefits: ["Higher enrollment quality", "Faster conversions", "Lower acquisition cost"],
-                outcomes: ["3× enrollment growth", "50% CPL reduction", "Scalable admissions"]
-            }
-        },
-        {
-            title: "Real Estate & PropTech",
+            title: "Real Estate",
             icon: <Building2 className="w-6 h-6" />,
             color: "cyan",
-            offeringDescription: "An AI-powered real estate growth stack that drives high-intent demand, automates sales qualification, and accelerates deal closures.",
-            keyVerticals: ["Residential", "Commercial", "Developers", "Brokerage"],
+            offeringDescription: "High-intent buyer discovery for residential and commercial real estate to accelerate inventory turnover.",
+            keyVerticals: ["Residential", "Commercial", "Real Estate Developers", "Brokerages"],
             details: {
-                situations: ["Many inquiries but few bookings", "Brokers handle too many leads", "Site visits don’t convert"],
-                challenges: ["Poor buyer intent scoring", "Slow follow-ups", "No deal intelligence"],
-                solution: "AI identifies high-intent buyers, automates follow-ups, and predicts deal readiness.",
-                example: "A property developer doubled bookings using AI-based buyer intent discovery.",
-                benefits: ["Higher site-visit conversion", "Faster deal closure", "Stronger broker"],
-                outcomes: ["2× booking velocity", "40% inventory cycle reduction", "Predictable sell-through"]
+                situations: ["Vast inquiry volume but low site visits", "Marketing budget wasted on speculators", "Inventory velocity is slowing down"],
+                challenges: ["Difficulty scoring buyer readiness", "Manual and slow broker follow-ups", "Poor attribution for premium projects"],
+                solution: "AI identifies high-intent residential and commercial buyers, automates site-visit scheduling, and predicts conversion.",
+                example: "A luxury developer sold out its phase-1 inventory 3 months early using AI demand discovery.",
+                benefits: ["Lower cost per booking", "Higher broker productivity", "Predictable sell-through rates"],
+                outcomes: ["2× Booking Velocity", "40% Faster Inventory Cycle", "50% Higher Broker Efficiency"]
+            }
+        },
+        {
+            title: "Tourism & Hospitality",
+            icon: <Plane className="w-6 h-6" />,
+            color: "teal",
+            offeringDescription: "Demand optimization for hotel chains, travel platforms, and destination management companies.",
+            keyVerticals: ["Hotels & Resorts", "Travel Agencies", "Airlines", "Cruise Lines"],
+            details: {
+                situations: ["Direct bookings are low vs OTAs", "High cancellations on peak dates", "Low guest loyalty and repeat stays"],
+                challenges: ["Extreme price sensitivity", "Volatility in seasonal demand", "Poor data on guest preferences"],
+                solution: "AI captures high-propensity travel intent, personalizes direct-booking offers, and predicts seasonal occupancy peaks.",
+                example: "A boutique hotel chain increased direct bookings by 45% while reducing OTA commissions.",
+                benefits: ["Stronger guest relationships", "Reduced commission costs", "Optimized room pricing"],
+                outcomes: ["45% Higher Direct Bookings", "30% Better Occupancy", "2.5× Guest LTV"]
             }
         }
     ];

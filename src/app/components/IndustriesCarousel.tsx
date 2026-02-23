@@ -11,14 +11,14 @@ const slides = [
     },
     {
         id: 2,
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        title: "SaaS & Digital Platform Acceleration",
+        image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=2670&auto=format&fit=crop",
+        title: "E-commerce & Consumer Durable Growth",
         subtitle: "Optimize CAC and maximize LTV with AI-driven demand discovery and retention intelligence."
     },
     {
         id: 3,
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
-        title: "FinTech & BFSI Revenue Protocols",
+        title: "Banking & Financial Service Protocols",
         subtitle: "Compliance-aware AI engines for high-intent lead generation and automated qualification."
     },
     {
@@ -30,8 +30,8 @@ const slides = [
     {
         id: 5,
         image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2670&auto=format&fit=crop",
-        title: "Professional Services Pipeline Mastery",
-        subtitle: "Transforming expertise into a predictable scaling engine for agencies and consulting firms."
+        title: "IT, BPM & Global Service Revenue",
+        subtitle: "Transforming B2B demand discovery into a predictable scaling engine for technology firms."
     }
 ];
 
