@@ -128,7 +128,18 @@ export default function Navigation() {
                 "Customer Success & Retention Intelligence"
             ]
         },
-        { name: 'Partners', path: '/partners' },
+        {
+            name: 'Partners',
+            path: '/partners',
+            dropdown: [
+                { name: "Partner Program Overview", path: "/partners#partner-hero" },
+                { name: "Why Partner With Us", path: "/partners#why-partner" },
+                { name: "Solution Partners", path: "/partners#solution-partners" },
+                { name: "Technology Partners", path: "/partners#technology-partners" },
+                { name: "Referral Partners", path: "/partners#referral-partners" },
+                { name: "Become a Partner", path: "/partners#partner-form" },
+            ]
+        },
         {
             name: 'Company',
             path: '/company',
@@ -188,7 +199,7 @@ export default function Navigation() {
                                                 <Link
                                                     to={item.path}
                                                     className={`
-                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-bold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 whitespace-nowrap
+                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-medium transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 whitespace-nowrap
                                                         ${isActive ? 'text-blue-600' : 'text-slate-900 hover:text-blue-600'}
                                                     `}
                                                 >
@@ -237,6 +248,23 @@ export default function Navigation() {
                                                                     hover:bg-gradient-to-br hover:from-white hover:to-blue-50/60
                                                                     transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm
                                                                 "
+                                                                onClick={(e) => {
+                                                                    setHoveredItem(null);
+                                                                    // Handle hash scrolling with offset for fixed nav
+                                                                    const hash = linkPath.includes('#') ? linkPath.split('#')[1] : null;
+                                                                    if (hash) {
+                                                                        // If already on the same page, scroll immediately
+                                                                        const el = document.getElementById(hash);
+                                                                        if (el) {
+                                                                            e.preventDefault();
+                                                                            const offset = 90;
+                                                                            const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                                                                            window.scrollTo({ top, behavior: 'smooth' });
+                                                                        }
+                                                                        // If navigating to a new page, React Router handles it,
+                                                                        // then we scroll after navigation via useEffect in the page
+                                                                    }
+                                                                }}
                                                             >
                                                                 <ArrowRight className="mt-0.5 w-3.5 h-3.5 text-blue-400 group-hover/item:text-blue-600 group-hover/item:translate-x-0.5 transition-all mr-3 shrink-0" />
                                                                 <span className="text-[14px] font-semibold text-slate-900 group-hover/item:text-blue-700 transition-colors leading-snug">

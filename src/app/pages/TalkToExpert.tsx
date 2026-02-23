@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { submitToAirtable } from '../../lib/airtable';
+import { submitToSheet } from '../../lib/sheets';
 import {
     CheckCircle2,
     Search,
@@ -42,7 +42,7 @@ export default function TalkToExpert() {
         localStorage.setItem('user_name', fullName);
 
         try {
-            await submitToAirtable('Talk to Expert', {
+            await submitToSheet('Talk to Expert', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,

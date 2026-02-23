@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { submitToAirtable } from '../../lib/airtable';
+import { submitToSheet } from '../../lib/sheets';
 import {
     Rocket,
     Heart,
@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
+
 import {
     Dialog,
     DialogContent,
@@ -44,7 +44,7 @@ export default function Career() {
         const formData = new FormData(form);
 
         try {
-            await submitToAirtable('Job Applications', {
+            await submitToSheet('Job Applications', {
                 "First Name": formData.get('firstName'),
                 "Last Name": formData.get('lastName'),
                 "Email": formData.get('email'),
