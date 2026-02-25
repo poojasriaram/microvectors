@@ -120,6 +120,7 @@ export interface AnalyticsEvent {
     copy_event: boolean;
     paste_event: boolean;
     rage_click_detected: boolean;
+    user_segment: string;
 }
 
 class AnalyticsService {
@@ -155,6 +156,42 @@ class AnalyticsService {
         lon: ''
     };
 
+    private calculateSegment(): string {
+        const pagesViewed = parseInt(sessionStorage.getItem('tg_pages_viewed') || '1');
+        const timeOnPage = Date.now() - this.pageStartTime;
+        const scroll = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+
+        // 1. High-Intent Lead (Visible on checkout/demo page)
+        if (window.location.pathname.includes('book-demo') ||
+            window.location.pathname.includes('talk-to-expert') ||
+            window.location.pathname.includes('partners')) {
+            return 'High-Intent Lead';
+        }
+
+        // 2. Technical Researcher (Deep scrollers on industry/solutions)
+        if ((window.location.pathname.includes('industries') || window.location.pathname.includes('solutions')) &&
+            scroll > 60 && timeOnPage > 20000) {
+            return 'Technical Researcher';
+        }
+
+        // 3. Product Explorer (Many pages viewed)
+        if (pagesViewed >= 4) return 'Product Explorer';
+
+        // 4. Returning Fan
+        if (this.stats.totalSessions > 2) return 'Returning Fan';
+
+        // 5. Frustrated Visitor (Detected via rage clicking)
+        if (this.clickHistory.length > 5) return 'Frustrated Visitor';
+
+        // 6. Quick Skimmer (Quick activity but early scroll)
+        if (timeOnPage < 10000 && scroll > 30) return 'Quick Skimmer';
+
+        // 7. Passive Observer (Inactivity)
+        if (Date.now() - this.lastInteractionTime > 45000) return 'Passive Observer';
+
+        return 'Casual Browser';
+    }
+
     constructor() {
         if (typeof window !== 'undefined') {
             this.init();
@@ -184,6 +221,10 @@ class AnalyticsService {
 
         this.entryPage = sessionStorage.getItem('tg_entry_page') || window.location.pathname;
         sessionStorage.setItem('tg_entry_page', this.entryPage);
+
+        // Increment pages viewed counter
+        const views = parseInt(sessionStorage.getItem('tg_pages_viewed') || '0') + 1;
+        sessionStorage.setItem('tg_pages_viewed', views.toString());
 
         this.updateStats();
         await this.fetchContext();
@@ -367,7 +408,8 @@ class AnalyticsService {
             back_button_used: false,
             copy_event: metadata.copy || false,
             paste_event: metadata.paste || false,
-            rage_click_detected: this.detectRageClick(metadata.x, metadata.y)
+            rage_click_detected: this.detectRageClick(metadata.x, metadata.y),
+            user_segment: this.calculateSegment()
         };
 
         this.sendToSheet(event);

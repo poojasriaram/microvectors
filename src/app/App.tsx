@@ -32,6 +32,7 @@ import AILeadSalesTransformation from './pages/AILeadSalesTransformation';
 import AIRevenueOperations from './pages/AIRevenueOperations';
 import AIRevenueAcceleration from './pages/AIRevenueAcceleration';
 import CookieConsent from './components/CookieConsent';
+import TabExitPopup from './components/TabExitPopup';
 
 
 
@@ -91,6 +92,7 @@ export default function App() {
 
         <ChatBot />
         <CookieConsent />
+        <TabExitPopup />
         <Footer />
       </div>
     </Router >

@@ -297,10 +297,10 @@ export default function Navigation() {
                         {/* Desktop CTA */}
                         <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-3 shrink-0 h-full">
                             <Link to="/book-demo">
-                                <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-3 lg:px-3 xl:px-5 py-2 lg:py-2 xl:py-2.5 h-auto text-xs lg:text-xs xl:text-sm 2xl:text-base font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
-                                    <span className="relative z-10 flex items-center gap-2">
+                                <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-2.5 lg:px-2.5 xl:px-4 py-1.5 lg:py-1.5 xl:py-2 h-auto text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
+                                    <span className="relative z-10 flex items-center gap-1.5">
                                         Book a Demo
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </Button>
                             </Link>
@@ -308,10 +308,10 @@ export default function Navigation() {
                                 href="https://wa.me/919944499988"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-3 lg:px-2 xl:px-4 py-2 lg:py-2 xl:py-2.5 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-xs lg:text-xs xl:text-sm 2xl:text-base font-bold transition-all duration-300 flex items-center gap-2 hover:shadow-md hover:shadow-green-100"
+                                className="px-2.5 lg:px-2 xl:px-3.5 py-1.5 lg:py-1.5 xl:py-2 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
                             >
-                                <WhatsAppIcon className="w-4 h-4 2xl:w-4.5 2xl:h-4.5 text-[#25D366]" />
-                                <span className="hidden 2xl:inline">WhatsApp</span>
+                                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+                                <span className="hidden xl:inline">WhatsApp</span>
                             </a>
                         </div>
 

@@ -45,7 +45,7 @@ const USER_BEHAVIOR_COLUMNS = [
     'js_error_message', 'api_error_message', 'http_status_code',
     'cpu_cores', 'memory_size',
     'tab_visibility_status', 'back_button_used', 'copy_event', 'paste_event', 'rage_click_detected',
-    'timestamp'
+    'user_segment', 'timestamp'
 ];
 
 // ── Main Entry Point ──────────────────────────────────────────────────────────
@@ -82,24 +82,63 @@ function doGet(e) {
 
 // ── User Behavior Handler ─────────────────────────────────────────────────────
 function handleUserBehavior(ss, body) {
-    const sheet = getOrCreateSheet(ss, 'User Behavior', USER_BEHAVIOR_COLUMNS);
+    const name = 'User Behavior';
+    let sheet = ss.getSheetByName(name);
+    if (!sheet) {
+        sheet = ss.insertSheet(name);
+        sheet.appendRow(USER_BEHAVIOR_COLUMNS);
+        sheet.getRange(1, 1, 1, USER_BEHAVIOR_COLUMNS.length).setFontWeight('bold').setBackground('#1e293b').setFontColor('#ffffff');
+        sheet.setFrozenRows(1);
+    }
 
-    // Support both single event (fields) and batch events (events array)
+    // Support single or batch
     let events = [];
     if (body.events && Array.isArray(body.events)) {
         events = body.events;
     } else if (body.fields) {
         events = [body.fields];
     } else {
-        // Fallback: treat the whole body (minus 'table') as one event
-        const { table, ...rest } = body;
-        events = [rest];
+        events = [body];
     }
 
+    if (events.length === 0) return;
+
+    // Sync Headers in ONE batch to avoid timeouts
+    // We combine defined columns + any extra fields in the event
+    let currentHeaders = sheet.getRange(1, 1, 1, Math.max(1, sheet.getLastColumn())).getValues()[0];
+    let headerMap = {};
+    currentHeaders.forEach((h, i) => { if (h) headerMap[h] = i + 1; });
+
+    let allRequiredHeaders = [...USER_BEHAVIOR_COLUMNS];
+    // Add any keys from the event that aren't in the default list
+    Object.keys(events[0]).forEach(key => {
+        if (key !== 'table' && !allRequiredHeaders.includes(key) && !headerMap[key]) {
+            allRequiredHeaders.push(key);
+        }
+    });
+
+    let newHeaders = [...currentHeaders];
+    let headersChanged = false;
+
+    allRequiredHeaders.forEach(h => {
+        if (!headerMap[h]) {
+            newHeaders.push(h);
+            headerMap[h] = newHeaders.length;
+            headersChanged = true;
+        }
+    });
+
+    if (headersChanged) {
+        sheet.getRange(1, 1, 1, newHeaders.length).setValues([newHeaders]);
+        sheet.getRange(1, 1, 1, newHeaders.length).setFontWeight('bold').setBackground('#1e293b').setFontColor('#ffffff');
+        currentHeaders = newHeaders;
+    }
+
+    // Append all events
     events.forEach(function (event) {
-        const row = USER_BEHAVIOR_COLUMNS.map(function (col) {
-            if (col === 'timestamp') return new Date().toISOString();
-            const val = event[col];
+        const row = currentHeaders.map(function (h) {
+            if (h === 'timestamp' || h === 'Timestamp') return new Date().toISOString();
+            const val = event[h];
             if (val === null || val === undefined) return '';
             if (typeof val === 'boolean') return val.toString();
             return val;
@@ -158,15 +197,37 @@ function getOrCreateSheet(ss, name, columns) {
         sheet = ss.insertSheet(name);
     }
 
-    // Create headers if the sheet is empty and columns are provided
-    if (columns && sheet.getLastRow() === 0) {
-        sheet.appendRow(columns);
-        // Style header row
-        const headerRange = sheet.getRange(1, 1, 1, columns.length);
-        headerRange.setFontWeight('bold');
-        headerRange.setBackground('#1e293b');
-        headerRange.setFontColor('#ffffff');
-        sheet.setFrozenRows(1);
+    if (columns) {
+        const lastCol = sheet.getLastColumn();
+        const lastRow = sheet.getLastRow();
+
+        if (lastRow === 0 || lastCol === 0) {
+            // Empty sheet — full header setup
+            sheet.appendRow(columns);
+            const headerRange = sheet.getRange(1, 1, 1, columns.length);
+            headerRange.setFontWeight('bold');
+            headerRange.setBackground('#1e293b');
+            headerRange.setFontColor('#ffffff');
+            sheet.setFrozenRows(1);
+        } else {
+            // Existing sheet — sync missing columns
+            const existingHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+            const headerMap = {};
+            existingHeaders.forEach((h, i) => { if (h) headerMap[h] = i + 1; });
+
+            let headersChanged = false;
+            columns.forEach((col, index) => {
+                if (!headerMap[col]) {
+                    // New column found! Add it to the end of the sheet
+                    const newColIndex = sheet.getLastColumn() + 1;
+                    sheet.getRange(1, newColIndex).setValue(col);
+                    sheet.getRange(1, newColIndex).setFontWeight('bold');
+                    sheet.getRange(1, newColIndex).setBackground('#1e293b');
+                    sheet.getRange(1, newColIndex).setFontColor('#ffffff');
+                    headersChanged = true;
+                }
+            });
+        }
     }
 
     return sheet;
