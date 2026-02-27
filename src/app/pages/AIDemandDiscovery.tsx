@@ -113,7 +113,7 @@ export default function AIDemandDiscovery() {
                     <p className="text-xl text-blue-100 mb-10">Stop guessing and start knowing. Let AI reveal your total addressable market's active demand.</p>
                     <Link to="/book-demo">
                         <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 h-auto rounded-full font-bold">
-                            Book a Discovery Call
+                            Book for Consulting
                         </Button>
                     </Link>
                 </div>

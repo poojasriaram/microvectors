@@ -1,5 +1,4 @@
-import React from 'react';
-import { ArrowLeft, Map, FileText, Layout, Users, Shield, Briefcase, Database, Zap, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Map, Layout, Users, Shield, Briefcase, Database, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Sitemap() {
@@ -25,7 +24,7 @@ export default function Sitemap() {
                     ]
                 },
                 {
-                    name: "Book a Demo",
+                    name: "Book for Consulting",
                     path: "/book-demo",
                     sections: [
                         "Proprietary AI Growth Framework",

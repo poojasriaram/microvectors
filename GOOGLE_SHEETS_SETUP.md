@@ -9,7 +9,7 @@ Follow these steps to connect your website forms and analytics to Google Sheets 
     *   `Inbound Leads`
     *   `Talk to Expert`
     *   `Partners`
-    *   `Book Demo`
+    *   `Book for Consulting`
     *   `Job Applications`
     *   `User Behavior`
     *   `Traffic Analysis`

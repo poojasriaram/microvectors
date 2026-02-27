@@ -45,7 +45,7 @@ export default function DemandPulse() {
                         </button>
                         <button className="px-10 py-5 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3">
                             <PlayCircle className="w-5 h-5 text-blue-600" />
-                            Watch the Demo
+                            Watch Consulting Preview
                         </button>
                     </div>
                 </div>
@@ -232,7 +232,7 @@ export default function DemandPulse() {
                 number="10"
                 title="AI ChatGPT Conversational Marketing Engine"
                 tagline="Your 24/7 AI Sales Rep—Trained on Your Playbook"
-                successExample="A B2B SaaS for restaurant POS had 89% of website visitors leave without engaging. After deploying the AI chatbot, it asked: “Which feature matters most—inventory, payroll, or delivery integration?” Based on answers, it showed relevant case studies and booked demos. Website conversion rose from 1.4% → 6.3%"
+                successExample="A B2B SaaS for restaurant POS had 89% of website visitors leave without engaging. After deploying the AI chatbot, it asked: “Which feature matters most—inventory, payroll, or delivery integration?” Based on answers, it showed relevant case studies and booked consulting sessions. Website conversion rose from 1.4% → 6.3%"
                 useCases={[]} // No key use cases provided for this one in the prompt, or implicit?
                 howAiDeliveredIt="Conversational AI trained on sales methodology acting as an SDR."
                 outcomeKPIs={[

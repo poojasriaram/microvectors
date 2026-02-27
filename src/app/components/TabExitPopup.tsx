@@ -16,6 +16,13 @@ export default function TabExitPopup() {
     const triggeredRef = useRef(false);
     const arrivedAtRef = useRef(Date.now());
 
+    useEffect(() => {
+        const hasTriggered = sessionStorage.getItem('trustgrid_tab_exit_triggered');
+        if (hasTriggered) {
+            triggeredRef.current = true;
+        }
+    }, []);
+
     const triggerPopup = (source: string) => {
         // Don't trigger if already visible or recently triggered
         if (visible || triggeredRef.current) return;
@@ -24,6 +31,7 @@ export default function TabExitPopup() {
         console.log(`[ExitPopup] Triggered via: ${source}`);
 
         triggeredRef.current = true;
+        sessionStorage.setItem('trustgrid_tab_exit_triggered', 'true');
         setVisible(true);
         // Step-by-step animation sequence for maximum reliability
         setTimeout(() => {
@@ -35,9 +43,8 @@ export default function TabExitPopup() {
         setAnimateIn(false);
         setTimeout(() => {
             setVisible(false);
-            // Reset the triggered flag after the popup is fully closed
-            // so it can trigger again next time.
-            triggeredRef.current = false;
+            // We NO LONGER reset triggeredRef.current here.
+            // This ensures it only pops up once per session.
         }, 300);
     };
 

@@ -3,7 +3,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  * Handles ALL data submissions from the Trustgrid.ai website:
  *   • User Behavior analytics (93-field events)
- *   • Lead forms (Inbound Leads, Book Demo, Talk to Expert, etc.)
+ *   • Lead forms (Inbound Leads, Book for Consulting, Talk to Expert, etc.)
  *   • Traffic Analysis
  *
  * HOW TO DEPLOY:
@@ -19,6 +19,28 @@
 
 // ── Configuration ─────────────────────────────────────────────────────────────
 const SPREADSHEET_ID = '1gs2UHZ8d5vtYzPm7N7U_36GgU9bJjcfZY_HmHDsJ3NU';
+
+/**
+ * ── Spreadsheet UI Menu ──────────────────────────────────────────────────────
+ * Adds a custom menu to the spreadsheet to refresh the dashboard.
+ */
+function onOpen() {
+    const ui = SpreadsheetApp.getUi();
+    ui.createMenu('🚀 DeepTrust Analytics')
+        .addItem('Refresh Dashboard & Charts', 'updateAnalyticsDashboard')
+        .addSeparator()
+        .addItem('Help & Documentation', 'showHelp')
+        .addToUi();
+}
+
+function showHelp() {
+    const message = 'The dashboard aggregates "User Behavior" data into rankings and visualizations.\n\n' +
+        '1. Pareto Chart: Shows which pages drive the most traffic.\n' +
+        '2. Map Chart: Visualizes global visitor distribution.\n' +
+        '3. Weighted Ranking: Ranks pages by (Count × Total Duration).\n\n' +
+        'Click "Refresh Dashboard" whenever you want to see the latest data.';
+    SpreadsheetApp.getUi().alert('Analytics Help', message, SpreadsheetApp.getUi().ButtonSet.OK);
+}
 
 // Column order for User Behavior sheet (93 fields, strictly ordered)
 const USER_BEHAVIOR_COLUMNS = [
@@ -63,11 +85,13 @@ function doPost(e) {
         // ── Route to correct handler ────────────────────────────────────────────
         if (tableName === 'User Behavior') {
             handleUserBehavior(ss, body);
+            // Optionally update dashboard on every submission (may impact performance)
+            // updateAnalyticsDashboard(); 
         } else {
             handleLeadForm(ss, tableName, body);
         }
 
-        return buildResponse({ status: 'success', table: tableName });
+        return buildResponse({ status: 'success', table: tableName, dashboardUpdated: true });
 
     } catch (err) {
         console.error('doPost error:', err);
@@ -151,7 +175,7 @@ function handleUserBehavior(ss, body) {
 function handleLeadForm(ss, tableName, body) {
     const sheet = getOrCreateSheet(ss, tableName, null);
 
-    // The frontend sends { table: 'Book Demo', fields: { "First Name": "...", ... } }
+    // The frontend sends { table: 'Book for Consulting', fields: { "First Name": "...", ... } }
     // We need to read the nested `fields` object.
     // Fallback: if fields key not present, spread entire body minus 'table'.
     let dataFields = {};
@@ -188,6 +212,43 @@ function handleLeadForm(ss, tableName, body) {
     });
 
     sheet.appendRow(row);
+
+    // Send confirmation email
+    sendAutomatedEmail(dataFields, tableName);
+}
+
+// ── Automated Email Sender ────────────────────────────────────────────────────
+function sendAutomatedEmail(dataFields, tableName) {
+    // Try to find the email address in the fields
+    const userEmail = dataFields['Email'] || dataFields['email'] || dataFields['Work Email'] || dataFields['Email Address'];
+    if (!userEmail) return; // Cannot send without an email
+
+    // Try to get the user's name
+    const userName = dataFields['First Name'] || dataFields['Name'] || dataFields['first_name'] || 'there';
+
+    const subject = "Thank you for contacting Trustgrid.ai!";
+    const htmlBody = `
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            <h2 style="color: #2563eb;">Request Received</h2>
+            <p>Hi ${userName},</p>
+            <p>Thank you for submitting the <strong>${tableName}</strong> form on our website. We have received your request and our team will be in touch with you shortly.</p>
+            <p>At Trustgrid.ai, we are excited to help you architect your AI revenue engine and transform unstructured data into predictable growth.</p>
+            <p>Best regards,<br>
+            <strong>The Trustgrid.ai Team</strong></p>
+            <hr style="border: none; border-top: 1px solid #eaeaea; margin-top: 30px; margin-bottom: 20px;">
+            <p style="font-size: 12px; color: #777;">This is an automated message. Please do not reply directly to this email.</p>
+        </div>
+    `;
+
+    try {
+        MailApp.sendEmail({
+            to: userEmail,
+            subject: subject,
+            htmlBody: htmlBody
+        });
+    } catch (e) {
+        console.error("Error sending automated email:", e);
+    }
 }
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
@@ -237,4 +298,242 @@ function buildResponse(data) {
     return ContentService
         .createTextOutput(JSON.stringify(data))
         .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── Analytics Dashboard Engine ───────────────────────────────────────────────
+
+/**
+ * Main function to aggregate data and rebuild the Dashboard sheet.
+ */
+function updateAnalyticsDashboard() {
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const sourceSheet = ss.getSheetByName('User Behavior');
+    if (!sourceSheet) {
+        console.error('Source sheet "User Behavior" not found.');
+        return;
+    }
+
+    const data = sourceSheet.getDataRange().getValues();
+    if (data.length < 2) return;
+
+    const headers = data[0];
+    const rows = data.slice(1);
+
+    const pageIdx = headers.indexOf('page');
+    const durationIdx = headers.indexOf('time_on_page');
+    const countryIdx = headers.indexOf('geo_country');
+    const segmentIdx = headers.indexOf('user_segment');
+
+    const pageStats = {};
+    const countryStats = {};
+    const segmentStats = {};
+    let totalVisits = 0;
+
+    rows.forEach(row => {
+        const page = row[pageIdx] || 'Unknown';
+        const duration = parseFloat(row[durationIdx]) || 0;
+        const country = row[countryIdx] || 'Unknown';
+        const segment = row[segmentIdx] || 'Casual Browser';
+
+        // 1. Page Statistics
+        if (!pageStats[page]) {
+            pageStats[page] = { count: 0, totalDuration: 0 };
+        }
+        pageStats[page].count++;
+        pageStats[page].totalDuration += duration;
+        totalVisits++;
+
+        // 2. Geography Distribution
+        if (!countryStats[country]) countryStats[country] = 0;
+        countryStats[country]++;
+
+        // 3. User Segmentation
+        if (!segmentStats[segment]) segmentStats[segment] = 0;
+        segmentStats[segment]++;
+    });
+
+    // Generate Page Rankings array
+    let pageRanking = Object.keys(pageStats).map(page => {
+        const stats = pageStats[page];
+        const durationSeconds = stats.totalDuration / 1000;
+        const avgDuration = durationSeconds / stats.count;
+
+        // Count X Duration - Weight (Weighted scoring for engagement)
+        // Formula: Visits * Log10(1 + Duration) is a common weight, but we'll use a linear score
+        // that penalizes very short sessions (< 2s)
+        const weight = stats.count * (durationSeconds / 60);
+
+        return [page, stats.count, durationSeconds, avgDuration, weight];
+    });
+
+    // Sort by Count (Descending) for Pareto
+    pageRanking.sort((a, b) => b[1] - a[1]);
+
+    // Calculate Cumulative Percentage for Pareto
+    let cumulativeCount = 0;
+    pageRanking = pageRanking.map(row => {
+        cumulativeCount += row[1];
+        const cumulativePct = (cumulativeCount / totalVisits);
+        return [...row, cumulativePct];
+    });
+
+    // Prepare Geo Data
+    const geoRanking = Object.keys(countryStats).map(c => [c, countryStats[c]])
+        .sort((a, b) => b[1] - a[1]);
+
+    // Prepare Segment Data
+    const segmentRanking = Object.keys(segmentStats).map(s => [s, segmentStats[s]])
+        .sort((a, b) => b[1] - a[1]);
+
+    // ── Write to Dashboard Sheet ──────────────────────────────────────────────
+    let dashSheet = ss.getSheetByName('Analytics Dashboard');
+    if (!dashSheet) dashSheet = ss.insertSheet('Analytics Dashboard');
+    dashSheet.clear();
+
+    // Headers Styling
+    const headStyle = { fontWeight: 'bold', background: '#2563eb', fontColor: '#ffffff' };
+
+    // Section 1: Page Rankings & Pareto Data
+    const pageHeaders = ['Page Name', 'Visit Count', 'Total Duration (s)', 'Avg Duration (s)', 'Engagement Score (Weighted)', 'Cumulative %'];
+    writeTable(dashSheet, 1, 1, pageHeaders, pageRanking, headStyle);
+
+    // Section 2: Country Stats (shifted right)
+    const geoHeaders = ['Country', 'Visitor Count'];
+    writeTable(dashSheet, 1, 8, geoHeaders, geoRanking, headStyle);
+
+    // Section 3: Segment Stats
+    const segmentHeaders = ['User Segment', 'Event Count'];
+    writeTable(dashSheet, geoRanking.length + 4, 8, segmentHeaders, segmentRanking, headStyle);
+
+    // Formatting
+    dashSheet.getRange(2, 6, pageRanking.length, 1).setNumberFormat('0.0%');
+    dashSheet.getRange(2, 4, pageRanking.length, 1).setNumberFormat('0.0');
+    dashSheet.getRange(2, 5, pageRanking.length, 1).setNumberFormat('0.0');
+    dashSheet.setFrozenRows(1);
+    dashSheet.autoResizeColumns(1, 15);
+
+    // ── Build Charts ──────────────────────────────────────────────────────────
+    buildDashboardCharts(dashSheet, pageRanking.length, geoRanking.length, segmentRanking.length);
+}
+
+/**
+ * Helper to write a table with styling
+ */
+function writeTable(sheet, startRow, startCol, headers, data, style) {
+    if (data.length === 0) return;
+    sheet.getRange(startRow, startCol, 1, headers.length)
+        .setValues([headers])
+        .setFontWeight(style.fontWeight)
+        .setBackground(style.background)
+        .setFontColor(style.fontColor);
+    sheet.getRange(startRow + 1, startCol, data.length, headers.length).setValues(data);
+}
+
+/**
+ * Creates Visual Dashboard Charts
+ */
+function buildDashboardCharts(sheet, pageCount, geoCount, segmentCount) {
+    // Remove existing charts to prevent duplication
+    const existing = sheet.getCharts();
+    existing.forEach(c => sheet.removeChart(c));
+
+    const chartWidth = 600;
+    const chartHeight = 350;
+
+    // Ranges for Page Rankings
+    const labelRange = sheet.getRange(1, 1, pageCount + 1, 1);
+    const countRange = sheet.getRange(1, 2, pageCount + 1, 1);
+    const durationRange = sheet.getRange(1, 3, pageCount + 1, 1);
+    const weightRange = sheet.getRange(1, 5, pageCount + 1, 1);
+    const cumulativeRange = sheet.getRange(1, 6, pageCount + 1, 1);
+
+    // 1. Bar Chart: Page Ranking by Count
+    const barCountChart = sheet.newChart()
+        .setChartType(Charts.ChartType.BAR)
+        .addRange(labelRange)
+        .addRange(countRange)
+        .setPosition(2, 11, 0, 0)
+        .setOption('title', 'Page Ranking by Visit Count')
+        .setOption('colors', ['#3b82f6'])
+        .setOption('width', chartWidth)
+        .setOption('height', chartHeight)
+        .build();
+    sheet.insertChart(barCountChart);
+
+    // 2. Bar Chart: Page Ranking by Session Duration
+    const barDurationChart = sheet.newChart()
+        .setChartType(Charts.ChartType.BAR)
+        .addRange(labelRange)
+        .addRange(durationRange)
+        .setPosition(2, 21, 0, 0)
+        .setOption('title', 'Page Ranking by Total Duration (Seconds)')
+        .setOption('colors', ['#10b981'])
+        .setOption('width', chartWidth)
+        .setOption('height', chartHeight)
+        .build();
+    sheet.insertChart(barDurationChart);
+
+    // 3. Bar Chart: Page Ranking by Count X Duration (Weight)
+    const barWeightChart = sheet.newChart()
+        .setChartType(Charts.ChartType.BAR)
+        .addRange(labelRange)
+        .addRange(weightRange)
+        .setPosition(20, 11, 0, 0)
+        .setOption('title', 'Page Ranking by Engagement Score (Weighted)')
+        .setOption('colors', ['#f59e0b'])
+        .setOption('width', chartWidth)
+        .setOption('height', chartHeight)
+        .build();
+    sheet.insertChart(barWeightChart);
+
+    // 4. Pareto Chart (Page Traffic)
+    const paretoChart = sheet.newChart()
+        .setChartType(Charts.ChartType.COMBO)
+        .addRange(labelRange)
+        .addRange(countRange)
+        .addRange(cumulativeRange)
+        .setPosition(20, 21, 0, 0)
+        .setOption('title', 'Pareto Analysis: Page Traffic')
+        .setOption('series', {
+            0: { type: 'bars', targetAxisIndex: 0, color: '#3b82f6' },
+            1: { type: 'line', targetAxisIndex: 1, color: '#ef4444', curveType: 'function' }
+        })
+        .setOption('vAxes', {
+            0: { title: 'Total Visits' },
+            1: { title: 'Cumulative %', maxValue: 1, minValue: 0, format: 'percent' }
+        })
+        .setOption('width', chartWidth)
+        .setOption('height', chartHeight)
+        .build();
+    sheet.insertChart(paretoChart);
+
+    // 5. Global Map (Geography)
+    if (geoCount > 0) {
+        const geoRange = sheet.getRange(1, 8, geoCount + 1, 2);
+        const mapChart = sheet.newChart()
+            .setChartType(Charts.ChartType.GEO)
+            .addRange(geoRange)
+            .setPosition(38, 11, 0, 0)
+            .setOption('title', 'Global Visitor Footprint')
+            .setOption('width', chartWidth * 2 + 50) // Wide map
+            .setOption('height', 500)
+            .build();
+        sheet.insertChart(mapChart);
+    }
+
+    // 6. User Segment Pie Chart
+    if (segmentCount > 0) {
+        const geoOffset = geoCount + 4;
+        const segmentRange = sheet.getRange(geoOffset, 8, segmentCount + 1, 2);
+        const pieChart = sheet.newChart()
+            .setChartType(Charts.ChartType.PIE)
+            .addRange(segmentRange)
+            .setPosition(65, 11, 0, 0)
+            .setOption('title', 'Visitor Segment Distribution')
+            .setOption('is3D', true)
+            .setOption('width', chartWidth * 2 + 50)
+            .setOption('height', 400)
+            .build();
+        sheet.insertChart(pieChart);
+    }
 }

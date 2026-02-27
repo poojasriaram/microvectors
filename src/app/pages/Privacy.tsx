@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowLeft, Shield, Lock, FileText, CheckCircle2, Eye, Scale, Cookie, Share2, Globe, Database, UserCheck, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -62,7 +61,7 @@ export default function Privacy() {
                                         <li>Full name, Email address, Phone number</li>
                                         <li>Company or organization name, Job title or role</li>
                                         <li>Login credentials (e.g., username, password – securely hashed)</li>
-                                        <li>Information submitted via contact forms, demo requests, support tickets, newsletter sign-ups</li>
+                                        <li>Information submitted via contact forms, consultation requests, support tickets, newsletter sign-ups</li>
                                     </ul>
                                 </div>
 

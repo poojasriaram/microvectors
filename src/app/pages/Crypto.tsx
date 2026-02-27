@@ -323,7 +323,7 @@ export default function Crypto() {
                             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
                                 <Button asChild className="bg-white text-blue-900 hover:bg-blue-50 px-10 py-7 h-auto text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3 transform hover:-translate-y-1">
                                     <Link to="/book-demo">
-                                        Book a Demo
+                                        Book for Consulting
                                         <ArrowRight className="w-6 h-6" />
                                     </Link>
                                 </Button>

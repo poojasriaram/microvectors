@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ConversionBlockData } from '../../data/homeContent';
 import StatCard from './StatCard';
 import FeatureCard from './FeatureCard';
 import EngineTab from './EngineTab';
 import ActiveEnginePanel from './ActiveEnginePanel';
 import { ArrowRight } from 'lucide-react';
-import { Button } from './ui/button'; // Assuming Button exists or we use standard HTML button
 
 interface VerticalSectionProps {
     data: ConversionBlockData;
-    index: number;
 }
 
-export default function VerticalSection({ data, index }: VerticalSectionProps) {
+export default function VerticalSection({ data }: VerticalSectionProps) {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
@@ -68,7 +66,9 @@ export default function VerticalSection({ data, index }: VerticalSectionProps) {
                                 key={i}
                                 title={tab.title}
                                 isActive={activeTab === i}
-                                onClick={() => setActiveTab(i)}
+                                onClick={() => {
+                                    if (activeTab !== i) setActiveTab(i);
+                                }}
                             />
                         ))}
                     </div>

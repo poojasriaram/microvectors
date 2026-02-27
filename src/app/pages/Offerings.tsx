@@ -1334,7 +1334,7 @@ export default function Offerings() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
                         <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 h-auto text-lg shadow-xl shadow-indigo-200 rounded-xl font-bold">
-                            <Link to="/book-demo">Book a Demo</Link>
+                            <Link to="/book-demo">Book for Consulting</Link>
                         </Button>
                         <Button asChild variant="outline" className="border-slate-300 text-slate-700 hover:bg-white px-8 py-6 h-auto text-lg rounded-xl bg-slate-50 font-medium">
                             <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>

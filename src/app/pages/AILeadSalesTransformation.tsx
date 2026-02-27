@@ -113,7 +113,7 @@ export default function AILeadSalesTransformation() {
                     <p className="text-xl text-blue-100 mb-10">Stay ahead of the curve. Adapt to changing buyer behaviors and market dynamics with an agile, AI-powered sales engine.</p>
                     <Link to="/book-demo">
                         <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 h-auto rounded-full font-bold">
-                            Book a Consultation
+                            Book for Consulting
                         </Button>
                     </Link>
                 </div>

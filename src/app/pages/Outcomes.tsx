@@ -95,7 +95,7 @@ export default function Outcomes() {
                             <div className="flex flex-col sm:flex-row gap-5 justify-center">
                                 <Link to="/book-demo">
                                     <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-7 h-auto shadow-[0_10px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] transition-all rounded-full font-bold">
-                                        Book a Demo
+                                        Book for Consulting
                                     </Button>
                                 </Link>
                                 <Button variant="outline" className="text-lg px-8 py-7 h-auto bg-white/50 border-slate-200 text-slate-600 hover:bg-white hover:text-slate-900 hover:border-slate-300 rounded-full font-medium backdrop-blur-sm shadow-sm transition-all">
@@ -354,7 +354,7 @@ export default function Outcomes() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                                 <Link to="/book-demo" className="w-full sm:w-auto">
                                     <Button className="bg-white text-blue-900 hover:bg-blue-50 px-8 py-6 h-auto text-lg w-full sm:w-auto font-bold shadow-lg">
-                                        Book a Demo
+                                        Book for Consulting
                                     </Button>
                                 </Link>
                                 <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg w-full sm:w-auto backdrop-blur-sm">

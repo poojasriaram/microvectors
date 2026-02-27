@@ -173,7 +173,7 @@ export default function Company() {
                         <div className="flex flex-col sm:flex-row gap-5 justify-center">
                             <Link to="/book-demo">
                                 <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
-                                    Book a Demo
+                                    Book for Consulting
                                 </Button>
                             </Link>
                             <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-blue-700 px-10 py-6 text-lg h-auto rounded-full transition-all hover:border-blue-200 shadow-sm hover:shadow bg-white/50 backdrop-blur-sm">
@@ -547,7 +547,7 @@ export default function Company() {
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Link to="/book-demo">
                                         <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-5 h-auto font-bold shadow-lg rounded-full">
-                                            Book a Demo
+                                            Book for Consulting
                                         </Button>
                                     </Link>
                                     <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-5 h-auto backdrop-blur-sm rounded-full">

@@ -48,7 +48,7 @@ export default function HeroSection() {
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base rounded-full shadow-[0_6px_20px_-5px_rgba(37,99,235,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-0.5 font-bold"
             >
               <Link to="/book-demo">
-                Book a Demo
+                Book for Consulting
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>

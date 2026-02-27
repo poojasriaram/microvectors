@@ -372,7 +372,7 @@ export default function AIRevenueAcceleration() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
                             { label: "Decision Logic", trad: "Recommend actions → human executes", auto: "Agent executes autonomously", impact: "63-89% hands-free workflows" },
-                            { label: "Lead Management", trad: "Score leads → human follows up", auto: "Agent qualifies + nurtures + books demo", impact: "78% lead conversion lift" },
+                            { label: "Lead Management", trad: "Score leads → human follows up", auto: "Agent qualifies + nurtures + books consulting", impact: "78% lead conversion lift" },
                             { label: "Communication", trad: "Suggest copy → human sends", auto: "Agent crafts + sends + follows up", impact: "24/7 engagement coverage" },
                             { label: "Human Role", trad: "In-the-loop for every step", auto: "Engaged only for exceptions", impact: "6 hrs/day productivity gain" },
                             { label: "Learning", trad: "Static models requiring updates", auto: "Self-optimizing A/B testing", impact: "22% conversion improvement" },

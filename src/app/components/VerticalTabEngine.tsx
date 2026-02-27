@@ -21,7 +21,9 @@ export default function VerticalTabEngine({ tabs }: VerticalTabEngineProps) {
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
-                        onClick={() => setActiveTab(index)}
+                        onClick={() => {
+                            if (activeTab !== index) setActiveTab(index);
+                        }}
                         className={`relative p-4 text-left rounded-xl transition-all duration-300 group ${activeTab === index
                             ? 'bg-white border border-blue-200 shadow-sm'
                             : 'bg-transparent border border-transparent hover:bg-slate-50'

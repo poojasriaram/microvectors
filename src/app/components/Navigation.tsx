@@ -299,7 +299,7 @@ export default function Navigation() {
                             <Link to="/book-demo">
                                 <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-2.5 lg:px-2.5 xl:px-4 py-1.5 lg:py-1.5 xl:py-2 h-auto text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
                                     <span className="relative z-10 flex items-center gap-1.5">
-                                        Book a Demo
+                                        Book for Consulting
                                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </Button>
@@ -318,7 +318,7 @@ export default function Navigation() {
                         {/* Mobile menu button */}
                         <div className="lg:hidden flex items-center gap-4">
                             <Link to="/book-demo" className="text-sm font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-none">
-                                Book Demo
+                                Book for Consulting
                             </Link>
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -417,7 +417,7 @@ export default function Navigation() {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <Button className="w-full bg-slate-900 text-white hover:bg-blue-600 h-14 rounded-none font-bold text-lg shadow-xl shadow-slate-900/10 active:scale-[0.98] transition-all">
-                                Book a Demo
+                                Book for Consulting
                             </Button>
                         </Link>
 

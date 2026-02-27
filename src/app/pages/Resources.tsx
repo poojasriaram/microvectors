@@ -138,7 +138,7 @@ export default function Resources() {
                                 </Button>
                                 <Link to="/book-demo">
                                     <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg backdrop-blur-sm">
-                                        Book a Demo
+                                        Book for Consulting
                                     </Button>
                                 </Link>
                             </div>

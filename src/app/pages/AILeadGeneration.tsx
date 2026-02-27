@@ -113,7 +113,7 @@ export default function AILeadGeneration() {
                     <p className="text-xl text-blue-100 mb-10">Don't waste time on cold leads. Get direct access to decision-makers who are looking for your solution.</p>
                     <Link to="/book-demo">
                         <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 h-auto rounded-full font-bold">
-                            Book a Demo
+                            Book for Consulting
                         </Button>
                     </Link>
                 </div>

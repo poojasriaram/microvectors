@@ -40,14 +40,14 @@ export default function BookDemo() {
         setIsSubmitting(true);
 
         try {
-            await submitToSheet('Book Demo', {
+            await submitToSheet('Book for Consulting', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,
                 "Phone": formData.phone,
                 "Company": formData.company,
                 "Status": "New",
-                "Source": "Book Demo Page",
+                "Source": "Consulting Booking Page",
                 "Annual Revenue": formData.revenue,
                 "Interest": formData.interest,
                 "Message": formData.message
@@ -93,7 +93,7 @@ export default function BookDemo() {
                                     </span>
                                 </h1>
                                 <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-lg">
-                                    Book a personalized demo with our revenue architects. See how TrustGrid AI can transform your unstructured data into predictable growth.
+                                    Book a personalized consulting session with our revenue architects. See how TrustGrid AI can transform your unstructured data into predictable growth.
                                 </p>
                             </div>
                         </Reveal>
@@ -170,7 +170,7 @@ export default function BookDemo() {
 
                                 <div className="relative z-10 mb-8">
                                     <h2 className="text-2xl font-bold text-slate-900 mb-2">Get Started</h2>
-                                    <p className="text-slate-500">Fill out the form below to schedule your demo.</p>
+                                    <p className="text-slate-500">Fill out the form below to schedule your consulting session.</p>
                                 </div>
 
                                 <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
@@ -277,7 +277,7 @@ export default function BookDemo() {
                                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
                                         disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? 'Submitting...' : 'Book Your Demo'}
+                                        {isSubmitting ? 'Submitting...' : 'Book for Consulting'}
                                     </Button>
 
                                     <p className="text-xs text-center text-slate-500 mt-4">
