@@ -9,14 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UseCasesRouteImport } from './routes/use-cases'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as OfferingsRouteImport } from './routes/offerings'
 import { Route as MultiAgentSystemsRouteImport } from './routes/multi-agent-systems'
 import { Route as LongMemoryAiSystemsRouteImport } from './routes/long-memory-ai-systems'
 import { Route as LlmopsServicesRouteImport } from './routes/llmops-services'
 import { Route as GpuPerformanceEngineeringRouteImport } from './routes/gpu-performance-engineering'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as CapabilitiesRouteImport } from './routes/capabilities'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AiSecurityRouteImport } from './routes/ai-security'
 import { Route as AiInfrastructureEngineeringRouteImport } from './routes/ai-infrastructure-engineering'
@@ -25,6 +30,16 @@ import { Route as AgenticAiDevelopmentRouteImport } from './routes/agentic-ai-de
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UseCasesRoute = UseCasesRouteImport.update({
+  id: '/use-cases',
+  path: '/use-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -33,6 +48,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfferingsRoute = OfferingsRouteImport.update({
+  id: '/offerings',
+  path: '/offerings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MultiAgentSystemsRoute = MultiAgentSystemsRouteImport.update({
@@ -64,6 +89,11 @@ const ContactRoute = ContactRouteImport.update({
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesRoute = CapabilitiesRouteImport.update({
+  id: '/capabilities',
+  path: '/capabilities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -111,14 +141,19 @@ export interface FileRoutesByFullPath {
   '/ai-infrastructure-engineering': typeof AiInfrastructureEngineeringRoute
   '/ai-security': typeof AiSecurityRoute
   '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
+  '/offerings': typeof OfferingsRoute
+  '/platform': typeof PlatformRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solutions': typeof SolutionsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -128,14 +163,19 @@ export interface FileRoutesByTo {
   '/ai-infrastructure-engineering': typeof AiInfrastructureEngineeringRoute
   '/ai-security': typeof AiSecurityRoute
   '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
+  '/offerings': typeof OfferingsRoute
+  '/platform': typeof PlatformRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solutions': typeof SolutionsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -146,14 +186,19 @@ export interface FileRoutesById {
   '/ai-infrastructure-engineering': typeof AiInfrastructureEngineeringRoute
   '/ai-security': typeof AiSecurityRoute
   '/blog': typeof BlogRoute
+  '/capabilities': typeof CapabilitiesRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/gpu-performance-engineering': typeof GpuPerformanceEngineeringRoute
   '/llmops-services': typeof LlmopsServicesRoute
   '/long-memory-ai-systems': typeof LongMemoryAiSystemsRoute
   '/multi-agent-systems': typeof MultiAgentSystemsRoute
+  '/offerings': typeof OfferingsRoute
+  '/platform': typeof PlatformRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/solutions': typeof SolutionsRoute
+  '/use-cases': typeof UseCasesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -165,14 +210,19 @@ export interface FileRouteTypes {
     | '/ai-infrastructure-engineering'
     | '/ai-security'
     | '/blog'
+    | '/capabilities'
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
+    | '/offerings'
+    | '/platform'
     | '/services'
     | '/sitemap.xml'
+    | '/solutions'
+    | '/use-cases'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -182,14 +232,19 @@ export interface FileRouteTypes {
     | '/ai-infrastructure-engineering'
     | '/ai-security'
     | '/blog'
+    | '/capabilities'
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
+    | '/offerings'
+    | '/platform'
     | '/services'
     | '/sitemap.xml'
+    | '/solutions'
+    | '/use-cases'
   id:
     | '__root__'
     | '/'
@@ -199,14 +254,19 @@ export interface FileRouteTypes {
     | '/ai-infrastructure-engineering'
     | '/ai-security'
     | '/blog'
+    | '/capabilities'
     | '/case-studies'
     | '/contact'
     | '/gpu-performance-engineering'
     | '/llmops-services'
     | '/long-memory-ai-systems'
     | '/multi-agent-systems'
+    | '/offerings'
+    | '/platform'
     | '/services'
     | '/sitemap.xml'
+    | '/solutions'
+    | '/use-cases'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -217,18 +277,37 @@ export interface RootRouteChildren {
   AiInfrastructureEngineeringRoute: typeof AiInfrastructureEngineeringRoute
   AiSecurityRoute: typeof AiSecurityRoute
   BlogRoute: typeof BlogRoute
+  CapabilitiesRoute: typeof CapabilitiesRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   GpuPerformanceEngineeringRoute: typeof GpuPerformanceEngineeringRoute
   LlmopsServicesRoute: typeof LlmopsServicesRoute
   LongMemoryAiSystemsRoute: typeof LongMemoryAiSystemsRoute
   MultiAgentSystemsRoute: typeof MultiAgentSystemsRoute
+  OfferingsRoute: typeof OfferingsRoute
+  PlatformRoute: typeof PlatformRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SolutionsRoute: typeof SolutionsRoute
+  UseCasesRoute: typeof UseCasesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/use-cases': {
+      id: '/use-cases'
+      path: '/use-cases'
+      fullPath: '/use-cases'
+      preLoaderRoute: typeof UseCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -241,6 +320,20 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offerings': {
+      id: '/offerings'
+      path: '/offerings'
+      fullPath: '/offerings'
+      preLoaderRoute: typeof OfferingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/multi-agent-systems': {
@@ -283,6 +376,13 @@ declare module '@tanstack/react-router' {
       path: '/case-studies'
       fullPath: '/case-studies'
       preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities': {
+      id: '/capabilities'
+      path: '/capabilities'
+      fullPath: '/capabilities'
+      preLoaderRoute: typeof CapabilitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -345,14 +445,19 @@ const rootRouteChildren: RootRouteChildren = {
   AiInfrastructureEngineeringRoute: AiInfrastructureEngineeringRoute,
   AiSecurityRoute: AiSecurityRoute,
   BlogRoute: BlogRoute,
+  CapabilitiesRoute: CapabilitiesRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   GpuPerformanceEngineeringRoute: GpuPerformanceEngineeringRoute,
   LlmopsServicesRoute: LlmopsServicesRoute,
   LongMemoryAiSystemsRoute: LongMemoryAiSystemsRoute,
   MultiAgentSystemsRoute: MultiAgentSystemsRoute,
+  OfferingsRoute: OfferingsRoute,
+  PlatformRoute: PlatformRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SolutionsRoute: SolutionsRoute,
+  UseCasesRoute: UseCasesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
