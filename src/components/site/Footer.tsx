@@ -37,47 +37,43 @@ const featuredOfferings = [
 /* ─── Footer Link Columns ───────────────────────────────────── */
 const footerCols = [
   {
-    title: "GPU & Infrastructure",
+    title: "GPU Optimization",
     links: [
       { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
-      { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
-      { href: "/platform", label: "GPU-phi Cloud Platform" },
       { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
-      { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
-      { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
-      { href: "/capabilities#energy-optimization", label: "Energy Optimization & ESG" },
+      { href: "/offerings#gpu-optimization", label: "GPU Optimization Offerings" },
+      { href: "/platform", label: "GPU-phi Cloud Platform" },
     ],
   },
   {
-    title: "AI Agents",
+    title: "LLM & AI Agents",
     links: [
+      { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
+      { href: "/capabilities#llm-optimization", label: "LLM Optimization" },
       { href: "/agentic-ai-development", label: "Agentic AI Development" },
       { href: "/multi-agent-systems", label: "Multi-Agent Systems" },
       { href: "/long-memory-ai-systems", label: "Long-Memory AI Systems" },
       { href: "/agentops-services", label: "AgentOps Services" },
       { href: "/capabilities#multi-agent-fleet-orchestration", label: "Agent Fleet Orchestration" },
-      { href: "/solutions#autonomous-agentic-workflows-multi-agent-orchestration", label: "Autonomous Workflows" },
     ],
   },
   {
-    title: "LLM / RAG & Security",
+    title: "AI Cybersecurity",
     links: [
-      { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
-      { href: "/capabilities#llm-optimization", label: "LLM Optimization" },
       { href: "/ai-security", label: "AI Security & Cyber Dom" },
       { href: "/capabilities#ai-security-cyber-dom-protection-mesh", label: "Zero-Trust AI Governance" },
+      { href: "/solutions#security-gov", label: "AI Cybersecurity & Governance" },
       { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Secure Sandbox Execution" },
     ],
   },
   {
-    title: "Solutions & Use Cases",
+    title: "AI Infrastructure",
     links: [
-      { href: "/solutions#mega-scale-gpu-data-center-private-gpu-cloud-architecture", label: "GPU Data Center Architecture" },
-      { href: "/solutions#production-grade-llm-engineering-finetuning-systems", label: "Enterprise LLM Systems" },
-      { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Cyber Dom Security Mesh" },
-      { href: "/use-cases", label: "Sovereign AI Initiatives" },
-      { href: "/use-cases", label: "High-Frequency Trading" },
-      { href: "/use-cases", label: "Regulated AI Security" },
+      { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
+      { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
+      { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
+      { href: "/capabilities#energy-optimization", label: "Energy Optimization & ESG" },
+      { href: "/solutions#gpu-infra", label: "GPU Data Center Architecture" },
     ],
   },
   {

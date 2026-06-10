@@ -21,16 +21,10 @@ const homeItems = [
 ];
 
 const offeringsItems = [
-  { label: "GPU Performance Engineering", href: "/gpu-performance-engineering" },
-  { label: "AI Infrastructure Engineering", href: "/ai-infrastructure-engineering" },
-  { label: "GPU-phi Cloud Platform", href: "/platform" },
-  { label: "Agentic AI Development", href: "/agentic-ai-development" },
-  { label: "Multi-Agent Systems", href: "/multi-agent-systems" },
-  { label: "Long-Memory AI Systems", href: "/long-memory-ai-systems" },
-  { label: "AgentOps Services", href: "/agentops-services" },
-  { label: "LLMOps & LLM Engineering", href: "/llmops-services" },
-  { label: "AI Security & Cyber Dom", href: "/ai-security" },
-  { label: "All Offerings", href: "/offerings" },
+  { label: "GPU Optimization", href: "/offerings#gpu-optimization" },
+  { label: "LLM Optimization & AI Agents", href: "/offerings#llm-optimization-agents" },
+  { label: "AI Cybersecurity", href: "/offerings#ai-cybersecurity" },
+  { label: "AI Infrastructure Engineering", href: "/offerings#ai-infrastructure-engineering" },
 ];
 
 const solutionsItems = [
