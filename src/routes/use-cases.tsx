@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
@@ -86,11 +86,11 @@ const useCasesData: UseCase[] = [
     category: "Infrastructure & Scaling",
     tagline: "National-scale private cloud compute fabrics running air-gapped workloads.",
     challengeBrief: "National-scale AI infrastructure projects require deploying 10,000+ GPUs with absolute data sovereignty, high compute availability, and local regulatory alignment. Public clouds introduce security compliance gaps and lock-in risks.",
-    challengeDetailed1: "In the modern geopolitical landscape, nation-states and sovereign entities face the imperative of building independent AI capabilities without relying on US-hosted commercial public hyperscalers. The primary challenge lies in establishing massive physical compute footprints—often containing upwards of 10,000 enterprise GPUs like the H100 and Blackwell architectures—while strictly guaranteeing that zero public internet pathways, third-party support tunnels, or cross-border data telemetry channels exist. These sovereign boundaries must comply with domestic security acts, public sector records mandates, and defense-grade data classification standards.",
-    challengeDetailed2: "Furthermore, physical site orchestration at this scale introduces severe engineering challenges. Traditional virtualization hypervisors and commercial management software packages introduce unnecessary CPU scheduling overhead, reducing execution margins. Networking becomes a major bottleneck, as distributed model training runs are highly sensitive to inter-node communication latency and packet drop. Standard public cloud orchestrators cannot handle custom, hardware-level optimization, leading to thermal throttling, unbalanced load distributions, and frequent cluster-wide outages that wipe out days of training epochs.",
-    solutionBrief: "We engineered private-cloud, containerized AI training and inference fabrics deployed on-premise. The network architecture leverages custom non-blocking InfiniBand topologies with RDMA over Converged Ethernet (RoCE v2) to completely eliminate inter-node communication packet drop.",
-    solutionDetailed1: "To address these security and performance requirements, we engineered a fully air-gapped, sovereign AI orchestration platform running on bare-metal infrastructure. The physical deployment utilizes private Kubernetes clusters managed by a heavily customized, security-hardened Slurm schedule engine. Inter-node communications are managed via a custom-designed, non-blocking Clos network topology utilizing dedicated InfiniBand links. By implementing RDMA over Converged Ethernet (RoCE v2), we established zero-copy, direct memory access between GPU clusters, completely eliminating CPU kernel overhead and packet loss during critical gradient synchronization phases.",
-    solutionDetailed2: "To prevent node-failure downtime, we built a proprietary DCGM-driven telemetry system that polls hardware states every 50 milliseconds. When a GPU exhibits abnormal thermal profiles or PCIe link errors, the scheduler dynamically hot-swaps the workload to active standby nodes, leveraging instant-checkpoint resume pipelines. We also optimized the physical data pipeline by deploying local high-performance NVMe storage caches directly attached to compute nodes, ensuring that training datasets are served with sub-microsecond access times and zero dependency on remote network file shares.",
+    challengeDetailed1: "Nation-states must build independent AI capabilities on private compute — often 10,000+ enterprise GPUs — while guaranteeing zero cross-border data pathways and full compliance with domestic security and defense-grade classification standards.",
+    challengeDetailed2: "At this scale, networking becomes a critical bottleneck. Standard commercial software introduces scheduling overhead and cannot prevent thermal throttling, load imbalances, or cluster-wide outages that erase days of training progress.",
+    solutionBrief: "We engineered private-cloud, containerized AI training and inference fabrics deployed on-premise with custom non-blocking InfiniBand topologies and RDMA over Converged Ethernet (RoCE v2).",
+    solutionDetailed1: "We built a fully air-gapped sovereign AI platform on bare-metal with custom-designed Clos network topology and RDMA over RoCE v2 — enabling direct GPU-to-GPU memory access with zero CPU overhead and zero packet loss during gradient synchronization.",
+    solutionDetailed2: "A proprietary DCGM telemetry system polls hardware every 50ms, hot-swapping failing nodes before training loss. Local NVMe caches attached directly to compute nodes deliver sub-microsecond dataset access with no dependency on remote storage.",
     hardwareConfig: [
       "10,240x NVIDIA Blackwell B200 GPUs in custom liquid-cooled server enclosures",
       "Non-blocking Clos network topology with 800Gb/s InfiniBand links",
@@ -184,11 +184,11 @@ const useCasesData: UseCase[] = [
     category: "Low-Latency Compute",
     tagline: "Sub-millisecond inference pipelines bypassing CPU boundaries using custom CUDA kernels.",
     challengeBrief: "Quantitative trading firms need sub-millisecond predictive inference speeds to execute orders before markets shift. Standard web serving LLMs or bloated frameworks introduce execution latency.",
-    challengeDetailed1: "In high-frequency quantitative trading, the window of opportunity to execute arbitrage orders across major global exchanges is measured in microseconds. Quantitative researchers develop sophisticated deep learning models to predict market micro-structural movements based on order book state feeds. However, standard deep learning libraries like PyTorch and TensorFlow introduce unacceptable latency overhead. This overhead stems from Python interpreter locks, device-to-host memory copy cycles (PCIe bus bottlenecks), and standard CUDA kernel scheduling queues that introduce microsecond-level jitters.",
-    challengeDetailed2: "Under extreme market volatility—such as market openings, interest rate announcements, or sudden macroeconomic shifts—trading volume spikes exponentially. Traditional serving systems experience queue buildup, thread starvation, and page-fault bottlenecks, causing latency to cascade into milliseconds. If a prediction is delayed by even 500 microseconds, the trade signal becomes stale, leading to failed execution and severe financial losses. Firms require an inference pipeline that remains deterministic and sub-millisecond, even during peak market stress.",
-    solutionBrief: "We replaced heavy PyTorch execution paths with custom white-box CUDA kernel implementations and Graph-Compiled TensorRT inference engines, utilizing GPUDirect RDMA to bypass host-to-device copy bottlenecks.",
-    solutionDetailed1: "To achieve sub-millisecond determinism, we completely bypassed traditional framework abstractions. We re-implemented the models' core mathematical operations—including custom self-attention, layer normalization, and matrix multiplications—using raw, white-box CUDA kernels optimized for the specific architecture of local GPU tensor cores. The entire execution graph was compiled into static, low-level TensorRT engines that pre-allocate all GPU memory blocks, eliminating runtime memory allocations and garbage collection sweeps.",
-    solutionDetailed2: "We then eliminated the host-to-device memory copy bottleneck by integrating GPUDirect RDMA (GDR) and GPUDirect Storage (GDS). By allowing high-speed Mellanox NICs to read and write directly to GPU VRAM via PCIe switches, we bypassed the host CPU and system RAM entirely. Finally, we deployed custom CUDA stream scheduling that runs multiple inference pipelines asynchronously and in parallel. This guarantees that latency remains flat at under 800 microseconds, regardless of input request congestion.",
+    challengeDetailed1: "In HFT, the window to execute arbitrage orders is measured in microseconds. Standard deep learning libraries introduce unacceptable overhead from Python interpreter locks, PCIe memory copy cycles, and CUDA kernel scheduling jitters that cascade into milliseconds.",
+    challengeDetailed2: "During market volatility spikes, traditional serving systems suffer queue buildup and thread starvation. A prediction delayed by even 500μs becomes stale, causing failed execution and direct financial losses.",
+    solutionBrief: "We replaced PyTorch execution paths with custom CUDA kernel implementations and Graph-Compiled TensorRT inference engines, using GPUDirect RDMA to bypass host-to-device copy bottlenecks.",
+    solutionDetailed1: "We re-implemented core model operations — attention, layer normalization, matrix multiplications — as raw CUDA kernels optimized for local tensor cores. The execution graph is compiled into static TensorRT engines that pre-allocate all GPU memory, eliminating runtime allocations and garbage collection.",
+    solutionDetailed2: "GPUDirect RDMA allows high-speed Mellanox NICs to write directly to GPU VRAM via PCIe switches, bypassing host CPU and system RAM entirely. Multiple inference pipelines run asynchronously via CUDA streams, keeping latency flat below 800μs regardless of input congestion.",
     hardwareConfig: [
       "NVIDIA H100 PCIe GPUs with NVLink bridges",
       "Mellanox ConnectX-7 400Gb/s SmartNICs",
@@ -282,11 +282,11 @@ const useCasesData: UseCase[] = [
     category: "Infrastructure & Scaling",
     tagline: "Maximizing VRAM efficiency and request throughput with continuous KV-cache batching.",
     challengeBrief: "B2B SaaS companies introducing real-time LLM features suffer from severe margin erosion due to inefficient request concurrency, paged memory waste, and static GPU scheduling.",
-    challengeDetailed1: "As enterprise B2B SaaS platforms rapidly roll out generative AI components—such as auto-generated drafts, smart search, and autonomous email flows—the cost of model serving scales exponentially. The standard model deployment architecture allocates a static, fixed memory block on the GPU for each concurrent request's Key-Value (KV) cache. Because prompt and completion lengths are highly variable, these static allocations lead to severe memory fragmentation, with up to 60-70% of GPU VRAM sitting wasted and unutilized.",
-    challengeDetailed2: "This inefficiency limits the number of concurrent requests a single GPU can process before running out of memory (OOM), forcing SaaS companies to spin up expensive backup instances. During peak business hours, traffic spikes cause massive queue delays, spiking time-to-first-token (TTFT) and violating customer SLAs. To maintain profitability, SaaS companies must increase request concurrency per GPU by 5x-10x while maintaining rapid token delivery and shifting workloads dynamically based on cloud pricing fluctuations.",
-    solutionBrief: "We deployed an LLM Inference Optimization Layer built on vLLM and Triton Inference Server. The serving stack implements continuous batching, paged KV-cache memory management, and cost-aware Spot instance routing.",
-    solutionDetailed1: "To optimize SaaS margins, we designed and deployed a multi-tenant LLM Inference Optimization Layer utilizing the Triton Inference Server. We replaced static memory allocation with virtualized PagedAttention (built on vLLM). This technique partitions the KV-cache into small, fixed-size physical memory pages, mapping them dynamically as token generation progresses. This completely eliminated VRAM fragmentation, freeing up massive amounts of memory to support more concurrent user chats per card.",
-    solutionDetailed2: "We then implemented an iteration-level scheduling algorithm that continuously batches new incoming prompts with active generation steps, avoiding the latency penalty of waiting for an entire batch to complete. Finally, we built a real-time FinOps instance broker. This system automatically schedules non-real-time batch requests (like document processing or email drafts) to cheaper, transient Spot instances, while instantly fallback-routing critical interactive sessions to reserved, on-demand GPU nodes when Spot resources are reclaimed.",
+    challengeDetailed1: "Standard LLM deployment allocates a static, fixed KV-cache memory block per request. Because prompt and completion lengths are highly variable, this causes up to 60-70% GPU VRAM fragmentation — limiting concurrent users and forcing expensive instance scale-outs.",
+    challengeDetailed2: "During peak traffic, queue delays spike time-to-first-token and violate customer SLAs. SaaS companies must increase concurrency per GPU by 5-10x while maintaining fast token delivery and dynamically shifting workloads based on cloud pricing.",
+    solutionBrief: "We deployed an LLM Inference Optimization Layer built on vLLM and Triton Inference Server with continuous batching, paged KV-cache, and cost-aware Spot instance routing.",
+    solutionDetailed1: "We replaced static memory allocation with virtualized PagedAttention (vLLM), partitioning the KV-cache into fixed-size physical pages mapped dynamically as tokens generate — eliminating VRAM fragmentation and supporting far more concurrent sessions per GPU.",
+    solutionDetailed2: "An iteration-level scheduler continuously batches incoming prompts with active generation steps, avoiding full-batch wait latency. A real-time FinOps broker routes non-critical batch jobs to cheaper Spot instances and falls back to reserved nodes for interactive sessions during Spot reclamation.",
     hardwareConfig: [
       "Clusters of NVIDIA L40S and H100 SXM5 GPUs in auto-scaling cloud pools",
       "High-performance enterprise cloud instances with custom VM templates",
@@ -380,11 +380,11 @@ const useCasesData: UseCase[] = [
     category: "Enterprise Automation",
     tagline: "Hierarchical multi-agent worker fleets executing business workflows with human validation gates.",
     challengeBrief: "Enterprise supply chain and manufacturing operators waste hundreds of hours manually processing unstructured logistics requests, vendor contracts, and tracking data.",
-    challengeDetailed1: "For global logistics, manufacturing, and supply chain operators, business efficiency depends on executing thousands of daily administrative workflows. These include parsing unstructured vendor contracts, matching invoices against complex bills of lading, resolving shipping delays, and updating enterprise resource planning (ERP) systems. Traditional robotic process automation (RPA) tools fail because they cannot handle semantic variations in text. Simple API calls to LLMs also fail at scale, as they struggle with context drift and state synchronization during multi-step processes.",
-    challengeDetailed2: "When models operate independently without coordination, they suffer from context drift, resulting in errors like duplicate invoice payments or incorrect inventory routing. Furthermore, autonomous AI agents cannot be trusted to execute financial transactions or modify inventory records without oversight. Deploying autonomous agent networks requires a system that prevents state drift, coordinates actions across specialized sub-agents, and includes secure, human-in-the-loop validation gates.",
-    solutionBrief: "We built specialized multi-agent worker fleets utilizing LangGraph and CrewAI. The agents execute context-aware roles, share state mappings, and include secure Slack/Email action gates for human verification.",
-    solutionDetailed1: "To address these operational challenges, we built a multi-agent orchestration framework powered by LangGraph and CrewAI. The architecture uses a centralized, conflict-free state memory database. This allows individual sub-agents to share context, history, and goals in real-time, preventing state drift. We separated tasks among specialized agents: a Contract Reader, an Invoice Auditor, a Logistics Tracker, and an ERP Updater. Each agent executes micro-tools in isolated sandboxes to query databases, read PDFs, and run semantic queries.",
-    solutionDetailed2: "We then secured the autonomous network by introducing Interactive Approval Gates. For any transaction exceeding specific risk thresholds (e.g., invoices over $5,000 or destination changes), the agent pauses execution and generates a secure Slack card with detailed reasoning. The logistics coordinator can approve, deny, or edit the transaction with a single click, updating the agent's memory database to resume execution instantly. This ensures humans maintain control over high-risk decisions.",
+    challengeDetailed1: "Traditional RPA tools cannot handle semantic variations in unstructured documents like vendor contracts, bills of lading, and invoices. Simple LLM API calls fail at multi-step scale due to context drift and state synchronization errors across distributed workflows.",
+    challengeDetailed2: "When agents operate without coordination, state drift causes errors like duplicate payments or incorrect inventory routing. Autonomous agents need secure human-in-the-loop validation gates before executing financial transactions or modifying inventory records.",
+    solutionBrief: "We built specialized multi-agent worker fleets using LangGraph and CrewAI with shared state memory, role-separated agents, and secure Slack/Email action gates for human verification.",
+    solutionDetailed1: "A multi-agent orchestration framework powered by LangGraph and CrewAI uses a centralized conflict-free state memory database. Specialized agents — Contract Reader, Invoice Auditor, Logistics Tracker, ERP Updater — share context in real time, preventing drift. Each executes micro-tools in isolated sandboxes.",
+    solutionDetailed2: "Interactive Approval Gates pause execution for any transaction above risk thresholds and surface a Slack card with agent reasoning. Coordinators approve or deny with one click, updating agent memory instantly. This maintains human control over all high-risk decisions.",
     hardwareConfig: [
       "Distributed microservices clusters running on Kubernetes in hybrid-cloud configurations",
       "Local vector database clusters (Qdrant) running in high-availability mode",
@@ -478,11 +478,11 @@ const useCasesData: UseCase[] = [
     category: "Security & HIPAA Compliance",
     tagline: "Adversarial threat protection and runtime container isolation under zero-trust guidelines.",
     challengeBrief: "Defense and intelligence networks face dangerous adversarial inputs, prompt injections, and data extraction attacks when integrating generative LLMs into regulated environments.",
-    challengeDetailed1: "For national defense organizations, intelligence agencies, and tier-one financial institutions, the deployment of LLMs introduces unprecedented security risks. Traditional web security guardrails and network firewalls are completely blind to semantic attacks. Adversaries can bypass systems through prompt injection (direct commands to bypass guardrails) and indirect prompt injection (embedding commands in untrusted documents). These attacks can force models to leak system instructions, access backend tools, or compromise sensitive data.",
-    challengeDetailed2: "Furthermore, model deployments are vulnerable to training data poisoning and membership inference attacks, where adversaries extract proprietary data. Standard software containers do not protect against kernel-level exploits if an attacker escapes the model serving application. Regulated networks require a comprehensive, multi-layered security framework that inspects prompts, runs models in isolated environments, and maintains cryptographically secure logs for regulatory compliance.",
-    solutionBrief: "We integrated the AI Shield™ framework, implementing input/output validation guardrail layers and running inference tasks inside isolated WASM and gVisor Bash execution sandboxes.",
-    solutionDetailed1: "To protect regulated AI environments, we implemented the AI Shield™ security architecture. All user prompts and model completions pass through high-speed, local classification layers that scan for injection patterns, jailbreak payloads, and sensitive information. The model serving applications run in fully isolated sandboxes using gVisor kernels and WebAssembly (WASM). This isolates the application from the host OS, preventing privilege escalation and escaping attempts.",
-    solutionDetailed2: "We then secured the data layer by implementing differential privacy filters. These filters automatically mask Personally Identifiable Information (PII) and classified entities before prompts reach the model. All system operations, inputs, and outputs are written to an immutable, cryptographically signed ledger using hash-chain validation. This provides auditors with a tamper-proof trail that complies with NIST SP 800-218 and EU AI Act regulations.",
+    challengeDetailed1: "Traditional web security firewalls are blind to semantic attacks. Adversaries can exploit prompt injection (direct commands) or indirect injection (commands embedded in untrusted documents) to force models to leak system instructions, access backend tools, or compromise sensitive data.",
+    challengeDetailed2: "Model deployments are also vulnerable to training data poisoning and membership inference attacks. Standard containers do not protect against kernel-level exploits if an attacker escapes the model serving application — regulated networks require cryptographically secure audit logs for compliance.",
+    solutionBrief: "We integrated the AI Shield™ framework with input/output validation guardrails and ran inference inside isolated WASM and gVisor Bash execution sandboxes.",
+    solutionDetailed1: "All prompts and model completions pass through high-speed local classification layers scanning for injection patterns, jailbreak payloads, and sensitive data. Model servers run in gVisor kernel + WebAssembly sandboxes that isolate the application from the host OS, preventing privilege escalation.",
+    solutionDetailed2: "Differential privacy filters automatically mask PII before prompts reach the model. All system operations are written to an immutable, cryptographically signed ledger using hash-chain validation — providing auditors with a tamper-proof trail compliant with NIST SP 800-218 and the EU AI Act.",
     hardwareConfig: [
       "Secure, air-gapped on-premise datacenter racks in defense boundaries",
       "FIPS 140-3 validated Hardware Security Modules (HSMs) for encryption",
@@ -576,11 +576,11 @@ const useCasesData: UseCase[] = [
     category: "Security & HIPAA Compliance",
     tagline: "Fine-tuned clinical models running in secure HIPAA-compliant environments.",
     challengeBrief: "Medical clinics must summarize patient charts and extract diagnostic code data but are legally barred by HIPAA guidelines from sending patient records to external public APIs.",
-    challengeDetailed1: "Healthcare providers, clinics, and medical research institutes handle massive amounts of patient data. Clinicians spend up to 30% of their workday reading historical electronic health records (EHR), typing summaries, and mapping symptoms to ICD-10 diagnostic codes. Deploying generative LLMs can automate these workflows, but patient privacy laws like HIPAA legally prohibit transmitting Protected Health Information (PHI) to external, third-party model APIs.",
-    challengeDetailed2: "At the same time, generic foundational models exhibit unacceptable hallucination rates. A model hallucinating a medical dosage or drug interaction poses serious risks to patient safety. Medical systems require a specialized clinical LLM that runs entirely within a secure, on-premise datacenter, processes complex EHR charts with high accuracy, and cross-references its decisions against verified medical databases.",
+    challengeDetailed1: "Healthcare providers spend up to 30% of the workday reading EHR records, typing summaries, and mapping symptoms to ICD-10 codes. LLMs can automate this but HIPAA legally prohibits transmitting Protected Health Information (PHI) to any external third-party API.",
+    challengeDetailed2: "Generic models also exhibit hallucination rates that are unacceptable in clinical settings — a hallucinated drug interaction poses direct patient safety risks. Medical AI requires on-premise specialist models with verified cross-referencing against medical databases.",
     solutionBrief: "We set up private-cloud model clusters running custom fine-tuned Llama 70B clinical models, quantized to FP8 using AutoAWQ and aligned with doctor annotations via clinical DPO.",
-    solutionDetailed1: "To address these compliance and accuracy requirements, we built an isolated, on-premise clinical LLM cluster running customized Llama-3 70B models. We quantized the models to FP8 using AutoAWQ, reducing VRAM footprint by 50% so they run efficiently on local hardware. We aligned the models using Clinical Direct Preference Optimization (DPO), training them on expert-annotated clinical datasets to ensure proper medical terminology.",
-    solutionDetailed2: "We then eliminated hallucinations by integrating a semantic validator. When the model generates a chart summary, the validator cross-references recommendations against a medical knowledge graph (UMLS and SNOMED-CT). If a conflict is detected, the validator flags the discrepancy and corrects it before output generation. The entire environment is air-gapped within the provider's private cloud, ensuring zero data leaks and full HIPAA compliance.",
+    solutionDetailed1: "We built an isolated on-premise clinical LLM cluster running Llama-3 70B models quantized to FP8 with AutoAWQ — cutting VRAM footprint by 50%. Models were aligned using Clinical DPO trained on expert-annotated datasets to ensure proper medical terminology and diagnostic reasoning.",
+    solutionDetailed2: "A semantic validator cross-references model outputs against UMLS and SNOMED-CT knowledge graphs in real time. Any conflicts are flagged and corrected before output generation. The entire environment is air-gapped within the provider's private cloud, ensuring zero data leaks and full HIPAA compliance.",
     hardwareConfig: [
       "On-premise enterprise GPU racks (NVIDIA H100 or A100 SXM5)",
       "Air-gapped local storage clusters (HIPAA certified and encrypted)",
@@ -684,6 +684,27 @@ function UseCasesPage() {
   const [activeCategory, setActiveCategory] = useState("All Use Cases");
   const [selectedUseCase, setSelectedUseCase] = useState<UseCase | null>(null);
   const [detailTab, setDetailTab] = useState<"deep-dive" | "capabilities" | "timeline">("deep-dive");
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        const found = useCasesData.find((uc) => uc.id === id);
+        if (found) {
+          setSelectedUseCase(found);
+          setDetailTab("deep-dive");
+        }
+      }
+    };
+
+    handleHashChange();
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   const filteredUseCases = useCasesData.filter(item => {
     if (activeCategory === "All Use Cases") return true;
@@ -839,7 +860,7 @@ function UseCasesPage() {
               </div>
 
               <div className="mb-6">
-                <h2 className="text-3xl font-extrabold text-gradient-primary mb-2">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-gradient-primary mb-2">
                   {selectedUseCase.title}
                 </h2>
                 <p className="text-sm text-muted-foreground italic">

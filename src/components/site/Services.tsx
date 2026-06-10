@@ -72,7 +72,7 @@ export function Services() {
         <SectionHeading
           eyebrow="Capabilities"
           title="Full-Spectrum AI Engineering"
-          description="From GPU kernels to autonomous enterprise operations — one engineering partner for every layer of your AI stack."
+          description="One engineering partner for every layer of your AI stack — from GPU kernels to autonomous enterprise operations."
         />
 
         <div className="mt-14 grid gap-px bg-border/30 border border-border/40 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-4">

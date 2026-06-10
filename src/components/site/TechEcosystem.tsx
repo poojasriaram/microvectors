@@ -7,29 +7,29 @@ const layers = [
     name: "AI Platforms Layer",
     icon: Bot,
     items: ["OpenAI", "Anthropic", "Google Gemini", "Llama", "Mistral"],
-    accent: "text-blue-400",
-    bg: "bg-blue-500/5 border-blue-500/20 group-hover:border-blue-500/40",
+    accent: "text-accent bg-accent/10 border-accent/20",
+    bg: "bg-surface hover:border-accent/30",
   },
   {
     name: "Cloud Layer",
     icon: Cloud,
     items: ["AWS", "Azure", "Google Cloud"],
-    accent: "text-cyan-400",
-    bg: "bg-cyan-500/5 border-cyan-500/20 group-hover:border-cyan-500/40",
+    accent: "text-primary bg-primary/10 border-primary/20",
+    bg: "bg-surface hover:border-primary/30",
   },
   {
     name: "Infrastructure & Operations Layer",
     icon: Server,
     items: ["Kubernetes", "Docker", "Ray", "Kubeflow", "MLflow"],
-    accent: "text-indigo-400",
-    bg: "bg-indigo-500/5 border-indigo-500/20 group-hover:border-indigo-500/40",
+    accent: "text-indigo-600 bg-indigo-50 border-indigo-100",
+    bg: "bg-surface hover:border-indigo-300",
   },
   {
     name: "GPU & Performance Layer",
     icon: Cpu,
     items: ["NVIDIA", "CUDA", "TensorRT", "NCCL", "Triton"],
-    accent: "text-accent",
-    bg: "bg-accent/5 border-accent/20 group-hover:border-accent/40",
+    accent: "text-emerald-600 bg-emerald-50 border-emerald-100",
+    bg: "bg-surface hover:border-emerald-300",
   },
 ];
 
@@ -85,7 +85,7 @@ export function TechEcosystem() {
           </div>
 
           {/* Technology Layer Stack Layout */}
-          <div className="relative z-10 space-y-8 max-w-5xl mx-auto">
+          <div className="relative z-10 space-y-6 max-w-5xl mx-auto">
             {layers.map((l, i) => (
               <motion.div
                 key={l.name}
@@ -93,11 +93,11 @@ export function TechEcosystem() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group grid md:grid-cols-[220px_1fr] items-center gap-6 rounded-xl border border-border/40 bg-background/60 p-6 md:p-8 backdrop-blur-sm transition-all hover:bg-background/80"
+                className="group grid md:grid-cols-[240px_1fr] items-center gap-6 rounded-xl border border-border/60 bg-card p-6 md:p-8 shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-md"
               >
                 {/* Layer Heading */}
-                <div className="flex items-center gap-3">
-                  <div className={`h-10 w-10 rounded-lg bg-surface border border-border grid place-items-center ${l.accent}`}>
+                <div className="flex items-center gap-3.5">
+                  <div className={`h-10 w-10 rounded-lg border grid place-items-center shrink-0 ${l.accent}`}>
                     <l.icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -112,8 +112,8 @@ export function TechEcosystem() {
                   {l.items.map((item, ii) => (
                     <motion.span
                       key={item}
-                      whileHover={{ scale: 1.05 }}
-                      className={`rounded-lg border px-4 py-2 text-xs font-semibold text-foreground/90 transition-all cursor-default ${l.bg}`}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-md border border-border/80 bg-surface px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all cursor-default hover:bg-background hover:border-primary/30 hover:text-accent shadow-sm"
                     >
                       {item}
                     </motion.span>

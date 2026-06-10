@@ -71,20 +71,18 @@ const llmOfferings: LlmOffering[] = [
     number: "01",
     title: "Enterprise AI Foundation & LLM Factory",
     description:
-      "Design, build, and operationalize an enterprise-grade LLM platform enabling secure deployment, governance, observability, lifecycle management, and continuous optimization of AI applications across the organization.",
+      "Design, build, and operationalize an enterprise-grade LLM platform enabling secure deployment, governance, observability, and continuous optimization of AI applications across the organization.",
     enhancement:
-      "The platform now includes an LLM Inference Optimization Layer — a serving-architecture tier built on TensorRT-LLM, vLLM, or Triton Inference Server that delivers continuous batching, paged KV-cache management, and model-variant routing so that every downstream AI application inherits optimized latency, throughput, and cost characteristics from day one.",
+      "Includes an LLM Inference Optimization Layer built on TensorRT-LLM, vLLM, or Triton — delivering continuous batching, paged KV-cache, and model-variant routing from day one.",
     statementOfValue:
-      "Build once. Scale AI across hundreds of business functions, geographies, and business units — with inference performance and cost efficiency baked into the foundation.",
+      "Build once. Scale AI across the enterprise with performance and cost efficiency baked in.",
     before: [
-      "Multiple AI pilots running on default HF/vanilla serving stacks",
+      "Multiple AI pilots running on default serving stacks",
       "No governance; shadow AI usage across departments",
-      "Security concerns and vendor lock-in",
-      "No reusable architecture across teams",
-      "Each team independently selects models and serving configs — no shared inference optimization",
+      "No reusable architecture or shared inference optimization",
     ],
     situation:
-      "Enterprise wants to move from experimentation to enterprise-scale AI deployment with a production-grade, optimization-aware serving backbone.",
+      "Enterprise wants to move from AI experimentation to production-grade, optimization-aware deployment.",
     kpis: [
       { kpi: "AI Projects in Production", before: "<10%", after: ">70%" },
       { kpi: "Time to Deploy AI App", before: "6 Months", after: "6 Weeks" },
@@ -107,15 +105,15 @@ const llmOfferings: LlmOffering[] = [
       { text: "Centralized KV-cache and prompt-cache management", isNew: true },
       { text: "GPU fleet observability (utilization, memory, thermal, queue depth)", isNew: true },
     ],
-    timeline: "18–24 Weeks (Assessment 2 wks → Architecture Design 4 wks → Platform Build + Inference Optimization Layer 10–14 wks → Production Rollout 4 wks)",
+    timeline: "18–24 Weeks",
     caseStudies: [
       {
         title: "Global Insurance Conglomerate",
         industry: "BFSI / Fortune 100",
         situation:
-          "A Fortune 100 insurer had 14 separate AI pilot projects across claims, underwriting, actuarial, and customer service — each with its own model, serving infrastructure, and cloud account. No shared platform. Governance was nonexistent; regulators flagged uncontrolled AI usage.",
+          "A Fortune 100 insurer had 14 separate AI pilots — each with its own model and cloud account. No shared platform and no governance; regulators flagged uncontrolled AI usage.",
         intervention:
-          "Built an enterprise LLM Factory on a unified platform with a Triton Inference Server backbone, centralized prompt-guardrails, and a model-routing layer that dispatched simple FAQ queries to a fine-tuned 7B model and complex reasoning tasks to a 70B model.",
+          "Built a unified LLM Factory on Triton with centralized guardrails and model routing (7B for FAQs, 70B for complex reasoning).",
         results: [
           { metric: "AI apps in production", before: "3", after: "28" },
           { metric: "Governance coverage", before: "12%", after: "100%" },
@@ -128,9 +126,9 @@ const llmOfferings: LlmOffering[] = [
         title: "National Telecom Provider",
         industry: "Telecom / APAC",
         situation:
-          "A major APAC telecom had deployed a customer-facing virtual assistant on raw Hugging Face text-generation-inference without batching or caching. Peak-hour latency exceeded 12 seconds; GPU utilization averaged 22%.",
+          "A major APAC telecom deployed a virtual assistant without batching or caching. Peak-hour latency exceeded 12 seconds; GPU utilization averaged 22%.",
         intervention:
-          "Migrated to vLLM with continuous batching, implemented prefix caching for repeated system prompts (~1,800 tokens, identical across 95% of sessions), and introduced speculative decoding with a 1.5B draft model against the serving 13B model.",
+          "Migrated to vLLM with continuous batching, prefix caching, and speculative decoding with a 1.5B draft model.",
         results: [
           { metric: "P95 latency (peak)", before: "12.4s", after: "1.8s" },
           { metric: "GPU utilization", before: "22%", after: "74%" },
@@ -146,19 +144,18 @@ const llmOfferings: LlmOffering[] = [
     number: "02",
     title: "Enterprise Knowledge Intelligence & RAG Factory",
     description:
-      "Build enterprise knowledge systems that connect LLMs to internal documents, contracts, SOPs, policies, research repositories, engineering documents, CRM systems, and ERP platforms.",
+      "Build enterprise knowledge systems that connect LLMs to internal documents, contracts, SOPs, CRM, and ERP platforms.",
     enhancement:
-      "Includes a RAG Performance Optimization Module — covering embedding-model selection and distillation, semantic chunking strategies, hybrid sparse+dense retrieval tuning, re-ranker optimization, and context-window budget management to maximize answer accuracy while minimizing token cost.",
+      "Includes a RAG Performance Optimization Module covering embedding distillation, hybrid retrieval tuning, re-ranker optimization, and context-window budget management.",
     statementOfValue:
-      "Turn decades of enterprise knowledge into an AI-accessible strategic asset — with retrieval precision and cost efficiency engineered from the ground up.",
+      "Turn decades of enterprise knowledge into an AI-accessible asset with retrieval precision engineered from the ground up.",
     before: [
       "Knowledge trapped in silos; employees spend hours searching",
-      "Duplicate work and inconsistent answers across teams",
-      "Naive chunking yields irrelevant retrieval — LLM receives noisy context and hallucinates",
+      "Naive chunking yields irrelevant retrieval and hallucinations",
       "Context stuffing drives spiraling token costs",
     ],
     situation:
-      "Large enterprises possess millions of documents but employees cannot access information efficiently. RAG implementations suffer from low retrieval precision, excessive context stuffing, and spiraling token costs.",
+      "Enterprises have millions of documents but poor RAG implementations suffer from low precision, context stuffing, and high token costs.",
     kpis: [
       { kpi: "Search Time", before: "2 Hours/Day", after: "10 Minutes" },
       { kpi: "Employee Productivity", before: "Baseline", after: "+35%" },
@@ -183,15 +180,15 @@ const llmOfferings: LlmOffering[] = [
       { text: "Context-window budget optimizer (only send the 3–5 most relevant passages, not 20)", isNew: true },
       { text: "Chunking strategy per document type (contracts vs. engineering drawings vs. emails)", isNew: true },
     ],
-    timeline: "8–14 Weeks (optimization modules integrated into standard delivery)",
+    timeline: "8–14 Weeks",
     caseStudies: [
       {
         title: "Top-20 Global Law Firm",
         industry: "Professional Services",
         situation:
-          "The firm stored 40 million legal documents across 6 DMS platforms. Associates spent 2.3 hours per day searching for precedent. A first-generation RAG attempt using OpenAI Ada embeddings and naive 512-token fixed chunking produced 41% precision@5 — lawyers stopped using it within 3 weeks.",
+          "40M legal documents across 6 DMS platforms. Associates spent 2.3 hrs/day searching. First RAG attempt hit 41% precision@5 — lawyers abandoned it within 3 weeks.",
         intervention:
-          "Implemented a domain-tuned hybrid retrieval pipeline — fine-tuned a sentence-transformer on 50K lawyer-annotated query-passage pairs (97% recall at 1/10th the parameters), deployed legal-domain BM25 with custom analyzers for citation and statute references, added a cross-encoder re-ranker, and restructured chunking to respect clause boundaries in contracts and section headings in briefs.",
+          "Built a domain-tuned hybrid retrieval pipeline with fine-tuned sentence transformers, BM25 + dense retrieval, a cross-encoder re-ranker, and clause-boundary chunking.",
         results: [
           { metric: "Retrieval precision@5", before: "41%", after: "93%" },
           { metric: "Associate search time", before: "2.3 hrs/day", after: "18 min/day" },
@@ -205,9 +202,9 @@ const llmOfferings: LlmOffering[] = [
         title: "Top-5 Pharma R&D Division",
         industry: "Healthcare / Life Sciences",
         situation:
-          "The R&D division needed to query 12 million internal documents (clinical trial reports, FDA submissions, research papers, lab notebooks). The existing keyword search missed 55% of relevant results. Token costs for their first RAG prototype were $47,000/month because every query stuffed the full 128K context window.",
+          "12M internal R&D documents. Keyword search missed 55% of results. First RAG prototype cost $47K/month because every query stuffed the full 128K context window.",
         intervention:
-          "Built a multi-stage retrieval pipeline: (1) lightweight BM25 pre-filter to narrow from 12M to ~5K candidates, (2) bi-encoder vector search for top 50, (3) cross-encoder re-ranker for final top-5. Implemented a context-budget controller and a query-cache layer eliminating redundant retrieval for common compound/drug-name queries (38% cache hit rate).",
+          "Built 3-stage retrieval (BM25 pre-filter → bi-encoder → cross-encoder re-ranker), context-budget controller, and query cache with 38% cache hit rate.",
         results: [
           { metric: "Relevant document discovery rate", before: "45%", after: "94%" },
           { metric: "Avg tokens consumed per query", before: "98,000", after: "4,200" },
@@ -223,19 +220,18 @@ const llmOfferings: LlmOffering[] = [
     number: "03",
     title: "Agentic Enterprise Automation",
     description:
-      "Deploy autonomous and semi-autonomous AI agents capable of reasoning, planning, executing workflows, interacting with enterprise systems, and collaborating with human teams.",
+      "Deploy autonomous AI agents capable of reasoning, planning, executing workflows, and collaborating with human teams.",
     enhancement:
-      "Includes an Agent Inference Optimization Layer — agents are token-hungry by nature (multi-step reasoning, tool calls, chain-of-thought). We engineer the agent serving stack with: (a) speculative decoding for faster chain-of-thought generation, (b) step-level model routing (cheap model for simple tool-selection steps, powerful model for final reasoning), (c) KV-cache reuse across agent steps within a single task, and (d) token-budget governance per agent task to prevent runaway cost.",
+      "Includes an Agent Inference Optimization Layer: speculative decoding, step-level model routing, KV-cache reuse across agent steps, and token-budget governance to prevent runaway costs.",
     statementOfValue:
-      "Move from AI answering questions to AI completing work — with each agent task engineered for cost and latency efficiency.",
+      "Move from AI answering questions to AI completing work — with every agent task optimized for cost and latency.",
     before: [
       "Manual workflows with multiple handoffs and repetitive tasks",
-      "High operational costs and low throughput",
-      "Agent prototypes work in demos but are too slow and expensive for production",
+      "Agent prototypes work in demos but too slow and expensive for production",
       "Multi-step agents consume 10–50x more tokens than simple Q&A",
     ],
     situation:
-      "Organizations seek workforce productivity improvements beyond chatbots but discover that agentic workflows have fundamentally different inference cost and latency profiles than single-turn chat.",
+      "Agentic workflows have fundamentally different inference cost and latency profiles than single-turn chat.",
     kpis: [
       { kpi: "Process Completion Time", before: "Days", after: "Minutes" },
       { kpi: "Human Intervention", before: "100%", after: "20%" },
@@ -259,15 +255,15 @@ const llmOfferings: LlmOffering[] = [
       { text: "Speculative decoding for chain-of-thought (3x faster reasoning generation)", isNew: true },
       { text: "Agent observability dashboard (tokens/step, latency/step, cost/step, tool-call success rate)", isNew: true },
     ],
-    timeline: "8–14 Weeks (extended from 6–12 to incorporate agent optimization engineering)",
+    timeline: "8–14 Weeks",
     caseStudies: [
       {
         title: "Fortune 500 Financial Services Firm",
         industry: "BFSI",
         situation:
-          "A global bank piloted an AI agent for KYC/AML document review. The agent reasoned through 8–15 steps per case. Average task consumed 52,000 tokens, took 58 seconds, and cost $0.52 per case. With 300,000 cases/month, this was $156,000/month — 4x the approved budget.",
+          "Global bank KYC/AML agent consumed 52,000 tokens per case at $0.52/case — 4x the approved budget for 300K monthly cases.",
         intervention:
-          "Implemented step-level model routing: a lightweight 8B classifier determined at each step whether the reasoning task was 'simple extraction' (routed to a quantized 7B model) or 'complex judgment' (routed to the 70B model). Implemented prefix-caching across agent steps so the system prompt, document context, and prior reasoning steps were cached in KV-memory. Added a hard token-budget governor of 10,000 tokens per case with escalation logic.",
+          "Step-level model routing (8B classifier → 7B or 70B), KV-cache prefix sharing across steps, and hard token-budget governor of 10K tokens per case.",
         results: [
           { metric: "Tokens per case", before: "52,000", after: "7,800" },
           { metric: "Latency per case (P95)", before: "58s", after: "8.2s" },
@@ -281,9 +277,9 @@ const llmOfferings: LlmOffering[] = [
         title: "Large E-Commerce Marketplace",
         industry: "Retail",
         situation:
-          "A large online marketplace deployed a customer-service agent that handled returns, disputes, and seller inquiries using a single large model for all steps. During peak traffic, agent latency hit 35 seconds, and the company was burning $340,000/month on inference.",
+          "Customer-service agent used a single large model for all steps. Peak latency hit 35 seconds and inference cost reached $340K/month.",
         intervention:
-          "Built a three-tier agent serving architecture: (1) a distilled intent classifier (1.3B) for routing and slot-filling, (2) a 7B model for policy retrieval and standard response generation, (3) the full 70B model only for complex dispute resolution. Implemented speculative decoding on the 70B tier using the 7B model as draft. Added semantic caching — semantically similar queries (cosine similarity > 0.95) returned cached agent responses (34% cache hit rate).",
+          "3-tier architecture (1.3B classifier → 7B for standard responses → 70B for disputes), speculative decoding, and semantic caching with 34% hit rate.",
         results: [
           { metric: "Avg agent latency", before: "18s", after: "3.1s" },
           { metric: "P99 agent latency", before: "35s", after: "7.8s" },
@@ -300,19 +296,18 @@ const llmOfferings: LlmOffering[] = [
     number: "04",
     title: "Industry-Specific LLM Solutions",
     description:
-      "Purpose-built LLM platforms optimized for specific industries, regulations, workflows, terminology, and operational requirements.",
+      "Purpose-built LLM platforms optimized for specific industries, regulations, workflows, and terminology.",
     enhancement:
-      "Each industry solution now includes domain-optimized inference engineering: industry-specific model distillation (compress a general 70B model into a 7–13B specialist that matches domain accuracy), fine-tuned quantization calibration (quantization-aware training with domain-specific calibration data to prevent accuracy loss on industry jargon), and latency SLA engineering tuned to industry-specific workflow requirements (e.g., sub-second for real-time trading, relaxed for batch clinical coding).",
+      "Includes domain distillation (compress 70B → 7–13B specialist), quantization-aware training with industry calibration data, and latency SLA engineering per workflow.",
     statementOfValue:
-      "Industry expertise embedded directly into AI systems — with domain-specific model compression that delivers 3–10x cost reduction without accuracy loss.",
+      "Industry expertise embedded directly into AI — with domain-specific model compression delivering 3–10x cost reduction.",
     before: [
       "Generic models fail on proprietary industry terminology",
-      "No latency SLAs tuned to industry-specific workflows",
       "High inference cost using oversized general-purpose models",
       "Compliance gaps in regulated industries",
     ],
     situation:
-      "Industry-specific AI demands purpose-built models and serving stacks — not generic deployments. Domain accuracy, latency SLAs, and compliance requirements differ fundamentally by vertical.",
+      "Industry-specific AI demands purpose-built models and serving stacks with domain accuracy and compliance requirements.",
     kpis: [
       { kpi: "Claims Processing Time", before: "5 Days", after: "2 Hours" },
       { kpi: "Underwriting Cycle", before: "3 Days", after: "30 Minutes" },
@@ -334,15 +329,15 @@ const llmOfferings: LlmOffering[] = [
       { text: "HIPAA-compliant on-prem GPU-encrypted inference for healthcare", isNew: true },
       { text: "Sub-500ms fraud scoring with TensorRT-LLM + CUDA graph capture", isNew: true },
     ],
-    timeline: "12–20 Weeks (varies by industry vertical and compliance requirements)",
+    timeline: "12–20 Weeks",
     caseStudies: [
       {
         title: "Tier-1 Global Bank",
         industry: "BFSI",
         situation:
-          "The bank needed real-time fraud detection using LLM analysis of transaction narratives. The general-purpose 70B model scored 96.2% accuracy but had a P95 latency of 3.2 seconds — too slow for real-time transaction screening requiring sub-500ms decisions.",
+          "Real-time fraud detection needed sub-500ms decisions. The 70B model was accurate (96.2%) but P95 latency was 3.2 seconds — too slow for production.",
         intervention:
-          "Distilled the 70B model into a 7B fraud-specialist using 4.8M labeled transaction narratives. Applied GPTQ INT4 quantization with fraud-domain calibration data. Deployed on TensorRT-LLM with CUDA graph capture for deterministic latency. Built a two-stage cascade: the 7B model screens all transactions in <400ms; only the top 2% riskiest transactions are escalated to the full 70B model for deep analysis.",
+          "Distilled to a 7B fraud specialist, GPTQ INT4 quantized, deployed on TensorRT-LLM with CUDA graph capture. 2-stage cascade: 7B screens all, top 2% escalate to 70B.",
         results: [
           { metric: "Screening latency (P95)", before: "3,200ms", after: "380ms" },
           { metric: "Fraud detection accuracy", before: "96.2%", after: "95.8% (within tolerance)" },
@@ -356,9 +351,9 @@ const llmOfferings: LlmOffering[] = [
         title: "42-Hospital Network",
         industry: "Healthcare",
         situation:
-          "The network deployed an LLM for automated ICD-10 medical coding from clinical notes. The initial 70B general model achieved 94% coding accuracy at $0.08/note. With 2.8M notes/month, the annualized cost was $2.7M. IT leadership demanded sub-$500K annual cost.",
+          "Automated ICD-10 coding from clinical notes. The 70B model cost $2.7M/year at $0.08/note. Leadership demanded sub-$500K annual spend.",
         intervention:
-          "Distilled a 13B medical-coding specialist trained on 6M anonymized clinical note-to-ICD-code pairs. Applied SmoothQuant INT8 quantization to preserve accuracy on rare disease codes. Implemented a routing layer: simple single-diagnosis notes (68% of volume) handled by the 13B model; complex multi-morbidity notes escalated to the 70B model. Deployed on a private NVIDIA DGX cluster for HIPAA compliance.",
+          "Distilled a 13B medical-coding specialist (6M clinical note pairs), SmoothQuant INT8 quantized, with routing: 68% of simple notes to 13B, complex cases to 70B. Deployed on HIPAA-compliant private DGX cluster.",
         results: [
           { metric: "Coding accuracy", before: "94%", after: "97.1% (domain tuning improved it)" },
           { metric: "Cost per note", before: "$0.08", after: "$0.011" },
@@ -375,21 +370,18 @@ const llmOfferings: LlmOffering[] = [
     number: "05",
     title: "LLM Inference Optimization & AI FinOps",
     description:
-      "This is a deep LLM inference-optimization engineering engagement delivered by specialists with expertise spanning GPU architecture, model compression, serving systems, and workload-aware resource allocation. Research demonstrates that workload-aware GPU allocation across heterogeneous GPU types can reduce deployment costs by up to 77% while maintaining service-level objectives.",
+      "Deep LLM inference optimization engineering — reducing deployment costs by up to 77% while maintaining SLOs through model compression, serving engine tuning, and workload-aware GPU allocation.",
     enhancement:
-      "Full-stack optimization across four layers: Model-Level (quantization, distillation, pruning), Inference-Engine (TensorRT-LLM, continuous batching, PagedAttention, speculative decoding), Serving-Architecture (model routing, semantic caching, Mélange-style heterogeneous GPU allocation), and Infrastructure & FinOps (GPU right-sizing, spot strategies, token-level chargeback).",
+      "Full-stack optimization: Model-Level (quantization, distillation), Inference-Engine (TensorRT-LLM, PagedAttention, speculative decoding), Serving-Architecture (model routing, semantic caching, Mélange GPU allocation), and FinOps (token-level chargeback).",
     statementOfValue:
-      "Reduce AI operating costs by 30–77% without sacrificing performance — through deep inference engineering, not just cloud cost management.",
+      "Reduce AI operating costs by 30–77% through deep inference engineering — not just cloud cost management.",
     before: [
       "GPU costs exploding with no optimization strategy",
-      "Wrong model choices: using 70B where a distilled 7B suffices",
-      "Uncontrolled token consumption across teams",
-      "Low GPU utilization (30% average) with default serving configs",
-      "No awareness of heterogeneous GPU cost-efficiency",
+      "Low GPU utilization (30% avg) with default serving configs",
       "No model routing — every query hits the most expensive model",
     ],
     situation:
-      "Organizations are paying 3–10x more than necessary on LLM inference because serving stacks are running at default configuration, models are not compressed, and GPU fleet composition is not matched to workload characteristics.",
+      "Organizations pay 3–10x more than necessary because serving stacks run at defaults and GPU fleet composition is unmatched to workload needs.",
     kpis: [
       { kpi: "Cost Per Query", before: "$0.08", after: "$0.015" },
       { kpi: "GPU Utilization", before: "30%", after: "82%" },
@@ -416,20 +408,19 @@ const llmOfferings: LlmOffering[] = [
       { text: "Token-level FinOps with per-BU chargeback", isNew: true },
       { text: "GPU architecture advisory (which GPU for which workload)", isNew: true },
     ],
-    timeline: "10–14 Weeks (Assessment 2 wks → Optimization Design 2 wks → Implementation 4–8 wks → Validation & Tuning 2 wks)",
+    timeline: "10–14 Weeks",
     caseStudies: [
       {
         title: "B2B SaaS Platform Company",
         industry: "Technology",
         situation:
-          "A B2B SaaS company serving 50,000 enterprise customers had embedded an LLM-powered copilot into its product. Monthly inference bill had grown to $1.2M on Azure A100 instances and was climbing 15% month-over-month. The CFO issued an ultimatum: cut AI costs by 50% within 90 days or the copilot becomes a premium-only feature.",
+          "$1.2M/month inference bill on Azure A100s, growing 15% MoM. CFO ultimatum: cut 50% in 90 days or copilot becomes premium-only.",
         intervention: "",
         interventionItems: [
-          { label: "Model Distillation", detail: "Distilled the 70B general copilot into a 13B product-specialist (fine-tuned on 800K product-specific Q&A pairs). 96% accuracy match on held-out eval." },
-          { label: "Quantization", detail: "Applied AWQ INT4 on the 13B model, deployed on TensorRT-LLM — 2.5x additional throughput gain." },
-          { label: "Routing", detail: "Built a 350M-parameter query classifier: 72% of queries (FAQ, simple instructions) routed to a cached 1.5B model; 28% routed to 13B." },
-          { label: "Caching", detail: "Implemented semantic response caching with 38% hit rate." },
-          { label: "GPU Right-Sizing", detail: "Migrated from all-A100 to Mélange-optimized mix: H100 for peak real-time, A10G for batch/tier-2, T4 for dev/staging — 40% infrastructure cost reduction." },
+          { label: "Distillation", detail: "Compressed 70B → 13B product specialist (800K Q&A pairs, 96% accuracy match)." },
+          { label: "Quantization", detail: "AWQ INT4 on 13B model via TensorRT-LLM — 2.5x throughput gain." },
+          { label: "Routing + Caching", detail: "350M classifier routes 72% of queries to 1.5B model; semantic caching at 38% hit rate." },
+          { label: "GPU Mix", detail: "Migrated to Mélange-optimized fleet (H100/A10G/T4) — 40% infrastructure cost reduction." },
         ],
         results: [
           { metric: "Monthly inference cost", before: "$1,200,000", after: "$185,000" },
@@ -444,14 +435,13 @@ const llmOfferings: LlmOffering[] = [
         title: "Government Defense & Intelligence Agency",
         industry: "Public Sector / Air-Gapped",
         situation:
-          "A defense intelligence agency ran LLM-powered document analysis on a classified air-gapped network with 200 NVIDIA A100 GPUs, processing 50,000 documents/day. The agency needed to double throughput for a new mission requirement without purchasing additional hardware (procurement cycle: 18 months).",
+          "Air-gapped 200-GPU A100 network processing 50K docs/day. Mission required doubling throughput with zero new hardware (18-month procurement cycle).",
         intervention: "",
         interventionItems: [
-          { label: "Quantization", detail: "GPTQ INT4 with defense-domain calibration (intelligence-report corpus); accuracy loss < 0.8% on key extraction tasks." },
-          { label: "Continuous Batching", detail: "Migrated from naive sequential serving to vLLM with continuous batching; effective batch size jumped from 1.2 to 8.4." },
-          { label: "Speculative Decoding", detail: "Deployed 7B draft model for speculative decoding; 2.1x speedup on long-document summarization." },
-          { label: "KV-Cache Optimization", detail: "Paged KV-cache with prefix sharing across documents with identical system prompts (95% of tasks); memory savings enabled 3x more concurrent sequences." },
-          { label: "Workload Scheduling", detail: "Batch analysis jobs scheduled during off-peak hours; peak hours reserved for real-time analyst queries with strict SLOs." },
+          { label: "Quantization", detail: "GPTQ INT4 with defense-domain calibration; <0.8% accuracy loss." },
+          { label: "Continuous Batching", detail: "Migrated to vLLM; batch size jumped from 1.2 to 8.4." },
+          { label: "Speculative Decoding", detail: "7B draft model — 2.1x speedup on long-doc summarization." },
+          { label: "KV-Cache + Scheduling", detail: "Paged KV-cache with prefix sharing; off-peak batch scheduling with reserved SLO capacity for analysts." },
         ],
         results: [
           { metric: "Documents processed/day", before: "50,000", after: "127,000" },
@@ -469,19 +459,18 @@ const llmOfferings: LlmOffering[] = [
     number: "06",
     title: "Sovereign AI & Private LLM Platforms",
     description:
-      "Build private, sovereign, and on-premise LLM environments for governments, defense, BFSI, healthcare, telecom, and regulated industries.",
+      "Build private, sovereign, and on-premise LLM environments for governments, defense, BFSI, healthcare, and regulated industries.",
     enhancement:
-      "Includes On-Prem Inference Optimization Engineering — sovereign deployments face unique constraints: limited GPU budgets (cannot elastically scale), air-gapped environments (no access to cloud-managed serving tools), and strict latency/throughput requirements. We deliver full-stack optimization for constrained on-prem environments: aggressive model compression to fit within fixed GPU memory, edge-optimized serving (TensorRT-LLM or ONNX Runtime), and workload scheduling to maximize throughput on fixed hardware.",
+      "Includes On-Prem Inference Optimization: aggressive model compression for fixed GPU memory, TensorRT-LLM or ONNX Runtime serving, and workload scheduling for maximum throughput on constrained hardware.",
     statementOfValue:
-      "Keep critical enterprise and national data inside your control boundary — with optimized inference that extracts maximum performance from finite on-prem GPU resources.",
+      "Keep critical data inside your control boundary — with optimized inference extracting maximum performance from finite on-prem GPUs.",
     before: [
-      "Data privacy concerns and regulatory restrictions on cloud AI",
-      "100% dependency on external model APIs",
-      "Limited on-prem GPU budget — cannot spin up more instances",
-      "Air-gapped environments lack access to cloud-managed serving platforms",
+      "Data privacy restrictions prevent cloud AI usage",
+      "Limited on-prem GPU budget with no ability to scale",
+      "Air-gapped environments lack access to cloud serving platforms",
     ],
     situation:
-      "Governments, defense agencies, and regulated industries cannot use cloud AI providers for their most sensitive workloads. On-prem deployments face fixed GPU budgets and zero internet connectivity — demanding aggressive optimization to extract maximum performance from finite hardware.",
+      "Governments and regulated industries cannot use cloud AI for sensitive workloads and face fixed GPU budgets with zero internet connectivity.",
     kpis: [
       { kpi: "Data Exposure Risk", before: "High", after: "Minimal" },
       { kpi: "Compliance Coverage", before: "50%", after: "100%" },
@@ -504,15 +493,15 @@ const llmOfferings: LlmOffering[] = [
       { text: "Workload scheduling optimized for fixed-capacity environments", isNew: true },
       { text: "Offline model update and redeployment pipeline (no internet required)", isNew: true },
     ],
-    timeline: "14–28 Weeks (extended from 12–24 to incorporate on-prem optimization engineering)",
+    timeline: "14–28 Weeks",
     caseStudies: [
       {
         title: "G20 Central Bank",
         industry: "Government / BFSI",
         situation:
-          "The bank needed LLM-powered analysis of monetary policy documents and market surveillance data. Regulatory mandate required all data and models to remain on sovereign soil with zero external connectivity. Their 64 NVIDIA H100 GPUs consumed all capacity for serving a single unoptimized 70B model, leaving no room for additional use cases.",
+          "All data must remain on sovereign soil. 64 H100 GPUs were fully consumed by a single unoptimized 70B model with no headroom for additional use cases.",
         intervention:
-          "Applied SmoothQuant INT8 quantization (H100 FP8 native) reducing memory footprint by 50%. Deployed TensorRT-LLM with in-flight batching. Implemented model cascading: 7B model handled 74% of routine document queries, 70B model reserved for complex policy analysis. Built an offline model-update pipeline where new checkpoints were validated in staging and promoted via signed artifacts — no internet connectivity required.",
+          "SmoothQuant INT8 quantization (50% memory reduction), TensorRT-LLM with in-flight batching, model cascade (7B for 74% of queries, 70B for complex analysis), offline model-update pipeline.",
         results: [
           { metric: "GPU utilization", before: "100% (single model, no headroom)", after: "72% (headroom for 3 additional use cases)" },
           { metric: "Models served on 64-GPU cluster", before: "1", after: "4 (distilled 7B, 13B, 70B, embedding)" },
@@ -525,9 +514,9 @@ const llmOfferings: LlmOffering[] = [
         title: "European National Healthcare System",
         industry: "Healthcare / Government",
         situation:
-          "A national healthcare system serving 60M citizens wanted LLMs for clinical decision support, patient record summarization, and medical coding across 300 hospitals. National data protection laws required all processing on government-owned infrastructure. The government had allocated 120 NVIDIA A100 GPUs across 3 regional data centers.",
+          "60M citizens, 300 hospitals, data must stay on government infrastructure. 120 A100 GPUs across 3 regional data centers needed to serve clinical AI at scale.",
         intervention:
-          "Deployed a distilled 13B medical-specialist model (trained on anonymized national health records) with GPTQ INT4 quantization — fitting 3 model replicas per 8-GPU A100 node (vs. 1 replica of the unoptimized 70B). Implemented continuous batching with vLLM. Built a request-prioritization scheduler: emergency department queries received highest priority; batch coding jobs ran during off-peak hours.",
+          "Distilled 13B medical specialist with GPTQ INT4 (3 replicas per 8-GPU node vs. 1 of the 70B). vLLM continuous batching with priority scheduler (emergency dept first, batch coding off-peak).",
         results: [
           { metric: "Hospitals served", before: "0 (pilot stuck)", after: "300" },
           { metric: "Clinical coding accuracy", before: "82% (manual)", after: "96% (model-assisted)" },
@@ -699,7 +688,7 @@ function OfferingSection({ offering }: { offering: LlmOffering }) {
             </span>
             <div className="h-px w-16 bg-gradient-to-r from-primary/60 to-transparent" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gradient mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-3.5xl font-semibold tracking-tight text-gradient mb-4">
             {offering.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-4xl leading-relaxed mb-4">
@@ -848,7 +837,7 @@ function CrossCuttingSection() {
           className="mb-12"
         >
           <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">Cross-Cutting Engineering</p>
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gradient mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-3.5xl font-semibold tracking-tight text-gradient mb-4">
             LLM Optimization Engineering Capabilities
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl">
@@ -911,7 +900,7 @@ function LlmOpsPage() {
       <PageHero
         eyebrow="LLMOps & LLM Optimization Engineering"
         title="Operate LLMs in production at enterprise scale"
-        description="Six structured engineering engagements — from enterprise AI platforms and RAG factories to agentic automation, industry distillation, inference FinOps, and sovereign AI. Every offering includes deep inference optimization: quantization, distillation, speculative decoding, and workload-aware GPU allocation."
+        description="Six engineering engagements covering enterprise AI platforms, RAG, agentic automation, industry LLMs, inference FinOps, and sovereign AI — each with deep inference optimization built in."
       />
 
       {/* Outcome stats bar */}

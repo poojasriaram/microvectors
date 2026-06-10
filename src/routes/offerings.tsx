@@ -313,7 +313,7 @@ function DetailedOfferingSection({ data }: { data: OfferingDetail }) {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gradient mb-2">
+          <h2 className="text-2xl md:text-3xl lg:text-3.5xl font-semibold tracking-tight text-gradient mb-2">
             {data.title}
           </h2>
           {data.subtitle && (

@@ -2,26 +2,10 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const highlights = [
-  {
-    value: "8",
-    label: "Integrated AI Engineering Domains",
-    sub: "Delivering end-to-end AI capabilities from infrastructure to autonomous systems.",
-  },
-  {
-    value: "20+",
-    label: "Industry Verticals",
-    sub: "Deep experience across regulated and complex enterprise environments.",
-  },
-  {
-    value: "5",
-    label: "Global Delivery Centers",
-    sub: "24/7 engineering and operational support.",
-  },
-  {
-    value: "10x",
-    label: "Faster Deployment",
-    sub: "Accelerated implementation using proven frameworks and reusable architectures.",
-  },
+  { value: "8", label: "AI Engineering Domains", sub: "End-to-end AI stack coverage." },
+  { value: "20+", label: "Industry Verticals", sub: "Regulated enterprise environments." },
+  { value: "5", label: "Global Delivery Centers", sub: "24/7 support worldwide." },
+  { value: "10x", label: "Faster Deployment", sub: "Proven frameworks, fast delivery." },
 ];
 
 const stats = [
@@ -33,16 +17,17 @@ const stats = [
 
 export function Metrics() {
   return (
-    <section id="metrics" className="relative border-b border-border/40 bg-surface/20 scroll-mt-20">
-      <div className="mx-auto max-w-7xl px-6 py-24">
+    <section id="metrics" className="relative border-b border-border/30 bg-background scroll-mt-20">
+      <div className="absolute inset-0 bg-grid opacity-[0.2] pointer-events-none" />
+      <div className="mx-auto max-w-7xl px-6 py-24 relative z-10">
         <SectionHeading
           eyebrow="Trust"
           title="Trusted AI Engineering Across the Full Spectrum"
-          description="Organizations worldwide are investing billions into AI, yet many struggle with fragmented architectures, underutilized GPU infrastructure, disconnected data ecosystems, and AI initiatives that never reach production. TRUSTGRID.AI provides the engineering expertise required to transform AI investments into operational capabilities."
+          description="We transform AI investments into operational capabilities — across infrastructure, models, agents, and governance."
         />
 
         {/* Key highlights with descriptions */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/40 rounded-xl overflow-hidden border border-border/40">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h, i) => (
             <motion.div
               key={h.label}
@@ -50,15 +35,17 @@ export function Metrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-background p-6 md:p-8 group hover:bg-surface/60 transition-colors"
+              className="premium-card p-6 md:p-8 flex flex-col justify-between"
             >
-              <div className="text-3xl md:text-4xl font-semibold text-gradient-primary font-display">
-                {h.value}
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-gradient-primary font-display tracking-tight">
+                  {h.value}
+                </div>
+                <div className="mt-4 text-sm font-semibold text-foreground/90 leading-tight">
+                  {h.label}
+                </div>
               </div>
-              <div className="mt-2 text-sm font-medium text-foreground/90">
-                {h.label}
-              </div>
-              <div className="mt-2 text-xs text-muted-foreground leading-relaxed">
+              <div className="mt-3 text-xs text-muted-foreground leading-relaxed border-t border-border/40 pt-3">
                 {h.sub}
               </div>
             </motion.div>
@@ -66,7 +53,7 @@ export function Metrics() {
         </div>
 
         {/* Existing performance stats */}
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 rounded-xl overflow-hidden border border-border/40">
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((m, i) => (
             <motion.div
               key={m.label}
@@ -74,12 +61,14 @@ export function Metrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="bg-background p-6 md:p-8 group hover:bg-surface/60 transition-colors"
+              className="premium-card p-6 md:p-8 flex flex-col justify-between"
             >
-              <div className="text-3xl md:text-4xl font-semibold text-gradient-primary font-display">
-                {m.value}
+              <div>
+                <div className="text-4xl md:text-5xl font-bold text-gradient-primary font-display tracking-tight">
+                  {m.value}
+                </div>
               </div>
-              <div className="mt-2 text-xs md:text-sm text-muted-foreground uppercase tracking-wider">
+              <div className="mt-4 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase font-mono border-t border-border/40 pt-3">
                 {m.label}
               </div>
             </motion.div>

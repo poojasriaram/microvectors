@@ -30,7 +30,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-3xl md:text-5xl font-semibold tracking-tight text-gradient"
+        className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient"
       >
         {title}
       </motion.h2>

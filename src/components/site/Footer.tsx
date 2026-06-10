@@ -41,7 +41,7 @@ const footerCols = [
     links: [
       { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
       { href: "/ai-infrastructure-engineering", label: "AI Infrastructure Engineering" },
-      { href: "/platform#gpu-phi-cloud-neutral-orchestration", label: "GPU-phi Cloud Platform" },
+      { href: "/platform", label: "GPU-phi Cloud Platform" },
       { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
       { href: "/capabilities#cloud-gpu-optimization", label: "Cloud GPU Orchestration" },
       { href: "/capabilities#data-center-network-automation", label: "Data Center Networking" },
@@ -63,11 +63,10 @@ const footerCols = [
     title: "LLM / RAG & Security",
     links: [
       { href: "/llmops-services", label: "LLMOps & LLM Engineering" },
-      { href: "/llmops-services#capabilities", label: "Fine-Tuning & Quantization" },
-      { href: "/llmops-services#offerings", label: "Guardrails Gateway" },
+      { href: "/capabilities#llm-optimization", label: "LLM Optimization" },
       { href: "/ai-security", label: "AI Security & Cyber Dom" },
-      { href: "/ai-security#tech-stack", label: "Zero-Trust AI Governance" },
-      { href: "/ai-security#offerings", label: "Secure Sandbox Execution" },
+      { href: "/capabilities#ai-security-cyber-dom-protection-mesh", label: "Zero-Trust AI Governance" },
+      { href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution", label: "Secure Sandbox Execution" },
     ],
   },
   {
@@ -133,7 +132,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-              Full-Spectrum AI Engineering. From GPU kernels to autonomous enterprises — engineered for extreme efficiency, reliability, and Zero-Trust safety.
+              Full-Spectrum AI Engineering — GPU kernels to autonomous enterprises, built for reliability and Zero-Trust safety.
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">

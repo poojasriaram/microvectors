@@ -46,7 +46,7 @@ export function NeuralBackground({ density = 50 }: { density?: number }) {
           const d2 = dx * dx + dy * dy;
           if (d2 < 140 * 140) {
             const o = 1 - Math.sqrt(d2) / 140;
-            ctx.strokeStyle = `rgba(96,165,250,${o * 0.25})`;
+            ctx.strokeStyle = `rgba(37,99,235,${o * 0.2})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -57,7 +57,7 @@ export function NeuralBackground({ density = 50 }: { density?: number }) {
       }
       // nodes
       for (const n of nodes) {
-        ctx.fillStyle = "rgba(96,165,250,0.85)";
+        ctx.fillStyle = "rgba(37,99,235,0.6)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, 1.6, 0, Math.PI * 2);
         ctx.fill();

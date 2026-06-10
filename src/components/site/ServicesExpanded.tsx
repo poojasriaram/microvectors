@@ -22,7 +22,7 @@ const services: ServiceDetail[] = [
     title: "AI Infrastructure Engineering",
     subtitle: "Build the Foundation for Enterprise AI",
     intro:
-      "Modern AI initiatives require infrastructure designed specifically for high-performance AI workloads. We architect and optimize AI-native environments across cloud, hybrid, and on-prem deployments.",
+      "We architect and optimize AI-native environments across cloud, hybrid, and on-prem deployments for high-performance AI workloads.",
     capabilities: [
       "AI Cloud Architecture",
       "Kubernetes Platforms",
@@ -41,7 +41,7 @@ const services: ServiceDetail[] = [
     title: "GPU Performance & Data Center Engineering",
     subtitle: "Transform GPU Infrastructure into Competitive Advantage",
     intro:
-      "Most organizations achieve only a fraction of available GPU performance. Our engineering teams identify bottlenecks, optimize multi-node InfiniBand/RoCEv2 networks, design high-density data center layouts (liquid cooling, 60kW+ racks), and maximize compute throughput.",
+      "Most organizations achieve only a fraction of available GPU performance. We identify bottlenecks, optimize multi-node networks, and maximize compute throughput.",
     capabilities: [
       "CUDA Kernel Optimization",
       "Mega-Scale GPU Data Centers",
@@ -66,7 +66,7 @@ const services: ServiceDetail[] = [
     title: "Agentic AI & Autonomous Systems",
     subtitle: "Move Beyond Chatbots to Autonomous Operations",
     intro:
-      "We design stateful autonomous systems and multi-agent fleets capable of reasoning, planning, memory retention, and secure API tool execution.",
+      "We design stateful autonomous systems and multi-agent fleets capable of reasoning, planning, memory retention, and secure tool execution.",
     capabilities: [
       "Multi-Agent Orchestration",
       "LangGraph & CrewAI Pipelines",
@@ -103,7 +103,7 @@ const services: ServiceDetail[] = [
     title: "Enterprise Generative AI & LLMs",
     subtitle: "Production-Ready Generative AI Solutions",
     intro:
-      "Transform enterprise knowledge into actionable intelligence using fine-tuned open-weights models and advanced evaluation networks.",
+      "Transform enterprise knowledge into intelligence using fine-tuned open-weights models and advanced evaluation networks.",
     capabilities: [
       "LLM Fine-Tuning (LoRA/DPO)",
       "FP8 & INT4 Quantization",
@@ -121,7 +121,7 @@ const services: ServiceDetail[] = [
     title: "AI Security & Cyber Dom Governance",
     subtitle: "Secure AI execution and host infrastructures at Scale",
     intro:
-      "Enterprise AI requires governance, observability, and security built into every layer. We protect models, data, and host environments from injection and execution compromises.",
+      "Enterprise AI requires governance, observability, and security at every layer. We protect models, data, and host environments from injection and execution compromises.",
     capabilities: [
       "Cyber Dom Security Mesh",
       "Bash Shell Hardening",
@@ -144,7 +144,7 @@ export function ServicesExpanded() {
         <SectionHeading
           eyebrow="Deep Dive"
           title="Engineering AI Capabilities That Deliver Outcomes"
-          description="Each of our service domains is purpose-built to solve critical enterprise AI challenges and deliver measurable business results."
+          description="Purpose-built service domains solving critical enterprise AI challenges."
         />
 
         <div className="mt-16 space-y-12">

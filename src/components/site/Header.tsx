@@ -10,19 +10,18 @@ const homeItems = [
   { label: "Key Metrics & ROI", href: "/#metrics" },
   { label: "Enterprise Challenges", href: "/#challenges" },
   { label: "Engineering Approach", href: "/#approach" },
-  { label: "Core Offerings", href: "/#services" },
+  { label: "Core Services", href: "/#services" },
   { label: "Client Case Studies", href: "/#case-studies" },
   { label: "Industries We Serve", href: "/#industries" },
   { label: "Technical Ecosystem", href: "/#tech-ecosystem" },
   { label: "Why Choose Us", href: "/#why-trustgrid" },
   { label: "Engagement Journey", href: "/#engagement-journey" },
-  { label: "Insights & Frontier Research", href: "/#insights" },
+  { label: "Insights & Thought Leadership", href: "/#insights" },
   { label: "Book Strategy Session", href: "/contact" },
 ];
 
 const offeringsItems = [
   { label: "GPU Performance Engineering", href: "/gpu-performance-engineering" },
-  { label: "GPU Data Center Design", href: "/gpu-performance-engineering#offerings" },
   { label: "AI Infrastructure Engineering", href: "/ai-infrastructure-engineering" },
   { label: "GPU-phi Cloud Platform", href: "/platform" },
   { label: "Agentic AI Development", href: "/agentic-ai-development" },
@@ -30,16 +29,15 @@ const offeringsItems = [
   { label: "Long-Memory AI Systems", href: "/long-memory-ai-systems" },
   { label: "AgentOps Services", href: "/agentops-services" },
   { label: "LLMOps & LLM Engineering", href: "/llmops-services" },
-  { label: "Fine-Tuning & Quantization", href: "/llmops-services#offerings" },
   { label: "AI Security & Cyber Dom", href: "/ai-security" },
-  { label: "Zero-Trust AI Governance", href: "/ai-security#tech-stack" },
+  { label: "All Offerings", href: "/offerings" },
 ];
 
 const solutionsItems = [
-  { label: "GPU Data Center Architecture", href: "/solutions#mega-scale-gpu-data-center-private-gpu-cloud-architecture" },
-  { label: "LLM Engineering & Finetuning", href: "/solutions#production-grade-llm-engineering-finetuning-systems" },
-  { label: "Cyber Dom AI Security Mesh", href: "/solutions#cyber-dom-ai-security-mesh-sandbox-execution" },
-  { label: "Autonomous Agentic Workflows", href: "/solutions#autonomous-agentic-workflows-multi-agent-orchestration" },
+  { label: "GPU & AI HPC Infrastructure", href: "/solutions#gpu-infra" },
+  { label: "LLM Optimization & Enterprise Generative AI", href: "/solutions#llm-opt" },
+  { label: "AI Agents & Autonomous Systems", href: "/solutions#agentic-ai" },
+  { label: "AI Cybersecurity & Governance", href: "/solutions#security-gov" },
 ];
 
 const capabilitiesItems = [
@@ -50,16 +48,18 @@ const capabilitiesItems = [
   { label: "Data Center Network Automation", href: "/capabilities#data-center-network-automation" },
   { label: "Energy Optimization & ESG", href: "/capabilities#energy-optimization" },
   { label: "AI Security & Cyber Dom", href: "/capabilities#ai-security-cyber-dom-protection-mesh" },
+  { label: "Hardened Sandbox Shell & Agent Execution", href: "/capabilities#hardened-sandbox-shell-agent-execution" },
   { label: "Multi-Agent Fleet Orchestration", href: "/capabilities#multi-agent-fleet-orchestration" },
+  { label: "All Capabilities", href: "/capabilities" },
 ];
 
 const useCasesItems = [
-  { label: "Sovereign AI Initiatives", href: "/use-cases" },
-  { label: "High-Frequency Trading", href: "/use-cases" },
-  { label: "Global SaaS Platforms", href: "/use-cases" },
-  { label: "Autonomous Operations", href: "/use-cases" },
-  { label: "Regulated AI Security", href: "/use-cases" },
-  { label: "Secure Medical LLMOps", href: "/use-cases" },
+  { label: "Sovereign AI Initiatives", href: "/use-cases#sovereign-ai" },
+  { label: "High-Frequency Trading", href: "/use-cases#high-frequency-trading" },
+  { label: "Global SaaS Platforms", href: "/use-cases#global-saas" },
+  { label: "Autonomous Operations", href: "/use-cases#autonomous-operations" },
+  { label: "Regulated AI Security", href: "/use-cases#regulated-ai-security" },
+  { label: "Secure Medical LLMOps", href: "/use-cases#secure-medical-llmops" },
 ];
 
 const platformItems = [
@@ -78,30 +78,30 @@ const aboutItems = [
 const featuredOfferings = [
   {
     icon: Cpu,
-    color: "text-blue-400",
+    color: "text-blue-500",
     bg: "bg-blue-500/10",
     label: "GPU Performance Engineering",
     to: "/gpu-performance-engineering",
   },
   {
     icon: Bot,
-    color: "text-violet-400",
+    color: "text-violet-500",
     bg: "bg-violet-500/10",
     label: "AI Agents & Multi-Agent Systems",
     to: "/agentic-ai-development",
   },
   {
     icon: Brain,
-    color: "text-cyan-400",
+    color: "text-cyan-500",
     bg: "bg-cyan-500/10",
     label: "LLM / RAG Optimization",
     to: "/llmops-services",
   },
   {
     icon: Shield,
-    color: "text-emerald-400",
+    color: "text-emerald-500",
     bg: "bg-emerald-500/10",
-    label: "NextGen AI Cybersecurity",
+    label: "AI Security & Cyber Dom",
     to: "/ai-security",
   },
 ];
@@ -179,12 +179,12 @@ function HomeDropdown() {
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -202,12 +202,12 @@ function OfferingsDropdown() {
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -225,12 +225,12 @@ function SolutionsDropdown() {
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -248,12 +248,12 @@ function CapabilitiesDropdown() {
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -271,12 +271,12 @@ function UseCasesDropdown() {
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -294,12 +294,12 @@ function PlatformDropdown() {
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -317,12 +317,12 @@ function AboutDropdown() {
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-surface/30 group/item transition-all"
+            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
           >
             <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover:text-accent transition-colors">
+            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
               {item.label}
             </span>
           </SectionLink>
@@ -360,8 +360,8 @@ function NavItem({ label, to, children }: NavItemProps) {
     return (
       <Link
         to={to}
-        className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground px-3 py-1.5 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md" }}
+        className="text-sm font-bold text-foreground transition-colors hover:text-primary px-3 py-1.5 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md font-bold" }}
       >
         {label}
       </Link>
@@ -377,8 +377,8 @@ function NavItem({ label, to, children }: NavItemProps) {
     >
       <Link
         to={to}
-        className="flex items-center gap-1 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground px-3 py-1.5 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md flex items-center gap-1" }}
+        className="flex items-center gap-1 text-sm font-bold text-foreground transition-colors hover:text-primary px-3 py-1.5 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md flex items-center gap-1 font-bold" }}
       >
         {label}
         <ChevronDown
@@ -444,13 +444,13 @@ export function Header() {
       {/* Global dropdown styles */}
       <style>{`
         .nav-dropdown {
-          background: oklch(0.16 0.02 255 / 0.96);
+          background: oklch(1.0 0 0 / 0.98);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          border: 1px solid oklch(0.3 0.03 255 / 0.4);
-          border-radius: 1rem;
-          box-shadow: 0 24px 60px -12px oklch(0 0 0 / 0.7), 0 0 0 1px oklch(0.58 0.22 264 / 0.08);
-          padding: 1.75rem;
+          border: 1px solid var(--color-border);
+          border-radius: 0.75rem;
+          box-shadow: 0 16px 36px -12px oklch(0.12 0.015 250 / 0.08), 0 0 0 1px oklch(0.45 0.18 260 / 0.05);
+          padding: 1.5rem;
         }
         @keyframes dropdown-in {
           from { opacity: 0; transform: translateY(-6px) scale(0.98); }
@@ -462,7 +462,7 @@ export function Header() {
       `}</style>
 
       <header className="sticky top-0 z-50 border-b border-border/40 bg-background/75 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <div className="w-full flex h-16 items-center justify-between px-6 md:px-8">
 
           {/* Brand */}
           <Link to="/" className="flex items-center group mr-6 shrink-0">

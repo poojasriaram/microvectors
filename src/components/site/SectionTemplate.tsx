@@ -85,7 +85,7 @@ export function SectionTemplate({ data }: { data: SectionData }) {
           </div>
 
           <div className="space-y-8">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-6">
               {data.metrics.map((metric, i) => (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -93,10 +93,11 @@ export function SectionTemplate({ data }: { data: SectionData }) {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   key={i}
-                  className="rounded-2xl border border-border/60 bg-surface/40 p-6 flex flex-col items-center justify-center text-center backdrop-blur-sm"
+                  className="premium-card p-6 flex flex-col items-center justify-center text-center group relative overflow-hidden"
                 >
-                  <div className="text-3xl md:text-4xl font-semibold text-accent mb-2">{metric.value}</div>
-                  <div className="text-sm font-medium text-muted-foreground">{metric.label}</div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="text-3xl md:text-4xl font-bold text-gradient-primary mb-2 font-display relative z-10">{metric.value}</div>
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-widest font-mono relative z-10">{metric.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -105,24 +106,32 @@ export function SectionTemplate({ data }: { data: SectionData }) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-border/60 bg-background/50 p-8"
+              className="premium-card p-8 bg-card shadow-sm"
             >
-              <h3 className="text-xl font-semibold text-foreground mb-4">Strategic Use Cases</h3>
-              <ul className="space-y-4 mb-8">
+              <h3 className="text-lg font-semibold text-foreground mb-5 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
+                Strategic Use Cases
+              </h3>
+              <ul className="space-y-3.5 mb-8">
                 {data.useCases.map((uc, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    <span className="text-muted-foreground">{uc}</span>
+                    <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                    <span className="text-sm text-muted-foreground leading-relaxed">{uc}</span>
                   </li>
                 ))}
               </ul>
 
-              <h3 className="text-xl font-semibold text-foreground mb-4">Business Outcomes</h3>
-              <ul className="space-y-4">
+              <h3 className="text-lg font-semibold text-foreground mb-5 flex items-center gap-2 border-t border-border/40 pt-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse-glow" />
+                Business Outcomes
+              </h3>
+              <ul className="space-y-3.5">
                 {data.outcomes.map((out, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2 shrink-0" />
-                    <span className="text-muted-foreground">{out}</span>
+                    <div className="h-4 w-4 rounded-full bg-emerald-100/60 border border-emerald-200/50 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    </div>
+                    <span className="text-sm text-muted-foreground leading-relaxed">{out}</span>
                   </li>
                 ))}
               </ul>

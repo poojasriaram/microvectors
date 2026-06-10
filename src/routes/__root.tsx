@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "TrustGrid.AI designs, builds, optimizes and secures enterprise AI infrastructure, GPU clusters, Agentic AI systems and autonomous business operations.",
       },
       { name: "author", content: "TrustGrid.AI" },
-      { name: "theme-color", content: "#050505" },
+      { name: "theme-color", content: "#ffffff" },
       { property: "og:site_name", content: "TrustGrid.AI" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "TrustGrid.AI — Full-Spectrum AI Engineering" },
@@ -135,7 +135,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
