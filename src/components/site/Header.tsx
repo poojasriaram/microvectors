@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, Cpu, Bot, Brain, Shield, LayoutGrid, Layers, Zap, Globe, BarChart3, Server, FileText, Users, Phone, BookOpen } from "lucide-react";
+import { Menu, X, ChevronDown, Cpu, Bot, Brain, Shield, LayoutGrid, Layers, Zap, Globe, BarChart3, Server, FileText, Users, Phone, BookOpen, Car, Wrench, Settings, Home, Laptop, FlaskConical, Hammer, Building2, Milestone, Droplet, Sun, Anchor, Train, Landmark, Coins, ShoppingBag, Gem, Pill, HeartPulse, Stethoscope, Dna, Leaf, Package, Store, Tv, Scissors, Utensils, Film, Compass, Plane, GraduationCap, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /* ─── Mega-Menu Data ─────────────────────────────────────────── */
@@ -20,11 +20,105 @@ const homeItems = [
   { label: "Book Strategy Session", href: "/contact" },
 ];
 
-const offeringsItems = [
+const coreOfferingsItems = [
   { label: "GPU Optimization", href: "/offerings#gpu-optimization" },
   { label: "LLM Optimization & AI Agents", href: "/offerings#llm-optimization-agents" },
   { label: "AI Cybersecurity", href: "/offerings#ai-cybersecurity" },
   { label: "AI Infrastructure Engineering", href: "/offerings#ai-infrastructure-engineering" },
+];
+
+const industryOfferingsItems = [
+  { label: "Manufacturing & Industrial", href: "/offerings#manufacturing-industrial" },
+  { label: "Technology & Electronics", href: "/offerings#telecommunications-network" },
+  { label: "Infrastructure & Construction", href: "/offerings#infrastructure-construction" },
+  { label: "Energy & Utilities", href: "/offerings#energy-utilities-sustainability" },
+  { label: "Financial Services", href: "/offerings#banking-financial-services" },
+  { label: "Healthcare & Life Sciences", href: "/offerings#healthcare-life-sciences" },
+  { label: "Consumer & Retail", href: "/offerings#retail-e-commerce" },
+  { label: "Media & Services", href: "/offerings#education-learning-platforms" },
+];
+
+const industrySegments = [
+  {
+    title: "Manufacturing & Industrial",
+    items: [
+      { label: "Automobiles", icon: Car, href: "/offerings#manufacturing-industrial" },
+      { label: "Auto Components", icon: Wrench, href: "/offerings#manufacturing-industrial" },
+      { label: "Engineering & Capital Goods", icon: Settings, href: "/offerings#manufacturing-industrial" },
+      { label: "Defence Manufacturing", icon: Shield, href: "/offerings#manufacturing-industrial" },
+      { label: "MSME", icon: Home, href: "/offerings#manufacturing-industrial" },
+    ]
+  },
+  {
+    title: "Technology & Electronics",
+    items: [
+      { label: "IT & BPM", icon: Laptop, href: "/offerings#telecommunications-network" },
+      { label: "Electronics & Semiconductor", icon: Cpu, href: "/offerings#telecommunications-network" },
+      { label: "Telecommunications", icon: Phone, href: "/offerings#telecommunications-network" },
+      { label: "Science & Technology", icon: FlaskConical, href: "/offerings#telecommunications-network" },
+      { label: "Electric Vehicles", icon: Zap, href: "/offerings#telecommunications-network" },
+    ]
+  },
+  {
+    title: "Infrastructure & Construction",
+    items: [
+      { label: "Cement", icon: Layers, href: "/offerings#infrastructure-construction" },
+      { label: "Steel", icon: Hammer, href: "/offerings#infrastructure-construction" },
+      { label: "Infrastructure", icon: Building2, href: "/offerings#infrastructure-construction" },
+      { label: "Real Estate", icon: Home, href: "/offerings#infrastructure-construction" },
+      { label: "Roads & Highways", icon: Milestone, href: "/offerings#infrastructure-construction" },
+    ]
+  },
+  {
+    title: "Energy & Utilities",
+    items: [
+      { label: "Oil & Gas", icon: Droplet, href: "/offerings#energy-utilities-sustainability" },
+      { label: "Power", icon: Zap, href: "/offerings#energy-utilities-sustainability" },
+      { label: "Renewable Energy", icon: Sun, href: "/offerings#energy-utilities-sustainability" },
+      { label: "Ports", icon: Anchor, href: "/offerings#energy-utilities-sustainability" },
+      { label: "Railways", icon: Train, href: "/offerings#energy-utilities-sustainability" },
+    ]
+  },
+  {
+    title: "Financial Services",
+    items: [
+      { label: "Banking", icon: Landmark, href: "/offerings#banking-financial-services" },
+      { label: "Financial Services", icon: Coins, href: "/offerings#banking-financial-services" },
+      { label: "Insurance", icon: FileText, href: "/offerings#banking-financial-services" },
+      { label: "E-Commerce", icon: ShoppingBag, href: "/offerings#banking-financial-services" },
+      { label: "Gems & Jewellery", icon: Gem, href: "/offerings#banking-financial-services" },
+    ]
+  },
+  {
+    title: "Healthcare & Life Sciences",
+    items: [
+      { label: "Pharmaceuticals", icon: Pill, href: "/offerings#healthcare-life-sciences" },
+      { label: "Healthcare", icon: HeartPulse, href: "/offerings#healthcare-life-sciences" },
+      { label: "Medical Devices", icon: Stethoscope, href: "/offerings#healthcare-life-sciences" },
+      { label: "Biotechnology", icon: Dna, href: "/offerings#healthcare-life-sciences" },
+      { label: "Ayush", icon: Leaf, href: "/offerings#healthcare-life-sciences" },
+    ]
+  },
+  {
+    title: "Consumer & Retail",
+    items: [
+      { label: "FMCG", icon: Package, href: "/offerings#retail-e-commerce" },
+      { label: "Retail", icon: Store, href: "/offerings#retail-e-commerce" },
+      { label: "Consumer Durables", icon: Tv, href: "/offerings#retail-e-commerce" },
+      { label: "Textiles", icon: Scissors, href: "/offerings#retail-e-commerce" },
+      { label: "Food Processing", icon: Utensils, href: "/offerings#retail-e-commerce" },
+    ]
+  },
+  {
+    title: "Media & Services",
+    items: [
+      { label: "Media & Entertainment", icon: Film, href: "/offerings#education-learning-platforms" },
+      { label: "Tourism & Hospitality", icon: Compass, href: "/offerings#education-learning-platforms" },
+      { label: "Aviation", icon: Plane, href: "/offerings#education-learning-platforms" },
+      { label: "Education & Training", icon: GraduationCap, href: "/offerings#education-learning-platforms" },
+      { label: "Agriculture & Allied", icon: Sprout, href: "/offerings#education-learning-platforms" },
+    ]
+  }
 ];
 
 const solutionsItems = [
@@ -54,6 +148,10 @@ const useCasesItems = [
   { label: "Autonomous Operations", href: "/use-cases#autonomous-operations" },
   { label: "Regulated AI Security", href: "/use-cases#regulated-ai-security" },
   { label: "Secure Medical LLMOps", href: "/use-cases#secure-medical-llmops" },
+  { label: "AI-Driven Penetration Testing", href: "/use-cases#cybersecurity-pen-testing" },
+  { label: "Managed Threat Defense (MDR)", href: "/use-cases#cybersecurity-mdr" },
+  { label: "Breach & Attack Simulation (BAS)", href: "/use-cases#cybersecurity-bas" },
+  { label: "Industry AI Cybersecurity", href: "/use-cases#cybersecurity-industry" },
 ];
 
 const platformItems = [
@@ -75,28 +173,28 @@ const featuredOfferings = [
     color: "text-blue-500",
     bg: "bg-blue-500/10",
     label: "GPU Optimization",
-    href: "/offerings#gpu-optimization",
+    href: "/gpu-performance-engineering",
   },
   {
     icon: Bot,
     color: "text-violet-500",
     bg: "bg-violet-500/10",
     label: "LLM Optimization & AI Agents",
-    href: "/offerings#llm-optimization-agents",
+    href: "/agentic-ai-development",
   },
   {
     icon: Shield,
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
     label: "AI Cybersecurity",
-    href: "/offerings#ai-cybersecurity",
+    href: "/ai-security",
   },
   {
     icon: Layers,
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
     label: "AI Infrastructure Engineering",
-    href: "/offerings#ai-infrastructure-engineering",
+    href: "/ai-infrastructure-engineering",
   },
 ];
 
@@ -145,7 +243,10 @@ export function SectionLink({
     // Same page – just scroll
     if (window.location.pathname === targetPath || (!path && window.location.pathname === "/")) {
       scrollToHash();
-      if (hash) window.history.replaceState(null, "", `#${hash}`);
+      if (hash) {
+        window.history.replaceState(null, "", `#${hash}`);
+        window.dispatchEvent(new Event("hashchange"));
+      }
       return;
     }
 
@@ -167,18 +268,24 @@ export function SectionLink({
 
 function HomeDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Core Navigation
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {homeItems.map((item) => (
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
               {item.label}
             </span>
           </SectionLink>
@@ -190,21 +297,45 @@ function HomeDropdown() {
 
 function OfferingsDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
-        {offeringsItems.map((item) => (
+    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
+      <div className="border-b border-border/40 pb-5 mb-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+        {coreOfferingsItems.map((item) => (
           <SectionLink
-            key={item.href + item.label}
+            key={item.href}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-1.5 text-xs font-bold text-accent hover:text-primary transition-colors duration-200 group/pill"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
-              →
-            </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
-              {item.label}
-            </span>
+            <span className="text-primary group-hover/pill:translate-x-0.5 transition-transform">→</span>
+            <span>{item.label}</span>
           </SectionLink>
+        ))}
+      </div>
+      
+      <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+        {industrySegments.map((segment) => (
+          <div key={segment.title}>
+            <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+              <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+                {segment.title}
+              </h4>
+            </div>
+            <hr className="border-border/30 mb-4" />
+            
+            <div className="space-y-3">
+              {segment.items.map((item) => (
+                <SectionLink
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <item.icon className="h-4 w-4 text-muted-foreground/60 group-hover/item:text-primary transition-colors shrink-0" />
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    {item.label}
+                  </span>
+                </SectionLink>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -213,18 +344,24 @@ function OfferingsDropdown() {
 
 function SolutionsDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Enterprise Solutions
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {solutionsItems.map((item) => (
           <SectionLink
             key={item.href + item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
               {item.label}
             </span>
           </SectionLink>
@@ -236,18 +373,24 @@ function SolutionsDropdown() {
 
 function CapabilitiesDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Engineering Capabilities
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {capabilitiesItems.map((item) => (
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
               {item.label}
             </span>
           </SectionLink>
@@ -259,22 +402,310 @@ function CapabilitiesDropdown() {
 
 function UseCasesDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
-        {useCasesItems.map((item) => (
-          <SectionLink
-            key={item.label}
-            href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
-          >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
-              →
-            </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
-              {item.label}
-            </span>
-          </SectionLink>
-        ))}
+    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
+      <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+        
+        {/* Column 1: Core Engineering Architectures */}
+        <div>
+          <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+            <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+              Core Engineering Architectures
+            </h4>
+          </div>
+          <hr className="border-border/30 mb-4" />
+          
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                Infrastructure & Scaling
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#sovereign-ai"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Sovereign AI Initiatives
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#global-saas"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Global SaaS Platforms
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                Low-Latency Compute
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#high-frequency-trading"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    High-Frequency Trading
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                Enterprise Automation
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#autonomous-operations"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Autonomous Operations
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                Security & HIPAA Compliance
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#regulated-ai-security"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Regulated AI Security
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#secure-medical-llmops"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Secure Medical LLMOps
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 2: Cybersecurity & Threat Defense Matrix - Pen Testing & BAS */}
+        <div>
+          <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+            <h4 className="text-xs font-bold text-foreground tracking-wide uppercase font-display">
+              Cybersecurity & Threat Defense Matrix
+            </h4>
+          </div>
+          <hr className="border-border/30 mb-4" />
+          
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                AI-Driven Penetration Testing
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#uc-61"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Automated Attack Surface Mapping
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-62"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Intelligent Exploit Generation
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-63"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Dynamic Payload Obfuscation
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                AI Breach & Attack Simulation (BAS)
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#uc-68"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    Continuous Purple Teaming
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-69"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
+                    LLM-Specific Attack Simulation
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-70"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans font-sans">
+                    Lateral Movement Emulation
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 3: Cybersecurity & Threat Defense Matrix - Managed Threat Defense */}
+        <div>
+          <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+            <h4 className="text-xs font-bold text-foreground tracking-wide uppercase font-display">
+              Cybersecurity & Threat Defense Matrix
+            </h4>
+          </div>
+          <hr className="border-border/30 mb-4" />
+          
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                AI-Driven Managed Threat Defense (MDR)
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#uc-64"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans font-sans">
+                    Line-Rate Network Anomaly Detection
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-65"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans font-sans">
+                    Zero-Day Threat Intel Extraction
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-66"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans font-sans">
+                    Automated SOAR Playbook Execution
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-67"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans font-sans">
+                    Multi-Modal Phishing Defense
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 4: Cybersecurity & Threat Defense Matrix - Industry Focus */}
+        <div>
+          <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+            <h4 className="text-xs font-bold text-foreground tracking-wide uppercase font-display">
+              Cybersecurity & Threat Defense Matrix
+            </h4>
+          </div>
+          <hr className="border-border/30 mb-4" />
+          
+          <div className="space-y-4">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-2 pl-1">
+                AI Cybersecurity for Various Industries
+              </p>
+              <div className="space-y-2">
+                <SectionLink
+                  href="/use-cases#uc-71"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans">
+                    Finance: Voice Deepfake Detection
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-72"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans">
+                    Healthcare: PHI Leak Prevention
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-73"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans">
+                    Manufacturing: ICS Ransomware Defense
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-74"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans">
+                    Government: Air-Gapped Threat Hunt
+                  </span>
+                </SectionLink>
+                <SectionLink
+                  href="/use-cases#uc-75"
+                  className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                >
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">→</span>
+                  <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans font-sans">
+                    Retail: Behavioral Bot Defense
+                  </span>
+                </SectionLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
@@ -282,18 +713,24 @@ function UseCasesDropdown() {
 
 function PlatformDropdown() {
   return (
-    <div className="nav-dropdown w-[600px]">
-      <div className="grid grid-cols-2 gap-x-12 gap-y-3.5">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          TRUSTGRID Platform
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {platformItems.map((item) => (
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
               {item.label}
             </span>
           </SectionLink>
@@ -305,18 +742,24 @@ function PlatformDropdown() {
 
 function AboutDropdown() {
   return (
-    <div className="nav-dropdown w-[480px]">
-      <div className="grid grid-cols-2 gap-x-10 gap-y-3.5">
+    <div className="nav-dropdown w-[640px]">
+      <div className="flex items-center gap-2 border-l-2 border-primary pl-2 mb-4">
+        <h4 className="text-xs font-bold text-foreground tracking-wide uppercase">
+          Company Information
+        </h4>
+      </div>
+      <hr className="border-border/30 mb-5" />
+      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
         {aboutItems.map((item) => (
           <SectionLink
             key={item.label}
             href={item.href}
-            className="flex items-center gap-2.5 py-1.5 px-2 -mx-2 rounded-lg hover:bg-primary/[0.03] group/item transition-all"
+            className="flex items-center gap-2.5 py-1 px-1 rounded-md hover:bg-primary/[0.03] group/item transition-all"
           >
-            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0">
+            <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0">
               →
             </span>
-            <span className="text-sm font-medium text-foreground/85 group-hover/item:text-primary transition-colors">
+            <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-tight font-sans">
               {item.label}
             </span>
           </SectionLink>
@@ -444,7 +887,7 @@ export function Header() {
           border: 1px solid var(--color-border);
           border-radius: 0.75rem;
           box-shadow: 0 16px 36px -12px oklch(0.12 0.015 250 / 0.08), 0 0 0 1px oklch(0.45 0.18 260 / 0.05);
-          padding: 1.5rem;
+          padding: 2rem;
         }
         @keyframes dropdown-in {
           from { opacity: 0; transform: translateY(-6px) scale(0.98); }
@@ -549,17 +992,33 @@ export function Header() {
               </MobileAccordion>
 
               <MobileAccordion title="Offerings" to="/offerings" onClose={() => setMobileOpen(false)}>
-                <div className="space-y-1 py-1">
-                  {offeringsItems.map((item) => (
-                    <SectionLink
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.label}
-                    </SectionLink>
-                  ))}
+                <div className="space-y-3 py-1">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1.5 pl-1">Engineering Pillars</p>
+                    {coreOfferingsItems.map((item) => (
+                      <SectionLink
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1.5 pl-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+                      >
+                        {item.label}
+                      </SectionLink>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1.5 pl-1">Industry Solutions</p>
+                    {industryOfferingsItems.map((item) => (
+                      <SectionLink
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-1.5 pl-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {item.label}
+                      </SectionLink>
+                    ))}
+                  </div>
                 </div>
               </MobileAccordion>
 

@@ -41,7 +41,7 @@ const footerCols = [
     links: [
       { href: "/gpu-performance-engineering", label: "GPU Performance Engineering" },
       { href: "/capabilities#gpu-optimization", label: "GPU Optimization" },
-      { href: "/offerings#gpu-optimization", label: "GPU Optimization Offerings" },
+      { href: "/offerings", label: "Industry AI Offerings" },
       { href: "/platform", label: "GPU-phi Cloud Platform" },
     ],
   },

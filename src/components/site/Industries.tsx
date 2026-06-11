@@ -1,69 +1,66 @@
 import { motion } from "framer-motion";
 import {
-  Landmark, HeartPulse, Factory, Shield, Swords, ShoppingBag, Zap,
-  Lightbulb, Radio, Truck, Plane, Building2, GraduationCap, FileBadge, Pill,
+  Landmark, HeartPulse, Factory, ShoppingBag, Zap, Laptop, Building2, Film
 } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
 const keyIndustries = [
   {
-    icon: Landmark,
-    name: "Financial Services",
-    desc: "Fraud detection, risk analytics, compliance automation, intelligent operations.",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    icon: HeartPulse,
-    name: "Healthcare",
-    desc: "Clinical intelligence, patient engagement, operational optimization, AI-assisted diagnostics.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
-  },
-  {
     icon: Factory,
-    name: "Manufacturing",
-    desc: "Predictive maintenance, quality inspection, industrial automation, supply chain optimization.",
+    name: "Manufacturing & Industrial",
+    desc: "Optimize production, predictive maintenance, computer vision QA, and supply chain intelligence.",
+    roles: ["Automobiles", "Auto Components", "Engineering", "Defence", "MSME"],
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
   },
   {
-    icon: Shield,
-    name: "Government",
-    desc: "Digital transformation, citizen services, intelligence systems, secure AI operations.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    icon: Laptop,
+    name: "Technology & Electronics",
+    desc: "Automation systems, IT/ITES orchestration, semiconductor design acceleration, and electric vehicle telemetry.",
+    roles: ["IT & BPM", "Semiconductors", "Telecom", "Science & Tech", "EVs"],
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
   },
   {
-    icon: Radio,
-    name: "Telecommunications",
-    desc: "Network optimization, customer experience, operational automation, predictive analytics.",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+    icon: Building2,
+    name: "Infrastructure & Construction",
+    desc: "Intelligent project management, construction safety monitoring, and predictive infrastructure maintenance.",
+    roles: ["Cement", "Steel", "Infrastructure", "Real Estate", "Highways"],
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
   },
   {
     icon: Zap,
     name: "Energy & Utilities",
-    desc: "Asset monitoring, predictive forecasting, infrastructure intelligence, operational resilience.",
+    desc: "Deploy grid analytics, renewable forecasting, asset maintenance, and carbon intelligence.",
+    roles: ["Oil & Gas", "Power", "Renewables", "Ports", "Railways"],
     image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
   },
   {
+    icon: Landmark,
+    name: "Financial Services",
+    desc: "Deploy secure AI infrastructure for risk assessment, fraud detection, and automated loan processing.",
+    roles: ["Banking", "Financial Services", "Insurance", "E-Commerce", "Gems"],
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    icon: HeartPulse,
+    name: "Healthcare & Life Sciences",
+    desc: "Compliant and scalable AI platforms for medical imaging, clinical data, and drug discovery.",
+    roles: ["Pharma", "Healthcare", "Devices", "Biotech", "Ayush"],
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
     icon: ShoppingBag,
-    name: "Retail & Commerce",
-    desc: "Personalization, demand forecasting, inventory intelligence, customer engagement.",
+    name: "Consumer & Retail",
+    desc: "Empower businesses with recommendation engines, customer support agents, and demand forecasting.",
+    roles: ["FMCG", "Retail", "Durables", "Textiles", "Food"],
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80",
   },
   {
-    icon: Truck,
-    name: "Logistics & Transportation",
-    desc: "Route optimization, fleet intelligence, supply chain orchestration, predictive planning.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+    icon: Film,
+    name: "Media & Services",
+    desc: "Personalized training platforms, media content generation/moderation, and aviation logistics.",
+    roles: ["Media & Ent.", "Tourism", "Aviation", "Education", "Agri & Allied"],
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
   },
-];
-
-const otherIndustries = [
-  { icon: Swords, name: "Defense" },
-  { icon: Lightbulb, name: "Utilities" },
-  { icon: Plane, name: "Transportation" },
-  { icon: Building2, name: "Smart Cities" },
-  { icon: GraduationCap, name: "Education" },
-  { icon: FileBadge, name: "Insurance" },
-  { icon: Pill, name: "Pharmaceuticals" },
 ];
 
 export function Industries() {
@@ -73,7 +70,7 @@ export function Industries() {
         <SectionHeading
           eyebrow="Industries"
           title="Engineering AI for Regulated, Mission-Critical Industries"
-          description="20+ verticals served. Our AI engineering capabilities are designed to address the unique challenges of complex, regulated, and high-stakes enterprise environments."
+          description="8 strategic verticals served. Our AI engineering capabilities are designed to address the unique challenges of complex, regulated, and high-stakes enterprise environments."
         />
 
         {/* Primary key industries with full descriptions & premium images */}
@@ -104,40 +101,28 @@ export function Industries() {
               {/* Card Content */}
               <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-base font-semibold text-foreground leading-snug group-hover:text-accent transition-colors">
+                  <h3 className="text-sm font-semibold text-foreground leading-snug group-hover:text-accent transition-colors">
                     {it.name}
                   </h3>
-                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                  <p className="mt-2 text-[11px] text-muted-foreground leading-relaxed">
                     {it.desc}
                   </p>
+                  
+                  {/* Focus Roles/Segments */}
+                  <div className="mt-3.5 flex flex-wrap gap-1">
+                    {it.roles.map((role) => (
+                      <span
+                        key={role}
+                        className="text-[9px] font-semibold bg-primary/5 border border-primary/10 text-accent px-1.5 py-0.5 rounded"
+                      >
+                        {role}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Secondary other industries grid to preserve all existing data */}
-        <div className="mt-12 pt-10 border-t border-border/30">
-          <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80 mb-6">
-            Additional Enterprise Verticals Served
-          </h4>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
-            {otherIndustries.map((it, i) => (
-              <motion.div
-                key={it.name}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.03 }}
-                className="group flex items-center gap-3 rounded-lg border border-border/60 bg-surface/10 p-3 hover:border-primary/40 hover:bg-surface/30 transition-all"
-              >
-                <div className="h-7 w-7 rounded-md bg-primary/10 border border-primary/20 grid place-items-center text-accent group-hover:scale-110 transition-transform">
-                  <it.icon className="h-3.5 w-3.5" />
-                </div>
-                <div className="text-xs font-medium text-foreground">{it.name}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

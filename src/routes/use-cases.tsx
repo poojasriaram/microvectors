@@ -77,6 +77,17 @@ interface UseCase {
   metricsSummary: MetricSummaryItem[];
 }
 
+interface CybersecurityUseCase {
+  id: number;
+  title: string;
+  subCategory: string;
+  description: string;
+  businessValue: string;
+  solution: string;
+  expectedOutcome: string;
+  kpis: string;
+}
+
 // ─── Dataset ───────────────────────────────────────────────────────────────────
 
 const useCasesData: UseCase[] = [
@@ -670,6 +681,159 @@ const useCasesData: UseCase[] = [
   }
 ];
 
+const cybersecurityData: CybersecurityUseCase[] = [
+  {
+    id: 61,
+    subCategory: "AI-Driven Penetration Testing",
+    title: "Automated Attack Surface Mapping",
+    description: "Using LLMs to continuously read codebases, APIs, and network topology to find vulnerabilities.",
+    businessValue: "Replaces slow, manual penetration testing with continuous, automated vulnerability discovery.",
+    solution: "TRUSTGRID AI provides secure, high-memory GPU environments to run static code analysis LLMs and graph neural networks across massive repositories.",
+    expectedOutcome: "Constant, real-time visibility into exploitable attack surfaces.",
+    kpis: "Scans 10M+ lines of code in <1 hour; 40% higher vulnerability detection vs. traditional SAST."
+  },
+  {
+    id: 62,
+    subCategory: "AI-Driven Penetration Testing",
+    title: "Intelligent Exploit Generation",
+    description: "AI agents dynamically writing custom exploits (e.g., buffer overflows) based on newly discovered zero-days.",
+    businessValue: "Proves the exploitability of vulnerabilities instantly, forcing faster patching.",
+    solution: "TRUSTGRID AI hosts autonomous coding agents (like specialized Devin models) in heavily isolated, air-gapped GPU sandboxes to generate and test exploit code safely.",
+    expectedOutcome: "Rapid, safe validation of critical vulnerabilities.",
+    kpis: "Reduces exploit proof-of-concept generation from days to minutes; 100% sandbox containment."
+  },
+  {
+    id: 63,
+    subCategory: "AI-Driven Penetration Testing",
+    title: "Dynamic Payload Obfuscation",
+    description: "Generating polymorphic malware/payloads using AI to test if enterprise EDR/XDR systems can detect them.",
+    businessValue: "Tests the true efficacy of endpoint security under adversarial AI conditions.",
+    solution: "TRUSTGRID AI’s multi-tenant GPU fabric generates thousands of mutated binary variants simultaneously, isolated from the corporate network.",
+    expectedOutcome: "Hardened endpoint detection and response (EDR) rules.",
+    kpis: "Tests 10,000+ mutated payloads per hour; improves EDR detection rates by 35%."
+  },
+  {
+    id: 64,
+    subCategory: "AI-Driven Managed Threat Defense (MDR)",
+    title: "Line-Rate Network Anomaly Detection",
+    description: "Analyzing raw network packets (PCAP/Netflow) in real-time using transformer models.",
+    businessValue: "Catches stealthy, slow-and-low data exfiltration that signature-based firewalls miss.",
+    solution: "TRUSTGRID AI deploys streaming-optimized AI models directly on edge GPUs co-located with network taps, processing data at line rate.",
+    expectedOutcome: "Real-time interception of covert data theft.",
+    kpis: "Analyzes 100 Gbps of network traffic with <5ms added latency; 99% anomaly detection accuracy."
+  },
+  {
+    id: 65,
+    subCategory: "AI-Driven Managed Threat Defense (MDR)",
+    title: "Zero-Day Threat Intel Extraction",
+    description: "LLMs autonomously reading dark web forums, foreign tech blogs, and PDFs to extract emerging IOCs.",
+    businessValue: "Provides early warning systems for threats before they appear in commercial databases.",
+    solution: "TRUSTGRID AI orchestrates web-scraping agents and multi-lingual NLP models to process and contextualize unstructured threat data 24/7.",
+    expectedOutcome: "Proactive defense against emerging, undocumented threats.",
+    kpis: "Processes 50,000 dark web posts/day; delivers IOC intel 72 hours ahead of traditional vendors."
+  },
+  {
+    id: 66,
+    subCategory: "AI-Driven Managed Threat Defense (MDR)",
+    title: "Automated SOAR Playbook Execution",
+    description: "Using LLMs to read security alerts, understand context, and write Python scripts to contain threats.",
+    businessValue: "Drastically reduces Mean Time to Respond (MTTR) by automating junior analyst tasks.",
+    solution: "TRUSTGRID AI provides low-latency inference for agentic models that interface directly via API with SIEM/SOAR platforms (Splunk, Palo Alto).",
+    expectedOutcome: "Instant, context-aware threat containment.",
+    kpis: "Reduces MTTR from hours to <3 minutes; automates 80% of Tier-1 SOC alerts."
+  },
+  {
+    id: 67,
+    subCategory: "AI-Driven Managed Threat Defense (MDR)",
+    title: "Multi-Modal Phishing Defense",
+    description: "Analyzing not just email text, but screenshots of landing pages and voice audio (vishing) for fraud.",
+    businessValue: "Defeats modern, AI-generated phishing that bypasses traditional text spam filters.",
+    solution: "TRUSTGRID AI co-locates Vision, NLP, and Audio models to perform simultaneous multi-modal analysis of suspicious communications.",
+    expectedOutcome: "Near-perfect blocking of sophisticated social engineering.",
+    kpis: "99.5% phishing detection rate; 90% reduction in false positives."
+  },
+  {
+    id: 68,
+    subCategory: "AI Breach Attack & Simulation (BAS)",
+    title: "Continuous Purple Teaming",
+    description: "AI acting simultaneously as the Red Team (attacking) and Blue Team (defending) in a loop.",
+    businessValue: "Moves security testing from a point-in-time snapshot to a continuous, self-improving loop.",
+    solution: "TRUSTGRID AI orchestrates parallel GPU clusters: one running adversarial attack agents, the other running defense/healing agents, sharing telemetry in real-time.",
+    expectedOutcome: "Evolving, self-healing security postures.",
+    kpis: "Executes 1000s of attack/defense cycles daily; continuous security posture improvement."
+  },
+  {
+    id: 69,
+    subCategory: "AI Breach Attack & Simulation (BAS)",
+    title: "LLM-Specific Attack Simulation",
+    description: "Simulating prompt injections, jailbreaks, and token-leakage attacks against the company's own AI apps.",
+    businessValue: "Secures the enterprise's external-facing AI chatbots and internal copilots.",
+    solution: "TRUSTGRID AI spins up specialized red-team LLMs (like Crimson Joker) to continuously bombard target LLM endpoints hosted on the same platform.",
+    expectedOutcome: "Hardened enterprise AI applications.",
+    kpis: "Tests 50,000 adversarial prompts/day; identifies 95% of jailbreak vectors before users do."
+  },
+  {
+    id: 70,
+    subCategory: "AI Breach Attack & Simulation (BAS)",
+    title: "Lateral Movement Emulation",
+    description: "AI agents simulating how a hacker would move through the network after gaining initial access.",
+    businessValue: "Identifies blind spots in network segmentation and IAM permissions.",
+    solution: "TRUSTGRID AI hosts persistent AI agents that safely emulate credential dumping and lateral traversal techniques within a virtualized network twin.",
+    expectedOutcome: "Validation of zero-trust architecture effectiveness.",
+    kpis: "Maps lateral movement paths 10x faster than human red teams; 100% safe environment."
+  },
+  {
+    id: 71,
+    subCategory: "AI Cybersecurity for Various Industries",
+    title: "Finance: Real-Time Deepfake Voice Detection",
+    description: "Analyzing voice biometrics in live phone-banking calls to detect synthetic audio.",
+    businessValue: "Prevents massive financial fraud from AI-cloned CEO/customer voices.",
+    solution: "TRUSTGRID AI deploys ultra-low-latency audio classification models on edge GPUs directly inside telecom/PBX infrastructure.",
+    expectedOutcome: "Real-time blocking of vishing attacks.",
+    kpis: "<200ms detection latency; 98.5% accuracy in identifying AI-generated voices."
+  },
+  {
+    id: 72,
+    subCategory: "AI Cybersecurity for Various Industries",
+    title: "Healthcare: PHI Exfiltration Prevention",
+    description: "Monitoring AI copilots to ensure they don't leak Patient Health Information (PHI) in prompts/responses.",
+    businessValue: "Maintains HIPAA compliance while allowing doctors to use AI for note-taking.",
+    solution: "TRUSTGRID AI injects a lightweight, GPU-accelerated NER (Named Entity Recognition) guardrail that masks or blocks PHI in real-time.",
+    expectedOutcome: "Safe, compliant use of AI in clinical settings.",
+    kpis: "Blocks 100% of accidental PHI egress; <10ms impact on clinician UX."
+  },
+  {
+    id: 73,
+    subCategory: "AI Cybersecurity for Various Industries",
+    title: "Manufacturing/OT: ICS Ransomware Defense",
+    description: "Using vision and anomaly models to detect abnormal behavior in Industrial Control Systems.",
+    businessValue: "Prevents catastrophic physical damage or shutdowns from targeted OT ransomware.",
+    solution: "TRUSTGRID AI processes time-series sensor data (SCADA/PLC logs) through specialized transformers on isolated industrial GPUs.",
+    expectedOutcome: "Early detection of attacks on physical infrastructure.",
+    kpis: "Detects OT anomalies 15 minutes before critical failure; zero disruption to control systems."
+  },
+  {
+    id: 74,
+    subCategory: "AI Cybersecurity for Various Industries",
+    title: "Government: Air-Gapped Threat Hunting",
+    description: "Running AI threat hunting entirely offline on classified networks.",
+    businessValue: "Allows intelligence agencies to use advanced AI without risking data leakage to the cloud.",
+    solution: "TRUSTGRID AI On-Premise provides a fully air-gapped, local GPU cluster capable of running cutting-edge LLMs for classified data analysis.",
+    expectedOutcome: "Next-gen intelligence analysis at scale with zero exfil risk.",
+    kpis: "0 bytes of data leave the classified enclave; supports 70B+ parameter models offline."
+  },
+  {
+    id: 75,
+    subCategory: "AI Cybersecurity for Various Industries",
+    title: "Retail: Behavioral Biometric Bot Defense",
+    description: "Analyzing mouse movements, keystroke dynamics, and click patterns via AI to stop scalper bots.",
+    businessValue: "Prevents inventory hoarding, credential stuffing, and coupon abuse on e-commerce sites.",
+    solution: "TRUSTGRID AI runs real-time behavioral inference models that process streaming user telemetry data during high-traffic events (e.g., Black Friday).",
+    expectedOutcome: "Elimination of automated bot traffic on digital storefronts.",
+    kpis: "Blocks 99% of advanced bots; scales to 1M+ concurrent user behavior analyses."
+  }
+];
+
 const categories = [
   "All Use Cases",
   "Infrastructure & Scaling",
@@ -678,6 +842,110 @@ const categories = [
   "Security & HIPAA Compliance"
 ];
 
+const cybersecuritySections = [
+  {
+    id: "cybersecurity-pen-testing",
+    title: "AI-Driven Penetration Testing",
+    description: "Automated vulnerability discovery, dynamic exploit generation, and payload obfuscation pipelines."
+  },
+  {
+    id: "cybersecurity-mdr",
+    title: "AI-Driven Managed Threat Defense (MDR)",
+    description: "Line-rate network anomaly analysis, multi-modal phishing interception, and agentic SOAR playbook executions."
+  },
+  {
+    id: "cybersecurity-bas",
+    title: "AI Breach Attack & Simulation (BAS)",
+    description: "Continuous Purple Teaming loops, LLM-specific jailbreak simulations, and network lateral movement emulation."
+  },
+  {
+    id: "cybersecurity-industry",
+    title: "AI Cybersecurity for Various Industries",
+    description: "Tailored deepfake detection for finance, PHI filtering for healthcare, ICS ransomware defense, and offline enclaves."
+  }
+];
+
+// ─── Sub-component for Cybersecurity Cards ────────────────────────────────────
+
+function CyberUseCaseCard({ uc, index }: { uc: CybersecurityUseCase; index: number }) {
+  return (
+    <motion.div
+      layout
+      id={`uc-${uc.id}`}
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, delay: index * 0.04 }}
+      className="group relative rounded-2xl border border-border/50 bg-surface/20 hover:bg-surface/40 hover:border-primary/45 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 p-6 flex flex-col justify-between overflow-hidden scroll-mt-28"
+    >
+      {/* Left gradient accent bar */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
+      <div>
+        {/* Header info */}
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <span className="text-[10px] font-bold text-accent bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-md">
+            {uc.subCategory}
+          </span>
+          <span className="text-xs font-mono font-bold text-muted-foreground/50">
+            UC-{uc.id}
+          </span>
+        </div>
+
+        {/* Title & Description */}
+        <h3 className="text-lg md:text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-200">
+          {uc.title}
+        </h3>
+        <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+          {uc.description}
+        </p>
+
+        {/* Grid for Business Value & TG Solution */}
+        <div className="space-y-4 border-t border-border/20 pt-4">
+          <div>
+            <h4 className="text-[10px] font-bold text-primary uppercase tracking-wider mb-1">
+              Business Value
+            </h4>
+            <p className="text-xs text-foreground/90 font-medium leading-relaxed">
+              {uc.businessValue}
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-[10px] font-bold text-accent uppercase tracking-wider mb-1">
+              TRUSTGRID AI Solution
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              {uc.solution}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer stats and outcome */}
+      <div className="mt-6 pt-4 border-t border-border/20 space-y-4">
+        <div>
+          <h4 className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider mb-1">
+            Expected Outcome
+          </h4>
+          <p className="text-xs text-foreground/85 leading-relaxed font-medium">
+            {uc.expectedOutcome}
+          </p>
+        </div>
+        
+        <div className="bg-primary/5 border border-primary/10 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <span className="text-[9px] font-bold uppercase tracking-wider text-primary">
+            KPIs & Key Stats
+          </span>
+          <span className="text-[10px] font-mono font-extrabold text-accent bg-accent/10 px-2 py-0.5 rounded border border-accent/20 text-center sm:text-right leading-relaxed">
+            {uc.kpis}
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 // ─── Component ─────────────────────────────────────────────────────────────────
 
 function UseCasesPage() {
@@ -685,15 +953,37 @@ function UseCasesPage() {
   const [selectedUseCase, setSelectedUseCase] = useState<UseCase | null>(null);
   const [detailTab, setDetailTab] = useState<"deep-dive" | "capabilities" | "timeline">("deep-dive");
 
+  // Cybersecurity specific states
+  const [cyberSearch, setCyberSearch] = useState("");
+
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.replace("#", "");
+        
+        if (id.startsWith("cybersecurity") || id.startsWith("uc-")) {
+          setCyberSearch("");
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 100);
+          return;
+        }
+
         const found = useCasesData.find((uc) => uc.id === id);
         if (found) {
+          setActiveCategory(found.category);
           setSelectedUseCase(found);
           setDetailTab("deep-dive");
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }, 150);
         }
       }
     };
@@ -731,6 +1021,19 @@ function UseCasesPage() {
 
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           
+          {/* SECTION 1: Core Engineering Architectures */}
+          <div className="mb-12 border-b border-border/20 pb-6">
+            <span className="text-xs uppercase tracking-widest font-extrabold text-accent bg-accent/10 px-3 py-1 rounded-md border border-accent/20">
+              Part 01
+            </span>
+            <h2 className="text-3xl md:text-4.5xl font-extrabold tracking-tight text-foreground font-display mt-4">
+              Core Engineering Architectures
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Deep-dive operational architectures deployed for sovereign clouds, low-latency trading, and enterprise scale systems.
+            </p>
+          </div>
+
           {/* Category Filters */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 pb-6 border-b border-border/20">
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -758,69 +1061,169 @@ function UseCasesPage() {
             </div>
           </div>
 
-          {/* Grid Layout */}
-          <div className="grid md:grid-cols-2 gap-10">
+          {/* Full-Width Row Layout */}
+          <div className="space-y-5">
             <AnimatePresence mode="popLayout">
               {filteredUseCases.map((item, index) => (
                 <motion.div
                   key={item.id}
+                  id={item.id}
                   layout
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
-                  className="rounded-2xl border border-border/60 bg-surface/30 p-8 flex flex-col hover:border-primary/40 hover:bg-surface/50 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm group"
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, delay: index * 0.06 }}
+                  className="group relative rounded-2xl border border-border/50 bg-surface/20 hover:bg-surface/40 hover:border-primary/40 transition-all duration-400 overflow-hidden scroll-mt-28"
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] uppercase tracking-wider font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-md border border-accent/20">
-                      {item.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground/60 font-mono">
-                      CASE #{item.id.toUpperCase()}
-                    </span>
-                  </div>
+                  {/* Left gradient accent bar */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-gradient-primary transition-all duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground italic mb-6">
-                    {item.tagline}
-                  </p>
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-0">
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {item.challengeBrief}
-                  </p>
+                    {/* Index number — large decorative */}
+                    <div className="hidden lg:flex items-center justify-center w-24 shrink-0 self-stretch border-r border-border/20 group-hover:border-primary/30 transition-colors bg-surface/10 group-hover:bg-primary/5">
+                      <span className="text-4xl font-black font-mono select-none bg-gradient-to-b from-primary/70 to-accent/50 bg-clip-text text-transparent group-hover:from-primary group-hover:to-accent transition-all duration-300">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
 
-                  {/* Quick Metrics Grid */}
-                  <div className="grid grid-cols-3 gap-4 bg-surface/40 rounded-xl p-4 border border-border/20 mb-8 mt-auto">
-                    {item.metricsSummary.map((m, idx) => (
-                      <div key={idx} className="text-center">
-                        <div className="text-lg font-extrabold text-foreground font-mono">
-                          {m.value}
-                        </div>
-                        <div className="text-[10px] text-accent font-semibold uppercase tracking-wider mt-0.5">
-                          {m.label}
-                        </div>
-                        <div className="text-[9px] text-muted-foreground/70 hidden sm:block">
-                          {m.sublabel}
-                        </div>
+                    {/* Main content */}
+                    <div className="flex-1 p-7 lg:p-8">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <span className="text-[10px] uppercase tracking-wider font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-md border border-accent/20">
+                          {item.category}
+                        </span>
+                        <span className="text-[10px] font-mono text-muted-foreground/50 uppercase tracking-widest">
+                          {item.id.replace(/-/g, " ")}
+                        </span>
                       </div>
-                    ))}
-                  </div>
 
-                  <button
-                    onClick={() => {
-                      setSelectedUseCase(item);
-                      setDetailTab("deep-dive");
-                    }}
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-primary/30 bg-primary/5 hover:bg-primary/15 hover:border-primary text-xs font-bold tracking-wider uppercase text-foreground transition-all duration-300"
-                  >
-                    <span>View Architecture & Timeline</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-1.5 group-hover:text-gradient-primary transition-all duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-accent/70 italic mb-4">{item.tagline}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+                        {item.challengeBrief}
+                      </p>
+                    </div>
+
+                    {/* Metrics strip */}
+                    <div className="lg:w-72 shrink-0 border-t lg:border-t-0 lg:border-l border-border/20 group-hover:border-primary/20 transition-colors">
+                      <div className="grid grid-cols-3 lg:grid-cols-1 divide-x lg:divide-x-0 lg:divide-y divide-border/20 group-hover:divide-primary/10 h-full transition-colors">
+                        {item.metricsSummary.map((m, idx) => (
+                          <div key={idx} className="p-5 lg:p-4 flex flex-col lg:flex-row lg:items-center lg:gap-4">
+                            <div className="text-xl lg:text-2xl font-black text-foreground font-mono shrink-0">
+                              {m.value}
+                            </div>
+                            <div>
+                              <div className="text-[10px] text-primary font-bold uppercase tracking-wider mt-1 lg:mt-0">
+                                {m.label}
+                              </div>
+                              <div className="text-[9px] text-muted-foreground/60 leading-tight hidden lg:block">
+                                {m.sublabel}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA column */}
+                    <div className="lg:w-52 shrink-0 border-t lg:border-t-0 lg:border-l border-border/20 group-hover:border-primary/20 transition-colors p-6 flex items-center justify-center">
+                      <button
+                        onClick={() => {
+                          setSelectedUseCase(item);
+                          setDetailTab("deep-dive");
+                        }}
+                        className="flex flex-col items-center justify-center gap-2 w-full h-full py-4 rounded-xl border border-primary/25 bg-primary/5 hover:bg-primary/15 hover:border-primary text-xs font-bold tracking-wider uppercase text-foreground transition-all duration-300 group/btn"
+                      >
+                        <ArrowRight className="w-5 h-5 text-primary group-hover/btn:translate-x-1 transition-transform duration-200" />
+                        <span className="text-center leading-tight">Explore<br/>Architecture</span>
+                      </button>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
+          </div>
+
+          {/* SECTION 2: Cybersecurity & Threat Defense Matrix */}
+          <div id="cybersecurity" className="mt-32 mb-12 border-b border-border/20 pb-6 scroll-mt-28">
+            <span className="text-xs uppercase tracking-widest font-extrabold text-accent bg-accent/10 px-3 py-1 rounded-md border border-accent/20">
+              Part 02
+            </span>
+            <h2 className="text-3xl md:text-4.5xl font-extrabold tracking-tight text-foreground font-display mt-4">
+              Cybersecurity & Threat Defense Matrix
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              Continuous threat simulation, anomaly detection pipelines, and zero-trust isolated executions securing generative AI endpoints.
+            </p>
+          </div>
+
+          {/* Search Box */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border/20 mb-12">
+            <div className="text-muted-foreground text-sm">
+              Explore our comprehensive threat defense matrix mapping out critical attack paths and solutions:
+            </div>
+            <div className="relative w-full lg:w-72 shrink-0">
+              <input
+                type="text"
+                placeholder="Search threat defense cases..."
+                value={cyberSearch}
+                onChange={(e) => setCyberSearch(e.target.value)}
+                className="w-full bg-surface/30 border border-border/60 focus:border-accent/60 rounded-xl px-4 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 outline-none transition-all duration-200"
+              />
+            </div>
+          </div>
+
+          {/* Sequential Cybersecurity Sections */}
+          <div className="space-y-20">
+            {cybersecuritySections.map((section) => {
+              const sectionCases = cybersecurityData.filter(uc => {
+                const matchesCategory = uc.subCategory === section.title;
+                const matchesSearch = uc.title.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                                      uc.description.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                                      uc.solution.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                                      uc.businessValue.toLowerCase().includes(cyberSearch.toLowerCase());
+                return matchesCategory && matchesSearch;
+              });
+
+              // If search is active and there are no matching cases for this section, hide it
+              if (cyberSearch && sectionCases.length === 0) return null;
+
+              return (
+                <div key={section.id} id={section.id} className="scroll-mt-28">
+                  <div className="mb-8 border-l-2 border-accent pl-4">
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground font-display">
+                      {section.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs md:text-sm text-muted-foreground max-w-3xl leading-relaxed">
+                      {section.description}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <AnimatePresence mode="popLayout">
+                      {sectionCases.map((uc, index) => (
+                        <CyberUseCaseCard key={uc.id} uc={uc} index={index} />
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Global fallback if search yields nothing across all sections */}
+            {cybersecurityData.filter(uc => {
+              return uc.title.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                     uc.description.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                     uc.solution.toLowerCase().includes(cyberSearch.toLowerCase()) ||
+                     uc.businessValue.toLowerCase().includes(cyberSearch.toLowerCase());
+            }).length === 0 && (
+              <div className="text-center py-16 text-muted-foreground text-sm border border-dashed border-border/40 rounded-2xl bg-surface/10">
+                No cybersecurity use cases match "{cyberSearch}". Try searching for other terms like "PII", "phishing", or "ransomware".
+              </div>
+            )}
           </div>
         </div>
       </div>
