@@ -71,21 +71,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "1.1 Core Performance Tuning",
         points: [
-          "Dynamic Workload Balancing — Distributing inference and training requests across GPUs to prevent bottlenecks and maximize utilization",
-          "Memory Bandwidth Optimization — Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput",
-          "GPU Super Scaling — Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training",
-          "Multi-Tenant GPU Orchestration — Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure workspace utilization",
-          "Kernel-Level Compute Tuning — Customizing CUDA/Triton kernels to align specifically with the mathematical operations of your architectures",
+          "Super Scaling — Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training",
+          "Memory Optimization — Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput",
+          "Multi-Tenant GPU Management — Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure workspace utilization",
         ],
       },
       {
         title: "1.2 Scale & Communication Optimization",
         points: [
-          "NCCL/TCP Communication Overhead Reduction — Optimizing inter-gpu communication to eliminate gradient synchronization bottlenecks",
-          "Inference Latency Reduction — Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency",
-          "Thermal and Power Management Optimization — Engineering power-capping and dynamic frequency scaling to maintain peak performance",
-          "GPU Pooling and Fractional Sharing — Deploying time-slicing and spatial partitioning to allow multiple models to share a physical GPU",
-          "NVLink/NVSwitch Interconnect Optimization — Configuring topologies to ensure P2P memory access is fully leveraged for model parallelism",
+          "Low-Latency HPC Networking — Optimizing inter-gpu communication to eliminate gradient synchronization bottlenecks",
+          "Inference Speed Reduction — Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency",
         ],
       },
     ],
@@ -99,21 +94,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "2.1 Model Adaptation & Context Scaling",
         points: [
-          "Parameter-Efficient Fine-Tuning (PEFT) Deployment — Implementing LoRA/QLoRA to adapt foundational models without the compute cost",
-          "Advanced RAG Pipeline Architecture — Designing chunking, embedding, and retrieval pipelines with hybrid search for context injection",
-          "Autonomous AI Agent Framework Development — Building tool-calling, memory-managed, and planning-capable agents using LangGraph",
-          "Context Window Optimization Strategies — Utilizing RoPE scaling, sliding window attention, and hierarchical memory to extend effective context",
-          "Multi-Modal Model Integration and Routing — Designing orchestration layers that dynamically route text, image, and audio inputs",
+          "Fine-Tuning (PEFT / LoRA) — Implementing LoRA/QLoRA to adapt foundational models without the compute cost",
+          "RAG Pipeline Architecture — Designing chunking, embedding, and retrieval pipelines with hybrid search for context injection",
+          "Autonomous Agent Frameworks — Building tool-calling, memory-managed, and planning-capable agents using LangGraph",
         ],
       },
       {
         title: "2.2 Efficiency & Cost Optimization",
         points: [
-          "Prompt Chaining and Structured Output Generation — Enforcing JSON/XML schema outputs and complex reasoning chains for API integration",
-          "LLM Routing and Load Balancing — Implementing semantic routers to direct queries to small/specialized models based on complexity",
-          "Vector Embedding Optimization and Indexing — Tuning embedding dimensions and leveraging HNSW indexing for sub-millisecond semantic search",
-          "Hallucination Mitigation Frameworks — Integrating semantic validation layers, self-consistency checks, and grounded generation techniques",
-          "Cost-Per-Token Optimization Strategies — Implementing caching layers (Semantic Caching) and prompt compression to reduce costs",
+          "Multi-Modal Model Integration — Designing orchestration layers that dynamically route text, image, and audio inputs",
+          "Token Cost Optimization — Implementing caching layers (Semantic Caching) and prompt compression to reduce costs",
         ],
       },
     ],
@@ -127,21 +117,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "3.1 Monitoring & Lifecycle Automation",
         points: [
-          "Continuous Model Drift Detection Systems — Implementing statistical monitoring (KL divergence, PSI) to detect data drift in real-time",
-          "Automated CI/CD Retraining Pipelines — Building triggers that automatically retrain and validate models when performance metrics degrade",
-          "AI Red-Teaming and Adversarial Stress Testing — Simulating hostile inputs and edge-case scenarios to break models before release",
-          "End-to-End LLM Observability Stack — Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows",
-          "AI-Specific SLA/SLO Definition & Enforcement — Establishing strict latency, accuracy, and availability bounds with circuit breakers",
+          "Model Drift Detection — Implementing statistical monitoring (KL divergence, PSI) to detect data drift in real-time",
+          "Automated Retraining Pipelines — Building triggers that automatically retrain and validate models when performance metrics degrade",
+          "SLA / SLO Enforcement — Establishing strict latency, accuracy, and availability bounds with circuit breakers",
         ],
       },
       {
-        title: "3.2 Data Quality & Safeguards",
+        title: "3.2 Testing & Observability",
         points: [
-          "Data Quality Validation Frameworks — Implementing Great Expectations or custom schemas to catch upstream data poisoning",
-          "Bias Detection and Fairness Auditing — Measuring model outputs across protected demographics to ensure regulatory compliance",
-          "Explainable AI (XAI) Integration — Integrating SHAP, LIME, or attention visualization to make model decision-making transparent",
-          "Cascade Failure Prevention Architectures — Designing bulkheads and fallback mechanisms to stop systemic failures in production",
-          "Feedback Loop Integration for HITL — Creating seamless human-in-the-loop pipelines to capture user corrections for improvement",
+          "Red-Teaming & Stress Testing — Simulating hostile inputs and edge-case scenarios to break models before release",
+          "LLM Observability Stack — Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows",
         ],
       },
     ],
@@ -155,21 +140,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "4.1 Lifecycle Hardening & Encryption",
         points: [
-          "Adversarial Robustness Testing & Hardening — Training models to resist perturbed inputs (e.g., FGSM) that cause misclassifications",
-          "Model Inversion & Data Extraction Defense — Implementing differential privacy and output perturbation to prevent data reconstruction",
-          "Confidential Computing for Secure Inference — Utilizing HSMs and TEEs to process data in encrypted memory",
-          "AI/ML Supply Chain Vulnerability Scanning — Auditing third-party models, HuggingFace pipelines, and dependencies for malware",
-          "Threat Modeling for Machine Learning Systems — Applying STRIDE or ATT&CK frameworks specifically tailored to ML data pipelines",
+          "Robustness Testing — Training models to resist perturbed inputs (e.g., FGSM) that cause misclassifications",
+          "Confidential Computing — Utilizing HSMs and TEEs to process data in encrypted memory",
+          "Supply Chain Scanning — Auditing third-party models, HuggingFace pipelines, and dependencies for malware",
         ],
       },
       {
         title: "4.2 Defenses & Zero-Trust",
         points: [
-          "Model Watermarking & IP Protection — Embedding imperceptible cryptographic signatures into model weights to prove ownership",
-          "Prompt Injection Defense Mechanisms — Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks",
-          "Secure Federated Learning Architectures — Enabling distributed model training without exposing raw client data to central servers",
-          "Homomorphic Encryption for Data Privacy — Allowing models to compute predictions on encrypted data for highly regulated industries",
-          "AI-Powered Security Operations Center Integration — Hardening the internal AI tools used by security teams against evasion",
+          "Prompt Injection Defense — Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks",
+          "Data & Model Defense — Implementing differential privacy and output perturbation to prevent data reconstruction and model inversion",
         ],
       },
     ],
@@ -183,21 +163,41 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "5.1 Pipeline & Cluster Orchestration",
         points: [
-          "End-to-End MLOps/LLMOps Pipeline Architecture — Building automated pipelines from data ingestion to model serving and monitoring",
-          "Highly Available Scalable Vector Database Deployment — Architecting and tuning vector databases for enterprise RAG workloads",
-          "Kubernetes for AI (K8s) Workload Orchestration — Deploying specialized K8s operators (KubeRay, TorchElastic) for training & serving",
-          "Serverless GPU Provisioning & Auto-Scaling — Implementing scale-to-zero GPU architectures for sporadic batch inference workloads",
-          "Event-Driven AI Microservices Design — Decoupling AI processing using Kafka or EventBridge for highly resilient pipelines",
+          "MLOps / LLMOps Architecture — Building automated pipelines from data ingestion to model serving and monitoring",
+          "Vector Database Deployment — Architecting and tuning vector databases for enterprise RAG workloads",
+          "Kubernetes Orchestration — Deploying specialized K8s operators (KubeRay, TorchElastic) for training & serving",
         ],
       },
       {
-        title: "5.2 Storage & Multi-Cloud Automation",
+        title: "5.2 Storage & Microservices",
         points: [
-          "Feature Store Architecture & Management — Building centralized feature repositories to ensure consistency in serving",
-          "Unified Data Lakehouse for AI Training — Architecting Delta Lake or Apache Iceberg solutions for scalable data access",
-          "Infrastructure-as-Code (IaC) for AI Environments — Using Terraform and Pulumi to version-control GPU clusters",
-          "Hybrid/Multi-Cloud AI Workload Routing — Designing architectures that burst training workloads to cloud regions based on capacity",
-          "Cost-Optimized Storage Tiering for ML Datasets — Implementing lifecycle policies to move training data from S3/Glacier to NVMe",
+          "Microservices Design — Decoupling AI processing using Kafka or EventBridge for highly resilient pipelines",
+          "Storage Optimization — Implementing lifecycle policies to move training data from S3/Glacier to NVMe",
+        ],
+      },
+    ],
+  },
+  {
+    id: "energy-optimization",
+    title: "Energy Optimization",
+    subtitle: "Category 6",
+    icon: Zap,
+    subcategories: [
+      {
+        title: "6.1 Strategic Power & Capacity",
+        points: [
+          "GW-Scale Power & Capacity Strategy — End-to-end consulting for securing, designing, and managing multi-Gigawatt utility interconnections",
+          "Next-Gen Power Architecture & Microgrid Design — Integrating renewable generation, battery energy storage systems (BESS), and small modular reactors (SMRs)",
+          "AI-Driven Facility Operations — Employing predictive digital twins to optimize PUE/WUE dynamically based on real-time workload demands",
+          "Sustainable AI & ESG Compliance — Automating carbon reporting, clean energy matching, and compliance with evolving hyperscale sustainability mandates",
+        ],
+      },
+      {
+        title: "6.2 Thermal & Energy Efficiency",
+        points: [
+          "AI Thermal Cooling Transition — Mapping the migration from air-cooled clusters to high-density Direct-to-Chip (D2C) and immersion cooling architectures",
+          "GPU & Network Fabric Energy Audit — Deep-dive telemetry to identify per-GPU power waste, idle draw, and thermal throttling events",
+          "Waste Heat Recovery & Monetization — Engineering closed-loop systems to capture and repurpose high-grade AI compute heat for district heating",
         ],
       },
     ],
@@ -491,6 +491,16 @@ const categoryThemes: Record<
     iconBox: "bg-emerald-50 border-emerald-200/60 text-emerald-600",
     eyebrow: "text-emerald-600",
   },
+  "energy-optimization": {
+    accent: "text-amber-600",
+    badgeBg: "bg-amber-50/80",
+    badgeText: "text-amber-600 border-amber-200/50",
+    borderHover: "hover:border-amber-500/35",
+    glowHover: "hover:shadow-[0_12px_30px_-10px_rgba(245,158,11,0.12)]",
+    dotColor: "bg-amber-500",
+    iconBox: "bg-amber-50 border-amber-200/60 text-amber-600",
+    eyebrow: "text-amber-600",
+  },
 };
 
 /* ─── COMPONENT ──────────────────────────────────────────────── */
@@ -518,7 +528,7 @@ function SolutionsPage() {
         <div className="absolute inset-0 bg-grid opacity-[0.2] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent mb-4">
               Part 1
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient font-display">
@@ -541,7 +551,7 @@ function SolutionsPage() {
                       <CatIcon className="h-5.5 w-5.5" />
                     </div>
                     <div>
-                      <span className={`text-[10px] font-mono font-bold tracking-widest uppercase block transition-colors duration-300 ${theme.eyebrow}`}>
+                      <span className={`text-base font-mono font-bold tracking-widest uppercase block transition-colors duration-300 ${theme.eyebrow}`}>
                         {cat.subtitle}
                       </span>
                       <h3 className="text-xl md:text-2xl font-bold text-foreground tracking-tight font-display">
@@ -572,11 +582,11 @@ function SolutionsPage() {
                               {/* Card subcategory index and title */}
                               <div className="flex items-center gap-3 mb-6 border-b border-border/45 pb-4">
                                 {indexBadge && (
-                                  <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md border ${theme.badgeBg} ${theme.badgeText} shadow-sm leading-none shrink-0 transition-colors duration-300`}>
+                                  <span className={`text-base font-mono font-bold px-2 py-0.5 rounded-md border ${theme.badgeBg} ${theme.badgeText} shadow-sm leading-none shrink-0 transition-colors duration-300`}>
                                     {indexBadge}
                                   </span>
                                 )}
-                                <h4 className="text-[15px] font-bold text-foreground tracking-tight leading-snug group-hover:text-primary transition-colors duration-250">
+                                <h4 className="text-base font-bold text-foreground tracking-tight leading-snug group-hover:text-primary transition-colors duration-250">
                                   {displayTitle}
                                 </h4>
                               </div>
@@ -598,11 +608,11 @@ function SolutionsPage() {
                                       </div>
                                       
                                       <div className="flex flex-col items-start gap-0.5">
-                                        <span className="text-xs font-bold text-foreground/90 tracking-tight group-hover/item:text-primary transition-colors duration-200">
+                                        <span className="text-base font-bold text-foreground/90 tracking-tight group-hover/item:text-primary transition-colors duration-200">
                                           {titleText}
                                         </span>
                                         {descText && (
-                                          <span className="text-[11px] text-muted-foreground leading-relaxed">
+                                          <span className="text-base text-muted-foreground leading-relaxed">
                                             {descText}
                                           </span>
                                         )}
@@ -629,7 +639,7 @@ function SolutionsPage() {
         <div className="absolute inset-0 bg-grid opacity-[0.15] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent mb-4">
               Part 2
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient font-display">
@@ -651,7 +661,7 @@ function SolutionsPage() {
                   <button
                     key={sec.id}
                     onClick={() => setActiveSectorIndex(idx)}
-                    className={`flex items-center gap-3.5 px-4 py-3 rounded-lg text-left transition-all text-xs font-semibold cursor-pointer shrink-0 border border-transparent ${
+                    className={`flex items-center gap-3.5 px-4 py-3 rounded-lg text-left transition-all text-base font-semibold cursor-pointer shrink-0 border border-transparent ${
                       isActive
                         ? "bg-card border-border/80 text-primary shadow-sm"
                         : "text-muted-foreground hover:bg-card/40 hover:text-foreground"
@@ -682,29 +692,29 @@ function SolutionsPage() {
                         <SectorIcon className="h-5 w-5" />
                       </div>
                       <div>
-                        <span className="text-[9px] font-mono font-bold tracking-widest text-muted-foreground uppercase">Vertical Target</span>
+                        <span className="text-base font-mono font-bold tracking-widest text-muted-foreground uppercase">Vertical Target</span>
                         <h3 className="text-lg md:text-xl font-bold text-foreground tracking-tight">{activeSector.name}</h3>
                       </div>
                     </div>
 
                     {/* Situation */}
                     <div className="mt-6">
-                      <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-foreground">The Situation</span>
-                      <p className="mt-2 text-sm text-foreground/90 font-medium leading-relaxed">
+                      <span className="text-base font-mono font-semibold uppercase tracking-widest text-muted-foreground">The Situation</span>
+                      <p className="mt-2 text-base text-foreground/90 font-medium leading-relaxed">
                         {activeSector.situation}
                       </p>
                     </div>
 
                     {/* Solutions list */}
                     <div className="mt-6 pt-6 border-t border-border/40">
-                      <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-foreground mb-3 block">Bespoke Solutions</span>
+                      <span className="text-base font-mono font-semibold uppercase tracking-widest text-muted-foreground mb-3 block">Bespoke Solutions</span>
                       <ul className="space-y-3.5">
                         {activeSector.solutions.map((sol, solIdx) => {
                           const dashIdx = sol.indexOf(" — ");
                           const name = dashIdx >= 0 ? sol.slice(0, dashIdx) : sol;
                           const desc = dashIdx >= 0 ? sol.slice(dashIdx + 3) : "";
                           return (
-                            <li key={solIdx} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                            <li key={solIdx} className="flex items-start gap-3 text-base text-muted-foreground leading-relaxed">
                               <CheckCircle2 className="h-4.5 w-4.5 text-accent mt-0.5 shrink-0" />
                               <span>
                                 <strong className="text-foreground font-semibold">{name}</strong>
@@ -719,8 +729,8 @@ function SolutionsPage() {
 
                   {/* Metrics footer card */}
                   <div className="mt-8 pt-6 border-t border-border/40 bg-surface/30 p-5 rounded-lg border border-border/60">
-                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-accent">Performance Metrics</span>
-                    <p className="mt-2 text-xs md:text-sm font-semibold text-foreground leading-relaxed">
+                    <span className="text-base font-mono font-bold uppercase tracking-widest text-accent">Performance Metrics</span>
+                    <p className="mt-2 text-base md:text-base font-semibold text-foreground leading-relaxed">
                       {activeSector.metrics}
                     </p>
                   </div>
@@ -736,7 +746,7 @@ function SolutionsPage() {
         <div className="absolute inset-0 bg-grid opacity-[0.2] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent mb-4">
               Part 3
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient font-display">
@@ -751,7 +761,7 @@ function SolutionsPage() {
           <div className="overflow-x-auto rounded-xl border border-border/50 bg-card shadow-lg">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-surface border-b border-border/80 font-mono text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
+                <tr className="bg-surface border-b border-border/80 font-mono text-base uppercase tracking-widest font-bold text-muted-foreground">
                   <th className="p-5">Capability</th>
                   <th className="p-5 border-l border-border/40">Description</th>
                   <th className="p-5 border-l border-border/40">Business Impact</th>
@@ -765,9 +775,9 @@ function SolutionsPage() {
                       capIdx % 2 === 0 ? "bg-background" : "bg-surface/10"
                     }`}
                   >
-                    <td className="p-5 text-sm font-semibold text-foreground tracking-tight">{cap.name}</td>
-                    <td className="p-5 text-sm text-muted-foreground border-l border-border/40">{cap.desc}</td>
-                    <td className="p-5 text-sm text-foreground/90 font-medium border-l border-border/40 bg-primary/[0.015]">
+                    <td className="p-5 text-base font-semibold text-foreground tracking-tight">{cap.name}</td>
+                    <td className="p-5 text-base text-muted-foreground border-l border-border/40">{cap.desc}</td>
+                    <td className="p-5 text-base text-foreground/90 font-medium border-l border-border/40 bg-primary/[0.015]">
                       {cap.impact}
                     </td>
                   </tr>
@@ -783,7 +793,7 @@ function SolutionsPage() {
         <div className="absolute inset-0 bg-grid opacity-[0.15] pointer-events-none" />
         <div className="mx-auto max-w-7xl px-6 relative z-10">
           <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent mb-4">
               Engagement Journey
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-gradient font-display">
@@ -803,7 +813,7 @@ function SolutionsPage() {
               {timelineSteps.map((step, idx) => (
                 <div key={idx} className="flex flex-col items-stretch group">
                   <div className="mb-6 flex items-center justify-center lg:justify-start">
-                    <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-xs font-mono font-bold text-accent group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300 relative z-20">
+                    <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-base font-mono font-bold text-accent group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300 relative z-20">
                       {step.phase}
                     </div>
                   </div>
@@ -811,8 +821,8 @@ function SolutionsPage() {
                   <div className="premium-card p-5 h-full relative overflow-hidden flex flex-col justify-between">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     <div className="relative z-10">
-                      <h3 className="text-sm font-semibold text-foreground tracking-tight">{step.name}</h3>
-                      <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                      <h3 className="text-base font-semibold text-foreground tracking-tight">{step.name}</h3>
+                      <p className="mt-2 text-base text-muted-foreground leading-relaxed">
                         {step.desc}
                       </p>
                     </div>

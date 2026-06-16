@@ -28,7 +28,7 @@ export function CTA() {
             </Button>
           </Link>
         </div>
-        <div className="mt-12 text-sm font-semibold text-accent tracking-wider uppercase font-mono">
+        <div className="mt-12 text-base font-semibold text-accent tracking-wider uppercase font-mono">
           TRUSTGRID.AI — Engineering the Future of Intelligent Enterprises.
         </div>
       </div>

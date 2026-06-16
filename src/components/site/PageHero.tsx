@@ -22,7 +22,7 @@ export function PageHero({
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3 py-1 text-[10px] uppercase tracking-widest font-semibold text-accent backdrop-blur"
+            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent backdrop-blur"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
             {eyebrow}

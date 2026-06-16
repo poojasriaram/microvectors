@@ -231,55 +231,68 @@ const solutionsCategories = [
     title: "GPU Optimization",
     href: "/solutions#gpu-optimization",
     items: [
-      { label: "GPU Super Scaling", href: "/solutions#gpu-optimization" },
-      { label: "Low Latency Networking for HPC", href: "/solutions#gpu-optimization" },
-      { label: "Memory Bandwidth Optimization", href: "/solutions#gpu-optimization" },
-      { label: "Inference Latency Reduction", href: "/solutions#gpu-optimization" },
-      { label: "Multi-Tenant GPU Orchestration", href: "/solutions#gpu-optimization" }
+      { label: "Super Scaling", href: "/solutions#gpu-optimization" },
+      { label: "Low-Latency HPC Networking", href: "/solutions#gpu-optimization" },
+      { label: "Memory Optimization", href: "/solutions#gpu-optimization" },
+      { label: "Inference Speed Reduction", href: "/solutions#gpu-optimization" },
+      { label: "Multi-Tenant GPU Management", href: "/solutions#gpu-optimization" }
     ]
   },
   {
     title: "LLM Optimization",
     href: "/solutions#llm-optimization",
     items: [
-      { label: "Advanced RAG Pipeline Architecture", href: "/solutions#llm-optimization" },
-      { label: "Parameter-Efficient Fine-Tuning", href: "/solutions#llm-optimization" },
-      { label: "Autonomous AI Agent Frameworks", href: "/solutions#llm-optimization" },
-      { label: "Multi-Modal Model Integration & Routing", href: "/solutions#llm-optimization" },
-      { label: "Cost-Per-Token Optimization", href: "/solutions#llm-optimization" }
+      { label: "RAG Pipeline Architecture", href: "/solutions#llm-optimization" },
+      { label: "Fine-Tuning (PEFT / LoRA)", href: "/solutions#llm-optimization" },
+      { label: "Autonomous Agent Frameworks", href: "/solutions#llm-optimization" },
+      { label: "Multi-Modal Model Integration", href: "/solutions#llm-optimization" },
+      { label: "Token Cost Optimization", href: "/solutions#llm-optimization" }
     ]
   },
   {
     title: "AI Trust & Reliability",
     href: "/solutions#ai-trust-reliability",
     items: [
-      { label: "Model Drift Detection Systems", href: "/solutions#ai-trust-reliability" },
-      { label: "End-to-End LLM Observability Stack", href: "/solutions#ai-trust-reliability" },
-      { label: "AI Red-Teaming & Stress Testing", href: "/solutions#ai-trust-reliability" },
-      { label: "Automated CI/CD Retraining Pipelines", href: "/solutions#ai-trust-reliability" },
-      { label: "AI SLA/SLO Enforcement", href: "/solutions#ai-trust-reliability" }
+      { label: "Model Drift Detection", href: "/solutions#ai-trust-reliability" },
+      { label: "LLM Observability Stack", href: "/solutions#ai-trust-reliability" },
+      { label: "Red-Teaming & Stress Testing", href: "/solutions#ai-trust-reliability" },
+      { label: "Automated Retraining Pipelines", href: "/solutions#ai-trust-reliability" },
+      { label: "SLA / SLO Enforcement", href: "/solutions#ai-trust-reliability" }
     ]
   },
   {
     title: "AI Cybersecurity",
     href: "/solutions#ai-cybersecurity",
     items: [
-      { label: "Adversarial Robustness Testing", href: "/solutions#ai-cybersecurity" },
+      { label: "Robustness Testing", href: "/solutions#ai-cybersecurity" },
       { label: "Confidential Computing", href: "/solutions#ai-cybersecurity" },
-      { label: "Prompt Injection Defense Mechanisms", href: "/solutions#ai-cybersecurity" },
-      { label: "AI/ML Supply Chain Scanning", href: "/solutions#ai-cybersecurity" },
-      { label: "Model Inversion & Data Defense", href: "/solutions#ai-cybersecurity" }
+      { label: "Prompt Injection Defense", href: "/solutions#ai-cybersecurity" },
+      { label: "Supply Chain Scanning", href: "/solutions#ai-cybersecurity" },
+      { label: "Data & Model Defense", href: "/solutions#ai-cybersecurity" }
     ]
   },
   {
     title: "AI Infrastructure",
     href: "/solutions#ai-infrastructure",
     items: [
-      { label: "MLOps/LLMOps Pipeline Architecture", href: "/solutions#ai-infrastructure" },
-      { label: "Scalable Vector Database Deployment", href: "/solutions#ai-infrastructure" },
-      { label: "Kubernetes Workload Orchestration", href: "/solutions#ai-infrastructure" },
-      { label: "Event-Driven AI Microservices Design", href: "/solutions#ai-infrastructure" },
-      { label: "Cost-Optimized Storage Tiering", href: "/solutions#ai-infrastructure" }
+      { label: "MLOps / LLMOps Architecture", href: "/solutions#ai-infrastructure" },
+      { label: "Vector Database Deployment", href: "/solutions#ai-infrastructure" },
+      { label: "Kubernetes Orchestration", href: "/solutions#ai-infrastructure" },
+      { label: "Microservices Design", href: "/solutions#ai-infrastructure" },
+      { label: "Storage Optimization", href: "/solutions#ai-infrastructure" }
+    ]
+  },
+  {
+    title: "Energy Optimization",
+    href: "/solutions#energy-optimization",
+    items: [
+      { label: "GW-Scale Power & Capacity Strategy", href: "/solutions#energy-optimization" },
+      { label: "AI Thermal Cooling Transition", href: "/solutions#energy-optimization" },
+      { label: "GPU & Network Fabric Energy Audit", href: "/solutions#energy-optimization" },
+      { label: "Sustainable AI & ESG Compliance", href: "/solutions#energy-optimization" },
+      { label: "AI-Driven Facility Operations", href: "/solutions#energy-optimization" },
+      { label: "Waste Heat Recovery & Monetization", href: "/solutions#energy-optimization" },
+      { label: "Next-Gen Power Architecture & Microgrid Design", href: "/solutions#energy-optimization" }
     ]
   }
 ];
@@ -626,8 +639,8 @@ function IndustriesDropdown() {
 
 function SolutionsDropdown() {
   return (
-    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
+    <div className="nav-dropdown w-[1380px] max-w-[95vw]">
+      <div className="grid grid-cols-6 gap-x-6 gap-y-6">
         {solutionsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
