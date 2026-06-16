@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Metrics } from "@/components/site/Metrics";
+import { CaseStudies } from "@/components/site/CaseStudies";
+import { Insights } from "@/components/site/Insights";
+import { ContactForm } from "@/components/site/ContactForm";
+import { SectionHeading } from "@/components/site/SectionHeading";
 import { CTA } from "@/components/site/CTA";
+import { Mail, Phone, Globe } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -56,71 +61,133 @@ const teamMembers: TeamMember[] = [
 function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Company"
-        title="A Full-Spectrum AI Engineering Company"
-        description="TrustGrid.AI engineers production AI systems for the world's most demanding enterprises — from GPU clusters to autonomous agent fleets, across 20+ regulated industries."
-      />
+      <div id="about-info">
+        <PageHero
+          eyebrow="Company"
+          title="A Full-Spectrum AI Engineering Company"
+          description="TrustGrid.AI engineers production AI systems for the world's most demanding enterprises — from GPU clusters to autonomous agent fleets, across 20+ regulated industries."
+        />
 
-      <section className="mx-auto max-w-5xl px-6 py-20 prose-invert">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-semibold text-gradient">Our mandate</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              We exist to transform AI infrastructure from a cost center into a strategic competitive advantage.
-              Where most vendors deliver chatbots and pilots, TrustGrid.AI engineers the full stack — from CUDA
-              kernels to autonomous enterprise workflows.
-            </p>
+        <section className="mx-auto max-w-5xl px-6 py-20 prose-invert">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-semibold text-gradient">Our mandate</h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                We exist to transform AI infrastructure from a cost center into a strategic competitive advantage.
+                Where most vendors deliver chatbots and pilots, TrustGrid.AI engineers the full stack — from CUDA
+                kernels to autonomous enterprise workflows.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold text-gradient">How we operate</h2>
+              <p className="mt-4 text-muted-foreground leading-relaxed">
+                Principal engineers lead every engagement. Five global delivery centers provide follow-the-sun
+                coverage. Every system we ship is production-graded, security-reviewed and built for audit.
+              </p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-2xl font-semibold text-gradient">How we operate</h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Principal engineers lead every engagement. Five global delivery centers provide follow-the-sun
-              coverage. Every system we ship is production-graded, security-reviewed and built for audit.
-            </p>
+        </section>
+
+        {/* World-Class Talent / Leadership & Teams Section */}
+        <section className="border-t border-border/30 bg-surface/5 py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent mb-4">
+                World-Class Talent
+              </span>
+              <h2 className="text-3xl md:text-4.5xl font-extrabold tracking-tight text-foreground font-display mb-4">
+                Leadership & Teams
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                A powerhouse of AI architects, blockchain experts, and industry consultants building the future of autonomous revenue.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {teamMembers.map((member, idx) => (
+                <div 
+                  key={idx} 
+                  className="premium-card p-5 flex items-center gap-4 hover:border-primary/30 transition-all duration-300 group"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/5 border border-border/50 group-hover:border-primary/30 text-accent font-display text-sm font-bold transition-all duration-300">
+                    {member.initials}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-foreground leading-snug group-hover:text-accent transition-colors duration-300 truncate">
+                      {member.name}
+                    </h3>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed mt-0.5 font-medium truncate">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Metrics />
+      </div>
+
+      {/* Case Studies Section */}
+      <section id="case-studies" className="py-24 border-t border-border/40 bg-surface/5 scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Case Studies"
+            title="Production AI, measured in outcomes"
+            description="A selection of recent enterprise engagements. All client identities anonymized per NDA."
+          />
+          <div className="mt-12">
+            <CaseStudies />
           </div>
         </div>
       </section>
 
-      {/* World-Class Talent / Leadership & Teams Section */}
-      <section className="border-t border-border/30 bg-surface/5 py-24">
+      {/* Insights Section */}
+      <section id="insights" className="py-24 border-t border-border/40 bg-background scroll-mt-20">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent mb-4">
-              World-Class Talent
-            </span>
-            <h2 className="text-3xl md:text-4.5xl font-extrabold tracking-tight text-foreground font-display mb-4">
-              Leadership & Teams
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              A powerhouse of AI architects, blockchain experts, and industry consultants building the future of autonomous revenue.
-            </p>
+          <SectionHeading
+            eyebrow="Insights"
+            title="Thought leadership from the AI engineering frontier"
+            description="Long-form research, technical deep-dives and strategic perspectives for AI and technology leaders."
+          />
+          <div className="mt-12">
+            <Insights />
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, idx) => (
-              <div 
-                key={idx} 
-                className="premium-card p-5 flex items-center gap-4 hover:border-primary/30 transition-all duration-300 group"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/5 border border-border/50 group-hover:border-primary/30 text-accent font-display text-sm font-bold transition-all duration-300">
-                  {member.initials}
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-sm font-bold text-foreground leading-snug group-hover:text-accent transition-colors duration-300 truncate">
-                    {member.name}
-                  </h3>
-                  <p className="text-[11px] text-muted-foreground leading-relaxed mt-0.5 font-medium truncate">
-                    {member.role}
-                  </p>
+      {/* Contact Section */}
+      <section id="contact" className="py-24 border-t border-border/40 bg-surface/5 scroll-mt-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Contact"
+            title="Schedule an enterprise consultation"
+            description="Speak with a TrustGrid.AI principal engineer about your AI roadmap. Most enterprise engagements begin with a tailored 48-hour capability assessment."
+          />
+          <div className="grid lg:grid-cols-[1fr_400px] gap-12 mt-12">
+            <ContactForm />
+            <aside className="space-y-8">
+              <div className="rounded-xl border border-border/60 bg-surface/30 p-6">
+                <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider">Global Coverage</h3>
+                <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-3"><Globe className="h-4 w-4 text-accent" /> 5 delivery centers worldwide</div>
+                  <div className="flex items-center gap-3"><Mail className="h-4 w-4 text-accent" /> enterprise@trustgrid.ai</div>
+                  <div className="flex items-center gap-3"><Phone className="h-4 w-4 text-accent" /> 24/7 enterprise support</div>
                 </div>
               </div>
-            ))}
+              <div className="rounded-xl border border-primary/30 bg-gradient-to-br from-primary/10 to-transparent p-6">
+                <h3 className="text-sm font-semibold text-accent uppercase tracking-wider">For CTOs & CIOs</h3>
+                <p className="mt-3 text-sm text-foreground/90 leading-relaxed">
+                  Engagements led by principal engineers with experience deploying production AI at Fortune 500 scale.
+                  All consultations are covered by a mutual NDA.
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <Metrics />
       <CTA />
     </>
   );
