@@ -156,6 +156,8 @@ const platformItems = [
 
 const aboutItems = [
   { label: "About TrustGrid.AI", href: "/about" },
+  { label: "Leadership & Teams", href: "/about#teams" },
+  { label: "Global Presence", href: "/about#presence" },
   { label: "Case Studies", href: "/about#case-studies" },
   { label: "Insights & Blog", href: "/about#insights" },
   { label: "Contact Us", href: "/about#contact" },
@@ -764,7 +766,7 @@ function PlatformDropdown() {
 
 function AboutDropdown() {
   return (
-    <div className="nav-dropdown w-[240px]">
+    <div className="nav-dropdown w-[260px]">
       <div className="flex flex-col gap-y-3.5">
         {aboutItems.map((item) => (
           <SectionLink

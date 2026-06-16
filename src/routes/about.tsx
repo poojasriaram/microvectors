@@ -150,7 +150,7 @@ function AboutPage() {
         </section>
 
         {/* World-Class Talent / Leadership & Teams Section */}
-        <section className="border-t border-border/30 bg-surface/5 py-24">
+        <section id="teams" className="border-t border-border/30 bg-surface/5 py-24 scroll-mt-20">
           <div className="mx-auto max-w-7xl px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent mb-4">
@@ -250,7 +250,7 @@ function AboutPage() {
       </section>
 
       {/* Global Offices Section */}
-      <section className="py-24 border-t border-border/40 bg-background">
+      <section id="presence" className="py-24 border-t border-border/40 bg-background scroll-mt-20">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Presence"
