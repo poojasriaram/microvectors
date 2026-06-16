@@ -156,7 +156,6 @@ const platformItems = [
 
 const aboutItems = [
   { label: "About TrustGrid.AI", href: "/about" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Insights & Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
