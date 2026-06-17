@@ -30,6 +30,7 @@ import { Route as AgentopsServicesRouteImport } from './routes/agentops-services
 import { Route as AgenticAiDevelopmentRouteImport } from './routes/agentic-ai-development'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin/analytics'
 
 const UseCasesRoute = UseCasesRouteImport.update({
   id: '/use-cases',
@@ -138,6 +139,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/admin/analytics',
+  path: '/admin/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/use-cases': typeof UseCasesRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -184,6 +191,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/use-cases': typeof UseCasesRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -208,6 +216,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/solutions': typeof SolutionsRoute
   '/use-cases': typeof UseCasesRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/solutions'
     | '/use-cases'
+    | '/admin/analytics'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -256,6 +266,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/solutions'
     | '/use-cases'
+    | '/admin/analytics'
   id:
     | '__root__'
     | '/'
@@ -279,6 +290,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/solutions'
     | '/use-cases'
+    | '/admin/analytics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -303,6 +315,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SolutionsRoute: typeof SolutionsRoute
   UseCasesRoute: typeof UseCasesRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -454,6 +467,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -479,6 +499,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SolutionsRoute: SolutionsRoute,
   UseCasesRoute: UseCasesRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
