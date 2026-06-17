@@ -577,7 +577,7 @@ function OfferingsDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {cat.title}
             </SectionLink>
@@ -612,7 +612,7 @@ function IndustriesDropdown() {
           <div key={segment.title} className="flex flex-col">
             <SectionLink
               href="/industries"
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {segment.title}
             </SectionLink>
@@ -645,7 +645,7 @@ function SolutionsDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {cat.title}
             </SectionLink>
@@ -680,7 +680,7 @@ function CapabilitiesDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {cat.title}
             </SectionLink>
@@ -715,7 +715,7 @@ function UseCasesDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {cat.title}
             </SectionLink>
@@ -750,7 +750,7 @@ function PlatformDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider uppercase mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-bold text-foreground hover:text-primary transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
             >
               {cat.title}
             </SectionLink>
@@ -819,7 +819,7 @@ function NavItem({ label, to, children }: NavItemProps) {
   };
 
   const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setOpen(false), 120);
+    timeoutRef.current = setTimeout(() => setOpen(false), 300);
   };
 
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
@@ -856,7 +856,7 @@ function NavItem({ label, to, children }: NavItemProps) {
           className="absolute top-full left-1/2 -translate-x-1/2 pt-6 z-[200]"
           onClick={() => setOpen(false)}
         >
-          <div className="animate-dropdown">
+          <div>
             {children}
           </div>
         </div>
@@ -993,7 +993,7 @@ export function Header() {
 
               {/* Featured strip */}
               <div className="mb-4 p-3 rounded-xl bg-surface/40 border border-border/40">
-                <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">Key Offerings</p>
+                <p className="text-[10px] font-semibold tracking-widest text-muted-foreground mb-2">Key Offerings</p>
                 <div className="grid grid-cols-2 gap-2">
                   {featuredOfferings.map((item) => (
                     <SectionLink
@@ -1033,7 +1033,7 @@ export function Header() {
                       <SectionLink
                         href={cat.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block text-[10px] font-bold uppercase tracking-wider text-accent pl-1"
+                        className="block text-[10px] font-bold tracking-wider text-accent pl-1"
                       >
                         {cat.title}
                       </SectionLink>
@@ -1076,7 +1076,7 @@ export function Header() {
                       <SectionLink
                         href={cat.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block text-[10px] font-bold uppercase tracking-wider text-accent pl-1"
+                        className="block text-[10px] font-bold tracking-wider text-accent pl-1"
                       >
                         {cat.title}
                       </SectionLink>
@@ -1104,7 +1104,7 @@ export function Header() {
                       <SectionLink
                         href={cat.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block text-[10px] font-bold uppercase tracking-wider text-accent pl-1"
+                        className="block text-[10px] font-bold tracking-wider text-accent pl-1"
                       >
                         {cat.title}
                       </SectionLink>
@@ -1147,7 +1147,7 @@ export function Header() {
                       <SectionLink
                         href={cat.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block text-[10px] font-bold uppercase tracking-wider text-accent pl-1"
+                        className="block text-[10px] font-bold tracking-wider text-accent pl-1"
                       >
                         {cat.title}
                       </SectionLink>

@@ -1,10 +1,27 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Cpu, Bot, Shield, Globe, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NeuralBackground } from "./NeuralBackground";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+  "/images/gpu_cluster_1_1781677642098.png",
+  "/images/gpu_cluster_2_1781677654723.png",
+  "/images/gpu_server_rack_1781677667839.png",
+  "/images/ai_processor_node_1781677682371.png"
+];
 
 export function Hero() {
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden border-b border-border/30 bg-surface/5">
       {/* Premium subtle grid and glows */}
@@ -17,29 +34,37 @@ export function Hero() {
 
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.9, }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.2 }}
         className="absolute inset-0 hidden lg:block pointer-events-none z-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background via-45% to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10" />
-        <img
-          src="/images/hero_infrastructure.png"
-          alt="TrustGrid.AI GPU infrastructure orchestration visual"
-          className="w-full h-full object-cover object-right"
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 via-35% to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/60 z-10" />
+        
+        <AnimatePresence mode="popLayout">
+          <motion.img
+            key={currentImg}
+            src={heroImages[currentImg]}
+            alt="TrustGrid.AI GPU infrastructure orchestration visual"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="w-full h-full object-cover object-right absolute inset-0"
+          />
+        </AnimatePresence>
       </motion.div>
 
       <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-28 md:pt-28 md:pb-36 z-10">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Text & Content */}
           <div className="flex flex-col items-start">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-gradient leading-[1.15] font-display"
+              className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-gradient-hero leading-[1.15] font-display"
             >
               AI Infrastructure.<br />
               Autonomous Agents.<br />
@@ -71,9 +96,8 @@ export function Hero() {
               ].map((item, i) => (
                 <li
                   key={item.title}
-                  className={`flex items-center gap-3 p-3 rounded-xl border border-border bg-background/50 hover:border-primary/30 hover:bg-surface/50 hover:shadow-sm transition-all duration-300 ${
-                    i === 4 ? "sm:col-span-2" : ""
-                  }`}
+                  className={`flex items-center gap-3 p-3 rounded-xl border border-border bg-background/50 hover:border-primary/30 hover:bg-surface/50 hover:shadow-sm transition-all duration-300 ${i === 4 ? "sm:col-span-2" : ""
+                    }`}
                 >
                   <div className="h-9 w-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-accent shrink-0">
                     <item.icon className="h-5 w-5" />
