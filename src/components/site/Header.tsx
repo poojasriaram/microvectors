@@ -931,7 +931,7 @@ export function Header() {
       `}</style>
 
       <header className="sticky top-0 z-50 border-b border-border/20 bg-background/20 backdrop-blur-xl">
-        <div className="w-full flex h-16 items-center justify-between px-6 md:px-8">
+        <div className="w-full flex h-16 items-center justify-between px-6 md:px-8 xl:px-[calc(2rem+1.5cm)]">
 
           {/* Brand */}
           <Link to="/" className="flex items-center group mr-6 shrink-0">
@@ -971,7 +971,7 @@ export function Header() {
           {/* Action + Hamburger */}
           <div className="flex items-center gap-3">
             <Link to="/contact" className="hidden xl:block">
-              <Button size="default" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-sm">
+              <Button size="default" className="bg-black hover:bg-black/90 text-white font-medium text-sm border border-white/10 shadow-sm">
                 Book Strategy Session
               </Button>
             </Link>
