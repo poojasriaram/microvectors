@@ -6,7 +6,7 @@
 // ─── Configuration ────────────────────────────────────────────
 // TODO: Replace with your deployed Google Apps Script Web App URL
 export const ANALYTICS_CONFIG = {
-  ENDPOINT: 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE',
+  ENDPOINT: 'https://script.google.com/macros/s/AKfycbxD-Z1pKI9kXAdlnoH6x3eMFL7KjqUg4QYa13ruoeXghugzZ7Hw1CGEdHE8YVSPuMIc/exec',
   BATCH_INTERVAL_MS: 10000, // Send events every 10 seconds
   MAX_BATCH_SIZE: 50,       // Max events per batch
   ENABLED: true,
