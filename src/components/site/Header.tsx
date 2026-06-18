@@ -828,8 +828,8 @@ function NavItem({ label, to, children }: NavItemProps) {
     return (
       <Link
         to={to}
-        className="text-sm font-medium text-foreground transition-colors hover:text-primary px-3 py-1.5 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md font-medium" }}
+        className="text-base font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-foreground bg-surface/50 px-3.5 py-2 rounded-md font-medium" }}
       >
         {label}
       </Link>
@@ -845,8 +845,8 @@ function NavItem({ label, to, children }: NavItemProps) {
     >
       <Link
         to={to}
-        className="text-sm font-medium text-foreground transition-colors hover:text-primary px-3 py-1.5 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-foreground bg-surface/50 px-3 py-1.5 rounded-md font-medium" }}
+        className="text-base font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-foreground bg-surface/50 px-3.5 py-2 rounded-md font-medium" }}
       >
         {label}
       </Link>
@@ -941,7 +941,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-2">
+          <nav className="hidden xl:flex items-center gap-5">
             <NavItem label="Home" to="/">
               <HomeDropdown />
             </NavItem>
