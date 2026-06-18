@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, CheckCircle2, ChevronRight, BarChart3, Target, Zap } from "lucide-react";
 import { PageHero } from "./PageHero";
 import { CTA } from "./CTA";
+import { HeroSlider } from "./HeroSlider";
 
 export interface OfferingDetail {
   title: string;
@@ -21,6 +22,8 @@ export interface ServiceDetailProps {
   stack: string[];
   outcomes?: { value: string; label: string }[];
   detailedOfferings?: OfferingDetail[];
+  sliderType?: "home" | "gpu" | "llm" | "security" | "infrastructure" | "reliability";
+  bgImages?: string[];
 }
 
 export function ServiceDetail({
@@ -31,10 +34,16 @@ export function ServiceDetail({
   stack,
   outcomes,
   detailedOfferings,
+  sliderType,
+  bgImages,
 }: ServiceDetailProps) {
   return (
     <>
-      <PageHero eyebrow={eyebrow} title={title} description={description} />
+      {sliderType ? (
+        <HeroSlider type={sliderType} />
+      ) : (
+        <PageHero eyebrow={eyebrow} title={title} description={description} bgImages={bgImages} />
+      )}
 
       {outcomes && (
         <section className="border-b border-border/40 bg-surface/20">

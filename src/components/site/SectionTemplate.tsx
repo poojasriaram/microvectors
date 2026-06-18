@@ -57,7 +57,7 @@ export function SectionTemplate({ data }: { data: SectionData }) {
                 </h3>
                 <ul className="space-y-3">
                   {data.capabilities.map((cap, i) => (
-                    <li key={i} className="flex gap-3 text-muted-foreground">
+                    <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
                       <CheckCircle2 className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                       <span>{cap}</span>
                     </li>
@@ -76,7 +76,7 @@ export function SectionTemplate({ data }: { data: SectionData }) {
                 </h3>
                 <ul className="space-y-3">
                   {data.solutions.map((sol, i) => (
-                    <li key={i} className="flex gap-3 text-muted-foreground">
+                    <li key={i} className="flex gap-3 text-muted-foreground text-sm leading-relaxed">
                       <ChevronRight className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <span>{sol}</span>
                     </li>

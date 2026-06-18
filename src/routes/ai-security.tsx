@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import {
   Shield,
   ShieldCheck,
@@ -561,16 +562,7 @@ function OfferingSection({ offering }: { offering: ShieldOffering }) {
 function AiSecurityPage() {
   return (
     <>
-      <PageHero
-        eyebrow="AI Security & Cyber Dom"
-        title={
-          <>
-            Comprehensive AI Security <br />
-            <span className="text-accent">for the Enterprise</span>
-          </>
-        }
-        description="From AI governance and red teaming to zero-trust architecture and 24×7 managed detection — we secure every layer of your AI stack."
-      />
+      <HeroSlider type="security" />
 
       <div className="bg-background">
         {offerings.map((offering) => (

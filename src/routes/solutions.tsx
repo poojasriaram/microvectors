@@ -71,16 +71,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "1.1 Core Performance Tuning",
         points: [
-          "Super Scaling — Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training",
-          "Memory Optimization — Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput",
-          "Multi-Tenant GPU Management — Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure workspace utilization",
+          "Super Scaling — Engineering seamless scale-out architectures to orchestrate tens of thousands of GPUs for foundation model training. We optimize distributed communication topologies to prevent communication bottlenecks at massive cluster scales.",
+          "Memory Optimization — Restructuring data pipelines and tensor layouts to minimize memory bottlenecks and maximize DRAM throughput. Our layouts prevent memory fragmentation and ensure peak hardware execution efficiency.",
+          "Multi-Tenant GPU Management — Isolating GPU resources using MIG (Multi-Instance GPU) and vGPU technologies for secure workspace utilization. This allows multiple enterprise teams to safely run parallel development workloads on shared physical hardware.",
         ],
       },
       {
         title: "1.2 Scale & Communication Optimization",
         points: [
-          "Low-Latency HPC Networking — Optimizing inter-gpu communication to eliminate gradient synchronization bottlenecks",
-          "Inference Speed Reduction — Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency",
+          "Low-Latency HPC Networking — Optimizing inter-gpu and inter-node network communication to eliminate gradient synchronization bottlenecks. We configure InfiniBand or RoCE fabrics for maximum throughput and ultra-low latency.",
+          "Inference Speed Reduction — Applying advanced quantization (INT8/FP8), pruning, and speculative decoding to shrink token generation latency. Our inference runtimes accelerate execution speeds by up to 5x for real-time applications.",
         ],
       },
     ],
@@ -94,16 +94,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "2.1 Model Adaptation & Context Scaling",
         points: [
-          "Fine-Tuning (PEFT / LoRA) — Implementing LoRA/QLoRA to adapt foundational models without the compute cost",
-          "RAG Pipeline Architecture — Designing chunking, embedding, and retrieval pipelines with hybrid search for context injection",
-          "Autonomous Agent Frameworks — Building tool-calling, memory-managed, and planning-capable agents using LangGraph",
+          "Fine-Tuning (PEFT / LoRA) — Implementing LoRA/QLoRA to adapt foundational models without the compute cost of full training. We fine-tune models to behave deterministically on specialized domain vocabularies.",
+          "RAG Pipeline Architecture — Designing chunking, embedding, and retrieval pipelines with hybrid search for context injection. We integrate semantic graph structures to ground responses and mitigate hallucinations.",
+          "Autonomous Agent Frameworks — Building tool-calling, memory-managed, and planning-capable agents using LangGraph. Our agent fleets automate complex multi-step workflows with strict safety constraints.",
         ],
       },
       {
         title: "2.2 Efficiency & Cost Optimization",
         points: [
-          "Multi-Modal Model Integration — Designing orchestration layers that dynamically route text, image, and audio inputs",
-          "Token Cost Optimization — Implementing caching layers (Semantic Caching) and prompt compression to reduce costs",
+          "Multi-Modal Model Integration — Designing orchestration layers that dynamically route text, image, and audio inputs to specialized model endpoints. This ensures rich contextual understanding across diverse format streams.",
+          "Token Cost Optimization — Implementing caching layers (Semantic Caching) and prompt compression to reduce operational API costs. Our systems compress prompt overhead by up to 40% with zero degradation in accuracy.",
         ],
       },
     ],
@@ -117,16 +117,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "3.1 Monitoring & Lifecycle Automation",
         points: [
-          "Model Drift Detection — Implementing statistical monitoring (KL divergence, PSI) to detect data drift in real-time",
-          "Automated Retraining Pipelines — Building triggers that automatically retrain and validate models when performance metrics degrade",
-          "SLA / SLO Enforcement — Establishing strict latency, accuracy, and availability bounds with circuit breakers",
+          "Model Drift Detection — Implementing data and concept drift systems (KL divergence, PSI) in real-time. We continuously check live inference feeds against historical training baselines to flag semantic drift.",
+          "Automated Retraining Pipelines — Building triggers that automatically retrain and validate models when performance metrics degrade. Our pipelines automate deployment rollbacks in case validation benchmarks fall short.",
+          "SLA / SLO Enforcement — Establishing strict latency, accuracy, and availability bounds with automated circuit breakers. Our failover routing maintains 99.99% system availability even under peak request loads.",
         ],
       },
       {
         title: "3.2 Testing & Observability",
         points: [
-          "Red-Teaming & Stress Testing — Simulating hostile inputs and edge-case scenarios to break models before release",
-          "LLM Observability Stack — Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows",
+          "Red-Teaming & Stress Testing — Simulating hostile inputs and edge-case scenarios to break models before release. We aggressively audit prompt boundaries to prevent data leaks, prompt injection, and toxic outputs.",
+          "LLM Observability Stack — Deploying tracing, span analysis, and token-level logging to debug complex agentic workflows. We track execution costs and token path lineages from input prompt to output response.",
         ],
       },
     ],
@@ -140,16 +140,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "4.1 Lifecycle Hardening & Encryption",
         points: [
-          "Robustness Testing — Training models to resist perturbed inputs (e.g., FGSM) that cause misclassifications",
-          "Confidential Computing — Utilizing HSMs and TEEs to process data in encrypted memory",
-          "Supply Chain Scanning — Auditing third-party models, HuggingFace pipelines, and dependencies for malware",
+          "Robustness Testing — Training models to resist perturbed inputs (e.g., FGSM) that cause misclassifications. We immunize neural networks against adversarial attacks that exploit vulnerability patterns.",
+          "Confidential Computing — Utilizing HSMs and TEEs to process data in encrypted secure memory enclaves. This prevents host operators and hypervisors from inspecting raw input prompts or model weights.",
+          "Supply Chain Scanning — Auditing third-party models, HuggingFace pipelines, and dependencies for malware and backdoors. We sandbox and run sanity checks on all external artifacts before importing them.",
         ],
       },
       {
         title: "4.2 Defenses & Zero-Trust",
         points: [
-          "Prompt Injection Defense — Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks",
-          "Data & Model Defense — Implementing differential privacy and output perturbation to prevent data reconstruction and model inversion",
+          "Prompt Injection Defense — Deploying input sanitization, classifiers, and LLM firewalls to block jailbreaks and malicious prompts. Our filters neutralize indirect prompt injections at the api layer.",
+          "Data & Model Defense — Implementing differential privacy and output perturbation to prevent data reconstruction. This guards your proprietary models against membership inference and model inversion attacks.",
         ],
       },
     ],
@@ -163,16 +163,16 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "5.1 Pipeline & Cluster Orchestration",
         points: [
-          "MLOps / LLMOps Architecture — Building automated pipelines from data ingestion to model serving and monitoring",
-          "Vector Database Deployment — Architecting and tuning vector databases for enterprise RAG workloads",
-          "Kubernetes Orchestration — Deploying specialized K8s operators (KubeRay, TorchElastic) for training & serving",
+          "MLOps / LLMOps Architecture — Building automated pipelines from data ingestion to model serving and monitoring. We automate canary testing, blue-green deployments, and model registry syncing.",
+          "Vector Database Deployment — Architecting and tuning vector databases for enterprise RAG workloads. We optimize index building (HNSW/IVF) for sub-millisecond retrieval speeds across millions of vectors.",
+          "Kubernetes Orchestration — Deploying specialized K8s operators (KubeRay, TorchElastic) for distributed training. Our schedulers optimize container lifecycles to maximize cluster utility.",
         ],
       },
       {
         title: "5.2 Storage & Microservices",
         points: [
-          "Microservices Design — Decoupling AI processing using Kafka or EventBridge for highly resilient pipelines",
-          "Storage Optimization — Implementing lifecycle policies to move training data from S3/Glacier to NVMe",
+          "Microservices Design — Decoupling AI processing using Kafka or EventBridge for highly resilient pipelines. Asynchronous messaging queues ensure high throughput and prevent database locking.",
+          "Storage Optimization — Implementing lifecycle policies to move training data from S3/Glacier to local NVMe storage. We configure GPU Direct Storage (GDS) to bypass CPU bottlenecks during heavy I/O operations.",
         ],
       },
     ],
@@ -186,18 +186,18 @@ const technicalCategories: TechnicalCategory[] = [
       {
         title: "6.1 Strategic Power & Capacity",
         points: [
-          "GW-Scale Power & Capacity Strategy — End-to-end consulting for securing, designing, and managing multi-Gigawatt utility interconnections",
-          "Next-Gen Power Architecture & Microgrid Design — Integrating renewable generation, battery energy storage systems (BESS), and small modular reactors (SMRs)",
-          "AI-Driven Facility Operations — Employing predictive digital twins to optimize PUE/WUE dynamically based on real-time workload demands",
-          "Sustainable AI & ESG Compliance — Automating carbon reporting, clean energy matching, and compliance with evolving hyperscale sustainability mandates",
+          "GW-Scale Power & Capacity Strategy — End-to-end consulting for securing, designing, and managing multi-Gigawatt utility interconnections. We model power flows and draft capacity strategies for high-density AI supercomputing campuses.",
+          "Next-Gen Power Architecture & Microgrid Design — Integrating renewable generation, battery energy storage systems (BESS), and small modular reactors (SMRs). We engineer on-site microgrids to enable clean energy demand response.",
+          "AI-Driven Facility Operations — Employing predictive digital twins to optimize PUE/WUE dynamically based on real-time workload demands. Our controls adjust cooling loop operations ahead of compute spikes.",
+          "Sustainable AI & ESG Compliance — Automating carbon reporting, clean energy matching, and compliance with evolving hyperscale sustainability mandates. We generate audit-ready ESG performance logs.",
         ],
       },
       {
         title: "6.2 Thermal & Energy Efficiency",
         points: [
-          "AI Thermal Cooling Transition — Mapping the migration from air-cooled clusters to high-density Direct-to-Chip (D2C) and immersion cooling architectures",
-          "GPU & Network Fabric Energy Audit — Deep-dive telemetry to identify per-GPU power waste, idle draw, and thermal throttling events",
-          "Waste Heat Recovery & Monetization — Engineering closed-loop systems to capture and repurpose high-grade AI compute heat for district heating",
+          "AI Thermal Cooling Transition — Mapping the migration path from air-cooled clusters to high-density Direct-to-Chip (D2C) and immersion cooling architectures. We balance liquid flow dynamics for 100kW+ rack enclosures.",
+          "GPU & Network Fabric Energy Audit — Deep-dive telemetry to identify per-GPU power waste, idle draw, and thermal throttling events. We optimize voltage-frequency profiles to recover lost energy.",
+          "Waste Heat Recovery & Monetization — Engineering closed-loop systems to capture and repurpose high-grade AI compute heat for district heating. This turns server cooling overhead into municipal utility revenues.",
         ],
       },
     ],
@@ -514,7 +514,6 @@ function SolutionsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Solutions"
         title={
           <>
             Full-Spectrum <span className="text-accent">AI Engineering Solutions</span>

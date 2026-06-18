@@ -749,7 +749,6 @@ function CapabilitiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="🚀 Capabilities"
         title={
           <>
             Engineering AI systems that <br />

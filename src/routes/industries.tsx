@@ -293,7 +293,7 @@ function DetailedIndustrySection({ data, index }: { data: IndustryOffering; inde
               {data.solutions.map((sol, i) => (
                 <li
                   key={i}
-                  className="flex gap-2.5 p-3.5 rounded-xl border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/20 hover:shadow-sm transition-all duration-200 text-xs font-semibold leading-relaxed"
+                  className="flex gap-2.5 p-3.5 rounded-xl border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/20 hover:shadow-sm transition-all duration-200 text-[13px] md:text-sm font-semibold leading-relaxed"
                 >
                   <div className="h-1.5 w-1.5 rounded-full bg-accent mt-2 shrink-0 animate-pulse-glow" />
                   <span>{sol}</span>
@@ -327,14 +327,14 @@ function DetailedIndustrySection({ data, index }: { data: IndustryOffering; inde
                   renderedText = (
                     <span>
                       {parts[0]}
-                      <span className="text-emerald-500 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded text-xs">{percentStr}</span>
+                      <span className="text-emerald-500 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded text-[11px] md:text-xs">{percentStr}</span>
                       {parts[1]}
                     </span>
                   );
                 }
 
                 return (
-                  <li key={i} className="flex gap-3 text-foreground font-medium text-xs leading-relaxed items-start">
+                  <li key={i} className="flex gap-3 text-foreground font-medium text-[13px] md:text-sm leading-relaxed items-start">
                     <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{renderedText}</span>
                   </li>
@@ -356,7 +356,6 @@ function IndustriesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Vertical AI Solutions – 2026"
         title={
           <>
             Sovereign & Secure <br />

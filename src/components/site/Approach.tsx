@@ -71,9 +71,6 @@ export function Approach() {
                     className="h-16 w-16 md:h-20 md:w-20 rounded-2xl bg-card border border-border/80 shadow-sm grid place-items-center group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300 relative"
                   >
                     <l.icon className="h-6 w-6 md:h-7 md:w-7 text-accent" />
-                    <span className="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full bg-surface border border-border/80 text-[9px] font-mono font-bold text-muted-foreground grid place-items-center shadow-sm">
-                      0{i + 1}
-                    </span>
                   </div>
                 </div>
 

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { motion } from "framer-motion";
 import { CheckCircle2, BarChart3, Zap, Cpu, Globe } from "lucide-react";
 import { SectionLink } from "@/components/site/Header";
@@ -389,13 +390,13 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
               return (
                 <div
                   key={i}
-                  className="premium-card p-6 bg-white border border-border/60 hover:border-accent/25 hover:shadow-[0_12px_24px_-8px_rgba(var(--primary),0.03)] rounded-2xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
+                  className="premium-card p-6 bg-white border border-border/80 hover:border-accent/25 hover:shadow-[0_12px_24px_-8px_rgba(var(--primary),0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
                 >
                   <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div>
-                    <h4 className="text-sm md:text-base font-bold text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors font-display">
+                    <h5 className="text-sm md:text-[15px] font-bold text-foreground tracking-tight mb-2 group-hover:text-primary transition-colors font-display">
                       {title}
-                    </h4>
+                    </h5>
                     <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                       {desc}
                     </p>
@@ -424,13 +425,13 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
                 return (
                   <div
                     key={i}
-                    className="premium-card p-6 bg-white border border-border/60 hover:border-amber-500/25 hover:shadow-[0_12px_24px_-8px_rgba(245,158,11,0.03)] rounded-2xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
+                    className="premium-card p-6 bg-white border border-border/80 hover:border-amber-500/25 hover:shadow-[0_12px_24px_-8px_rgba(245,158,11,0.03)] rounded-xl relative overflow-hidden group transition-all duration-300 flex flex-col justify-between"
                   >
                     <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div>
-                      <h4 className="text-sm md:text-base font-bold text-foreground tracking-tight mb-2 group-hover:text-amber-600 transition-colors font-display">
+                      <h5 className="text-sm md:text-[15px] font-bold text-foreground tracking-tight mb-2 group-hover:text-amber-600 transition-colors font-display">
                         {title}
-                      </h4>
+                      </h5>
                       <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                         {desc}
                       </p>
@@ -529,16 +530,7 @@ function DetailedOfferingSection({ data }: { data: OfferingCategory }) {
 function OfferingsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Professional Service Portfolio & Industry Solutions – 2026"
-        title={
-          <>
-            Full-Stack AI Engineering & <br />
-            Industry <span className="text-accent">Solutions</span>
-          </>
-        }
-        description="Comprehensive engineering offerings and tailored vertical solutions built for extreme efficiency, reliability, and Zero-Trust safety."
-      />
+      <HeroSlider type="reliability" />
 
       {/* Grouped sticky category navigation */}
       <div className="sticky top-16 z-30 bg-background/90 backdrop-blur-md border-b border-border/40 py-4">

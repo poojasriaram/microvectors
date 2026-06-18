@@ -124,7 +124,6 @@ function AboutPage() {
     <>
       <div id="about-info">
         <PageHero
-          eyebrow="Company"
           title="A Full-Spectrum AI Engineering Company"
           description="TrustGrid.AI engineers production AI systems for the world's most demanding enterprises — from GPU clusters to autonomous agent fleets, across 20+ regulated industries."
         />

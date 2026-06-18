@@ -1,33 +1,58 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
 export function PageHero({
   eyebrow,
   title,
   description,
+  bgImages,
   children,
 }: {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
+  bgImages?: string[];
   children?: ReactNode;
 }) {
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    if (!bgImages || bgImages.length === 0) return;
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % bgImages.length);
+    }, 2000); // Change image every 2 seconds
+    return () => clearInterval(timer);
+  }, [bgImages]);
+
   return (
     <section className="relative overflow-hidden border-b border-border/30 bg-surface/5">
-      <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute inset-0 bg-radial-glow" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-primary/15 blur-[120px] pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-24">
-        {eyebrow && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3 py-1 text-base uppercase tracking-widest font-semibold text-accent backdrop-blur"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
-            {eyebrow}
-          </motion.div>
-        )}
+      {/* Sliding background images if provided */}
+      {bgImages && bgImages.length > 0 && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background z-10" />
+          <AnimatePresence mode="popLayout">
+            <motion.img
+              key={currentImg}
+              src={bgImages[currentImg]}
+              alt="Background visual"
+              initial={{ opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+              className="w-full h-full object-cover object-right absolute inset-0 opacity-[0.35]"
+            />
+          </AnimatePresence>
+        </div>
+      )}
+
+      {/* Premium subtle grid and glows */}
+      <div className="absolute inset-0 bg-grid opacity-30 z-0" />
+      <div className="absolute inset-0 bg-radial-glow z-0" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-primary/15 blur-[120px] pointer-events-none z-0" />
+      
+      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-20 md:pt-28 md:pb-24 z-10">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,7 +72,6 @@ export function PageHero({
           </motion.p>
         )}
         {children && <div className="mt-8">{children}</div>}
-
       </div>
     </section>
   );

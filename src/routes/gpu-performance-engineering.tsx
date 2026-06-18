@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import {
   CheckCircle2,
   ChevronRight,
@@ -967,16 +968,7 @@ function UseCaseMatrixSection() {
 function GpuPerformanceEngineeringPage() {
   return (
     <>
-      <PageHero
-        eyebrow="GPU Performance Engineering"
-        title={
-          <>
-            Maximum Performance from <br />
-            Every <span className="text-accent">GPU Cycle</span>
-          </>
-        }
-        description="From infrastructure assessment to custom CUDA kernel engineering — we squeeze every FLOP out of your hardware."
-      />
+      <HeroSlider type="gpu" />
 
       <div className="bg-background">
         {gpuOfferings.map((offering) => (

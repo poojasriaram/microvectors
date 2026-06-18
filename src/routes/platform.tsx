@@ -113,7 +113,6 @@ function PlatformPage() {
   return (
     <>
       <PageHero
-        eyebrow="The GPU-phi Platform"
         title={
           <>
             Autonomous AI <br />

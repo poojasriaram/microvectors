@@ -586,9 +586,9 @@ function OfferingsDropdown() {
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
                 >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
                   <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
@@ -621,9 +621,9 @@ function IndustriesDropdown() {
                 <SectionLink
                   key={item.label}
                   href={item.href}
-                  className="flex items-center gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2.5 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
                 >
-                  <item.icon className="h-3.5 w-3.5 text-muted-foreground/60 group-hover/item:text-primary transition-colors shrink-0" />
+                  <item.icon className="h-3.5 w-3.5 text-muted-foreground/60 group-hover/item:text-primary transition-colors shrink-0 mt-0.5" />
                   <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
@@ -654,9 +654,9 @@ function SolutionsDropdown() {
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
                 >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
                   <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
@@ -689,9 +689,9 @@ function CapabilitiesDropdown() {
                 <SectionLink
                   key={item.href + item.label}
                   href={item.href}
-                  className="flex items-center gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
+                  className="flex items-start gap-2 py-0.5 px-0.5 rounded-md hover:bg-primary/[0.03] group/item transition-all"
                 >
-                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px]">
+                  <span className="text-accent font-semibold transition-transform duration-200 group-hover/item:translate-x-0.5 shrink-0 text-[10px] mt-0.5">
                     →
                   </span>
                   <span className="text-xs font-medium text-muted-foreground group-hover/item:text-foreground transition-colors leading-snug font-sans tracking-wide">
@@ -828,7 +828,7 @@ function NavItem({ label, to, children }: NavItemProps) {
     return (
       <Link
         to={to}
-        className="text-base font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
+        className="text-sm font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
         activeProps={{ className: "text-foreground bg-surface/50 px-3.5 py-2 rounded-md font-medium" }}
       >
         {label}
@@ -845,7 +845,7 @@ function NavItem({ label, to, children }: NavItemProps) {
     >
       <Link
         to={to}
-        className="text-base font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
+        className="text-sm font-medium text-foreground transition-colors hover:text-primary px-3.5 py-2 rounded-md whitespace-nowrap"
         activeProps={{ className: "text-foreground bg-surface/50 px-3.5 py-2 rounded-md font-medium" }}
       >
         {label}

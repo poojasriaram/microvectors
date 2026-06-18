@@ -82,7 +82,7 @@ export function Services() {
           description="One engineering partner for every layer of your AI stack — from GPU kernels to autonomous enterprise operations."
         />
 
-        <div className="mt-14 grid gap-px bg-border/30 border border-border/40 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-px bg-border/30 border border-border/40 rounded-xl overflow-hidden md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <motion.div
               key={s.title}

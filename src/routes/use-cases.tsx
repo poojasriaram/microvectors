@@ -1269,7 +1269,6 @@ function UseCasesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Proven Impact"
         title={
           <>
             Enterprise <span className="text-accent">Use Cases</span> <br />

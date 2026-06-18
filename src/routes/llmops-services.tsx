@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/site/PageHero";
 import { CTA } from "@/components/site/CTA";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import {
   CheckCircle2,
   ChevronRight,
@@ -897,11 +898,7 @@ export const Route = createFileRoute("/llmops-services")({
 function LlmOpsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="LLMOps & LLM Optimization Engineering"
-        title="Operate LLMs in production at enterprise scale"
-        description="Six engineering engagements covering enterprise AI platforms, RAG, agentic automation, industry LLMs, inference FinOps, and sovereign AI — each with deep inference optimization built in."
-      />
+      <HeroSlider type="llm" />
 
       {/* Outcome stats bar */}
       <section className="border-b border-border/40 bg-surface/20">
