@@ -119,6 +119,7 @@ export function Chatbot() {
   const [streamingText, setStreamingText] = useState("");
   const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
+  const [translateY, setTranslateY] = useState(0);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -127,6 +128,35 @@ export function Chatbot() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping, streamingText]);
+
+  // Dynamically shift the chatbot up when the footer is visible in the viewport
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.getElementById("site-footer");
+      if (!footer) return;
+
+      const footerRect = footer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (footerRect.top < windowHeight) {
+        const visibleFooterHeight = windowHeight - footerRect.top;
+        // Shift chatbot up to maintain exactly a 16px gap above the top of the footer
+        setTranslateY(Math.max(0, visibleFooterHeight - 8));
+      } else {
+        setTranslateY(0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    // Run initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   // Handle typing simulation
   const simulateBotResponse = (targetText: string, links?: { label: string; href: string }[], suggestions?: string[]) => {
@@ -314,7 +344,13 @@ export function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 font-sans">
+    <div 
+      className="fixed bottom-6 right-6 z-50 font-sans" 
+      style={{ 
+        transform: translateY > 0 ? `translateY(-${translateY}px)` : 'none', 
+        transition: 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)' 
+      }}
+    >
       {/* Chat Window Panel */}
       <AnimatePresence>
         {isOpen && (

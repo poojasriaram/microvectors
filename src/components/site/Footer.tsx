@@ -98,7 +98,7 @@ const footerCols = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-surface/20">
+    <footer id="site-footer" className="border-t border-border/40 bg-surface/20">
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-10">
 
         {/* Featured Offerings Strip */}
