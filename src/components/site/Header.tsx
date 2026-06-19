@@ -548,8 +548,8 @@ export function SectionLink({
 
 function HomeDropdown() {
   return (
-    <div className="nav-dropdown w-[640px]">
-      <div className="grid grid-cols-2 gap-x-10 gap-y-4.5">
+    <div className="nav-dropdown w-[660px]">
+      <div className="grid grid-cols-2 gap-x-12 gap-y-4.5">
         {homeItems.map((item) => (
           <SectionLink
             key={item.href + item.label}
@@ -571,13 +571,13 @@ function HomeDropdown() {
 
 function OfferingsDropdown() {
   return (
-    <div className="nav-dropdown w-[1380px] max-w-[95vw]">
-      <div className="grid grid-cols-6 gap-x-6 gap-y-6">
+    <div className="nav-dropdown w-[1420px] max-w-[95vw]">
+      <div className="grid grid-cols-6 gap-x-10 gap-y-6">
         {offeringsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {cat.title}
             </SectionLink>
@@ -606,13 +606,13 @@ function OfferingsDropdown() {
 
 function IndustriesDropdown() {
   return (
-    <div className="nav-dropdown w-[1120px] max-w-[95vw]">
-      <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+    <div className="nav-dropdown w-[1180px] max-w-[95vw]">
+      <div className="grid grid-cols-4 gap-x-12 gap-y-10">
         {industrySegments.map((segment) => (
           <div key={segment.title} className="flex flex-col">
             <SectionLink
               href="/industries"
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {segment.title}
             </SectionLink>
@@ -639,13 +639,13 @@ function IndustriesDropdown() {
 
 function SolutionsDropdown() {
   return (
-    <div className="nav-dropdown w-[1380px] max-w-[95vw]">
-      <div className="grid grid-cols-6 gap-x-6 gap-y-6">
+    <div className="nav-dropdown w-[1420px] max-w-[95vw]">
+      <div className="grid grid-cols-6 gap-x-10 gap-y-6">
         {solutionsCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {cat.title}
             </SectionLink>
@@ -674,13 +674,13 @@ function SolutionsDropdown() {
 
 function CapabilitiesDropdown() {
   return (
-    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
+    <div className="nav-dropdown w-[1240px] max-w-[95vw]">
+      <div className="grid grid-cols-5 gap-x-10 gap-y-6">
         {capabilitiesCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {cat.title}
             </SectionLink>
@@ -709,13 +709,13 @@ function CapabilitiesDropdown() {
 
 function UseCasesDropdown() {
   return (
-    <div className="nav-dropdown w-[1200px] max-w-[95vw]">
-      <div className="grid grid-cols-5 gap-x-6 gap-y-6">
+    <div className="nav-dropdown w-[1240px] max-w-[95vw]">
+      <div className="grid grid-cols-5 gap-x-10 gap-y-6">
         {useCasesCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {cat.title}
             </SectionLink>
@@ -744,13 +744,13 @@ function UseCasesDropdown() {
 
 function PlatformDropdown() {
   return (
-    <div className="nav-dropdown w-[900px] max-w-[95vw]">
-      <div className="grid grid-cols-3 gap-x-8 gap-y-6">
+    <div className="nav-dropdown w-[960px] max-w-[95vw]">
+      <div className="grid grid-cols-3 gap-x-12 gap-y-6">
         {platformCategories.map((cat) => (
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-3 block border-b border-border/30 pb-2"
+              className="text-xs font-extrabold text-slate-900 hover:text-blue-600 transition-colors tracking-wider mb-4 block border-b border-border/30 pb-2.5"
             >
               {cat.title}
             </SectionLink>
@@ -853,10 +853,10 @@ function NavItem({ label, to, children }: NavItemProps) {
 
       {open && (
         <div 
-          className="absolute top-full left-1/2 -translate-x-1/2 pt-6 z-[200]"
+          className="absolute top-full left-0 right-0 pt-6 z-[200] animate-dropdown"
           onClick={() => setOpen(false)}
         >
-          <div>
+          <div className="flex justify-center w-full">
             {children}
           </div>
         </div>
@@ -916,9 +916,9 @@ export function Header() {
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
           border: 1px solid var(--color-border);
-          border-radius: 0px;
-          box-shadow: 0 16px 36px -12px oklch(0.12 0.015 250 / 0.04), 0 0 0 1px oklch(0.45 0.18 260 / 0.02);
-          padding: 2rem;
+          border-radius: 1.25rem;
+          box-shadow: 0 20px 48px -10px oklch(0.12 0.015 250 / 0.08), 0 0 0 1px oklch(0.45 0.18 260 / 0.02);
+          padding: 2.25rem 2.5rem;
           letter-spacing: 0.025em;
         }
         @keyframes dropdown-in {
