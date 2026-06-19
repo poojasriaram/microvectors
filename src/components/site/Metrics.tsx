@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const highlights = [
-  { value: "8", label: "AI Engineering Domains", sub: "End-to-end AI stack coverage." },
-  { value: "20+", label: "Industry Verticals", sub: "Regulated enterprise environments." },
-  { value: "5", label: "Global Delivery Centers", sub: "24/7 support worldwide." },
-  { value: "10x", label: "Faster Deployment", sub: "Proven frameworks, fast delivery." },
+  { value: "8", label: "AI Engineering Domains", sub: "End-to-end AI stack coverage.", gradient: "from-indigo-600 to-violet-600" },
+  { value: "20+", label: "Industry Verticals", sub: "Regulated enterprise environments.", gradient: "from-orange-500 to-red-600" },
+  { value: "5", label: "Global Delivery Centers", sub: "24/7 support worldwide.", gradient: "from-emerald-500 to-teal-600" },
+  { value: "10x", label: "Faster Deployment", sub: "Proven frameworks, fast delivery.", gradient: "from-blue-600 to-cyan-500" },
 ];
 
 const stats = [
-  { value: "3–15x", label: "Performance Improvement" },
-  { value: "40–75%", label: "Cost Reduction" },
-  { value: "128+", label: "GPU Scaling" },
-  { value: "24/7", label: "Global Support" },
+  { value: "3–15x", label: "Performance Improvement", gradient: "from-rose-500 to-pink-600" },
+  { value: "40–75%", label: "Cost Reduction", gradient: "from-amber-500 to-orange-600" },
+  { value: "128+", label: "GPU Scaling", gradient: "from-violet-600 to-fuchsia-600" },
+  { value: "24/7", label: "Global Support", gradient: "from-teal-500 to-green-600" },
 ];
 
 export function Metrics() {
@@ -38,7 +38,7 @@ export function Metrics() {
               className="premium-card p-6 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-gradient-primary font-display tracking-tight">
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${h.gradient} bg-clip-text text-transparent font-display tracking-tight`}>
                   {h.value}
                 </div>
                 <div className="mt-4 text-sm font-semibold text-foreground/90 leading-tight">
@@ -64,7 +64,7 @@ export function Metrics() {
               className="premium-card p-6 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-gradient-primary font-display tracking-tight">
+                <div className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${m.gradient} bg-clip-text text-transparent font-display tracking-tight`}>
                   {m.value}
                 </div>
               </div>
