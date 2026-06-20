@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, Cpu, Bot, Brain, Shield, LayoutGrid, Layers, Zap, Globe, BarChart3, Server, FileText, Users, Phone, BookOpen, Car, Wrench, Settings, Home, Laptop, FlaskConical, Hammer, Building2, Milestone, Droplet, Sun, Anchor, Train, Landmark, Coins, ShoppingBag, Gem, Pill, HeartPulse, Stethoscope, Dna, Leaf, Package, Store, Tv, Scissors, Utensils, Film, Compass, Plane, GraduationCap, Sprout } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Cpu, Bot, Brain, Shield, LayoutGrid, Layers, Zap, Globe, BarChart3, Server, FileText, Users, Phone, BookOpen, Car, Wrench, Settings, Home, Laptop, FlaskConical, Hammer, Building2, Milestone, Droplet, Sun, Anchor, Train, Landmark, Coins, ShoppingBag, Gem, Pill, HeartPulse, Stethoscope, Dna, Leaf, Package, Store, Tv, Scissors, Utensils, Film, Compass, Plane, GraduationCap, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /* ─── Mega-Menu Data ─────────────────────────────────────────── */
@@ -546,6 +546,47 @@ export function SectionLink({
 
 /* ─── Dropdown Components ────────────────────────────────────── */
 
+function getCategoryIcon(title: string) {
+  switch (title) {
+    case "Manufacturing & Industrial": return Hammer;
+    case "Technology & Electronics": return Laptop;
+    case "Infrastructure & Construction": return Building2;
+    case "Energy & Utilities": return Zap;
+    case "Financial Services": return Landmark;
+    case "Healthcare & Life Sciences": return HeartPulse;
+    case "Consumer & Retail": return ShoppingBag;
+    case "Media & Services": return Tv;
+    case "GPU Optimization": return Cpu;
+    case "LLM Optimization": return Brain;
+    case "AI Trust & Reliability": return Bot;
+    case "AI Cybersecurity": return Shield;
+    case "AI Infrastructure": return Server;
+    case "Energy Optimization": return Zap;
+    case "GPU-phi Orchestration": return Layers;
+    case "GPU FinOps Dashboard": return BarChart3;
+    case "Self-Healing Clusters": return Settings;
+    default: return LayoutGrid;
+  }
+}
+
+function getSubcategoryIcon(label: string) {
+  const text = label.toLowerCase();
+  if (text.includes("gpu") || text.includes("cuda") || text.includes("hardware") || text.includes("triton")) return Cpu;
+  if (text.includes("network") || text.includes("fabric") || text.includes("latency") || text.includes("bandwidth") || text.includes("routing")) return Globe;
+  if (text.includes("storage") || text.includes("memory") || text.includes("database") || text.includes("ingestion")) return Server;
+  if (text.includes("llm") || text.includes("model") || text.includes("prompt") || text.includes("agent") || text.includes("rag") || text.includes("semantic") || text.includes("translation") || text.includes("knowledge")) return Brain;
+  if (text.includes("security") || text.includes("defense") || text.includes("injection") || text.includes("penetration") || text.includes("privacy") || text.includes("trust") || text.includes("theft") || text.includes("fraud") || text.includes("vulnerability") || text.includes("adversarial") || text.includes("drift") || text.includes("traceability")) return Shield;
+  if (text.includes("energy") || text.includes("power") || text.includes("cooling") || text.includes("thermal") || text.includes("carbon") || text.includes("heat")) return Zap;
+  if (text.includes("cloud") || text.includes("kubernetes") || text.includes("cluster") || text.includes("orchestration") || text.includes("container") || text.includes("multi-cluster") || text.includes("microservice")) return Layers;
+  if (text.includes("cost") || text.includes("finops") || text.includes("budget") || text.includes("arbitrage") || text.includes("trading")) return Coins;
+  if (text.includes("code") || text.includes("pipeline") || text.includes("ci/cd") || text.includes("testing") || text.includes("review") || text.includes("architecture")) return LayoutGrid;
+  if (text.includes("data") || text.includes("analytic") || text.includes("diagnostic") || text.includes("metric") || text.includes("observability") || text.includes("evaluate") || text.includes("dashboard")) return BarChart3;
+  if (text.includes("automat") || text.includes("autonomy") || text.includes("self-healing") || text.includes("failover") || text.includes("resume") || text.includes("fencing")) return Settings;
+  if (text.includes("healthcare") || text.includes("patient") || text.includes("biometric")) return HeartPulse;
+  
+  return ChevronRight;
+}
+
 function HomeDropdown() {
   return (
     <div className="nav-dropdown w-[680px]">
@@ -556,10 +597,11 @@ function HomeDropdown() {
             href={item.href}
             className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
           >
-            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-xs">
-              →
-            </span>
-            <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
+            {(() => {
+              const Icon = getSubcategoryIcon(item.label);
+              return <Icon className="h-4 w-4 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0" />;
+            })()}
+            <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
               {item.label}
             </span>
           </SectionLink>
@@ -577,8 +619,12 @@ function OfferingsDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(cat.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {cat.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -588,10 +634,11 @@ function OfferingsDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
-                    →
-                  </span>
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  {(() => {
+                    const Icon = getSubcategoryIcon(item.label);
+                    return <Icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0 mt-0.5" />;
+                  })()}
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -612,8 +659,12 @@ function IndustriesDropdown() {
           <div key={segment.title} className="flex flex-col">
             <SectionLink
               href="/industries"
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(segment.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {segment.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -623,8 +674,8 @@ function IndustriesDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <item.icon className="h-3.5 w-3.5 text-slate-500 group-hover/item:text-blue-600 transition-colors shrink-0 mt-0.5" />
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  <item.icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-600 transition-colors shrink-0 mt-0.5" />
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -645,8 +696,12 @@ function SolutionsDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(cat.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {cat.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -656,10 +711,11 @@ function SolutionsDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
-                    →
-                  </span>
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  {(() => {
+                    const Icon = getSubcategoryIcon(item.label);
+                    return <Icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0 mt-0.5" />;
+                  })()}
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -680,8 +736,12 @@ function CapabilitiesDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(cat.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {cat.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -691,10 +751,11 @@ function CapabilitiesDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
-                    →
-                  </span>
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  {(() => {
+                    const Icon = getSubcategoryIcon(item.label);
+                    return <Icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0 mt-0.5" />;
+                  })()}
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -715,8 +776,12 @@ function UseCasesDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(cat.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {cat.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -726,10 +791,11 @@ function UseCasesDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
-                    →
-                  </span>
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  {(() => {
+                    const Icon = getSubcategoryIcon(item.label);
+                    return <Icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0 mt-0.5" />;
+                  })()}
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -750,8 +816,12 @@ function PlatformDropdown() {
           <div key={cat.title} className="flex flex-col">
             <SectionLink
               href={cat.href}
-              className="text-[11px] font-extrabold text-slate-800 hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 block border-b border-border/40 pb-2.5"
+              className="flex items-center gap-2 text-[11px] font-extrabold text-foreground hover:text-blue-600 transition-colors tracking-widest uppercase mb-4 border-b border-border/40 pb-2.5"
             >
+              {(() => {
+                const Icon = getCategoryIcon(cat.title);
+                return <Icon className="h-4 w-4 text-blue-500" />;
+              })()}
               {cat.title}
             </SectionLink>
             <div className="flex flex-col gap-1.5">
@@ -761,10 +831,11 @@ function PlatformDropdown() {
                   href={item.href}
                   className="flex items-start gap-2.5 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
                 >
-                  <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-[10px] mt-0.5">
-                    →
-                  </span>
-                  <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
+                  {(() => {
+                    const Icon = getSubcategoryIcon(item.label);
+                    return <Icon className="h-3.5 w-3.5 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0 mt-0.5" />;
+                  })()}
+                  <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-snug font-sans tracking-wide">
                     {item.label}
                   </span>
                 </SectionLink>
@@ -787,10 +858,11 @@ function AboutDropdown() {
             href={item.href}
             className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-blue-50/50 group/item transition-all border border-transparent hover:border-blue-100/20"
           >
-            <span className="text-blue-500 font-bold transition-transform duration-200 group-hover/item:translate-x-1 shrink-0 text-xs">
-              →
-            </span>
-            <span className="text-[13px] font-semibold text-slate-700 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
+            {(() => {
+              const Icon = getSubcategoryIcon(item.label);
+              return <Icon className="h-4 w-4 text-muted-foreground group-hover/item:text-blue-500 transition-all duration-200 group-hover/item:translate-x-1 shrink-0" />;
+            })()}
+            <span className="text-[13px] font-semibold text-foreground/90 group-hover/item:text-blue-600 transition-colors leading-normal tracking-wide">
               {item.label}
             </span>
           </SectionLink>
@@ -805,10 +877,11 @@ function AboutDropdown() {
 type NavItemProps = {
   label: string;
   to: string;
+  icon?: React.ElementType;
   children?: React.ReactNode;
 };
 
-function NavItem({ label, to, children }: NavItemProps) {
+function NavItem({ label, to, icon: Icon, children }: NavItemProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -828,9 +901,10 @@ function NavItem({ label, to, children }: NavItemProps) {
     return (
       <Link
         to={to}
-        className="text-sm font-bold text-slate-800 transition-colors hover:text-blue-600 px-3.5 py-2 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-blue-600 bg-blue-50/50 px-3.5 py-2 rounded-md font-bold" }}
+        className="flex items-center gap-1.5 text-sm font-bold text-foreground transition-colors hover:text-blue-600 px-3.5 py-2 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-blue-500" }}
       >
+        {Icon && <Icon className="h-4 w-4" />}
         {label}
       </Link>
     );
@@ -845,9 +919,10 @@ function NavItem({ label, to, children }: NavItemProps) {
     >
       <Link
         to={to}
-        className="text-sm font-bold text-slate-800 transition-colors hover:text-blue-600 px-3.5 py-2 rounded-md whitespace-nowrap"
-        activeProps={{ className: "text-blue-600 bg-blue-50/50 px-3.5 py-2 rounded-md font-bold" }}
+        className="flex items-center gap-1.5 text-sm font-bold text-foreground transition-colors hover:text-blue-600 px-3.5 py-2 rounded-md whitespace-nowrap"
+        activeProps={{ className: "text-blue-500" }}
       >
+        {Icon && <Icon className="h-4 w-4" />}
         {label}
       </Link>
 
@@ -880,11 +955,11 @@ function MobileAccordion({ title, to, children, onClose }: MobileAccordionProps)
   return (
     <div className="border-b border-border/30 last:border-0">
       <button
-        className="w-full flex items-center justify-between py-3.5 text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors"
+        className="w-full flex items-center justify-between py-3.5 text-sm font-bold text-foreground hover:text-blue-600 transition-colors"
         onClick={() => setOpen((v) => !v)}
       >
         {title}
-        <ChevronDown className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       {open && (
         <div className="pb-3 pl-2">
@@ -912,14 +987,12 @@ export function Header() {
       {/* Global dropdown styles */}
       <style>{`
         .nav-dropdown {
-          background: rgba(255, 255, 255, 0.98);
+          background: var(--color-surface);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(15, 23, 42, 0.08);
+          border: 1px solid var(--color-border);
           border-radius: 1rem;
-          box-shadow: 
-            0 20px 40px -15px rgba(15, 23, 42, 0.12), 
-            0 0 0 1px rgba(15, 23, 42, 0.04);
+          box-shadow: var(--shadow-elevated);
           padding: 2rem 2.25rem;
           letter-spacing: 0.01em;
         }
@@ -937,33 +1010,33 @@ export function Header() {
 
           {/* Brand */}
           <Link to="/" className="flex items-center group mr-6 shrink-0">
-            <img src="/logo.png" alt="TrustGrid.AI Logo" className="h-14 w-auto object-contain" />
+            <img src="/logo.png" alt="TrustGrid.AI Logo" className="h-9 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center gap-5">
-            <NavItem label="Home" to="/">
+            <NavItem label="Home" to="/" icon={Home}>
               <HomeDropdown />
             </NavItem>
-            <NavItem label="Offerings" to="/offerings">
+            <NavItem label="Offerings" to="/offerings" icon={Package}>
               <OfferingsDropdown />
             </NavItem>
-            <NavItem label="Industries" to="/industries">
+            <NavItem label="Industries" to="/industries" icon={Building2}>
               <IndustriesDropdown />
             </NavItem>
-            <NavItem label="Solutions" to="/solutions">
+            <NavItem label="Solutions" to="/solutions" icon={Settings}>
               <SolutionsDropdown />
             </NavItem>
-            <NavItem label="Capabilities" to="/capabilities">
+            <NavItem label="Capabilities" to="/capabilities" icon={Wrench}>
               <CapabilitiesDropdown />
             </NavItem>
-            <NavItem label="Use Cases" to="/use-cases">
+            <NavItem label="Use Cases" to="/use-cases" icon={FileText}>
               <UseCasesDropdown />
             </NavItem>
-            <NavItem label="Platform" to="/platform">
+            <NavItem label="Platform" to="/platform" icon={Server}>
               <PlatformDropdown />
             </NavItem>
-            <NavItem label="About Us" to="/about">
+            <NavItem label="About Us" to="/about" icon={Users}>
               <AboutDropdown />
             </NavItem>
           </nav>
@@ -971,7 +1044,7 @@ export function Header() {
           {/* Action + Hamburger */}
           <div className="flex items-center gap-3">
             <Link to="/contact" className="hidden xl:block">
-              <Button size="default" className="bg-black hover:bg-black/90 text-white font-medium text-sm border border-white/10 shadow-sm">
+              <Button size="default" className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 transition-all cursor-pointer">
                 Book Strategy Session
               </Button>
             </Link>
@@ -1018,7 +1091,7 @@ export function Header() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                      className="block py-1.5 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                     >
                       {item.label}
                     </SectionLink>
@@ -1043,7 +1116,7 @@ export function Header() {
                             key={item.label}
                             href={item.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-1 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                            className="block py-1 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                           >
                             {item.label}
                           </SectionLink>
@@ -1061,7 +1134,7 @@ export function Header() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                      className="block py-1.5 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                     >
                       {item.label}
                     </SectionLink>
@@ -1086,7 +1159,7 @@ export function Header() {
                             key={item.label}
                             href={item.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-1 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                            className="block py-1 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                           >
                             {item.label}
                           </SectionLink>
@@ -1114,7 +1187,7 @@ export function Header() {
                             key={item.label}
                             href={item.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-1 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                            className="block py-1 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                           >
                             {item.label}
                           </SectionLink>
@@ -1132,7 +1205,7 @@ export function Header() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                      className="block py-1.5 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                     >
                       {item.label}
                     </SectionLink>
@@ -1157,7 +1230,7 @@ export function Header() {
                             key={item.label}
                             href={item.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-1 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                            className="block py-1 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                           >
                             {item.label}
                           </SectionLink>
@@ -1175,7 +1248,7 @@ export function Header() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1.5 text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+                      className="block py-1.5 text-xs font-semibold text-foreground/90 hover:text-blue-600 transition-colors"
                     >
                       {item.label}
                     </SectionLink>

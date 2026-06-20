@@ -1125,7 +1125,7 @@ export function HeroSlider({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-white select-none min-h-[85dvh]"
+      className="relative w-full overflow-hidden bg-background select-none min-h-[85dvh]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -1156,11 +1156,11 @@ export function HeroSlider({
       </div>
 
       {/* Gradient Masks */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* Decorative Grid Backdrop */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,82,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,82,255,0.012)_1px,transparent_1px)] bg-[size:4rem_4rem] z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] z-10 pointer-events-none" />
 
       {/* Slide Content */}
       <AnimatePresence mode="wait">
@@ -1170,15 +1170,15 @@ export function HeroSlider({
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="container mx-auto px-6 relative z-20 text-left max-w-6xl w-full flex flex-col justify-center min-h-[85dvh] pt-28 pb-24"
+          className="container mx-auto px-6 relative z-20 text-left max-w-6xl w-full flex flex-col justify-center min-h-[85dvh] pt-28 pb-24 drop-shadow-2xl"
         >
           {/* Badges / ICP */}
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="px-4 py-2 bg-slate-100/90 border border-slate-200 text-xs font-extrabold tracking-[0.2em] uppercase text-slate-700 rounded-full">
+            <span className="px-4 py-2 bg-surface/90 border border-border text-xs font-extrabold tracking-[0.2em] uppercase text-foreground/90 rounded-full">
               {slide.badge}
             </span>
             {slide.icp && (
-              <span className="px-4 py-2 bg-blue-50/90 border border-blue-100 text-xs font-extrabold tracking-[0.2em] uppercase text-blue-700 rounded-full">
+               <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 text-xs font-extrabold tracking-[0.2em] uppercase text-blue-400 rounded-full">
                 ICP: {slide.icp}
               </span>
             )}
@@ -1187,10 +1187,10 @@ export function HeroSlider({
           {/* Title */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 leading-[1.12] tracking-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground font-display leading-[1.12] tracking-tight mb-6 drop-shadow-md"
           >
             {slide.title}
-            <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
               {" "}{slide.highlight}{" "}
             </span>
             {slide.titleEnd}
@@ -1199,7 +1199,7 @@ export function HeroSlider({
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl font-sans leading-relaxed font-medium mb-8"
+            className="text-base sm:text-lg md:text-xl text-foreground/90 max-w-2xl font-sans leading-relaxed font-medium mb-8 drop-shadow-md"
           >
             {slide.description}
           </motion.p>
@@ -1207,8 +1207,8 @@ export function HeroSlider({
           {/* Outcome Tag */}
           {slide.outcome && (
             <motion.div variants={itemVariants} className="flex mb-8">
-              <div className="px-5 py-2.5 bg-emerald-50/90 border border-emerald-200/60 text-emerald-800 rounded-2xl text-xs sm:text-sm font-bold shadow-sm flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <div className="px-5 py-2.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-2xl text-xs sm:text-sm font-bold shadow-sm flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <span>{slide.outcome}</span>
               </div>
             </motion.div>
@@ -1238,8 +1238,8 @@ export function HeroSlider({
             onClick={() => handleDotClick(idx)}
             className={`rounded-full transition-all duration-300 ${
               idx === index
-                ? "w-8 h-2 bg-blue-600 shadow-sm"
-                : "w-2 h-2 bg-slate-300/80 hover:bg-slate-400"
+                ? "w-8 h-2 bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]"
+                : "w-2 h-2 bg-muted-foreground/40 hover:bg-muted-foreground/80"
             }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
@@ -1250,14 +1250,14 @@ export function HeroSlider({
       <div className="absolute bottom-8 right-8 z-30 flex items-center gap-3">
         <button
           onClick={handlePrev}
-          className="p-3.5 bg-white/90 hover:bg-white border border-slate-200 text-slate-800 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 duration-200"
+          className="p-3.5 bg-background/50 backdrop-blur-md hover:bg-background border border-border text-foreground rounded-full shadow-lg hover:border-primary/50 transition-all active:scale-95 duration-200"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
         <button
           onClick={handleNext}
-          className="p-3.5 bg-white/90 hover:bg-white border border-slate-200 text-slate-800 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 duration-200"
+          className="p-3.5 bg-background/50 backdrop-blur-md hover:bg-background border border-border text-foreground rounded-full shadow-lg hover:border-primary/50 transition-all active:scale-95 duration-200"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5" />
@@ -1265,7 +1265,7 @@ export function HeroSlider({
       </div>
 
       {/* Bottom Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-100 z-30 pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-surface z-30 pointer-events-none">
         <div
           className="h-full bg-blue-600 transition-all duration-75"
           style={{ width: `${progress}%` }}

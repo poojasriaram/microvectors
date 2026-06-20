@@ -86,7 +86,7 @@ export function Landscape() {
               >
                 {/* Node counter */}
                 <div className="mb-8 flex items-center justify-center lg:justify-start">
-                  <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-xs font-mono font-bold text-slate-500 transition-all duration-500 relative z-20 group-hover:border-transparent group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)]">
+                  <div className="h-10 w-10 rounded-full bg-card border border-border/80 shadow-sm flex items-center justify-center text-xs font-mono font-bold text-muted-foreground transition-all duration-500 relative z-20 group-hover:border-transparent group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)]">
                     <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${l.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[-1]`} />
                     0{i + 1}
                   </div>

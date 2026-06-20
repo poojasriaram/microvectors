@@ -258,7 +258,7 @@ export function ExitIntentPopup() {
                             <button
                               key={opt.id}
                               onClick={() => setSelectedOption(opt)}
-                              className="w-full flex items-center justify-between p-4 rounded-xl bg-white border border-border hover:border-primary/45 hover:bg-primary/[0.02] shadow-sm hover:shadow transition-all group text-left cursor-pointer"
+                              className="w-full flex items-center justify-between p-4 rounded-xl bg-background border border-border hover:border-primary/45 hover:bg-primary/[0.02] shadow-sm hover:shadow transition-all group text-left cursor-pointer"
                             >
                               <div className="flex items-center gap-3.5">
                                 <div className="p-2 rounded-lg bg-surface border border-border group-hover:bg-primary/10 group-hover:border-primary/20 transition-all text-muted-foreground group-hover:text-primary">
@@ -315,7 +315,7 @@ export function ExitIntentPopup() {
                             value={contact}
                             onChange={(e) => { setContact(e.target.value); setError(""); }}
                             placeholder={selectedOption.placeholder}
-                            className="h-11 bg-white border-border focus-visible:ring-primary placeholder:text-muted-foreground/45 text-sm"
+                            className="h-11 bg-background border-border focus-visible:ring-primary placeholder:text-muted-foreground/45 text-sm"
                             autoFocus
                           />
                           {error && <p className="mt-1 text-xs text-destructive font-semibold">{error}</p>}
@@ -334,7 +334,7 @@ export function ExitIntentPopup() {
                             type="button"
                             variant="outline"
                             onClick={() => setVisible(false)}
-                            className="h-11 border-border text-muted-foreground hover:text-foreground bg-white hover:bg-surface cursor-pointer"
+                            className="h-11 border-border text-muted-foreground hover:text-foreground bg-background hover:bg-surface cursor-pointer"
                           >
                             No thanks
                           </Button>

@@ -15,9 +15,6 @@ const schema = z.object({
   company: z.string().trim().min(2, "Required").max(150),
   email: z.string().trim().email("Invalid email").max(255),
   phone: z.string().trim().max(30).optional(),
-  country: z.string().trim().min(2).max(80),
-  industry: z.string().trim().max(80),
-  budget: z.string().trim().max(80),
   description: z.string().trim().min(20, "Tell us a bit more").max(2000),
 });
 
@@ -35,9 +32,9 @@ async function sendLeadToSheet(data: FormData) {
       Company: data.company,
       WorkEmail: data.email,
       Phone: data.phone || "",
-      Country: data.country,
-      Industry: data.industry,
-      ProjectBudget: data.budget,
+      Country: "",
+      Industry: "",
+      ProjectBudget: "",
       ProjectDescription: data.description,
       // Source info
       PageURL: window.location.href,
@@ -125,24 +122,7 @@ export function ContactForm() {
         <Field label="Phone" error={errors.phone?.message}>
           <Input {...register("phone")} className="bg-background border-border" placeholder="+1 555 000 0000" />
         </Field>
-        <Field label="Country" error={errors.country?.message}>
-          <Input {...register("country")} className="bg-background border-border" placeholder="United States" />
-        </Field>
-        <Field label="Industry" error={errors.industry?.message}>
-          <Input {...register("industry")} className="bg-background border-border" placeholder="Financial Services" />
-        </Field>
-        <Field label="Project Budget" error={errors.budget?.message}>
-          <select
-            {...register("budget")}
-            className="flex h-9 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground"
-          >
-            <option value="">Select range</option>
-            <option>$100K – $500K</option>
-            <option>$500K – $1M</option>
-            <option>$1M – $5M</option>
-            <option>$5M+</option>
-          </select>
-        </Field>
+
       </div>
       <Field label="Project Description" error={errors.description?.message}>
         <Textarea

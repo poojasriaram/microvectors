@@ -6,7 +6,7 @@ const cases = [
   {
     tag: "GPU Optimization",
     title: "Unlocking 12x performance on H100 clusters",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    image: "/images/gpu_opt.png",
     challenge: "Fortune 100 financial services firm running underutilized H100 infrastructure with $40M+ annual GPU spend.",
     results: [
       { v: "3–15x", k: "Performance gain" },
@@ -17,7 +17,7 @@ const cases = [
   {
     tag: "Agentic AI",
     title: "Autonomous operations across 12 business units",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    image: "/images/agentic_ai.png",
     challenge: "Global manufacturer with manual workflow bottlenecks across procurement, support and compliance.",
     results: [
       { v: "70–90%", k: "Workflows automated" },
@@ -28,7 +28,7 @@ const cases = [
   {
     tag: "AI Infrastructure",
     title: "10x faster AI deployment for a government agency",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    image: "/images/ai_infra.png",
     challenge: "National-scale agency with 9-month AI deployment cycles and fragmented MLOps tooling.",
     results: [
       { v: "10x", k: "Faster delivery" },

@@ -119,7 +119,6 @@ export function Chatbot() {
   const [streamingText, setStreamingText] = useState("");
   const [streamingMessageId, setStreamingMessageId] = useState<string | null>(null);
   const [attachedFile, setAttachedFile] = useState<File | null>(null);
-  const [translateY, setTranslateY] = useState(0);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -128,35 +127,6 @@ export function Chatbot() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping, streamingText]);
-
-  // Dynamically shift the chatbot up when the footer is visible in the viewport
-  useEffect(() => {
-    const handleScroll = () => {
-      const footer = document.getElementById("site-footer");
-      if (!footer) return;
-
-      const footerRect = footer.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      if (footerRect.top < windowHeight) {
-        const visibleFooterHeight = windowHeight - footerRect.top;
-        // Shift chatbot up to maintain exactly a 16px gap above the top of the footer
-        setTranslateY(Math.max(0, visibleFooterHeight - 8));
-      } else {
-        setTranslateY(0);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    // Run initial check
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
 
   // Handle typing simulation
   const simulateBotResponse = (targetText: string, links?: { label: string; href: string }[], suggestions?: string[]) => {
@@ -344,13 +314,7 @@ export function Chatbot() {
   };
 
   return (
-    <div 
-      className="fixed bottom-6 right-6 z-50 font-sans" 
-      style={{ 
-        transform: translateY > 0 ? `translateY(-${translateY}px)` : 'none', 
-        transition: 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)' 
-      }}
-    >
+    <div className="fixed bottom-6 right-10 z-50 font-sans">
       {/* Chat Window Panel */}
       <AnimatePresence>
         {isOpen && (
@@ -365,8 +329,8 @@ export function Chatbot() {
             <div className="flex items-center justify-between border-b border-border/40 bg-muted/30 px-5 py-4">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white">
-                    <img src="/logo.png" alt="TrustGrid Logo" className="h-7 w-auto object-contain" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-transparent bg-white shadow-sm">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-6 w-auto object-contain" />
                   </div>
                   <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-surface bg-green-500 animate-pulse-glow" />
                 </div>
@@ -408,8 +372,8 @@ export function Chatbot() {
                   }`}
                 >
                   {msg.sender === "bot" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
-                      <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-transparent bg-white shadow-sm">
+                      <img src="/logo.png" alt="TrustGrid Logo" className="h-5 w-auto object-contain" />
                     </div>
                   )}
 
@@ -443,7 +407,7 @@ export function Chatbot() {
                   </div>
 
                   {msg.sender === "user" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/5 text-primary">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary shadow-sm">
                       <User className="h-4 w-4" />
                     </div>
                   )}
@@ -453,8 +417,8 @@ export function Chatbot() {
               {/* Streaming Text Message */}
               {streamingMessageId && (
                 <div className="flex gap-3 justify-start">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
-                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-transparent bg-white shadow-sm">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5 w-auto object-contain" />
                   </div>
                   <div className="max-w-[82%] rounded-xl px-4 py-3 border border-border/60 bg-surface rounded-tl-none">
                     {formatMessageText(streamingText)}
@@ -466,8 +430,8 @@ export function Chatbot() {
               {/* Typing dots */}
               {isTyping && (
                 <div className="flex gap-3 justify-start">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white">
-                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5.5 w-auto object-contain" />
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-transparent bg-white shadow-sm">
+                    <img src="/logo.png" alt="TrustGrid Logo" className="h-5 w-auto object-contain" />
                   </div>
                   <div className="rounded-xl px-4 py-3 border border-border-border/40 bg-surface rounded-tl-none">
                     <div className="flex items-center gap-1.5 py-1">
@@ -605,7 +569,7 @@ export function Chatbot() {
         className={`flex h-14 w-14 items-center justify-center rounded-full shadow-2xl cursor-pointer relative border transition-colors ${
           isOpen
             ? "bg-primary text-primary-foreground border-primary/30 glow-primary"
-            : "bg-white hover:bg-slate-50 text-slate-800 border-slate-200"
+            : "bg-white hover:bg-slate-50 border-transparent"
         }`}
         aria-label="Toggle chatbot"
       >

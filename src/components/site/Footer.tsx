@@ -174,7 +174,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+        <div id="site-footer-bottom" className="pt-8 border-t border-border/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} TrustGrid.AI. All rights reserved.</span>
             <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>

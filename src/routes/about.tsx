@@ -129,34 +129,56 @@ function AboutPage() {
         />
 
         {/* Mission & Vision */}
-        <section className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            <div className="premium-card p-8 lg:p-10 relative overflow-hidden group border-primary/20 bg-gradient-to-br from-background to-surface/40 hover:border-primary/40 transition-all duration-500">
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500 group-hover:scale-110 transform">
-                <Target className="w-32 h-32 text-primary" />
+        <section className="relative mx-auto max-w-7xl px-6 py-24">
+          {/* Background glow effects */}
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 relative z-10">
+            {/* Mission Card */}
+            <div className="group relative rounded-3xl border border-blue-500/20 bg-background/60 backdrop-blur-2xl p-8 lg:p-12 overflow-hidden shadow-[0_8px_40px_-12px_rgba(59,130,246,0.1)] hover:shadow-[0_16px_60px_-15px_rgba(59,130,246,0.2)] hover:border-blue-500/50 transition-all duration-500">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-all duration-700 group-hover:scale-110 group-hover:rotate-12 transform">
+                <Target className="w-48 h-48 text-blue-500" />
               </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
               <div className="relative z-10">
-                <div className="h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary">
-                  <Target className="h-6 w-6" />
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/30 mb-8 shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  <Target className="h-8 w-8 text-blue-500 drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
                 </div>
-                <h2 className="text-3xl font-extrabold tracking-tight text-foreground font-display mb-4">Mission</h2>
-                <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                  To engineer the foundational infrastructure that safely and sustainably accelerates the AI revolution. TRUSTGRID.AI transforms raw, power-hungry compute into hyper-optimized, resilient, and trustworthy intelligence—empowering enterprises to scale artificial intelligence without limits.
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground font-display mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                  Our Mission
+                </h2>
+                <p className="text-lg lg:text-xl text-foreground/90 leading-relaxed font-semibold">
+                  To engineer the resilient, hyper-optimized infrastructure that sustainably accelerates the AI revolution.
+                </p>
+                <div className="h-px w-12 bg-blue-500/40 my-6 transition-all duration-500 group-hover:w-24" />
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  We transform raw, power-hungry compute into trustworthy intelligence—empowering enterprises to scale AI without limits or compromise.
                 </p>
               </div>
             </div>
 
-            <div className="premium-card p-8 lg:p-10 relative overflow-hidden group border-accent/20 bg-gradient-to-br from-background to-surface/40 hover:border-accent/40 transition-all duration-500">
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500 group-hover:scale-110 transform">
-                <Eye className="w-32 h-32 text-accent" />
+            {/* Vision Card */}
+            <div className="group relative rounded-3xl border border-violet-500/20 bg-background/60 backdrop-blur-2xl p-8 lg:p-12 overflow-hidden shadow-[0_8px_40px_-12px_rgba(139,92,246,0.1)] hover:shadow-[0_16px_60px_-15px_rgba(139,92,246,0.2)] hover:border-violet-500/50 transition-all duration-500">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-all duration-700 group-hover:scale-110 group-hover:-rotate-12 transform">
+                <Eye className="w-48 h-48 text-violet-500" />
               </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative z-10">
-                <div className="h-12 w-12 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-6 text-accent">
-                  <Eye className="h-6 w-6" />
+                <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-500/5 border border-violet-500/30 mb-8 shadow-inner group-hover:scale-110 transition-transform duration-500">
+                  <Eye className="h-8 w-8 text-violet-500 drop-shadow-[0_0_12px_rgba(139,92,246,0.6)]" />
                 </div>
-                <h2 className="text-3xl font-extrabold tracking-tight text-foreground font-display mb-4">Vision</h2>
-                <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                  To be the invisible architectural backbone of the global AI economy. We envision a future where AI infrastructure operates with the absolute reliability of the power grid—where massive GPU superclusters and autonomous agents deliver deterministic value, driving human progress without compromising planetary boundaries.
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground font-display mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                  Our Vision
+                </h2>
+                <p className="text-lg lg:text-xl text-foreground/90 leading-relaxed font-semibold">
+                  To be the invisible, unbreakable architectural backbone of the global AI economy.
+                </p>
+                <div className="h-px w-12 bg-violet-500/40 my-6 transition-all duration-500 group-hover:w-24" />
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  We envision a future where massive GPU superclusters and autonomous agents deliver absolute reliability, driving human progress while respecting planetary boundaries.
                 </p>
               </div>
             </div>
