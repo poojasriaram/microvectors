@@ -189,7 +189,7 @@ export default function AIRevenueAcceleration() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <Link to="/book-demo">
+                        <Link to="/book-consultation">
                             <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold italic">
                                 ACTIVATE AUTO-PILOT
                             </Button>
@@ -435,7 +435,7 @@ export default function AIRevenueAcceleration() {
                         capture the $130B AI sales agent market opportunity. <br />
                         <span className="text-slate-400 italic font-medium">restructure your entire revenue operating model today.</span>
                     </p>
-                    <Link to="/book-demo">
+                    <Link to="/book-consultation">
                         <Button className="bg-slate-900 hover:bg-black text-white text-xl px-16 py-10 h-auto rounded-full font-black shadow-2xl transition-all hover:scale-105 flex items-center gap-6 mx-auto group">
                             DEPLOY REVENUE AGENTS <ArrowRight className="w-8 h-8 shrink-0 group-hover:translate-x-2 transition-transform" />
                         </Button>

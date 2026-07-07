@@ -96,6 +96,15 @@ export default function ChatBot() {
     // Listen for Context-Aware Triggers
     useEffect(() => {
         const handleContextTrigger = (e: CustomEvent<{ message: string, contextName?: string }>) => {
+            // Check if user is actively filling a form to prevent disturbance
+            const activeEl = document.activeElement;
+            if (activeEl && (
+                ['INPUT', 'TEXTAREA', 'SELECT', 'OPTION'].includes(activeEl.tagName?.toUpperCase()) ||
+                activeEl.closest('form')
+            )) {
+                return;
+            }
+
             const { contextName } = e.detail;
 
             // Format: Hello! 👋 I'm the [Name] ( [Role] ) .. We understand that you are interested in < Context > . How can we help you? . Shall we call you or set up a call to share more details on the topic ?
@@ -126,7 +135,7 @@ export default function ChatBot() {
         const lowerText = text.toLowerCase();
 
         if (lowerText.includes('demo') || lowerText.includes('book')) {
-            return "That's great! 🚀 To get started with booking a demo, could you please share your name, company, and your preferred email address?";
+            return "That's great! 🚀 To get started with booking a consultation, could you please share your name, company, and your preferred email address?";
         }
 
         if (lowerText.includes('feature') || lowerText.includes('what does') || lowerText.includes('how does')) {
@@ -136,7 +145,69 @@ export default function ChatBot() {
             return "For support inquiries, you can reach our team directly at support@trustgrid.ai 📧, or I can have someone contact you. Would you like me to arrange a callback?";
         }
 
-        return "I understand. Trustgrid AI helps B2B teams accelerate conversions and optimize processes. 💡\nWould you like to see a specific use case or schedule a demo to see it in action?";
+        return "I understand. Trustgrid AI helps B2B teams accelerate conversions and optimize processes. 💡\nWould you like to see a specific use case or schedule a consultation to see it in action?";
+    };
+
+    // ── Chatbot Lead Tracking ─────────────────────────────────────────
+    const trackChatbotLead = (messageText: string, quickAction?: string) => {
+        const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+        if (!GOOGLE_SCRIPT_URL) return;
+
+        // Determine intent from message
+        const lowerText = messageText.toLowerCase();
+        let chatIntent = 'General Inquiry';
+        if (lowerText.includes('demo') || lowerText.includes('book')) chatIntent = 'Consultation Request';
+        else if (lowerText.includes('expert') || lowerText.includes('consult') || lowerText.includes('speak')) chatIntent = 'Expert Consultation';
+        else if (lowerText.includes('partner')) chatIntent = 'Partnership Interest';
+        else if (lowerText.includes('offering') || lowerText.includes('product') || lowerText.includes('feature')) chatIntent = 'Product Exploration';
+        else if (lowerText.includes('job') || lowerText.includes('career') || lowerText.includes('opening')) chatIntent = 'Career Inquiry';
+        else if (lowerText.includes('browsing') || lowerText.includes('just')) chatIntent = 'Browsing';
+        else if (lowerText.includes('support') || lowerText.includes('help')) chatIntent = 'Support Request';
+        else if (lowerText.includes('pricing') || lowerText.includes('cost')) chatIntent = 'Pricing Inquiry';
+
+        // Build conversation summary
+        const conversationSummary = messages
+            .slice(-6)
+            .map(m => `[${m.role}]: ${m.content.slice(0, 100)}`)
+            .join(' → ');
+
+        const chatStartTime = messages[0]?.timestamp || new Date();
+        const chatDuration = Math.round((Date.now() - chatStartTime.getTime()) / 1000);
+
+        const leadData = {
+            table: 'Chatbot Leads',
+            fields: {
+                'Session ID': sessionStorage.getItem('tg_session_id') || '',
+                'IP Address': localStorage.getItem('tg_ip') || 'detecting...',
+                'Country': localStorage.getItem('tg_country') || '',
+                'State': localStorage.getItem('tg_state') || '',
+                'City': localStorage.getItem('tg_city') || '',
+                'User Name': localStorage.getItem('user_name') || 'anonymous',
+                'User Email': localStorage.getItem('user_email') || '',
+                'User Phone': '',
+                'Chat Intent': chatIntent,
+                'Quick Action Used': quickAction || '',
+                'Messages Count': messages.length + 1,
+                'Chat Duration (s)': chatDuration,
+                'Conversation Summary': conversationSummary,
+                'Page Where Chat Started': window.location.pathname,
+                'Referrer URL': document.referrer,
+                'Device Type': /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+                'Agent Name': agentName
+            }
+        };
+
+        try {
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(leadData)
+            });
+            console.log('Chatbot lead tracked:', chatIntent);
+        } catch (e) {
+            console.warn('Chatbot lead tracking failed:', e);
+        }
     };
 
     const handleSend = async (text?: string) => {
@@ -154,6 +225,10 @@ export default function ChatBot() {
         setInputValue('');
         setIsLoading(true);
 
+        // Track as chatbot lead
+        const isQuickAction = QUICK_ACTIONS.some(a => a.text === messageText);
+        trackChatbotLead(messageText, isQuickAction ? messageText : undefined);
+
         // Simulate AI delay with variable timing
         const delay = Math.random() * 800 + 1000; // 1000-1800ms
         setTimeout(() => {
@@ -168,6 +243,7 @@ export default function ChatBot() {
             setIsLoading(false);
         }, delay);
     };
+
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey) {

@@ -56,6 +56,7 @@ export default function Navigation() {
                 { name: "AI MVP Validation", path: "/ai-mvp-validation" },
                 { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" },
                 { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
+                { name: "Behaviour Analytics", path: "/behaviour-analytics" },
                 { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
             ]
         },
@@ -296,10 +297,10 @@ export default function Navigation() {
 
                         {/* Desktop CTA */}
                         <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-3 shrink-0 h-full">
-                            <Link to="/book-demo">
+                            <Link to="/book-consultation">
                                 <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-2.5 lg:px-2.5 xl:px-4 py-1.5 lg:py-1.5 xl:py-2 h-auto text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
                                     <span className="relative z-10 flex items-center gap-1.5">
-                                        Book for Consulting
+                                        Book for Consultation
                                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </Button>
@@ -317,8 +318,8 @@ export default function Navigation() {
 
                         {/* Mobile menu button */}
                         <div className="lg:hidden flex items-center gap-4">
-                            <Link to="/book-demo" className="text-sm font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-none">
-                                Book for Consulting
+                            <Link to="/book-consultation" className="text-sm font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-none">
+                                Book for Consultation
                             </Link>
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -412,12 +413,12 @@ export default function Navigation() {
 
                     <div className="mt-8 pt-8 space-y-4">
                         <Link
-                            to="/book-demo"
+                            to="/book-consultation"
                             className="block w-full"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <Button className="w-full bg-slate-900 text-white hover:bg-blue-600 h-14 rounded-none font-bold text-lg shadow-xl shadow-slate-900/10 active:scale-[0.98] transition-all">
-                                Book for Consulting
+                                Book for Consultation
                             </Button>
                         </Link>
 

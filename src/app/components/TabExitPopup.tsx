@@ -151,11 +151,11 @@ export default function TabExitPopup() {
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
-                            to="/book-demo"
+                            to="/book-consultation"
                             onClick={handleClose}
                             className="bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-center py-4 rounded-xl transition-all active:scale-95"
                         >
-                            Schedule Demo Walkthrough
+                            Book for Consultation
                         </Link>
                     </div>
 

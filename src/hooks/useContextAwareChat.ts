@@ -142,6 +142,14 @@ export const useContextAwareChat = () => {
             let target = event.target as HTMLElement | null;
             let contextName = '';
 
+            // Prevent disturbance while filling forms
+            if (target && (
+                ['INPUT', 'TEXTAREA', 'SELECT', 'OPTION'].includes(target.tagName.toUpperCase()) ||
+                target.closest('form')
+            )) {
+                return;
+            }
+
             // Helper to dispatch the event
             const triggerChat = (name: string) => {
                 const finalName = name || document.title.split('|')[0].trim() || 'TrustGrid AI';
@@ -229,7 +237,7 @@ export const useContextAwareChat = () => {
             const path = location.pathname;
             let pageName = '';
 
-            if (path.includes('book-demo')) pageName = 'Booking a Demo';
+            if (path.includes('book-consultation')) pageName = 'Booking a Consultation';
             else if (path.includes('career')) pageName = 'Careers';
             else if (path.includes('partners')) pageName = 'Partnerships';
             else if (path.includes('crypto')) pageName = 'Crypto Solutions';

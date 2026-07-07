@@ -75,7 +75,7 @@ export default function AILeadNurturing() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <Link to="/book-demo">
+                        <Link to="/book-consultation">
                             <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
                                 Start Nurturing
                             </Button>
@@ -111,9 +111,9 @@ export default function AILeadNurturing() {
                 <div className="max-w-4xl mx-auto text-center px-4">
                     <h2 className="text-4xl font-bold mb-6">Build Lasting Relationships</h2>
                     <p className="text-xl text-blue-100 mb-10">Transform transactional interactions into long-term partnerships. Let AI manage the journey from awareness to advocacy.</p>
-                    <Link to="/book-demo">
+                    <Link to="/book-consultation">
                         <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 h-auto rounded-full font-bold">
-                            Book for Consulting
+                            Book for Consultation
                         </Button>
                     </Link>
                 </div>

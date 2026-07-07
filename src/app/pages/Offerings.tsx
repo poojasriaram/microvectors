@@ -16,7 +16,8 @@ import {
     Globe,
     AlertTriangle,
     ArrowRight,
-    Layout
+    Layout,
+    Activity
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
@@ -630,6 +631,35 @@ export default function Offerings() {
                     "Partner co-success management - Success with implementation partners"
                 ]
             }
+        ],
+        "Behaviour Analytics": [
+            {
+                name: "Startups",
+                points: [
+                    "Chatbot lead capture - Simple 24/7 engagement for early websites",
+                    "Basic engagement tracking - Visibility into first user interests",
+                    "Daily traffic summaries - Essential growth metrics",
+                    "User behaviour library - Understand anonymous users before they convert"
+                ]
+            },
+            {
+                name: "Growth Teams",
+                points: [
+                    "Lead scoring automation - Identify hot prospects instantly",
+                    "Segmentation metrics - Group users by intent and technology",
+                    "Weekly trends - Comparative analysis of traffic growth",
+                    "Engagement depth mapping - Optimize conversion paths"
+                ]
+            },
+            {
+                name: "Enterprise",
+                points: [
+                    "Global traffic analytics - Performance across 100+ cities",
+                    "Predictive behaviour logs - Audit trail of system triggers",
+                    "Advanced UTM attribution - Multi-channel ROI visibility",
+                    "Custom reporting swarms - Domain-specific intelligence reports"
+                ]
+            }
         ]
     };
 
@@ -950,6 +980,37 @@ export default function Offerings() {
                 "Confident AI integration across organizations",
                 "95%+ model audit compliance rates",
                 "Executive confidence scores of 8+/10"
+            ]
+        },
+        {
+            title: "Behaviour Analytics",
+            subtitle: "Decode the digital body language of every visitor",
+            icon: <Activity className="h-6 w-6 text-purple-600" />,
+            challenges: [
+                { title: "Engagement Blindness", desc: "95% of businesses only know THAT users visit, not WHY they visit" },
+                { title: "Lead Leakage", desc: "40% of high-intent visitors leave without being identified as leads" },
+                { title: "Data fragmentation", desc: "Traditional analytics don't link raw traffic to actual buyer intent" }
+            ],
+            kpiPainPoints: [
+                "Undetected intent signals",
+                "High bounce on key pages",
+                "Unidentified lead opportunities",
+                "Manual reporting overhead",
+                "Low context in CRM leads"
+            ],
+            solutions: [
+                "Chatbot Lead Intelligence – Autonomous capture with real-time scoring",
+                "Engagement & Behaviour Mapping – Track depth, clicks, and intent clusters",
+                "Global Traffic ROI Tracking – Holistic attribution for every source",
+                "Unified Behaviour Library – Aggregated session history per user",
+                "Automated Reporting Swarms – Daily and weekly intelligence delivery"
+            ],
+            outcomes: [
+                "3x higher identified lead volume",
+                "Zero-latency admin lead alerts",
+                "100% visibility into traffic sources",
+                "Automated executive-ready reports",
+                "Enriched context for sales teams"
             ]
         }
     ];
@@ -1320,7 +1381,7 @@ export default function Offerings() {
 
                         <div className="text-center">
                             <Button asChild className="bg-white text-slate-900 hover:bg-slate-200 text-lg px-10 py-7 h-auto shadow-[0_0_30px_rgba(255,255,255,0.2)] rounded-full transition-all hover:scale-105 font-bold">
-                                <Link to="/book-demo">Start Your Transformation Today</Link>
+                                <Link to="/book-consultation">Start Your Transformation Today</Link>
                             </Button>
                         </div>
                     </div>
@@ -1334,7 +1395,7 @@ export default function Offerings() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
                         <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 h-auto text-lg shadow-xl shadow-indigo-200 rounded-xl font-bold">
-                            <Link to="/book-demo">Book for Consulting</Link>
+                            <Link to="/book-consultation">Book for Consultation</Link>
                         </Button>
                         <Button asChild variant="outline" className="border-slate-300 text-slate-700 hover:bg-white px-8 py-6 h-auto text-lg rounded-xl bg-slate-50 font-medium">
                             <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>

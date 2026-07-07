@@ -4,7 +4,7 @@ import ChatBot from './components/ChatBot';
 import Footer from './components/Footer';
 
 import Home from './pages/Home';
-import BookDemo from './pages/BookDemo';
+import BookConsultation from './pages/BookConsultation';
 import Crypto from './pages/Crypto';
 import Outcomes from './pages/Outcomes';
 import Solutions from './pages/Solutions';
@@ -31,6 +31,7 @@ import AIMVPValidation from './pages/AIMVPValidation';
 import AILeadSalesTransformation from './pages/AILeadSalesTransformation';
 import AIRevenueOperations from './pages/AIRevenueOperations';
 import AIRevenueAcceleration from './pages/AIRevenueAcceleration';
+import BehaviourAnalytics from './pages/BehaviourAnalytics';
 import CookieConsent from './components/CookieConsent';
 import TabExitPopup from './components/TabExitPopup';
 
@@ -56,7 +57,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/book-demo" element={<BookDemo />} />
+            <Route path="/book-consultation" element={<BookConsultation />} />
             <Route path="/crypto" element={<Crypto />} />
             <Route path="/outcomes" element={<Outcomes />} />
             <Route path="/solutions" element={<Solutions />} />
@@ -81,6 +82,7 @@ export default function App() {
             <Route path="/ai-lead-sales-transformation" element={<AILeadSalesTransformation />} />
             <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
             <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
+            <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
             <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
 
           </Routes>

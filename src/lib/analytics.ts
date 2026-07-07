@@ -162,7 +162,7 @@ class AnalyticsService {
         const scroll = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
 
         // 1. High-Intent Lead (Visible on checkout/demo page)
-        if (window.location.pathname.includes('book-demo') ||
+        if (window.location.pathname.includes('book-consultation') ||
             window.location.pathname.includes('talk-to-expert') ||
             window.location.pathname.includes('partners')) {
             return 'High-Intent Lead';
@@ -251,6 +251,11 @@ class AnalyticsService {
                 lat: data.latitude,
                 lon: data.longitude
             };
+            // Persist for cross-component use (e.g. Chatbot Lead tracking)
+            localStorage.setItem('tg_ip', data.ip || '');
+            localStorage.setItem('tg_country', data.country_name || '');
+            localStorage.setItem('tg_state', data.region || '');
+            localStorage.setItem('tg_city', data.city || '');
         } catch (e) {
             console.warn('Geo fetch failed');
         }
@@ -281,6 +286,14 @@ class AnalyticsService {
     }
 
     public track(eventName: string, category: string = 'general', action: string = 'view', metadata: any = {}) {
+        // EXCLUDE LOCALHOST FROM ANALYTICS
+        if (typeof window !== 'undefined' && 
+            (window.location.hostname === 'localhost' || 
+             window.location.hostname === '127.0.0.1')) {
+            console.log(`📊 [Analytics Subsidized] ${eventName}`, { category, action, metadata });
+            return;
+        }
+
         const utm = this.getUTM();
         const perf = this.getPerformance();
         const now = Date.now();

@@ -443,7 +443,7 @@ export default function Industries() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-                                <Link to="/book-demo">
+                                <Link to="/book-consultation">
                                     <Button className="bg-white text-slate-950 hover:bg-blue-50 hover:text-blue-700 px-10 py-7 h-auto text-lg font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1">
                                         Start Building Now
                                         <ArrowRight className="w-5 h-5" />

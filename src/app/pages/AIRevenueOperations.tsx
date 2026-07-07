@@ -192,7 +192,7 @@ export default function AIRevenueOperations() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <Link to="/book-demo">
+                        <Link to="/book-consultation">
                             <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold">
                                 Activate AROS Swarm
                             </Button>
@@ -312,7 +312,7 @@ export default function AIRevenueOperations() {
                     <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 leading-tight">Scale Your Revenue Without <br /> Increasing Your Headcount</h2>
                     <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">Join the elite enterprises moving from manual sales to autonomous agent swarms.</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                        <Link to="/book-demo">
+                        <Link to="/book-consultation">
                             <Button className="bg-slate-900 hover:bg-black text-white text-xl px-12 py-8 h-auto rounded-full font-bold shadow-2xl transition-all hover:-translate-y-1 flex items-center gap-3">
                                 Start Your Swarm <ArrowRight className="w-6 h-6" />
                             </Button>

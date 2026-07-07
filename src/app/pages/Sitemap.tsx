@@ -24,8 +24,8 @@ export default function Sitemap() {
                     ]
                 },
                 {
-                    name: "Book for Consulting",
-                    path: "/book-demo",
+                    name: "Book for Consultation",
+                    path: "/book-consultation",
                     sections: [
                         "Proprietary AI Growth Framework",
                         "Booking Form",

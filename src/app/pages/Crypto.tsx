@@ -65,7 +65,7 @@ export default function Crypto() {
 
                         <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
                             <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-7 h-auto text-lg font-bold rounded-full shadow-[0_10px_30px_rgba(37,99,235,0.25)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] transition-all flex items-center gap-2 group hover:-translate-y-1">
-                                <Link to="/book-demo">
+                                <Link to="/book-consultation">
                                     Start Scaling Now
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Link>
@@ -322,8 +322,8 @@ export default function Crypto() {
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
                                 <Button asChild className="bg-white text-blue-900 hover:bg-blue-50 px-10 py-7 h-auto text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all flex items-center gap-3 transform hover:-translate-y-1">
-                                    <Link to="/book-demo">
-                                        Book for Consulting
+                                    <Link to="/book-consultation">
+                                        Book for Consultation
                                         <ArrowRight className="w-6 h-6" />
                                     </Link>
                                 </Button>

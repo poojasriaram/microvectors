@@ -36,7 +36,8 @@ Follow these steps to connect your website forms and analytics to Google Sheets 
 Add this one line to your `.env` file and to **Vercel Settings > Environment Variables**:
 
 ```bash
-GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/XXXXX_YOUR_ID_XXXXX/exec
+GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/AKfycbz8iv3SoVYkbIlFzcsN8y2c7n4l0H9ZPPc5fwhvHcFCl3qP5NQzLdvGmWEyYk53-cuunQ/exec
+
 ```
 
 Redeploy your site, and everything will now save directly to your sheets!

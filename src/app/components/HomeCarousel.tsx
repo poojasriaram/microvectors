@@ -6,50 +6,44 @@ const slides = [
     {
         id: 1,
         image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
-        title: "Increase 5× Sales Velocity in 12 Months with TRUSTGRID.AI",
-        subtitle: "AI-Powered Sales Operations for High-Growth B2B Teams"
+        label: "The Compounding Velocity",
+        title: "Every Dollar Works Harder Tomorrow — AI Autopilot Compounds Your Revenue Engine",
+        subtitle: "5× Sales Velocity in 12 Months. Then It Accelerates Exponentially."
     },
     {
         id: 2,
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2674&auto=format&fit=crop",
-        title: "Boost Win Rates by 4X Using Predictive Deal Intelligence & Deal Dynamics",
-        subtitle: "AI-Driven Opportunity Scoring, Deal Prioritization, Deal Navigation & Nurturing"
+        label: "The Autopilot Wealth Loop",
+        title: "Set the System. Watch It Grow. Reinvest. Repeat.",
+        subtitle: "AI-Driven Revenue That Compounds Like Capital — 24/7, Zero Friction"
     },
     {
         id: 3,
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2668&auto=format&fit=crop",
-        title: "Reduce Sales Cycle Time by 3X with AI Driven Lead Nurturing",
-        subtitle: "Real-Time Intent Detection & Smart Engagement Automation"
+        label: "The Self-Reinforcing Engine",
+        title: "One Closed Deal Feeds Ten More. That's the AI Compounding Effect.",
+        subtitle: "From Demand Discovery to Revenue Management — Autopilot Does the Heavy Lifting"
     },
     {
         id: 4,
         image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop",
-        title: "Generate 8× More Qualified Pipeline Without Increasing Headcount",
-        subtitle: "AI-Powered Demand Discovery & Lead Qualification Engine"
+        label: "The Crypto Money Multiplier",
+        title: "TVL + AI Autopilot = Exponential Ecosystem Value",
+        subtitle: "Built for Web3 & DeFi — Where Every Incentive Compounds Community Growth"
     },
     {
         id: 5,
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-        title: "Improve Forecast Accuracy to 95% with Revenue Intelligence AI",
-        subtitle: "Predictive Forecasting, Risk Alerts & Revenue Confidence"
+        label: "The CRO's Compound Interest",
+        title: "Your Pipeline Is a Bank Account. AI Is the Interest Rate.",
+        subtitle: "Predictable Growth That Stacks. Month Over Month. Quarter Over Quarter."
     },
     {
         id: 6,
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop",
-        title: "Increase Revenue per Sales Rep by 2.5× in One Year",
-        subtitle: "AI-Optimized Sales Playbooks & Performance Coaching"
-    },
-    {
-        id: 7,
-        image: "https://images.unsplash.com/photo-1480694313141-fce5e697ee25?q=80&w=2670&auto=format&fit=crop",
-        title: "Cut Customer Acquisition Cost (CAC) by 75% Using AI Sales Ops",
-        subtitle: "Funnel Optimization, Outreach Intelligence & Conversion AI"
-    },
-    {
-        id: 8,
-        image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2670&auto=format&fit=crop",
-        title: "Transform B2B Enterprise & Mid-Market Sales with AI Sales Ops",
-        subtitle: "Secure, Explainable AI Built for B2B Revenue Teams"
+        label: "The Infinite Loop",
+        title: "Stop Trading Time for Money. Start Compounding with AI Autopilot.",
+        subtitle: "TRUSTFLOW.AI — Where Revenue Acceleration Meets Wealth Multiplication"
     }
 ];
 
@@ -107,7 +101,7 @@ export default function HomeCarousel() {
                                 className="max-w-5xl mx-auto"
                             >
                                 <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-                                    TrustGrid Intelligence
+                                    {slides[currentIndex].label}
                                 </div>
                                 <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
                                     {slides[currentIndex].title}

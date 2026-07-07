@@ -15,7 +15,7 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { submitToSheet } from '../../lib/sheets';
 
-export default function BookDemo() {
+export default function BookConsultation() {
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -42,7 +42,7 @@ export default function BookDemo() {
         setIsSubmitting(true);
 
         try {
-            await submitToSheet('Book for Consulting', {
+            await submitToSheet('Book for Consultation', {
                 "First Name": formData.firstName,
                 "Last Name": formData.lastName,
                 "Email": formData.email,
@@ -300,7 +300,7 @@ export default function BookDemo() {
                                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
                                         disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? 'Submitting...' : 'Book for Consulting'}
+                                        {isSubmitting ? 'Submitting...' : 'Book for Consultation'}
                                     </Button>
 
                                     <p className="text-xs text-center text-slate-500 mt-4">
