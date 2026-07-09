@@ -88,15 +88,15 @@ export default function TabExitPopup() {
         <div
             className="fixed inset-0 flex items-center justify-center p-4 z-[10000]"
             style={{
-                background: animateIn ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0)',
-                backdropFilter: animateIn ? 'blur(8px)' : 'blur(0px)',
+                background: animateIn ? 'rgba(15, 23, 42, 0.7)' : 'rgba(15, 23, 42, 0)',
+                backdropFilter: animateIn ? 'blur(12px)' : 'blur(0px)',
                 transition: 'all 0.4s ease-out',
                 pointerEvents: 'auto'
             }}
             onClick={handleClose}
         >
             <div
-                className="relative bg-white w-full max-w-lg rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] overflow-hidden"
+                className="relative bg-white w-full max-w-xl rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] overflow-hidden"
                 style={{
                     transform: animateIn ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.9)',
                     opacity: animateIn ? 1 : 0,
@@ -104,63 +104,73 @@ export default function TabExitPopup() {
                 }}
                 onClick={(e) => e.stopPropagation()}
             >
+                {/* Abstract Background Elements */}
+                <div className="absolute top-[-50%] left-[-20%] w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-purple-100/30 to-transparent pointer-events-none"></div>
+                <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
                 {/* Top decorative gradient bar */}
-                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600" />
+                <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 relative z-20" />
 
                 <button
                     onClick={handleClose}
-                    className="absolute top-5 right-5 w-10 h-10 rounded-full bg-slate-50 hover:bg-slate-100 flex items-center justify-center transition-all z-20 group"
+                    className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all z-20 group shadow-sm"
                 >
-                    <X className="w-5 h-5 text-slate-400 group-hover:text-slate-600 group-hover:rotate-90 transition-all duration-300" />
+                    <X className="w-5 h-5 text-slate-500 group-hover:text-slate-800 group-hover:rotate-90 transition-all duration-300" />
                 </button>
 
-                <div className="px-10 pt-10 pb-10">
-                    <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide uppercase">
-                        <Zap className="w-3.5 h-3.5 fill-blue-700" />
+                <div className="px-10 pt-12 pb-10 relative z-10">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide uppercase shadow-sm">
+                        <Zap className="w-4 h-4 fill-blue-600 text-blue-600" />
                         Exclusive Opportunity
                     </div>
 
-                    <h2 className="text-3xl font-black text-slate-900 leading-[1.1] mb-4">
-                        Wait! Don't Miss Out on Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Growth Blueprint</span>
+                    <h2 className="text-4xl font-black text-slate-900 leading-[1.15] mb-5 tracking-tight">
+                        Wait! Don't Miss Out on Your <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Growth Blueprint</span>
                     </h2>
 
-                    <p className="text-slate-600 text-base mb-8 leading-relaxed">
-                        Industry leaders are already using Trustgrid.ai to capture demand competitors can't see. Explore our impact:
+                    <p className="text-slate-600 text-lg mb-8 leading-relaxed max-w-md">
+                        Industry leaders are using Trustgrid.ai to capture demand competitors can't see. Explore our impact:
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                         {HIGHLIGHTS.map(({ icon: Icon, label, stat, desc }) => (
-                            <div key={label} className="bg-slate-50 rounded-2xl p-4 border border-slate-100 hover:border-blue-200 transition-all group">
-                                <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                                    <Icon className="w-5 h-5 text-blue-600" />
+                            <div key={label} className="bg-white rounded-2xl p-5 border border-slate-200/60 shadow-sm hover:shadow-md hover:border-blue-200 transition-all group relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="relative z-10">
+                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <Icon className="w-6 h-6 text-blue-600" />
+                                    </div>
+                                    <div className="text-3xl font-black text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">{stat}</div>
+                                    <div className="text-[12px] font-bold text-slate-800 uppercase tracking-tight mb-1.5 leading-tight">{desc}</div>
+                                    <div className="text-[11px] text-slate-500 font-medium">{label}</div>
                                 </div>
-                                <div className="text-2xl font-black text-blue-600 mb-1">{stat}</div>
-                                <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tighter mb-1 leading-none">{desc}</div>
-                                <div className="text-[10px] text-slate-400 font-medium">{label}</div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col sm:flex-row gap-4">
                         <Link
                             to="/industries"
                             onClick={handleClose}
-                            className="bg-slate-900 hover:bg-blue-600 text-white font-black text-center py-4 rounded-xl shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2 group"
+                            className="flex-1 bg-slate-900 hover:bg-blue-600 text-white font-bold text-center py-4 px-6 rounded-xl shadow-lg hover:shadow-blue-600/20 transition-all active:scale-95 flex items-center justify-center gap-2 group"
                         >
-                            Explore Growth Intelligence
+                            Explore Growth
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
                             to="/book-consultation"
                             onClick={handleClose}
-                            className="bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-center py-4 rounded-xl transition-all active:scale-95"
+                            className="flex-1 bg-white border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-center py-4 px-6 rounded-xl transition-all active:scale-95 flex items-center justify-center"
                         >
-                            Book for Consultation
+                            Book Consultation
                         </Link>
                     </div>
 
-                    <div className="mt-6 flex items-center justify-center gap-2 text-xs text-slate-400 font-medium">
-                        <TrendingUp className="w-4 h-4 text-emerald-500" />
+                    <div className="mt-8 flex items-center justify-center gap-2 text-sm text-slate-500 font-medium">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100">
+                            <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
+                        </div>
                         Join 200+ companies scaling with Trustgrid
                     </div>
                 </div>
