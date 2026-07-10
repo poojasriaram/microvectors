@@ -71,7 +71,7 @@ export default function Footer() {
                         <div>
                             <Link to="/" className="inline-block mb-1">
                                 <div className="flex items-center gap-2">
-                                    <img loading="lazy" decoding="async" src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
+                                    <img loading="lazy" decoding="async" width="800" height="600" src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
                                 </div>
                             </Link>
                             <p className="text-slate-400 leading-relaxed mb-8 font-medium text-sm max-w-sm">
@@ -95,7 +95,7 @@ export default function Footer() {
 
                             <div className="flex gap-4">
                                 {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                                    <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:-translate-y-1">
+                                    <a key={i} href="#" aria-label={['LinkedIn', 'Twitter', 'Facebook'][i]} title={['LinkedIn', 'Twitter', 'Facebook'][i]} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:-translate-y-1">
                                         <Icon className="w-4 h-4" />
                                     </a>
                                 ))}
@@ -251,8 +251,8 @@ export default function Footer() {
                 {/* Partners & Recognition */}
                 <div className="border-t border-white/10 py-6">
                     <div className="flex flex-col items-center justify-center gap-4">
-                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Trusted Ecosystem</span>
-                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Trusted Ecosystem</span>
+                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-80 grayscale hover:grayscale-0 transition-all duration-700">
                             {/* Salesforce */}
                             <div className="flex items-center gap-2 group cursor-default">
                                 <Cloud className="w-6 h-6 text-slate-500 group-hover:text-[#00A1E0] transition-colors" />
@@ -284,10 +284,10 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/10 mt-6">
-                    <p className="text-xs text-slate-500 font-medium tracking-wide">
+                    <p className="text-xs text-slate-400 font-medium tracking-wide">
                         &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
                     </p>
-                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-500">
+                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
                         {['Privacy Policy', 'Terms of Service', 'Security', 'Copyright', 'Cookies', 'Sitemap'].map((item, i) => {
                             const path = `/${item.toLowerCase().replace(/ /g, '-')}`;
                             return (

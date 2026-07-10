@@ -146,8 +146,9 @@ export default function HeroSection() {
                             {slides.map((_, idx) => (
                                 <button
                                     key={idx}
+                                    aria-label={`Go to slide ${idx + 1}`}
                                     onClick={() => setCurrentIndex(idx)}
-                                    className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-blue-300'}`}
+                                    className={`h-1.5 rounded-full p-3 -m-3 bg-clip-content transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-blue-300'}`}
                                 />
                             ))}
                         </div>
@@ -181,7 +182,7 @@ export default function HeroSection() {
 
                                 <div className="relative rounded-3xl overflow-hidden shadow-premium border border-slate-100 bg-white w-full h-full max-h-[450px]">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-                                    <img loading="lazy" decoding="async" 
+                                    <img loading="eager" decoding="async" width="1600" height="900" 
                                         src={slide.image} 
                                         alt={slide.statSub}
                                         className="w-full h-full object-cover relative z-0"

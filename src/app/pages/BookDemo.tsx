@@ -129,7 +129,7 @@ export default function BookDemo() {
                                     <div className="flex -space-x-4">
                                         {[1, 2, 3, 4].map((i) => (
                                             <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden shadow-sm">
-                                                <img loading="lazy" decoding="async" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="User" className="w-full h-full object-cover" />
+                                                <img loading="lazy" decoding="async" width="800" height="600" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="User" className="w-full h-full object-cover" />
                                             </div>
                                         ))}
                                     </div>

@@ -170,13 +170,13 @@ export default function Navigation() {
 
     return (
         <>
-            <nav
+            <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b h-16 lg:h-24 flex items-center ${scrolled
                     ? 'bg-white/70 backdrop-blur-md border-white/50 shadow-premium'
                     : 'bg-transparent border-transparent'
                     }`}
             >
-                <div className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-4 2xl:px-12 h-full max-w-[1920px]">
+                <nav className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-4 2xl:px-12 h-full max-w-[1920px]">
                     <div className="flex items-center justify-between h-full">
                         {/* Logo */}
                         <div className="flex-shrink-0 mr-4 lg:mr-2 xl:mr-8 relative z-50">
@@ -321,6 +321,7 @@ export default function Navigation() {
                                 Book for Consultation
                             </Link>
                             <button
+                                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="text-slate-700 hover:text-blue-600 p-2 -mr-2 transition-colors relative z-50"
                             >
@@ -328,8 +329,8 @@ export default function Navigation() {
                             </button>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </header>
 
             {/* Mobile Navigation Panel - Modern Slide/Fade */}
             <div
@@ -370,6 +371,7 @@ export default function Navigation() {
 
                                     {item.dropdown && (
                                         <button
+                                            aria-label={expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}
                                             className={`p-2 rounded-full transition-all duration-300 ${expandedItems.includes(item.name) ? 'bg-blue-100 text-blue-600' : 'text-slate-400'}`}
                                             onClick={(e) => {
                                                 e.stopPropagation();
