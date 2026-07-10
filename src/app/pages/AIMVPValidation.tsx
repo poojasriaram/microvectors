@@ -41,11 +41,11 @@ export default function AIMVPValidation() {
                     `}</style>
 
                     {[
-                        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1531297461136-82lw429532?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
+                        "/banner_1_hero_1783665435895.png",
+                        "/banner_2_team_1783665445984.png",
+                        "/banner_3_ecosystem_1783665456490.png",
+                        "/banner_4_platform_1783665466764.png",
+                        "/banner_1_hero_1783665435895.png"
                     ].map((img, idx) => (
                         <div
                             key={idx}

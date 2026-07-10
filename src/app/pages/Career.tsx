@@ -62,10 +62,10 @@ export default function Career() {
     };
 
     const slides = [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+        "/banner_1_hero_1783665435895.png",
+        "/banner_2_team_1783665445984.png",
+        "/banner_3_ecosystem_1783665456490.png",
+        "/banner_4_platform_1783665466764.png"
     ];
 
     useEffect(() => {

@@ -41,11 +41,11 @@ export default function AIDemandDiscovery() {
                     `}</style>
 
                     {[
-                        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
+                        "/banner_1_hero_1783665435895.png",
+                        "/banner_2_team_1783665445984.png",
+                        "/banner_3_ecosystem_1783665456490.png",
+                        "/banner_4_platform_1783665466764.png",
+                        "/banner_1_hero_1783665435895.png"
                     ].map((img, idx) => (
                         <div
                             key={idx}

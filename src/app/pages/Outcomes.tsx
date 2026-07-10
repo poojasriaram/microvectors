@@ -23,10 +23,10 @@ export default function Outcomes() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Business Architecture
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop", // Team Collaboration
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data Analytics
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"  // Growth
+        "/banner_1_hero_1783665435895.png", // Business Architecture
+        "/banner_2_team_1783665445984.png", // Team Collaboration
+        "/banner_3_ecosystem_1783665456490.png", // Data Analytics
+        "/banner_4_platform_1783665466764.png"  // Growth
     ];
 
     useEffect(() => {

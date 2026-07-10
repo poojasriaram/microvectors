@@ -88,25 +88,26 @@ export default function HomeCarousel() {
                         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                     />
 
-                    {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80" />
+                    {/* Premium Unified Overlay - Enterprise Grade */}
+                    <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">
-                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center pt-10">
+                        <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 text-center pt-20">
                             <motion.div
                                 initial={{ y: 30, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.2, duration: 0.8 }}
-                                className="max-w-5xl mx-auto"
+                                transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                className="max-w-5xl mx-auto backdrop-blur-md bg-white/40 p-8 md:p-12 rounded-3xl border border-white/50 shadow-premium"
                             >
-                                <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
+                                <div className="inline-block px-5 py-2 bg-white/80 border border-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-[0.25em] mb-8 shadow-sm backdrop-blur-sm">
                                     {slides[currentIndex].label}
                                 </div>
-                                <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1] drop-shadow-sm">
+                                <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.15] drop-shadow-sm">
                                     {slides[currentIndex].title}
                                 </h2>
-                                <p className="text-lg md:text-2xl text-slate-600 font-medium leading-relaxed max-w-3xl mx-auto tracking-wide">
+                                <p className="text-lg md:text-xl lg:text-2xl text-slate-700 font-medium leading-relaxed max-w-3xl mx-auto tracking-wide">
                                     {slides[currentIndex].subtitle}
                                 </p>
                             </motion.div>

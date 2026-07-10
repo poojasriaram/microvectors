@@ -41,11 +41,11 @@ export default function AILeadSalesTransformation() {
                     `}</style>
 
                     {[
-                        "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
+                        "/banner_1_hero_1783665435895.png",
+                        "/banner_2_team_1783665445984.png",
+                        "/banner_3_ecosystem_1783665456490.png",
+                        "/banner_4_platform_1783665466764.png",
+                        "/banner_1_hero_1783665435895.png"
                     ].map((img, idx) => (
                         <div
                             key={idx}

@@ -41,11 +41,11 @@ export default function AILeadGeneration() {
                     `}</style>
 
                     {[
-                        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1553877615-2a33715ce9e2?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80"
+                        "/banner_1_hero_1783665435895.png",
+                        "/banner_2_team_1783665445984.png",
+                        "/banner_3_ecosystem_1783665456490.png",
+                        "/banner_4_platform_1783665466764.png",
+                        "/banner_1_hero_1783665435895.png"
                     ].map((img, idx) => (
                         <div
                             key={idx}

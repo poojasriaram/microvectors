@@ -41,11 +41,11 @@ export default function AILeadNurturing() {
                     `}</style>
 
                     {[
-                        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1559523182-a284c3fb7cff?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
+                        "/banner_1_hero_1783665435895.png",
+                        "/banner_2_team_1783665445984.png",
+                        "/banner_3_ecosystem_1783665456490.png",
+                        "/banner_4_platform_1783665466764.png",
+                        "/banner_1_hero_1783665435895.png"
                     ].map((img, idx) => (
                         <div
                             key={idx}

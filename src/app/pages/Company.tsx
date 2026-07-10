@@ -105,11 +105,11 @@ export default function Company() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1553877615-2a33715ce9e2?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80"
+        "/banner_1_hero_1783665435895.png",
+        "/banner_2_team_1783665445984.png",
+        "/banner_3_ecosystem_1783665456490.png",
+        "/banner_4_platform_1783665466764.png",
+        "/banner_1_hero_1783665435895.png"
     ];
 
     useEffect(() => {
@@ -240,7 +240,7 @@ export default function Company() {
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
                                     <img
-                                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+                                        src="/banner_2_team_1783665445984.png"
                                         alt="Team collaboration"
                                         className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                                     />
@@ -368,7 +368,7 @@ export default function Company() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                        src="/banner_3_ecosystem_1783665456490.png"
                         alt="Office Building"
                         className="w-full h-full object-cover opacity-40 mix-blend-overlay"
                     />

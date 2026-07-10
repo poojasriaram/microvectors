@@ -53,11 +53,11 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-slate-50 pt-12 pb-8 border-t border-slate-200 font-sans text-slate-600 relative overflow-hidden">
+        <footer className="bg-slate-900 pt-16 pb-8 border-t border-slate-800 font-sans text-slate-400 relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
-                <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
+                <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-blue-900/20 rounded-full blur-[120px] opacity-50"></div>
+                <div className="absolute bottom-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[120px] opacity-50"></div>
             </div>
 
             <div className="w-full mx-auto px-6 lg:px-10 relative z-10">
@@ -74,28 +74,28 @@ export default function Footer() {
                                     <img src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
                                 </div>
                             </Link>
-                            <p className="text-slate-500 leading-relaxed mb-6 font-medium text-sm max-w-sm">
+                            <p className="text-slate-400 leading-relaxed mb-8 font-medium text-sm max-w-sm">
                                 The AI-Powered Revenue Operating System for modern B2B enterprises. Predict, Accelerate, and Scale.
                             </p>
 
-                            <div className="space-y-3 mb-6">
-                                <a href="mailto:connect@trustgrid.ai" className="group flex items-center gap-3 text-slate-500 hover:text-blue-600 transition-colors duration-300">
-                                    <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:border-blue-200 group-hover:bg-blue-50 transition-all">
+                            <div className="space-y-4 mb-8">
+                                <a href="mailto:connect@trustgrid.ai" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
                                         <Mail className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium text-sm">connect@trustgrid.ai</span>
+                                    <span className="font-medium text-sm tracking-wide">connect@trustgrid.ai</span>
                                 </a>
-                                <a href="tel:+919513288612" className="group flex items-center gap-3 text-slate-500 hover:text-blue-600 transition-colors duration-300">
-                                    <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center group-hover:border-blue-200 group-hover:bg-blue-50 transition-all">
+                                <a href="tel:+919513288612" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
                                         <Phone className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium text-sm">+91 9513288612</span>
+                                    <span className="font-medium text-sm tracking-wide">+91 9513288612</span>
                                 </a>
                             </div>
 
-                            <div className="flex gap-3">
+                            <div className="flex gap-4">
                                 {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                                    <a key={i} href="#" className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all shadow-sm hover:shadow-md hover:-translate-y-1">
+                                    <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:-translate-y-1">
                                         <Icon className="w-4 h-4" />
                                     </a>
                                 ))}
@@ -108,11 +108,11 @@ export default function Footer() {
 
                         {/* Column 1: Platform */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest border-b border-slate-100 pb-2">Platform</h3>
-                            <ul className="space-y-2.5 text-[13px]">
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Platform</h3>
+                            <ul className="space-y-3 text-[13px]">
                                 {Object.keys(productLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={productLinks[item]} className="text-slate-500 hover:text-blue-600 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={productLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -122,11 +122,11 @@ export default function Footer() {
 
                         {/* Column 2: Solutions */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest border-b border-slate-100 pb-2">Solutions</h3>
-                            <ul className="space-y-2.5 text-[13px]">
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Solutions</h3>
+                            <ul className="space-y-3 text-[13px]">
                                 {Object.keys(solutionsLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={solutionsLinks[item]} className="text-slate-500 hover:text-blue-600 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={solutionsLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -134,13 +134,13 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Column 3: Offerings (Restored) */}
+                        {/* Column 3: Offerings */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest border-b border-slate-100 pb-2">Offerings</h3>
-                            <ul className="space-y-2.5 text-[13px]">
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Offerings</h3>
+                            <ul className="space-y-3 text-[13px]">
                                 {Object.keys(offeringsLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={offeringsLinks[item]} className="text-slate-500 hover:text-blue-600 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={offeringsLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -150,11 +150,11 @@ export default function Footer() {
 
                         {/* Column 4: Industries */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest border-b border-slate-100 pb-2">Industries</h3>
-                            <ul className="space-y-2.5 text-[13px]">
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Industries</h3>
+                            <ul className="space-y-3 text-[13px]">
                                 {Object.keys(industriesLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={industriesLinks[item]} className="text-slate-500 hover:text-blue-600 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={industriesLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -164,11 +164,11 @@ export default function Footer() {
 
                         {/* Column 5: Company */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-900 uppercase tracking-widest border-b border-slate-100 pb-2">Company</h3>
-                            <ul className="space-y-2.5 text-[13px]">
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Company</h3>
+                            <ul className="space-y-3 text-[13px]">
                                 {Object.keys(companyLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={companyLinks[item]} className="text-slate-500 hover:text-blue-600 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={companyLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -179,9 +179,9 @@ export default function Footer() {
                 </div>
 
                 {/* Our Offices - Premium Minimalist */}
-                <div className="border-t border-slate-200/60 py-6">
-                    <div className="flex items-center justify-center mb-8">
-                        <h3 className="font-bold text-slate-900 text-xs tracking-[0.2em] uppercase px-4 border py-1.5 rounded-full bg-white border-slate-200">
+                <div className="border-t border-white/10 py-10 mt-6">
+                    <div className="flex items-center justify-center mb-10">
+                        <h3 className="font-bold text-slate-300 text-xs tracking-[0.2em] uppercase px-6 border border-white/10 py-2 rounded-full bg-white/5 backdrop-blur-sm">
                             Global Presence
                         </h3>
                     </div>
@@ -219,26 +219,26 @@ export default function Footer() {
                                 phone: '+91 9513088612'
                             }
                         ].map((office, idx) => (
-                            <div key={idx} className="group flex flex-col items-start">
-                                <h4 className="flex items-center gap-2 font-bold text-slate-900 text-[13px] uppercase tracking-wide mb-3">
-                                    <MapPin className="w-4 h-4 text-secondary-500 shrink-0" />
+                            <div key={idx} className="group flex flex-col items-start w-full max-w-xs">
+                                <h4 className="flex items-center gap-3 font-bold text-slate-200 text-[13px] uppercase tracking-wide mb-4">
+                                    <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
                                     {office.title}
                                 </h4>
 
-                                <div className="mb-4 pl-6">
+                                <div className="mb-5 pl-7 border-l border-white/5 group-hover:border-blue-500/50 transition-colors">
                                     {office.address.map((line, i) => (
-                                        <p key={i} className="text-slate-500 text-[13px] leading-relaxed">
+                                        <p key={i} className="text-slate-400 text-[13px] leading-relaxed">
                                             {line}
                                         </p>
                                     ))}
                                 </div>
 
-                                <div className="space-y-2 pl-6">
-                                    <a href={`mailto:${office.email}`} className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors text-[13px] group/item">
+                                <div className="space-y-3 pl-7">
+                                    <a href={`mailto:${office.email}`} className="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition-colors text-[13px] group/item">
                                         <Mail className="w-3.5 h-3.5" />
                                         <span>{office.email}</span>
                                     </a>
-                                    <a href={`tel:${office.phone.replace(/ /g, '')}`} className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors text-[13px] group/item">
+                                    <a href={`tel:${office.phone.replace(/ /g, '')}`} className="flex items-center gap-3 text-slate-400 hover:text-blue-400 transition-colors text-[13px] group/item">
                                         <Phone className="w-3.5 h-3.5" />
                                         <span>{office.phone}</span>
                                     </a>
@@ -249,49 +249,49 @@ export default function Footer() {
                 </div>
 
                 {/* Partners & Recognition */}
-                <div className="border-t border-slate-200/60 py-3">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] bg-slate-100/50 px-2.5 py-0.5 rounded-full border border-slate-200">Trusted Ecosystem</span>
-                        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="border-t border-white/10 py-6">
+                    <div className="flex flex-col items-center justify-center gap-4">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Trusted Ecosystem</span>
+                        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
                             {/* Salesforce */}
                             <div className="flex items-center gap-2 group cursor-default">
-                                <Cloud className="w-5 h-5 text-slate-500 group-hover:text-[#00A1E0] transition-colors" />
-                                <span className="font-bold text-slate-500 text-sm group-hover:text-slate-800 transition-colors">Salesforce</span>
+                                <Cloud className="w-6 h-6 text-slate-500 group-hover:text-[#00A1E0] transition-colors" />
+                                <span className="font-bold text-slate-400 text-sm group-hover:text-slate-200 transition-colors">Salesforce</span>
                             </div>
                             {/* HubSpot */}
                             <div className="flex items-center gap-2 group cursor-default">
-                                <Share2 className="w-4 h-4 text-slate-500 group-hover:text-[#FF7A59] transition-colors" />
-                                <span className="font-bold text-slate-500 text-sm group-hover:text-slate-800 transition-colors">HubSpot</span>
+                                <Share2 className="w-5 h-5 text-slate-500 group-hover:text-[#FF7A59] transition-colors" />
+                                <span className="font-bold text-slate-400 text-sm group-hover:text-slate-200 transition-colors">HubSpot</span>
                             </div>
                             {/* Microsoft */}
                             <div className="flex items-center gap-2 group cursor-default">
-                                <LayoutGrid className="w-4 h-4 text-slate-500 group-hover:text-[#00A4EF] transition-colors" />
-                                <span className="font-bold text-slate-500 text-sm group-hover:text-slate-800 transition-colors">Microsoft</span>
+                                <LayoutGrid className="w-5 h-5 text-slate-500 group-hover:text-[#00A4EF] transition-colors" />
+                                <span className="font-bold text-slate-400 text-sm group-hover:text-slate-200 transition-colors">Microsoft</span>
                             </div>
                             {/* AWS */}
                             <div className="flex items-center gap-2 group cursor-default">
-                                <Box className="w-5 h-5 text-slate-500 group-hover:text-[#FF9900] transition-colors" />
-                                <span className="font-bold text-slate-500 text-sm group-hover:text-slate-800 transition-colors">AWS</span>
+                                <Box className="w-6 h-6 text-slate-500 group-hover:text-[#FF9900] transition-colors" />
+                                <span className="font-bold text-slate-400 text-sm group-hover:text-slate-200 transition-colors">AWS</span>
                             </div>
                             {/* Google Cloud */}
                             <div className="flex items-center gap-2 group cursor-default">
-                                <Server className="w-4 h-4 text-slate-500 group-hover:text-[#4285F4] transition-colors" />
-                                <span className="font-bold text-slate-500 text-sm group-hover:text-slate-800 transition-colors">Google Cloud</span>
+                                <Server className="w-5 h-5 text-slate-500 group-hover:text-[#4285F4] transition-colors" />
+                                <span className="font-bold text-slate-400 text-sm group-hover:text-slate-200 transition-colors">Google Cloud</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200/60 mt-2">
-                    <p className="text-xs text-slate-500 font-medium">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/10 mt-6">
+                    <p className="text-xs text-slate-500 font-medium tracking-wide">
                         &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
                     </p>
-                    <div className="flex items-center gap-6 text-xs font-medium text-slate-500">
+                    <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-500">
                         {['Privacy Policy', 'Terms of Service', 'Security', 'Copyright', 'Cookies', 'Sitemap'].map((item, i) => {
-                            const path = `/${item.toLowerCase().replace(/ /g, '-')}`; // Simplistic slugify
+                            const path = `/${item.toLowerCase().replace(/ /g, '-')}`;
                             return (
-                                <Link key={i} to={item === 'Privacy Policy' ? '/privacy' : item === 'Terms of Service' ? '/terms' : path} className="hover:text-blue-600 transition-colors">
+                                <Link key={i} to={item === 'Privacy Policy' ? '/privacy' : item === 'Terms of Service' ? '/terms' : path} className="hover:text-blue-400 transition-colors">
                                     {item}
                                 </Link>
                             )

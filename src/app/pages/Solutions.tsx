@@ -22,10 +22,10 @@ export default function Solutions() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop", // Tech/Network
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop", // Tech/Chip
-        "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop", // Analytics
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"  // Data
+        "/banner_1_hero_1783665435895.png", // Tech/Network
+        "/banner_2_team_1783665445984.png", // Tech/Chip
+        "/banner_3_ecosystem_1783665456490.png", // Analytics
+        "/banner_4_platform_1783665466764.png"  // Data
     ];
 
     useEffect(() => {

@@ -1,138 +1,167 @@
-
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Building2, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-white">
-      {/* Background Effects */}
+    <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+      {/* Premium Animated Background Gradients */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50/30 via-white to-white"></div>
-        <div className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-blue-100/20 rounded-full blur-[120px] mix-blend-multiply animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.015]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-white to-white"></div>
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[20%] -left-[10%] w-[800px] h-[800px] bg-brand-blue/10 rounded-full blur-[120px] mix-blend-multiply"
+        ></motion.div>
+        <motion.div
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-[20%] -right-[10%] w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[100px] mix-blend-multiply"
+        ></motion.div>
       </div>
 
-      <div className="relative w-full max-w-[90%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <div className="space-y-8">
-
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-blue-100 rounded-full shadow-sm hover:shadow-md hover:border-blue-200 transition-all cursor-default group">
-            <Sparkles className="w-4 h-4 text-blue-600 group-hover:scale-110 transition-transform" />
-            <span className="text-sm text-slate-600 font-bold tracking-wide uppercase group-hover:text-blue-700 transition-colors">
-              AI-Powered Revenue Operating System
+      <div className="relative w-full max-w-[90%] lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        
+        {/* Text Content */}
+        <div className="flex-1 space-y-8 text-center lg:text-left">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-5 py-2.5 glass border border-blue-100 rounded-full shadow-sm"
+          >
+            <Sparkles className="w-4 h-4 text-brand-blue" />
+            <span className="text-sm text-slate-700 font-semibold tracking-wide">
+              The Enterprise AI Standard
             </span>
-          </div>
+          </motion.div>
 
-          {/* Headline */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-slate-900 leading-[1.05] tracking-tighter max-w-6xl mx-auto">
-            Increase Revenue Velocity by{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block drop-shadow-sm">
-              5X in 12 Months
-            </span>{' '}
-            with AI Sales Ops
-          </h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl sm:text-7xl lg:text-[5rem] font-bold text-slate-900 leading-[1.05] tracking-tight"
+          >
+            Transform Your Business with <br className="hidden lg:block"/>
+            <span className="text-gradient">AI-Powered Digital Solutions</span>
+          </motion.h1>
 
-          {/* Subheadline */}
-          <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium text-balance">
-            Propel your business on autopilot with <span className="text-slate-900 font-semibold">AI/ML-Powered Sales Growth Automation</span> —
-            from Demand Discovery to Revenue Management.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-2xl font-normal mx-auto lg:mx-0"
+          >
+            We help enterprise leaders implement autonomous systems to accelerate revenue, automate operations, and scale predictably without increasing headcount.
+          </motion.p>
 
-          {/* CTAs */}
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+          >
             <Button
               asChild
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base rounded-full shadow-[0_6px_20px_-5px_rgba(37,99,235,0.4)] hover:shadow-[0_12px_24px_-8px_rgba(37,99,235,0.5)] transition-all transform hover:-translate-y-0.5 font-bold"
+              className="bg-brand-blue hover:bg-blue-700 text-white px-8 h-14 text-lg rounded-full shadow-[0_8px_30px_rgb(29,78,216,0.3)] transition-all font-semibold"
             >
               <Link to="/book-consultation">
-                Book for Consultation
-                <ArrowRight className="ml-2 w-4 h-4" />
+                Book Free Consultation
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-slate-200 bg-white text-slate-600 hover:bg-slate-50 h-12 text-base rounded-full px-8 hover:text-slate-900 shadow-sm hover:shadow-md transition-all font-semibold"
+              className="glass border-slate-200 text-slate-700 hover:bg-slate-50 h-14 text-lg rounded-full px-8 transition-all font-semibold"
             >
-              <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>
+              <Link to="/solutions">View Our Solutions</Link>
             </Button>
-          </div>
-
-          {/* Stats Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 border-t border-slate-100 max-w-5xl mx-auto mt-16 lg:mt-24">
-            {[
-              { value: '5X', suffix: 'Revenue Growth', label: 'Revenue Growth' },
-              { value: '1000X', suffix: 'Faster Process', label: 'Faster Process' },
-              { value: '24/7', suffix: 'AI Automation', label: 'AI Automation' }
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="relative group p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 hover:border-blue-100/50 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex flex-col items-center gap-1">
-                  <div className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-blue-600 group-hover:to-indigo-600 transition-all duration-500 tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-lg text-slate-500 font-medium group-hover:text-blue-700 transition-colors">
-                    {stat.suffix}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ICP Box */}
-          <div className="mt-20 pt-16 border-t border-slate-100/80">
-            <div className="bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-[2.5rem] p-10 md:p-16 border border-blue-100/50 text-left relative overflow-hidden group hover:border-blue-200 transition-colors duration-500">
-              {/* Animated Glow */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-400/15 transition-colors duration-500" />
-
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row gap-12 items-start">
-                  <div className="flex-1">
-                    <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-lg mb-4">
-                      Ideal Customer Profile
-                    </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-                      Designed For Revenue Leaders Who Need <br />
-                      <span className="text-blue-600">Predictable Growth</span>
-                    </h3>
-                    <p className="text-slate-600 text-xl leading-relaxed font-medium">
-                      Built for CROs, VPs of Sales, and Growth Leaders accountable for pipeline velocity, conversion rates, and forecast accuracy—who need AI to operate their revenue engine continuously.
-                    </p>
-                  </div>
-
-                  <div className="flex-1 w-full bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-sm">
-                    <h4 className="font-bold text-slate-900 uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-blue-600" />
-                      Best Fit If You:
-                    </h4>
-                    <div className="space-y-4">
-                      {[
-                        "Own aggressive revenue targets",
-                        "Manage complex B2B buying cycles",
-                        "Need AI to replace manual sales & marketing ops"
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 group/item">
-                          <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-blue-600 transition-colors duration-300">
-                            <div className="w-2 h-2 rounded-full bg-blue-600 group-hover/item:bg-white transition-colors duration-300" />
-                          </div>
-                          <span className="text-lg text-slate-700 font-medium leading-snug group-hover/item:text-slate-900 transition-colors bg-transparent border-none shadow-none">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          </motion.div>
+          
+          {/* Trust Indicators */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 border-t border-slate-100"
+          >
+            <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
+              <Building2 className="w-5 h-5 text-brand-blue" />
+              50+ Enterprise Clients
             </div>
-          </div>
+            <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
+              <ShieldCheck className="w-5 h-5 text-brand-blue" />
+              SOC2 Type II Certified
+            </div>
+            <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
+              <Zap className="w-5 h-5 text-brand-blue" />
+              99.99% Uptime SLA
+            </div>
+          </motion.div>
+
         </div>
+
+        {/* Floating AI Illustration */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex-1 relative w-full h-[500px] lg:h-[600px] hidden lg:block"
+        >
+           {/* Abstract Floating Elements representing AI Enterprise Infrastructure */}
+           <motion.div 
+             animate={{ y: [-10, 10, -10], rotate: [0, 5, 0] }}
+             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute top-[10%] right-[10%] w-64 h-64 glass-dark rounded-3xl shadow-2xl overflow-hidden flex flex-col p-6 z-20"
+           >
+              <div className="w-full h-8 bg-slate-800 rounded-lg mb-4 opacity-50 animate-pulse"></div>
+              <div className="w-3/4 h-8 bg-slate-800 rounded-lg mb-4 opacity-50 animate-pulse delay-75"></div>
+              <div className="mt-auto w-full h-24 bg-gradient-to-t from-brand-blue/20 to-transparent rounded-lg"></div>
+           </motion.div>
+
+           <motion.div 
+             animate={{ y: [15, -15, 15], x: [-5, 5, -5] }}
+             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+             className="absolute bottom-[20%] left-[5%] w-48 h-48 glass rounded-full shadow-xl flex items-center justify-center z-30 border border-white/20"
+           >
+              <div className="w-32 h-32 rounded-full border-4 border-brand-purple/20 border-t-brand-purple animate-spin" style={{ animationDuration: '3s' }}></div>
+              <Sparkles className="absolute w-8 h-8 text-brand-blue" />
+           </motion.div>
+
+           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl -z-10"></div>
+        </motion.div>
       </div>
+
+      {/* Trusted By Client Logos Placeholder */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 mt-20 pt-10 border-t border-slate-100"
+      >
+        <p className="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">
+          Trusted by Innovative Teams Worldwide
+        </p>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+           {/* Placeholder shapes for logos until actual SVGs are provided */}
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded hidden md:block"></div>
+        </div>
+      </motion.div>
     </section>
   );
 }

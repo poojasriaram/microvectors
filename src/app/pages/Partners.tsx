@@ -39,10 +39,10 @@ export default function Partners() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop", // Meeting/Handshake
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop", // Collaboration
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop", // Agreement
-        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=2071&auto=format&fit=crop"  // Growth
+        "/banner_1_hero_1783665435895.png", // Meeting/Handshake
+        "/banner_2_team_1783665445984.png", // Collaboration
+        "/banner_3_ecosystem_1783665456490.png", // Agreement
+        "/banner_4_platform_1783665466764.png"  // Growth
     ];
 
     useEffect(() => {

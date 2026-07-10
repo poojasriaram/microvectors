@@ -171,8 +171,8 @@ export default function Navigation() {
     return (
         <>
             <nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b h-16 lg:h-20 flex items-center ${scrolled
-                    ? 'bg-white/30 backdrop-blur-xl bg-gradient-to-b from-white/80 via-white/20 to-white/80 border-white/40 shadow-sm'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b h-16 lg:h-24 flex items-center ${scrolled
+                    ? 'bg-white/70 backdrop-blur-md border-white/50 shadow-premium'
                     : 'bg-transparent border-transparent'
                     }`}
             >
@@ -229,16 +229,16 @@ export default function Navigation() {
                                         {item.dropdown && (
                                             <div
                                                 className={`
-                                                    absolute top-[calc(100%+0.5rem)] 
+                                                    absolute top-[calc(100%+1rem)] 
                                                     ${item.name === 'Home' ? '-left-2' : 'left-1/2 -translate-x-1/2'} 
                                                     ${dropdownWidth}
-                                                    bg-white/80 backdrop-blur-2xl
-                                                    rounded-none 
-                                                    shadow-[0_40px_100px_-20px_rgba(59,130,246,0.15),0_10px_30px_-15px_rgba(0,0,0,0.1)]
-                                                    border border-white/40 ring-1 ring-black/5
-                                                    p-4 
-                                                    transform transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) origin-top z-50
-                                                    ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 translate-y-2 invisible pointer-events-none'}
+                                                    bg-white/90 backdrop-blur-3xl
+                                                    rounded-2xl 
+                                                    shadow-premium
+                                                    border border-white/60 ring-1 ring-black/5
+                                                    p-6 
+                                                    transform transition-all duration-400 cubic-bezier(0.16, 1, 0.3, 1) origin-top z-50
+                                                    ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 translate-y-4 invisible pointer-events-none'}
                                                 `}
                                             >
                                                 {/* Invisible bridge */}
@@ -258,8 +258,8 @@ export default function Navigation() {
                                                                 key={idx}
                                                                 to={linkPath}
                                                                 className="
-                                                                    group/item flex items-start p-3 rounded-none 
-                                                                    hover:bg-gradient-to-br hover:from-white hover:to-blue-50/60
+                                                                    group/item flex items-start p-3 rounded-xl 
+                                                                    hover:bg-blue-50/50
                                                                     transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm
                                                                 "
                                                                 onClick={(e) => {
@@ -295,13 +295,12 @@ export default function Navigation() {
                             })}
                         </div>
 
-                        {/* Desktop CTA */}
-                        <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-3 shrink-0 h-full">
+                        <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-4 shrink-0 h-full">
                             <Link to="/book-consultation">
-                                <Button className="relative overflow-hidden bg-slate-900 hover:bg-blue-600 text-white border-0 px-2.5 lg:px-2.5 xl:px-4 py-1.5 lg:py-1.5 xl:py-2 h-auto text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold rounded-none shadow-lg shadow-slate-900/10 hover:shadow-blue-600/25 active:scale-95 transition-all duration-300 group">
-                                    <span className="relative z-10 flex items-center gap-1.5">
-                                        Book for Consultation
-                                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                                <Button className="relative overflow-hidden bg-blue-600 hover:bg-blue-700 text-white border-0 px-6 py-2 h-auto text-sm font-bold rounded-full shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-300 group btn-premium">
+                                    <span className="relative z-10 flex items-center gap-2">
+                                        Book Consultation
+                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </Button>
                             </Link>
