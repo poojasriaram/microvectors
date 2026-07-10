@@ -147,9 +147,12 @@ export default function HeroSection() {
                                 <button
                                     key={idx}
                                     aria-label={`Go to slide ${idx + 1}`}
+                                    title={`Go to slide ${idx + 1}`}
                                     onClick={() => setCurrentIndex(idx)}
                                     className={`h-1.5 rounded-full p-3 -m-3 bg-clip-content transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-200 hover:bg-blue-300'}`}
-                                />
+                                >
+                                    <span className="sr-only">Go to slide {idx + 1}</span>
+                                </button>
                             ))}
                         </div>
                     </div>

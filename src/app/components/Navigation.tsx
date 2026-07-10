@@ -322,10 +322,12 @@ export default function Navigation() {
                             </Link>
                             <button
                                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                                title={mobileMenuOpen ? "Close menu" : "Open menu"}
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className="text-slate-700 hover:text-blue-600 p-2 -mr-2 transition-colors relative z-50"
                             >
                                 {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                                <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
                             </button>
                         </div>
                     </div>
@@ -372,6 +374,7 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <button
                                             aria-label={expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}
+                                            title={expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}
                                             className={`p-2 rounded-full transition-all duration-300 ${expandedItems.includes(item.name) ? 'bg-blue-100 text-blue-600' : 'text-slate-400'}`}
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -381,6 +384,7 @@ export default function Navigation() {
                                             <ChevronDown
                                                 className={`w-5 h-5 transition-transform duration-300 ${expandedItems.includes(item.name) ? 'rotate-180' : ''}`}
                                             />
+                                            <span className="sr-only">{expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}</span>
                                         </button>
                                     )}
                                 </div>

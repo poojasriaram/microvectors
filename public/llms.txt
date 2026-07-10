@@ -1,6 +1,6 @@
 # MicroVectors
 
-MicroVectors is an AI software development company specializing in Artificial Intelligence, Enterprise Software, SaaS Development, AI Agents, Digital Transformation, Cloud Solutions, Automation, and Custom Software Engineering.
+MicroVectors is an AI software development company providing Artificial Intelligence, SaaS Development, Enterprise Applications, Cloud Solutions, Automation, and Digital Transformation services.
 
 ## Website
 
@@ -8,27 +8,20 @@ https://microvectors.vercel.app/
 
 ## Important Pages
 
-- https://microvectors.vercel.app/
-- https://microvectors.vercel.app/about
-- https://microvectors.vercel.app/services
-- https://microvectors.vercel.app/contact
-- https://microvectors.vercel.app/careers
-
-## Services
-
-- AI Development
-- AI Agents
-- SaaS Development
-- Enterprise Software
-- Web Development
-- Mobile App Development
-- Cloud Solutions
-- Automation
-
-## Contact
-
-https://microvectors.vercel.app/contact
+- Home: https://microvectors.vercel.app/
+- About: https://microvectors.vercel.app/about
+- Services: https://microvectors.vercel.app/services
+- Industries: https://microvectors.vercel.app/industries
+- Contact: https://microvectors.vercel.app/contact
 
 ## Sitemap
 
 https://microvectors.vercel.app/sitemap.xml
+
+## Robots
+
+https://microvectors.vercel.app/robots.txt
+
+## Contact
+
+https://microvectors.vercel.app/contact

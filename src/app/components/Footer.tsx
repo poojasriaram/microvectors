@@ -97,6 +97,7 @@ export default function Footer() {
                                 {[Linkedin, Twitter, Facebook].map((Icon, i) => (
                                     <a key={i} href="#" aria-label={['LinkedIn', 'Twitter', 'Facebook'][i]} title={['LinkedIn', 'Twitter', 'Facebook'][i]} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white hover:bg-blue-600 hover:border-blue-500 transition-all hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] hover:-translate-y-1">
                                         <Icon className="w-4 h-4" />
+                                        <span className="sr-only">{['LinkedIn', 'Twitter', 'Facebook'][i]}</span>
                                     </a>
                                 ))}
                             </div>

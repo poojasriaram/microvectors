@@ -53,6 +53,7 @@ export default function CookieConsent() {
                                         className="text-slate-400 hover:text-slate-600 transition-colors p-1"
                                     >
                                         <X className="w-4 h-4" />
+                                        <span className="sr-only">Close dialog</span>
                                     </button>
                                 </div>
                                 <p className="text-sm text-slate-600 leading-relaxed font-medium">

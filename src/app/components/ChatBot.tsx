@@ -287,10 +287,12 @@ export default function ChatBot() {
                             </div>
                             <button
                                 aria-label="Close"
+                                title="Close"
                                 onClick={() => setIsOpen(false)}
                                 className="p-1.5 hover:bg-slate-50 rounded-full transition-colors text-slate-400 hover:text-slate-600"
                             >
                                 <X className="w-6 h-6" strokeWidth={1.5} />
+                                <span className="sr-only">Close</span>
                             </button>
                         </div>
 
@@ -378,8 +380,9 @@ export default function ChatBot() {
                         {/* Input Area */}
                         <div className="p-4 bg-white border-t border-slate-100 shrink-0">
                             <div className="flex items-end gap-2 bg-slate-50 border border-slate-200 rounded-2xl p-2 focus-within:ring-2 focus-within:ring-blue-500/10 focus-within:border-blue-500 transition-all">
-                                <button aria-label="Attach file" className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-200/50 rounded-xl transition-colors">
+                                <button aria-label="Attach file" title="Attach file" className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-200/50 rounded-xl transition-colors">
                                     <Paperclip className="w-5 h-5" />
+                                    <span className="sr-only">Attach file</span>
                                 </button>
                                 <textarea
                                     value={inputValue}
@@ -392,11 +395,13 @@ export default function ChatBot() {
                                 />
                                 <Button
                                     aria-label="Send message"
+                                    title="Send message"
                                     onClick={() => handleSend()}
                                     disabled={!inputValue.trim() || isLoading}
                                     className="h-[40px] w-[40px] rounded-xl bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20 p-0 flex items-center justify-center shrink-0 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed mb-0.5"
                                 >
                                     <Send className="w-4 h-4 ml-0.5" />
+                                    <span className="sr-only">Send message</span>
                                 </Button>
                             </div>
                             <div className="flex justify-center mt-3">
@@ -415,6 +420,7 @@ export default function ChatBot() {
                 <motion.button
                     id="chatbot-toggle"
                     aria-label="Open Chat"
+                    title="Open Chat"
                     initial={{ scale: 0, rotate: 180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     whileHover={{ scale: 1.1 }}
@@ -424,6 +430,7 @@ export default function ChatBot() {
                 >
                     <MessageSquare className="w-7 h-7" strokeWidth={2.5} />
                     <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 border-[2.5px] border-white rounded-full"></span>
+                    <span className="sr-only">Open Chat</span>
                 </motion.button>
             )}
         </>
