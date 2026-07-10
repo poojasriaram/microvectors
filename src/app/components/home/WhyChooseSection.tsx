@@ -18,8 +18,8 @@ export default function WhyChooseSection() {
                         className="relative"
                     >
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 bg-white">
-                            <img 
-                                src="/banner_3_ecosystem_1783665456490.png" 
+                            <img loading="lazy" decoding="async" 
+                                src="/banner_3_ecosystem_1783665456490.webp" 
                                 alt="AI Ecosystem" 
                                 className="w-full h-auto object-cover relative z-10"
                             />

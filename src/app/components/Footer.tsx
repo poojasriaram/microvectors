@@ -71,7 +71,7 @@ export default function Footer() {
                         <div>
                             <Link to="/" className="inline-block mb-1">
                                 <div className="flex items-center gap-2">
-                                    <img src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
+                                    <img loading="lazy" decoding="async" src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
                                 </div>
                             </Link>
                             <p className="text-slate-400 leading-relaxed mb-8 font-medium text-sm max-w-sm">

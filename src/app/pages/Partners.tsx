@@ -39,10 +39,10 @@ export default function Partners() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "/banner_1_hero_1783665435895.png", // Meeting/Handshake
-        "/banner_2_team_1783665445984.png", // Collaboration
-        "/banner_3_ecosystem_1783665456490.png", // Agreement
-        "/banner_4_platform_1783665466764.png"  // Growth
+        "/banner_1_hero_1783665435895.webp", // Meeting/Handshake
+        "/banner_2_team_1783665445984.webp", // Collaboration
+        "/banner_3_ecosystem_1783665456490.webp", // Agreement
+        "/banner_4_platform_1783665466764.webp"  // Growth
     ];
 
     useEffect(() => {

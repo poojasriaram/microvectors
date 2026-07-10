@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const slides = [
     {
         id: 1,
-        image: "/banner_1_hero_1783665435895.png",
+        image: "/banner_1_hero_1783665435895.webp",
         badge: "Next-Generation AI Platform",
         title: <>Transform Your Business with <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Autonomous AI</span></>,
         subtitle: "Empower your enterprise with scalable, secure, and intelligent automation. MicroVectors drives predictable revenue growth through advanced AI infrastructure.",
@@ -181,7 +181,7 @@ export default function HeroSection() {
 
                                 <div className="relative rounded-3xl overflow-hidden shadow-premium border border-slate-100 bg-white w-full h-full max-h-[450px]">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-                                    <img 
+                                    <img loading="lazy" decoding="async" 
                                         src={slide.image} 
                                         alt={slide.statSub}
                                         className="w-full h-full object-cover relative z-0"

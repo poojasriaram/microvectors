@@ -23,10 +23,10 @@ export default function Outcomes() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "/banner_1_hero_1783665435895.png", // Business Architecture
-        "/banner_2_team_1783665445984.png", // Team Collaboration
-        "/banner_3_ecosystem_1783665456490.png", // Data Analytics
-        "/banner_4_platform_1783665466764.png"  // Growth
+        "/banner_1_hero_1783665435895.webp", // Business Architecture
+        "/banner_2_team_1783665445984.webp", // Team Collaboration
+        "/banner_3_ecosystem_1783665456490.webp", // Data Analytics
+        "/banner_4_platform_1783665466764.webp"  // Growth
     ];
 
     useEffect(() => {

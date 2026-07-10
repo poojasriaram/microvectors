@@ -1,0 +1,18 @@
+# Microvectors AI - AI Driven Sales & Revenue Acceleration
+
+## About
+Microvectors provides AI-driven sales, lead generation, and revenue operations solutions for B2B tech companies. We accelerate revenue through intelligent automation, context-aware analytics, and demand pulse tracking.
+
+## Important Links
+- Home: https://microvectors.com/
+- Solutions: https://microvectors.com/solutions
+- Company: https://microvectors.com/company
+- Resources: https://microvectors.com/resources
+
+## Features
+- AI Lead Generation & Nurturing
+- Behaviour Analytics
+- Demand Discovery
+- Revenue Acceleration
+
+For detailed API or technical constraints, please refer to our main documentation.

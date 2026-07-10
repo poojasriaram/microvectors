@@ -9,8 +9,8 @@ export default function FinalCTASection() {
             {/* Background Image / Illustration */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-slate-900/80 mix-blend-multiply z-10"></div>
-                <img 
-                    src="/banner_4_platform_1783665466764.png" 
+                <img loading="lazy" decoding="async" 
+                    src="/banner_4_platform_1783665466764.webp" 
                     alt="Enterprise AI Platform" 
                     className="w-full h-full object-cover opacity-60"
                 />

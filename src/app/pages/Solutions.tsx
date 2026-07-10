@@ -22,10 +22,10 @@ export default function Solutions() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "/banner_1_hero_1783665435895.png", // Tech/Network
-        "/banner_2_team_1783665445984.png", // Tech/Chip
-        "/banner_3_ecosystem_1783665456490.png", // Analytics
-        "/banner_4_platform_1783665466764.png"  // Data
+        "/banner_1_hero_1783665435895.webp", // Tech/Network
+        "/banner_2_team_1783665445984.webp", // Tech/Chip
+        "/banner_3_ecosystem_1783665456490.webp", // Analytics
+        "/banner_4_platform_1783665466764.webp"  // Data
     ];
 
     useEffect(() => {

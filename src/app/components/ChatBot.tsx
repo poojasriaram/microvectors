@@ -276,7 +276,7 @@ export default function ChatBot() {
                             <div className="flex items-center gap-3.5">
                                 <div className="relative">
                                     <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.06)] overflow-hidden border border-slate-100 p-1">
-                                        <img src={logo} alt="Trustgrid AI" className="w-full h-full object-contain pointer-events-none" />
+                                        <img loading="lazy" decoding="async" src={logo} alt="Trustgrid AI" className="w-full h-full object-contain pointer-events-none" />
                                     </div>
                                     <span className="absolute bottom-0 right-0.5 w-3.5 h-3.5 bg-[#22c55e] border-2 border-white rounded-full"></span>
                                 </div>

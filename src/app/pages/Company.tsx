@@ -105,11 +105,11 @@ export default function Company() {
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const backgroundSlides = [
-        "/banner_1_hero_1783665435895.png",
-        "/banner_2_team_1783665445984.png",
-        "/banner_3_ecosystem_1783665456490.png",
-        "/banner_4_platform_1783665466764.png",
-        "/banner_1_hero_1783665435895.png"
+        "/banner_1_hero_1783665435895.webp",
+        "/banner_2_team_1783665445984.webp",
+        "/banner_3_ecosystem_1783665456490.webp",
+        "/banner_4_platform_1783665466764.webp",
+        "/banner_1_hero_1783665435895.webp"
     ];
 
     useEffect(() => {
@@ -240,7 +240,7 @@ export default function Company() {
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
                                     <img
-                                        src="/banner_2_team_1783665445984.png"
+                                        src="/banner_2_team_1783665445984.webp"
                                         alt="Team collaboration"
                                         className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                                     />
@@ -368,7 +368,7 @@ export default function Company() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/banner_3_ecosystem_1783665456490.png"
+                        src="/banner_3_ecosystem_1783665456490.webp"
                         alt="Office Building"
                         className="w-full h-full object-cover opacity-40 mix-blend-overlay"
                     />

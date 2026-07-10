@@ -41,11 +41,11 @@ export default function AILeadSalesTransformation() {
                     `}</style>
 
                     {[
-                        "/banner_1_hero_1783665435895.png",
-                        "/banner_2_team_1783665445984.png",
-                        "/banner_3_ecosystem_1783665456490.png",
-                        "/banner_4_platform_1783665466764.png",
-                        "/banner_1_hero_1783665435895.png"
+                        "/banner_1_hero_1783665435895.webp",
+                        "/banner_2_team_1783665445984.webp",
+                        "/banner_3_ecosystem_1783665456490.webp",
+                        "/banner_4_platform_1783665466764.webp",
+                        "/banner_1_hero_1783665435895.webp"
                     ].map((img, idx) => (
                         <div
                             key={idx}
