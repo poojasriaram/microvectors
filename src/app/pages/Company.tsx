@@ -102,53 +102,21 @@ export default function Company() {
         };
     }, []);
 
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "/banner_1_hero_1783665435895.webp",
-        "/banner_2_team_1783665445984.webp",
-        "/banner_3_ecosystem_1783665456490.webp",
-        "/banner_4_platform_1783665466764.webp",
-        "/banner_1_hero_1783665435895.webp"
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
 
-            {/* 1. Hero Section - Premium (Background Slideshow - Uniform Theme) */}
+            {/* 1. Hero Section - Premium (Vector Grid Pattern) */}
             <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
-                {/* Background Slideshow */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <style>{`
-                        @keyframes fadeZoomCustom {
-                            0% { opacity: 0; transform: scale(1); }
-                            10% { opacity: 1; }
-                            90% { opacity: 1; }
-                            100% { opacity: 0; transform: scale(1.1); }
-                        }
-                    `}</style>
-                    {backgroundSlides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-100" : "opacity-0"}`}
-                            style={{
-                                backgroundImage: `url('${slide}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                animation: index === currentBgIndex ? 'fadeZoomCustom 6s infinite alternate ease-in-out' : 'none'
-                            }}
-                        />
-                    ))}
-                    {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80" />
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-50">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50 to-slate-100/50" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-50/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                    }} />
                 </div>
 
                 {/* Content */}
@@ -234,22 +202,29 @@ export default function Company() {
                             </div>
                         </div>
 
-                        {/* Visual Content */}
+                        {/* Core Principles Card Layout */}
                         <div className="lg:col-span-6 relative">
                             <Reveal width="100%" delay={0.2}>
-                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
-                                    <img
-                                        src="/banner_2_team_1783665445984.webp"
-                                        alt="Team collaboration"
-                                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    {/* Floating Badge */}
-                                    <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50 max-w-xs z-20 hidden md:block animate-fade-in-up">
-                                        <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Our DNA</p>
-                                        <p className="text-slate-900 font-bold text-lg leading-tight">
-                                            Where Human Ingenuity Meets Artificial Intelligence
-                                        </p>
+                                <div className="relative rounded-[2.5rem] bg-slate-900 border border-slate-800 p-8 text-slate-100 min-h-[350px] flex flex-col justify-between shadow-2xl">
+                                    <div className="space-y-6 text-left">
+                                        <h3 className="text-xs font-extrabold font-mono text-blue-400 tracking-wider">// OUR CORE PRINCIPLES</h3>
+                                        <div className="space-y-4">
+                                            <div>
+                                                <div className="text-base font-bold text-white">01. Autonomous Execution</div>
+                                                <p className="text-slate-400 text-xs mt-1">We build systems that self-optimize, learn from feedback loops, and operate without human friction.</p>
+                                            </div>
+                                            <div>
+                                                <div className="text-base font-bold text-white">02. Compounding Velocity</div>
+                                                <p className="text-slate-400 text-xs mt-1">Every operational success feeding back into the data model to drive exponential pipeline growth.</p>
+                                            </div>
+                                            <div>
+                                                <div className="text-base font-bold text-white">03. High-Contrast Focus</div>
+                                                <p className="text-slate-400 text-xs mt-1">Direct data paths, simplified integrations, and absolute clarity in performance telemetry.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-slate-800 text-[9px] font-mono text-slate-500 uppercase tracking-widest text-left">
+                                        MICROVECTORS DNA // OPERATIONAL FRAMEWORK
                                     </div>
                                 </div>
 
@@ -365,14 +340,13 @@ export default function Company() {
 
             {/* 5. Offices & Contact - Compact */}
             <section id="our-offices" className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden scroll-mt-32">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <img
-                        src="/banner_3_ecosystem_1783665456490.webp"
-                        alt="Office Building"
-                        className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90"></div>
+                {/* Background Grid Pattern & Glow */}
+                <div className="absolute inset-0 z-0 bg-slate-950 overflow-hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+                    <div className="absolute inset-0 opacity-[0.02]" style={{
+                        backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
+                        backgroundSize: '24px 24px'
+                    }}></div>
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

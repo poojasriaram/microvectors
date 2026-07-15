@@ -33,7 +33,7 @@ export default function IndustriesSection() {
     return (
         <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
             {/* Background elements */}
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
+            <div className="absolute inset-0 pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

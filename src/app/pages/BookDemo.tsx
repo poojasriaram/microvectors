@@ -127,9 +127,14 @@ export default function BookDemo() {
                             <Reveal width="100%" delay={0.3}>
                                 <div className="flex items-center gap-5">
                                     <div className="flex -space-x-4">
-                                        {[1, 2, 3, 4].map((i) => (
-                                            <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden shadow-sm">
-                                                <img loading="lazy" decoding="async" width="800" height="600" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="User" className="w-full h-full object-cover" />
+                                        {['JD', 'AM', 'KP', 'TL'].map((initial, i) => (
+                                            <div key={i} className={`w-12 h-12 rounded-full border-2 border-white flex items-center justify-center text-[11px] font-extrabold shadow-sm ${
+                                                i === 0 ? 'bg-blue-105 text-blue-600' :
+                                                i === 1 ? 'bg-indigo-105 text-indigo-600' :
+                                                i === 2 ? 'bg-cyan-105 text-cyan-600' :
+                                                'bg-purple-105 text-purple-600'
+                                            }`}>
+                                                {initial}
                                             </div>
                                         ))}
                                     </div>

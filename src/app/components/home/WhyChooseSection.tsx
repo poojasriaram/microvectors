@@ -9,7 +9,7 @@ export default function WhyChooseSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
-                    {/* Left: Illustration */}
+                    {/* Left: Operational System Board */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -17,16 +17,32 @@ export default function WhyChooseSection() {
                         transition={{ duration: 0.8 }}
                         className="relative"
                     >
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 bg-white">
-                            <img loading="lazy" decoding="async" width="800" height="600" 
-                                src="/banner_3_ecosystem_1783665456490.webp" 
-                                alt="AI Ecosystem" 
-                                className="w-full h-auto object-cover relative z-10"
-                            />
+                        <div className="relative rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-sm">
+                            <h3 className="text-sm font-extrabold text-slate-900 mb-6 font-mono tracking-wider">// SYSTEM INTEGRATION MATRIX</h3>
+                            <div className="space-y-4">
+                                <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                    <div>
+                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Autonomous Agents</div>
+                                        <div className="text-sm font-bold text-slate-900 mt-1">24 Active Instances</div>
+                                    </div>
+                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">● Active</span>
+                                </div>
+                                <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                    <div>
+                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Predictive Routing</div>
+                                        <div className="text-sm font-bold text-slate-900 mt-1">Direct CRM Integration</div>
+                                    </div>
+                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">● Synced</span>
+                                </div>
+                                <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                    <div>
+                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">TVL Velocity</div>
+                                        <div className="text-sm font-bold text-slate-900 mt-1">Compounding Loops</div>
+                                    </div>
+                                    <span className="text-blue-600 font-semibold text-xs flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/50">↑ 5.2x</span>
+                                </div>
+                            </div>
                         </div>
-                        {/* Decorative background shape */}
-                        <div className="absolute -inset-6 bg-gradient-to-br from-purple-100 to-blue-50 rounded-[3rem] -z-10 blur-2xl opacity-60"></div>
-                        
                         {/* Floating Stat */}
                         <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 z-20 hidden md:block">
                             <div className="text-4xl font-bold text-blue-600 mb-1">5X</div>

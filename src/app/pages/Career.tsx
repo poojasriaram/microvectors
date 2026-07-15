@@ -29,7 +29,7 @@ export default function Career() {
         document.title = "Careers | TrustGrid AI";
     }, []);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+
     const [isApplyOpen, setIsApplyOpen] = useState(false);
     const [selectedRole, setSelectedRole] = useState("");
 
@@ -61,19 +61,7 @@ export default function Career() {
         }
     };
 
-    const slides = [
-        "/banner_1_hero_1783665435895.webp",
-        "/banner_2_team_1783665445984.webp",
-        "/banner_3_ecosystem_1783665456490.webp",
-        "/banner_4_platform_1783665466764.webp"
-    ];
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     const values = [
         {
@@ -129,21 +117,15 @@ export default function Career() {
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* 1. Hero Section */}
             <section className="relative bg-slate-900 text-white pt-32 pb-24 overflow-hidden">
-                {/* Background Slideshow */}
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-40" : "opacity-0"
-                            }`}
-                        style={{
-                            backgroundImage: `url('${slide}')`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    ></div>
-                ))}
-
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-900">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-950/40 via-slate-900 to-slate-900" />
+                    <div className="absolute inset-0 opacity-[0.05]" style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                    }} />
+                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900" />
+                </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                     <Reveal width="100%">

@@ -63,16 +63,15 @@ export default function DemandPulseCarousel() {
                     transition={{ duration: 1, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full"
                 >
-                    {/* Background Image */}
-                    <motion.div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
-                        animate={{ scale: [1, 1.1] }}
-                        transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-                    />
-
-                    {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80" />
+                    {/* Background Grid Pattern */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-50">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/40 via-slate-50 to-slate-100/40" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-50/20 via-transparent to-transparent" />
+                        <div className="absolute inset-0" style={{
+                            backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+                            backgroundSize: '24px 24px'
+                        }} />
+                    </div>
 
                     {/* Content */}
                     <div className="absolute inset-0 flex items-center justify-center z-10">

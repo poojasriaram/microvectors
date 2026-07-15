@@ -23,40 +23,19 @@ export default function Resources() {
         { icon: <Users className="w-8 h-8 text-yellow-600" />, title: "Case Studies & Success Stories" },
         { icon: <FileText className="w-8 h-8 text-orange-600" />, title: "Whitepapers & Research Reports" },
     ];
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "/banner_1_hero_1783665435895.webp", // Library/Books
-        "/banner_2_team_1783665445984.webp", // Planning/Working
-        "/banner_3_ecosystem_1783665456490.webp", // Data/Charts
-        "/banner_4_platform_1783665466764.webp"  // Conference
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
     return (
         <div className="bg-white text-slate-900 font-sans min-h-screen">
             {/* Hero Section */}
             <div className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
-                {/* Background Slideshow */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    {backgroundSlides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-30" : "opacity-0"}`}
-                            style={{
-                                backgroundImage: `url('${slide}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        />
-                    ))}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white/90" />
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-50">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50 to-slate-100/50" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-50/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                    }} />
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

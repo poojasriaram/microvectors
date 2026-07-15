@@ -21,7 +21,7 @@ const teamMembers = [
     { name: "Kallol Pal", role: "Technology Advisor" },
     { name: "Soumya S", role: "Company Secretary & Advisor" },
     { name: "Annapoorani", role: "Automation Engineering (Intern)" },
-    { name: "Poojasri", role: "AI Engineering (Intern)" },
+    { name: "Poojasri", role: "AI/ML Engineer" },
 ];
 
 export default function LeadershipSection() {

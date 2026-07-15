@@ -23,38 +23,13 @@ export default function AILeadNurturing() {
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* Hero Section */}
             <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden bg-slate-900">
-                {/* Background Slideshow */}
-                <div className="absolute inset-0 z-0">
-                    <style>{`
-                        @keyframes fadeZoom {
-                            0% { opacity: 0; transform: scale(1); }
-                            5% { opacity: 1; transform: scale(1.05); }
-                            20% { opacity: 1; transform: scale(1.1); }
-                            25% { opacity: 0; transform: scale(1.15); }
-                            100% { opacity: 0; transform: scale(1); }
-                        }
-                        .animate-slide-1 { animation: fadeZoom 25s infinite 0s; }
-                        .animate-slide-2 { animation: fadeZoom 25s infinite 5s; }
-                        .animate-slide-3 { animation: fadeZoom 25s infinite 10s; }
-                        .animate-slide-4 { animation: fadeZoom 25s infinite 15s; }
-                        .animate-slide-5 { animation: fadeZoom 25s infinite 20s; }
-                    `}</style>
-
-                    {[
-                        "/banner_1_hero_1783665435895.webp",
-                        "/banner_2_team_1783665445984.webp",
-                        "/banner_3_ecosystem_1783665456490.webp",
-                        "/banner_4_platform_1783665466764.webp",
-                        "/banner_1_hero_1783665435895.webp"
-                    ].map((img, idx) => (
-                        <div
-                            key={idx}
-                            className={`absolute inset-0 bg-cover bg-center opacity-0 animate-slide-${idx + 1}`}
-                            style={{ backgroundImage: `url(${img})` }}
-                        />
-                    ))}
-
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80"></div>
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-50">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50 to-slate-100/50" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-50/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                    }} />
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Play, ShieldCheck, Star } from 'lucide-react';
+import { ArrowRight, Play, ShieldCheck, Star, Bot, TrendingUp, Users, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -59,6 +59,8 @@ const slides = [
 
 export default function HeroSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [scale, setScale] = useState(3.5);
+    const [activeDashboardTab, setActiveDashboardTab] = useState<'pipeline' | 'agents' | 'activity'>('pipeline');
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -71,8 +73,6 @@ export default function HeroSection() {
 
     return (
         <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-white">
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] opacity-70 -z-10"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -157,45 +157,195 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right Column: Illustration */}
-                    <div className="relative h-[400px] lg:h-[500px] w-full flex items-center justify-center">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={`image-${currentIndex}`}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 1.05 }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="absolute inset-0 flex items-center justify-center"
-                            >
-                                {/* Floating elements */}
-                                <motion.div 
-                                    animate={{ y: [0, -15, 0] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute top-4 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20"
+                    {/* Right Column: Interactive Dashboard */}
+                    <div className="relative w-full z-10 lg:pl-4">
+                        {/* Interactive Dashboard Container */}
+                        <div className="relative w-full rounded-2xl border border-slate-200 bg-white shadow-xl p-6 flex flex-col justify-between overflow-hidden min-h-[440px]">
+                            {/* macOS-style Header */}
+                            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="w-3 h-3 rounded-full bg-red-400/80"></span>
+                                    <span className="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                                    <span className="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+                                </div>
+                                <div className="text-[11px] font-bold text-slate-500 tracking-wider uppercase flex items-center gap-1.5 font-mono">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                                    </span>
+                                    MicroVectors OS
+                                </div>
+                                <div className="w-12"></div>
+                            </div>
+
+                            {/* Inner Navigation Tabs */}
+                            <div className="flex border-b border-slate-100 pb-2 mb-4 gap-4">
+                                <button
+                                    onClick={() => setActiveDashboardTab('pipeline')}
+                                    className={`text-xs font-bold pb-2 border-b-2 transition-all ${activeDashboardTab === 'pipeline' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
                                 >
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">{slide.accuracy}</div>
-                                        <div>
-                                            <div className="text-sm font-bold text-slate-900">{slide.statLabel}</div>
-                                            <div className="text-xs text-slate-500">{slide.statSub}</div>
+                                    Pipeline Forecast
+                                </button>
+                                <button
+                                    onClick={() => setActiveDashboardTab('agents')}
+                                    className={`text-xs font-bold pb-2 border-b-2 transition-all ${activeDashboardTab === 'agents' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
+                                >
+                                    AI Agent Fleet
+                                </button>
+                                <button
+                                    onClick={() => setActiveDashboardTab('activity')}
+                                    className={`text-xs font-bold pb-2 border-b-2 transition-all ${activeDashboardTab === 'activity' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
+                                >
+                                    Live Stream
+                                </button>
+                            </div>
+
+                            {/* Dashboard Content */}
+                            <div className="flex-1 flex flex-col justify-between">
+                                {activeDashboardTab === 'pipeline' && (
+                                    <div className="space-y-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                                                <div className="text-[10px] text-slate-500 uppercase font-extrabold tracking-wider">Projected Revenue</div>
+                                                <div className="text-2xl font-bold text-slate-900 mt-1">${(120000 * scale).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+                                                <div className="text-[10px] text-emerald-600 font-semibold mt-1">↑ +{(scale * 15).toFixed(0)}% vs baseline</div>
+                                            </div>
+                                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/60">
+                                                <div className="text-[10px] text-slate-500 uppercase font-extrabold tracking-wider">AI Operations</div>
+                                                <div className="text-2xl font-bold text-slate-900 mt-1">{(scale * 3.1).toFixed(1)}x</div>
+                                                <div className="text-[10px] text-blue-600 font-semibold mt-1">Efficiency multiplier</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Interactive Slider */}
+                                        <div className="space-y-2 p-3 bg-blue-50/50 border border-blue-100 rounded-xl">
+                                            <div className="flex justify-between text-xs font-semibold text-slate-700">
+                                                <span>Scale AI Infrastructure</span>
+                                                <span className="text-blue-600 font-bold">{scale.toFixed(1)}x Scale</span>
+                                            </div>
+                                            <input 
+                                                type="range" 
+                                                min="1" 
+                                                max="10" 
+                                                step="0.5" 
+                                                value={scale} 
+                                                onChange={(e) => setScale(parseFloat(e.target.value))}
+                                                className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                            />
+                                        </div>
+
+                                        {/* Simple SVG Chart */}
+                                        <div className="h-28 w-full bg-slate-50/30 border border-slate-200/40 rounded-xl flex items-end p-2 relative overflow-hidden">
+                                            <svg className="w-full h-full overflow-visible" viewBox="0 0 300 100" preserveAspectRatio="none">
+                                                <defs>
+                                                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                                        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2"/>
+                                                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0"/>
+                                                    </linearGradient>
+                                                </defs>
+                                                {/* Area under curve */}
+                                                <path 
+                                                    d={`M 0 100 L 0 ${100 - (3 * scale)} L 60 ${100 - (7 * scale)} L 120 ${100 - (10 * scale)} L 180 ${100 - (15 * scale)} L 240 ${100 - (20 * scale)} L 300 ${100 - (8.5 * scale * scale)} L 300 100 Z`}
+                                                    fill="url(#chartGrad)"
+                                                    className="transition-all duration-300 ease-out"
+                                                />
+                                                {/* Line */}
+                                                <path 
+                                                    d={`M 0 ${100 - (3 * scale)} L 60 ${100 - (7 * scale)} L 120 ${100 - (10 * scale)} L 180 ${100 - (15 * scale)} L 240 ${100 - (20 * scale)} L 300 ${100 - (8.5 * scale * scale)}`}
+                                                    fill="none"
+                                                    stroke="#3b82f6"
+                                                    strokeWidth="2.5"
+                                                    className="transition-all duration-300 ease-out"
+                                                />
+                                                {/* Grid Lines */}
+                                                <line x1="0" y1="25" x2="300" y2="25" stroke="#e2e8f0" strokeDasharray="4 4" strokeWidth="0.5" />
+                                                <line x1="0" y1="50" x2="300" y2="50" stroke="#e2e8f0" strokeDasharray="4 4" strokeWidth="0.5" />
+                                                <line x1="0" y1="75" x2="300" y2="75" stroke="#e2e8f0" strokeDasharray="4 4" strokeWidth="0.5" />
+                                            </svg>
                                         </div>
                                     </div>
-                                </motion.div>
+                                )}
 
-                                <div className="relative rounded-3xl overflow-hidden shadow-premium border border-slate-100 bg-white w-full h-full max-h-[450px]">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent mix-blend-overlay z-10 pointer-events-none"></div>
-                                    <img loading="eager" decoding="async" width="1600" height="900" 
-                                        src={slide.image} 
-                                        alt={slide.statSub}
-                                        className="w-full h-full object-cover relative z-0"
-                                    />
+                                {activeDashboardTab === 'agents' && (
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200/60 rounded-xl">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                                                    <Bot className="w-4 h-4" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs font-bold text-slate-800">Outreach Agent</div>
+                                                    <div className="text-[10px] text-slate-400">Processing custom sequences</div>
+                                                </div>
+                                            </div>
+                                            <span className="flex h-2 w-2 relative">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200/60 rounded-xl">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                                                    <Target className="w-4 h-4" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs font-bold text-slate-800">Demand Prospector</div>
+                                                    <div className="text-[10px] text-slate-400">Scanning buyer intent signals</div>
+                                                </div>
+                                            </div>
+                                            <span className="flex h-2 w-2 relative">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200/60 rounded-xl">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600">
+                                                    <Users className="w-4 h-4" />
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs font-bold text-slate-800">Meeting Coordinator</div>
+                                                    <div className="text-[10px] text-slate-400">Syncing with Google Calendar</div>
+                                                </div>
+                                            </div>
+                                            <span className="flex h-2 w-2 relative">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {activeDashboardTab === 'activity' && (
+                                    <div className="space-y-2 font-mono text-[10px] bg-slate-900 text-slate-300 p-4 rounded-xl h-52 overflow-y-auto">
+                                        <div className="text-slate-500">// INITIALIZING AUTO-PILOT PILOT SECTOR</div>
+                                        <div className="text-emerald-400">[OK] Connected to CRM via secure API wrapper</div>
+                                        <div className="text-blue-300">[INFO] Scanning 4,500 domain intent profiles...</div>
+                                        <div className="text-amber-300">[ACTION] Outbound sequence triggered for 12 leads</div>
+                                        <div className="text-slate-300">[INFO] AI Agent "Prospector-1" verified 98% confidence rating</div>
+                                        <div className="text-emerald-400">[SUCCESS] Demo scheduled with Enterprise Lead (Acme Corp)</div>
+                                        <div className="text-blue-300">[INFO] Synchronizing database state...</div>
+                                    </div>
+                                )}
+
+                                {/* Bottom Info Panel */}
+                                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                                    <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live Node</span>
+                                    <span>System v4.1</span>
                                 </div>
-                                
-                                {/* Decorative background shape */}
-                                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-[2.5rem] -z-10 blur-xl opacity-50"></div>
-                            </motion.div>
-                        </AnimatePresence>
+                            </div>
+                        </div>
+
+                        {/* Decorative floating stats card */}
+                        <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border border-slate-200 z-20 flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                                <TrendingUp className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">Avg. Growth</div>
+                                <div className="text-base font-bold text-slate-900">+312% YoY</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

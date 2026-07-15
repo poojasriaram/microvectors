@@ -20,21 +20,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function Outcomes() {
     const location = useLocation();
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "/banner_1_hero_1783665435895.webp", // Business Architecture
-        "/banner_2_team_1783665445984.webp", // Team Collaboration
-        "/banner_3_ecosystem_1783665456490.webp", // Data Analytics
-        "/banner_4_platform_1783665466764.webp"  // Growth
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -55,31 +41,14 @@ export default function Outcomes() {
         <div className="min-h-screen bg-white text-slate-900">
             {/* Hero Section with Moving Backgrounds */}
             <div className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
-                {/* Background Slideshow */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <style>{`
-                        @keyframes fadeZoomCustom {
-                            0% { opacity: 0; transform: scale(1); }
-                            10% { opacity: 1; }
-                            90% { opacity: 1; }
-                            100% { opacity: 0; transform: scale(1.1); }
-                        }
-                    `}</style>
-                    {backgroundSlides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-100" : "opacity-0"}`}
-                            style={{
-                                backgroundImage: `url('${slide}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                animation: index === currentBgIndex ? 'fadeZoomCustom 6s infinite alternate ease-in-out' : 'none'
-                            }}
-                        />
-                    ))}
-                    {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80" />
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-slate-50">
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/50 via-slate-50 to-slate-100/50" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-50/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                    }} />
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
