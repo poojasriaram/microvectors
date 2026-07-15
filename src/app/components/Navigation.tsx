@@ -3,13 +3,13 @@ import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
-import logo from '../../assets/Trustgrid-logo.png';
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [scrolled, setScrolled] = useState(false);
+    const [activeCategoryIndices, setActiveCategoryIndices] = useState<Record<string, number>>({});
     const location = useLocation();
 
     // Handle scroll effect
@@ -29,150 +29,156 @@ export default function Navigation() {
         );
     };
 
-    // Define navigation structure
+    // Define navigation structure matching the reference website style
     const navItems = [
         {
             name: 'Home',
-            path: '/',
+            path: '/'
+        },
+        {
+            name: 'Company',
+            path: '/company',
             dropdown: [
-                "AI-Powered Revenue Acceleration",
-                "Demand Discovery",
-                "Performance Revenue",
-                "Growth Acceleration",
-                "Market Validation",
-                "Customer Journey",
-                "Startup MVP",
-                "Lead Generation"
+                {
+                    title: "About Us",
+                    items: [
+                        { name: "Overview", path: "/company#about" },
+                        { name: "Mission & Culture", path: "/company#mission" },
+                        { name: "Leadership", path: "/company#leadership" }
+                    ]
+                },
+                {
+                    title: "Get In Touch",
+                    items: [
+                        { name: "Offices", path: "/company#offices" },
+                        { name: "Contact Us", path: "/company#contact" },
+                        { name: "Careers", path: "/career" }
+                    ]
+                }
             ]
         },
         {
-            name: 'Capabilities',
-            path: '/products',
-            dropdown: [
-                { name: "Demand Pulse", path: "/demand-pulse" },
-                { name: "AI Demand Discovery", path: "/ai-demand-discovery" },
-                { name: "AI Lead Generation", path: "/ai-lead-generation" },
-                { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
-                { name: "AI MVP Validation", path: "/ai-mvp-validation" },
-                { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" },
-                { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
-                { name: "Behaviour Analytics", path: "/behaviour-analytics" },
-                { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
-            ]
-        },
-        {
-            name: 'Crypto',
-            path: '/crypto',
-            dropdown: [
-                "AI-Powered Revenue Acceleration for Crypto",
-                "AI-Powered Crypto Demand Discovery Engine",
-                "AI-Powered Performance Revenue Engine",
-                "AI Growth Acceleration Engine",
-                "AI Market Validation Intelligence",
-                "AI Customer Journey Intelligence",
-                "AI Startup MVP Acceleration Engine"
-            ]
-        },
-        {
-            name: 'Outcomes',
-            path: '/outcomes',
-            dropdown: [
-                "AI Demand Discovery",
-                "AI-Driven Revenue Acceleration",
-                "AI-Driven Growth Hacking",
-                "AI-Driven Performance Marketing",
-                "Enterprise Sales Acceleration",
-                "Digital & Inside Sales Acceleration",
-                "D2C & High-Velocity Sales Growth",
-                "BFSI Sales Acceleration",
-                "Transition from Traditional to Digital Sales",
-                "Sales to Customer Success Continuity"
-            ]
-        },
-        {
-            name: 'Solutions',
+            name: 'Services',
             path: '/solutions',
             dropdown: [
-                "AI Business Growth Strategy",
-                "AI Market Strategy & Demand Intelligence",
-                "AI-Driven Growth Hacking Engine",
-                "AI-Driven Performance Marketing",
-                "AI Auto Sales Pilot (Autonomous Sales Agents)",
-                "AI Sales Process Optimization",
-                "AI Revenue Operations (AI RevOps)",
-                "AI Revenue Acceleration & Expansion"
+                {
+                    title: "Platform Core",
+                    items: [
+                        { name: "Demand Pulse", path: "/demand-pulse" },
+                        { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
+                        { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
+                    ]
+                },
+                {
+                    title: "Autonomous Pipeline",
+                    items: [
+                        { name: "AI Lead Generation", path: "/ai-lead-generation" },
+                        { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
+                        { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" }
+                    ]
+                },
+                {
+                    title: "Discovery & Validation",
+                    items: [
+                        { name: "AI Demand Discovery", path: "/ai-demand-discovery" },
+                        { name: "AI MVP Validation", path: "/ai-mvp-validation" },
+                        { name: "Behaviour Analytics", path: "/behaviour-analytics" }
+                    ]
+                }
             ]
         },
         {
             name: 'Industries',
             path: '/industries',
             dropdown: [
-                "E-commerce",
-                "Consumer Durables",
-                "Banking",
-                "FMCG",
-                "Financial Services",
-                "Electric Vehicles (EV)",
-                "Gems & Jewellery",
-                "Insurance",
-                "IT & BPM",
-                "Manufacturing",
-                "Media & Entertainment",
-                "Real Estate",
-                "Tourism & Hospitality",
-                "SaaS & Enterprise Software",
-                "BFSI – Banking, Lending & Insurance",
-                "FinTech",
-                "D2C & Consumer Brands",
-                "Crypto, Web3 & Digital Assets",
-                "Education & EdTech"
+                {
+                    title: "Financial & SaaS",
+                    items: [
+                        { name: "Banking & Lending", path: "/industries?section=Banking" },
+                        { name: "Financial Services", path: "/industries?section=Financial%20Services" },
+                        { name: "Insurance", path: "/industries?section=Insurance" },
+                        { name: "SaaS & Software", path: "/industries?section=SaaS%20%26%20Enterprise%20Software" }
+                    ]
+                },
+                {
+                    title: "Consumer Brands",
+                    items: [
+                        { name: "E-commerce", path: "/industries?section=E-commerce" },
+                        { name: "Consumer Brands / D2C", path: "/industries?section=D2C%20%26%20Consumer%20Brands" },
+                        { name: "FMCG & Retail", path: "/industries?section=FMCG" },
+                        { name: "Gems & Jewellery", path: "/industries?section=Gems%20%26%20Jewellery" }
+                    ]
+                },
+                {
+                    title: "Emerging Fields",
+                    items: [
+                        { name: "Electric Vehicles (EV)", path: "/industries?section=Electric%20Vehicles%20(EV)" },
+                        { name: "Crypto & Web3", path: "/industries?section=Crypto%2C%20Web3%20%26%20Digital%20Assets" },
+                        { name: "Education & EdTech", path: "/industries?section=Education%20%26%20EdTech" },
+                        { name: "Media & Entertainment", path: "/industries?section=Media%20%26%20Entertainment" }
+                    ]
+                }
             ]
         },
         {
-            name: 'Offerings',
-            path: '/offerings',
-            dropdown: [
-                "AI-Powered Sales Intelligence & Execution",
-                "Revenue Operations & Intelligence",
-                "AI-Driven Digital Marketing & Demand Generation",
-                "Market & Demand Intelligence",
-                "Market Validation & Research",
-                "Product-Market Fit Validation",
-                "Product Scaling & Growth Intelligence",
-                "Customer Success & Retention Intelligence"
-            ]
+            name: 'Platform',
+            path: '/demand-pulse'
         },
         {
-            name: 'Partners',
+            name: 'Clients',
             path: '/partners',
             dropdown: [
-                { name: "Partner Program Overview", path: "/partners#partner-hero" },
-                { name: "Why Partner With Us", path: "/partners#why-partner" },
-                { name: "Solution Partners", path: "/partners#solution-partners" },
-                { name: "Technology Partners", path: "/partners#technology-partners" },
-                { name: "Referral Partners", path: "/partners#referral-partners" },
-                { name: "Become a Partner", path: "/partners#partner-form" },
+                {
+                    title: "Partner Channels",
+                    items: [
+                        { name: "Solution Partners", path: "/partners#solution-partners" },
+                        { name: "Technology Partners", path: "/partners#technology-partners" },
+                        { name: "Referral Partners", path: "/partners#referral-partners" }
+                    ]
+                },
+                {
+                    title: "Our Program",
+                    items: [
+                        { name: "Overview", path: "/partners#partner-hero" },
+                        { name: "Why Partner With Us", path: "/partners#why-partner" },
+                        { name: "Become a Partner", path: "/partners#partner-form" }
+                    ]
+                }
             ]
         },
         {
-            name: 'Company',
-            path: '/company',
+            name: 'Case Studies',
+            path: '/outcomes',
             dropdown: [
-                "About Us",
-                "Mission",
-                "Leadership & Culture",
-                "Our Offices",
-                "Contact Us",
-                { name: "Careers", path: "/career" }
+                {
+                    title: "Growth Acceleration",
+                    items: [
+                        { name: "AI Demand Discovery", path: "/outcomes?section=AI%20Demand%20Discovery" },
+                        { name: "AI Revenue Acceleration", path: "/outcomes?section=AI-Driven%20Revenue%20Acceleration" },
+                        { name: "AI Growth Hacking", path: "/outcomes?section=AI-Driven%20Growth%20Hacking" }
+                    ]
+                },
+                {
+                    title: "Inside Sales",
+                    items: [
+                        { name: "Enterprise Sales", path: "/outcomes?section=Enterprise%20Sales%20Acceleration" },
+                        { name: "Digital & Inside Sales", path: "/outcomes?section=Digital%20%26%20Inside%20Sales%20Acceleration" },
+                        { name: "BFSI Sales Acceleration", path: "/outcomes?section=BFSI%2520Sales%2520Acceleration" }
+                    ]
+                }
             ]
         },
+        {
+            name: 'Careers',
+            path: '/career'
+        }
     ];
 
     return (
         <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b h-16 lg:h-24 flex items-center ${scrolled
-                    ? 'bg-white/70 backdrop-blur-md border-white/50 shadow-premium'
+                    ? 'bg-white/80 backdrop-blur-md border-slate-200/80 shadow-premium'
                     : 'bg-transparent border-transparent'
                     }`}
             >
@@ -181,40 +187,38 @@ export default function Navigation() {
                         {/* Logo */}
                         <div className="flex-shrink-0 mr-4 lg:mr-2 xl:mr-8 relative z-50">
                             <Link to="/" className="flex items-center gap-2 group">
-                                <img
-                                    src={logo}
-                                    alt="Trustgrid.ai"
-                                    className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-7 md:h-8 lg:h-9' : 'h-8 md:h-10 lg:h-11'}`}
-                                />
+                                <div className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-0.5 font-heading">
+                                    <span>Micro</span>
+                                    <span className="text-blue-600">vectors</span>
+                                </div>
                             </Link>
                         </div>
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center h-full justify-end">
                             {navItems.map((item) => {
-                                const isMegaMenu = item.dropdown && item.dropdown.length > 5 && item.name !== 'Company' && item.name !== 'Capabilities';
-                                const dropdownWidth = isMegaMenu ? 'w-[600px]' : (item.name === 'Capabilities' ? 'w-[320px]' : 'w-72');
-                                const gridCols = isMegaMenu ? 'grid-cols-2' : 'grid-cols-1';
+                                const activeCatIdx = activeCategoryIndices[item.name] || 0;
 
                                 return (
                                     <div
                                         key={item.name}
-                                        className="relative group h-full flex items-center px-1 lg:px-0 xl:px-1"
+                                        className="relative group h-full flex items-center px-1 lg:px-0.5 xl:px-1.5"
                                         onMouseEnter={() => setHoveredItem(item.name)}
                                         onMouseLeave={() => setHoveredItem(null)}
                                     >
                                         {/* Determine if active */}
                                         {(() => {
-                                            const isActive = location.pathname === item.path || (item.dropdown && item.dropdown.some((subItem: any) => {
-                                                return typeof subItem === 'object' && subItem.path === location.pathname;
+                                            const isActive = location.pathname === item.path || (item.dropdown && item.dropdown.some((cat: any) => {
+                                                return cat.items && cat.items.some((sub: any) => sub.path === location.pathname);
                                             }));
 
                                             return (
                                                 <Link
                                                     to={item.path}
+                                                    onClick={() => setHoveredItem(item.name)}
                                                     className={`
-                                                        relative text-[13px] xl:text-[14px] 2xl:text-[16px] font-medium transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1 xl:px-2 whitespace-nowrap
-                                                        ${isActive ? 'text-blue-600' : 'text-slate-900 hover:text-blue-600'}
+                                                        relative text-[13px] xl:text-[14px] 2xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1.5 xl:px-2.5 whitespace-nowrap
+                                                        ${isActive ? 'text-blue-600' : 'text-slate-800 hover:text-blue-600'}
                                                     `}
                                                 >
                                                     {item.name}
@@ -231,62 +235,84 @@ export default function Navigation() {
                                                 className={`
                                                     absolute top-[calc(100%+1rem)] 
                                                     ${item.name === 'Home' ? '-left-2' : 'left-1/2 -translate-x-1/2'} 
-                                                    ${dropdownWidth}
-                                                    bg-white/90 backdrop-blur-3xl
+                                                    w-[700px] xl:w-[750px]
+                                                    bg-white/95 backdrop-blur-3xl
                                                     rounded-2xl 
                                                     shadow-premium
-                                                    border border-white/60 ring-1 ring-black/5
-                                                    p-6 
-                                                    transform transition-all duration-400 cubic-bezier(0.16, 1, 0.3, 1) origin-top z-50
+                                                    border border-slate-200 ring-1 ring-black/5
+                                                    overflow-hidden
+                                                    transform transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) origin-top z-50
                                                     ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 translate-y-4 invisible pointer-events-none'}
                                                 `}
                                             >
                                                 {/* Invisible bridge */}
-                                                <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
+                                                <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
 
-                                                {/* Top gradient border */}
-                                                <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50" />
-
-                                                <div className={`grid ${gridCols} gap-2`}>
-                                                    {item.dropdown.map((subItem, idx) => {
-                                                        const isString = typeof subItem === 'string';
-                                                        const label = isString ? subItem : subItem.name;
-                                                        const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
-
-                                                        return (
-                                                            <Link
-                                                                key={idx}
-                                                                to={linkPath}
-                                                                className="
-                                                                    group/item flex items-start p-3 rounded-xl 
-                                                                    hover:bg-blue-50/50
-                                                                    transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-sm
-                                                                "
+                                                <div className="flex">
+                                                    {/* LEFT PANEL */}
+                                                    <div className="w-1/3 bg-slate-50/50 border-r border-slate-100 p-6 flex flex-col gap-2">
+                                                        {item.dropdown.map((category: any, catIdx: number) => (
+                                                            <button
+                                                                key={catIdx}
+                                                                onMouseEnter={() => setActiveCategoryIndices(prev => ({ ...prev, [item.name]: catIdx }))}
                                                                 onClick={(e) => {
-                                                                    setHoveredItem(null);
-                                                                    // Handle hash scrolling with offset for fixed nav
-                                                                    const hash = linkPath.includes('#') ? linkPath.split('#')[1] : null;
-                                                                    if (hash) {
-                                                                        // If already on the same page, scroll immediately
-                                                                        const el = document.getElementById(hash);
-                                                                        if (el) {
-                                                                            e.preventDefault();
-                                                                            const offset = 90;
-                                                                            const top = el.getBoundingClientRect().top + window.scrollY - offset;
-                                                                            window.scrollTo({ top, behavior: 'smooth' });
-                                                                        }
-                                                                        // If navigating to a new page, React Router handles it,
-                                                                        // then we scroll after navigation via useEffect in the page
-                                                                    }
+                                                                    e.preventDefault();
+                                                                    setActiveCategoryIndices(prev => ({ ...prev, [item.name]: catIdx }));
                                                                 }}
+                                                                className={`
+                                                                    text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-between group
+                                                                    ${activeCatIdx === catIdx 
+                                                                        ? 'bg-white shadow-sm ring-1 ring-slate-200 text-blue-600' 
+                                                                        : 'hover:bg-white/60 text-slate-600 hover:text-slate-900'}
+                                                                `}
                                                             >
-                                                                <ArrowRight className="mt-0.5 w-3.5 h-3.5 text-blue-400 group-hover/item:text-blue-600 group-hover/item:translate-x-0.5 transition-all mr-3 shrink-0" />
-                                                                <span className="text-[14px] font-semibold text-slate-900 group-hover/item:text-blue-700 transition-colors leading-snug">
-                                                                    {label}
-                                                                </span>
-                                                            </Link>
-                                                        );
-                                                    })}
+                                                                <span className="text-[13px] font-bold">{category.title}</span>
+                                                                <ChevronDown className={`w-4 h-4 -rotate-90 transition-transform duration-300 ${activeCatIdx === catIdx ? 'text-blue-600' : 'text-slate-400 opacity-0 group-hover:opacity-100'}`} />
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                    
+                                                    {/* RIGHT PANEL */}
+                                                    <div className="w-2/3 p-6 xl:p-8 bg-white min-h-[280px]">
+                                                        <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-6 select-none">
+                                                            {item.dropdown[activeCatIdx]?.title}
+                                                        </div>
+                                                        <div className="grid grid-cols-2 gap-4">
+                                                            {item.dropdown[activeCatIdx]?.items.map((subItem: any, subIdx: number) => (
+                                                                <Link
+                                                                    key={subIdx}
+                                                                    to={subItem.path}
+                                                                    className="group/item flex flex-col p-3 rounded-xl hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-100"
+                                                                    onClick={(e) => {
+                                                                        const hash = subItem.path.includes('#') ? subItem.path.split('#')[1] : null;
+                                                                        if (hash) {
+                                                                            const el = document.getElementById(hash);
+                                                                            if (el) {
+                                                                                e.preventDefault();
+                                                                                const offset = 90;
+                                                                                const top = el.getBoundingClientRect().top + window.scrollY - offset;
+                                                                                window.scrollTo({ top, behavior: 'smooth' });
+                                                                            }
+                                                                        }
+                                                                    }}
+                                                                >
+                                                                    <div className="flex items-center text-[13px] font-bold text-slate-800 group-hover/item:text-blue-600 transition-colors">
+                                                                        <span>{subItem.name}</span>
+                                                                        <ArrowRight className="w-3.5 h-3.5 ml-2 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-blue-500" />
+                                                                    </div>
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                {/* BOTTOM CTA SECTION */}
+                                                <div className="bg-slate-50/80 border-t border-slate-100 p-4 flex items-center justify-between px-6 xl:px-8">
+                                                    <span className="text-[13px] font-medium text-slate-600">Need help finding the right solution?</span>
+                                                    <Link to="/book-consultation" className="text-[13px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 group/cta transition-colors" onClick={() => setHoveredItem(null)}>
+                                                        Contact Us
+                                                        <ArrowRight className="w-3.5 h-3.5 group-hover/cta:translate-x-1 transition-transform" />
+                                                    </Link>
                                                 </div>
                                             </div>
                                         )}
@@ -391,24 +417,25 @@ export default function Navigation() {
 
                                 {/* Mobile Dropdown Items */}
                                 {item.dropdown && (
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedItems.includes(item.name) ? 'max-h-[800px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
-                                        <div className="space-y-1 px-3">
-                                            {item.dropdown.map((subItem, idx) => {
-                                                const isString = typeof subItem === 'string';
-                                                const label = isString ? subItem : subItem.name;
-                                                const linkPath = isString ? `${item.path}?section=${encodeURIComponent(subItem)}` : subItem.path;
-
-                                                return (
-                                                    <Link
-                                                        key={idx}
-                                                        to={linkPath}
-                                                        className="block py-3 px-4 text-[15px] text-black font-semibold hover:text-blue-600 hover:bg-white rounded-none transition-all border border-transparent hover:border-slate-100 hover:shadow-sm"
-                                                        onClick={() => setMobileMenuOpen(false)}
-                                                    >
-                                                        {label}
-                                                    </Link>
-                                                );
-                                            })}
+                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedItems.includes(item.name) ? 'max-h-[1200px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
+                                        <div className="space-y-4 px-3 text-left">
+                                            {item.dropdown.map((category: any, catIdx) => (
+                                                <div key={catIdx} className="space-y-1">
+                                                    <div className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest pl-4 mb-1">
+                                                        {category.title}
+                                                    </div>
+                                                    {category.items.map((subItem: any, subIdx: number) => (
+                                                        <Link
+                                                            key={subIdx}
+                                                            to={subItem.path}
+                                                            className="block py-2 px-4 text-sm text-slate-700 font-semibold hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-all"
+                                                            onClick={() => setMobileMenuOpen(false)}
+                                                        >
+                                                            {subItem.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 )}
