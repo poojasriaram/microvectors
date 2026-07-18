@@ -36,31 +36,157 @@ export default function Navigation() {
             path: '/'
         },
         {
+            name: 'Capabilities',
+            path: '/#capabilities',
+            dropdown: [
+                {
+                    title: "Core Tech",
+                    items: [
+                        { name: "AI & Machine Learning", path: "/#capabilities" },
+                        { name: "Generative AI Solutions", path: "/#capabilities" },
+                        { name: "Data Engineering", path: "/#capabilities" },
+                        { name: "Computer Vision", path: "/#capabilities" },
+                        { name: "Natural Language Processing", path: "/#capabilities" },
+                        { name: "Predictive Analytics", path: "/#capabilities" }
+                    ]
+                },
+                {
+                    title: "Engineering",
+                    items: [
+                        { name: "Cloud & DevOps", path: "/#capabilities" },
+                        { name: "Custom Software Development", path: "/#capabilities" },
+                        { name: "Mobile App Development", path: "/#capabilities" },
+                        { name: "API Integration", path: "/#capabilities" },
+                        { name: "Microservices Architecture", path: "/#capabilities" },
+                        { name: "QA & Testing", path: "/#capabilities" }
+                    ]
+                },
+                {
+                    title: "Enterprise & Security",
+                    items: [
+                        { name: "Enterprise Automation", path: "/#capabilities" },
+                        { name: "Cyber Security", path: "/#capabilities" },
+                        { name: "IT Consulting", path: "/#capabilities" },
+                        { name: "Identity Management", path: "/#capabilities" },
+                        { name: "Threat Detection", path: "/#capabilities" },
+                        { name: "Compliance Solutions", path: "/#capabilities" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: 'Crypto',
+            path: '/#crypto',
+            dropdown: [
+                {
+                    title: "Blockchain & Web3",
+                    items: [
+                        { name: "Blockchain Solutions", path: "/#crypto" },
+                        { name: "Web3 Development", path: "/#crypto" },
+                        { name: "Decentralized Apps (dApps)", path: "/#crypto" },
+                        { name: "DeFi Platforms", path: "/#crypto" },
+                        { name: "NFT Marketplaces", path: "/#crypto" },
+                        { name: "Web3 Gaming", path: "/#crypto" }
+                    ]
+                },
+                {
+                    title: "Infrastructure",
+                    items: [
+                        { name: "Smart Contracts", path: "/#crypto" },
+                        { name: "Crypto Infrastructure", path: "/#crypto" },
+                        { name: "Node Development", path: "/#crypto" },
+                        { name: "Consensus Algorithms", path: "/#crypto" },
+                        { name: "Layer 2 Solutions", path: "/#crypto" },
+                        { name: "Cross-Chain Bridges", path: "/#crypto" }
+                    ]
+                },
+                {
+                    title: "Digital Assets",
+                    items: [
+                        { name: "Tokenization Services", path: "/#crypto" },
+                        { name: "Digital Asset Solutions", path: "/#crypto" },
+                        { name: "Crypto Wallets", path: "/#crypto" },
+                        { name: "Asset Management", path: "/#crypto" },
+                        { name: "Yield Farming", path: "/#crypto" },
+                        { name: "STO Development", path: "/#crypto" }
+                    ]
+                }
+            ]
+        },
+        {
+            name: 'Outcomes',
+            path: '/#outcomes',
+            dropdown: [
+                {
+                    title: "Business Value",
+                    items: [
+                        { name: "Business Transformation", path: "/#outcomes" },
+                        { name: "Increased Productivity", path: "/#outcomes" },
+                        { name: "Revenue Growth", path: "/#outcomes" },
+                        { name: "Market Expansion", path: "/#outcomes" },
+                        { name: "Competitive Advantage", path: "/#outcomes" },
+                        { name: "Customer Satisfaction", path: "/#outcomes" }
+                    ]
+                },
+                {
+                    title: "Efficiency",
+                    items: [
+                        { name: "Cost Optimization", path: "/#outcomes" },
+                        { name: "Process Automation", path: "/#outcomes" },
+                        { name: "Resource Allocation", path: "/#outcomes" },
+                        { name: "Time-to-Market", path: "/#outcomes" },
+                        { name: "Operational Excellence", path: "/#outcomes" },
+                        { name: "Risk Mitigation", path: "/#outcomes" }
+                    ]
+                },
+                {
+                    title: "Growth",
+                    items: [
+                        { name: "Digital Innovation", path: "/#outcomes" },
+                        { name: "Enterprise Growth", path: "/#outcomes" },
+                        { name: "Scale Operations", path: "/#outcomes" },
+                        { name: "New Revenue Streams", path: "/#outcomes" },
+                        { name: "Market Disruption", path: "/#outcomes" },
+                        { name: "Future-Proofing", path: "/#outcomes" }
+                    ]
+                }
+            ]
+        },
+        {
             name: 'Solutions',
             path: '/#solutions',
             dropdown: [
                 {
-                    title: "Core Offerings",
+                    title: "Intelligent Tech",
                     items: [
                         { name: "AI Solutions", path: "/#solutions" },
-                        { name: "Enterprise AI", path: "/#solutions" },
-                        { name: "AI Agents", path: "/#solutions" }
+                        { name: "Cloud Solutions", path: "/#solutions" },
+                        { name: "IoT Solutions", path: "/#solutions" },
+                        { name: "Edge Computing", path: "/#solutions" },
+                        { name: "Big Data Analytics", path: "/#solutions" },
+                        { name: "Machine Learning Ops", path: "/#solutions" }
                     ]
                 },
                 {
-                    title: "IT & Cloud",
+                    title: "Business Solutions",
                     items: [
-                        { name: "Cloud Services", path: "/#solutions" },
-                        { name: "Custom Software Development", path: "/#solutions" },
-                        { name: "IT Services", path: "/#solutions" }
+                        { name: "Enterprise Solutions", path: "/#solutions" },
+                        { name: "Automation Solutions", path: "/#solutions" },
+                        { name: "ERP Integrations", path: "/#solutions" },
+                        { name: "CRM Systems", path: "/#solutions" },
+                        { name: "Supply Chain Management", path: "/#solutions" },
+                        { name: "HR Tech", path: "/#solutions" }
                     ]
                 },
                 {
-                    title: "Specialized Services",
+                    title: "Core Services",
                     items: [
-                        { name: "Cyber Security", path: "/#solutions" },
-                        { name: "Domain & Hosting", path: "/#solutions" },
-                        { name: "ITES & BPO Services", path: "/#solutions" }
+                        { name: "Software Solutions", path: "/#solutions" },
+                        { name: "Managed Services", path: "/#solutions" },
+                        { name: "Digital Workplaces", path: "/#solutions" },
+                        { name: "Remote Operations", path: "/#solutions" },
+                        { name: "Disaster Recovery", path: "/#solutions" },
+                        { name: "Tech Support", path: "/#solutions" }
                     ]
                 }
             ]
@@ -74,46 +200,141 @@ export default function Navigation() {
                     items: [
                         { name: "Healthcare", path: "/#industries" },
                         { name: "Finance", path: "/#industries" },
-                        { name: "Retail", path: "/#industries" }
+                        { name: "Manufacturing", path: "/#industries" },
+                        { name: "Insurance", path: "/#industries" },
+                        { name: "Real Estate", path: "/#industries" },
+                        { name: "Automotive", path: "/#industries" }
                     ]
                 },
                 {
                     title: "Growth Sectors",
                     items: [
-                        { name: "Manufacturing", path: "/#industries" },
+                        { name: "Retail", path: "/#industries" },
                         { name: "Education", path: "/#industries" },
-                        { name: "Logistics", path: "/#industries" }
+                        { name: "Logistics", path: "/#industries" },
+                        { name: "E-commerce", path: "/#industries" },
+                        { name: "Media & Entertainment", path: "/#industries" },
+                        { name: "Telecommunications", path: "/#industries" }
                     ]
                 },
                 {
                     title: "Market Focus",
                     items: [
+                        { name: "Government", path: "/#industries" },
                         { name: "Startups", path: "/#industries" },
                         { name: "Enterprises", path: "/#industries" },
-                        { name: "Government", path: "/#industries" }
+                        { name: "Non-Profits", path: "/#industries" },
+                        { name: "SMBs", path: "/#industries" },
+                        { name: "Agencies", path: "/#industries" }
                     ]
                 }
             ]
         },
         {
-            name: 'Technologies',
-            path: '/#technologies'
+            name: 'Offerings',
+            path: '/#offerings',
+            dropdown: [
+                {
+                    title: "Core Services",
+                    items: [
+                        { name: "Consulting Services", path: "/#offerings" },
+                        { name: "Development Services", path: "/#offerings" },
+                        { name: "UI/UX Design", path: "/#offerings" },
+                        { name: "Product Strategy", path: "/#offerings" },
+                        { name: "Digital Transformation", path: "/#offerings" },
+                        { name: "Technical Audits", path: "/#offerings" }
+                    ]
+                },
+                {
+                    title: "Specialized Services",
+                    items: [
+                        { name: "Managed Services", path: "/#offerings" },
+                        { name: "AI Services", path: "/#offerings" },
+                        { name: "Blockchain Services", path: "/#offerings" },
+                        { name: "Data Science", path: "/#offerings" },
+                        { name: "Security Services", path: "/#offerings" },
+                        { name: "Cloud Migration", path: "/#offerings" }
+                    ]
+                },
+                {
+                    title: "Infrastructure",
+                    items: [
+                        { name: "Cloud Services", path: "/#offerings" },
+                        { name: "Support Services", path: "/#offerings" },
+                        { name: "DevOps as a Service", path: "/#offerings" },
+                        { name: "Network Infrastructure", path: "/#offerings" },
+                        { name: "Database Management", path: "/#offerings" },
+                        { name: "Site Reliability", path: "/#offerings" }
+                    ]
+                }
+            ]
         },
         {
-            name: 'Case Studies',
-            path: '/#case-studies'
+            name: 'Partners',
+            path: '/#partners',
+            dropdown: [
+                {
+                    title: "Technology",
+                    items: [
+                        { name: "Technology Partners", path: "/#partners" },
+                        { name: "Strategic Partners", path: "/#partners" },
+                        { name: "Cloud Providers", path: "/#partners" },
+                        { name: "AI Vendors", path: "/#partners" },
+                        { name: "Hardware Partners", path: "/#partners" },
+                        { name: "Platform Providers", path: "/#partners" }
+                    ]
+                },
+                {
+                    title: "Ecosystem",
+                    items: [
+                        { name: "Integration Partners", path: "/#partners" },
+                        { name: "Ecosystem Partners", path: "/#partners" },
+                        { name: "Solution Providers", path: "/#partners" },
+                        { name: "Value-Added Resellers", path: "/#partners" },
+                        { name: "Academic Partners", path: "/#partners" },
+                        { name: "Industry Affiliates", path: "/#partners" }
+                    ]
+                }
+            ]
         },
         {
-            name: 'About Us',
-            path: '/#about-us'
-        },
-        {
-            name: 'Blogs',
-            path: '/#blogs'
-        },
-        {
-            name: 'Contact Us',
-            path: '/book-consultation'
+            name: 'Company',
+            path: '/#company',
+            dropdown: [
+                {
+                    title: "About",
+                    items: [
+                        { name: "About Us", path: "/#about-us" },
+                        { name: "Our Mission", path: "/#about-us" },
+                        { name: "Core Values", path: "/#about-us" },
+                        { name: "Company History", path: "/#about-us" },
+                        { name: "Global Reach", path: "/#about-us" },
+                        { name: "Social Responsibility", path: "/#about-us" }
+                    ]
+                },
+                {
+                    title: "People & Culture",
+                    items: [
+                        { name: "Leadership Team", path: "/#team" },
+                        { name: "Careers", path: "/#careers" },
+                        { name: "Life at MicroVectors", path: "/#careers" },
+                        { name: "Diversity & Inclusion", path: "/#careers" },
+                        { name: "Alumni Network", path: "/#careers" },
+                        { name: "Employee Benefits", path: "/#careers" }
+                    ]
+                },
+                {
+                    title: "Connect",
+                    items: [
+                        { name: "Blogs", path: "/#blogs" },
+                        { name: "Contact Us", path: "/book-consultation" },
+                        { name: "Press Releases", path: "/#blogs" },
+                        { name: "News & Events", path: "/#blogs" },
+                        { name: "Media Kit", path: "/#blogs" },
+                        { name: "Office Locations", path: "/book-consultation" }
+                    ]
+                }
+            ]
         }
     ];
 
@@ -177,7 +398,7 @@ export default function Navigation() {
                                             <div
                                                 className={`
                                                     absolute top-[calc(100%+1rem)] 
-                                                    ${item.name === 'Home' ? '-left-2' : 'left-1/2 -translate-x-1/2'} 
+                                                    ${item.name === 'Home' ? '-left-2' : ['Offerings', 'Partners', 'Company'].includes(item.name) ? 'right-0' : 'left-1/2 -translate-x-1/2'} 
                                                     w-[700px] xl:w-[750px]
                                                     bg-white/95 backdrop-blur-3xl
                                                     rounded-2xl 
@@ -193,7 +414,7 @@ export default function Navigation() {
 
                                                 <div className="flex">
                                                     {/* LEFT PANEL */}
-                                                    <div className="w-1/3 bg-slate-50/50 border-r border-slate-100 p-6 flex flex-col gap-2">
+                                                    <div className="w-1/3 bg-slate-100/80 border-r border-slate-200 p-6 flex flex-col gap-2">
                                                         {item.dropdown.map((category: any, catIdx: number) => (
                                                             <button
                                                                 key={catIdx}
