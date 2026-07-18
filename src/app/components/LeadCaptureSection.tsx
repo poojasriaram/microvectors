@@ -144,9 +144,9 @@ export default function LeadCaptureSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg transition-all group rounded-lg h-12"
+                    className="btn-cta-primary flex-1 !min-h-[56px]"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Request'}
+                    {isSubmitting ? 'Sending...' : 'Request AI Consultation'}
                     {!isSubmitting && <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                   </Button>
 
@@ -154,10 +154,10 @@ export default function LeadCaptureSection() {
                     type="button"
                     size="lg"
                     variant="outline"
-                    className="flex-1 border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-lg h-12"
+                    className="btn-cta-secondary flex-1 !min-h-[56px]"
                   >
                     <Calendar className="mr-2 w-4 h-4" />
-                    Book an Appointment Now
+                    Schedule Free Consultation
                   </Button>
                 </div>
               </form>

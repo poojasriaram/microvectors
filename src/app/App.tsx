@@ -58,7 +58,7 @@ export default function App() {
   return (
     <Router>
       <AnalyticsTracker />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white pb-20 lg:pb-0">
         <Navigation />
         <main>
           <Suspense fallback={<PageLoader />}>

@@ -6,7 +6,8 @@ import WhyChooseSection from '../components/home/WhyChooseSection';
 import IndustriesSection from '../components/home/IndustriesSection';
 import ProcessTimeline from '../components/home/ProcessTimeline';
 import TechStack from '../components/home/TechStack';
-import TestimonialsSection from '../components/home/TestimonialsSection';
+import CaseStudiesSection from '../components/home/CaseStudiesSection';
+import BlogSection from '../components/home/BlogSection';
 import FinalCTASection from '../components/home/FinalCTASection';
 
 export default function Home() {
@@ -24,7 +25,8 @@ export default function Home() {
             <IndustriesSection />
             <ProcessTimeline />
             <TechStack />
-            <TestimonialsSection />
+            <CaseStudiesSection />
+            <BlogSection />
             <FinalCTASection />
         </main>
     );

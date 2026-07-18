@@ -18,7 +18,7 @@
  */
 
 // ── Configuration ─────────────────────────────────────────────────────────────
-const SPREADSHEET_ID = '1gs2UHZ8d5vtYzPm7N7U_36GgU9bJjcfZY_HmHDsJ3NU';
+const SPREADSHEET_ID = '1Cs6K3NcJIDJmz4vwyAWiIDyKdEmAyZ6tkDXjwbjUgTI';
 
 // ── Email & Automation Configuration ──────────────────────────────────────────
 const ADMIN_EMAIL = 'pooja@deeptrust.tech, bv@trustflow.in';

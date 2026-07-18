@@ -178,7 +178,7 @@ export default function BookConsultation() {
                                 ) : null}
 
                                 <div className="relative z-10 mb-8">
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Get Started</h2>
+                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Schedule Free Consultation</h2>
                                     <p className="text-slate-500">Fill out the form below to schedule your consulting session.</p>
                                 </div>
 
@@ -302,10 +302,10 @@ export default function BookConsultation() {
                                     <Button
                                         type="submit"
                                         size="lg"
-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
+                                        className="btn-cta-primary w-full mt-4"
                                         disabled={isSubmitting}
                                     >
-                                        {isSubmitting ? 'Submitting...' : 'Book for Consultation'}
+                                        {isSubmitting ? 'Submitting...' : 'Schedule Free Consultation'}
                                     </Button>
 
                                     <p className="text-xs text-center text-slate-500 mt-4">

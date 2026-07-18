@@ -36,141 +36,84 @@ export default function Navigation() {
             path: '/'
         },
         {
-            name: 'Company',
-            path: '/company',
+            name: 'Solutions',
+            path: '/#solutions',
             dropdown: [
                 {
-                    title: "About Us",
+                    title: "Core Offerings",
                     items: [
-                        { name: "Overview", path: "/company#about" },
-                        { name: "Mission & Culture", path: "/company#mission" },
-                        { name: "Leadership", path: "/company#leadership" }
+                        { name: "AI Solutions", path: "/#solutions" },
+                        { name: "Enterprise AI", path: "/#solutions" },
+                        { name: "AI Agents", path: "/#solutions" }
                     ]
                 },
                 {
-                    title: "Get In Touch",
+                    title: "IT & Cloud",
                     items: [
-                        { name: "Offices", path: "/company#offices" },
-                        { name: "Contact Us", path: "/company#contact" },
-                        { name: "Careers", path: "/career" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Services',
-            path: '/solutions',
-            dropdown: [
-                {
-                    title: "Platform Core",
-                    items: [
-                        { name: "Demand Pulse", path: "/demand-pulse" },
-                        { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
-                        { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
+                        { name: "Cloud Services", path: "/#solutions" },
+                        { name: "Custom Software Development", path: "/#solutions" },
+                        { name: "IT Services", path: "/#solutions" }
                     ]
                 },
                 {
-                    title: "Autonomous Pipeline",
+                    title: "Specialized Services",
                     items: [
-                        { name: "AI Lead Generation", path: "/ai-lead-generation" },
-                        { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
-                        { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" }
-                    ]
-                },
-                {
-                    title: "Discovery & Validation",
-                    items: [
-                        { name: "AI Demand Discovery", path: "/ai-demand-discovery" },
-                        { name: "AI MVP Validation", path: "/ai-mvp-validation" },
-                        { name: "Behaviour Analytics", path: "/behaviour-analytics" }
+                        { name: "Cyber Security", path: "/#solutions" },
+                        { name: "Domain & Hosting", path: "/#solutions" },
+                        { name: "ITES & BPO Services", path: "/#solutions" }
                     ]
                 }
             ]
         },
         {
             name: 'Industries',
-            path: '/industries',
+            path: '/#industries',
             dropdown: [
                 {
-                    title: "Financial & SaaS",
+                    title: "Core Sectors",
                     items: [
-                        { name: "Banking & Lending", path: "/industries?section=Banking" },
-                        { name: "Financial Services", path: "/industries?section=Financial%20Services" },
-                        { name: "Insurance", path: "/industries?section=Insurance" },
-                        { name: "SaaS & Software", path: "/industries?section=SaaS%20%26%20Enterprise%20Software" }
+                        { name: "Healthcare", path: "/#industries" },
+                        { name: "Finance", path: "/#industries" },
+                        { name: "Retail", path: "/#industries" }
                     ]
                 },
                 {
-                    title: "Consumer Brands",
+                    title: "Growth Sectors",
                     items: [
-                        { name: "E-commerce", path: "/industries?section=E-commerce" },
-                        { name: "Consumer Brands / D2C", path: "/industries?section=D2C%20%26%20Consumer%20Brands" },
-                        { name: "FMCG & Retail", path: "/industries?section=FMCG" },
-                        { name: "Gems & Jewellery", path: "/industries?section=Gems%20%26%20Jewellery" }
+                        { name: "Manufacturing", path: "/#industries" },
+                        { name: "Education", path: "/#industries" },
+                        { name: "Logistics", path: "/#industries" }
                     ]
                 },
                 {
-                    title: "Emerging Fields",
+                    title: "Market Focus",
                     items: [
-                        { name: "Electric Vehicles (EV)", path: "/industries?section=Electric%20Vehicles%20(EV)" },
-                        { name: "Crypto & Web3", path: "/industries?section=Crypto%2C%20Web3%20%26%20Digital%20Assets" },
-                        { name: "Education & EdTech", path: "/industries?section=Education%20%26%20EdTech" },
-                        { name: "Media & Entertainment", path: "/industries?section=Media%20%26%20Entertainment" }
+                        { name: "Startups", path: "/#industries" },
+                        { name: "Enterprises", path: "/#industries" },
+                        { name: "Government", path: "/#industries" }
                     ]
                 }
             ]
         },
         {
-            name: 'Platform',
-            path: '/demand-pulse'
-        },
-        {
-            name: 'Clients',
-            path: '/partners',
-            dropdown: [
-                {
-                    title: "Partner Channels",
-                    items: [
-                        { name: "Solution Partners", path: "/partners#solution-partners" },
-                        { name: "Technology Partners", path: "/partners#technology-partners" },
-                        { name: "Referral Partners", path: "/partners#referral-partners" }
-                    ]
-                },
-                {
-                    title: "Our Program",
-                    items: [
-                        { name: "Overview", path: "/partners#partner-hero" },
-                        { name: "Why Partner With Us", path: "/partners#why-partner" },
-                        { name: "Become a Partner", path: "/partners#partner-form" }
-                    ]
-                }
-            ]
+            name: 'Technologies',
+            path: '/#technologies'
         },
         {
             name: 'Case Studies',
-            path: '/outcomes',
-            dropdown: [
-                {
-                    title: "Growth Acceleration",
-                    items: [
-                        { name: "AI Demand Discovery", path: "/outcomes?section=AI%20Demand%20Discovery" },
-                        { name: "AI Revenue Acceleration", path: "/outcomes?section=AI-Driven%20Revenue%20Acceleration" },
-                        { name: "AI Growth Hacking", path: "/outcomes?section=AI-Driven%20Growth%20Hacking" }
-                    ]
-                },
-                {
-                    title: "Inside Sales",
-                    items: [
-                        { name: "Enterprise Sales", path: "/outcomes?section=Enterprise%20Sales%20Acceleration" },
-                        { name: "Digital & Inside Sales", path: "/outcomes?section=Digital%20%26%20Inside%20Sales%20Acceleration" },
-                        { name: "BFSI Sales Acceleration", path: "/outcomes?section=BFSI%2520Sales%2520Acceleration" }
-                    ]
-                }
-            ]
+            path: '/#case-studies'
         },
         {
-            name: 'Careers',
-            path: '/career'
+            name: 'About Us',
+            path: '/#about-us'
+        },
+        {
+            name: 'Blogs',
+            path: '/#blogs'
+        },
+        {
+            name: 'Contact Us',
+            path: '/book-consultation'
         }
     ];
 
@@ -189,7 +132,7 @@ export default function Navigation() {
                             <Link to="/" className="flex items-center gap-2 group">
                                 <div className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-0.5 font-heading">
                                     <span>Micro</span>
-                                    <span className="text-blue-600">vectors</span>
+                                    <span className="text-blue-600">Vectors</span>
                                 </div>
                             </Link>
                         </div>
@@ -306,11 +249,10 @@ export default function Navigation() {
                                                     </div>
                                                 </div>
                                                 
-                                                {/* BOTTOM CTA SECTION */}
                                                 <div className="bg-slate-50/80 border-t border-slate-100 p-4 flex items-center justify-between px-6 xl:px-8">
                                                     <span className="text-[13px] font-medium text-slate-600">Need help finding the right solution?</span>
                                                     <Link to="/book-consultation" className="text-[13px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 group/cta transition-colors" onClick={() => setHoveredItem(null)}>
-                                                        Contact Us
+                                                        Speak With Our Experts
                                                         <ArrowRight className="w-3.5 h-3.5 group-hover/cta:translate-x-1 transition-transform" />
                                                     </Link>
                                                 </div>
@@ -321,10 +263,10 @@ export default function Navigation() {
                             })}
                         </div>
 
-                        <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-4 shrink-0 h-full">
+                        <div className="hidden lg:flex items-center ml-2 lg:ml-4 gap-2 lg:gap-3 shrink-0 h-full">
                             <Link to="/book-consultation">
-                                <Button className="relative overflow-hidden bg-blue-600 hover:bg-blue-700 text-white border-0 px-6 py-2 h-auto text-sm font-bold rounded-full shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-300 group btn-premium">
-                                    <span className="relative z-10 flex items-center gap-2">
+                                <Button className="btn-cta-primary !px-4 !py-2 !min-h-[44px] text-[13px] xl:text-sm group">
+                                    <span className="relative z-10 flex items-center gap-1.5 xl:gap-2">
                                         Book Consultation
                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                     </span>
@@ -334,18 +276,15 @@ export default function Navigation() {
                                 href="https://wa.me/919944499988"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-2.5 lg:px-2 xl:px-3.5 py-1.5 lg:py-1.5 xl:py-2 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
+                                className="px-2 xl:px-3 py-1.5 xl:py-2 rounded-full border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] xl:text-xs font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
                             >
-                                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+                                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                                 <span className="hidden xl:inline">WhatsApp</span>
                             </a>
                         </div>
 
                         {/* Mobile menu button */}
                         <div className="lg:hidden flex items-center gap-4">
-                            <Link to="/book-consultation" className="text-sm font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-none">
-                                Book for Consultation
-                            </Link>
                             <button
                                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                                 title={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -449,8 +388,8 @@ export default function Navigation() {
                             className="block w-full"
                             onClick={() => setMobileMenuOpen(false)}
                         >
-                            <Button className="w-full bg-slate-900 text-white hover:bg-blue-600 h-14 rounded-none font-bold text-lg shadow-xl shadow-slate-900/10 active:scale-[0.98] transition-all">
-                                Book for Consultation
+                            <Button className="btn-cta-primary w-full">
+                                Schedule Free Consultation
                             </Button>
                         </Link>
 
@@ -468,6 +407,13 @@ export default function Navigation() {
                         </a>
                     </div>
                 </div>
+            </div>
+
+            {/* Sticky Bottom CTA for Mobile */}
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)] z-40 flex gap-3">
+                <Link to="/book-consultation" className="btn-cta-primary w-full text-center">
+                    Schedule Free Consultation
+                </Link>
             </div>
         </>
     );

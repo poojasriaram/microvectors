@@ -6,50 +6,39 @@ import logo from '../../assets/Trustgrid-logo.png';
 
 export default function Footer() {
 
+    const quickLinks: { [key: string]: string } = {
+        'Home': '/',
+        'About Us': '/#about-us',
+        'Case Studies': '/#case-studies',
+        'Blogs': '/#blogs',
+        'Careers': '/career',
+        'Contact Us': '/book-consultation'
+    };
+
     const solutionsLinks: { [key: string]: string } = {
-        'Business Growth': '/solutions?section=ai-business-growth-strategy',
-        'Demand Intelligence': '/solutions?section=ai-market-strategy-demand-intelligence',
-        'Performance Growth': '/solutions?section=ai-driven-performance-marketing',
-        'Sales Agents': '/solutions?section=ai-auto-sales-pilot-autonomous-sales-agents',
-        'RevOps Optimization': '/solutions?section=ai-revenue-operations-ai-revops'
+        'AI Solutions': '/#solutions',
+        'Enterprise AI': '/#solutions',
+        'AI Agents': '/#solutions',
+        'Cloud Services': '/#solutions',
+        'Custom Software': '/#solutions',
+        'Cyber Security': '/#solutions'
     };
 
     const industriesLinks: { [key: string]: string } = {
-        'E-commerce': '/industries?section=e-commerce',
-        'Banking': '/industries?section=banking',
-        'Financial Services': '/industries?section=financial-services',
-        'Manufacturing': '/industries?section=manufacturing',
-        'Real Estate': '/industries?section=real-estate',
-        'Tourism & Hospitality': '/industries?section=tourism-hospitality'
+        'Healthcare': '/#industries',
+        'Finance': '/#industries',
+        'Retail': '/#industries',
+        'Manufacturing': '/#industries',
+        'Logistics': '/#industries',
+        'Enterprises': '/#industries'
     };
 
-    const companyLinks: { [key: string]: string } = {
-        'About Us': '/company',
-        'Leadership Team': '/company?section=leadership-culture',
-        'Our Offices': '/company?section=our-offices',
-        'Careers': '/career',
-        'Contact Us': '/company?section=contact-details'
-    };
-
-    const offeringsLinks: { [key: string]: string } = {
-        'Demand Generation': '/offerings?section=ai-demand-generation-engine',
-        'Growth Hacking Engine': '/offerings?section=ai-growth-hacking-engine',
-        'Lean Sales': '/offerings?section=ai-lean-sales-sales-transformation',
-        'RevOps Platform': '/offerings?section=ai-revenue-operations-revops',
-        'ARR Acceleration': '/offerings?section=arr-acceleration-program',
-        'Resources': '/resources'
-    };
-
-    const productLinks: { [key: string]: string } = {
-        'Demand Pulse': '/demand-pulse',
-        'AI Demand Discovery': '/ai-demand-discovery',
-        'AI Lead Generation': '/ai-lead-generation',
-        'AI Lead Nurturing': '/ai-lead-nurturing',
-        'AI MVP Validation': '/ai-mvp-validation',
-        'Crypto': '/crypto',
-        'Sales Transformation': '/ai-lead-sales-transformation',
-        'AI Revenue Operations': '/ai-revenue-operations',
-        'AI Revenue Acceleration': '/ai-revenue-acceleration'
+    const techLinks: { [key: string]: string } = {
+        'Artificial Intelligence': '/#technologies',
+        'Machine Learning': '/#technologies',
+        'Generative AI': '/#technologies',
+        'Cloud Computing': '/#technologies',
+        'Data Engineering': '/#technologies'
     };
 
     return (
@@ -62,6 +51,22 @@ export default function Footer() {
 
             <div className="w-full mx-auto px-6 lg:px-10 relative z-10">
 
+                {/* Footer CTA Section */}
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div className="max-w-2xl">
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Build Your Next AI Product?</h2>
+                        <p className="text-slate-400 text-lg">Let's discuss your requirements and recommend the right AI solution.</p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
+                        <Link to="/book-consultation" className="btn-cta-primary w-full sm:w-auto">
+                            Book Free Consultation
+                        </Link>
+                        <a href="mailto:connect@trustgrid.ai" className="btn-cta-secondary text-slate-300 border-white/20 hover:bg-white/10 hover:border-white/30 hover:text-white w-full sm:w-auto">
+                            Email Us Directly
+                        </a>
+                    </div>
+                </div>
+
                 {/* Top Section: Brand & Contact vs Navigation Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-8">
 
@@ -71,19 +76,22 @@ export default function Footer() {
                         <div>
                             <Link to="/" className="inline-block mb-1">
                                 <div className="flex items-center gap-2">
-                                    <img loading="lazy" decoding="async" width="800" height="600" src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
+                                    <div className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-0.5 font-heading">
+                                        <span>Micro</span>
+                                        <span className="text-blue-500">Vectors</span>
+                                    </div>
                                 </div>
                             </Link>
                             <p className="text-slate-400 leading-relaxed mb-8 font-medium text-sm max-w-sm">
-                                The AI-Powered Revenue Operating System for modern B2B enterprises. Predict, Accelerate, and Scale.
+                                Building Enterprise AI Solutions for the Future. AI. Cloud. Automation. Software. Delivered End-to-End.
                             </p>
 
                             <div className="space-y-4 mb-8">
-                                <a href="mailto:connect@trustgrid.ai" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                <a href="mailto:connect@microvectors.com" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
                                         <Mail className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium text-sm tracking-wide">connect@trustgrid.ai</span>
+                                    <span className="font-medium text-sm tracking-wide">connect@microvectors.com</span>
                                 </a>
                                 <a href="tel:+919513288612" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
@@ -104,16 +112,16 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Navigation Grid - 5 Columns to Include All Content */}
-                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    {/* Navigation Grid - 4 Columns */}
+                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
 
-                        {/* Column 1: Platform */}
+                        {/* Column 1: Quick Links */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Platform</h3>
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Quick Links</h3>
                             <ul className="space-y-3 text-[13px]">
-                                {Object.keys(productLinks).map((item, i) => (
+                                {Object.keys(quickLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={productLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={quickLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>
@@ -135,21 +143,7 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Column 3: Offerings */}
-                        <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Offerings</h3>
-                            <ul className="space-y-3 text-[13px]">
-                                {Object.keys(offeringsLinks).map((item, i) => (
-                                    <li key={i}>
-                                        <Link to={offeringsLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
-                                            {item}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Column 4: Industries */}
+                        {/* Column 3: Industries */}
                         <div className="space-y-4">
                             <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Industries</h3>
                             <ul className="space-y-3 text-[13px]">
@@ -163,13 +157,13 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Column 5: Company */}
+                        {/* Column 4: Technologies */}
                         <div className="space-y-4">
-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Company</h3>
+                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Technologies</h3>
                             <ul className="space-y-3 text-[13px]">
-                                {Object.keys(companyLinks).map((item, i) => (
+                                {Object.keys(techLinks).map((item, i) => (
                                     <li key={i}>
-                                        <Link to={companyLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                        <Link to={techLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
                                             {item}
                                         </Link>
                                     </li>

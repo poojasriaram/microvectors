@@ -1,31 +1,55 @@
-import { BrainCircuit, LineChart, Cpu, Bot, ArrowRight } from 'lucide-react';
+import { BrainCircuit, Cpu, Code2, Cloud, ShieldCheck, Server, Bot, Headset, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const services = [
     {
         icon: BrainCircuit,
-        title: 'Demand Discovery Engine',
-        description: 'Identify high-intent buyers hidden in the dark funnel before they contact competitors.',
-        link: '/solutions#demand-discovery'
-    },
-    {
-        icon: Bot,
-        title: 'Autonomous Sales Agents',
-        description: 'Deploy digital sales reps that handle research, outreach, and follow-ups 24/7.',
-        link: '/solutions#autonomous-sales'
-    },
-    {
-        icon: LineChart,
-        title: 'Revenue Intelligence',
-        description: 'Predictive forecasting and real-time bottleneck detection for RevOps teams.',
-        link: '/solutions#revenue-intelligence'
+        title: 'AI Solutions',
+        description: 'Deploy advanced machine learning models and predictive AI to solve complex enterprise challenges.',
+        link: '/#solutions'
     },
     {
         icon: Cpu,
-        title: 'Growth Automation',
-        description: 'End-to-end multi-channel campaign orchestration and A/B testing at scale.',
-        link: '/solutions#growth-automation'
+        title: 'Enterprise Automation',
+        description: 'Streamline operations and reduce manual workloads with intelligent process automation pipelines.',
+        link: '/#solutions'
+    },
+    {
+        icon: Code2,
+        title: 'Custom Software Development',
+        description: 'Build scalable, secure, and bespoke software applications tailored to your business needs.',
+        link: '/#solutions'
+    },
+    {
+        icon: Cloud,
+        title: 'Cloud Services',
+        description: 'Migrate, manage, and optimize your enterprise infrastructure on scalable cloud platforms.',
+        link: '/#solutions'
+    },
+    {
+        icon: ShieldCheck,
+        title: 'Cyber Security',
+        description: 'Protect your digital assets with enterprise-grade threat detection and compliance frameworks.',
+        link: '/#solutions'
+    },
+    {
+        icon: Server,
+        title: 'IT Services',
+        description: 'Comprehensive IT management, support, and infrastructure modernization for growing teams.',
+        link: '/#solutions'
+    },
+    {
+        icon: Bot,
+        title: 'AI Agents',
+        description: 'Integrate autonomous digital agents to handle customer interactions and repetitive workflows 24/7.',
+        link: '/#solutions'
+    },
+    {
+        icon: Headset,
+        title: 'ITES & BPO Services',
+        description: 'Outsource critical business processes with technology-enabled services and global support teams.',
+        link: '/#solutions'
     }
 ];
 
@@ -71,11 +95,19 @@ export default function ServicesOverview() {
                             <p className="text-slate-600 mb-8 flex-grow leading-relaxed text-base">{service.description}</p>
                             
                             <Link to={service.link} className="inline-flex items-center text-sm font-bold text-blue-600 group-hover:text-indigo-600 mt-auto uppercase tracking-wide">
-                                Explore Solution
+                                Learn More
                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="flex flex-col items-center justify-center mt-16 pt-8 border-t border-slate-200/60 text-center">
+                    <p className="text-slate-600 font-medium mb-4">Need help choosing the right AI solution?</p>
+                    <Link to="/book-consultation" className="btn-cta-primary group">
+                        Talk to Our Experts
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </div>
 
             </div>

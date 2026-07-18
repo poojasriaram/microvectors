@@ -1,19 +1,18 @@
 import { motion } from 'framer-motion';
 
 const technologies = [
-    { name: 'React', category: 'Frontend', color: 'text-cyan-500' },
-    { name: 'Node.js', category: 'Backend', color: 'text-green-500' },
-    { name: 'Python', category: 'AI/ML Core', color: 'text-blue-500' },
-    { name: 'TensorFlow', category: 'Models', color: 'text-orange-500' },
-    { name: 'AWS', category: 'Cloud', color: 'text-amber-500' },
-    { name: 'PostgreSQL', category: 'Database', color: 'text-blue-600' },
-    { name: 'Redis', category: 'Caching', color: 'text-red-500' },
-    { name: 'Docker', category: 'DevOps', color: 'text-blue-400' },
+    { name: 'AI & ML', category: 'Intelligence', color: 'text-blue-600' },
+    { name: 'Cloud Computing', category: 'Infrastructure', color: 'text-sky-500' },
+    { name: 'Web Development', category: 'Engineering', color: 'text-indigo-500' },
+    { name: 'Automation', category: 'Process Ops', color: 'text-emerald-500' },
+    { name: 'Enterprise Platforms', category: 'Integration', color: 'text-purple-500' },
+    { name: 'Cyber Security', category: 'Protection', color: 'text-red-500' },
+    { name: 'Data Engineering', category: 'Analytics', color: 'text-amber-500' },
 ];
 
 export default function TechStack() {
     return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <section className="py-24 bg-slate-50 relative overflow-hidden" id="technologies">
             {/* Background elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[100px] -z-10"></div>
             

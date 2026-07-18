@@ -8,9 +8,9 @@ const slides = [
     {
         id: 1,
         image: "/banner_1_hero_1783665435895.webp",
-        badge: "Next-Generation AI Platform",
-        title: <>Transform Your Business with <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Autonomous AI</span></>,
-        subtitle: "Empower your enterprise with scalable, secure, and intelligent automation. MicroVectors drives predictable revenue growth through advanced AI infrastructure.",
+        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
+        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
+        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
         accuracy: "99%",
         statLabel: "Accuracy",
         statSub: "AI Models"
@@ -18,9 +18,9 @@ const slides = [
     {
         id: 2,
         image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
-        badge: "The Autopilot Wealth Loop",
-        title: <>Set the System. Watch It Grow. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Reinvest. Repeat.</span></>,
-        subtitle: "AI-Driven Revenue That Compounds Like Capital — 24/7, Zero Friction.",
+        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
+        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
+        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
         accuracy: "5x",
         statLabel: "Velocity",
         statSub: "Sales Growth"
@@ -28,32 +28,12 @@ const slides = [
     {
         id: 3,
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2668&auto=format&fit=crop",
-        badge: "The Self-Reinforcing Engine",
-        title: <>One Closed Deal Feeds Ten More. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">The Compounding Effect.</span></>,
-        subtitle: "From Demand Discovery to Revenue Management — Autopilot Does the Heavy Lifting.",
+        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
+        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
+        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
         accuracy: "24/7",
         statLabel: "Active",
         statSub: "Optimization"
-    },
-    {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop",
-        badge: "The Crypto Money Multiplier",
-        title: <>TVL + AI Autopilot = <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Exponential Value</span></>,
-        subtitle: "Built for Web3 & DeFi — Where Every Incentive Compounds Community Growth.",
-        accuracy: "10x",
-        statLabel: "Scaling",
-        statSub: "Multiplier"
-    },
-    {
-        id: 5,
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-        badge: "The CRO's Compound Interest",
-        title: <>Your Pipeline Is a Bank Account. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Is the Interest.</span></>,
-        subtitle: "Predictable Growth That Stacks. Month Over Month. Quarter Over Quarter.",
-        accuracy: "100%",
-        statLabel: "Predictable",
-        statSub: "Revenue"
     }
 ];
 
@@ -106,21 +86,17 @@ export default function HeroSection() {
                         </AnimatePresence>
 
                         <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                            <Link to="/book-consultation" className="group">
-                                <Button size="lg" className="h-12 px-8 text-base bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-premium-hover transition-all duration-300 transform group-hover:-translate-y-1 w-full sm:w-auto">
-                                    <span className="flex items-center">
-                                        Start Your Transformation
-                                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                                    </span>
-                                </Button>
+                            <Link to="/book-consultation" className="btn-cta-primary group">
+                                <span className="flex items-center">
+                                    Get Free Consultation
+                                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                </span>
                             </Link>
-                            <Link to="/solutions" className="group">
-                                <Button size="lg" variant="outline" className="h-12 px-8 text-base border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 rounded-full shadow-sm transition-all duration-300 transform group-hover:-translate-y-1 w-full sm:w-auto bg-white">
-                                    <span className="flex items-center">
-                                        <Play className="mr-2 w-5 h-5 text-blue-600 fill-blue-600 transition-transform group-hover:scale-110" />
-                                        See How It Works
-                                    </span>
-                                </Button>
+                            <Link to="/solutions" className="btn-cta-secondary group bg-white">
+                                <span className="flex items-center">
+                                    <Play className="mr-2 w-5 h-5 text-blue-600 fill-blue-600 transition-transform group-hover:scale-110" />
+                                    View Solutions
+                                </span>
                             </Link>
                         </div>
 

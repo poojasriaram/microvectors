@@ -5,6 +5,7 @@ import FeatureCard from './FeatureCard';
 import EngineTab from './EngineTab';
 import ActiveEnginePanel from './ActiveEnginePanel';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface VerticalSectionProps {
     data: ConversionBlockData;
@@ -83,11 +84,12 @@ export default function VerticalSection({ data }: VerticalSectionProps) {
                 </div>
 
                 {/* CTA for Section */}
-                <div className="flex justify-center pt-6">
-                    <button className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] flex items-center gap-2">
-                        {data.cta?.text || "Learn More"}
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                <div className="flex flex-col items-center justify-center pt-10 text-center">
+                    <p className="text-slate-600 font-medium mb-4">Need help choosing the right AI solution?</p>
+                    <Link to={data.cta?.action || "/book-consultation"} className="btn-cta-primary group">
+                        {data.cta?.text || "Talk to Our Experts"}
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                 </div>
 
             </div>

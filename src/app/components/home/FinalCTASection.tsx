@@ -38,20 +38,16 @@ export default function FinalCTASection() {
                     </p>
                     
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
-                        <Link to="/book-demo" className="group w-full sm:w-auto">
-                            <Button size="lg" className="w-full sm:w-auto h-16 px-10 text-lg font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-[0_0_50px_-5px_rgba(37,99,235,0.8)] border border-blue-400/20">
-                                <span className="flex items-center">
-                                    Book a Live Demo
-                                    <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" />
-                                </span>
-                            </Button>
+                        <Link to="/book-consultation" className="btn-cta-primary w-full sm:w-auto !min-h-[64px] !px-10 text-lg group shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] group-hover:shadow-[0_0_50px_-5px_rgba(37,99,235,0.8)]">
+                            <span className="flex items-center">
+                                Build Your AI Solution
+                                <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" />
+                            </span>
                         </Link>
-                        <Link to="/contact" className="group w-full sm:w-auto">
-                            <Button size="lg" variant="outline" className="w-full sm:w-auto h-16 px-10 text-lg font-bold border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-full transition-all duration-300 transform group-hover:-translate-y-1 bg-transparent backdrop-blur-sm">
-                                <span className="flex items-center">
-                                    Talk to an Expert
-                                </span>
-                            </Button>
+                        <Link to="/contact" className="btn-cta-secondary w-full sm:w-auto !min-h-[64px] !px-10 text-lg group text-white border-white/20 hover:bg-white/10 hover:text-white hover:border-white/40">
+                            <span className="flex items-center">
+                                Talk to an AI Expert
+                            </span>
                         </Link>
                     </div>
                     
