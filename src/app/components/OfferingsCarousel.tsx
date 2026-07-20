@@ -67,7 +67,7 @@ export default function OfferingsCarousel() {
                     {/* Background Image */}
                     <motion.div
                         className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
+                        
                         animate={{ scale: [1, 1.1] }}
                         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                     />

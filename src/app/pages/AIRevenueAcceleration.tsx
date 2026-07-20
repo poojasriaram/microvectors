@@ -164,7 +164,7 @@ export default function AIRevenueAcceleration() {
                         <div
                             key={idx}
                             className={`absolute inset-0 bg-cover bg-center opacity-0 animate-slide-${idx + 1}`}
-                            style={{ backgroundImage: `url(${img})` }}
+                            
                         />
                     ))}
                     <div className="absolute inset-0 bg-white/40 bg-gradient-to-b from-white/90 via-white/30 to-white/90"></div>

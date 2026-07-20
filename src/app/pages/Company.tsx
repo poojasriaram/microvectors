@@ -139,7 +139,7 @@ export default function Company() {
                             key={index}
                             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-100" : "opacity-0"}`}
                             style={{
-                                backgroundImage: `url('${slide}')`,
+                                
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 animation: index === currentBgIndex ? 'fadeZoomCustom 6s infinite alternate ease-in-out' : 'none'
@@ -239,11 +239,7 @@ export default function Company() {
                             <Reveal width="100%" delay={0.2}>
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10"></div>
-                                    <img
-                                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
-                                        alt="Team collaboration"
-                                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                                    />
+                                    
                                     {/* Floating Badge */}
                                     <div className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50 max-w-xs z-20 hidden md:block animate-fade-in-up">
                                         <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Our DNA</p>
@@ -367,11 +363,7 @@ export default function Company() {
             <section id="our-offices" className="relative py-16 border-t border-slate-200 bg-slate-900 overflow-hidden scroll-mt-32">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                        alt="Office Building"
-                        className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-                    />
+                    
                     <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90"></div>
                 </div>
 

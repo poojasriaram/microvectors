@@ -50,7 +50,7 @@ export default function AILeadNurturing() {
                         <div
                             key={idx}
                             className={`absolute inset-0 bg-cover bg-center opacity-0 animate-slide-${idx + 1}`}
-                            style={{ backgroundImage: `url(${img})` }}
+                            
                         />
                     ))}
 

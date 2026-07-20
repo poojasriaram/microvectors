@@ -176,7 +176,7 @@ export default function Solutions() {
                             key={index}
                             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-100" : "opacity-0"}`}
                             style={{
-                                backgroundImage: `url('${slide}')`,
+                                
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 animation: index === currentBgIndex ? 'fadeZoomCustom 6s infinite alternate ease-in-out' : 'none'

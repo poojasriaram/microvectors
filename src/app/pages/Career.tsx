@@ -136,7 +136,7 @@ export default function Career() {
                         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-40" : "opacity-0"
                             }`}
                         style={{
-                            backgroundImage: `url('${slide}')`,
+                            
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                         }}
