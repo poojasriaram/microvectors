@@ -12,15 +12,7 @@ export default defineConfig({
   base: '/',
   plugins: [
     react(),
-    tailwindcss(),
-    viteCompression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
-    }),
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-    })
+    tailwindcss()
   ],
   resolve: {
     alias: {

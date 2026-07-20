@@ -1,0 +1,1529 @@
+﻿commit 7ed602efe6e24873d5d459af7d94f90efdd649d5
+Author: kottravaisite-droid <kottravaisite@gmail.com>
+Date:   Sat Jul 18 18:05:42 2026 +0530
+
+    Update website content
+
+diff --git a/.env.example b/.env.example
+index d1436e06..e5d82121 100644
+--- a/.env.example
++++ b/.env.example
+@@ -10,12 +10,12 @@
+ # ΓöÇΓöÇ REQUIRED: Browser-side analytics (Vite exposes VITE_ prefix to browser) ΓöÇΓöÇ
+ # This is used in src/lib/analytics.ts to send tracking data directly
+ # from the user's browser to Google Sheets via the Apps Script URL.
+-VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec
++VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/AKfycbwknRQYw1NaxuvbdC3Kz7SZ2CANEQS__7ALswqdbWHnRWitd3JgeC4-PWGczDxokvKN/exec
+ 
+ # ΓöÇΓöÇ REQUIRED: Server-side Google Sheets (Vercel API routes) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ # This is used by Vercel serverless functions (api/_lib/google-sheets.ts).
+ # No VITE_ prefix ΓÇö this is only available server-side.
+-GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec
++GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/AKfycbwknRQYw1NaxuvbdC3Kz7SZ2CANEQS__7ALswqdbWHnRWitd3JgeC4-PWGczDxokvKN/exec
+ 
+ # ΓöÇΓöÇ REQUIRED: Email Service (Resend) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ # Sign up at https://resend.com ΓåÆ Create API Key ΓåÆ paste here.
+diff --git a/AIRTABLE_SETUP.md b/AIRTABLE_SETUP.md
+deleted file mode 100644
+index 378e26a3..00000000
+--- a/AIRTABLE_SETUP.md
++++ /dev/null
+@@ -1,34 +0,0 @@
+-# Airtable Setup Instructions
+-
+-To connect the "Book a Demo" form to your Airtable, follow these steps:
+-
+-## 1. Create a `.env` file
+-Duplicate the `.env.example` file in the root of your project and rename it to `.env`.
+-Inside, fill in your credentials:
+-
+-```bash
+-VITE_AIRTABLE_API_KEY=your_personal_access_token_here
+-VITE_AIRTABLE_BASE_ID=your_base_id_here
+-VITE_AIRTABLE_TABLE_NAME=Inbound Leads
+-```
+-
+-## 2. Get your Airtable Credentials
+-1.  **API Key (Personal Access Token):** Go to [Airtable Developer Hub](https://airtable.com/create/tokens) and create a new token with scope `data.records:write` and access to your Base.
+-2.  **Base ID:** Go to your Airtable Base, look at the URL. It starts with `app...`. Copy that ID (e.g., `app123456789`).
+-3.  **Table Name:** Ensure your table is named "Inbound Leads" (or update the `.env` variable).
+-
+-## 3. Configure your Airtable Columns
+-Create a table with the exact following text column names (Case Sensitive):
+-
+-*   `First Name` (Single line text)
+-*   `Last Name` (Single line text)
+-*   `Email` (Email)
+-*   `Phone` (Phone number or Single line text)
+-*   `Company` (Single line text)
+-*   `Annual Revenue` (Single select or text)
+-*   `Interest` (Single select or text)
+-*   `Message` (Long text)
+-*   `Status` (Single select: 'New', 'Contacted', etc. - Default to 'New')
+-*   `Source` (Single select or text)
+-
+-Once these are set up, the form will automatically send new submissions directly to your Airtable.
+diff --git a/ANALYTICS_AIRTABLE_SCHEMA.md b/ANALYTICS_AIRTABLE_SCHEMA.md
+deleted file mode 100644
+index b2d02fd1..00000000
+--- a/ANALYTICS_AIRTABLE_SCHEMA.md
++++ /dev/null
+@@ -1,55 +0,0 @@
+-# DeepTrust Analytics Airtable Schema
+-
+-To implement the event-based tracking system, set up the following tables in your Airtable Base.
+-
+-## 1. Table: `Users`
+-Tracks unique visitors (initially anonymous).
+-
+-| Field Name | Type | Description |
+-| :--- | :--- | :--- |
+-| `user_id` | Single line text (Primary) | Unique identifier for the user (UUID) |
+-| `first_seen` | Date/Time | When the user first visited |
+-| `last_seen` | Date/Time | Last activity timestamp |
+-| `device` | Single line text | Device type (Mobile/Desktop/Tablet) |
+-| `browser` | Single line text | Browser name |
+-| `country` | Single line text | User country (derived from IP) |
+-| `is_authenticated` | Checkbox | Whether the user has logged in/submitted a form |
+-| `email` | Email | Associated email (if available) |
+-
+-## 2. Table: `Sessions`
+-Tracks individual browsing sessions.
+-
+-| Field Name | Type | Description |
+-| :--- | :--- | :--- |
+-| `session_id` | Single line text (Primary) | Unique identifier for the session |
+-| `user_id` | Link to `Users` | Reference to the user |
+-| `start_time` | Date/Time | Session start |
+-| `end_time` | Date/Time | Session end |
+-| `duration` | Number | Total duration in seconds |
+-| `page_count` | Number | Number of unique pages visited |
+-| `engagement_score`| Number | Computed engagement score (0-100) |
+-| `referrer` | Single line text | Where the user came from |
+-
+-## 3. Table: `Events`
+-Stores granular interaction data.
+-
+-| Field Name | Type | Description |
+-| :--- | :--- | :--- |
+-| `event_id` | Single line text (Primary) | Unique ID for the event |
+-| `event_name` | Single select | Name (e.g., `page_view`, `cta_click`, `scroll_75`) |
+-| `user_id` | Link to `Users` | Reference to the user |
+-| `session_id` | Link to `Sessions` | Reference to the session |
+-| `page_url` | Single line text | URL where event occurred |
+-| `timestamp` | Date/Time | Exact time of event |
+-| `metadata` | Long text | JSON string of extra data (target ID, button text, etc.) |
+-| `intelligence_signal`| Single line text | Derived signal (e.g., "High Intent", "Confusion") |
+-
+----
+-
+-## 4. Derived Intelligence Signals (Computed)
+-To power DeepTrustΓÇÖs intelligence layers, these signals are derived from the `Events` table:
+-
+-- **High Intent User**: `scroll_count > 75%` AND `cta_click_count >= 1`.
+-- **Confusion Signal**: `time_on_page > 180s` AND `scroll_count < 25%`.
+-- **Drop-off Point**: Last `page_exit` event before conversion.
+-- **Rage Click**: Rapid clicks on non-interactive elements.
+diff --git a/google-apps-script.js b/google-apps-script.js
+index 2167cc3b..e5572aff 100644
+--- a/google-apps-script.js
++++ b/google-apps-script.js
+@@ -18,7 +18,7 @@
+  */
+ 
+ // ΓöÇΓöÇ Configuration ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+-const SPREADSHEET_ID = '1gs2UHZ8d5vtYzPm7N7U_36GgU9bJjcfZY_HmHDsJ3NU';
++const SPREADSHEET_ID = '1Cs6K3NcJIDJmz4vwyAWiIDyKdEmAyZ6tkDXjwbjUgTI';
+ 
+ // ΓöÇΓöÇ Email & Automation Configuration ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ const ADMIN_EMAIL = 'pooja@deeptrust.tech, bv@trustflow.in';
+diff --git a/index.html b/index.html
+index 3ef54c77..e8472c96 100644
+--- a/index.html
++++ b/index.html
+@@ -42,14 +42,21 @@
+     {
+       "@context": "https://schema.org",
+       "@type": "Organization",
+-      "name": "Microvectors",
++      "name": "MicroVectors",
+       "url": "https://microvectors.com",
+       "logo": "https://microvectors.com/brand-icon.png",
+       "description": "AI Driven Sales and Revenue Acceleration."
+     }
+   </script>
++  <!-- Microsoft Clarity -->
++  <script type="text/javascript">
++      (function(c,l,a,r,i,t,y){
++          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
++          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
++          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
++      })(window, document, "clarity", "script", "xo9jmkqv9q");
++  </script>
+ </head>
+-
+ <body>
+   <div id="root"></div>
+   <script type="module" src="/src/main.tsx"></script>
+diff --git a/src/app/App.tsx b/src/app/App.tsx
+index c58deca6..2f4d6512 100644
+--- a/src/app/App.tsx
++++ b/src/app/App.tsx
+@@ -58,7 +58,7 @@ export default function App() {
+   return (
+     <Router>
+       <AnalyticsTracker />
+-      <div className="min-h-screen bg-white">
++      <div className="min-h-screen bg-white pb-20 lg:pb-0">
+         <Navigation />
+         <main>
+           <Suspense fallback={<PageLoader />}>
+diff --git a/src/app/components/Footer.tsx b/src/app/components/Footer.tsx
+index 1287be10..e4bfeeb6 100644
+--- a/src/app/components/Footer.tsx
++++ b/src/app/components/Footer.tsx
+@@ -6,50 +6,39 @@ import logo from '../../assets/Trustgrid-logo.png';
+ 
+ export default function Footer() {
+ 
+-    const solutionsLinks: { [key: string]: string } = {
+-        'Business Growth': '/solutions?section=ai-business-growth-strategy',
+-        'Demand Intelligence': '/solutions?section=ai-market-strategy-demand-intelligence',
+-        'Performance Growth': '/solutions?section=ai-driven-performance-marketing',
+-        'Sales Agents': '/solutions?section=ai-auto-sales-pilot-autonomous-sales-agents',
+-        'RevOps Optimization': '/solutions?section=ai-revenue-operations-ai-revops'
+-    };
+-
+-    const industriesLinks: { [key: string]: string } = {
+-        'E-commerce': '/industries?section=e-commerce',
+-        'Banking': '/industries?section=banking',
+-        'Financial Services': '/industries?section=financial-services',
+-        'Manufacturing': '/industries?section=manufacturing',
+-        'Real Estate': '/industries?section=real-estate',
+-        'Tourism & Hospitality': '/industries?section=tourism-hospitality'
++    const quickLinks: { [key: string]: string } = {
++        'Home': '/',
++        'About Us': '/#about-us',
++        'Case Studies': '/#case-studies',
++        'Blogs': '/#blogs',
++        'Careers': '/career',
++        'Contact Us': '/book-consultation'
+     };
+ 
+-    const companyLinks: { [key: string]: string } = {
+-        'About Us': '/company',
+-        'Leadership Team': '/company?section=leadership-culture',
+-        'Our Offices': '/company?section=our-offices',
+-        'Careers': '/career',
+-        'Contact Us': '/company?section=contact-details'
++    const solutionsLinks: { [key: string]: string } = {
++        'AI Solutions': '/#solutions',
++        'Enterprise AI': '/#solutions',
++        'AI Agents': '/#solutions',
++        'Cloud Services': '/#solutions',
++        'Custom Software': '/#solutions',
++        'Cyber Security': '/#solutions'
+     };
+ 
+-    const offeringsLinks: { [key: string]: string } = {
+-        'Demand Generation': '/offerings?section=ai-demand-generation-engine',
+-        'Growth Hacking Engine': '/offerings?section=ai-growth-hacking-engine',
+-        'Lean Sales': '/offerings?section=ai-lean-sales-sales-transformation',
+-        'RevOps Platform': '/offerings?section=ai-revenue-operations-revops',
+-        'ARR Acceleration': '/offerings?section=arr-acceleration-program',
+-        'Resources': '/resources'
++    const industriesLinks: { [key: string]: string } = {
++        'Healthcare': '/#industries',
++        'Finance': '/#industries',
++        'Retail': '/#industries',
++        'Manufacturing': '/#industries',
++        'Logistics': '/#industries',
++        'Enterprises': '/#industries'
+     };
+ 
+-    const productLinks: { [key: string]: string } = {
+-        'Demand Pulse': '/demand-pulse',
+-        'AI Demand Discovery': '/ai-demand-discovery',
+-        'AI Lead Generation': '/ai-lead-generation',
+-        'AI Lead Nurturing': '/ai-lead-nurturing',
+-        'AI MVP Validation': '/ai-mvp-validation',
+-        'Crypto': '/crypto',
+-        'Sales Transformation': '/ai-lead-sales-transformation',
+-        'AI Revenue Operations': '/ai-revenue-operations',
+-        'AI Revenue Acceleration': '/ai-revenue-acceleration'
++    const techLinks: { [key: string]: string } = {
++        'Artificial Intelligence': '/#technologies',
++        'Machine Learning': '/#technologies',
++        'Generative AI': '/#technologies',
++        'Cloud Computing': '/#technologies',
++        'Data Engineering': '/#technologies'
+     };
+ 
+     return (
+@@ -62,6 +51,22 @@ export default function Footer() {
+ 
+             <div className="w-full mx-auto px-6 lg:px-10 relative z-10">
+ 
++                {/* Footer CTA Section */}
++                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-8">
++                    <div className="max-w-2xl">
++                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Build Your Next AI Product?</h2>
++                        <p className="text-slate-400 text-lg">Let's discuss your requirements and recommend the right AI solution.</p>
++                    </div>
++                    <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
++                        <Link to="/book-consultation" className="btn-cta-primary w-full sm:w-auto">
++                            Book Free Consultation
++                        </Link>
++                        <a href="mailto:connect@trustgrid.ai" className="btn-cta-secondary text-slate-300 border-white/20 hover:bg-white/10 hover:border-white/30 hover:text-white w-full sm:w-auto">
++                            Email Us Directly
++                        </a>
++                    </div>
++                </div>
++
+                 {/* Top Section: Brand & Contact vs Navigation Grid */}
+                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-8">
+ 
+@@ -71,19 +76,22 @@ export default function Footer() {
+                         <div>
+                             <Link to="/" className="inline-block mb-1">
+                                 <div className="flex items-center gap-2">
+-                                    <img loading="lazy" decoding="async" width="800" height="600" src={logo} alt="TrustGrid.ai Logo" className="h-9 md:h-12 w-auto" />
++                                    <div className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-0.5 font-heading">
++                                        <span>Micro</span>
++                                        <span className="text-blue-500">Vectors</span>
++                                    </div>
+                                 </div>
+                             </Link>
+                             <p className="text-slate-400 leading-relaxed mb-8 font-medium text-sm max-w-sm">
+-                                The AI-Powered Revenue Operating System for modern B2B enterprises. Predict, Accelerate, and Scale.
++                                Building Enterprise AI Solutions for the Future. AI. Cloud. Automation. Software. Delivered End-to-End.
+                             </p>
+ 
+                             <div className="space-y-4 mb-8">
+-                                <a href="mailto:connect@trustgrid.ai" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
++                                <a href="mailto:connect@microvectors.com" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
+                                         <Mail className="w-4 h-4" />
+                                     </div>
+-                                    <span className="font-medium text-sm tracking-wide">connect@trustgrid.ai</span>
++                                    <span className="font-medium text-sm tracking-wide">connect@microvectors.com</span>
+                                 </a>
+                                 <a href="tel:+919513288612" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
+@@ -104,16 +112,16 @@ export default function Footer() {
+                         </div>
+                     </div>
+ 
+-                    {/* Navigation Grid - 5 Columns to Include All Content */}
+-                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
++                    {/* Navigation Grid - 4 Columns */}
++                    <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+ 
+-                        {/* Column 1: Platform */}
++                        {/* Column 1: Quick Links */}
+                         <div className="space-y-4">
+-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Platform</h3>
++                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Quick Links</h3>
+                             <ul className="space-y-3 text-[13px]">
+-                                {Object.keys(productLinks).map((item, i) => (
++                                {Object.keys(quickLinks).map((item, i) => (
+                                     <li key={i}>
+-                                        <Link to={productLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
++                                        <Link to={quickLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                             {item}
+                                         </Link>
+                                     </li>
+@@ -135,21 +143,7 @@ export default function Footer() {
+                             </ul>
+                         </div>
+ 
+-                        {/* Column 3: Offerings */}
+-                        <div className="space-y-4">
+-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Offerings</h3>
+-                            <ul className="space-y-3 text-[13px]">
+-                                {Object.keys(offeringsLinks).map((item, i) => (
+-                                    <li key={i}>
+-                                        <Link to={offeringsLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
+-                                            {item}
+-                                        </Link>
+-                                    </li>
+-                                ))}
+-                            </ul>
+-                        </div>
+-
+-                        {/* Column 4: Industries */}
++                        {/* Column 3: Industries */}
+                         <div className="space-y-4">
+                             <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Industries</h3>
+                             <ul className="space-y-3 text-[13px]">
+@@ -163,13 +157,13 @@ export default function Footer() {
+                             </ul>
+                         </div>
+ 
+-                        {/* Column 5: Company */}
++                        {/* Column 4: Technologies */}
+                         <div className="space-y-4">
+-                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Company</h3>
++                            <h3 className="text-[11px] font-bold text-slate-300 uppercase tracking-widest border-b border-white/10 pb-3">Technologies</h3>
+                             <ul className="space-y-3 text-[13px]">
+-                                {Object.keys(companyLinks).map((item, i) => (
++                                {Object.keys(techLinks).map((item, i) => (
+                                     <li key={i}>
+-                                        <Link to={companyLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
++                                        <Link to={techLinks[item]} className="text-slate-400 hover:text-blue-400 transition-all duration-300 block hover:translate-x-1 font-medium">
+                                             {item}
+                                         </Link>
+                                     </li>
+diff --git a/src/app/components/LeadCaptureSection.tsx b/src/app/components/LeadCaptureSection.tsx
+index 11d483b4..d02e9d46 100644
+--- a/src/app/components/LeadCaptureSection.tsx
++++ b/src/app/components/LeadCaptureSection.tsx
+@@ -144,9 +144,9 @@ export default function LeadCaptureSection() {
+                     type="submit"
+                     size="lg"
+                     disabled={isSubmitting}
+-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg transition-all group rounded-lg h-12"
++                    className="btn-cta-primary flex-1 !min-h-[56px]"
+                   >
+-                    {isSubmitting ? 'Sending...' : 'Send Request'}
++                    {isSubmitting ? 'Sending...' : 'Request AI Consultation'}
+                     {!isSubmitting && <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                   </Button>
+ 
+@@ -154,10 +154,10 @@ export default function LeadCaptureSection() {
+                     type="button"
+                     size="lg"
+                     variant="outline"
+-                    className="flex-1 border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 rounded-lg h-12"
++                    className="btn-cta-secondary flex-1 !min-h-[56px]"
+                   >
+                     <Calendar className="mr-2 w-4 h-4" />
+-                    Book an Appointment Now
++                    Schedule Free Consultation
+                   </Button>
+                 </div>
+               </form>
+diff --git a/src/app/components/Navigation.tsx b/src/app/components/Navigation.tsx
+index edba4c5d..e60bd645 100644
+--- a/src/app/components/Navigation.tsx
++++ b/src/app/components/Navigation.tsx
+@@ -36,141 +36,84 @@ export default function Navigation() {
+             path: '/'
+         },
+         {
+-            name: 'Company',
+-            path: '/company',
++            name: 'Solutions',
++            path: '/#solutions',
+             dropdown: [
+                 {
+-                    title: "About Us",
++                    title: "Core Offerings",
+                     items: [
+-                        { name: "Overview", path: "/company#about" },
+-                        { name: "Mission & Culture", path: "/company#mission" },
+-                        { name: "Leadership", path: "/company#leadership" }
++                        { name: "AI Solutions", path: "/#solutions" },
++                        { name: "Enterprise AI", path: "/#solutions" },
++                        { name: "AI Agents", path: "/#solutions" }
+                     ]
+                 },
+                 {
+-                    title: "Get In Touch",
++                    title: "IT & Cloud",
+                     items: [
+-                        { name: "Offices", path: "/company#offices" },
+-                        { name: "Contact Us", path: "/company#contact" },
+-                        { name: "Careers", path: "/career" }
+-                    ]
+-                }
+-            ]
+-        },
+-        {
+-            name: 'Services',
+-            path: '/solutions',
+-            dropdown: [
+-                {
+-                    title: "Platform Core",
+-                    items: [
+-                        { name: "Demand Pulse", path: "/demand-pulse" },
+-                        { name: "AI Revenue Operations", path: "/ai-revenue-operations" },
+-                        { name: "AI Revenue Acceleration", path: "/ai-revenue-acceleration" }
+-                    ]
+-                },
+-                {
+-                    title: "Autonomous Pipeline",
+-                    items: [
+-                        { name: "AI Lead Generation", path: "/ai-lead-generation" },
+-                        { name: "AI Lead Nurturing", path: "/ai-lead-nurturing" },
+-                        { name: "AI Sales Transformation", path: "/ai-lead-sales-transformation" }
++                        { name: "Cloud Services", path: "/#solutions" },
++                        { name: "Custom Software Development", path: "/#solutions" },
++                        { name: "IT Services", path: "/#solutions" }
+                     ]
+                 },
+                 {
+-                    title: "Discovery & Validation",
++                    title: "Specialized Services",
+                     items: [
+-                        { name: "AI Demand Discovery", path: "/ai-demand-discovery" },
+-                        { name: "AI MVP Validation", path: "/ai-mvp-validation" },
+-                        { name: "Behaviour Analytics", path: "/behaviour-analytics" }
++                        { name: "Cyber Security", path: "/#solutions" },
++                        { name: "Domain & Hosting", path: "/#solutions" },
++                        { name: "ITES & BPO Services", path: "/#solutions" }
+                     ]
+                 }
+             ]
+         },
+         {
+             name: 'Industries',
+-            path: '/industries',
++            path: '/#industries',
+             dropdown: [
+                 {
+-                    title: "Financial & SaaS",
++                    title: "Core Sectors",
+                     items: [
+-                        { name: "Banking & Lending", path: "/industries?section=Banking" },
+-                        { name: "Financial Services", path: "/industries?section=Financial%20Services" },
+-                        { name: "Insurance", path: "/industries?section=Insurance" },
+-                        { name: "SaaS & Software", path: "/industries?section=SaaS%20%26%20Enterprise%20Software" }
++                        { name: "Healthcare", path: "/#industries" },
++                        { name: "Finance", path: "/#industries" },
++                        { name: "Retail", path: "/#industries" }
+                     ]
+                 },
+                 {
+-                    title: "Consumer Brands",
++                    title: "Growth Sectors",
+                     items: [
+-                        { name: "E-commerce", path: "/industries?section=E-commerce" },
+-                        { name: "Consumer Brands / D2C", path: "/industries?section=D2C%20%26%20Consumer%20Brands" },
+-                        { name: "FMCG & Retail", path: "/industries?section=FMCG" },
+-                        { name: "Gems & Jewellery", path: "/industries?section=Gems%20%26%20Jewellery" }
++                        { name: "Manufacturing", path: "/#industries" },
++                        { name: "Education", path: "/#industries" },
++                        { name: "Logistics", path: "/#industries" }
+                     ]
+                 },
+                 {
+-                    title: "Emerging Fields",
++                    title: "Market Focus",
+                     items: [
+-                        { name: "Electric Vehicles (EV)", path: "/industries?section=Electric%20Vehicles%20(EV)" },
+-                        { name: "Crypto & Web3", path: "/industries?section=Crypto%2C%20Web3%20%26%20Digital%20Assets" },
+-                        { name: "Education & EdTech", path: "/industries?section=Education%20%26%20EdTech" },
+-                        { name: "Media & Entertainment", path: "/industries?section=Media%20%26%20Entertainment" }
++                        { name: "Startups", path: "/#industries" },
++                        { name: "Enterprises", path: "/#industries" },
++                        { name: "Government", path: "/#industries" }
+                     ]
+                 }
+             ]
+         },
+         {
+-            name: 'Platform',
+-            path: '/demand-pulse'
++            name: 'Technologies',
++            path: '/#technologies'
+         },
+         {
+-            name: 'Clients',
+-            path: '/partners',
+-            dropdown: [
+-                {
+-                    title: "Partner Channels",
+-                    items: [
+-                        { name: "Solution Partners", path: "/partners#solution-partners" },
+-                        { name: "Technology Partners", path: "/partners#technology-partners" },
+-                        { name: "Referral Partners", path: "/partners#referral-partners" }
+-                    ]
+-                },
+-                {
+-                    title: "Our Program",
+-                    items: [
+-                        { name: "Overview", path: "/partners#partner-hero" },
+-                        { name: "Why Partner With Us", path: "/partners#why-partner" },
+-                        { name: "Become a Partner", path: "/partners#partner-form" }
+-                    ]
+-                }
+-            ]
++            name: 'Case Studies',
++            path: '/#case-studies'
+         },
+         {
+-            name: 'Case Studies',
+-            path: '/outcomes',
+-            dropdown: [
+-                {
+-                    title: "Growth Acceleration",
+-                    items: [
+-                        { name: "AI Demand Discovery", path: "/outcomes?section=AI%20Demand%20Discovery" },
+-                        { name: "AI Revenue Acceleration", path: "/outcomes?section=AI-Driven%20Revenue%20Acceleration" },
+-                        { name: "AI Growth Hacking", path: "/outcomes?section=AI-Driven%20Growth%20Hacking" }
+-                    ]
+-                },
+-                {
+-                    title: "Inside Sales",
+-                    items: [
+-                        { name: "Enterprise Sales", path: "/outcomes?section=Enterprise%20Sales%20Acceleration" },
+-                        { name: "Digital & Inside Sales", path: "/outcomes?section=Digital%20%26%20Inside%20Sales%20Acceleration" },
+-                        { name: "BFSI Sales Acceleration", path: "/outcomes?section=BFSI%2520Sales%2520Acceleration" }
+-                    ]
+-                }
+-            ]
++            name: 'About Us',
++            path: '/#about-us'
+         },
+         {
+-            name: 'Careers',
+-            path: '/career'
++            name: 'Blogs',
++            path: '/#blogs'
++        },
++        {
++            name: 'Contact Us',
++            path: '/book-consultation'
+         }
+     ];
+ 
+@@ -189,7 +132,7 @@ export default function Navigation() {
+                             <Link to="/" className="flex items-center gap-2 group">
+                                 <div className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-0.5 font-heading">
+                                     <span>Micro</span>
+-                                    <span className="text-blue-600">vectors</span>
++                                    <span className="text-blue-600">Vectors</span>
+                                 </div>
+                             </Link>
+                         </div>
+@@ -306,11 +249,10 @@ export default function Navigation() {
+                                                     </div>
+                                                 </div>
+                                                 
+-                                                {/* BOTTOM CTA SECTION */}
+                                                 <div className="bg-slate-50/80 border-t border-slate-100 p-4 flex items-center justify-between px-6 xl:px-8">
+                                                     <span className="text-[13px] font-medium text-slate-600">Need help finding the right solution?</span>
+                                                     <Link to="/book-consultation" className="text-[13px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 group/cta transition-colors" onClick={() => setHoveredItem(null)}>
+-                                                        Contact Us
++                                                        Speak With Our Experts
+                                                         <ArrowRight className="w-3.5 h-3.5 group-hover/cta:translate-x-1 transition-transform" />
+                                                     </Link>
+                                                 </div>
+@@ -321,10 +263,10 @@ export default function Navigation() {
+                             })}
+                         </div>
+ 
+-                        <div className="hidden lg:flex items-center ml-2 lg:ml-1 xl:ml-4 gap-2 lg:gap-1 xl:gap-4 shrink-0 h-full">
++                        <div className="hidden lg:flex items-center ml-2 lg:ml-4 gap-2 lg:gap-3 shrink-0 h-full">
+                             <Link to="/book-consultation">
+-                                <Button className="relative overflow-hidden bg-blue-600 hover:bg-blue-700 text-white border-0 px-6 py-2 h-auto text-sm font-bold rounded-full shadow-lg shadow-blue-500/20 active:scale-95 transition-all duration-300 group btn-premium">
+-                                    <span className="relative z-10 flex items-center gap-2">
++                                <Button className="btn-cta-primary !px-4 !py-2 !min-h-[44px] text-[13px] xl:text-sm group">
++                                    <span className="relative z-10 flex items-center gap-1.5 xl:gap-2">
+                                         Book Consultation
+                                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                     </span>
+@@ -334,18 +276,15 @@ export default function Navigation() {
+                                 href="https://wa.me/919944499988"
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+-                                className="px-2.5 lg:px-2 xl:px-3.5 py-1.5 lg:py-1.5 xl:py-2 rounded-none border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] lg:text-[11px] xl:text-xs 2xl:text-sm font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
++                                className="px-2 xl:px-3 py-1.5 xl:py-2 rounded-full border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] xl:text-xs font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
+                             >
+-                                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
++                                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                                 <span className="hidden xl:inline">WhatsApp</span>
+                             </a>
+                         </div>
+ 
+                         {/* Mobile menu button */}
+                         <div className="lg:hidden flex items-center gap-4">
+-                            <Link to="/book-consultation" className="text-sm font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-none">
+-                                Book for Consultation
+-                            </Link>
+                             <button
+                                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                                 title={mobileMenuOpen ? "Close menu" : "Open menu"}
+@@ -449,8 +388,8 @@ export default function Navigation() {
+                             className="block w-full"
+                             onClick={() => setMobileMenuOpen(false)}
+                         >
+-                            <Button className="w-full bg-slate-900 text-white hover:bg-blue-600 h-14 rounded-none font-bold text-lg shadow-xl shadow-slate-900/10 active:scale-[0.98] transition-all">
+-                                Book for Consultation
++                            <Button className="btn-cta-primary w-full">
++                                Schedule Free Consultation
+                             </Button>
+                         </Link>
+ 
+@@ -469,6 +408,13 @@ export default function Navigation() {
+                     </div>
+                 </div>
+             </div>
++
++            {/* Sticky Bottom CTA for Mobile */}
++            <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)] z-40 flex gap-3">
++                <Link to="/book-consultation" className="btn-cta-primary w-full text-center">
++                    Schedule Free Consultation
++                </Link>
++            </div>
+         </>
+     );
+ }
+diff --git a/src/app/components/VerticalSection.tsx b/src/app/components/VerticalSection.tsx
+index a64a1be4..94edc35a 100644
+--- a/src/app/components/VerticalSection.tsx
++++ b/src/app/components/VerticalSection.tsx
+@@ -5,6 +5,7 @@ import FeatureCard from './FeatureCard';
+ import EngineTab from './EngineTab';
+ import ActiveEnginePanel from './ActiveEnginePanel';
+ import { ArrowRight } from 'lucide-react';
++import { Link } from 'react-router-dom';
+ 
+ interface VerticalSectionProps {
+     data: ConversionBlockData;
+@@ -83,11 +84,12 @@ export default function VerticalSection({ data }: VerticalSectionProps) {
+                 </div>
+ 
+                 {/* CTA for Section */}
+-                <div className="flex justify-center pt-6">
+-                    <button className="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] flex items-center gap-2">
+-                        {data.cta?.text || "Learn More"}
+-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+-                    </button>
++                <div className="flex flex-col items-center justify-center pt-10 text-center">
++                    <p className="text-slate-600 font-medium mb-4">Need help choosing the right AI solution?</p>
++                    <Link to={data.cta?.action || "/book-consultation"} className="btn-cta-primary group">
++                        {data.cta?.text || "Talk to Our Experts"}
++                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
++                    </Link>
+                 </div>
+ 
+             </div>
+diff --git a/src/app/components/home/BlogSection.tsx b/src/app/components/home/BlogSection.tsx
+new file mode 100644
+index 00000000..cfacb6f9
+--- /dev/null
++++ b/src/app/components/home/BlogSection.tsx
+@@ -0,0 +1,98 @@
++import { ArrowRight, Calendar, User } from 'lucide-react';
++import { motion } from 'framer-motion';
++import { Link } from 'react-router-dom';
++
++const blogs = [
++    {
++        category: 'AI Insights',
++        title: 'The Future of Autonomous Enterprise Agents in 2026',
++        excerpt: 'How large language models are moving from conversational interfaces to autonomous action-takers in the enterprise.',
++        author: 'Sarah Jenkins',
++        date: 'Jul 15, 2026',
++        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop',
++        link: '/#blogs'
++    },
++    {
++        category: 'Industry Trends',
++        title: 'Why FinTech is Adopting AI Faster Than Any Other Sector',
++        excerpt: 'An analysis of regulatory compliance and fraud detection pipelines powered by real-time machine learning.',
++        author: 'Michael Chang',
++        date: 'Jul 10, 2026',
++        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop',
++        link: '/#blogs'
++    },
++    {
++        category: 'Enterprise Technology',
++        title: 'Migrating Legacy Monoliths to AI-Native Microservices',
++        excerpt: 'A step-by-step guide on how modern enterprises are rebuilding their core infrastructure for the AI era.',
++        author: 'David Rodriguez',
++        date: 'Jul 05, 2026',
++        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop',
++        link: '/#blogs'
++    }
++];
++
++export default function BlogSection() {
++    return (
++        <section className="py-24 bg-slate-50" id="blogs">
++            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
++                    <div className="max-w-2xl">
++                        <div className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-2">Featured Articles</div>
++                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
++                            Latest from MicroVectors
++                        </h2>
++                        <p className="text-lg text-slate-600">
++                            Insights, trends, and thought leadership on enterprise AI and digital transformation.
++                        </p>
++                    </div>
++                    <div className="mt-6 md:mt-0">
++                        <Link to="/#blogs" className="inline-flex items-center text-blue-600 font-semibold hover:text-indigo-600 transition-colors">
++                            View All Articles
++                            <ArrowRight className="ml-2 w-5 h-5" />
++                        </Link>
++                    </div>
++                </div>
++
++                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
++                    {blogs.map((blog, idx) => (
++                        <motion.div
++                            key={idx}
++                            initial={{ opacity: 0, y: 20 }}
++                            whileInView={{ opacity: 1, y: 0 }}
++                            viewport={{ once: true }}
++                            transition={{ duration: 0.5, delay: idx * 0.1 }}
++                            className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
++                        >
++                            <div className="h-48 overflow-hidden relative">
++                                <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-800">
++                                    {blog.category}
++                                </div>
++                                <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
++                            </div>
++                            <div className="p-8">
++                                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
++                                    {blog.title}
++                                </h3>
++                                <p className="text-slate-600 mb-6 line-clamp-3 text-sm leading-relaxed">
++                                    {blog.excerpt}
++                                </p>
++                                
++                                <div className="flex items-center justify-between border-t border-slate-100 pt-6">
++                                    <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
++                                        <div className="flex items-center gap-1.5">
++                                            <User className="w-3.5 h-3.5" /> {blog.author}
++                                        </div>
++                                        <div className="flex items-center gap-1.5">
++                                            <Calendar className="w-3.5 h-3.5" /> {blog.date}
++                                        </div>
++                                    </div>
++                                </div>
++                            </div>
++                        </motion.div>
++                    ))}
++                </div>
++            </div>
++        </section>
++    );
++}
+diff --git a/src/app/components/home/CaseStudiesSection.tsx b/src/app/components/home/CaseStudiesSection.tsx
+new file mode 100644
+index 00000000..f34ddef5
+--- /dev/null
++++ b/src/app/components/home/CaseStudiesSection.tsx
+@@ -0,0 +1,98 @@
++import { ArrowRight, BarChart3, CheckCircle2, Layers } from 'lucide-react';
++import { motion } from 'framer-motion';
++import { Link } from 'react-router-dom';
++
++const caseStudies = [
++    {
++        client: 'Global FinTech Corp',
++        title: 'Automated Fraud Detection Pipeline',
++        problem: 'High manual review times causing transaction delays and high false positive rates.',
++        solution: 'Deployed a custom Machine Learning model to analyze transaction patterns in real-time.',
++        technologies: 'Python, TensorFlow, AWS SageMaker',
++        metrics: [
++            { label: 'False Positives', value: '-45%' },
++            { label: 'Processing Time', value: '< 200ms' }
++        ]
++    },
++    {
++        client: 'Leading SaaS Provider',
++        title: 'AI-Driven Churn Prediction',
++        problem: 'Unable to identify at-risk customers before they cancelled their subscriptions.',
++        solution: 'Implemented predictive analytics on user engagement data to trigger automated retention workflows.',
++        technologies: 'Node.js, PostgreSQL, Scikit-learn',
++        metrics: [
++            { label: 'Churn Rate', value: '-30%' },
++            { label: 'Retention ROI', value: '4.5x' }
++        ]
++    }
++];
++
++export default function CaseStudiesSection() {
++    return (
++        <section className="py-24 bg-white" id="case-studies">
++            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
++                <div className="text-center max-w-3xl mx-auto mb-16">
++                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
++                        Proven Enterprise Outcomes
++                    </h2>
++                    <p className="text-lg text-slate-600">
++                        See how our AI and cloud solutions deliver measurable business impact across industries.
++                    </p>
++                </div>
++
++                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
++                    {caseStudies.map((study, idx) => (
++                        <motion.div
++                            key={idx}
++                            initial={{ opacity: 0, y: 20 }}
++                            whileInView={{ opacity: 1, y: 0 }}
++                            viewport={{ once: true }}
++                            transition={{ duration: 0.5, delay: idx * 0.1 }}
++                            className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-xl transition-all duration-300"
++                        >
++                            <div className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-2">{study.client}</div>
++                            <h3 className="text-2xl font-bold text-slate-900 mb-6">{study.title}</h3>
++                            
++                            <div className="space-y-6 mb-8">
++                                <div>
++                                    <div className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-2">
++                                        <Layers className="w-4 h-4 text-slate-400" /> Problem
++                                    </div>
++                                    <p className="text-slate-600 text-sm leading-relaxed">{study.problem}</p>
++                                </div>
++                                <div>
++                                    <div className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-2">
++                                        <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Solution
++                                    </div>
++                                    <p className="text-slate-600 text-sm leading-relaxed">{study.solution}</p>
++                                </div>
++                                <div>
++                                    <div className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-2">
++                                        <BarChart3 className="w-4 h-4 text-blue-500" /> Technologies Used
++                                    </div>
++                                    <p className="text-blue-600 font-medium text-sm">{study.technologies}</p>
++                                </div>
++                            </div>
++
++                            <div className="grid grid-cols-2 gap-4 border-t border-slate-200 pt-6">
++                                {study.metrics.map((metric, i) => (
++                                    <div key={i}>
++                                        <div className="text-2xl font-black text-slate-900">{metric.value}</div>
++                                        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{metric.label}</div>
++                                    </div>
++                                ))}
++                            </div>
++                        </motion.div>
++                    ))}
++                </div>
++
++                <div className="text-center mt-12">
++                    <Link to="/#case-studies" className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 shadow-sm text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-colors">
++                        View All Case Studies
++                        <ArrowRight className="ml-2 w-5 h-5" />
++                    </Link>
++                </div>
++            </div>
++        </section>
++    );
++}
+diff --git a/src/app/components/home/FinalCTASection.tsx b/src/app/components/home/FinalCTASection.tsx
+index 5f5eb5d8..29ecf730 100644
+--- a/src/app/components/home/FinalCTASection.tsx
++++ b/src/app/components/home/FinalCTASection.tsx
+@@ -38,20 +38,16 @@ export default function FinalCTASection() {
+                     </p>
+                     
+                     <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+-                        <Link to="/book-demo" className="group w-full sm:w-auto">
+-                            <Button size="lg" className="w-full sm:w-auto h-16 px-10 text-lg font-bold bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-[0_0_50px_-5px_rgba(37,99,235,0.8)] border border-blue-400/20">
+-                                <span className="flex items-center">
+-                                    Book a Live Demo
+-                                    <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" />
+-                                </span>
+-                            </Button>
++                        <Link to="/book-consultation" className="btn-cta-primary w-full sm:w-auto !min-h-[64px] !px-10 text-lg group shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] group-hover:shadow-[0_0_50px_-5px_rgba(37,99,235,0.8)]">
++                            <span className="flex items-center">
++                                Build Your AI Solution
++                                <ArrowRight className="ml-3 w-6 h-6 transition-transform group-hover:translate-x-1" />
++                            </span>
+                         </Link>
+-                        <Link to="/contact" className="group w-full sm:w-auto">
+-                            <Button size="lg" variant="outline" className="w-full sm:w-auto h-16 px-10 text-lg font-bold border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-full transition-all duration-300 transform group-hover:-translate-y-1 bg-transparent backdrop-blur-sm">
+-                                <span className="flex items-center">
+-                                    Talk to an Expert
+-                                </span>
+-                            </Button>
++                        <Link to="/contact" className="btn-cta-secondary w-full sm:w-auto !min-h-[64px] !px-10 text-lg group text-white border-white/20 hover:bg-white/10 hover:text-white hover:border-white/40">
++                            <span className="flex items-center">
++                                Talk to an AI Expert
++                            </span>
+                         </Link>
+                     </div>
+                     
+diff --git a/src/app/components/home/HeroSection.tsx b/src/app/components/home/HeroSection.tsx
+index c9b9ab39..3ab551d0 100644
+--- a/src/app/components/home/HeroSection.tsx
++++ b/src/app/components/home/HeroSection.tsx
+@@ -8,9 +8,9 @@ const slides = [
+     {
+         id: 1,
+         image: "/banner_1_hero_1783665435895.webp",
+-        badge: "Next-Generation AI Platform",
+-        title: <>Transform Your Business with <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Autonomous AI</span></>,
+-        subtitle: "Empower your enterprise with scalable, secure, and intelligent automation. MicroVectors drives predictable revenue growth through advanced AI infrastructure.",
++        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
++        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
++        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
+         accuracy: "99%",
+         statLabel: "Accuracy",
+         statSub: "AI Models"
+@@ -18,9 +18,9 @@ const slides = [
+     {
+         id: 2,
+         image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop",
+-        badge: "The Autopilot Wealth Loop",
+-        title: <>Set the System. Watch It Grow. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Reinvest. Repeat.</span></>,
+-        subtitle: "AI-Driven Revenue That Compounds Like Capital ΓÇö 24/7, Zero Friction.",
++        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
++        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
++        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
+         accuracy: "5x",
+         statLabel: "Velocity",
+         statSub: "Sales Growth"
+@@ -28,32 +28,12 @@ const slides = [
+     {
+         id: 3,
+         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2668&auto=format&fit=crop",
+-        badge: "The Self-Reinforcing Engine",
+-        title: <>One Closed Deal Feeds Ten More. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">The Compounding Effect.</span></>,
+-        subtitle: "From Demand Discovery to Revenue Management ΓÇö Autopilot Does the Heavy Lifting.",
++        badge: "AI. Cloud. Automation. Software. Delivered End-to-End.",
++        title: <>Building Enterprise <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions for the Future</span></>,
++        subtitle: "We help businesses accelerate growth with AI-driven solutions, cloud infrastructure, automation, and enterprise-grade software.",
+         accuracy: "24/7",
+         statLabel: "Active",
+         statSub: "Optimization"
+-    },
+-    {
+-        id: 4,
+-        image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop",
+-        badge: "The Crypto Money Multiplier",
+-        title: <>TVL + AI Autopilot = <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Exponential Value</span></>,
+-        subtitle: "Built for Web3 & DeFi ΓÇö Where Every Incentive Compounds Community Growth.",
+-        accuracy: "10x",
+-        statLabel: "Scaling",
+-        statSub: "Multiplier"
+-    },
+-    {
+-        id: 5,
+-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
+-        badge: "The CRO's Compound Interest",
+-        title: <>Your Pipeline Is a Bank Account. <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Is the Interest.</span></>,
+-        subtitle: "Predictable Growth That Stacks. Month Over Month. Quarter Over Quarter.",
+-        accuracy: "100%",
+-        statLabel: "Predictable",
+-        statSub: "Revenue"
+     }
+ ];
+ 
+@@ -106,21 +86,17 @@ export default function HeroSection() {
+                         </AnimatePresence>
+ 
+                         <div className="flex flex-col sm:flex-row gap-4 mt-2">
+-                            <Link to="/book-consultation" className="group">
+-                                <Button size="lg" className="h-12 px-8 text-base bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-premium-hover transition-all duration-300 transform group-hover:-translate-y-1 w-full sm:w-auto">
+-                                    <span className="flex items-center">
+-                                        Start Your Transformation
+-                                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+-                                    </span>
+-                                </Button>
++                            <Link to="/book-consultation" className="btn-cta-primary group">
++                                <span className="flex items-center">
++                                    Get Free Consultation
++                                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
++                                </span>
+                             </Link>
+-                            <Link to="/solutions" className="group">
+-                                <Button size="lg" variant="outline" className="h-12 px-8 text-base border-2 border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 rounded-full shadow-sm transition-all duration-300 transform group-hover:-translate-y-1 w-full sm:w-auto bg-white">
+-                                    <span className="flex items-center">
+-                                        <Play className="mr-2 w-5 h-5 text-blue-600 fill-blue-600 transition-transform group-hover:scale-110" />
+-                                        See How It Works
+-                                    </span>
+-                                </Button>
++                            <Link to="/solutions" className="btn-cta-secondary group bg-white">
++                                <span className="flex items-center">
++                                    <Play className="mr-2 w-5 h-5 text-blue-600 fill-blue-600 transition-transform group-hover:scale-110" />
++                                    View Solutions
++                                </span>
+                             </Link>
+                         </div>
+ 
+diff --git a/src/app/components/home/IndustriesSection.tsx b/src/app/components/home/IndustriesSection.tsx
+index 115cf110..4e2b9561 100644
+--- a/src/app/components/home/IndustriesSection.tsx
++++ b/src/app/components/home/IndustriesSection.tsx
+@@ -1,52 +1,100 @@
+-import { Building, Landmark, Factory, Rocket } from 'lucide-react';
++import { HeartPulse, Landmark, Factory, ShoppingCart, GraduationCap, Truck, Rocket, Building2, Landmark as GovIcon } from 'lucide-react';
+ import { motion } from 'framer-motion';
+ import { Link } from 'react-router-dom';
+ 
+ const industries = [
+     {
+-        icon: Building,
+-        title: 'SaaS & Tech',
+-        description: 'Accelerate PMF and automate free-to-paid conversions with product-led growth AI.',
+-        link: '/industries#saas'
++        icon: HeartPulse,
++        title: 'Healthcare',
++        useCases: 'Patient Data Management, Telehealth Platforms, Predictive Diagnostics',
++        technologies: 'AI & ML, Cloud Infrastructure, IoT',
++        benefits: 'Enhanced patient care, secure EHR compliance, reduced operational costs',
++        link: '/#industries'
+     },
+     {
+         icon: Landmark,
+-        title: 'BFSI & FinTech',
+-        description: 'Secure, compliant AI for fraud detection, personalized offers, and risk management.',
+-        link: '/industries#finance'
++        title: 'Finance',
++        useCases: 'Fraud Detection, Algorithmic Trading, Automated KYC',
++        technologies: 'Machine Learning, Blockchain, Data Engineering',
++        benefits: 'Risk mitigation, personalized banking experiences, regulatory compliance',
++        link: '/#industries'
+     },
+     {
+         icon: Factory,
+         title: 'Manufacturing',
+-        description: 'Optimize dealer networks, predict supply chain demand, and automate channel sales.',
+-        link: '/industries#manufacturing'
++        useCases: 'Predictive Maintenance, Supply Chain Automation, Digital Twins',
++        technologies: 'IoT, Cloud Computing, Automation',
++        benefits: 'Minimized downtime, optimized inventory, accelerated production cycles',
++        link: '/#industries'
++    },
++    {
++        icon: ShoppingCart,
++        title: 'Retail',
++        useCases: 'Inventory Forecasting, Personalized Recommendations, POS Systems',
++        technologies: 'Generative AI, Web Technologies, Data Analytics',
++        benefits: 'Higher conversion rates, improved customer retention, streamlined ops',
++        link: '/#industries'
++    },
++    {
++        icon: GraduationCap,
++        title: 'Education',
++        useCases: 'E-Learning Platforms, Automated Grading, Student Analytics',
++        technologies: 'Cloud Computing, Web Technologies, AI',
++        benefits: 'Scalable learning environments, personalized education paths',
++        link: '/#industries'
++    },
++    {
++        icon: Truck,
++        title: 'Logistics',
++        useCases: 'Route Optimization, Fleet Management, Real-time Tracking',
++        technologies: 'Data Engineering, Automation, Cloud',
++        benefits: 'Reduced delivery times, fuel efficiency, transparent tracking',
++        link: '/#industries'
+     },
+     {
+         icon: Rocket,
+         title: 'Startups',
+-        description: 'Rapidly test markets and validate pricing strategies with our Growth-in-a-Box AI.',
+-        link: '/industries#startups'
++        useCases: 'MVP Development, Scalable Architectures, Growth Hacking',
++        technologies: 'Web Technologies, Cloud Computing, AI APIs',
++        benefits: 'Faster time-to-market, agile iterations, cost-effective scaling',
++        link: '/#industries'
++    },
++    {
++        icon: Building2,
++        title: 'Enterprises',
++        useCases: 'Legacy Modernization, ERP Integrations, Corporate Portals',
++        technologies: 'Enterprise Platforms, Cyber Security, Cloud',
++        benefits: 'Silo reduction, global scalability, robust security frameworks',
++        link: '/#industries'
++    },
++    {
++        icon: GovIcon,
++        title: 'Government',
++        useCases: 'Smart City Infrastructure, Citizen Portals, Secure Data Vaults',
++        technologies: 'Cyber Security, Data Engineering, Enterprise Platforms',
++        benefits: 'Enhanced public service delivery, strict compliance, data sovereignty',
++        link: '/#industries'
+     }
+ ];
+ 
+ export default function IndustriesSection() {
+     return (
+-        <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
++        <section className="py-24 bg-slate-900 text-white relative overflow-hidden" id="industries">
+             {/* Background elements */}
+             <div className="absolute inset-0 pointer-events-none"></div>
+             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+ 
+-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
++            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                 <div className="text-center max-w-3xl mx-auto mb-16">
+                     <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+                         Built for Complex Industries
+                     </h2>
+                     <p className="text-lg text-slate-400">
+-                        Our autonomous models are pre-trained on industry-specific data architectures to ensure rapid deployment and compliance.
++                        Our autonomous models and enterprise architectures are tailored to industry-specific data and compliance needs.
+                     </p>
+                 </div>
+ 
+-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
++                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                     {industries.map((industry, index) => (
+                         <motion.div
+                             key={index}
+@@ -57,18 +105,32 @@ export default function IndustriesSection() {
+                         >
+                             <Link 
+                                 to={industry.link}
+-                                className="group block h-full p-8 rounded-3xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm hover:bg-slate-800 hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
++                                className="group flex flex-col h-full p-8 rounded-3xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm hover:bg-slate-800 hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
+                             >
+                                 {/* Hover Gradient */}
+                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                 
+-                                <div className="relative z-10">
++                                <div className="relative z-10 flex-grow">
+                                     <div className="w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center mb-6 group-hover:bg-blue-600/20 transition-colors duration-300 border border-slate-600/50 group-hover:border-blue-500/30">
+                                         <industry.icon className="w-6 h-6 text-slate-300 group-hover:text-blue-400 transition-colors duration-300" />
+                                     </div>
+                                     
+-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{industry.title}</h3>
+-                                    <p className="text-slate-400 text-sm leading-relaxed">{industry.description}</p>
++                                    <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-blue-400 transition-colors">{industry.title}</h3>
++                                    
++                                    <div className="space-y-4">
++                                        <div>
++                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Use Cases</div>
++                                            <div className="text-sm text-slate-300 font-medium leading-relaxed">{industry.useCases}</div>
++                                        </div>
++                                        <div>
++                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Technologies</div>
++                                            <div className="text-sm text-blue-300/80 font-medium leading-relaxed">{industry.technologies}</div>
++                                        </div>
++                                        <div>
++                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Benefits</div>
++                                            <div className="text-sm text-slate-300 font-medium leading-relaxed">{industry.benefits}</div>
++                                        </div>
++                                    </div>
+                                 </div>
+                             </Link>
+                         </motion.div>
+diff --git a/src/app/components/home/ServicesOverview.tsx b/src/app/components/home/ServicesOverview.tsx
+index 4c1055b0..d228f6c7 100644
+--- a/src/app/components/home/ServicesOverview.tsx
++++ b/src/app/components/home/ServicesOverview.tsx
+@@ -1,31 +1,55 @@
+-import { BrainCircuit, LineChart, Cpu, Bot, ArrowRight } from 'lucide-react';
++import { BrainCircuit, Cpu, Code2, Cloud, ShieldCheck, Server, Bot, Headset, ArrowRight } from 'lucide-react';
+ import { motion } from 'framer-motion';
+ import { Link } from 'react-router-dom';
+ 
+ const services = [
+     {
+         icon: BrainCircuit,
+-        title: 'Demand Discovery Engine',
+-        description: 'Identify high-intent buyers hidden in the dark funnel before they contact competitors.',
+-        link: '/solutions#demand-discovery'
++        title: 'AI Solutions',
++        description: 'Deploy advanced machine learning models and predictive AI to solve complex enterprise challenges.',
++        link: '/#solutions'
+     },
+     {
+-        icon: Bot,
+-        title: 'Autonomous Sales Agents',
+-        description: 'Deploy digital sales reps that handle research, outreach, and follow-ups 24/7.',
+-        link: '/solutions#autonomous-sales'
++        icon: Cpu,
++        title: 'Enterprise Automation',
++        description: 'Streamline operations and reduce manual workloads with intelligent process automation pipelines.',
++        link: '/#solutions'
+     },
+     {
+-        icon: LineChart,
+-        title: 'Revenue Intelligence',
+-        description: 'Predictive forecasting and real-time bottleneck detection for RevOps teams.',
+-        link: '/solutions#revenue-intelligence'
++        icon: Code2,
++        title: 'Custom Software Development',
++        description: 'Build scalable, secure, and bespoke software applications tailored to your business needs.',
++        link: '/#solutions'
+     },
+     {
+-        icon: Cpu,
+-        title: 'Growth Automation',
+-        description: 'End-to-end multi-channel campaign orchestration and A/B testing at scale.',
+-        link: '/solutions#growth-automation'
++        icon: Cloud,
++        title: 'Cloud Services',
++        description: 'Migrate, manage, and optimize your enterprise infrastructure on scalable cloud platforms.',
++        link: '/#solutions'
++    },
++    {
++        icon: ShieldCheck,
++        title: 'Cyber Security',
++        description: 'Protect your digital assets with enterprise-grade threat detection and compliance frameworks.',
++        link: '/#solutions'
++    },
++    {
++        icon: Server,
++        title: 'IT Services',
++        description: 'Comprehensive IT management, support, and infrastructure modernization for growing teams.',
++        link: '/#solutions'
++    },
++    {
++        icon: Bot,
++        title: 'AI Agents',
++        description: 'Integrate autonomous digital agents to handle customer interactions and repetitive workflows 24/7.',
++        link: '/#solutions'
++    },
++    {
++        icon: Headset,
++        title: 'ITES & BPO Services',
++        description: 'Outsource critical business processes with technology-enabled services and global support teams.',
++        link: '/#solutions'
+     }
+ ];
+ 
+@@ -71,13 +95,21 @@ export default function ServicesOverview() {
+                             <p className="text-slate-600 mb-8 flex-grow leading-relaxed text-base">{service.description}</p>
+                             
+                             <Link to={service.link} className="inline-flex items-center text-sm font-bold text-blue-600 group-hover:text-indigo-600 mt-auto uppercase tracking-wide">
+-                                Explore Solution
++                                Learn More
+                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                             </Link>
+                         </motion.div>
+                     ))}
+                 </div>
+ 
++                <div className="flex flex-col items-center justify-center mt-16 pt-8 border-t border-slate-200/60 text-center">
++                    <p className="text-slate-600 font-medium mb-4">Need help choosing the right AI solution?</p>
++                    <Link to="/book-consultation" className="btn-cta-primary group">
++                        Talk to Our Experts
++                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
++                    </Link>
++                </div>
++
+             </div>
+         </section>
+     );
+diff --git a/src/app/components/home/TechStack.tsx b/src/app/components/home/TechStack.tsx
+index cf18a960..dc990b7a 100644
+--- a/src/app/components/home/TechStack.tsx
++++ b/src/app/components/home/TechStack.tsx
+@@ -1,19 +1,18 @@
+ import { motion } from 'framer-motion';
+ 
+ const technologies = [
+-    { name: 'React', category: 'Frontend', color: 'text-cyan-500' },
+-    { name: 'Node.js', category: 'Backend', color: 'text-green-500' },
+-    { name: 'Python', category: 'AI/ML Core', color: 'text-blue-500' },
+-    { name: 'TensorFlow', category: 'Models', color: 'text-orange-500' },
+-    { name: 'AWS', category: 'Cloud', color: 'text-amber-500' },
+-    { name: 'PostgreSQL', category: 'Database', color: 'text-blue-600' },
+-    { name: 'Redis', category: 'Caching', color: 'text-red-500' },
+-    { name: 'Docker', category: 'DevOps', color: 'text-blue-400' },
++    { name: 'AI & ML', category: 'Intelligence', color: 'text-blue-600' },
++    { name: 'Cloud Computing', category: 'Infrastructure', color: 'text-sky-500' },
++    { name: 'Web Development', category: 'Engineering', color: 'text-indigo-500' },
++    { name: 'Automation', category: 'Process Ops', color: 'text-emerald-500' },
++    { name: 'Enterprise Platforms', category: 'Integration', color: 'text-purple-500' },
++    { name: 'Cyber Security', category: 'Protection', color: 'text-red-500' },
++    { name: 'Data Engineering', category: 'Analytics', color: 'text-amber-500' },
+ ];
+ 
+ export default function TechStack() {
+     return (
+-        <section className="py-24 bg-slate-50 relative overflow-hidden">
++        <section className="py-24 bg-slate-50 relative overflow-hidden" id="technologies">
+             {/* Background elements */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[100px] -z-10"></div>
+             
+diff --git a/src/app/components/home/WhyChooseSection.tsx b/src/app/components/home/WhyChooseSection.tsx
+index e8643b1c..88d52b8a 100644
+--- a/src/app/components/home/WhyChooseSection.tsx
++++ b/src/app/components/home/WhyChooseSection.tsx
+@@ -18,35 +18,35 @@ export default function WhyChooseSection() {
+                         className="relative"
+                     >
+                         <div className="relative rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-sm">
+-                            <h3 className="text-sm font-extrabold text-slate-900 mb-6 font-mono tracking-wider">// SYSTEM INTEGRATION MATRIX</h3>
++                            <h3 className="text-sm font-extrabold text-slate-900 mb-6 font-mono tracking-wider">// ENTERPRISE DELIVERY MODEL</h3>
+                             <div className="space-y-4">
+                                 <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                     <div>
+-                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Autonomous Agents</div>
+-                                        <div className="text-sm font-bold text-slate-900 mt-1">24 Active Instances</div>
++                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Global Infrastructure</div>
++                                        <div className="text-sm font-bold text-slate-900 mt-1">Multi-Region Deployment</div>
+                                     </div>
+-                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">ΓùÅ Active</span>
++                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">ΓùÅ Scalable</span>
+                                 </div>
+                                 <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                     <div>
+-                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Predictive Routing</div>
+-                                        <div className="text-sm font-bold text-slate-900 mt-1">Direct CRM Integration</div>
++                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">Security & Compliance</div>
++                                        <div className="text-sm font-bold text-slate-900 mt-1">ISO & SOC2 Standards</div>
+                                     </div>
+-                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">ΓùÅ Synced</span>
++                                    <span className="text-emerald-600 font-semibold text-xs flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">ΓùÅ Verified</span>
+                                 </div>
+                                 <div className="p-5 bg-white rounded-2xl border border-slate-200/60 shadow-sm flex items-center justify-between">
+                                     <div>
+-                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">TVL Velocity</div>
+-                                        <div className="text-sm font-bold text-slate-900 mt-1">Compounding Loops</div>
++                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider font-mono">AI Models</div>
++                                        <div className="text-sm font-bold text-slate-900 mt-1">Custom Enterprise LLMs</div>
+                                     </div>
+-                                    <span className="text-blue-600 font-semibold text-xs flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/50">Γåæ 5.2x</span>
++                                    <span className="text-blue-600 font-semibold text-xs flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/50">Γåæ 99.9%</span>
+                                 </div>
+                             </div>
+                         </div>
+                         {/* Floating Stat */}
+                         <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 z-20 hidden md:block">
+-                            <div className="text-4xl font-bold text-blue-600 mb-1">5X</div>
+-                            <div className="text-sm font-semibold text-slate-700">Revenue Velocity</div>
++                            <div className="text-4xl font-bold text-blue-600 mb-1">10+</div>
++                            <div className="text-sm font-semibold text-slate-700">Years Experience</div>
+                         </div>
+                     </motion.div>
+ 
+@@ -56,19 +56,20 @@ export default function WhyChooseSection() {
+                         whileInView={{ opacity: 1, x: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ duration: 0.8 }}
++                        id="about-us"
+                     >
+                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+-                            Why Enterprise Teams Choose MicroVectors
++                            Pioneering Enterprise AI & Digital Transformation
+                         </h2>
+                         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+-                            We replace fragmented marketing and sales tools with a unified, autonomous Revenue Operating System that learns, executes, and scales.
++                            <strong>Our Mission:</strong> To empower global enterprises with scalable AI solutions, secure cloud architectures, and bespoke software that drives continuous growth and operational efficiency.
+                         </p>
+ 
+                         <div className="space-y-5 mb-10">
+                             {[
+-                                "Predictable pipeline generation without scaling headcount",
+-                                "Self-healing CRM data and real-time accurate forecasting",
+-                                "Continuous A/B testing and funnel optimization on autopilot"
++                                "End-to-End Enterprise Delivery Model tailored to complex workflows",
++                                "Global Client Network spanning Fortune 500s and rapid-scaling startups",
++                                "Proven Track Record of deploying secure, compliant AI systems"
+                             ].map((benefit, idx) => (
+                                 <div key={idx} className="flex items-start gap-3">
+                                     <CheckCircle2 className="w-6 h-6 text-blue-600 shrink-0 mt-0.5" />
+@@ -79,18 +80,18 @@ export default function WhyChooseSection() {
+ 
+                         <div className="grid grid-cols-2 gap-6 mb-10 border-t border-slate-100 pt-8">
+                             <div>
+-                                <div className="text-3xl font-bold text-slate-900 mb-1">50%</div>
+-                                <div className="text-sm text-slate-500 font-medium">Faster Sales Cycles</div>
++                                <div className="text-3xl font-bold text-slate-900 mb-1">500+</div>
++                                <div className="text-sm text-slate-500 font-medium">Global Clients</div>
+                             </div>
+                             <div>
+-                                <div className="text-3xl font-bold text-slate-900 mb-1">3X</div>
+-                                <div className="text-sm text-slate-500 font-medium">Churn Reduction</div>
++                                <div className="text-3xl font-bold text-slate-900 mb-1">24/7</div>
++                                <div className="text-sm text-slate-500 font-medium">Enterprise Support</div>
+                             </div>
+                         </div>
+ 
+                         <Button size="lg" className="h-14 px-8 text-base bg-slate-900 hover:bg-slate-800 text-white rounded-full">
+-                            <Link to="/company" className="flex items-center">
+-                                Learn About Our Technology
++                            <Link to="/#solutions" className="flex items-center">
++                                Explore Our Capabilities
+                                 <ArrowRight className="ml-2 w-5 h-5" />
+                             </Link>
+                         </Button>
+diff --git a/src/app/pages/BookConsultation.tsx b/src/app/pages/BookConsultation.tsx
+index 18d424b7..06f34e0a 100644
+--- a/src/app/pages/BookConsultation.tsx
++++ b/src/app/pages/BookConsultation.tsx
+@@ -178,7 +178,7 @@ export default function BookConsultation() {
+                                 ) : null}
+ 
+                                 <div className="relative z-10 mb-8">
+-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Get Started</h2>
++                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Schedule Free Consultation</h2>
+                                     <p className="text-slate-500">Fill out the form below to schedule your consulting session.</p>
+                                 </div>
+ 
+@@ -302,10 +302,10 @@ export default function BookConsultation() {
+                                     <Button
+                                         type="submit"
+                                         size="lg"
+-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
++                                        className="btn-cta-primary w-full mt-4"
+                                         disabled={isSubmitting}
+                                     >
+-                                        {isSubmitting ? 'Submitting...' : 'Book for Consultation'}
++                                        {isSubmitting ? 'Submitting...' : 'Schedule Free Consultation'}
+                                     </Button>
+ 
+                                     <p className="text-xs text-center text-slate-500 mt-4">
+diff --git a/src/app/pages/BookDemo.tsx b/src/app/pages/BookDemo.tsx
+index df91dd18..5e3aa848 100644
+--- a/src/app/pages/BookDemo.tsx
++++ b/src/app/pages/BookDemo.tsx
+@@ -178,7 +178,7 @@ export default function BookDemo() {
+                                 ) : null}
+ 
+                                 <div className="relative z-10 mb-8">
+-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Get Started</h2>
++                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Schedule Free Consultation</h2>
+                                     <p className="text-slate-500">Fill out the form below to schedule your consulting session.</p>
+                                 </div>
+ 
+@@ -302,10 +302,10 @@ export default function BookDemo() {
+                                     <Button
+                                         type="submit"
+                                         size="lg"
+-                                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 text-lg rounded-xl mt-4"
++                                        className="btn-cta-primary w-full mt-4"
+                                         disabled={isSubmitting}
+                                     >
+-                                        {isSubmitting ? 'Submitting...' : 'Book for Consulting'}
++                                        {isSubmitting ? 'Submitting...' : 'Schedule Free Consultation'}
+                                     </Button>
+ 
+                                     <p className="text-xs text-center text-slate-500 mt-4">
+diff --git a/src/app/pages/Home.tsx b/src/app/pages/Home.tsx
+index 94061cae..f70db01f 100644
+--- a/src/app/pages/Home.tsx
++++ b/src/app/pages/Home.tsx
+@@ -6,7 +6,8 @@ import WhyChooseSection from '../components/home/WhyChooseSection';
+ import IndustriesSection from '../components/home/IndustriesSection';
+ import ProcessTimeline from '../components/home/ProcessTimeline';
+ import TechStack from '../components/home/TechStack';
+-import TestimonialsSection from '../components/home/TestimonialsSection';
++import CaseStudiesSection from '../components/home/CaseStudiesSection';
++import BlogSection from '../components/home/BlogSection';
+ import FinalCTASection from '../components/home/FinalCTASection';
+ 
+ export default function Home() {
+@@ -24,7 +25,8 @@ export default function Home() {
+             <IndustriesSection />
+             <ProcessTimeline />
+             <TechStack />
+-            <TestimonialsSection />
++            <CaseStudiesSection />
++            <BlogSection />
+             <FinalCTASection />
+         </main>
+     );
+diff --git a/src/styles/theme-base.css b/src/styles/theme-base.css
+index f0ec6feb..2ff80056 100644
+--- a/src/styles/theme-base.css
++++ b/src/styles/theme-base.css
+@@ -100,4 +100,13 @@
+         -ms-overflow-style: none;
+         scrollbar-width: none;
+     }
++
++    /* CTA Buttons */
++    .btn-cta-primary {
++        @apply inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 px-7 py-3 min-h-[48px] md:min-h-[56px] text-base;
++    }
++
++    .btn-cta-secondary {
++        @apply inline-flex items-center justify-center bg-transparent border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-full transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 px-7 py-3 min-h-[48px] md:min-h-[56px] text-base;
++    }
+ }
+\ No newline at end of file
