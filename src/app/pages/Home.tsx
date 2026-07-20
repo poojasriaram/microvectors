@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroSection from '../components/home/HeroSection';
 import TrustedBySection from '../components/home/TrustedBySection';
-import ServicesOverview from '../components/home/ServicesOverview';
-import CryptoSection from '../components/home/CryptoSection';
 import WhyChooseSection from '../components/home/WhyChooseSection';
+import ServicesOverview from '../components/home/ServicesOverview';
 import IndustriesSection from '../components/home/IndustriesSection';
-import ProcessTimeline from '../components/home/ProcessTimeline';
 import TechStack from '../components/home/TechStack';
+import ProcessTimeline from '../components/home/ProcessTimeline';
 import CaseStudiesSection from '../components/home/CaseStudiesSection';
+import TestimonialsSection from '../components/home/TestimonialsSection';
 import BlogSection from '../components/home/BlogSection';
 import FinalCTASection from '../components/home/FinalCTASection';
 
@@ -20,17 +20,28 @@ export default function Home() {
     }, [location]);
 
     return (
-        <main className="bg-background min-h-screen overflow-hidden flex flex-col pb-0">
+        <main className="bg-background min-h-screen overflow-hidden">
+            {/* 1. Hero Banner */}
             <HeroSection />
+            {/* 2. Client Logos */}
             <TrustedBySection />
-            <ServicesOverview />
-            <CryptoSection />
-            <ProcessTimeline />
-            <TechStack />
-            <CaseStudiesSection />
+            {/* 3. Company Overview */}
             <WhyChooseSection />
+            {/* 4. Featured Capabilities & 5. Featured Solutions */}
+            <ServicesOverview />
+            {/* 6. Industry Expertise */}
             <IndustriesSection />
+            {/* 7. Technology Stack */}
+            <TechStack />
+            {/* 8. Business Outcomes */}
+            <ProcessTimeline />
+            {/* 9. Case Studies */}
+            <CaseStudiesSection />
+            {/* 10. Testimonials */}
+            <TestimonialsSection />
+            {/* 11. Latest Insights */}
             <BlogSection />
+            {/* 12. Contact CTA */}
             <FinalCTASection />
         </main>
     );

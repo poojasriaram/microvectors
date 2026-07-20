@@ -10,6 +10,7 @@ const BookConsultation = lazy(() => import('./pages/BookConsultation'));
 const Crypto = lazy(() => import('./pages/Crypto'));
 const Outcomes = lazy(() => import('./pages/Outcomes'));
 const Solutions = lazy(() => import('./pages/Solutions'));
+const Capabilities = lazy(() => import('./pages/Capabilities'));
 const Industries = lazy(() => import('./pages/Industries'));
 const Offerings = lazy(() => import('./pages/Offerings'));
 const Resources = lazy(() => import('./pages/Resources'));
@@ -32,7 +33,7 @@ const AILeadSalesTransformation = lazy(() => import('./pages/AILeadSalesTransfor
 const AIRevenueOperations = lazy(() => import('./pages/AIRevenueOperations'));
 const AIRevenueAcceleration = lazy(() => import('./pages/AIRevenueAcceleration'));
 const BehaviourAnalytics = lazy(() => import('./pages/BehaviourAnalytics'));
-const Capabilities = lazy(() => import('./pages/Capabilities'));
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 
 import CookieConsent from './components/CookieConsent';
 import TabExitPopup from './components/TabExitPopup';
@@ -69,6 +70,7 @@ export default function App() {
               <Route path="/crypto" element={<Crypto />} />
               <Route path="/outcomes" element={<Outcomes />} />
               <Route path="/solutions" element={<Solutions />} />
+              <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/offerings" element={<Offerings />} />
               <Route path="/resources" element={<Resources />} />
@@ -91,7 +93,7 @@ export default function App() {
               <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
               <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
               <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
-              <Route path="/capabilities" element={<Capabilities />} />
+              <Route path="/explore/:slug" element={<ServiceDetail />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>
           </Suspense>
