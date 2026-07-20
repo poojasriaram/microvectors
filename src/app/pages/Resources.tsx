@@ -30,17 +30,6 @@ export default function Resources() {
             <div className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
                 {/* Background Slideshow */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    {backgroundSlides.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentBgIndex ? "opacity-30" : "opacity-0"}`}
-                            style={{
-                                
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        />
-                    ))}
                     <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white/90" />
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
                 </div>

@@ -1,8 +1,304 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Zap, Brain, Globe, Shield, Code, Database, BarChart3, Layers, Server, Users, Building2, TrendingUp, Rocket, Target, Cpu, Cloud, Lock, LineChart } from 'lucide-react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from './ui/button';
+
+const navConfig = [
+    { name: 'Home', path: '/' },
+    {
+        name: 'Capabilities', path: '/capabilities',
+        dropdown: [
+            {
+                title: 'Core Tech', icon: Brain, color: 'text-violet-600', bg: 'bg-violet-50',
+                items: [
+                    { name: 'AI & Machine Learning', path: '/capabilities', icon: Brain },
+                    { name: 'Generative AI Solutions', path: '/capabilities', icon: Zap },
+                    { name: 'Data Engineering', path: '/capabilities', icon: Database },
+                    { name: 'Computer Vision', path: '/capabilities', icon: Cpu },
+                    { name: 'Natural Language Processing', path: '/capabilities', icon: Globe },
+                    { name: 'Predictive Analytics', path: '/capabilities', icon: BarChart3 },
+                ],
+            },
+            {
+                title: 'Engineering', icon: Code, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Cloud & DevOps', path: '/capabilities', icon: Cloud },
+                    { name: 'Custom Software Dev', path: '/capabilities', icon: Code },
+                    { name: 'Mobile App Development', path: '/capabilities', icon: Layers },
+                    { name: 'API Integration', path: '/capabilities', icon: Server },
+                    { name: 'Microservices Architecture', path: '/capabilities', icon: Database },
+                    { name: 'QA & Testing', path: '/capabilities', icon: Shield },
+                ],
+            },
+            {
+                title: 'Enterprise & Security', icon: Shield, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Enterprise Automation', path: '/capabilities', icon: Zap },
+                    { name: 'Cyber Security', path: '/capabilities', icon: Lock },
+                    { name: 'IT Consulting', path: '/capabilities', icon: Building2 },
+                    { name: 'Identity Management', path: '/capabilities', icon: Users },
+                    { name: 'Threat Detection', path: '/capabilities', icon: Shield },
+                    { name: 'Compliance Solutions', path: '/capabilities', icon: Shield },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Crypto', path: '/crypto',
+        dropdown: [
+            {
+                title: 'Blockchain & Web3', icon: Globe, color: 'text-orange-600', bg: 'bg-orange-50',
+                items: [
+                    { name: 'Blockchain Solutions', path: '/crypto', icon: Layers },
+                    { name: 'Web3 Development', path: '/crypto', icon: Globe },
+                    { name: 'Decentralized Apps', path: '/crypto', icon: Code },
+                    { name: 'DeFi Platforms', path: '/crypto', icon: TrendingUp },
+                    { name: 'NFT Marketplaces', path: '/crypto', icon: Zap },
+                    { name: 'Web3 Gaming', path: '/crypto', icon: Rocket },
+                ],
+            },
+            {
+                title: 'Infrastructure', icon: Server, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Smart Contracts', path: '/crypto', icon: Code },
+                    { name: 'Crypto Infrastructure', path: '/crypto', icon: Server },
+                    { name: 'Node Development', path: '/crypto', icon: Database },
+                    { name: 'Consensus Algorithms', path: '/crypto', icon: Cpu },
+                    { name: 'Layer 2 Solutions', path: '/crypto', icon: Layers },
+                    { name: 'Cross-Chain Bridges', path: '/crypto', icon: Globe },
+                ],
+            },
+            {
+                title: 'Digital Assets', icon: TrendingUp, color: 'text-purple-600', bg: 'bg-purple-50',
+                items: [
+                    { name: 'Tokenization Services', path: '/crypto', icon: Zap },
+                    { name: 'Digital Asset Solutions', path: '/crypto', icon: Database },
+                    { name: 'Crypto Wallets', path: '/crypto', icon: Shield },
+                    { name: 'Asset Management', path: '/crypto', icon: BarChart3 },
+                    { name: 'Yield Farming', path: '/crypto', icon: TrendingUp },
+                    { name: 'STO Development', path: '/crypto', icon: Building2 },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Outcomes', path: '/outcomes',
+        dropdown: [
+            {
+                title: 'Business Value', icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50',
+                items: [
+                    { name: 'Business Transformation', path: '/outcomes', icon: Rocket },
+                    { name: 'Increased Productivity', path: '/outcomes', icon: Zap },
+                    { name: 'Revenue Growth', path: '/outcomes', icon: TrendingUp },
+                    { name: 'Market Expansion', path: '/outcomes', icon: Globe },
+                    { name: 'Competitive Advantage', path: '/outcomes', icon: Target },
+                    { name: 'Customer Satisfaction', path: '/outcomes', icon: Users },
+                ],
+            },
+            {
+                title: 'Efficiency', icon: Zap, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Cost Optimization', path: '/outcomes', icon: BarChart3 },
+                    { name: 'Process Automation', path: '/outcomes', icon: Zap },
+                    { name: 'Resource Allocation', path: '/outcomes', icon: Target },
+                    { name: 'Time-to-Market', path: '/outcomes', icon: Rocket },
+                    { name: 'Operational Excellence', path: '/outcomes', icon: Shield },
+                    { name: 'Risk Mitigation', path: '/outcomes', icon: Lock },
+                ],
+            },
+            {
+                title: 'Growth', icon: Rocket, color: 'text-indigo-600', bg: 'bg-indigo-50',
+                items: [
+                    { name: 'Digital Innovation', path: '/outcomes', icon: Brain },
+                    { name: 'Enterprise Growth', path: '/outcomes', icon: Building2 },
+                    { name: 'Scale Operations', path: '/outcomes', icon: Layers },
+                    { name: 'New Revenue Streams', path: '/outcomes', icon: LineChart },
+                    { name: 'Market Disruption', path: '/outcomes', icon: Zap },
+                    { name: 'Future-Proofing', path: '/outcomes', icon: Shield },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Solutions', path: '/solutions',
+        dropdown: [
+            {
+                title: 'Intelligent Tech', icon: Brain, color: 'text-violet-600', bg: 'bg-violet-50',
+                items: [
+                    { name: 'AI Solutions', path: '/solutions', icon: Brain },
+                    { name: 'Cloud Solutions', path: '/solutions', icon: Cloud },
+                    { name: 'IoT Solutions', path: '/solutions', icon: Cpu },
+                    { name: 'Edge Computing', path: '/solutions', icon: Server },
+                    { name: 'Big Data Analytics', path: '/solutions', icon: Database },
+                    { name: 'Machine Learning Ops', path: '/solutions', icon: Zap },
+                ],
+            },
+            {
+                title: 'Business Solutions', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Enterprise Solutions', path: '/solutions', icon: Building2 },
+                    { name: 'Automation Solutions', path: '/solutions', icon: Zap },
+                    { name: 'ERP Integrations', path: '/solutions', icon: Layers },
+                    { name: 'CRM Systems', path: '/solutions', icon: Users },
+                    { name: 'Supply Chain Mgmt', path: '/solutions', icon: Globe },
+                    { name: 'HR Tech', path: '/solutions', icon: Users },
+                ],
+            },
+            {
+                title: 'Core Services', icon: Server, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Software Solutions', path: '/solutions', icon: Code },
+                    { name: 'Managed Services', path: '/solutions', icon: Server },
+                    { name: 'Digital Workplaces', path: '/solutions', icon: Globe },
+                    { name: 'Remote Operations', path: '/solutions', icon: Cloud },
+                    { name: 'Disaster Recovery', path: '/solutions', icon: Shield },
+                    { name: 'Tech Support', path: '/solutions', icon: Zap },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Industries', path: '/industries',
+        dropdown: [
+            {
+                title: 'Core Sectors', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Healthcare', path: '/industries', icon: Shield },
+                    { name: 'Finance', path: '/industries', icon: BarChart3 },
+                    { name: 'Manufacturing', path: '/industries', icon: Layers },
+                    { name: 'Insurance', path: '/industries', icon: Lock },
+                    { name: 'Real Estate', path: '/industries', icon: Building2 },
+                    { name: 'Automotive', path: '/industries', icon: Zap },
+                ],
+            },
+            {
+                title: 'Growth Sectors', icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Retail', path: '/industries', icon: Globe },
+                    { name: 'Education', path: '/industries', icon: Brain },
+                    { name: 'Logistics', path: '/industries', icon: Server },
+                    { name: 'E-commerce', path: '/industries', icon: TrendingUp },
+                    { name: 'Media & Entertainment', path: '/industries', icon: Zap },
+                    { name: 'Telecommunications', path: '/industries', icon: Globe },
+                ],
+            },
+            {
+                title: 'Market Focus', icon: Target, color: 'text-purple-600', bg: 'bg-purple-50',
+                items: [
+                    { name: 'Government', path: '/industries', icon: Building2 },
+                    { name: 'Startups', path: '/industries', icon: Rocket },
+                    { name: 'Enterprises', path: '/industries', icon: Layers },
+                    { name: 'Non-Profits', path: '/industries', icon: Users },
+                    { name: 'SMBs', path: '/industries', icon: Target },
+                    { name: 'Agencies', path: '/industries', icon: Globe },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Offerings', path: '/offerings',
+        dropdown: [
+            {
+                title: 'Core Services', icon: Zap, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Consulting Services', path: '/offerings', icon: Brain },
+                    { name: 'Development Services', path: '/offerings', icon: Code },
+                    { name: 'UI/UX Design', path: '/offerings', icon: Layers },
+                    { name: 'Product Strategy', path: '/offerings', icon: Target },
+                    { name: 'Digital Transformation', path: '/offerings', icon: Globe },
+                    { name: 'Technical Audits', path: '/offerings', icon: Shield },
+                ],
+            },
+            {
+                title: 'Specialized', icon: Brain, color: 'text-violet-600', bg: 'bg-violet-50',
+                items: [
+                    { name: 'Managed Services', path: '/offerings', icon: Server },
+                    { name: 'AI Services', path: '/offerings', icon: Brain },
+                    { name: 'Blockchain Services', path: '/offerings', icon: Layers },
+                    { name: 'Data Science', path: '/offerings', icon: Database },
+                    { name: 'Security Services', path: '/offerings', icon: Lock },
+                    { name: 'Cloud Migration', path: '/offerings', icon: Cloud },
+                ],
+            },
+            {
+                title: 'Infrastructure', icon: Server, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Cloud Services', path: '/offerings', icon: Cloud },
+                    { name: 'Support Services', path: '/offerings', icon: Shield },
+                    { name: 'DevOps as a Service', path: '/offerings', icon: Code },
+                    { name: 'Network Infrastructure', path: '/offerings', icon: Server },
+                    { name: 'Database Management', path: '/offerings', icon: Database },
+                    { name: 'Site Reliability', path: '/offerings', icon: Zap },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Partners', path: '/partners',
+        dropdown: [
+            {
+                title: 'Technology', icon: Cpu, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'Technology Partners', path: '/partners', icon: Cpu },
+                    { name: 'Strategic Partners', path: '/partners', icon: Building2 },
+                    { name: 'Cloud Providers', path: '/partners', icon: Cloud },
+                    { name: 'AI Vendors', path: '/partners', icon: Brain },
+                    { name: 'Hardware Partners', path: '/partners', icon: Server },
+                    { name: 'Platform Providers', path: '/partners', icon: Layers },
+                ],
+            },
+            {
+                title: 'Ecosystem', icon: Globe, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Integration Partners', path: '/partners', icon: Globe },
+                    { name: 'Ecosystem Partners', path: '/partners', icon: Layers },
+                    { name: 'Solution Providers', path: '/partners', icon: Code },
+                    { name: 'Value-Added Resellers', path: '/partners', icon: TrendingUp },
+                    { name: 'Academic Partners', path: '/partners', icon: Brain },
+                    { name: 'Industry Affiliates', path: '/partners', icon: Building2 },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Company', path: '/company',
+        dropdown: [
+            {
+                title: 'About', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50',
+                items: [
+                    { name: 'About Us', path: '/company', icon: Building2 },
+                    { name: 'Our Mission', path: '/company', icon: Target },
+                    { name: 'Core Values', path: '/company', icon: Shield },
+                    { name: 'Global Reach', path: '/company', icon: Globe },
+                    { name: 'Social Responsibility', path: '/company', icon: Users },
+                    { name: 'Company History', path: '/company', icon: Layers },
+                ],
+            },
+            {
+                title: 'People & Culture', icon: Users, color: 'text-purple-600', bg: 'bg-purple-50',
+                items: [
+                    { name: 'Leadership Team', path: '/company', icon: Users },
+                    { name: 'Careers', path: '/career', icon: Rocket },
+                    { name: 'Life at MicroVectors', path: '/career', icon: Zap },
+                    { name: 'Diversity & Inclusion', path: '/company', icon: Globe },
+                    { name: 'Employee Benefits', path: '/career', icon: Shield },
+                    { name: 'Alumni Network', path: '/company', icon: Users },
+                ],
+            },
+            {
+                title: 'Connect', icon: Globe, color: 'text-emerald-600', bg: 'bg-emerald-50',
+                items: [
+                    { name: 'Blogs & Resources', path: '/resources', icon: Layers },
+                    { name: 'Contact Us', path: '/book-consultation', icon: ArrowRight },
+                    { name: 'Press Releases', path: '/resources', icon: Globe },
+                    { name: 'News & Events', path: '/resources', icon: Zap },
+                    { name: 'Media Kit', path: '/resources', icon: Code },
+                    { name: 'Office Locations', path: '/book-consultation', icon: Building2 },
+                ],
+            },
+        ],
+    },
+];
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,629 +308,276 @@ export default function Navigation() {
     const [activeCategoryIndices, setActiveCategoryIndices] = useState<Record<string, number>>({});
     const location = useLocation();
 
-    // Handle scroll effect
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const toggleExpanded = (name: string) => {
-        setExpandedItems(prev =>
-            prev.includes(name)
-                ? prev.filter(item => item !== name)
-                : [...prev, name]
-        );
-    };
+    useEffect(() => { setMobileMenuOpen(false); }, [location]);
 
-    // Define navigation structure matching the reference website style
-    const navItems = [
-        {
-            name: 'Home',
-            path: '/'
-        },
-        {
-            name: 'Capabilities',
-            path: '/#capabilities',
-            dropdown: [
-                {
-                    title: "Core Tech",
-                    items: [
-                        { name: "AI & Machine Learning", path: "/#capabilities" },
-                        { name: "Generative AI Solutions", path: "/#capabilities" },
-                        { name: "Data Engineering", path: "/#capabilities" },
-                        { name: "Computer Vision", path: "/#capabilities" },
-                        { name: "Natural Language Processing", path: "/#capabilities" },
-                        { name: "Predictive Analytics", path: "/#capabilities" }
-                    ]
-                },
-                {
-                    title: "Engineering",
-                    items: [
-                        { name: "Cloud & DevOps", path: "/#capabilities" },
-                        { name: "Custom Software Development", path: "/#capabilities" },
-                        { name: "Mobile App Development", path: "/#capabilities" },
-                        { name: "API Integration", path: "/#capabilities" },
-                        { name: "Microservices Architecture", path: "/#capabilities" },
-                        { name: "QA & Testing", path: "/#capabilities" }
-                    ]
-                },
-                {
-                    title: "Enterprise & Security",
-                    items: [
-                        { name: "Enterprise Automation", path: "/#capabilities" },
-                        { name: "Cyber Security", path: "/#capabilities" },
-                        { name: "IT Consulting", path: "/#capabilities" },
-                        { name: "Identity Management", path: "/#capabilities" },
-                        { name: "Threat Detection", path: "/#capabilities" },
-                        { name: "Compliance Solutions", path: "/#capabilities" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Crypto',
-            path: '/crypto',
-            dropdown: [
-                {
-                    title: "Blockchain & Web3",
-                    items: [
-                        { name: "Blockchain Solutions", path: "/crypto" },
-                        { name: "Web3 Development", path: "/crypto" },
-                        { name: "Decentralized Apps (dApps)", path: "/crypto" },
-                        { name: "DeFi Platforms", path: "/crypto" },
-                        { name: "NFT Marketplaces", path: "/crypto" },
-                        { name: "Web3 Gaming", path: "/crypto" }
-                    ]
-                },
-                {
-                    title: "Infrastructure",
-                    items: [
-                        { name: "Smart Contracts", path: "/crypto" },
-                        { name: "Crypto Infrastructure", path: "/crypto" },
-                        { name: "Node Development", path: "/crypto" },
-                        { name: "Consensus Algorithms", path: "/crypto" },
-                        { name: "Layer 2 Solutions", path: "/crypto" },
-                        { name: "Cross-Chain Bridges", path: "/crypto" }
-                    ]
-                },
-                {
-                    title: "Digital Assets",
-                    items: [
-                        { name: "Tokenization Services", path: "/crypto" },
-                        { name: "Digital Asset Solutions", path: "/crypto" },
-                        { name: "Crypto Wallets", path: "/crypto" },
-                        { name: "Asset Management", path: "/crypto" },
-                        { name: "Yield Farming", path: "/crypto" },
-                        { name: "STO Development", path: "/crypto" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Outcomes',
-            path: '/outcomes',
-            dropdown: [
-                {
-                    title: "Business Value",
-                    items: [
-                        { name: "Business Transformation", path: "/outcomes" },
-                        { name: "Increased Productivity", path: "/outcomes" },
-                        { name: "Revenue Growth", path: "/outcomes" },
-                        { name: "Market Expansion", path: "/outcomes" },
-                        { name: "Competitive Advantage", path: "/outcomes" },
-                        { name: "Customer Satisfaction", path: "/outcomes" }
-                    ]
-                },
-                {
-                    title: "Efficiency",
-                    items: [
-                        { name: "Cost Optimization", path: "/outcomes" },
-                        { name: "Process Automation", path: "/outcomes" },
-                        { name: "Resource Allocation", path: "/outcomes" },
-                        { name: "Time-to-Market", path: "/outcomes" },
-                        { name: "Operational Excellence", path: "/outcomes" },
-                        { name: "Risk Mitigation", path: "/outcomes" }
-                    ]
-                },
-                {
-                    title: "Growth",
-                    items: [
-                        { name: "Digital Innovation", path: "/outcomes" },
-                        { name: "Enterprise Growth", path: "/outcomes" },
-                        { name: "Scale Operations", path: "/outcomes" },
-                        { name: "New Revenue Streams", path: "/outcomes" },
-                        { name: "Market Disruption", path: "/outcomes" },
-                        { name: "Future-Proofing", path: "/outcomes" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Solutions',
-            path: '/solutions',
-            dropdown: [
-                {
-                    title: "Intelligent Tech",
-                    items: [
-                        { name: "AI Solutions", path: "/solutions" },
-                        { name: "Cloud Solutions", path: "/solutions" },
-                        { name: "IoT Solutions", path: "/solutions" },
-                        { name: "Edge Computing", path: "/solutions" },
-                        { name: "Big Data Analytics", path: "/solutions" },
-                        { name: "Machine Learning Ops", path: "/solutions" }
-                    ]
-                },
-                {
-                    title: "Business Solutions",
-                    items: [
-                        { name: "Enterprise Solutions", path: "/solutions" },
-                        { name: "Automation Solutions", path: "/solutions" },
-                        { name: "ERP Integrations", path: "/solutions" },
-                        { name: "CRM Systems", path: "/solutions" },
-                        { name: "Supply Chain Management", path: "/solutions" },
-                        { name: "HR Tech", path: "/solutions" }
-                    ]
-                },
-                {
-                    title: "Core Services",
-                    items: [
-                        { name: "Software Solutions", path: "/solutions" },
-                        { name: "Managed Services", path: "/solutions" },
-                        { name: "Digital Workplaces", path: "/solutions" },
-                        { name: "Remote Operations", path: "/solutions" },
-                        { name: "Disaster Recovery", path: "/solutions" },
-                        { name: "Tech Support", path: "/solutions" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Industries',
-            path: '/industries',
-            dropdown: [
-                {
-                    title: "Core Sectors",
-                    items: [
-                        { name: "Healthcare", path: "/industries" },
-                        { name: "Finance", path: "/industries" },
-                        { name: "Manufacturing", path: "/industries" },
-                        { name: "Insurance", path: "/industries" },
-                        { name: "Real Estate", path: "/industries" },
-                        { name: "Automotive", path: "/industries" }
-                    ]
-                },
-                {
-                    title: "Growth Sectors",
-                    items: [
-                        { name: "Retail", path: "/industries" },
-                        { name: "Education", path: "/industries" },
-                        { name: "Logistics", path: "/industries" },
-                        { name: "E-commerce", path: "/industries" },
-                        { name: "Media & Entertainment", path: "/industries" },
-                        { name: "Telecommunications", path: "/industries" }
-                    ]
-                },
-                {
-                    title: "Market Focus",
-                    items: [
-                        { name: "Government", path: "/industries" },
-                        { name: "Startups", path: "/industries" },
-                        { name: "Enterprises", path: "/industries" },
-                        { name: "Non-Profits", path: "/industries" },
-                        { name: "SMBs", path: "/industries" },
-                        { name: "Agencies", path: "/industries" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Offerings',
-            path: '/offerings',
-            dropdown: [
-                {
-                    title: "Core Services",
-                    items: [
-                        { name: "Consulting Services", path: "/offerings" },
-                        { name: "Development Services", path: "/offerings" },
-                        { name: "UI/UX Design", path: "/offerings" },
-                        { name: "Product Strategy", path: "/offerings" },
-                        { name: "Digital Transformation", path: "/offerings" },
-                        { name: "Technical Audits", path: "/offerings" }
-                    ]
-                },
-                {
-                    title: "Specialized Services",
-                    items: [
-                        { name: "Managed Services", path: "/offerings" },
-                        { name: "AI Services", path: "/offerings" },
-                        { name: "Blockchain Services", path: "/offerings" },
-                        { name: "Data Science", path: "/offerings" },
-                        { name: "Security Services", path: "/offerings" },
-                        { name: "Cloud Migration", path: "/offerings" }
-                    ]
-                },
-                {
-                    title: "Infrastructure",
-                    items: [
-                        { name: "Cloud Services", path: "/offerings" },
-                        { name: "Support Services", path: "/offerings" },
-                        { name: "DevOps as a Service", path: "/offerings" },
-                        { name: "Network Infrastructure", path: "/offerings" },
-                        { name: "Database Management", path: "/offerings" },
-                        { name: "Site Reliability", path: "/offerings" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Partners',
-            path: '/partners',
-            dropdown: [
-                {
-                    title: "Technology",
-                    items: [
-                        { name: "Technology Partners", path: "/partners" },
-                        { name: "Strategic Partners", path: "/partners" },
-                        { name: "Cloud Providers", path: "/partners" },
-                        { name: "AI Vendors", path: "/partners" },
-                        { name: "Hardware Partners", path: "/partners" },
-                        { name: "Platform Providers", path: "/partners" }
-                    ]
-                },
-                {
-                    title: "Ecosystem",
-                    items: [
-                        { name: "Integration Partners", path: "/partners" },
-                        { name: "Ecosystem Partners", path: "/partners" },
-                        { name: "Solution Providers", path: "/partners" },
-                        { name: "Value-Added Resellers", path: "/partners" },
-                        { name: "Academic Partners", path: "/partners" },
-                        { name: "Industry Affiliates", path: "/partners" }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'Company',
-            path: '/company',
-            dropdown: [
-                {
-                    title: "About",
-                    items: [
-                        { name: "About Us", path: "/#about-us" },
-                        { name: "Our Mission", path: "/#about-us" },
-                        { name: "Core Values", path: "/#about-us" },
-                        { name: "Company History", path: "/#about-us" },
-                        { name: "Global Reach", path: "/#about-us" },
-                        { name: "Social Responsibility", path: "/#about-us" }
-                    ]
-                },
-                {
-                    title: "People & Culture",
-                    items: [
-                        { name: "Leadership Team", path: "/#team" },
-                        { name: "Careers", path: "/#careers" },
-                        { name: "Life at MicroVectors", path: "/#careers" },
-                        { name: "Diversity & Inclusion", path: "/#careers" },
-                        { name: "Alumni Network", path: "/#careers" },
-                        { name: "Employee Benefits", path: "/#careers" }
-                    ]
-                },
-                {
-                    title: "Connect",
-                    items: [
-                        { name: "Blogs", path: "/#blogs" },
-                        { name: "Contact Us", path: "/book-consultation" },
-                        { name: "Press Releases", path: "/#blogs" },
-                        { name: "News & Events", path: "/#blogs" },
-                        { name: "Media Kit", path: "/#blogs" },
-                        { name: "Office Locations", path: "/book-consultation" }
-                    ]
-                }
-            ]
+    const toggleExpanded = (name: string) =>
+        setExpandedItems(prev => prev.includes(name) ? prev.filter(i => i !== name) : [...prev, name]);
+
+    const isActive = (item: (typeof navConfig)[0]) => {
+        if (location.pathname === item.path) return true;
+        if ('dropdown' in item && item.dropdown) {
+            return item.dropdown.some((cat: any) => cat.items?.some((sub: any) => location.pathname === sub.path));
         }
-    ];
+        return false;
+    };
 
     return (
         <>
-            <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b h-16 lg:h-24 flex items-center ${scrolled
-                    ? 'bg-white/80 backdrop-blur-md border-slate-200/80 shadow-premium'
-                    : 'bg-transparent border-transparent'
-                    }`}
-            >
-                <nav className="w-full mx-auto px-4 sm:px-6 lg:px-2 xl:px-4 2xl:px-12 h-full max-w-[1920px]">
-                    <div className="flex items-center justify-between h-full">
-                        {/* Logo */}
-                        <div className="flex-shrink-0 mr-4 lg:mr-2 xl:mr-8 relative z-50">
-                            <Link to="/" className="flex items-center gap-2 group">
-                                <div className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 flex items-center gap-0.5 font-heading">
-                                    <span>Micro</span>
-                                    <span className="text-blue-600">Vectors</span>
-                                </div>
-                            </Link>
+            <header className={`fixed top-0 left-0 right-0 z-50 h-[68px] flex items-center transition-all duration-500
+                ${scrolled
+                    ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_1px_20px_-4px_rgba(15,23,42,0.10)]'
+                    : 'bg-white/70 backdrop-blur-md border-b border-slate-200/50'
+                }`}>
+                <nav className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
+
+                    {/* ── Logo ── */}
+                    <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-md shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-shadow">
+                            <Zap className="w-4.5 h-4.5 text-white" strokeWidth={2.5} />
                         </div>
+                        <span className="font-extrabold text-[15px] tracking-tight text-slate-900">
+                            Micro<span className="text-blue-600">Vectors</span>
+                        </span>
+                    </Link>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center h-full justify-end">
-                            {navItems.map((item) => {
-                                const activeCatIdx = activeCategoryIndices[item.name] || 0;
+                    {/* ── Desktop Nav ── */}
+                    <div className="hidden lg:flex items-center gap-0.5 h-full mx-4 flex-1 justify-center">
+                        {navConfig.map((item) => {
+                            const active = isActive(item);
+                            const hasDD = 'dropdown' in item && !!item.dropdown;
+                            const activeCatIdx = activeCategoryIndices[item.name] ?? 0;
 
-                                return (
-                                    <div
-                                        key={item.name}
-                                        className="relative group h-full flex items-center px-1 lg:px-0.5 xl:px-1.5"
-                                        onMouseEnter={() => setHoveredItem(item.name)}
-                                        onMouseLeave={() => setHoveredItem(null)}
-                                    >
-                                        {/* Determine if active */}
-                                        {(() => {
-                                            const isActive = location.pathname === item.path || (item.dropdown && item.dropdown.some((cat: any) => {
-                                                return cat.items && cat.items.some((sub: any) => sub.path === location.pathname);
-                                            }));
-
-                                            return (
-                                                <Link
-                                                    to={item.path}
-                                                    onClick={() => setHoveredItem(item.name)}
-                                                    className={`
-                                                        relative text-[13px] xl:text-[14px] 2xl:text-[15px] font-semibold transition-all duration-300 flex items-center gap-0.5 lg:gap-0.5 xl:gap-1 py-2 lg:px-1.5 xl:px-2.5 whitespace-nowrap
-                                                        ${isActive ? 'text-blue-600' : 'text-slate-800 hover:text-blue-600'}
-                                                    `}
-                                                >
-                                                    {item.name}
-                                                    {item.dropdown && (
-                                                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${hoveredItem === item.name ? 'rotate-180 text-blue-600' : 'text-slate-400 group-hover:text-blue-500'}`} />
-                                                    )}
-                                                </Link>
-                                            );
-                                        })()}
-
-                                        {/* Premium Dropdown / Mega Menu */}
-                                        {item.dropdown && (
-                                            <div
-                                                className={`
-                                                    absolute top-[calc(100%+1rem)] 
-                                                    ${item.name === 'Home' ? '-left-2' : ['Offerings', 'Partners', 'Company'].includes(item.name) ? 'right-0' : 'left-1/2 -translate-x-1/2'} 
-                                                    w-[700px] xl:w-[750px]
-                                                    bg-white/95 backdrop-blur-3xl
-                                                    rounded-2xl 
-                                                    shadow-premium
-                                                    border border-slate-200 ring-1 ring-black/5
-                                                    overflow-hidden
-                                                    transform transition-all duration-300 cubic-bezier(0.16, 1, 0.3, 1) origin-top z-50
-                                                    ${hoveredItem === item.name ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 translate-y-4 invisible pointer-events-none'}
-                                                `}
-                                            >
-                                                {/* Invisible bridge */}
-                                                <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
-
-                                                <div className="flex">
-                                                    {/* LEFT PANEL */}
-                                                    <div className="w-1/3 bg-slate-100/80 border-r border-slate-200 p-6 flex flex-col gap-2">
-                                                        {item.dropdown.map((category: any, catIdx: number) => (
-                                                            <button
-                                                                key={catIdx}
-                                                                onMouseEnter={() => setActiveCategoryIndices(prev => ({ ...prev, [item.name]: catIdx }))}
-                                                                onClick={(e) => {
-                                                                    e.preventDefault();
-                                                                    setActiveCategoryIndices(prev => ({ ...prev, [item.name]: catIdx }));
-                                                                }}
-                                                                className={`
-                                                                    text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center justify-between group
-                                                                    ${activeCatIdx === catIdx 
-                                                                        ? 'bg-white shadow-sm ring-1 ring-slate-200 text-blue-600' 
-                                                                        : 'hover:bg-white/60 text-slate-600 hover:text-slate-900'}
-                                                                `}
-                                                            >
-                                                                <span className="text-[13px] font-bold">{category.title}</span>
-                                                                <ChevronDown className={`w-4 h-4 -rotate-90 transition-transform duration-300 ${activeCatIdx === catIdx ? 'text-blue-600' : 'text-slate-400 opacity-0 group-hover:opacity-100'}`} />
-                                                            </button>
-                                                        ))}
-                                                    </div>
-                                                    
-                                                    {/* RIGHT PANEL */}
-                                                    <div className="w-2/3 p-6 xl:p-8 bg-white min-h-[280px]">
-                                                        <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mb-6 select-none">
-                                                            {item.dropdown[activeCatIdx]?.title}
-                                                        </div>
-                                                        <div className="grid grid-cols-2 gap-4">
-                                                            {item.dropdown[activeCatIdx]?.items.map((subItem: any, subIdx: number) => (
-                                                                <Link
-                                                                    key={subIdx}
-                                                                    to={subItem.path}
-                                                                    className="group/item flex flex-col p-3 rounded-xl hover:bg-slate-50 transition-all duration-300 border border-transparent hover:border-slate-100"
-                                                                    onClick={(e) => {
-                                                                        const hash = subItem.path.includes('#') ? subItem.path.split('#')[1] : null;
-                                                                        if (hash) {
-                                                                            const el = document.getElementById(hash);
-                                                                            if (el) {
-                                                                                e.preventDefault();
-                                                                                const offset = 90;
-                                                                                const top = el.getBoundingClientRect().top + window.scrollY - offset;
-                                                                                window.scrollTo({ top, behavior: 'smooth' });
-                                                                            }
-                                                                        }
-                                                                    }}
-                                                                >
-                                                                    <div className="flex items-center text-[13px] font-bold text-slate-800 group-hover/item:text-blue-600 transition-colors">
-                                                                        <span>{subItem.name}</span>
-                                                                        <ArrowRight className="w-3.5 h-3.5 ml-2 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-blue-500" />
-                                                                    </div>
-                                                                </Link>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div className="bg-slate-50/80 border-t border-slate-100 p-4 flex items-center justify-between px-6 xl:px-8">
-                                                    <span className="text-[13px] font-medium text-slate-600">Need help finding the right solution?</span>
-                                                    <Link to="/book-consultation" className="text-[13px] font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1 group/cta transition-colors" onClick={() => setHoveredItem(null)}>
-                                                        Speak With Our Experts
-                                                        <ArrowRight className="w-3.5 h-3.5 group-hover/cta:translate-x-1 transition-transform" />
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        <div className="hidden lg:flex items-center ml-2 lg:ml-4 gap-2 lg:gap-3 shrink-0 h-full">
-                            <Link to="/book-consultation">
-                                <Button className="btn-cta-primary !px-4 !py-2 !min-h-[44px] text-[13px] xl:text-sm group">
-                                    <span className="relative z-10 flex items-center gap-1.5 xl:gap-2">
-                                        Book Consultation
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                    </span>
-                                </Button>
-                            </Link>
-                            <a
-                                href="https://wa.me/919944499988"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-2 xl:px-3 py-1.5 xl:py-2 rounded-full border border-slate-200 hover:border-green-400/50 bg-white hover:bg-green-50/20 text-slate-700 text-[11px] xl:text-xs font-bold transition-all duration-300 flex items-center gap-1.5 hover:shadow-md hover:shadow-green-100"
-                            >
-                                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                                <span className="hidden xl:inline">WhatsApp</span>
-                            </a>
-                        </div>
-
-                        {/* Mobile menu button */}
-                        <div className="lg:hidden flex items-center gap-4">
-                            <button
-                                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                                title={mobileMenuOpen ? "Close menu" : "Open menu"}
-                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className="text-slate-700 hover:text-blue-600 p-2 -mr-2 transition-colors relative z-50"
-                            >
-                                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                                <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
-                            </button>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-
-            {/* Mobile Navigation Panel - Modern Slide/Fade */}
-            <div
-                className={`
-                    fixed inset-0 bg-white/95 backdrop-blur-xl z-40 lg:hidden overflow-y-auto 
-                    transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)
-                    ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-[20px] pointer-events-none'}
-                `}
-                style={{ top: '0px', paddingTop: scrolled ? '64px' : '64px' }}
-            >
-                <div className="flex flex-col p-6 space-y-2 min-h-full">
-                    {navItems.map((item) => (
-                        <div key={item.name} className="border-b border-slate-100">
-                            <div className={`flex flex-col rounded-none transition-all duration-300 ${expandedItems.includes(item.name) ? 'bg-slate-50' : ''}`}>
+                            return (
                                 <div
-                                    className="flex items-center justify-between py-4 px-3 cursor-pointer group"
-                                    onClick={() => {
-                                        if (item.dropdown) {
-                                            toggleExpanded(item.name);
-                                        } else {
-                                            setMobileMenuOpen(false);
-                                        }
-                                    }}
+                                    key={item.name}
+                                    className="relative h-full flex items-center"
+                                    onMouseEnter={() => setHoveredItem(item.name)}
+                                    onMouseLeave={() => setHoveredItem(null)}
                                 >
                                     <Link
                                         to={item.path}
-                                        className={`flex-1 text-lg font-bold tracking-tight transition-colors ${location.pathname === item.path
-                                            ? 'text-blue-600'
-                                            : 'text-slate-900'
+                                        className={`flex items-center gap-1 px-3 py-2 rounded-lg text-[13px] font-semibold transition-all duration-200 whitespace-nowrap select-none
+                                            ${active ? 'text-blue-600 bg-blue-50' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+                                    >
+                                        {item.name}
+                                        {hasDD && (
+                                            <ChevronDown className={`w-3 h-3 transition-transform duration-200 flex-shrink-0
+                                                ${hoveredItem === item.name ? 'rotate-180 text-blue-500' : 'text-slate-400'}`}
+                                            />
+                                        )}
+                                    </Link>
+
+                                    {/* Mega Dropdown */}
+                                    {hasDD && (
+                                        <div className={`absolute top-[calc(100%+6px)]
+                                            ${'dropdown' in item && item.dropdown && item.dropdown.length <= 2
+                                                ? ['Offerings', 'Partners', 'Company'].includes(item.name) ? 'right-0' : 'left-1/2 -translate-x-1/2'
+                                                : ['Offerings', 'Partners', 'Company'].includes(item.name) ? 'right-0' : 'left-1/2 -translate-x-1/2'}
+                                            w-[700px] rounded-2xl bg-white border border-slate-200/80
+                                            shadow-[0_12px_48px_-8px_rgba(15,23,42,0.18),0_4px_16px_-4px_rgba(15,23,42,0.08)]
+                                            transition-all duration-200 origin-top
+                                            ${hoveredItem === item.name
+                                                ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                                                : 'opacity-0 scale-[0.97] translate-y-1.5 pointer-events-none'
                                             }`}
-                                        onClick={(e) => {
-                                            if (item.dropdown) e.preventDefault(); // Let the container click handle expansion
-                                            else setMobileMenuOpen(false);
-                                        }}
+                                        >
+                                            <div className="absolute -top-2 inset-x-0 h-2 bg-transparent" />
+                                            <div className="flex rounded-2xl overflow-hidden">
+                                                {/* Left panel */}
+                                                <div className="w-[195px] flex-shrink-0 bg-slate-50 border-r border-slate-100 p-3.5 space-y-0.5">
+                                                    <p className="text-[9.5px] font-black uppercase tracking-[0.12em] text-slate-400 px-2.5 pb-2">
+                                                        {item.name}
+                                                    </p>
+                                                    {'dropdown' in item && item.dropdown?.map((cat: any, ci: number) => {
+                                                        const CIcon = cat.icon;
+                                                        return (
+                                                            <button
+                                                                key={ci}
+                                                                onMouseEnter={() => setActiveCategoryIndices(p => ({ ...p, [item.name]: ci }))}
+                                                                className={`w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-xl text-left transition-all duration-150
+                                                                    ${activeCatIdx === ci
+                                                                        ? 'bg-white shadow-sm ring-1 ring-slate-200/80 text-blue-600'
+                                                                        : 'hover:bg-white/70 text-slate-600 hover:text-slate-900'}`}
+                                                            >
+                                                                <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors
+                                                                    ${activeCatIdx === ci ? cat.bg : 'bg-slate-100'}`}>
+                                                                    <CIcon className={`w-3.5 h-3.5 transition-colors
+                                                                        ${activeCatIdx === ci ? cat.color : 'text-slate-400'}`} />
+                                                                </div>
+                                                                <span className="text-[12px] font-semibold leading-snug">{cat.title}</span>
+                                                                <ChevronDown className={`w-3 h-3 -rotate-90 ml-auto flex-shrink-0 transition-opacity
+                                                                    ${activeCatIdx === ci ? 'opacity-100 text-blue-400' : 'opacity-0'}`} />
+                                                            </button>
+                                                        );
+                                                    })}
+                                                </div>
+
+                                                {/* Right panel */}
+                                                <div className="flex-1 p-4">
+                                                    {'dropdown' in item && (
+                                                        <>
+                                                            <p className="text-[9.5px] font-black uppercase tracking-[0.12em] text-slate-400 px-1 pb-3">
+                                                                {item.dropdown?.[activeCatIdx]?.title}
+                                                            </p>
+                                                            <div className="grid grid-cols-2 gap-0.5">
+                                                                {item.dropdown?.[activeCatIdx]?.items.map((sub: any, si: number) => {
+                                                                    const SIcon = sub.icon;
+                                                                    return (
+                                                                        <Link
+                                                                            key={si}
+                                                                            to={sub.path}
+                                                                            onClick={() => setHoveredItem(null)}
+                                                                            className="flex items-center gap-2.5 px-2.5 py-2.5 rounded-xl hover:bg-slate-50 group/s transition-all duration-150"
+                                                                        >
+                                                                            <div className="w-6.5 h-6.5 w-7 h-7 rounded-lg bg-slate-100 group-hover/s:bg-blue-50 flex items-center justify-center flex-shrink-0 transition-colors">
+                                                                                <SIcon className="w-3.5 h-3.5 text-slate-400 group-hover/s:text-blue-600 transition-colors" />
+                                                                            </div>
+                                                                            <span className="text-[12px] font-medium text-slate-700 group-hover/s:text-slate-900 leading-snug">{sub.name}</span>
+                                                                            <ArrowRight className="w-3 h-3 ml-auto text-slate-300 group-hover/s:text-blue-500 group-hover/s:translate-x-0.5 transition-all opacity-0 group-hover/s:opacity-100 flex-shrink-0" />
+                                                                        </Link>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            </div>
+
+                                            {/* Footer bar */}
+                                            <div className="border-t border-slate-100 px-5 py-3 flex items-center justify-between bg-slate-50/70 rounded-b-2xl">
+                                                <span className="text-[11.5px] text-slate-500 font-medium">Need help finding the right fit?</span>
+                                                <Link
+                                                    to="/book-consultation"
+                                                    onClick={() => setHoveredItem(null)}
+                                                    className="flex items-center gap-1 text-[12px] font-bold text-blue-600 hover:text-blue-700 transition-colors group/ft"
+                                                >
+                                                    Talk to an Expert
+                                                    <ArrowRight className="w-3 h-3 group-hover/ft:translate-x-0.5 transition-transform" />
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* ── Desktop Right CTAs ── */}
+                    <div className="hidden lg:flex items-center gap-2.5 flex-shrink-0">
+                        <a
+                            href="https://wa.me/919944499988"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-200 bg-white hover:border-green-400 hover:bg-green-50 text-slate-600 hover:text-green-700 text-[12px] font-semibold transition-all shadow-sm"
+                        >
+                            <WhatsAppIcon style={{ fontSize: 15, color: '#22c55e' }} />
+                            <span className="hidden xl:inline">WhatsApp</span>
+                        </a>
+                        <Link
+                            to="/book-consultation"
+                            className="flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-[13px] font-bold transition-all shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-px group"
+                        >
+                            Get Started
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                    </div>
+
+                    {/* ── Mobile toggle ── */}
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="lg:hidden w-9 h-9 rounded-xl flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button>
+                </nav>
+            </header>
+
+            {/* ── Mobile Menu Panel ── */}
+            <div className={`fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto transition-all duration-300
+                ${mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3 pointer-events-none'}`}
+                style={{ paddingTop: 68 }}>
+                <div className="px-4 pt-4 pb-28 space-y-0.5">
+                    {navConfig.map((item) => {
+                        const hasDD = 'dropdown' in item && !!item.dropdown;
+                        return (
+                            <div key={item.name} className="border-b border-slate-100 last:border-0">
+                                <div
+                                    className="flex items-center justify-between py-3 px-3 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
+                                    onClick={() => { if (hasDD) toggleExpanded(item.name); else setMobileMenuOpen(false); }}
+                                >
+                                    <Link
+                                        to={item.path}
+                                        className={`text-[15px] font-bold flex-1 ${location.pathname === item.path ? 'text-blue-600' : 'text-slate-900'}`}
+                                        onClick={(e) => { if (hasDD) e.preventDefault(); else setMobileMenuOpen(false); }}
                                     >
                                         {item.name}
                                     </Link>
-
-                                    {item.dropdown && (
-                                        <button
-                                            aria-label={expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}
-                                            title={expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}
-                                            className={`p-2 rounded-full transition-all duration-300 ${expandedItems.includes(item.name) ? 'bg-blue-100 text-blue-600' : 'text-slate-400'}`}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                toggleExpanded(item.name);
-                                            }}
-                                        >
-                                            <ChevronDown
-                                                className={`w-5 h-5 transition-transform duration-300 ${expandedItems.includes(item.name) ? 'rotate-180' : ''}`}
-                                            />
-                                            <span className="sr-only">{expandedItems.includes(item.name) ? "Collapse submenu" : "Expand submenu"}</span>
-                                        </button>
+                                    {hasDD && (
+                                        <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${expandedItems.includes(item.name) ? 'rotate-180' : ''}`} />
                                     )}
                                 </div>
 
-                                {/* Mobile Dropdown Items */}
-                                {item.dropdown && (
-                                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedItems.includes(item.name) ? 'max-h-[1200px] opacity-100 pb-4' : 'max-h-0 opacity-0'}`}>
-                                        <div className="space-y-4 px-3 text-left">
-                                            {item.dropdown.map((category: any, catIdx) => (
-                                                <div key={catIdx} className="space-y-1">
-                                                    <div className="text-[9px] font-extrabold text-slate-400 uppercase tracking-widest pl-4 mb-1">
-                                                        {category.title}
+                                {hasDD && (
+                                    <div className={`overflow-hidden transition-all duration-300 ${expandedItems.includes(item.name) ? 'max-h-[600px] pb-4' : 'max-h-0'}`}>
+                                        <div className="space-y-3 px-3">
+                                            {'dropdown' in item && item.dropdown?.map((cat: any, ci: number) => (
+                                                <div key={ci}>
+                                                    <p className="text-[9.5px] font-black uppercase tracking-[0.12em] text-slate-400 px-3 mb-1">{cat.title}</p>
+                                                    <div className="space-y-0.5">
+                                                        {cat.items.slice(0, 4).map((sub: any, si: number) => {
+                                                            const SIcon = sub.icon;
+                                                            return (
+                                                                <Link
+                                                                    key={si}
+                                                                    to={sub.path}
+                                                                    onClick={() => setMobileMenuOpen(false)}
+                                                                    className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all"
+                                                                >
+                                                                    <SIcon className="w-4 h-4 flex-shrink-0 text-slate-400" />
+                                                                    {sub.name}
+                                                                </Link>
+                                                            );
+                                                        })}
                                                     </div>
-                                                    {category.items.map((subItem: any, subIdx: number) => (
-                                                        <Link
-                                                            key={subIdx}
-                                                            to={subItem.path}
-                                                            className="block py-2 px-4 text-sm text-slate-700 font-semibold hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-all"
-                                                            onClick={() => setMobileMenuOpen(false)}
-                                                        >
-                                                            {subItem.name}
-                                                        </Link>
-                                                    ))}
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                 )}
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
 
-                    <div className="mt-8 pt-8 space-y-4">
-                        <Link
-                            to="/book-consultation"
-                            className="block w-full"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <Button className="btn-cta-primary w-full">
-                                Schedule Free Consultation
-                            </Button>
+                    <div className="pt-6 space-y-3">
+                        <Link to="/book-consultation" onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-[15px] transition-colors shadow-lg shadow-blue-500/20">
+                            Book Consultation <ArrowRight className="w-4 h-4" />
                         </Link>
-
-                        <a
-                            href="https://wa.me/919944499988"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <Button className="w-full bg-white text-slate-900 hover:bg-green-50 border border-slate-200 h-14 rounded-none font-bold text-lg shadow-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
-                                <WhatsAppIcon className="w-5 h-5 text-green-500" />
-                                WhatsApp
-                            </Button>
+                        <a href="https://wa.me/919944499988" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl border-2 border-slate-200 hover:border-green-400 bg-white text-slate-800 font-bold text-[15px] transition-all">
+                            <WhatsAppIcon style={{ fontSize: 20, color: '#22c55e' }} /> WhatsApp Us
                         </a>
                     </div>
                 </div>
             </div>
 
-            {/* Sticky Bottom CTA for Mobile */}
-            <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.1)] z-40 flex gap-3">
-                <Link to="/book-consultation" className="btn-cta-primary w-full text-center">
-                    Schedule Free Consultation
+            {/* ── Mobile bottom sticky bar ── */}
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 z-40 flex gap-3">
+                <Link to="/book-consultation"
+                    className="flex-1 flex items-center justify-center py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/20">
+                    Book Consultation
                 </Link>
+                <a href="https://wa.me/919944499988" target="_blank" rel="noopener noreferrer"
+                    className="w-12 flex items-center justify-center rounded-xl border border-slate-200 bg-white hover:bg-green-50 transition-colors">
+                    <WhatsAppIcon style={{ fontSize: 22, color: '#22c55e' }} />
+                </a>
             </div>
         </>
     );

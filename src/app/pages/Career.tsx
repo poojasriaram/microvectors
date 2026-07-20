@@ -117,20 +117,6 @@ export default function Career() {
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* 1. Hero Section */}
             <section className="relative bg-slate-900 text-white pt-32 pb-24 overflow-hidden">
-                {/* Background Slideshow */}
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-40" : "opacity-0"
-                            }`}
-                        style={{
-                            
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    ></div>
-                ))}
-
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">

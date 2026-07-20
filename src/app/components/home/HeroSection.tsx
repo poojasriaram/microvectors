@@ -1,4 +1,4 @@
-import { ArrowRight, ShieldCheck, Play, BarChart3, Globe, Zap, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Play, BarChart3, Globe, Zap, CheckCircle2, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { motion } from 'framer-motion';

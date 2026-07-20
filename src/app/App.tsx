@@ -32,6 +32,7 @@ const AILeadSalesTransformation = lazy(() => import('./pages/AILeadSalesTransfor
 const AIRevenueOperations = lazy(() => import('./pages/AIRevenueOperations'));
 const AIRevenueAcceleration = lazy(() => import('./pages/AIRevenueAcceleration'));
 const BehaviourAnalytics = lazy(() => import('./pages/BehaviourAnalytics'));
+const Capabilities = lazy(() => import('./pages/Capabilities'));
 
 import CookieConsent from './components/CookieConsent';
 import TabExitPopup from './components/TabExitPopup';
@@ -90,6 +91,7 @@ export default function App() {
               <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
               <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
               <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
+              <Route path="/capabilities" element={<Capabilities />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>
           </Suspense>
