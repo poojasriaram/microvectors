@@ -2,269 +2,291 @@ const fs = require('fs');
 const path = require('path');
 
 const navItems = [
-    { name: 'Home', path: '/' },
     {
-        name: 'Capabilities', path: '/capabilities',
+        name: 'Home',
+        path: '/'
+    },
+    {
+        name: 'Capabilities',
+        path: '/capabilities',
         dropdown: {
             featured: [
-                { title: "Generative AI Framework", desc: "Build custom LLM agents", path: "/explore/generative-ai" },
-                { title: "Enterprise Cloud Landing Zones", desc: "Secure multi-cloud setup", path: "/explore/cloud-computing" }
+                { title: "AI Demand Discovery", desc: "Predictive deal intelligence", path: "/explore/ai-demand-discovery" },
+                { title: "AI Revenue Operations", desc: "Sales ops automation", path: "/explore/ai-revenue-operations" }
             ],
             highlight: {
-                title: "100+ Projects Delivered",
-                desc: "Discover how we transformed Fortune 500 companies with AI.",
+                title: "Boost Win Rates by 4X",
+                desc: "Predictive Deal Intelligence & Deal Dynamics.",
                 image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80",
-                linkText: "View Case Studies",
-                linkPath: "/case-studies"
+                linkText: "View Capabilities",
+                linkPath: "/capabilities"
             },
             items: [
-                { name: "Artificial Intelligence", path: "/explore/artificial-intelligence", icon: "BrainCircuit" },
-                { name: "Machine Learning", path: "/explore/machine-learning", icon: "Network" },
-                { name: "Generative AI", path: "/explore/generative-ai", icon: "Sparkles" },
-                { name: "Enterprise AI", path: "/explore/enterprise-ai", icon: "Building2" },
-                { name: "Agentic AI", path: "/explore/agentic-ai", icon: "Bot" },
-                { name: "Cloud Computing", path: "/explore/cloud-computing", icon: "Cloud" },
-                { name: "Automation", path: "/explore/automation", icon: "Workflow" },
-                { name: "Cyber Security", path: "/explore/cyber-security", icon: "Shield" },
-                { name: "Data Engineering", path: "/explore/data-engineering", icon: "Database" },
-                { name: "DevOps", path: "/explore/devops", icon: "GitMerge" },
-                { name: "Digital Transformation", path: "/explore/digital-transformation", icon: "RefreshCw" },
-                { name: "Enterprise Consulting", path: "/explore/enterprise-consulting", icon: "Briefcase" }
+                { name: "Demand Pulse", path: "/explore/demand-pulse", icon: "HeartPulse" },
+                { name: "AI Demand Discovery", path: "/explore/ai-demand-discovery", icon: "Search" },
+                { name: "AI Lead Generation", path: "/explore/ai-lead-generation", icon: "Users" },
+                { name: "AI Lead Nurturing", path: "/explore/ai-lead-nurturing", icon: "MessageSquare" },
+                { name: "AI MVP Validation", path: "/explore/ai-mvp-validation", icon: "ShieldCheck" },
+                { name: "AI Sales Transformation", path: "/explore/ai-sales-transformation", icon: "RefreshCw" },
+                { name: "AI Revenue Operations", path: "/explore/ai-revenue-operations", icon: "Settings" },
+                { name: "AI Revenue Acceleration", path: "/explore/ai-revenue-acceleration", icon: "TrendingUp" }
             ]
         }
     },
     {
-        name: 'Crypto', path: '/crypto',
+        name: 'Crypto',
+        path: '/crypto',
         dropdown: {
             featured: [
-                { title: "Zero-Knowledge Proofs", desc: "Enterprise privacy protocols", path: "/explore/blockchain-development" },
-                { title: "Smart Contract Audits", desc: "Military-grade security", path: "/explore/smart-contracts" }
+                { title: "Web3 Ecosystems", desc: "L1 & L2 protocol scaling", path: "/explore/crypto-demand-discovery" },
+                { title: "DeFi Platforms", desc: "Sustainable liquidity", path: "/explore/crypto-growth" }
             ],
             highlight: {
-                title: "Bank-Grade Security",
-                desc: "We secure over $2B in digital assets for our clients.",
+                title: "High-Velocity Web3",
+                desc: "Built for High-Velocity Web3 & Crypto Ecosystems.",
                 image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&q=80",
                 linkText: "Learn More",
-                linkPath: "/crypto-security"
+                linkPath: "/crypto"
             },
             items: [
-                { name: "Blockchain Development", path: "/explore/blockchain-development", icon: "Link" },
-                { name: "Web3 Solutions", path: "/explore/web3-solutions", icon: "Globe" },
-                { name: "Smart Contracts", path: "/explore/smart-contracts", icon: "FileCode2" },
-                { name: "Digital Asset Solutions", path: "/explore/digital-asset-solutions", icon: "Coins" },
-                { name: "Tokenization", path: "/explore/tokenization", icon: "Boxes" },
-                { name: "Crypto Infrastructure", path: "/explore/crypto-infrastructure", icon: "Server" },
-                { name: "NFT Solutions", path: "/explore/nft-solutions", icon: "Image" },
-                { name: "Blockchain Consulting", path: "/explore/blockchain-consulting", icon: "MessageSquare" }
+                { name: "Crypto Revenue Acceleration", path: "/explore/crypto-revenue", icon: "TrendingUp" },
+                { name: "Crypto Demand Discovery", path: "/explore/crypto-demand-discovery", icon: "Search" },
+                { name: "Crypto Performance Revenue", path: "/explore/crypto-performance", icon: "Coins" },
+                { name: "Crypto Growth Acceleration", path: "/explore/crypto-growth", icon: "Rocket" },
+                { name: "Market Validation Intelligence", path: "/explore/crypto-market-validation", icon: "Target" },
+                { name: "Customer Journey Intelligence", path: "/explore/crypto-journey", icon: "MapPin" },
+                { name: "Startup MVP Acceleration", path: "/explore/crypto-startup", icon: "Lightbulb" }
             ]
         }
     },
     {
-        name: 'Outcomes', path: '/outcomes',
+        name: 'Outcomes',
+        path: '/outcomes',
         dropdown: {
             featured: [
-                { title: "Revenue Operations", desc: "Automate sales cycles", path: "/explore/business-growth" },
-                { title: "Supply Chain AI", desc: "Predictive logistics", path: "/explore/operational-excellence" }
+                { title: "Enterprise Sales", desc: "Predictable scaling", path: "/explore/enterprise-sales" },
+                { title: "BFSI Acceleration", desc: "Regulated growth", path: "/explore/bfsi-sales" }
             ],
             highlight: {
-                title: "Guaranteed ROI",
-                desc: "Our deployments average a 314% ROI within the first year.",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80",
-                linkText: "Read the Report",
-                linkPath: "/roi-report"
-            },
-            items: [
-                { name: "Increased Productivity", path: "/explore/increased-productivity", icon: "TrendingUp" },
-                { name: "Business Growth", path: "/explore/business-growth", icon: "BarChart" },
-                { name: "Cost Optimization", path: "/explore/cost-optimization", icon: "PieChart" },
-                { name: "Operational Excellence", path: "/explore/operational-excellence", icon: "Settings" },
-                { name: "Customer Experience", path: "/explore/customer-experience", icon: "Smile" },
-                { name: "Digital Transformation", path: "/explore/digital-transformation-outcomes", icon: "Layers" },
-                { name: "AI Adoption", path: "/explore/ai-adoption", icon: "Cpu" },
-                { name: "ROI Improvements", path: "/explore/roi-improvements", icon: "DollarSign" }
-            ]
-        }
-    },
-    {
-        name: 'Solutions', path: '/solutions',
-        dropdown: {
-            featured: [
-                { title: "Conversational AI", desc: "Next-gen support bots", path: "/explore/ai-solutions-group" },
-                { title: "Hybrid Cloud Manager", desc: "Unified infrastructure", path: "/explore/cloud-solutions-group" }
-            ],
-            highlight: {
-                title: "Enterprise Grade Solutions",
-                desc: "Built to scale globally with 99.999% uptime SLAs.",
+                title: "Measurable Outcomes",
+                desc: "Turning AI insights into measurable impact.",
                 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80",
-                linkText: "View Architecture",
-                linkPath: "/architecture"
+                linkText: "See Outcomes",
+                linkPath: "/outcomes"
             },
             items: [
-                { name: "AI Solutions", path: "/explore/ai-solutions-group", icon: "Brain" },
-                { name: "Cloud Solutions", path: "/explore/cloud-solutions-group", icon: "CloudRain" },
-                { name: "Enterprise Solutions", path: "/explore/enterprise-solutions-group", icon: "Building" },
-                { name: "SaaS Solutions", path: "/explore/saas-solutions", icon: "AppWindow" },
-                { name: "Automation Solutions", path: "/explore/automation-solutions-group", icon: "Zap" },
-                { name: "Custom Software", path: "/explore/custom-software-development", icon: "Code2" },
-                { name: "Managed Services", path: "/explore/managed-services", icon: "ShieldCheck" },
-                { name: "Consulting Services", path: "/explore/consulting-services", icon: "Users" }
+                { name: "AI Demand Discovery", path: "/explore/ai-demand-discovery", icon: "Search" },
+                { name: "AI-Driven Revenue Acceleration", path: "/explore/revenue-acceleration", icon: "TrendingUp" },
+                { name: "AI-Driven Growth Hacking", path: "/explore/growth-hacking", icon: "Rocket" },
+                { name: "AI-Driven Performance Marketing", path: "/explore/performance-marketing", icon: "BarChart" },
+                { name: "Enterprise Sales Acceleration", path: "/explore/enterprise-sales", icon: "Building2" },
+                { name: "Digital & Inside Sales", path: "/explore/digital-sales", icon: "Layout" },
+                { name: "D2C & High-Velocity Sales", path: "/explore/d2c-sales", icon: "ShoppingBag" },
+                { name: "BFSI Sales Acceleration", path: "/explore/bfsi-sales", icon: "Landmark" }
             ]
         }
     },
     {
-        name: 'Industries', path: '/industries',
+        name: 'Solutions',
+        path: '/solutions',
         dropdown: {
             featured: [
-                { title: "Predictive Healthcare", desc: "AI-driven diagnostics", path: "/explore/healthcare" },
-                { title: "FinTech Infrastructure", desc: "Core banking modernization", path: "/explore/finance" }
+                { title: "AI Business Strategy", desc: "Market intelligence", path: "/explore/ai-business-strategy" },
+                { title: "AI Auto Sales Pilot", desc: "Autonomous agents", path: "/explore/ai-auto-sales-pilot" }
             ],
             highlight: {
-                title: "Industry Specialists",
-                desc: "Our teams are composed of veterans from top Fortune 500s.",
+                title: "Comprehensive Solutions",
+                desc: "End-to-end AI-driven growth solutions for enterprises.",
                 image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
-                linkText: "Meet the Team",
-                linkPath: "/team"
+                linkText: "View Solutions",
+                linkPath: "/solutions"
             },
             items: [
-                { name: "Healthcare", path: "/explore/healthcare", icon: "HeartPulse" },
-                { name: "Finance", path: "/explore/finance", icon: "Landmark" },
-                { name: "Retail", path: "/explore/retail", icon: "ShoppingBag" },
-                { name: "Manufacturing", path: "/explore/manufacturing", icon: "Factory" },
-                { name: "Education", path: "/explore/education", icon: "GraduationCap" },
-                { name: "Logistics", path: "/explore/logistics", icon: "Truck" },
-                { name: "Government", path: "/explore/government", icon: "Landmark" },
-                { name: "Startups", path: "/explore/startups", icon: "Rocket" },
-                { name: "Enterprises", path: "/explore/enterprises", icon: "Building2" },
-                { name: "Real Estate", path: "/explore/real-estate", icon: "Home" },
-                { name: "Telecom", path: "/explore/telecom", icon: "Radio" }
+                { name: "AI Business Growth Strategy", path: "/explore/ai-business-strategy", icon: "TrendingUp" },
+                { name: "AI Market Strategy & Demand", path: "/explore/ai-market-strategy", icon: "Target" },
+                { name: "AI-Driven Growth Hacking", path: "/explore/growth-hacking", icon: "Rocket" },
+                { name: "AI-Driven Performance Marketing", path: "/explore/performance-marketing", icon: "BarChart" },
+                { name: "AI Auto Sales Pilot", path: "/explore/ai-auto-sales-pilot", icon: "Bot" },
+                { name: "AI Sales Process Optimization", path: "/explore/sales-optimization", icon: "Settings" },
+                { name: "AI Revenue Operations", path: "/explore/ai-revenue-operations", icon: "Server" },
+                { name: "AI Revenue Acceleration", path: "/explore/ai-revenue-acceleration", icon: "Zap" }
             ]
         }
     },
     {
-        name: 'Offerings', path: '/offerings',
+        name: 'Industries',
+        path: '/industries',
         dropdown: {
             featured: [
-                { title: "Team Augmentation", desc: "Scale your dev teams", path: "/explore/staff-augmentation" },
-                { title: "Security Audits", desc: "Penetration testing", path: "/explore/security-assessments" }
+                { title: "E-commerce", desc: "D2C growth", path: "/explore/ecommerce" },
+                { title: "BFSI", desc: "Banking & Lending", path: "/explore/bfsi" }
             ],
             highlight: {
-                title: "Global Delivery Model",
-                desc: "Follow-the-sun delivery ensuring 24/7 continuous engineering.",
+                title: "Industry Expertise",
+                desc: "Tailored revenue acceleration for your specific industry.",
                 image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-                linkText: "Learn How",
-                linkPath: "/delivery"
+                linkText: "Learn More",
+                linkPath: "/industries"
             },
             items: [
-                { name: "AI Consulting", path: "/explore/ai-consulting", icon: "Lightbulb" },
-                { name: "Product Engineering", path: "/explore/product-engineering", icon: "Wrench" },
-                { name: "Cloud Migration", path: "/explore/cloud-migration", icon: "CloudCog" },
-                { name: "Staff Augmentation", path: "/explore/staff-augmentation", icon: "UserPlus" },
-                { name: "Managed Services", path: "/explore/managed-services-offering", icon: "ShieldCheck" },
-                { name: "UI/UX Services", path: "/explore/ui-ux-services", icon: "Layout" },
-                { name: "Security Assessments", path: "/explore/security-assessments", icon: "Search" },
-                { name: "Technical Support", path: "/explore/technical-support", icon: "LifeBuoy" },
-                { name: "Training Services", path: "/explore/training-services", icon: "BookOpen" }
+                { name: "E-commerce & D2C", path: "/explore/ecommerce", icon: "ShoppingBag" },
+                { name: "Consumer Durables", path: "/explore/consumer-durables", icon: "Home" },
+                { name: "BFSI & FinTech", path: "/explore/bfsi", icon: "Landmark" },
+                { name: "FMCG", path: "/explore/fmcg", icon: "Boxes" },
+                { name: "SaaS & Enterprise Software", path: "/explore/saas", icon: "Cloud" },
+                { name: "Manufacturing", path: "/explore/manufacturing", icon: "Factory" },
+                { name: "Real Estate", path: "/explore/real-estate", icon: "Building" },
+                { name: "Crypto & Web3", path: "/explore/crypto-industry", icon: "Coins" }
             ]
         }
     },
     {
-        name: 'Partners', path: '/partners',
+        name: 'Offerings',
+        path: '/offerings',
         dropdown: {
             featured: [
-                { title: "AWS Premier Partner", desc: "Advanced cloud capabilities", path: "/explore/cloud-partners" },
-                { title: "Microsoft Gold", desc: "Azure integration specialists", path: "/explore/cloud-partners" }
+                { title: "Sales Intelligence", desc: "Real-time deal analytics", path: "/explore/sales-intelligence" },
+                { title: "RevOps Intelligence", desc: "Unified CRM automation", path: "/explore/revenue-ops-intelligence" }
             ],
             highlight: {
-                title: "Ecosystem Growth",
-                desc: "Join 50+ global partners delivering excellence.",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
+                title: "Enterprise Offerings",
+                desc: "Turnkey AI sales engines and revenue intelligence.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
+                linkText: "View All Offerings",
+                linkPath: "/offerings"
+            },
+            items: [
+                { name: "AI-Powered Sales Intelligence", path: "/explore/sales-intelligence", icon: "Sparkles" },
+                { name: "Revenue Operations & Intelligence", path: "/explore/revenue-ops-intelligence", icon: "Server" },
+                { name: "Digital Marketing & Demand Gen", path: "/explore/digital-marketing", icon: "TrendingUp" },
+                { name: "Market & Demand Intelligence", path: "/explore/market-intelligence", icon: "Search" },
+                { name: "Market Validation & Research", path: "/explore/market-validation-offering", icon: "Target" },
+                { name: "Product Scaling & Growth", path: "/explore/product-scaling", icon: "Rocket" }
+            ]
+        }
+    },
+    {
+        name: 'Partners',
+        path: '/partners',
+        dropdown: {
+            featured: [
+                { title: "Solution Partners", desc: "Implementation experts", path: "/explore/solution-partners" },
+                { title: "Technology Partners", desc: "Platform integrations", path: "/explore/technology-partners" }
+            ],
+            highlight: {
+                title: "Global Partner Ecosystem",
+                desc: "Co-sell and build next-gen AI revenue systems together.",
+                image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80",
                 linkText: "Become a Partner",
-                linkPath: "/partner-program"
+                linkPath: "/partners"
             },
             items: [
+                { name: "Partner Program Overview", path: "/explore/partner-overview", icon: "Handshake" },
+                { name: "Solution Partners", path: "/explore/solution-partners", icon: "Building2" },
                 { name: "Technology Partners", path: "/explore/technology-partners", icon: "Cpu" },
-                { name: "Cloud Partners", path: "/explore/cloud-partners", icon: "Cloud" },
-                { name: "Strategic Partners", path: "/explore/strategic-partners", icon: "Target" },
-                { name: "Implementation Partners", path: "/explore/implementation-partners", icon: "Wrench" },
-                { name: "Ecosystem Partners", path: "/explore/ecosystem-partners", icon: "Network" }
+                { name: "Referral Partners", path: "/explore/referral-partners", icon: "UserPlus" }
             ]
         }
     },
     {
-        name: 'Company', path: '/company',
+        name: 'Company',
+        path: '/company',
         dropdown: {
             featured: [
-                { title: "Latest Press Release", desc: "MicroVectors expands to Europe", path: "/explore/news-media" },
-                { title: "Life at MicroVectors", desc: "See our amazing culture", path: "/explore/careers" }
+                { title: "About Us", desc: "Our mission and vision", path: "/about" },
+                { title: "Careers", desc: "Join our team", path: "/careers" }
             ],
             highlight: {
-                title: "Join Our Team",
-                desc: "We are hiring passionate engineers globally.",
-                image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80",
-                linkText: "View Open Roles",
-                linkPath: "/explore/careers"
+                title: "Trustgrid AI",
+                desc: "We are engineering growth and automating scale.",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
+                linkText: "Meet the Team",
+                linkPath: "/company"
             },
             items: [
-                { name: "About Us", path: "/explore/about-us", icon: "Info" },
-                { name: "Mission & Vision", path: "/explore/mission-vision", icon: "Target" },
-                { name: "Leadership Team", path: "/explore/leadership-team", icon: "Users" },
-                { name: "Careers", path: "/explore/careers", icon: "Briefcase" },
-                { name: "Blogs", path: "/explore/blogs", icon: "FileText" },
-                { name: "News & Media", path: "/explore/news-media", icon: "Radio" },
-                { name: "CSR Activities", path: "/explore/csr", icon: "HeartPulse" },
+                { name: "About Us", path: "/about", icon: "Info" },
+                { name: "Mission", path: "/mission", icon: "Target" },
+                { name: "Leadership & Culture", path: "/leadership", icon: "Users" },
+                { name: "Our Offices", path: "/offices", icon: "MapPin" },
+                { name: "Careers", path: "/careers", icon: "Briefcase" },
                 { name: "Contact Us", path: "/contact", icon: "Phone" }
             ]
         }
     }
 ];
 
-const generateContentForService = (category, name) => {
-    // Shared structure for all pages
-    const base = `
-        title: "${name}",
-        category: "${category}",
-        heroDescription: "Empower your enterprise with our cutting-edge ${name} capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for ${name}." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]`;
-
+const generateContentForService = (category, name, slug) => {
     return `
-        ${base}
-    `;
+        title: ${JSON.stringify(name)},
+        category: ${JSON.stringify(category)},
+        heroDescription: ${JSON.stringify(`Empower your organization with TrustGrid's enterprise-grade ${name} capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.`)},
+        features: [
+            { title: ${JSON.stringify(`Predictive ${name} Intelligence`)}, description: ${JSON.stringify(`Deploy proprietary AI models trained to identify high-intent buyer behavior and automate ${name} execution.`)} },
+            { title: "Autonomous Execution Agents", description: ${JSON.stringify(`Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement.`)} },
+            { title: "Enterprise Systems Integration", description: ${JSON.stringify(`Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance.`)} },
+            { title: "Real-time Deal Dynamics", description: ${JSON.stringify(`Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X.`)} }
+        ],
+        benefits: [
+            ${JSON.stringify(`Accelerated revenue velocity by up to 500% in 12 months`)},
+            ${JSON.stringify(`4X increase in qualified win rates via predictive deal scoring`)},
+            ${JSON.stringify(`Zero manual data entry with 100% automated CRM RevOps`)},
+            ${JSON.stringify(`Enterprise bank-grade security & ISO 27001 / SOC2 compliance`)}
+        ],
+        faqs: [
+            { question: ${JSON.stringify(`How quickly can TrustGrid deploy ${name}?`)}, answer: ${JSON.stringify(`Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks.`)} },
+            { question: "What infrastructure integrations are supported?", answer: ${JSON.stringify(`TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box.`)} },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: ${JSON.stringify(`Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers.`)} },
+            { title: "Complex B2B Deal Navigation", description: ${JSON.stringify(`Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times.`)} }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
+        ]`;
 };
 
 let allServicesEntries = [];
+const processedSlugs = new Set();
 
 navItems.forEach(item => {
     if (item.dropdown && item.dropdown.items) {
         item.dropdown.items.forEach(sub => {
-            const slug = sub.path.split('/').pop();
-            if(slug !== 'contact') {
-                allServicesEntries.push(`"${slug}": {${generateContentForService(item.name, sub.name)}}`);
+            const slug = sub.path.startsWith('/explore/') ? sub.path.replace('/explore/', '') : sub.path.replace('/', '');
+            if(!['about', 'mission', 'leadership', 'offices', 'careers', 'contact'].includes(slug) && !processedSlugs.has(slug)) {
+                processedSlugs.add(slug);
+                allServicesEntries.push(`"${slug}": {\n${generateContentForService(item.name, sub.name, slug)}\n}`);
             }
         });
     }
 });
 
-const dataFileContent = `
-export interface ServiceData {
+const dataFileContent = `export interface ServiceData {
     title: string;
     category: string;
     heroDescription: string;
     features: { title: string; description: string }[];
     benefits: string[];
     faqs: { question: string; answer: string }[];
+    useCases?: { title: string; description: string }[];
+    technologies?: string[];
+    architectureDiagrams?: { src: string; title: string; description: string }[];
+    kpis?: { metric: string; label: string }[];
+    successStories?: { title: string; description: string }[];
+    serviceModels?: { title: string; description: string }[];
+    projectLifecycle?: { step: string; description: string; desc?: string }[];
 }
 
 export const servicesData: Record<string, ServiceData> = {
-    ${allServicesEntries.join(',\n')}
+${allServicesEntries.join(',\n')}
 };
 
 export const smNavItems = ${JSON.stringify(navItems, null, 4)};
@@ -273,4 +295,4 @@ export const smNavItems = ${JSON.stringify(navItems, null, 4)};
 const dataDir = path.join(__dirname, 'src/data');
 fs.writeFileSync(path.join(dataDir, 'navigationContent.ts'), dataFileContent, 'utf8');
 
-console.log('Successfully generated expanded content data schema for the 3-column enterprise layout.');
+console.log('Successfully updated navigation schema without 2nd navbar item.');

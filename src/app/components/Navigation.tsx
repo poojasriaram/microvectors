@@ -45,7 +45,7 @@ export default function Navigation() {
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b h-16 lg:h-[72px] flex items-center ${scrolled ? 'bg-white shadow-sm border-slate-200' : 'bg-white border-slate-100'}`}>
-            <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full">
+            <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full relative">
                 <div className="flex items-center justify-between h-full">
                     {/* Logo */}
                     <div className="flex-shrink-0 relative z-50">
@@ -64,7 +64,7 @@ export default function Navigation() {
                             return (
                                 <div
                                     key={item.name}
-                                    className="relative group h-full flex items-center"
+                                    className="group h-full flex items-center"
                                     onMouseEnter={() => setHoveredItem(item.name)}
                                     onMouseLeave={() => setHoveredItem(null)}
                                 >
@@ -85,7 +85,7 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <div
                                             className={`
-                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[1000px] bg-white border border-slate-100 shadow-2xl rounded-xl
+                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[1000px] max-w-[calc(100vw-2rem)] bg-white border border-slate-100 shadow-2xl rounded-xl
                                                 transition-all duration-200 origin-top overflow-hidden
                                                 ${hoveredItem === item.name ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'}
                                             `}

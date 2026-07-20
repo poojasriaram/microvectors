@@ -93,6 +93,12 @@ export default function App() {
               <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
               <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
               <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
+              <Route path="/about" element={<Navigate to="/company" replace />} />
+              <Route path="/mission" element={<Navigate to="/company" replace />} />
+              <Route path="/leadership" element={<Navigate to="/company" replace />} />
+              <Route path="/offices" element={<Navigate to="/company" replace />} />
+              <Route path="/careers" element={<Navigate to="/career" replace />} />
+              <Route path="/contact" element={<Navigate to="/book-consultation" replace />} />
               <Route path="/explore/:slug" element={<ServiceDetail />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>

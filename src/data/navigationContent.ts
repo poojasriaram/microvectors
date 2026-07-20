@@ -1,4 +1,3 @@
-
 export interface ServiceData {
     title: string;
     category: string;
@@ -6,1097 +5,1688 @@ export interface ServiceData {
     features: { title: string; description: string }[];
     benefits: string[];
     faqs: { question: string; answer: string }[];
+    useCases?: { title: string; description: string }[];
+    technologies?: string[];
+    architectureDiagrams?: { src: string; title: string; description: string }[];
+    kpis?: { metric: string; label: string }[];
+    successStories?: { title: string; description: string }[];
+    serviceModels?: { title: string; description: string }[];
+    projectLifecycle?: { step: string; description: string; desc?: string }[];
 }
 
 export const servicesData: Record<string, ServiceData> = {
-    "artificial-intelligence": {
-        
-        title: "Artificial Intelligence",
+"demand-pulse": {
+
+        title: "Demand Pulse",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Artificial Intelligence capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Demand Pulse capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Artificial Intelligence." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Demand Pulse Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Demand Pulse execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Demand Pulse?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"machine-learning": {
-        
-        title: "Machine Learning",
+},
+"ai-demand-discovery": {
+
+        title: "AI Demand Discovery",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Machine Learning capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Demand Discovery capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Machine Learning." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Demand Discovery Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Demand Discovery execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Demand Discovery?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"generative-ai": {
-        
-        title: "Generative AI",
+},
+"ai-lead-generation": {
+
+        title: "AI Lead Generation",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Generative AI capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Lead Generation capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Generative AI." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Lead Generation Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Lead Generation execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Lead Generation?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"enterprise-ai": {
-        
-        title: "Enterprise AI",
+},
+"ai-lead-nurturing": {
+
+        title: "AI Lead Nurturing",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Enterprise AI capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Lead Nurturing capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Enterprise AI." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Lead Nurturing Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Lead Nurturing execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Lead Nurturing?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"agentic-ai": {
-        
-        title: "Agentic AI",
+},
+"ai-mvp-validation": {
+
+        title: "AI MVP Validation",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Agentic AI capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI MVP Validation capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Agentic AI." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI MVP Validation Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI MVP Validation execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI MVP Validation?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cloud-computing": {
-        
-        title: "Cloud Computing",
+},
+"ai-sales-transformation": {
+
+        title: "AI Sales Transformation",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Cloud Computing capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Sales Transformation capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cloud Computing." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Sales Transformation Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Sales Transformation execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Sales Transformation?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"automation": {
-        
-        title: "Automation",
+},
+"ai-revenue-operations": {
+
+        title: "AI Revenue Operations",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Automation capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Revenue Operations capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Automation." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Revenue Operations Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Revenue Operations execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Revenue Operations?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cyber-security": {
-        
-        title: "Cyber Security",
+},
+"ai-revenue-acceleration": {
+
+        title: "AI Revenue Acceleration",
         category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Cyber Security capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Revenue Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cyber Security." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Revenue Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Revenue Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"data-engineering": {
-        
-        title: "Data Engineering",
-        category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Data Engineering capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Data Engineering." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"devops": {
-        
-        title: "DevOps",
-        category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge DevOps capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for DevOps." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { question: "How quickly can TrustGrid deploy AI Revenue Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"digital-transformation": {
-        
-        title: "Digital Transformation",
-        category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Digital Transformation capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Digital Transformation." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"enterprise-consulting": {
-        
-        title: "Enterprise Consulting",
-        category: "Capabilities",
-        heroDescription: "Empower your enterprise with our cutting-edge Enterprise Consulting capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Enterprise Consulting." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"blockchain-development": {
-        
-        title: "Blockchain Development",
+},
+"crypto-revenue": {
+
+        title: "Crypto Revenue Acceleration",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Blockchain Development capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Crypto Revenue Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Blockchain Development." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Crypto Revenue Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Crypto Revenue Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Crypto Revenue Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"web3-solutions": {
-        
-        title: "Web3 Solutions",
+},
+"crypto-demand-discovery": {
+
+        title: "Crypto Demand Discovery",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Web3 Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Crypto Demand Discovery capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Web3 Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Crypto Demand Discovery Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Crypto Demand Discovery execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Crypto Demand Discovery?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"smart-contracts": {
-        
-        title: "Smart Contracts",
+},
+"crypto-performance": {
+
+        title: "Crypto Performance Revenue",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Smart Contracts capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Crypto Performance Revenue capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Smart Contracts." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Crypto Performance Revenue Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Crypto Performance Revenue execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Crypto Performance Revenue?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"digital-asset-solutions": {
-        
-        title: "Digital Asset Solutions",
+},
+"crypto-growth": {
+
+        title: "Crypto Growth Acceleration",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Digital Asset Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Crypto Growth Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Digital Asset Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Crypto Growth Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Crypto Growth Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Crypto Growth Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"tokenization": {
-        
-        title: "Tokenization",
+},
+"crypto-market-validation": {
+
+        title: "Market Validation Intelligence",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Tokenization capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Market Validation Intelligence capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Tokenization." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Market Validation Intelligence Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Market Validation Intelligence execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Market Validation Intelligence?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"crypto-infrastructure": {
-        
-        title: "Crypto Infrastructure",
+},
+"crypto-journey": {
+
+        title: "Customer Journey Intelligence",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Crypto Infrastructure capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Customer Journey Intelligence capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Crypto Infrastructure." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Customer Journey Intelligence Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Customer Journey Intelligence execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Customer Journey Intelligence?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"nft-solutions": {
-        
-        title: "NFT Solutions",
+},
+"crypto-startup": {
+
+        title: "Startup MVP Acceleration",
         category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge NFT Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Startup MVP Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for NFT Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Startup MVP Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Startup MVP Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"blockchain-consulting": {
-        
-        title: "Blockchain Consulting",
-        category: "Crypto",
-        heroDescription: "Empower your enterprise with our cutting-edge Blockchain Consulting capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Blockchain Consulting." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Startup MVP Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"increased-productivity": {
-        
-        title: "Increased Productivity",
+},
+"revenue-acceleration": {
+
+        title: "AI-Driven Revenue Acceleration",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Increased Productivity capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI-Driven Revenue Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Increased Productivity." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI-Driven Revenue Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI-Driven Revenue Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI-Driven Revenue Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"business-growth": {
-        
-        title: "Business Growth",
+},
+"growth-hacking": {
+
+        title: "AI-Driven Growth Hacking",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Business Growth capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI-Driven Growth Hacking capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Business Growth." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI-Driven Growth Hacking Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI-Driven Growth Hacking execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI-Driven Growth Hacking?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cost-optimization": {
-        
-        title: "Cost Optimization",
+},
+"performance-marketing": {
+
+        title: "AI-Driven Performance Marketing",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Cost Optimization capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI-Driven Performance Marketing capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cost Optimization." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI-Driven Performance Marketing Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI-Driven Performance Marketing execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI-Driven Performance Marketing?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"operational-excellence": {
-        
-        title: "Operational Excellence",
+},
+"enterprise-sales": {
+
+        title: "Enterprise Sales Acceleration",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Operational Excellence capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Enterprise Sales Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Operational Excellence." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Enterprise Sales Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Enterprise Sales Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Enterprise Sales Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"customer-experience": {
-        
-        title: "Customer Experience",
+},
+"digital-sales": {
+
+        title: "Digital & Inside Sales",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Customer Experience capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Digital & Inside Sales capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Customer Experience." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Digital & Inside Sales Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Digital & Inside Sales execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Digital & Inside Sales?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"digital-transformation-outcomes": {
-        
-        title: "Digital Transformation",
+},
+"d2c-sales": {
+
+        title: "D2C & High-Velocity Sales",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge Digital Transformation capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade D2C & High-Velocity Sales capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Digital Transformation." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive D2C & High-Velocity Sales Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate D2C & High-Velocity Sales execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy D2C & High-Velocity Sales?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"ai-adoption": {
-        
-        title: "AI Adoption",
+},
+"bfsi-sales": {
+
+        title: "BFSI Sales Acceleration",
         category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge AI Adoption capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade BFSI Sales Acceleration capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for AI Adoption." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive BFSI Sales Acceleration Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate BFSI Sales Acceleration execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"roi-improvements": {
-        
-        title: "ROI Improvements",
-        category: "Outcomes",
-        heroDescription: "Empower your enterprise with our cutting-edge ROI Improvements capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for ROI Improvements." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy BFSI Sales Acceleration?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"ai-solutions-group": {
-        
-        title: "AI Solutions",
+},
+"ai-business-strategy": {
+
+        title: "AI Business Growth Strategy",
         category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge AI Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Business Growth Strategy capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for AI Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Business Growth Strategy Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Business Growth Strategy execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Business Growth Strategy?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cloud-solutions-group": {
-        
-        title: "Cloud Solutions",
+},
+"ai-market-strategy": {
+
+        title: "AI Market Strategy & Demand",
         category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Cloud Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Market Strategy & Demand capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cloud Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Market Strategy & Demand Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Market Strategy & Demand execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Market Strategy & Demand?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"enterprise-solutions-group": {
-        
-        title: "Enterprise Solutions",
+},
+"ai-auto-sales-pilot": {
+
+        title: "AI Auto Sales Pilot",
         category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Enterprise Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Auto Sales Pilot capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Enterprise Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Auto Sales Pilot Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Auto Sales Pilot execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI Auto Sales Pilot?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"saas-solutions": {
-        
-        title: "SaaS Solutions",
+},
+"sales-optimization": {
+
+        title: "AI Sales Process Optimization",
         category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge SaaS Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI Sales Process Optimization capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for SaaS Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI Sales Process Optimization Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI Sales Process Optimization execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"automation-solutions-group": {
-        
-        title: "Automation Solutions",
-        category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Automation Solutions capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Automation Solutions." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"custom-software-development": {
-        
-        title: "Custom Software",
-        category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Custom Software capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Custom Software." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { question: "How quickly can TrustGrid deploy AI Sales Process Optimization?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"managed-services": {
-        
-        title: "Managed Services",
-        category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Managed Services capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Managed Services." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"consulting-services": {
-        
-        title: "Consulting Services",
-        category: "Solutions",
-        heroDescription: "Empower your enterprise with our cutting-edge Consulting Services capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Consulting Services." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"healthcare": {
-        
-        title: "Healthcare",
+},
+"ecommerce": {
+
+        title: "E-commerce & D2C",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Healthcare capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade E-commerce & D2C capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Healthcare." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive E-commerce & D2C Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate E-commerce & D2C execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy E-commerce & D2C?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"finance": {
-        
-        title: "Finance",
+},
+"consumer-durables": {
+
+        title: "Consumer Durables",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Finance capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Consumer Durables capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Finance." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Consumer Durables Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Consumer Durables execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Consumer Durables?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"retail": {
-        
-        title: "Retail",
+},
+"bfsi": {
+
+        title: "BFSI & FinTech",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Retail capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade BFSI & FinTech capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Retail." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive BFSI & FinTech Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate BFSI & FinTech execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy BFSI & FinTech?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
+},
+"fmcg": {
+
+        title: "FMCG",
+        category: "Industries",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade FMCG capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
+        features: [
+            { title: "Predictive FMCG Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate FMCG execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
+        ],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
+        faqs: [
+            { question: "How quickly can TrustGrid deploy FMCG?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
+        ]
+},
+"saas": {
+
+        title: "SaaS & Enterprise Software",
+        category: "Industries",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade SaaS & Enterprise Software capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
+        features: [
+            { title: "Predictive SaaS & Enterprise Software Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate SaaS & Enterprise Software execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
+        ],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
+        faqs: [
+            { question: "How quickly can TrustGrid deploy SaaS & Enterprise Software?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
+        ]
+},
 "manufacturing": {
-        
+
         title: "Manufacturing",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Manufacturing capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Manufacturing capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Manufacturing." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Manufacturing Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Manufacturing execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"education": {
-        
-        title: "Education",
-        category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Education capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Education." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"logistics": {
-        
-        title: "Logistics",
-        category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Logistics capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Logistics." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { question: "How quickly can TrustGrid deploy Manufacturing?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"government": {
-        
-        title: "Government",
-        category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Government capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Government." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"startups": {
-        
-        title: "Startups",
-        category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Startups capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Startups." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"enterprises": {
-        
-        title: "Enterprises",
-        category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Enterprises capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Enterprises." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
+},
 "real-estate": {
-        
+
         title: "Real Estate",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Real Estate capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Real Estate capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Real Estate." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Real Estate Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Real Estate execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Real Estate?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"telecom": {
-        
-        title: "Telecom",
+},
+"crypto-industry": {
+
+        title: "Crypto & Web3",
         category: "Industries",
-        heroDescription: "Empower your enterprise with our cutting-edge Telecom capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Crypto & Web3 capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Telecom." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Crypto & Web3 Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Crypto & Web3 execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Crypto & Web3?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"ai-consulting": {
-        
-        title: "AI Consulting",
+},
+"sales-intelligence": {
+
+        title: "AI-Powered Sales Intelligence",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge AI Consulting capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade AI-Powered Sales Intelligence capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for AI Consulting." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive AI-Powered Sales Intelligence Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate AI-Powered Sales Intelligence execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy AI-Powered Sales Intelligence?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"product-engineering": {
-        
-        title: "Product Engineering",
+},
+"revenue-ops-intelligence": {
+
+        title: "Revenue Operations & Intelligence",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Product Engineering capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Revenue Operations & Intelligence capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Product Engineering." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Revenue Operations & Intelligence Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Revenue Operations & Intelligence execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Revenue Operations & Intelligence?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cloud-migration": {
-        
-        title: "Cloud Migration",
+},
+"digital-marketing": {
+
+        title: "Digital Marketing & Demand Gen",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Cloud Migration capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Digital Marketing & Demand Gen capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cloud Migration." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Digital Marketing & Demand Gen Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Digital Marketing & Demand Gen execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Digital Marketing & Demand Gen?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"staff-augmentation": {
-        
-        title: "Staff Augmentation",
+},
+"market-intelligence": {
+
+        title: "Market & Demand Intelligence",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Staff Augmentation capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Market & Demand Intelligence capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Staff Augmentation." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Market & Demand Intelligence Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Market & Demand Intelligence execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Market & Demand Intelligence?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"managed-services-offering": {
-        
-        title: "Managed Services",
+},
+"market-validation-offering": {
+
+        title: "Market Validation & Research",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Managed Services capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Market Validation & Research capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Managed Services." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Market Validation & Research Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Market Validation & Research execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Market Validation & Research?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"ui-ux-services": {
-        
-        title: "UI/UX Services",
+},
+"product-scaling": {
+
+        title: "Product Scaling & Growth",
         category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge UI/UX Services capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Product Scaling & Growth capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for UI/UX Services." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Product Scaling & Growth Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Product Scaling & Growth execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Product Scaling & Growth?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"security-assessments": {
-        
-        title: "Security Assessments",
-        category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Security Assessments capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+},
+"partner-overview": {
+
+        title: "Partner Program Overview",
+        category: "Partners",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Partner Program Overview capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Security Assessments." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Partner Program Overview Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Partner Program Overview execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Partner Program Overview?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"technical-support": {
-        
-        title: "Technical Support",
-        category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Technical Support capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+},
+"solution-partners": {
+
+        title: "Solution Partners",
+        category: "Partners",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Solution Partners capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Technical Support." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Solution Partners Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Solution Partners execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"training-services": {
-        
-        title: "Training Services",
-        category: "Offerings",
-        heroDescription: "Empower your enterprise with our cutting-edge Training Services capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Training Services." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Solution Partners?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
+},
 "technology-partners": {
-        
+
         title: "Technology Partners",
         category: "Partners",
-        heroDescription: "Empower your enterprise with our cutting-edge Technology Partners capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Technology Partners capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Technology Partners." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Technology Partners Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Technology Partners execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
+        ],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+            { question: "How quickly can TrustGrid deploy Technology Partners?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
+        ],
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
+        ],
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
+        ],
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"cloud-partners": {
-        
-        title: "Cloud Partners",
+},
+"referral-partners": {
+
+        title: "Referral Partners",
         category: "Partners",
-        heroDescription: "Empower your enterprise with our cutting-edge Cloud Partners capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
+        heroDescription: "Empower your organization with TrustGrid's enterprise-grade Referral Partners capabilities. We deliver autonomous AI agents, predictive deal dynamics, and scalable infrastructure designed to increase revenue velocity by 5X.",
         features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Cloud Partners." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { title: "Predictive Referral Partners Intelligence", description: "Deploy proprietary AI models trained to identify high-intent buyer behavior and automate Referral Partners execution." },
+            { title: "Autonomous Execution Agents", description: "Self-healing workflow agents that continuously optimize pipeline conversion, deal prioritization, and engagement." },
+            { title: "Enterprise Systems Integration", description: "Bi-directional sync with Salesforce, HubSpot, SAP, and Snowflake with strict SOC2 Type II compliance." },
+            { title: "Real-time Deal Dynamics", description: "Live opportunity scoring and risk detection to prevent deal slippage and maximize win rates by 4X." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"strategic-partners": {
-        
-        title: "Strategic Partners",
-        category: "Partners",
-        heroDescription: "Empower your enterprise with our cutting-edge Strategic Partners capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Strategic Partners." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        benefits: [
+            "Accelerated revenue velocity by up to 500% in 12 months",
+            "4X increase in qualified win rates via predictive deal scoring",
+            "Zero manual data entry with 100% automated CRM RevOps",
+            "Enterprise bank-grade security & ISO 27001 / SOC2 compliance"
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
         faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"implementation-partners": {
-        
-        title: "Implementation Partners",
-        category: "Partners",
-        heroDescription: "Empower your enterprise with our cutting-edge Implementation Partners capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Implementation Partners." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+            { question: "How quickly can TrustGrid deploy Referral Partners?", answer: "Initial setup and data ingestion take under 14 days, with full AI model calibration achieved within 4 weeks." },
+            { question: "What infrastructure integrations are supported?", answer: "TrustGrid seamlessly connects with leading CRMs, ERPs, Data Warehouses, and Communication platforms out-of-the-box." },
+            { question: "Is my corporate data kept confidential and secure?", answer: "Yes, all customer data is processed in dedicated single-tenant environments with end-to-end encryption." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"ecosystem-partners": {
-        
-        title: "Ecosystem Partners",
-        category: "Partners",
-        heroDescription: "Empower your enterprise with our cutting-edge Ecosystem Partners capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Ecosystem Partners." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        useCases: [
+            { title: "High-Growth Enterprise Scaling", description: "Scale sales operations exponentially without linear headcount expansion using automated AI sales drivers." },
+            { title: "Complex B2B Deal Navigation", description: "Map stakeholder influence and sentiment across multi-buyer committees to accelerate close times." }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"about-us": {
-        
-        title: "About Us",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge About Us capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for About Us." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
+        kpis: [
+            { metric: "5X", label: "Revenue Velocity" },
+            { metric: "4X", label: "Win Rate Multiplier" },
+            { metric: "85%", label: "Manual Effort Reduction" }
         ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
+        projectLifecycle: [
+            { step: "Discovery & Audit", description: "In-depth pipeline analysis and intent data source integration." },
+            { step: "Model Calibration", description: "Customizing predictive AI scoring for your target audience." },
+            { step: "Autonomous Launch", description: "Deploying AI agents across outreach and RevOps channels." },
+            { step: "Continuous Optimization", description: "Closed-loop feedback to continuously elevate conversions." }
         ]
-    },
-"mission-vision": {
-        
-        title: "Mission & Vision",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge Mission & Vision capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Mission & Vision." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"leadership-team": {
-        
-        title: "Leadership Team",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge Leadership Team capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Leadership Team." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"careers": {
-        
-        title: "Careers",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge Careers capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Careers." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"blogs": {
-        
-        title: "Blogs",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge Blogs capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for Blogs." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"news-media": {
-        
-        title: "News & Media",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge News & Media capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for News & Media." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    },
-"csr": {
-        
-        title: "CSR Activities",
-        category: "Company",
-        heroDescription: "Empower your enterprise with our cutting-edge CSR Activities capabilities. We deliver scalable, secure, and high-performance technologies tailored to your strategic goals.",
-        features: [
-            { title: "Advanced Capabilities", description: "Leverage state-of-the-art architectures designed specifically for CSR Activities." },
-            { title: "Seamless Integration", description: "Easily connect with your existing infrastructure with zero downtime." },
-            { title: "Enterprise Grade Security", description: "Bank-level security and compliance built-in from day one." }
-        ],
-        benefits: ["Accelerated time-to-market by up to 40%", "Reduced operational costs through automation", "Enhanced data security and compliance", "Scalable architecture for future growth"],
-        faqs: [
-            { question: "How long does implementation take?", answer: "Timelines vary based on complexity, but our agile approach ensures initial delivery within weeks." },
-            { question: "Do you provide ongoing support?", answer: "Yes, we offer comprehensive 24/7 managed support for all deployments." }
-        ]
-    }
+}
 };
 
 export const smNavItems = [
@@ -1110,83 +1700,63 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Generative AI Framework",
-                    "desc": "Build custom LLM agents",
-                    "path": "/explore/generative-ai"
+                    "title": "AI Demand Discovery",
+                    "desc": "Predictive deal intelligence",
+                    "path": "/explore/ai-demand-discovery"
                 },
                 {
-                    "title": "Enterprise Cloud Landing Zones",
-                    "desc": "Secure multi-cloud setup",
-                    "path": "/explore/cloud-computing"
+                    "title": "AI Revenue Operations",
+                    "desc": "Sales ops automation",
+                    "path": "/explore/ai-revenue-operations"
                 }
             ],
             "highlight": {
-                "title": "100+ Projects Delivered",
-                "desc": "Discover how we transformed Fortune 500 companies with AI.",
+                "title": "Boost Win Rates by 4X",
+                "desc": "Predictive Deal Intelligence & Deal Dynamics.",
                 "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80",
-                "linkText": "View Case Studies",
-                "linkPath": "/case-studies"
+                "linkText": "View Capabilities",
+                "linkPath": "/capabilities"
             },
             "items": [
                 {
-                    "name": "Artificial Intelligence",
-                    "path": "/explore/artificial-intelligence",
-                    "icon": "BrainCircuit"
+                    "name": "Demand Pulse",
+                    "path": "/explore/demand-pulse",
+                    "icon": "HeartPulse"
                 },
                 {
-                    "name": "Machine Learning",
-                    "path": "/explore/machine-learning",
-                    "icon": "Network"
+                    "name": "AI Demand Discovery",
+                    "path": "/explore/ai-demand-discovery",
+                    "icon": "Search"
                 },
                 {
-                    "name": "Generative AI",
-                    "path": "/explore/generative-ai",
-                    "icon": "Sparkles"
+                    "name": "AI Lead Generation",
+                    "path": "/explore/ai-lead-generation",
+                    "icon": "Users"
                 },
                 {
-                    "name": "Enterprise AI",
-                    "path": "/explore/enterprise-ai",
-                    "icon": "Building2"
+                    "name": "AI Lead Nurturing",
+                    "path": "/explore/ai-lead-nurturing",
+                    "icon": "MessageSquare"
                 },
                 {
-                    "name": "Agentic AI",
-                    "path": "/explore/agentic-ai",
-                    "icon": "Bot"
+                    "name": "AI MVP Validation",
+                    "path": "/explore/ai-mvp-validation",
+                    "icon": "ShieldCheck"
                 },
                 {
-                    "name": "Cloud Computing",
-                    "path": "/explore/cloud-computing",
-                    "icon": "Cloud"
-                },
-                {
-                    "name": "Automation",
-                    "path": "/explore/automation",
-                    "icon": "Workflow"
-                },
-                {
-                    "name": "Cyber Security",
-                    "path": "/explore/cyber-security",
-                    "icon": "Shield"
-                },
-                {
-                    "name": "Data Engineering",
-                    "path": "/explore/data-engineering",
-                    "icon": "Database"
-                },
-                {
-                    "name": "DevOps",
-                    "path": "/explore/devops",
-                    "icon": "GitMerge"
-                },
-                {
-                    "name": "Digital Transformation",
-                    "path": "/explore/digital-transformation",
+                    "name": "AI Sales Transformation",
+                    "path": "/explore/ai-sales-transformation",
                     "icon": "RefreshCw"
                 },
                 {
-                    "name": "Enterprise Consulting",
-                    "path": "/explore/enterprise-consulting",
-                    "icon": "Briefcase"
+                    "name": "AI Revenue Operations",
+                    "path": "/explore/ai-revenue-operations",
+                    "icon": "Settings"
+                },
+                {
+                    "name": "AI Revenue Acceleration",
+                    "path": "/explore/ai-revenue-acceleration",
+                    "icon": "TrendingUp"
                 }
             ]
         }
@@ -1197,63 +1767,58 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Zero-Knowledge Proofs",
-                    "desc": "Enterprise privacy protocols",
-                    "path": "/explore/blockchain-development"
+                    "title": "Web3 Ecosystems",
+                    "desc": "L1 & L2 protocol scaling",
+                    "path": "/explore/crypto-demand-discovery"
                 },
                 {
-                    "title": "Smart Contract Audits",
-                    "desc": "Military-grade security",
-                    "path": "/explore/smart-contracts"
+                    "title": "DeFi Platforms",
+                    "desc": "Sustainable liquidity",
+                    "path": "/explore/crypto-growth"
                 }
             ],
             "highlight": {
-                "title": "Bank-Grade Security",
-                "desc": "We secure over $2B in digital assets for our clients.",
+                "title": "High-Velocity Web3",
+                "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
                 "image": "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&q=80",
                 "linkText": "Learn More",
-                "linkPath": "/crypto-security"
+                "linkPath": "/crypto"
             },
             "items": [
                 {
-                    "name": "Blockchain Development",
-                    "path": "/explore/blockchain-development",
-                    "icon": "Link"
+                    "name": "Crypto Revenue Acceleration",
+                    "path": "/explore/crypto-revenue",
+                    "icon": "TrendingUp"
                 },
                 {
-                    "name": "Web3 Solutions",
-                    "path": "/explore/web3-solutions",
-                    "icon": "Globe"
+                    "name": "Crypto Demand Discovery",
+                    "path": "/explore/crypto-demand-discovery",
+                    "icon": "Search"
                 },
                 {
-                    "name": "Smart Contracts",
-                    "path": "/explore/smart-contracts",
-                    "icon": "FileCode2"
-                },
-                {
-                    "name": "Digital Asset Solutions",
-                    "path": "/explore/digital-asset-solutions",
+                    "name": "Crypto Performance Revenue",
+                    "path": "/explore/crypto-performance",
                     "icon": "Coins"
                 },
                 {
-                    "name": "Tokenization",
-                    "path": "/explore/tokenization",
-                    "icon": "Boxes"
+                    "name": "Crypto Growth Acceleration",
+                    "path": "/explore/crypto-growth",
+                    "icon": "Rocket"
                 },
                 {
-                    "name": "Crypto Infrastructure",
-                    "path": "/explore/crypto-infrastructure",
-                    "icon": "Server"
+                    "name": "Market Validation Intelligence",
+                    "path": "/explore/crypto-market-validation",
+                    "icon": "Target"
                 },
                 {
-                    "name": "NFT Solutions",
-                    "path": "/explore/nft-solutions",
-                    "icon": "Image"
+                    "name": "Customer Journey Intelligence",
+                    "path": "/explore/crypto-journey",
+                    "icon": "MapPin"
                 },
                 {
-                    "name": "Blockchain Consulting",
-                    "path": "/explore/blockchain-consulting",
-                    "icon": "MessageSquare"
+                    "name": "Startup MVP Acceleration",
+                    "path": "/explore/crypto-startup",
+                    "icon": "Lightbulb"
                 }
             ]
         }
@@ -1264,63 +1829,63 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Revenue Operations",
-                    "desc": "Automate sales cycles",
-                    "path": "/explore/business-growth"
+                    "title": "Enterprise Sales",
+                    "desc": "Predictable scaling",
+                    "path": "/explore/enterprise-sales"
                 },
                 {
-                    "title": "Supply Chain AI",
-                    "desc": "Predictive logistics",
-                    "path": "/explore/operational-excellence"
+                    "title": "BFSI Acceleration",
+                    "desc": "Regulated growth",
+                    "path": "/explore/bfsi-sales"
                 }
             ],
             "highlight": {
-                "title": "Guaranteed ROI",
-                "desc": "Our deployments average a 314% ROI within the first year.",
-                "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80",
-                "linkText": "Read the Report",
-                "linkPath": "/roi-report"
+                "title": "Measurable Outcomes",
+                "desc": "Turning AI insights into measurable impact.",
+                "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80",
+                "linkText": "See Outcomes",
+                "linkPath": "/outcomes"
             },
             "items": [
                 {
-                    "name": "Increased Productivity",
-                    "path": "/explore/increased-productivity",
+                    "name": "AI Demand Discovery",
+                    "path": "/explore/ai-demand-discovery",
+                    "icon": "Search"
+                },
+                {
+                    "name": "AI-Driven Revenue Acceleration",
+                    "path": "/explore/revenue-acceleration",
                     "icon": "TrendingUp"
                 },
                 {
-                    "name": "Business Growth",
-                    "path": "/explore/business-growth",
+                    "name": "AI-Driven Growth Hacking",
+                    "path": "/explore/growth-hacking",
+                    "icon": "Rocket"
+                },
+                {
+                    "name": "AI-Driven Performance Marketing",
+                    "path": "/explore/performance-marketing",
                     "icon": "BarChart"
                 },
                 {
-                    "name": "Cost Optimization",
-                    "path": "/explore/cost-optimization",
-                    "icon": "PieChart"
+                    "name": "Enterprise Sales Acceleration",
+                    "path": "/explore/enterprise-sales",
+                    "icon": "Building2"
                 },
                 {
-                    "name": "Operational Excellence",
-                    "path": "/explore/operational-excellence",
-                    "icon": "Settings"
+                    "name": "Digital & Inside Sales",
+                    "path": "/explore/digital-sales",
+                    "icon": "Layout"
                 },
                 {
-                    "name": "Customer Experience",
-                    "path": "/explore/customer-experience",
-                    "icon": "Smile"
+                    "name": "D2C & High-Velocity Sales",
+                    "path": "/explore/d2c-sales",
+                    "icon": "ShoppingBag"
                 },
                 {
-                    "name": "Digital Transformation",
-                    "path": "/explore/digital-transformation-outcomes",
-                    "icon": "Layers"
-                },
-                {
-                    "name": "AI Adoption",
-                    "path": "/explore/ai-adoption",
-                    "icon": "Cpu"
-                },
-                {
-                    "name": "ROI Improvements",
-                    "path": "/explore/roi-improvements",
-                    "icon": "DollarSign"
+                    "name": "BFSI Sales Acceleration",
+                    "path": "/explore/bfsi-sales",
+                    "icon": "Landmark"
                 }
             ]
         }
@@ -1331,63 +1896,63 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Conversational AI",
-                    "desc": "Next-gen support bots",
-                    "path": "/explore/ai-solutions-group"
+                    "title": "AI Business Strategy",
+                    "desc": "Market intelligence",
+                    "path": "/explore/ai-business-strategy"
                 },
                 {
-                    "title": "Hybrid Cloud Manager",
-                    "desc": "Unified infrastructure",
-                    "path": "/explore/cloud-solutions-group"
+                    "title": "AI Auto Sales Pilot",
+                    "desc": "Autonomous agents",
+                    "path": "/explore/ai-auto-sales-pilot"
                 }
             ],
             "highlight": {
-                "title": "Enterprise Grade Solutions",
-                "desc": "Built to scale globally with 99.999% uptime SLAs.",
-                "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80",
-                "linkText": "View Architecture",
-                "linkPath": "/architecture"
+                "title": "Comprehensive Solutions",
+                "desc": "End-to-end AI-driven growth solutions for enterprises.",
+                "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
+                "linkText": "View Solutions",
+                "linkPath": "/solutions"
             },
             "items": [
                 {
-                    "name": "AI Solutions",
-                    "path": "/explore/ai-solutions-group",
-                    "icon": "Brain"
+                    "name": "AI Business Growth Strategy",
+                    "path": "/explore/ai-business-strategy",
+                    "icon": "TrendingUp"
                 },
                 {
-                    "name": "Cloud Solutions",
-                    "path": "/explore/cloud-solutions-group",
-                    "icon": "CloudRain"
+                    "name": "AI Market Strategy & Demand",
+                    "path": "/explore/ai-market-strategy",
+                    "icon": "Target"
                 },
                 {
-                    "name": "Enterprise Solutions",
-                    "path": "/explore/enterprise-solutions-group",
-                    "icon": "Building"
+                    "name": "AI-Driven Growth Hacking",
+                    "path": "/explore/growth-hacking",
+                    "icon": "Rocket"
                 },
                 {
-                    "name": "SaaS Solutions",
-                    "path": "/explore/saas-solutions",
-                    "icon": "AppWindow"
+                    "name": "AI-Driven Performance Marketing",
+                    "path": "/explore/performance-marketing",
+                    "icon": "BarChart"
                 },
                 {
-                    "name": "Automation Solutions",
-                    "path": "/explore/automation-solutions-group",
+                    "name": "AI Auto Sales Pilot",
+                    "path": "/explore/ai-auto-sales-pilot",
+                    "icon": "Bot"
+                },
+                {
+                    "name": "AI Sales Process Optimization",
+                    "path": "/explore/sales-optimization",
+                    "icon": "Settings"
+                },
+                {
+                    "name": "AI Revenue Operations",
+                    "path": "/explore/ai-revenue-operations",
+                    "icon": "Server"
+                },
+                {
+                    "name": "AI Revenue Acceleration",
+                    "path": "/explore/ai-revenue-acceleration",
                     "icon": "Zap"
-                },
-                {
-                    "name": "Custom Software",
-                    "path": "/explore/custom-software-development",
-                    "icon": "Code2"
-                },
-                {
-                    "name": "Managed Services",
-                    "path": "/explore/managed-services",
-                    "icon": "ShieldCheck"
-                },
-                {
-                    "name": "Consulting Services",
-                    "path": "/explore/consulting-services",
-                    "icon": "Users"
                 }
             ]
         }
@@ -1398,38 +1963,48 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Predictive Healthcare",
-                    "desc": "AI-driven diagnostics",
-                    "path": "/explore/healthcare"
+                    "title": "E-commerce",
+                    "desc": "D2C growth",
+                    "path": "/explore/ecommerce"
                 },
                 {
-                    "title": "FinTech Infrastructure",
-                    "desc": "Core banking modernization",
-                    "path": "/explore/finance"
+                    "title": "BFSI",
+                    "desc": "Banking & Lending",
+                    "path": "/explore/bfsi"
                 }
             ],
             "highlight": {
-                "title": "Industry Specialists",
-                "desc": "Our teams are composed of veterans from top Fortune 500s.",
-                "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
-                "linkText": "Meet the Team",
-                "linkPath": "/team"
+                "title": "Industry Expertise",
+                "desc": "Tailored revenue acceleration for your specific industry.",
+                "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
+                "linkText": "Learn More",
+                "linkPath": "/industries"
             },
             "items": [
                 {
-                    "name": "Healthcare",
-                    "path": "/explore/healthcare",
-                    "icon": "HeartPulse"
+                    "name": "E-commerce & D2C",
+                    "path": "/explore/ecommerce",
+                    "icon": "ShoppingBag"
                 },
                 {
-                    "name": "Finance",
-                    "path": "/explore/finance",
+                    "name": "Consumer Durables",
+                    "path": "/explore/consumer-durables",
+                    "icon": "Home"
+                },
+                {
+                    "name": "BFSI & FinTech",
+                    "path": "/explore/bfsi",
                     "icon": "Landmark"
                 },
                 {
-                    "name": "Retail",
-                    "path": "/explore/retail",
-                    "icon": "ShoppingBag"
+                    "name": "FMCG",
+                    "path": "/explore/fmcg",
+                    "icon": "Boxes"
+                },
+                {
+                    "name": "SaaS & Enterprise Software",
+                    "path": "/explore/saas",
+                    "icon": "Cloud"
                 },
                 {
                     "name": "Manufacturing",
@@ -1437,39 +2012,14 @@ export const smNavItems = [
                     "icon": "Factory"
                 },
                 {
-                    "name": "Education",
-                    "path": "/explore/education",
-                    "icon": "GraduationCap"
-                },
-                {
-                    "name": "Logistics",
-                    "path": "/explore/logistics",
-                    "icon": "Truck"
-                },
-                {
-                    "name": "Government",
-                    "path": "/explore/government",
-                    "icon": "Landmark"
-                },
-                {
-                    "name": "Startups",
-                    "path": "/explore/startups",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "Enterprises",
-                    "path": "/explore/enterprises",
-                    "icon": "Building2"
-                },
-                {
                     "name": "Real Estate",
                     "path": "/explore/real-estate",
-                    "icon": "Home"
+                    "icon": "Building"
                 },
                 {
-                    "name": "Telecom",
-                    "path": "/explore/telecom",
-                    "icon": "Radio"
+                    "name": "Crypto & Web3",
+                    "path": "/explore/crypto-industry",
+                    "icon": "Coins"
                 }
             ]
         }
@@ -1480,68 +2030,53 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Team Augmentation",
-                    "desc": "Scale your dev teams",
-                    "path": "/explore/staff-augmentation"
+                    "title": "Sales Intelligence",
+                    "desc": "Real-time deal analytics",
+                    "path": "/explore/sales-intelligence"
                 },
                 {
-                    "title": "Security Audits",
-                    "desc": "Penetration testing",
-                    "path": "/explore/security-assessments"
+                    "title": "RevOps Intelligence",
+                    "desc": "Unified CRM automation",
+                    "path": "/explore/revenue-ops-intelligence"
                 }
             ],
             "highlight": {
-                "title": "Global Delivery Model",
-                "desc": "Follow-the-sun delivery ensuring 24/7 continuous engineering.",
-                "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
-                "linkText": "Learn How",
-                "linkPath": "/delivery"
+                "title": "Enterprise Offerings",
+                "desc": "Turnkey AI sales engines and revenue intelligence.",
+                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
+                "linkText": "View All Offerings",
+                "linkPath": "/offerings"
             },
             "items": [
                 {
-                    "name": "AI Consulting",
-                    "path": "/explore/ai-consulting",
-                    "icon": "Lightbulb"
+                    "name": "AI-Powered Sales Intelligence",
+                    "path": "/explore/sales-intelligence",
+                    "icon": "Sparkles"
                 },
                 {
-                    "name": "Product Engineering",
-                    "path": "/explore/product-engineering",
-                    "icon": "Wrench"
+                    "name": "Revenue Operations & Intelligence",
+                    "path": "/explore/revenue-ops-intelligence",
+                    "icon": "Server"
                 },
                 {
-                    "name": "Cloud Migration",
-                    "path": "/explore/cloud-migration",
-                    "icon": "CloudCog"
+                    "name": "Digital Marketing & Demand Gen",
+                    "path": "/explore/digital-marketing",
+                    "icon": "TrendingUp"
                 },
                 {
-                    "name": "Staff Augmentation",
-                    "path": "/explore/staff-augmentation",
-                    "icon": "UserPlus"
-                },
-                {
-                    "name": "Managed Services",
-                    "path": "/explore/managed-services-offering",
-                    "icon": "ShieldCheck"
-                },
-                {
-                    "name": "UI/UX Services",
-                    "path": "/explore/ui-ux-services",
-                    "icon": "Layout"
-                },
-                {
-                    "name": "Security Assessments",
-                    "path": "/explore/security-assessments",
+                    "name": "Market & Demand Intelligence",
+                    "path": "/explore/market-intelligence",
                     "icon": "Search"
                 },
                 {
-                    "name": "Technical Support",
-                    "path": "/explore/technical-support",
-                    "icon": "LifeBuoy"
+                    "name": "Market Validation & Research",
+                    "path": "/explore/market-validation-offering",
+                    "icon": "Target"
                 },
                 {
-                    "name": "Training Services",
-                    "path": "/explore/training-services",
-                    "icon": "BookOpen"
+                    "name": "Product Scaling & Growth",
+                    "path": "/explore/product-scaling",
+                    "icon": "Rocket"
                 }
             ]
         }
@@ -1552,48 +2087,43 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "AWS Premier Partner",
-                    "desc": "Advanced cloud capabilities",
-                    "path": "/explore/cloud-partners"
+                    "title": "Solution Partners",
+                    "desc": "Implementation experts",
+                    "path": "/explore/solution-partners"
                 },
                 {
-                    "title": "Microsoft Gold",
-                    "desc": "Azure integration specialists",
-                    "path": "/explore/cloud-partners"
+                    "title": "Technology Partners",
+                    "desc": "Platform integrations",
+                    "path": "/explore/technology-partners"
                 }
             ],
             "highlight": {
-                "title": "Ecosystem Growth",
-                "desc": "Join 50+ global partners delivering excellence.",
-                "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
+                "title": "Global Partner Ecosystem",
+                "desc": "Co-sell and build next-gen AI revenue systems together.",
+                "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80",
                 "linkText": "Become a Partner",
-                "linkPath": "/partner-program"
+                "linkPath": "/partners"
             },
             "items": [
+                {
+                    "name": "Partner Program Overview",
+                    "path": "/explore/partner-overview",
+                    "icon": "Handshake"
+                },
+                {
+                    "name": "Solution Partners",
+                    "path": "/explore/solution-partners",
+                    "icon": "Building2"
+                },
                 {
                     "name": "Technology Partners",
                     "path": "/explore/technology-partners",
                     "icon": "Cpu"
                 },
                 {
-                    "name": "Cloud Partners",
-                    "path": "/explore/cloud-partners",
-                    "icon": "Cloud"
-                },
-                {
-                    "name": "Strategic Partners",
-                    "path": "/explore/strategic-partners",
-                    "icon": "Target"
-                },
-                {
-                    "name": "Implementation Partners",
-                    "path": "/explore/implementation-partners",
-                    "icon": "Wrench"
-                },
-                {
-                    "name": "Ecosystem Partners",
-                    "path": "/explore/ecosystem-partners",
-                    "icon": "Network"
+                    "name": "Referral Partners",
+                    "path": "/explore/referral-partners",
+                    "icon": "UserPlus"
                 }
             ]
         }
@@ -1604,58 +2134,48 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "Latest Press Release",
-                    "desc": "MicroVectors expands to Europe",
-                    "path": "/explore/news-media"
+                    "title": "About Us",
+                    "desc": "Our mission and vision",
+                    "path": "/about"
                 },
                 {
-                    "title": "Life at MicroVectors",
-                    "desc": "See our amazing culture",
-                    "path": "/explore/careers"
+                    "title": "Careers",
+                    "desc": "Join our team",
+                    "path": "/careers"
                 }
             ],
             "highlight": {
-                "title": "Join Our Team",
-                "desc": "We are hiring passionate engineers globally.",
-                "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80",
-                "linkText": "View Open Roles",
-                "linkPath": "/explore/careers"
+                "title": "Trustgrid AI",
+                "desc": "We are engineering growth and automating scale.",
+                "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
+                "linkText": "Meet the Team",
+                "linkPath": "/company"
             },
             "items": [
                 {
                     "name": "About Us",
-                    "path": "/explore/about-us",
+                    "path": "/about",
                     "icon": "Info"
                 },
                 {
-                    "name": "Mission & Vision",
-                    "path": "/explore/mission-vision",
+                    "name": "Mission",
+                    "path": "/mission",
                     "icon": "Target"
                 },
                 {
-                    "name": "Leadership Team",
-                    "path": "/explore/leadership-team",
+                    "name": "Leadership & Culture",
+                    "path": "/leadership",
                     "icon": "Users"
                 },
                 {
+                    "name": "Our Offices",
+                    "path": "/offices",
+                    "icon": "MapPin"
+                },
+                {
                     "name": "Careers",
-                    "path": "/explore/careers",
+                    "path": "/careers",
                     "icon": "Briefcase"
-                },
-                {
-                    "name": "Blogs",
-                    "path": "/explore/blogs",
-                    "icon": "FileText"
-                },
-                {
-                    "name": "News & Media",
-                    "path": "/explore/news-media",
-                    "icon": "Radio"
-                },
-                {
-                    "name": "CSR Activities",
-                    "path": "/explore/csr",
-                    "icon": "HeartPulse"
                 },
                 {
                     "name": "Contact Us",

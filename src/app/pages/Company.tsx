@@ -7,7 +7,6 @@ import {
     Building2,
     Globe,
     ArrowRight,
-    MapPin,
     Mail,
     Phone,
     BarChart3,
@@ -17,7 +16,6 @@ import {
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
 import LeadershipSection from '../components/LeadershipSection';
 
 export default function Company() {

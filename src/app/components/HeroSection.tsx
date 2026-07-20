@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="space-y-10">
 
           {/* Premium Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-full shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:border-slate-300 hover:bg-white transition-all cursor-default group">
+          <motion.div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-full shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:border-slate-300 hover:bg-white transition-all cursor-default group">
             <Sparkles className="w-4 h-4 text-slate-800" />
             <span className="text-xs text-slate-700 font-bold tracking-widest uppercase">
               AI-Powered Revenue Operating System
@@ -129,7 +129,7 @@ export default function HeroSection() {
               <Zap className="w-5 h-5 text-brand-blue" />
               99.99% Uptime SLA
             </div>
-          </motion.div>
+          </div>
 
         </div>
 
