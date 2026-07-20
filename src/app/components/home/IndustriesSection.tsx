@@ -79,17 +79,17 @@ const industries = [
 
 export default function IndustriesSection() {
     return (
-        <section className="py-24 bg-slate-900 text-white relative overflow-hidden" id="industries">
+        <section className="py-24 bg-slate-50 text-slate-900 relative overflow-hidden border-t border-slate-200" id="industries">
             {/* Background elements */}
             <div className="absolute inset-0 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
                         Built for Complex Industries
                     </h2>
-                    <p className="text-lg text-slate-400">
+                    <p className="text-lg text-slate-600">
                         Our autonomous models and enterprise architectures are tailored to industry-specific data and compliance needs.
                     </p>
                 </div>
@@ -105,30 +105,30 @@ export default function IndustriesSection() {
                         >
                             <Link 
                                 to={industry.link}
-                                className="group flex flex-col h-full p-8 rounded-3xl bg-slate-800/50 border border-slate-700/50 backdrop-blur-sm hover:bg-slate-800 hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
+                                className="group flex flex-col h-full p-8 rounded-3xl bg-white border border-slate-200 hover:border-blue-300 transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-md"
                             >
                                 {/* Hover Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 
                                 <div className="relative z-10 flex-grow">
-                                    <div className="w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center mb-6 group-hover:bg-blue-600/20 transition-colors duration-300 border border-slate-600/50 group-hover:border-blue-500/30">
-                                        <industry.icon className="w-6 h-6 text-slate-300 group-hover:text-blue-400 transition-colors duration-300" />
+                                    <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-blue-50 transition-colors duration-300 border border-slate-200 group-hover:border-blue-200">
+                                        <industry.icon className="w-6 h-6 text-slate-500 group-hover:text-blue-600 transition-colors duration-300" />
                                     </div>
                                     
-                                    <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-blue-400 transition-colors">{industry.title}</h3>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-6 group-hover:text-blue-700 transition-colors">{industry.title}</h3>
                                     
                                     <div className="space-y-4">
                                         <div>
                                             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Use Cases</div>
-                                            <div className="text-sm text-slate-300 font-medium leading-relaxed">{industry.useCases}</div>
+                                            <div className="text-sm text-slate-700 font-medium leading-relaxed">{industry.useCases}</div>
                                         </div>
                                         <div>
                                             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Technologies</div>
-                                            <div className="text-sm text-blue-300/80 font-medium leading-relaxed">{industry.technologies}</div>
+                                            <div className="text-sm text-blue-700 font-medium leading-relaxed">{industry.technologies}</div>
                                         </div>
                                         <div>
                                             <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Benefits</div>
-                                            <div className="text-sm text-slate-300 font-medium leading-relaxed">{industry.benefits}</div>
+                                            <div className="text-sm text-slate-700 font-medium leading-relaxed">{industry.benefits}</div>
                                         </div>
                                     </div>
                                 </div>

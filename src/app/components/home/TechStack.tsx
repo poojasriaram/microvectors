@@ -12,20 +12,20 @@ const technologies = [
 
 export default function TechStack() {
     return (
-        <section className="py-24 bg-slate-900 relative overflow-hidden" id="offerings">
+        <section className="py-24 bg-white relative overflow-hidden" id="offerings">
             {/* Background elements */}
-            <div className="absolute inset-0 bg-dot-slate-800 opacity-50 pointer-events-none"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute inset-0 bg-dot-slate-200 opacity-50 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 text-slate-300 font-semibold text-xs tracking-widest uppercase mb-6 shadow-sm">
+                    <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-semibold text-xs tracking-widest uppercase mb-6 shadow-sm">
                         Technology Infrastructure
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
                         Enterprise Grade Technology
                     </h2>
-                    <p className="text-lg text-slate-400 font-light max-w-2xl mx-auto">
+                    <p className="text-lg text-slate-600 font-medium max-w-2xl mx-auto">
                         Built on scalable, secure, and modern infrastructure designed to handle millions of data points autonomously and securely.
                     </p>
                 </div>
@@ -39,10 +39,10 @@ export default function TechStack() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: index * 0.05 }}
                             whileHover={{ scale: 1.05 }}
-                            className="group bg-slate-800/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col items-center cursor-default shadow-lg"
+                            className="group bg-slate-50 px-6 py-4 rounded-2xl border border-slate-200 hover:border-blue-200 transition-all duration-300 flex flex-col items-center cursor-default shadow-sm hover:shadow-md hover:bg-white"
                         >
                             <div className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">{tech.category}</div>
-                            <div className={`text-lg md:text-xl font-bold tracking-tight text-white group-hover:${tech.color} transition-colors duration-300`}>{tech.name}</div>
+                            <div className={`text-lg md:text-xl font-bold tracking-tight text-slate-800 group-hover:${tech.color} transition-colors duration-300`}>{tech.name}</div>
                         </motion.div>
                     ))}
                 </div>
