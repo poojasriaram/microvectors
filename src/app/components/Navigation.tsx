@@ -76,230 +76,230 @@ export default function Navigation() {
         },
         {
             name: 'Crypto',
-            path: '/#crypto',
+            path: '/crypto',
             dropdown: [
                 {
                     title: "Blockchain & Web3",
                     items: [
-                        { name: "Blockchain Solutions", path: "/#crypto" },
-                        { name: "Web3 Development", path: "/#crypto" },
-                        { name: "Decentralized Apps (dApps)", path: "/#crypto" },
-                        { name: "DeFi Platforms", path: "/#crypto" },
-                        { name: "NFT Marketplaces", path: "/#crypto" },
-                        { name: "Web3 Gaming", path: "/#crypto" }
+                        { name: "Blockchain Solutions", path: "/crypto" },
+                        { name: "Web3 Development", path: "/crypto" },
+                        { name: "Decentralized Apps (dApps)", path: "/crypto" },
+                        { name: "DeFi Platforms", path: "/crypto" },
+                        { name: "NFT Marketplaces", path: "/crypto" },
+                        { name: "Web3 Gaming", path: "/crypto" }
                     ]
                 },
                 {
                     title: "Infrastructure",
                     items: [
-                        { name: "Smart Contracts", path: "/#crypto" },
-                        { name: "Crypto Infrastructure", path: "/#crypto" },
-                        { name: "Node Development", path: "/#crypto" },
-                        { name: "Consensus Algorithms", path: "/#crypto" },
-                        { name: "Layer 2 Solutions", path: "/#crypto" },
-                        { name: "Cross-Chain Bridges", path: "/#crypto" }
+                        { name: "Smart Contracts", path: "/crypto" },
+                        { name: "Crypto Infrastructure", path: "/crypto" },
+                        { name: "Node Development", path: "/crypto" },
+                        { name: "Consensus Algorithms", path: "/crypto" },
+                        { name: "Layer 2 Solutions", path: "/crypto" },
+                        { name: "Cross-Chain Bridges", path: "/crypto" }
                     ]
                 },
                 {
                     title: "Digital Assets",
                     items: [
-                        { name: "Tokenization Services", path: "/#crypto" },
-                        { name: "Digital Asset Solutions", path: "/#crypto" },
-                        { name: "Crypto Wallets", path: "/#crypto" },
-                        { name: "Asset Management", path: "/#crypto" },
-                        { name: "Yield Farming", path: "/#crypto" },
-                        { name: "STO Development", path: "/#crypto" }
+                        { name: "Tokenization Services", path: "/crypto" },
+                        { name: "Digital Asset Solutions", path: "/crypto" },
+                        { name: "Crypto Wallets", path: "/crypto" },
+                        { name: "Asset Management", path: "/crypto" },
+                        { name: "Yield Farming", path: "/crypto" },
+                        { name: "STO Development", path: "/crypto" }
                     ]
                 }
             ]
         },
         {
             name: 'Outcomes',
-            path: '/#outcomes',
+            path: '/outcomes',
             dropdown: [
                 {
                     title: "Business Value",
                     items: [
-                        { name: "Business Transformation", path: "/#outcomes" },
-                        { name: "Increased Productivity", path: "/#outcomes" },
-                        { name: "Revenue Growth", path: "/#outcomes" },
-                        { name: "Market Expansion", path: "/#outcomes" },
-                        { name: "Competitive Advantage", path: "/#outcomes" },
-                        { name: "Customer Satisfaction", path: "/#outcomes" }
+                        { name: "Business Transformation", path: "/outcomes" },
+                        { name: "Increased Productivity", path: "/outcomes" },
+                        { name: "Revenue Growth", path: "/outcomes" },
+                        { name: "Market Expansion", path: "/outcomes" },
+                        { name: "Competitive Advantage", path: "/outcomes" },
+                        { name: "Customer Satisfaction", path: "/outcomes" }
                     ]
                 },
                 {
                     title: "Efficiency",
                     items: [
-                        { name: "Cost Optimization", path: "/#outcomes" },
-                        { name: "Process Automation", path: "/#outcomes" },
-                        { name: "Resource Allocation", path: "/#outcomes" },
-                        { name: "Time-to-Market", path: "/#outcomes" },
-                        { name: "Operational Excellence", path: "/#outcomes" },
-                        { name: "Risk Mitigation", path: "/#outcomes" }
+                        { name: "Cost Optimization", path: "/outcomes" },
+                        { name: "Process Automation", path: "/outcomes" },
+                        { name: "Resource Allocation", path: "/outcomes" },
+                        { name: "Time-to-Market", path: "/outcomes" },
+                        { name: "Operational Excellence", path: "/outcomes" },
+                        { name: "Risk Mitigation", path: "/outcomes" }
                     ]
                 },
                 {
                     title: "Growth",
                     items: [
-                        { name: "Digital Innovation", path: "/#outcomes" },
-                        { name: "Enterprise Growth", path: "/#outcomes" },
-                        { name: "Scale Operations", path: "/#outcomes" },
-                        { name: "New Revenue Streams", path: "/#outcomes" },
-                        { name: "Market Disruption", path: "/#outcomes" },
-                        { name: "Future-Proofing", path: "/#outcomes" }
+                        { name: "Digital Innovation", path: "/outcomes" },
+                        { name: "Enterprise Growth", path: "/outcomes" },
+                        { name: "Scale Operations", path: "/outcomes" },
+                        { name: "New Revenue Streams", path: "/outcomes" },
+                        { name: "Market Disruption", path: "/outcomes" },
+                        { name: "Future-Proofing", path: "/outcomes" }
                     ]
                 }
             ]
         },
         {
             name: 'Solutions',
-            path: '/#solutions',
+            path: '/solutions',
             dropdown: [
                 {
                     title: "Intelligent Tech",
                     items: [
-                        { name: "AI Solutions", path: "/#solutions" },
-                        { name: "Cloud Solutions", path: "/#solutions" },
-                        { name: "IoT Solutions", path: "/#solutions" },
-                        { name: "Edge Computing", path: "/#solutions" },
-                        { name: "Big Data Analytics", path: "/#solutions" },
-                        { name: "Machine Learning Ops", path: "/#solutions" }
+                        { name: "AI Solutions", path: "/solutions" },
+                        { name: "Cloud Solutions", path: "/solutions" },
+                        { name: "IoT Solutions", path: "/solutions" },
+                        { name: "Edge Computing", path: "/solutions" },
+                        { name: "Big Data Analytics", path: "/solutions" },
+                        { name: "Machine Learning Ops", path: "/solutions" }
                     ]
                 },
                 {
                     title: "Business Solutions",
                     items: [
-                        { name: "Enterprise Solutions", path: "/#solutions" },
-                        { name: "Automation Solutions", path: "/#solutions" },
-                        { name: "ERP Integrations", path: "/#solutions" },
-                        { name: "CRM Systems", path: "/#solutions" },
-                        { name: "Supply Chain Management", path: "/#solutions" },
-                        { name: "HR Tech", path: "/#solutions" }
+                        { name: "Enterprise Solutions", path: "/solutions" },
+                        { name: "Automation Solutions", path: "/solutions" },
+                        { name: "ERP Integrations", path: "/solutions" },
+                        { name: "CRM Systems", path: "/solutions" },
+                        { name: "Supply Chain Management", path: "/solutions" },
+                        { name: "HR Tech", path: "/solutions" }
                     ]
                 },
                 {
                     title: "Core Services",
                     items: [
-                        { name: "Software Solutions", path: "/#solutions" },
-                        { name: "Managed Services", path: "/#solutions" },
-                        { name: "Digital Workplaces", path: "/#solutions" },
-                        { name: "Remote Operations", path: "/#solutions" },
-                        { name: "Disaster Recovery", path: "/#solutions" },
-                        { name: "Tech Support", path: "/#solutions" }
+                        { name: "Software Solutions", path: "/solutions" },
+                        { name: "Managed Services", path: "/solutions" },
+                        { name: "Digital Workplaces", path: "/solutions" },
+                        { name: "Remote Operations", path: "/solutions" },
+                        { name: "Disaster Recovery", path: "/solutions" },
+                        { name: "Tech Support", path: "/solutions" }
                     ]
                 }
             ]
         },
         {
             name: 'Industries',
-            path: '/#industries',
+            path: '/industries',
             dropdown: [
                 {
                     title: "Core Sectors",
                     items: [
-                        { name: "Healthcare", path: "/#industries" },
-                        { name: "Finance", path: "/#industries" },
-                        { name: "Manufacturing", path: "/#industries" },
-                        { name: "Insurance", path: "/#industries" },
-                        { name: "Real Estate", path: "/#industries" },
-                        { name: "Automotive", path: "/#industries" }
+                        { name: "Healthcare", path: "/industries" },
+                        { name: "Finance", path: "/industries" },
+                        { name: "Manufacturing", path: "/industries" },
+                        { name: "Insurance", path: "/industries" },
+                        { name: "Real Estate", path: "/industries" },
+                        { name: "Automotive", path: "/industries" }
                     ]
                 },
                 {
                     title: "Growth Sectors",
                     items: [
-                        { name: "Retail", path: "/#industries" },
-                        { name: "Education", path: "/#industries" },
-                        { name: "Logistics", path: "/#industries" },
-                        { name: "E-commerce", path: "/#industries" },
-                        { name: "Media & Entertainment", path: "/#industries" },
-                        { name: "Telecommunications", path: "/#industries" }
+                        { name: "Retail", path: "/industries" },
+                        { name: "Education", path: "/industries" },
+                        { name: "Logistics", path: "/industries" },
+                        { name: "E-commerce", path: "/industries" },
+                        { name: "Media & Entertainment", path: "/industries" },
+                        { name: "Telecommunications", path: "/industries" }
                     ]
                 },
                 {
                     title: "Market Focus",
                     items: [
-                        { name: "Government", path: "/#industries" },
-                        { name: "Startups", path: "/#industries" },
-                        { name: "Enterprises", path: "/#industries" },
-                        { name: "Non-Profits", path: "/#industries" },
-                        { name: "SMBs", path: "/#industries" },
-                        { name: "Agencies", path: "/#industries" }
+                        { name: "Government", path: "/industries" },
+                        { name: "Startups", path: "/industries" },
+                        { name: "Enterprises", path: "/industries" },
+                        { name: "Non-Profits", path: "/industries" },
+                        { name: "SMBs", path: "/industries" },
+                        { name: "Agencies", path: "/industries" }
                     ]
                 }
             ]
         },
         {
             name: 'Offerings',
-            path: '/#offerings',
+            path: '/offerings',
             dropdown: [
                 {
                     title: "Core Services",
                     items: [
-                        { name: "Consulting Services", path: "/#offerings" },
-                        { name: "Development Services", path: "/#offerings" },
-                        { name: "UI/UX Design", path: "/#offerings" },
-                        { name: "Product Strategy", path: "/#offerings" },
-                        { name: "Digital Transformation", path: "/#offerings" },
-                        { name: "Technical Audits", path: "/#offerings" }
+                        { name: "Consulting Services", path: "/offerings" },
+                        { name: "Development Services", path: "/offerings" },
+                        { name: "UI/UX Design", path: "/offerings" },
+                        { name: "Product Strategy", path: "/offerings" },
+                        { name: "Digital Transformation", path: "/offerings" },
+                        { name: "Technical Audits", path: "/offerings" }
                     ]
                 },
                 {
                     title: "Specialized Services",
                     items: [
-                        { name: "Managed Services", path: "/#offerings" },
-                        { name: "AI Services", path: "/#offerings" },
-                        { name: "Blockchain Services", path: "/#offerings" },
-                        { name: "Data Science", path: "/#offerings" },
-                        { name: "Security Services", path: "/#offerings" },
-                        { name: "Cloud Migration", path: "/#offerings" }
+                        { name: "Managed Services", path: "/offerings" },
+                        { name: "AI Services", path: "/offerings" },
+                        { name: "Blockchain Services", path: "/offerings" },
+                        { name: "Data Science", path: "/offerings" },
+                        { name: "Security Services", path: "/offerings" },
+                        { name: "Cloud Migration", path: "/offerings" }
                     ]
                 },
                 {
                     title: "Infrastructure",
                     items: [
-                        { name: "Cloud Services", path: "/#offerings" },
-                        { name: "Support Services", path: "/#offerings" },
-                        { name: "DevOps as a Service", path: "/#offerings" },
-                        { name: "Network Infrastructure", path: "/#offerings" },
-                        { name: "Database Management", path: "/#offerings" },
-                        { name: "Site Reliability", path: "/#offerings" }
+                        { name: "Cloud Services", path: "/offerings" },
+                        { name: "Support Services", path: "/offerings" },
+                        { name: "DevOps as a Service", path: "/offerings" },
+                        { name: "Network Infrastructure", path: "/offerings" },
+                        { name: "Database Management", path: "/offerings" },
+                        { name: "Site Reliability", path: "/offerings" }
                     ]
                 }
             ]
         },
         {
             name: 'Partners',
-            path: '/#partners',
+            path: '/partners',
             dropdown: [
                 {
                     title: "Technology",
                     items: [
-                        { name: "Technology Partners", path: "/#partners" },
-                        { name: "Strategic Partners", path: "/#partners" },
-                        { name: "Cloud Providers", path: "/#partners" },
-                        { name: "AI Vendors", path: "/#partners" },
-                        { name: "Hardware Partners", path: "/#partners" },
-                        { name: "Platform Providers", path: "/#partners" }
+                        { name: "Technology Partners", path: "/partners" },
+                        { name: "Strategic Partners", path: "/partners" },
+                        { name: "Cloud Providers", path: "/partners" },
+                        { name: "AI Vendors", path: "/partners" },
+                        { name: "Hardware Partners", path: "/partners" },
+                        { name: "Platform Providers", path: "/partners" }
                     ]
                 },
                 {
                     title: "Ecosystem",
                     items: [
-                        { name: "Integration Partners", path: "/#partners" },
-                        { name: "Ecosystem Partners", path: "/#partners" },
-                        { name: "Solution Providers", path: "/#partners" },
-                        { name: "Value-Added Resellers", path: "/#partners" },
-                        { name: "Academic Partners", path: "/#partners" },
-                        { name: "Industry Affiliates", path: "/#partners" }
+                        { name: "Integration Partners", path: "/partners" },
+                        { name: "Ecosystem Partners", path: "/partners" },
+                        { name: "Solution Providers", path: "/partners" },
+                        { name: "Value-Added Resellers", path: "/partners" },
+                        { name: "Academic Partners", path: "/partners" },
+                        { name: "Industry Affiliates", path: "/partners" }
                     ]
                 }
             ]
         },
         {
             name: 'Company',
-            path: '/#company',
+            path: '/company',
             dropdown: [
                 {
                     title: "About",

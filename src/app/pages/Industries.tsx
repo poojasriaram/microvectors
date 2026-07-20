@@ -419,41 +419,41 @@ export default function Industries() {
             {/* CTA Section */}
             <div className="max-w-5xl mx-auto px-4 pb-24 pt-12 relative z-10">
                 <Reveal width="100%" direction="up">
-                    <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-950 border border-slate-800/60 shadow-2xl shadow-blue-900/20 group hover:shadow-blue-900/30 transition-shadow duration-500">
+                    <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-50 border border-slate-200 shadow-xl shadow-blue-900/5 group hover:shadow-2xl hover:shadow-blue-900/10 transition-shadow duration-500">
                         {/* Background Effects */}
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-600/10 blur-[100px] rounded-full pointer-events-none mix-blend-screen" />
-                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 blur-[80px] rounded-full pointer-events-none mix-blend-screen" />
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-100/50 blur-[100px] rounded-full pointer-events-none mix-blend-multiply" />
+                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/50 blur-[80px] rounded-full pointer-events-none mix-blend-multiply" />
 
                         <div className="relative z-10 px-8 py-16 md:py-24 text-center">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-700 text-blue-400 text-xs font-bold uppercase tracking-wider mb-8 backdrop-blur-md">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-8 shadow-sm">
                                 <Rocket className="w-4 h-4" /> Ready to Scale?
                             </div>
 
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-white tracking-tight leading-[1.1]">
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 text-slate-900 tracking-tight leading-[1.1]">
                                 Architect Your <br className="hidden md:block" />
-                                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                                <span className="text-blue-700">
                                     Industry-Specific AI Engine
                                 </span>
                             </h2>
 
-                            <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+                            <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
                                 Stop relying on generic tools. Deploy a revenue engine engineered
-                                specifically for the <span className="text-blue-300 font-semibold">nuances of your vertical</span>.
+                                specifically for the <span className="text-blue-600 font-bold">nuances of your vertical</span>.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
                                 <Link to="/book-consultation">
-                                    <Button className="bg-white text-slate-950 hover:bg-blue-50 hover:text-blue-700 px-10 py-7 h-auto text-lg font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1">
+                                    <Button className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-7 h-auto text-lg font-bold rounded-full shadow-lg shadow-blue-500/30 transition-all duration-300 flex items-center gap-3 transform hover:-translate-y-1">
                                         Start Building Now
                                         <ArrowRight className="w-5 h-5" />
                                     </Button>
                                 </Link>
                                 <div className="flex flex-col items-center gap-2">
                                     <p className="text-slate-500 text-sm font-medium sm:ml-6 flex items-center gap-2">
-                                        <span className="text-green-400 relative flex h-2.5 w-2.5">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                        <span className="text-emerald-500 relative flex h-2.5 w-2.5">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                                         </span>
                                         Operational in weeks, not months
                                     </p>

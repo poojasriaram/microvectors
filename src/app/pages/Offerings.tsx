@@ -1297,39 +1297,39 @@ export default function Offerings() {
                     </div>
                 </div>
 
-                {/* Strategic Value Proposition (Dark Contrast) */}
-                <div className="bg-slate-900 py-32 relative overflow-hidden text-white">
+                {/* Strategic Value Proposition (Light Theme) */}
+                <div className="bg-white py-32 relative overflow-hidden text-slate-900 border-y border-slate-200">
                     {/* Background Elements */}
                     <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                        <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[100px]"></div>
-                        <div className="absolute bottom-[20%] left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px]"></div>
-                        <div className="absolute inset-0 pointer-events-none"></div>
+                        <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-[100px]"></div>
+                        <div className="absolute bottom-[20%] left-0 w-[600px] h-[600px] bg-indigo-50 rounded-full blur-[100px]"></div>
+                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none"></div>
                     </div>
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="mb-20 text-center">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-8">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-8 shadow-sm">
                                 Unlock Growth
                             </div>
-                            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">From Pain to Performance</h2>
-                            <p className="text-xl text-slate-400 max-w-3xl mx-auto font-medium">
+                            <h2 className="text-4xl lg:text-5xl font-extrabold mb-6 text-slate-900 tracking-tight">From Pain to Performance</h2>
+                            <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium">
                                 We help you connect the dots between isolated challenges and unified revenue intelligence.
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8 mb-24">
                             {/* Connected Pain Resolution */}
-                            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-indigo-500/30 hover:bg-white/10 transition-all group">
-                                <h3 className="text-xl font-bold mb-6 text-white group-hover:text-indigo-400 transition-colors">Connected Pain Resolution</h3>
-                                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Most companies experience these challenges as isolated pains, but they're actually interconnected symptoms:</p>
+                            <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8 hover:border-blue-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                                <h3 className="text-xl font-bold mb-6 text-slate-900 group-hover:text-blue-700 transition-colors">Connected Pain Resolution</h3>
+                                <p className="text-slate-600 text-sm mb-6 leading-relaxed font-medium">Most companies experience these challenges as isolated pains, but they're actually interconnected symptoms:</p>
                                 <ul className="space-y-4">
                                     {[
                                         "Market Blindness → Wasted R&D → Failed Launches",
                                         "Poor Targeting → Low Win Rates → High CAC",
                                         "Data Silos → Forecast Inaccuracy → Investor Distrust"
                                     ].map((item, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-300">
-                                            <div className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-2 flex-shrink-0 shadow-[0_0_8px_rgba(244,63,94,0.6)]"></div>
+                                        <li key={i} className="flex items-start gap-3 text-sm font-semibold text-slate-700">
+                                            <div className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-2 flex-shrink-0 shadow-[0_0_8px_rgba(244,63,94,0.3)]"></div>
                                             <span className="leading-snug">{item}</span>
                                         </li>
                                     ))}
@@ -1337,20 +1337,20 @@ export default function Offerings() {
                             </div>
 
                             {/* The TrustGrid.ai Difference */}
-                            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 hover:border-violet-500/30 hover:bg-white/10 transition-all group">
-                                <h3 className="text-xl font-bold mb-6 text-white group-hover:text-violet-400 transition-colors">The TrustGrid.ai Difference</h3>
-                                <p className="text-slate-400 text-sm mb-6 leading-relaxed">Transforming your organization from reactive to proactive:</p>
+                            <div className="bg-white border border-slate-200 rounded-3xl p-8 hover:border-indigo-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group shadow-sm">
+                                <h3 className="text-xl font-bold mb-6 text-slate-900 group-hover:text-indigo-700 transition-colors">The TrustGrid.ai Difference</h3>
+                                <p className="text-slate-600 text-sm mb-6 leading-relaxed font-medium">Transforming your organization from reactive to proactive:</p>
                                 <ul className="space-y-4">
                                     {[
                                         { from: "Guesswork", to: "Predictive Intelligence" },
                                         { from: "Silos", to: "Unified Insights" },
                                         { from: "Reactive Operations", to: "Proactive Strategy" }
                                     ].map((item, i) => (
-                                        <li key={i} className="flex items-center gap-3 text-sm font-medium text-slate-300">
-                                            <ArrowRight className="w-4 h-4 text-violet-500 flex-shrink-0" />
+                                        <li key={i} className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                                            <ArrowRight className="w-4 h-4 text-indigo-500 flex-shrink-0" />
                                             <span className="flex items-center gap-2 flex-wrap">
-                                                <span className="text-slate-500 line-through decoration-slate-600/50">{item.from}</span>
-                                                <span className="text-violet-400">→ {item.to}</span>
+                                                <span className="text-slate-400 line-through decoration-slate-300">{item.from}</span>
+                                                <span className="text-indigo-700">→ {item.to}</span>
                                             </span>
                                         </li>
                                     ))}
@@ -1358,10 +1358,11 @@ export default function Offerings() {
                             </div>
 
                             {/* Measurable Transformation Impact */}
-                            <div className="bg-gradient-to-br from-indigo-900/40 to-blue-900/40 border border-indigo-500/20 rounded-3xl p-8 hover:border-indigo-500/40 transition-colors shadow-lg shadow-indigo-900/20">
-                                <h3 className="text-xl font-bold mb-6 text-white">Measurable Impact</h3>
-                                <p className="text-slate-300 text-sm mb-6 leading-relaxed">Companies using TrustGrid.ai achieve:</p>
-                                <ul className="space-y-4">
+                            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 border border-blue-500 rounded-3xl p-8 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none -mt-10 -mr-10"></div>
+                                <h3 className="text-xl font-bold mb-6 text-white relative z-10">Measurable Impact</h3>
+                                <p className="text-blue-100 text-sm mb-6 leading-relaxed font-medium relative z-10">Companies using TrustGrid.ai achieve:</p>
+                                <ul className="space-y-4 relative z-10">
                                     {[
                                         "40-60% faster revenue growth",
                                         "25-35% lower operational costs",
@@ -1369,8 +1370,8 @@ export default function Offerings() {
                                         "3-5x ROI within first 12 months"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3">
-                                            <div className="bg-emerald-500/20 p-1 rounded-full">
-                                                <Check className="w-3 h-3 text-emerald-400" />
+                                            <div className="bg-white/20 p-1 rounded-full border border-white/30">
+                                                <Check className="w-3 h-3 text-white" />
                                             </div>
                                             <span className="text-base font-bold text-white">{item}</span>
                                         </li>
@@ -1380,7 +1381,7 @@ export default function Offerings() {
                         </div>
 
                         <div className="text-center">
-                            <Button asChild className="bg-white text-slate-900 hover:bg-slate-200 text-lg px-10 py-7 h-auto shadow-[0_0_30px_rgba(255,255,255,0.2)] rounded-full transition-all hover:scale-105 font-bold">
+                            <Button asChild className="bg-slate-900 text-white hover:bg-slate-800 text-lg px-10 py-6 h-auto shadow-xl rounded-full transition-all font-bold">
                                 <Link to="/book-consultation">Start Your Transformation Today</Link>
                             </Button>
                         </div>
@@ -1388,16 +1389,16 @@ export default function Offerings() {
                 </div>
 
                 {/* Footer CTA */}
-                <div className="text-center max-w-3xl mx-auto px-4 pb-32 pt-10">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to Scale?</h2>
-                    <p className="text-xl text-slate-600 mb-10 font-medium">
+                <div className="text-center max-w-3xl mx-auto px-4 pb-32 pt-16">
+                    <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Ready to Scale?</h2>
+                    <p className="text-xl text-slate-600 mb-10 font-medium leading-relaxed">
                         Join the forward-thinking enterprises building their predictable revenue engine with TrustGrid AI.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <Button asChild className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 h-auto text-lg shadow-xl shadow-indigo-200 rounded-xl font-bold">
-                            <Link to="/book-consultation">Book for Consultation</Link>
+                        <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 h-auto text-lg shadow-xl shadow-blue-500/20 rounded-full font-bold transition-transform hover:-translate-y-1">
+                            <Link to="/book-consultation">Book a Consultation</Link>
                         </Button>
-                        <Button asChild variant="outline" className="border-slate-300 text-slate-700 hover:bg-white px-8 py-6 h-auto text-lg rounded-xl bg-slate-50 font-medium">
+                        <Button asChild variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 px-8 py-6 h-auto text-lg rounded-full font-bold transition-all shadow-sm">
                             <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>
                         </Button>
                     </div>
