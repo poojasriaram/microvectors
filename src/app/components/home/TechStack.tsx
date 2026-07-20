@@ -12,35 +12,37 @@ const technologies = [
 
 export default function TechStack() {
     return (
-        <section className="py-24 bg-slate-50 relative overflow-hidden" id="technologies">
+        <section className="py-24 bg-slate-900 relative overflow-hidden" id="offerings">
             {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[100px] -z-10"></div>
+            <div className="absolute inset-0 bg-dot-slate-800 opacity-50 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
             
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full glass-dark border border-white/10 text-slate-300 font-semibold text-xs tracking-widest uppercase mb-6 shadow-sm">
+                        Technology Infrastructure
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
                         Enterprise Grade Technology
                     </h2>
-                    <p className="text-lg text-slate-600">
-                        Built on scalable, secure, and modern infrastructure designed to handle millions of data points autonomously.
+                    <p className="text-lg text-slate-400 font-light max-w-2xl mx-auto">
+                        Built on scalable, secure, and modern infrastructure designed to handle millions of data points autonomously and securely.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-10">
+                <div className="flex flex-wrap justify-center gap-4 lg:gap-6 relative z-10 max-w-5xl mx-auto">
                     {technologies.map((tech, index) => (
                         <motion.div
                             key={index}
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ 
-                                duration: 5, 
-                                repeat: Infinity, 
-                                ease: "easeInOut",
-                                delay: index * 0.2
-                            }}
-                            className="bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: index * 0.05 }}
+                            whileHover={{ scale: 1.05 }}
+                            className="group bg-slate-800/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col items-center cursor-default shadow-lg"
                         >
-                            <div className={`text-xl font-bold mb-1 ${tech.color}`}>{tech.name}</div>
-                            <div className="text-sm font-semibold text-slate-500 tracking-wide uppercase">{tech.category}</div>
+                            <div className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">{tech.category}</div>
+                            <div className={`text-lg md:text-xl font-bold tracking-tight text-white group-hover:${tech.color} transition-colors duration-300`}>{tech.name}</div>
                         </motion.div>
                     ))}
                 </div>

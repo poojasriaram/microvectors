@@ -1,16 +1,17 @@
 export default function TrustedBySection() {
     return (
-        <section className="py-16 border-b border-slate-100 bg-white/50 backdrop-blur-sm">
+        <section id="partners" className="py-20 border-y border-white/5 bg-slate-950/80 backdrop-blur-sm relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-10">
-                    Trusted by Innovative Enterprise Teams Globally
+                <p className="text-center text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-12">
+                    Strategic Partners & Trusted Enterprise Ecosystem
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
-                    <div className="h-10 w-32 bg-slate-200/50 rounded-lg"></div>
-                    <div className="h-10 w-32 bg-slate-200/50 rounded-lg"></div>
-                    <div className="h-10 w-32 bg-slate-200/50 rounded-lg"></div>
-                    <div className="h-10 w-32 bg-slate-200/50 rounded-lg"></div>
-                    <div className="h-10 w-32 bg-slate-200/50 rounded-lg hidden md:block"></div>
+                <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
+                    {/* Placeholder logos for enterprise tech companies */}
+                    <div className="h-10 w-36 bg-slate-800/80 border border-white/5 rounded-lg flex items-center justify-center text-slate-400 font-bold tracking-widest uppercase text-xs shadow-inner">Partner 1</div>
+                    <div className="h-10 w-36 bg-slate-800/80 border border-white/5 rounded-lg flex items-center justify-center text-slate-400 font-bold tracking-widest uppercase text-xs shadow-inner">Partner 2</div>
+                    <div className="h-10 w-36 bg-slate-800/80 border border-white/5 rounded-lg flex items-center justify-center text-slate-400 font-bold tracking-widest uppercase text-xs shadow-inner">Partner 3</div>
+                    <div className="h-10 w-36 bg-slate-800/80 border border-white/5 rounded-lg flex items-center justify-center text-slate-400 font-bold tracking-widest uppercase text-xs shadow-inner">Partner 4</div>
+                    <div className="h-10 w-36 bg-slate-800/80 border border-white/5 rounded-lg flex items-center justify-center text-slate-400 font-bold tracking-widest uppercase text-xs shadow-inner hidden md:flex">Partner 5</div>
                 </div>
             </div>
         </section>
