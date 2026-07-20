@@ -48,9 +48,12 @@ export default function CookieConsent() {
                                     <h3 className="text-lg font-bold text-slate-900">Cookie Policy</h3>
                                     <button
                                         onClick={() => setIsVisible(false)}
+                                        aria-label="Close dialog"
+                                        title="Close dialog"
                                         className="text-slate-400 hover:text-slate-600 transition-colors p-1"
                                     >
                                         <X className="w-4 h-4" />
+                                        <span className="sr-only">Close dialog</span>
                                     </button>
                                 </div>
                                 <p className="text-sm text-slate-600 leading-relaxed font-medium">

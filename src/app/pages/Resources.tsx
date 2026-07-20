@@ -23,21 +23,7 @@ export default function Resources() {
         { icon: <Users className="w-8 h-8 text-yellow-600" />, title: "Case Studies & Success Stories" },
         { icon: <FileText className="w-8 h-8 text-orange-600" />, title: "Whitepapers & Research Reports" },
     ];
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1974&auto=format&fit=crop", // Library/Books
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop", // Planning/Working
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data/Charts
-        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop"  // Conference
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
     return (
         <div className="bg-white text-slate-900 font-sans min-h-screen">
             {/* Hero Section */}

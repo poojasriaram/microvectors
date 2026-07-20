@@ -29,7 +29,7 @@ export default function Career() {
         document.title = "Careers | TrustGrid AI";
     }, []);
 
-    const [currentSlide, setCurrentSlide] = useState(0);
+
     const [isApplyOpen, setIsApplyOpen] = useState(false);
     const [selectedRole, setSelectedRole] = useState("");
 
@@ -61,19 +61,7 @@ export default function Career() {
         }
     };
 
-    const slides = [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
-    ];
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     const values = [
         {

@@ -102,27 +102,12 @@ export default function Company() {
         };
     }, []);
 
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1553877615-2a33715ce9e2?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80"
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
 
-            {/* 1. Hero Section - Premium (Background Slideshow - Uniform Theme) */}
+            {/* 1. Hero Section - Premium (Vector Grid Pattern) */}
             <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200">
                 {/* Background Slideshow */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -234,7 +219,7 @@ export default function Company() {
                             </div>
                         </div>
 
-                        {/* Visual Content */}
+                        {/* Core Principles Card Layout */}
                         <div className="lg:col-span-6 relative">
                             <Reveal width="100%" delay={0.2}>
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-900/10 border border-slate-100 group">

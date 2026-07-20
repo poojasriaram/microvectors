@@ -29,7 +29,7 @@ export default function CryptoOutcomeBlock({ data, index }: OutcomeBlockProps) {
         <div className="py-24 border-b border-slate-200 last:border-0 relative overflow-hidden">
             {/* Background Gradients */}
             <div className={`absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br ${index % 2 === 0 ? 'from-blue-200/40 to-purple-200/40' : 'from-purple-200/40 to-indigo-200/40'} rounded-full blur-[100px] opacity-60 -translate-y-1/2 translate-x-1/2 pointer-events-none`}></div>
-            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none"></div>
+            <div className="absolute inset-0 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 items-start">

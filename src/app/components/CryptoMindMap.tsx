@@ -124,7 +124,7 @@ export default function CryptoMindMap() {
             {/* Dynamic Background Effects (Stateless) */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-blue-500/0 via-blue-500/10 to-blue-500/0" />
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay"></div>
+                <div className="absolute inset-0 pointer-events-none"></div>
             </div>
 
             {/* SERVER-SIDE SEO FALLBACK (Hidden on client) */}

@@ -7,7 +7,7 @@ export default function Security() {
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
             {/* Header/Hero Section */}
             <div className="bg-slate-900 border-b border-slate-800 pt-32 pb-12 lg:pt-40 lg:pb-16 relative overflow-hidden text-white">
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+                <div className="absolute inset-0 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[128px] opacity-20 pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[128px] opacity-20 pointer-events-none"></div>
 

@@ -75,7 +75,7 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
 
                         {/* PANEL 3: Portfolio Cards */}
                         <div className="space-y-4">
-                            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Core Capabilities</h4>
+                            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Core Capabilities</h3>
                             {data.portfolio.map((item, i) => {
                                 const Icon = item.icon;
                                 return (
@@ -91,7 +91,7 @@ export default function ConversionBlock({ data, index }: { data: ConversionBlock
                                             <Icon className="w-5 h-5" />
                                         </div>
                                         <div>
-                                            <h5 className="text-slate-900 font-bold">{item.title}</h5>
+                                            <h4 className="text-slate-900 font-bold">{item.title}</h4>
                                             {item.desc && <p className="text-xs text-slate-500 font-medium">{item.desc}</p>}
                                         </div>
                                     </motion.div>

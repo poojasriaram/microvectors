@@ -19,21 +19,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function Solutions() {
     const location = useLocation();
-    const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
-    const backgroundSlides = [
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop", // Tech/Network
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop", // Tech/Chip
-        "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop", // Analytics
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"  // Data
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentBgIndex((prev: number) => (prev + 1) % backgroundSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);

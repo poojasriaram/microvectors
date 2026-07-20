@@ -53,7 +53,7 @@ export default function VerticalTabEngine({ tabs }: VerticalTabEngineProps) {
             {/* Tab Content Panel */}
             <div className="flex-1 relative bg-white rounded-2xl border border-slate-200 p-8 md:p-10 overflow-hidden shadow-sm">
                 {/* Decorative Grid Background */}
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5"></div>
+                <div className="absolute inset-0 pointer-events-none"></div>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-slate-50/50 to-white"></div>
 
                 <AnimatePresence mode="wait">

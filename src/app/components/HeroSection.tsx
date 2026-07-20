@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
@@ -22,7 +23,7 @@ export default function HeroSection() {
             <span className="text-xs text-slate-700 font-bold tracking-widest uppercase">
               AI-Powered Revenue Operating System
             </span>
-          </div>
+          </motion.div>
 
           {/* Ultra-refined Headline */}
           <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] font-extrabold text-slate-900 leading-[1.05] tracking-tighter max-w-5xl mx-auto">
@@ -46,8 +47,8 @@ export default function HeroSection() {
               className="bg-slate-900 hover:bg-slate-800 text-white px-8 h-14 text-sm tracking-wide uppercase rounded-full shadow-lg shadow-slate-900/10 hover:shadow-slate-900/20 transition-all font-bold"
             >
               <Link to="/book-consultation">
-                Book for Consultation
-                <ArrowRight className="ml-2 w-4 h-4" />
+                Book Free Consultation
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <Button
@@ -56,7 +57,7 @@ export default function HeroSection() {
               variant="outline"
               className="border-slate-200 bg-white/50 backdrop-blur-sm text-slate-700 hover:bg-white hover:border-slate-300 h-14 text-sm tracking-wide uppercase rounded-full px-8 hover:text-slate-900 transition-all font-bold"
             >
-              <Link to="/talk-to-expert">Talk to a Revenue Expert</Link>
+              <Link to="/solutions">View Our Solutions</Link>
             </Button>
           </div>
 
@@ -120,9 +121,68 @@ export default function HeroSection() {
               </div>
 
             </div>
-          </div>
+            <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
+              <ShieldCheck className="w-5 h-5 text-brand-blue" />
+              SOC2 Type II Certified
+            </div>
+            <div className="flex items-center gap-2 text-slate-600 text-sm font-medium">
+              <Zap className="w-5 h-5 text-brand-blue" />
+              99.99% Uptime SLA
+            </div>
+          </motion.div>
+
         </div>
+
+        {/* Floating AI Illustration */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex-1 relative w-full h-[500px] lg:h-[600px] hidden lg:block"
+        >
+           {/* Abstract Floating Elements representing AI Enterprise Infrastructure */}
+           <motion.div 
+             animate={{ y: [-10, 10, -10], rotate: [0, 5, 0] }}
+             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute top-[10%] right-[10%] w-64 h-64 glass-dark rounded-3xl shadow-2xl overflow-hidden flex flex-col p-6 z-20"
+           >
+              <div className="w-full h-8 bg-slate-800 rounded-lg mb-4 opacity-50 animate-pulse"></div>
+              <div className="w-3/4 h-8 bg-slate-800 rounded-lg mb-4 opacity-50 animate-pulse delay-75"></div>
+              <div className="mt-auto w-full h-24 bg-gradient-to-t from-brand-blue/20 to-transparent rounded-lg"></div>
+           </motion.div>
+
+           <motion.div 
+             animate={{ y: [15, -15, 15], x: [-5, 5, -5] }}
+             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+             className="absolute bottom-[20%] left-[5%] w-48 h-48 glass rounded-full shadow-xl flex items-center justify-center z-30 border border-white/20"
+           >
+              <div className="w-32 h-32 rounded-full border-4 border-brand-purple/20 border-t-brand-purple animate-spin" style={{ animationDuration: '3s' }}></div>
+              <Sparkles className="absolute w-8 h-8 text-brand-blue" />
+           </motion.div>
+
+           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl -z-10"></div>
+        </motion.div>
       </div>
+
+      {/* Trusted By Client Logos Placeholder */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 mt-20 pt-10 border-t border-slate-100"
+      >
+        <p className="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">
+          Trusted by Innovative Teams Worldwide
+        </p>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+           {/* Placeholder shapes for logos until actual SVGs are provided */}
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded"></div>
+           <div className="h-8 w-24 md:w-32 bg-slate-200 rounded hidden md:block"></div>
+        </div>
+      </motion.div>
     </section>
   );
 }
