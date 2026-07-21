@@ -38,107 +38,68 @@ export default function Capabilities() {
 
     const Capabilities = [
         {
-            title: "AI Business Growth Strategy",
-            tagline: "Design a predictable, scalable, AI-powered revenue engine for your entire organization.",
+            title: "AI Demand Discovery & Revenue Acceleration",
+            tagline: "Uncover new market segments and prioritise highest-propensity buyers in real time.",
             icon: Target,
             details: {
-                situations: ["Growth depends on founders or a few key leaders", "Revenue targets are consistently missed", "Expansion into new markets feels risky", "No clarity on which segment to prioritize"],
-                challenges: ["No unified growth narrative", "Fragmented leadership execution", "No market prioritization framework", "Siloed KPIs and reporting"],
-                offerings: ["AI models ICPs, market demand, product-market fit, competitive positioning, and revenue performance to design a complete growth operating system."],
-                outcomes: ["Revenue predictability ↑", "Execution velocity ↑", "CAC ↓ 30–50%", "LTV ↑ 2–4×", "Expansion success rate ↑", "Market penetration ↑"],
-                benefits: ["Executive growth clarity", "AI-backed expansion decisions", "Predictable revenue planning", "Unified GTM execution"],
-                problemKpis: ["Revenue volatility & missed targets", "Founder-dependent growth execution", "High CAC and declining margins", "Disconnected GTM motions", "Failed market expansions", "No scalable growth blueprint"]
+                situations: ["Inbound demand is weak", "No clarity on where real demand exists", "GTM decisions are based on assumptions"],
+                challenges: ["No visibility into buyer intent", "Poor ICP definition", "Inaccurate TAM/SAM/SOM"],
+                offerings: ["Dynamic ICP modeling, demand pulse engines, predictive lead scoring."],
+                outcomes: ["Lead velocity ↑ 247%", "SQL quality ↑ 3×", "Cost per lead ↓ 45%"],
+                benefits: ["Demand clarity", "Market-backed ICP definition", "Predictive GTM strategy"],
+                problemKpis: ["Weak inbound pipeline", "Poor ICP targeting", "Low MQL → SQL conversion"]
             }
         },
         {
-            title: "AI Market Strategy & Demand Intelligence",
-            tagline: "Turn real market demand into revenue certainty.",
-            icon: Brain,
-            details: {
-                situations: ["Inbound demand is weak", "No clarity on where real demand exists", "GTM decisions are based on assumptions", "Pricing is guesswork"],
-                challenges: ["No visibility into buyer intent", "Poor ICP definition", "Inaccurate TAM/SAM/SOM", "No competitive demand mapping"],
-                offerings: ["AI demand intelligence platform that decodes buyer intent, competitive traction, and market signals to drive smarter GTM decisions, pricing, positioning, and acquisition strategy."],
-                outcomes: ["Lead velocity ↑ 247%", "SQL quality ↑ 3×", "Cost per lead ↓ 45%", "Time-to-PMF ↓ 60%", "Win rate ↑"],
-                benefits: ["Demand clarity", "Market-backed ICP definition", "Predictive GTM strategy", "Confident pricing decisions"],
-                problemKpis: ["Weak inbound pipeline", "Poor ICP targeting", "Low MQL → SQL conversion", "Slow product-market fit", "Ineffective positioning"]
-            }
-        },
-        {
-            title: "AI-Driven Growth Hacking Engine",
-            tagline: "Launch faster. Learn faster. Scale smarter.",
+            title: "AI-Driven Brand Acceleration",
+            tagline: "Turn unknown demand into recognised preference.",
             icon: Rocket,
             details: {
-                situations: ["Growth has plateaued", "Marketing channels are saturated", "Acquisition costs are rising"],
-                challenges: ["Manual experimentation", "No learning system", "No repeatable playbooks"],
-                offerings: ["Self-learning AI growth engine that continuously generates growth hypotheses, runs experiments, optimizes funnels, and scales winning growth loops."],
-                outcomes: ["Experiment velocity ↑ 5×", "Funnel conversion ↑ 2–4×", "Viral coefficient ↑", "Time-to-scale ↓"],
-                benefits: ["Always-on experimentation", "Rapid learning cycles", "Compounding growth loops"],
-                problemKpis: ["Growth stagnation", "Slow experimentation cycles", "Poor funnel conversion", "No viral or referral loops"]
+                situations: ["Low brand awareness in target markets", "Content doesn't convert"],
+                challenges: ["Generic messaging", "Missed timing on buyer intent"],
+                offerings: ["Autonomous content personalisation, intent-based brand exposure, and market presence expansion."],
+                outcomes: ["Brand Recognition Lift ↑ 3×", "Wider Reach in Target ICP ↑ 45%", "CPA ↓ 30%"],
+                benefits: ["Dynamic messaging based on real-time market pulse", "Automated content distribution"],
+                problemKpis: ["Low brand search volume", "High cost-per-click", "Low engagement rates"]
             }
         },
         {
-            title: "AI-Driven Performance Marketing",
-            tagline: "Turn every marketing dollar into measurable growth.",
-            icon: BarChart3,
+            title: "AI-Driven Reputation Acceleration",
+            tagline: "Build a reputation that converts before a call is made.",
+            icon: Shield,
             details: {
-                situations: ["Paid marketing costs are rising", "ROI is unclear", "Attribution is broken"],
-                challenges: ["Channel inefficiencies", "Creative fatigue", "Poor targeting"],
-                offerings: ["Predictive AI marketing engine that reallocates spend in real time, optimizes creatives, and maximizes ROI across channels."],
-                outcomes: ["CAC ↓ 35–60%", "ROAS ↑ 2–5×", "Conversion rate ↑", "Spend efficiency ↑"],
-                benefits: ["Smart budget allocation", "High-performing creatives", "Predictable CAC"],
-                problemKpis: ["Rising CAC", "Low ROAS", "Poor attribution", "Inefficient spend"]
+                situations: ["Long sales cycles", "Lack of social proof"],
+                challenges: ["Manual review collection", "Negative sentiment going unnoticed"],
+                offerings: ["Review sentiment monitoring, automated trust-signal generation, and reputation-led nurture."],
+                outcomes: ["Win rate ↑ 34%", "Sales Cycle Time ↓ 50%", "Trust signals deployed across 14 touchpoints"],
+                benefits: ["Lower Cost-Per-Acquisition through higher trust", "Accelerated sales velocity"],
+                problemKpis: ["Lost deals to competitors", "Low conversion on pricing pages"]
             }
         },
         {
-            title: "AI Auto Sales Pilot (Autonomous Sales Agents)",
+            title: "Autonomous Sales Pilot",
             tagline: "Your best SDR, working 24/7.",
             icon: Users,
             details: {
                 situations: ["Leads arrive outside business hours", "Reps are overloaded", "High inbound volume"],
                 challenges: ["Manual qualification", "Delayed response", "Missed opportunities"],
-                offerings: ["Autonomous AI sales agents that qualify, engage, book meetings, and route leads automatically."],
-                outcomes: ["Response time < 60 seconds", "Meeting rate ↑ 3×", "Pipeline velocity ↑", "Conversion rate ↑"],
+                offerings: ["AI sales agents that handle inbound qualification, outbound prospecting, and 24/7 follow-up; workflow automation; RevOps Intelligence dashboards."],
+                outcomes: ["Response time < 60 seconds", "Meeting rate ↑ 3×", "Pipeline velocity ↑"],
                 benefits: ["24/7 selling", "Zero lead leakage", "Higher conversion"],
-                problemKpis: ["Slow lead response", "Lead leakage", "Rep burnout", "Low inbound conversion"]
+                problemKpis: ["Slow lead response", "Lead leakage", "Rep burnout"]
             }
         },
         {
-            title: "AI Sales Process Optimization",
-            tagline: "Remove friction. Close faster.",
-            icon: Workflow,
-            details: {
-                situations: ["Deals get stuck", "Reps waste time", "Forecasts are unreliable"],
-                challenges: ["Manual pipeline management", "No deal intelligence", "Inconsistent execution"],
-                offerings: ["AI-powered sales optimization engine that improves every stage of the sales funnel."],
-                outcomes: ["Cycle time ↓ 50%", "Win rate ↑ 2–3×", "Forecast accuracy ↑", "Rep productivity ↑"],
-                benefits: ["Faster deals", "Higher rep productivity", "Predictable revenue"],
-                problemKpis: ["Long sales cycles", "Low close rates", "Poor pipeline hygiene"]
-            }
-        },
-        {
-            title: "AI Revenue Operations (AI RevOps)",
-            tagline: "One command center for total revenue.",
-            icon: Database,
-            details: {
-                situations: ["No revenue visibility", "Missed forecasts", "Tool sprawl"],
-                challenges: ["No single source of truth", "Manual reporting", "Data chaos"],
-                offerings: ["Unified AI RevOps platform that consolidates all revenue data into a single intelligence layer."],
-                outcomes: ["Forecast accuracy ↑ 95%+", "Revenue leakage ↓ 40%", "ARR predictability ↑"],
-                benefits: ["Revenue control", "Executive dashboards", "Predictive insights"],
-                problemKpis: ["Revenue leakage", "Poor forecasting", "Siloed data"]
-            }
-        },
-        {
-            title: "AI Revenue Acceleration & Expansion",
-            tagline: "Grow faster from the customers you already have.",
+            title: "Hidden Revenue Capture",
+            tagline: "Recover 15-25% of lost revenue hiding in plain sight.",
             icon: LineChart,
             details: {
-                situations: ["Customers disengage", "Expansion is reactive"],
-                challenges: ["No churn prediction", "No expansion intelligence"],
-                offerings: ["AI-powered expansion and retention engine that maximizes customer lifetime value."],
-                outcomes: ["Net Revenue Retention ↑ 130%+", "Expansion ARR ↑ 3×", "Churn ↓ 40–60%"],
-                benefits: ["Proactive retention", "Smart upsell"],
-                problemKpis: ["High churn", "Low expansion revenue", "Poor customer health visibility"]
+                situations: ["Customers disengage", "Expansion is reactive", "Missed renewals"],
+                challenges: ["No churn prediction", "No expansion intelligence", "Revenue leakage"],
+                offerings: ["Customer success intelligence for churn risk, cross-sell/upsell engines, and revenue leakage audits."],
+                outcomes: ["Net Revenue Retention ↑ 130%+", "Expansion ARR ↑ 3×", "Churn ↓ 27%"],
+                benefits: ["Proactive retention", "Smart upsell", "Continuous leakage audits"],
+                problemKpis: ["High churn", "Low expansion revenue", "Missed contract renewals"]
             }
         }
     ];
@@ -160,14 +121,13 @@ export default function Capabilities() {
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <Reveal width="100%">
                         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-[1.1]">
-                            AI Strategy, Growth, <br className="hidden sm:block" />
+                            The Autonomous <br className="hidden sm:block" />
                             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                                Sales & Revenue Capabilities
+                                Revenue Engine
                             </span>
                         </h1>
                         <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-                            Our Capabilities are designed as modular, composable AI systems that together
-                            form a complete revenue operating architecture.
+                            MicroVectors is not a collection of tools – it's an autonomous revenue OS that continuously learns and acts across the full customer lifecycle.
                         </p>
                     </Reveal>
                 </div>

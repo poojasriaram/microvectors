@@ -95,12 +95,12 @@ export default function Navigation() {
                                             
                                             <div className="flex h-full min-h-[400px]">
                                                 {/* Left Column: Submenu Items */}
-                                                <div className="w-[45%] p-8 bg-white shrink-0">
-                                                    <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
-                                                        <span className="w-8 h-px bg-slate-200"></span>
+                                                <div className="w-[45%] p-4 bg-white shrink-0">
+                                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
+                                                        <span className="w-6 h-px bg-slate-200"></span>
                                                         Explore {item.name}
                                                     </h4>
-                                                    <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+                                                    <div className="grid grid-cols-2 gap-2">
                                                         {item.dropdown.items?.map((sub: any, subIdx: number) => {
                                                             const IconComponent = Icons[sub.icon] || ArrowRight;
                                                             return (
@@ -108,12 +108,12 @@ export default function Navigation() {
                                                                     key={subIdx}
                                                                     to={sub.path}
                                                                     onClick={() => setHoveredItem(null)}
-                                                                    className="group/link flex items-start gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors"
+                                                                    className="group/link flex items-center gap-2.5 p-2 bg-white border border-slate-100 shadow-sm rounded-lg hover:border-blue-200 hover:shadow-sm hover:bg-slate-50 transition-all"
                                                                 >
-                                                                    <div className="bg-slate-100 text-blue-600 p-1.5 rounded-md group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0 mt-0.5">
-                                                                        <IconComponent className="w-4 h-4" />
+                                                                    <div className="bg-slate-50 text-blue-600 p-1.5 rounded-md group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                        <IconComponent className="w-3.5 h-3.5" />
                                                                     </div>
-                                                                    <span className="text-[13px] font-semibold text-slate-700 group-hover/link:text-blue-600 flex-1 leading-tight">{sub.name}</span>
+                                                                    <span className="text-[12px] font-semibold text-slate-700 group-hover/link:text-blue-600 flex-1 leading-tight">{sub.name}</span>
                                                                 </Link>
                                                             );
                                                         })}
@@ -121,21 +121,21 @@ export default function Navigation() {
                                                 </div>
 
                                                 {/* Middle Column: Featured Services */}
-                                                <div className="w-[25%] p-8 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0">
-                                                    <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                                                <div className="w-[25%] p-4 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0">
+                                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
                                                         Featured
                                                     </h4>
-                                                    <div className="flex flex-col gap-6">
+                                                    <div className="flex flex-col gap-2">
                                                         {item.dropdown.featured?.map((feat: any, fIdx: number) => (
                                                             <Link 
                                                                 key={fIdx}
                                                                 to={feat.path}
                                                                 onClick={() => setHoveredItem(null)}
-                                                                className="group/feat flex flex-col gap-1"
+                                                                className="group/feat flex flex-col gap-0.5 p-2.5 rounded-lg bg-white border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-sm transition-all"
                                                             >
-                                                                <span className="text-[14px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
-                                                                <span className="text-[13px] text-slate-500 leading-snug">{feat.desc}</span>
-                                                                <span className="text-[12px] font-semibold text-blue-600 mt-2 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
+                                                                <span className="text-[13px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
+                                                                <span className="text-[12px] text-slate-500 leading-snug">{feat.desc}</span>
+                                                                <span className="text-[11px] font-semibold text-blue-600 mt-1 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
                                                                     Learn More <ArrowRight className="w-3 h-3" />
                                                                 </span>
                                                             </Link>

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
     return (
-        <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 border-b border-slate-200 min-h-[90vh] flex items-center">
+        <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-24 overflow-hidden bg-slate-50 border-b border-slate-200 flex items-center">
             
             {/* Enterprise Architectural Grid Background */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -37,7 +37,7 @@ export default function HeroSection() {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                                 </span>
-                                <span className="text-xs font-bold text-slate-700 tracking-wide uppercase">AI Driven Sales & Revenue Acceleration</span>
+                                <span className="text-xs font-bold text-slate-700 tracking-wide uppercase">AI-Powered Revenue OS</span>
                             </div>
                             
                             <h1 className="text-5xl lg:text-[4.5rem] font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-8">
@@ -51,7 +51,7 @@ export default function HeroSection() {
                             </h1>
                             
                             <p className="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl font-medium">
-                                TrustGrid is an enterprise-grade AI platform designed to automate demand generation, validate MVP markets, and accelerate revenue operations at global scale.
+                                Discover demand, amplify your brand, accelerate reputation, pilot sales autonomously, and capture hidden revenue – all on one AI operating system.
                             </p>
                         </motion.div>
 
@@ -64,16 +64,16 @@ export default function HeroSection() {
                             <Link to="/book-consultation">
                                 <Button className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white px-8 py-6 text-lg h-auto rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-0.5 border border-slate-700">
                                     <span className="flex items-center font-bold">
-                                        Deploy AI Architecture
+                                        Activate Your Autonomous Growth Engine
                                         <ArrowRight className="ml-2 w-5 h-5" />
                                     </span>
                                 </Button>
                             </Link>
-                            <Link to="/talk-to-expert">
+                            <Link to="/hidden-revenue-capture">
                                 <Button variant="outline" className="w-full sm:w-auto bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 px-8 py-6 text-lg h-auto rounded-full transition-all shadow-sm">
                                     <span className="flex items-center font-bold">
                                         <Play className="mr-2 w-5 h-5 text-blue-600 fill-blue-600" />
-                                        Watch Enterprise Demo
+                                        Scan for Hidden Revenue Now
                                     </span>
                                 </Button>
                             </Link>
@@ -110,57 +110,26 @@ export default function HeroSection() {
                         >
                             {/* Main Metrics Card */}
                             <div className="absolute top-0 right-0 w-full md:w-[90%] bg-white rounded-3xl border border-slate-200 shadow-xl p-8 z-20 backdrop-blur-xl">
-                                <div className="flex justify-between items-start mb-6">
+                                <div className="grid grid-cols-2 gap-6">
                                     <div>
-                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Live Analytics</div>
-                                        <div className="text-slate-900 font-bold text-xl">Revenue Acceleration</div>
+                                        <div className="text-3xl font-black text-blue-600 mb-1">5×</div>
+                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Sales Velocity</div>
                                     </div>
-                                    <div className="p-2 bg-blue-50 rounded-xl border border-blue-100">
-                                        <BarChart3 className="w-5 h-5 text-blue-600" />
+                                    <div>
+                                        <div className="text-3xl font-black text-indigo-600 mb-1">1000×</div>
+                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Faster Automation</div>
                                     </div>
-                                </div>
-                                <div className="text-5xl font-black text-slate-900 mb-2">
-                                    314<span className="text-3xl text-slate-400">%</span>
-                                </div>
-                                <div className="text-sm font-medium text-emerald-600 flex items-center gap-1 mb-8">
-                                    <TrendingUp className="w-4 h-4" />
-                                    Avg. Pipeline Growth (YoY)
-                                </div>
-                                
-                                {/* Micro-Chart */}
-                                <div className="h-16 w-full flex items-end gap-2">
-                                    {[30, 45, 40, 60, 55, 75, 70, 90, 85, 100].map((height, i) => (
-                                        <div key={i} className="flex-1 bg-blue-100 rounded-t-sm relative group overflow-hidden">
-                                            <div 
-                                                className="absolute bottom-0 left-0 right-0 bg-blue-600 rounded-t-sm transition-all duration-1000 ease-out"
-                                                style={{ height: `${height}%` }}
-                                            ></div>
-                                        </div>
-                                    ))}
+                                    <div>
+                                        <div className="text-3xl font-black text-emerald-600 mb-1">27%</div>
+                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Churn Reduction</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-black text-purple-600 mb-1">2.3×</div>
+                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Conversion Lift</div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Floating Architecture Card */}
-                            <div className="absolute bottom-12 left-0 w-[70%] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl p-6 z-30 transform -translate-x-4 translate-y-8">
-                                <div className="flex items-center justify-between mb-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                                        <span className="text-xs font-mono text-slate-300">Neural Sync Active</span>
-                                    </div>
-                                    <Zap className="w-4 h-4 text-amber-400" />
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 w-[85%]"></div>
-                                    </div>
-                                    <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 w-[92%]"></div>
-                                    </div>
-                                    <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-gradient-to-r from-purple-500 to-pink-500 w-[78%]"></div>
-                                    </div>
-                                </div>
-                            </div>
 
                             {/* Security Badge Card */}
                             <div className="absolute top-48 left-0 w-32 h-32 bg-white rounded-3xl border border-slate-200 shadow-lg p-4 z-10 flex flex-col items-center justify-center text-center transform -translate-x-12 -rotate-6">

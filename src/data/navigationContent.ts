@@ -1695,135 +1695,6 @@ export const smNavItems = [
         "path": "/"
     },
     {
-        "name": "Capabilities",
-        "path": "/capabilities",
-        "dropdown": {
-            "featured": [
-                {
-                    "title": "AI Demand Discovery",
-                    "desc": "Predictive deal intelligence",
-                    "path": "/explore/ai-demand-discovery"
-                },
-                {
-                    "title": "AI Revenue Operations",
-                    "desc": "Sales ops automation",
-                    "path": "/explore/ai-revenue-operations"
-                }
-            ],
-            "highlight": {
-                "title": "Boost Win Rates by 4X",
-                "desc": "Predictive Deal Intelligence & Deal Dynamics.",
-                "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80",
-                "linkText": "View Capabilities",
-                "linkPath": "/capabilities"
-            },
-            "items": [
-                {
-                    "name": "Demand Pulse",
-                    "path": "/explore/demand-pulse",
-                    "icon": "HeartPulse"
-                },
-                {
-                    "name": "AI Demand Discovery",
-                    "path": "/explore/ai-demand-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "AI Lead Generation",
-                    "path": "/explore/ai-lead-generation",
-                    "icon": "Users"
-                },
-                {
-                    "name": "AI Lead Nurturing",
-                    "path": "/explore/ai-lead-nurturing",
-                    "icon": "MessageSquare"
-                },
-                {
-                    "name": "AI MVP Validation",
-                    "path": "/explore/ai-mvp-validation",
-                    "icon": "ShieldCheck"
-                },
-                {
-                    "name": "AI Sales Transformation",
-                    "path": "/explore/ai-sales-transformation",
-                    "icon": "RefreshCw"
-                },
-                {
-                    "name": "AI Revenue Operations",
-                    "path": "/explore/ai-revenue-operations",
-                    "icon": "Settings"
-                },
-                {
-                    "name": "AI Revenue Acceleration",
-                    "path": "/explore/ai-revenue-acceleration",
-                    "icon": "TrendingUp"
-                }
-            ]
-        }
-    },
-    {
-        "name": "Crypto",
-        "path": "/crypto",
-        "dropdown": {
-            "featured": [
-                {
-                    "title": "Web3 Ecosystems",
-                    "desc": "L1 & L2 protocol scaling",
-                    "path": "/explore/crypto-demand-discovery"
-                },
-                {
-                    "title": "DeFi Platforms",
-                    "desc": "Sustainable liquidity",
-                    "path": "/explore/crypto-growth"
-                }
-            ],
-            "highlight": {
-                "title": "High-Velocity Web3",
-                "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
-                "image": "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&q=80",
-                "linkText": "Learn More",
-                "linkPath": "/crypto"
-            },
-            "items": [
-                {
-                    "name": "Crypto Revenue Acceleration",
-                    "path": "/explore/crypto-revenue",
-                    "icon": "TrendingUp"
-                },
-                {
-                    "name": "Crypto Demand Discovery",
-                    "path": "/explore/crypto-demand-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "Crypto Performance Revenue",
-                    "path": "/explore/crypto-performance",
-                    "icon": "Coins"
-                },
-                {
-                    "name": "Crypto Growth Acceleration",
-                    "path": "/explore/crypto-growth",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "Market Validation Intelligence",
-                    "path": "/explore/crypto-market-validation",
-                    "icon": "Target"
-                },
-                {
-                    "name": "Customer Journey Intelligence",
-                    "path": "/explore/crypto-journey",
-                    "icon": "MapPin"
-                },
-                {
-                    "name": "Startup MVP Acceleration",
-                    "path": "/explore/crypto-startup",
-                    "icon": "Lightbulb"
-                }
-            ]
-        }
-    },
-    {
         "name": "Outcomes",
         "path": "/outcomes",
         "dropdown": {
@@ -1891,68 +1762,120 @@ export const smNavItems = [
         }
     },
     {
-        "name": "Solutions",
-        "path": "/solutions",
+        "name": "Crypto",
+        "path": "/crypto",
         "dropdown": {
             "featured": [
                 {
-                    "title": "AI Business Strategy",
-                    "desc": "Market intelligence",
-                    "path": "/explore/ai-business-strategy"
+                    "title": "Web3 Ecosystems",
+                    "desc": "L1 & L2 protocol scaling",
+                    "path": "/explore/crypto-demand-discovery"
                 },
                 {
-                    "title": "AI Auto Sales Pilot",
-                    "desc": "Autonomous agents",
-                    "path": "/explore/ai-auto-sales-pilot"
+                    "title": "DeFi Platforms",
+                    "desc": "Sustainable liquidity",
+                    "path": "/explore/crypto-growth"
                 }
             ],
             "highlight": {
-                "title": "Comprehensive Solutions",
-                "desc": "End-to-end AI-driven growth solutions for enterprises.",
-                "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
-                "linkText": "View Solutions",
-                "linkPath": "/solutions"
+                "title": "High-Velocity Web3",
+                "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
+                "image": "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&q=80",
+                "linkText": "Learn More",
+                "linkPath": "/crypto"
             },
             "items": [
                 {
-                    "name": "AI Business Growth Strategy",
-                    "path": "/explore/ai-business-strategy",
+                    "name": "Crypto Revenue Acceleration",
+                    "path": "/explore/crypto-revenue",
                     "icon": "TrendingUp"
                 },
                 {
-                    "name": "AI Market Strategy & Demand",
-                    "path": "/explore/ai-market-strategy",
-                    "icon": "Target"
+                    "name": "Crypto Demand Discovery",
+                    "path": "/explore/crypto-demand-discovery",
+                    "icon": "Search"
                 },
                 {
-                    "name": "AI-Driven Growth Hacking",
-                    "path": "/explore/growth-hacking",
+                    "name": "Crypto Performance Revenue",
+                    "path": "/explore/crypto-performance",
+                    "icon": "Coins"
+                },
+                {
+                    "name": "Crypto Growth Acceleration",
+                    "path": "/explore/crypto-growth",
                     "icon": "Rocket"
                 },
                 {
-                    "name": "AI-Driven Performance Marketing",
-                    "path": "/explore/performance-marketing",
-                    "icon": "BarChart"
+                    "name": "Market Validation Intelligence",
+                    "path": "/explore/crypto-market-validation",
+                    "icon": "Target"
                 },
                 {
-                    "name": "AI Auto Sales Pilot",
-                    "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot"
+                    "name": "Customer Journey Intelligence",
+                    "path": "/explore/crypto-journey",
+                    "icon": "MapPin"
                 },
                 {
-                    "name": "AI Sales Process Optimization",
-                    "path": "/explore/sales-optimization",
-                    "icon": "Settings"
+                    "name": "Startup MVP Acceleration",
+                    "path": "/explore/crypto-startup",
+                    "icon": "Lightbulb"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Offerings",
+        "path": "/offerings",
+        "dropdown": {
+            "featured": [
+                {
+                    "title": "Sales Intelligence",
+                    "desc": "Real-time deal analytics",
+                    "path": "/explore/sales-intelligence"
                 },
                 {
-                    "name": "AI Revenue Operations",
-                    "path": "/explore/ai-revenue-operations",
+                    "title": "RevOps Intelligence",
+                    "desc": "Unified CRM automation",
+                    "path": "/explore/revenue-ops-intelligence"
+                }
+            ],
+            "highlight": {
+                "title": "Enterprise Offerings",
+                "desc": "Turnkey AI sales engines and revenue intelligence.",
+                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
+                "linkText": "View All Offerings",
+                "linkPath": "/offerings"
+            },
+            "items": [
+                {
+                    "name": "AI-Powered Sales Intelligence",
+                    "path": "/explore/sales-intelligence",
+                    "icon": "Sparkles"
+                },
+                {
+                    "name": "Revenue Operations & Intelligence",
+                    "path": "/explore/revenue-ops-intelligence",
                     "icon": "Server"
                 },
                 {
-                    "name": "AI Revenue Acceleration",
-                    "path": "/explore/ai-revenue-acceleration",
-                    "icon": "Zap"
+                    "name": "Digital Marketing & Demand Gen",
+                    "path": "/explore/digital-marketing",
+                    "icon": "TrendingUp"
+                },
+                {
+                    "name": "Market & Demand Intelligence",
+                    "path": "/explore/market-intelligence",
+                    "icon": "Search"
+                },
+                {
+                    "name": "Market Validation & Research",
+                    "path": "/explore/market-validation-offering",
+                    "icon": "Target"
+                },
+                {
+                    "name": "Product Scaling & Growth",
+                    "path": "/explore/product-scaling",
+                    "icon": "Rocket"
                 }
             ]
         }
@@ -2025,58 +1948,120 @@ export const smNavItems = [
         }
     },
     {
-        "name": "Offerings",
-        "path": "/offerings",
+        "name": "Solutions",
+        "path": "/solutions",
         "dropdown": {
             "featured": [
                 {
-                    "title": "Sales Intelligence",
-                    "desc": "Real-time deal analytics",
-                    "path": "/explore/sales-intelligence"
+                    "title": "AI Business Strategy",
+                    "desc": "Market intelligence",
+                    "path": "/explore/ai-business-strategy"
                 },
                 {
-                    "title": "RevOps Intelligence",
-                    "desc": "Unified CRM automation",
-                    "path": "/explore/revenue-ops-intelligence"
+                    "title": "AI Auto Sales Pilot",
+                    "desc": "Autonomous agents",
+                    "path": "/explore/ai-auto-sales-pilot"
                 }
             ],
             "highlight": {
-                "title": "Enterprise Offerings",
-                "desc": "Turnkey AI sales engines and revenue intelligence.",
-                "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
-                "linkText": "View All Offerings",
-                "linkPath": "/offerings"
+                "title": "Comprehensive Solutions",
+                "desc": "End-to-end AI-driven growth solutions for enterprises.",
+                "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
+                "linkText": "View Solutions",
+                "linkPath": "/solutions"
             },
             "items": [
                 {
-                    "name": "AI-Powered Sales Intelligence",
-                    "path": "/explore/sales-intelligence",
-                    "icon": "Sparkles"
-                },
-                {
-                    "name": "Revenue Operations & Intelligence",
-                    "path": "/explore/revenue-ops-intelligence",
-                    "icon": "Server"
-                },
-                {
-                    "name": "Digital Marketing & Demand Gen",
-                    "path": "/explore/digital-marketing",
+                    "name": "AI Business Growth Strategy",
+                    "path": "/explore/ai-business-strategy",
                     "icon": "TrendingUp"
                 },
                 {
-                    "name": "Market & Demand Intelligence",
-                    "path": "/explore/market-intelligence",
-                    "icon": "Search"
-                },
-                {
-                    "name": "Market Validation & Research",
-                    "path": "/explore/market-validation-offering",
+                    "name": "AI Market Strategy & Demand",
+                    "path": "/explore/ai-market-strategy",
                     "icon": "Target"
                 },
                 {
-                    "name": "Product Scaling & Growth",
-                    "path": "/explore/product-scaling",
+                    "name": "AI-Driven Growth Hacking",
+                    "path": "/explore/growth-hacking",
                     "icon": "Rocket"
+                },
+                {
+                    "name": "AI-Driven Performance Marketing",
+                    "path": "/explore/performance-marketing",
+                    "icon": "BarChart"
+                },
+                {
+                    "name": "AI Auto Sales Pilot",
+                    "path": "/explore/ai-auto-sales-pilot",
+                    "icon": "Bot"
+                },
+                {
+                    "name": "AI Sales Process Optimization",
+                    "path": "/explore/sales-optimization",
+                    "icon": "Settings"
+                },
+                {
+                    "name": "AI Revenue Operations",
+                    "path": "/explore/ai-revenue-operations",
+                    "icon": "Server"
+                },
+                {
+                    "name": "AI Revenue Acceleration",
+                    "path": "/explore/ai-revenue-acceleration",
+                    "icon": "Zap"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Capabilities",
+        "path": "/capabilities",
+        "dropdown": {
+            "featured": [
+                {
+                    "title": "Demand Discovery & Acceleration",
+                    "desc": "Predictive deal intelligence",
+                    "path": "/explore/ai-demand-discovery"
+                },
+                {
+                    "title": "Autonomous Sales Pilot",
+                    "desc": "AI sales agents",
+                    "path": "/explore/ai-auto-sales-pilot"
+                }
+            ],
+            "highlight": {
+                "title": "Activate Your Autonomous Growth Engine",
+                "desc": "Predictive Deal Intelligence & Autonomous Agents.",
+                "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80",
+                "linkText": "View Engines",
+                "linkPath": "/capabilities"
+            },
+            "items": [
+                {
+                    "name": "Demand Discovery & Acceleration",
+                    "path": "/explore/ai-demand-discovery",
+                    "icon": "Search"
+                },
+                {
+                    "name": "AI Brand Acceleration",
+                    "path": "/ai-brand-acceleration",
+                    "icon": "Sparkles"
+                },
+                {
+                    "name": "AI Reputation Acceleration",
+                    "path": "/ai-reputation-acceleration",
+                    "icon": "ShieldCheck"
+                },
+                {
+                    "name": "Autonomous Sales Pilot",
+                    "path": "/explore/ai-auto-sales-pilot",
+                    "icon": "Bot"
+                },
+                {
+                    "name": "Hidden Revenue Capture",
+                    "path": "/hidden-revenue-capture",
+                    "icon": "TrendingUp"
                 }
             ]
         }

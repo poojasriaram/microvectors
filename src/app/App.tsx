@@ -34,6 +34,10 @@ const AIRevenueOperations = lazy(() => import('./pages/AIRevenueOperations'));
 const AIRevenueAcceleration = lazy(() => import('./pages/AIRevenueAcceleration'));
 const BehaviourAnalytics = lazy(() => import('./pages/BehaviourAnalytics'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const AIBrandAcceleration = lazy(() => import('./pages/AIBrandAcceleration'));
+const AIReputationAcceleration = lazy(() => import('./pages/AIReputationAcceleration'));
+const HiddenRevenueCapture = lazy(() => import('./pages/HiddenRevenueCapture'));
 
 import CookieConsent from './components/CookieConsent';
 import TabExitPopup from './components/TabExitPopup';
@@ -93,6 +97,10 @@ export default function App() {
               <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
               <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
               <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/ai-brand-acceleration" element={<AIBrandAcceleration />} />
+              <Route path="/ai-reputation-acceleration" element={<AIReputationAcceleration />} />
+              <Route path="/hidden-revenue-capture" element={<HiddenRevenueCapture />} />
               <Route path="/about" element={<Navigate to="/company" replace />} />
               <Route path="/mission" element={<Navigate to="/company" replace />} />
               <Route path="/leadership" element={<Navigate to="/company" replace />} />
