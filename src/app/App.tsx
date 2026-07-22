@@ -38,8 +38,8 @@ const Pricing = lazy(() => import('./pages/Pricing'));
 const AIBrandAcceleration = lazy(() => import('./pages/AIBrandAcceleration'));
 const AIReputationAcceleration = lazy(() => import('./pages/AIReputationAcceleration'));
 const HiddenRevenueCapture = lazy(() => import('./pages/HiddenRevenueCapture'));
-
-import CookieConsent from './components/CookieConsent';
+const DiscoveryPage = lazy(() => import('./pages/DiscoveryPage'));
+const CookieConsent = lazy(() => import('./components/CookieConsent'));
 import TabExitPopup from './components/TabExitPopup';
 
 import { useAnalytics } from '../hooks/useAnalytics';
@@ -108,6 +108,7 @@ export default function App() {
               <Route path="/careers" element={<Navigate to="/career" replace />} />
               <Route path="/contact" element={<Navigate to="/book-consultation" replace />} />
               <Route path="/explore/:slug" element={<ServiceDetail />} />
+              <Route path="/offerings/:slug" element={<DiscoveryPage />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>
           </Suspense>

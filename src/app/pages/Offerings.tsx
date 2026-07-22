@@ -24,6 +24,7 @@ import { Card } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Reveal } from '../components/ui/Reveal';
 import OfferingsCarousel from '../components/OfferingsCarousel';
+import discoveryLayersImg from '../../assets/image (7).png';
 
 export default function Offerings() {
     const location = useLocation();
@@ -1096,6 +1097,67 @@ export default function Offerings() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Seven Discovery Layers */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+                            Profit Pool Discovery Engine
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-heading">
+                            AI Driven Profit Pool Discovery
+                        </h2>
+                        <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium mb-12">
+                            Engineering intelligence to uncover revenue others cannot see across B2B and B2C stacks.
+                        </p>
+
+                        {/* Image (7).png Profit Pool Discovery Diagram */}
+                        <div className="flex justify-center my-12">
+                            <img 
+                                src={discoveryLayersImg} 
+                                alt="AI Driven Profit Pool Discovery Layers" 
+                                className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {[
+                            { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified" },
+                            { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%" },
+                            { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%" },
+                            { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points" },
+                            { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%" },
+                            { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%" },
+                            { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year" }
+                        ].map((disc, idx) => (
+                            <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
+                                <div>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                                            Layer 0{idx + 1}
+                                        </span>
+                                        <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                                            {disc.impact}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                        {disc.name}
+                                    </h3>
+                                    <p className="text-slate-600 text-sm font-medium italic mb-6">
+                                        "{disc.question}"
+                                    </p>
+                                </div>
+                                <Link 
+                                    to={`/offerings/${disc.slug}`}
+                                    className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
+                                >
+                                    Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        ))}
                     </div>
                 </div>
 

@@ -241,23 +241,26 @@ class AnalyticsService {
 
     private async fetchContext() {
         try {
-            const res = await fetch('https://ipapi.co/json/');
-            const data = await res.json();
-            this.context = {
-                ip: data.ip,
-                country: data.country_name,
-                state: data.region,
-                city: data.city,
-                lat: data.latitude,
-                lon: data.longitude
-            };
-            // Persist for cross-component use (e.g. Chatbot Lead tracking)
-            localStorage.setItem('tg_ip', data.ip || '');
-            localStorage.setItem('tg_country', data.country_name || '');
-            localStorage.setItem('tg_state', data.region || '');
-            localStorage.setItem('tg_city', data.city || '');
-        } catch (e) {
-            console.warn('Geo fetch failed');
+            const res = await fetch('https://ipapi.co/json/').catch(() => null);
+            if (res && res.ok) {
+                const data = await res.json().catch(() => null);
+                if (data) {
+                    this.context = {
+                        ip: data.ip || '',
+                        country: data.country_name || '',
+                        state: data.region || '',
+                        city: data.city || '',
+                        lat: data.latitude || '',
+                        lon: data.longitude || ''
+                    };
+                    localStorage.setItem('tg_ip', data.ip || '');
+                    localStorage.setItem('tg_country', data.country_name || '');
+                    localStorage.setItem('tg_state', data.region || '');
+                    localStorage.setItem('tg_city', data.city || '');
+                }
+            }
+        } catch {
+            // Silently fail without interrupting rendering
         }
     }
 

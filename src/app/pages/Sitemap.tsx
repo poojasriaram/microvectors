@@ -66,8 +66,14 @@ export default function Sitemap() {
                     path: "/offerings",
                     sections: [
                         "Detailed Service Packages",
-                        "Implementation Options",
-                        "Pricing Models"
+                        "Relocated Outcome Pages",
+                        "Market Discovery",
+                        "Demand Discovery",
+                        "Value Discovery",
+                        "Channel Discovery",
+                        "Competitive Discovery",
+                        "Customer Discovery",
+                        "Product-Market Fit Discovery"
                     ]
                 },
                 {
@@ -91,11 +97,11 @@ export default function Sitemap() {
                     name: "Industries",
                     path: "/industries",
                     sections: [
-                        "B2B SaaS",
-                        "Fintech",
-                        "Healthcare",
-                        "Manufacturing",
-                        "Retail & E-commerce"
+                        "BFSI",
+                        "Enterprise",
+                        "B2B",
+                        "B2C",
+                        "Startup / Early Stage"
                     ]
                 },
                 {

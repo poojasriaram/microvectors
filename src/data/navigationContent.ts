@@ -1695,73 +1695,6 @@ export const smNavItems = [
         "path": "/"
     },
     {
-        "name": "Outcomes",
-        "path": "/outcomes",
-        "dropdown": {
-            "featured": [
-                {
-                    "title": "Enterprise Sales",
-                    "desc": "Predictable scaling",
-                    "path": "/explore/enterprise-sales"
-                },
-                {
-                    "title": "BFSI Acceleration",
-                    "desc": "Regulated growth",
-                    "path": "/explore/bfsi-sales"
-                }
-            ],
-            "highlight": {
-                "title": "Measurable Outcomes",
-                "desc": "Turning AI insights into measurable impact.",
-                "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80",
-                "linkText": "See Outcomes",
-                "linkPath": "/outcomes"
-            },
-            "items": [
-                {
-                    "name": "AI Demand Discovery",
-                    "path": "/explore/ai-demand-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "AI-Driven Revenue Acceleration",
-                    "path": "/explore/revenue-acceleration",
-                    "icon": "TrendingUp"
-                },
-                {
-                    "name": "AI-Driven Growth Hacking",
-                    "path": "/explore/growth-hacking",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "AI-Driven Performance Marketing",
-                    "path": "/explore/performance-marketing",
-                    "icon": "BarChart"
-                },
-                {
-                    "name": "Enterprise Sales Acceleration",
-                    "path": "/explore/enterprise-sales",
-                    "icon": "Building2"
-                },
-                {
-                    "name": "Digital & Inside Sales",
-                    "path": "/explore/digital-sales",
-                    "icon": "Layout"
-                },
-                {
-                    "name": "D2C & High-Velocity Sales",
-                    "path": "/explore/d2c-sales",
-                    "icon": "ShoppingBag"
-                },
-                {
-                    "name": "BFSI Sales Acceleration",
-                    "path": "/explore/bfsi-sales",
-                    "icon": "Landmark"
-                }
-            ]
-        }
-    },
-    {
         "name": "Crypto",
         "path": "/crypto",
         "dropdown": {
@@ -1848,34 +1781,79 @@ export const smNavItems = [
             },
             "items": [
                 {
-                    "name": "AI-Powered Sales Intelligence",
-                    "path": "/explore/sales-intelligence",
-                    "icon": "Sparkles"
-                },
-                {
-                    "name": "Revenue Operations & Intelligence",
-                    "path": "/explore/revenue-ops-intelligence",
-                    "icon": "Server"
-                },
-                {
-                    "name": "Digital Marketing & Demand Gen",
-                    "path": "/explore/digital-marketing",
-                    "icon": "TrendingUp"
-                },
-                {
-                    "name": "Market & Demand Intelligence",
-                    "path": "/explore/market-intelligence",
+                    "name": "Market Discovery",
+                    "path": "/offerings/market-discovery",
                     "icon": "Search"
                 },
                 {
-                    "name": "Market Validation & Research",
-                    "path": "/explore/market-validation-offering",
+                    "name": "Demand Discovery",
+                    "path": "/offerings/demand-discovery",
                     "icon": "Target"
                 },
                 {
-                    "name": "Product Scaling & Growth",
-                    "path": "/explore/product-scaling",
+                    "name": "Value Discovery",
+                    "path": "/offerings/value-discovery",
+                    "icon": "DollarSign"
+                },
+                {
+                    "name": "Channel Discovery",
+                    "path": "/offerings/channel-discovery",
+                    "icon": "Network"
+                },
+                {
+                    "name": "Competitive Discovery",
+                    "path": "/offerings/competitive-discovery",
+                    "icon": "ShieldCheck"
+                },
+                {
+                    "name": "Customer Discovery",
+                    "path": "/offerings/customer-discovery",
+                    "icon": "Users"
+                },
+                {
+                    "name": "Product-Market Fit Discovery",
+                    "path": "/offerings/product-market-fit-discovery",
+                    "icon": "Sparkles"
+                },
+                {
+                    "name": "AI Demand Discovery",
+                    "path": "/explore/ai-demand-discovery",
+                    "icon": "Search"
+                },
+                {
+                    "name": "AI-Driven Revenue Acceleration",
+                    "path": "/explore/revenue-acceleration",
+                    "icon": "TrendingUp"
+                },
+                {
+                    "name": "AI-Driven Growth Hacking",
+                    "path": "/explore/growth-hacking",
                     "icon": "Rocket"
+                },
+                {
+                    "name": "AI-Driven Performance Marketing",
+                    "path": "/explore/performance-marketing",
+                    "icon": "BarChart"
+                },
+                {
+                    "name": "Enterprise Sales Acceleration",
+                    "path": "/explore/enterprise-sales",
+                    "icon": "Building2"
+                },
+                {
+                    "name": "Digital & Inside Sales",
+                    "path": "/explore/digital-sales",
+                    "icon": "Layout"
+                },
+                {
+                    "name": "D2C & High-Velocity Sales",
+                    "path": "/explore/d2c-sales",
+                    "icon": "ShoppingBag"
+                },
+                {
+                    "name": "BFSI Sales Acceleration",
+                    "path": "/explore/bfsi-sales",
+                    "icon": "Landmark"
                 }
             ]
         }
@@ -1886,14 +1864,29 @@ export const smNavItems = [
         "dropdown": {
             "featured": [
                 {
-                    "title": "E-commerce",
-                    "desc": "D2C growth",
-                    "path": "/explore/ecommerce"
+                    "title": "BFSI",
+                    "desc": "Banking & Financial Services",
+                    "path": "/explore/bfsi"
                 },
                 {
-                    "title": "BFSI",
-                    "desc": "Banking & Lending",
-                    "path": "/explore/bfsi"
+                    "title": "Enterprise",
+                    "desc": "Scalable growth",
+                    "path": "/explore/enterprise-sales"
+                },
+                {
+                    "title": "B2B",
+                    "desc": "SaaS & Enterprise software",
+                    "path": "/explore/saas"
+                },
+                {
+                    "title": "B2C",
+                    "desc": "High-velocity consumer sales",
+                    "path": "/explore/d2c-sales"
+                },
+                {
+                    "title": "Startup / Early Stage",
+                    "desc": "Growth & MVP validation",
+                    "path": "/explore/crypto-startup"
                 }
             ],
             "highlight": {
@@ -1904,6 +1897,31 @@ export const smNavItems = [
                 "linkPath": "/industries"
             },
             "items": [
+                {
+                    "name": "BFSI",
+                    "path": "/explore/bfsi",
+                    "icon": "Landmark"
+                },
+                {
+                    "name": "Enterprise",
+                    "path": "/explore/enterprise-sales",
+                    "icon": "Building2"
+                },
+                {
+                    "name": "B2B",
+                    "path": "/explore/saas",
+                    "icon": "Cloud"
+                },
+                {
+                    "name": "B2C",
+                    "path": "/explore/d2c-sales",
+                    "icon": "ShoppingBag"
+                },
+                {
+                    "name": "Startup / Early Stage",
+                    "path": "/explore/crypto-startup",
+                    "icon": "Rocket"
+                },
                 {
                     "name": "E-commerce & D2C",
                     "path": "/explore/ecommerce",
@@ -2062,6 +2080,16 @@ export const smNavItems = [
                     "name": "Hidden Revenue Capture",
                     "path": "/hidden-revenue-capture",
                     "icon": "TrendingUp"
+                },
+                {
+                    "name": "AI Revenue Acceleration",
+                    "path": "/explore/revenue-acceleration",
+                    "icon": "Zap"
+                },
+                {
+                    "name": "AI Auto Pilot",
+                    "path": "/explore/ai-auto-sales-pilot",
+                    "icon": "Bot"
                 }
             ]
         }
@@ -2164,10 +2192,14 @@ export const smNavItems = [
                 },
                 {
                     "name": "Contact Us",
-                    "path": "/contact",
+                    "path": "/book-consultation",
                     "icon": "Phone"
                 }
             ]
         }
+    },
+    {
+        "name": "Contact Us",
+        "path": "/book-consultation"
     }
 ];
