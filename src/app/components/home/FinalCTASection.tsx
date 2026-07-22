@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 
 export default function FinalCTASection() {
     return (
-        <section className="relative py-32 overflow-hidden bg-white border-t border-slate-200">
+        <section className="relative py-20 md:py-24 lg:py-32 overflow-hidden bg-white border-t border-slate-200">
             {/* Background Grid Pattern */}
             <div className="absolute inset-0 z-0 bg-slate-50 overflow-hidden">
                 {/* CSS grid overlay */}

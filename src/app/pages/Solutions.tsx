@@ -146,7 +146,7 @@ export default function Solutions() {
     return (
         <div className="bg-slate-50 min-h-screen">
             {/* Hero Section - Compact */}
-            <div className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50 text-slate-900 border-b border-slate-200">
+            <div className="relative pt-20 pb-16 md:pt-24 md:pb-20 lg:pt-28 lg:pb-24 overflow-hidden bg-slate-50 text-slate-900 border-b border-slate-200">
                 {/* Background Slideshow */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                     {/* Premium Unified Overlay - Matched with AI Lead Gen Visibility */}
@@ -171,7 +171,7 @@ export default function Solutions() {
             </div>
 
             {/* Solutions Grid - Compact & Clean */}
-            <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
                 <div className="flex flex-col gap-8">
                     {solutions.map((solution, index) => {
                         const Icon = solution.icon;

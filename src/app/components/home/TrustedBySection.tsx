@@ -1,8 +1,8 @@
 export default function TrustedBySection() {
     return (
-        <section id="partners" className="py-20 border-b border-slate-200 bg-slate-50 relative z-10">
+        <section id="partners" className="py-12 md:py-16 border-b border-slate-200 bg-slate-50 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p className="text-center text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-12">
+                <p className="text-center text-[10px] font-extrabold text-slate-500 uppercase tracking-widest mb-10">
                     Strategic Partners & Trusted Enterprise Ecosystem
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">

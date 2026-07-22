@@ -71,7 +71,7 @@ export default function Navigation() {
                                     <Link
                                         to={item.path}
                                         onClick={() => setHoveredItem(item.name)}
-                                        className={`text-[13px] xl:text-[14px] font-semibold transition-colors flex items-center gap-1 h-full
+                                        className={`text-[14px] xl:text-[15px] font-semibold transition-colors flex items-center gap-1.5 h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm
                                             ${isActive ? 'text-blue-600' : 'text-slate-700 hover:text-blue-600'}
                                         `}
                                     >
@@ -85,9 +85,9 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <div
                                             className={`
-                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[1000px] max-w-[calc(100vw-2rem)] bg-white border border-slate-100 shadow-2xl rounded-xl
-                                                transition-all duration-200 origin-top overflow-hidden
-                                                ${hoveredItem === item.name ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible pointer-events-none'}
+                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[1100px] max-w-[calc(100vw-2rem)] bg-white border border-slate-100 shadow-2xl rounded-xl
+                                                transition-all duration-200 ease-out origin-top overflow-hidden
+                                                ${hoveredItem === item.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible pointer-events-none'}
                                             `}
                                         >
                                             {/* Invisible bridge for hover */}
@@ -95,12 +95,12 @@ export default function Navigation() {
                                             
                                             <div className="flex h-full min-h-[400px]">
                                                 {/* Left Column: Submenu Items */}
-                                                <div className="w-[45%] p-4 bg-white shrink-0">
-                                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
+                                                <div className="w-[50%] p-6 lg:p-8 bg-white shrink-0">
+                                                    <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
                                                         <span className="w-6 h-px bg-slate-200"></span>
                                                         Explore {item.name}
                                                     </h4>
-                                                    <div className="grid grid-cols-2 gap-2">
+                                                    <div className="grid grid-cols-2 gap-3 lg:gap-4">
                                                         {item.dropdown.items?.map((sub: any, subIdx: number) => {
                                                             const IconComponent = Icons[sub.icon] || ArrowRight;
                                                             return (
@@ -108,12 +108,24 @@ export default function Navigation() {
                                                                     key={subIdx}
                                                                     to={sub.path}
                                                                     onClick={() => setHoveredItem(null)}
-                                                                    className="group/link flex items-center gap-2.5 p-2 bg-white border border-slate-100 shadow-sm rounded-lg hover:border-blue-200 hover:shadow-sm hover:bg-slate-50 transition-all"
+                                                                    className="group/link flex items-center gap-3 p-2.5 bg-white border border-transparent rounded-xl hover:border-blue-100 hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                                                                 >
-                                                                    <div className="bg-slate-50 text-blue-600 p-1.5 rounded-md group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
-                                                                        <IconComponent className="w-3.5 h-3.5" />
+                                                                    <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                        <IconComponent className="w-4 h-4" />
                                                                     </div>
-                                                                    <span className="text-[12px] font-semibold text-slate-700 group-hover/link:text-blue-600 flex-1 leading-tight">{sub.name}</span>
+                                                                    <div className="flex-1 flex flex-col gap-0.5 min-w-0">
+                                                                        <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                    </div>
+                                                                    {sub.badge && (
+                                                                        <span className={`shrink-0 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded flex items-center
+                                                                            ${sub.badge === 'Featured' ? 'bg-purple-50 text-purple-600 border border-purple-100' : 
+                                                                              sub.badge === 'Popular' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 
+                                                                              sub.badge === 'Enterprise' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 
+                                                                              'bg-slate-100 text-slate-600 border border-slate-200'}
+                                                                        `}>
+                                                                            {sub.badge}
+                                                                        </span>
+                                                                    )}
                                                                 </Link>
                                                             );
                                                         })}
@@ -121,21 +133,21 @@ export default function Navigation() {
                                                 </div>
 
                                                 {/* Middle Column: Featured Services */}
-                                                <div className="w-[25%] p-4 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0">
-                                                    <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
+                                                <div className="w-[25%] p-6 lg:p-8 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0">
+                                                    <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
                                                         Featured
                                                     </h4>
-                                                    <div className="flex flex-col gap-2">
+                                                    <div className="flex flex-col gap-4">
                                                         {item.dropdown.featured?.map((feat: any, fIdx: number) => (
                                                             <Link 
                                                                 key={fIdx}
                                                                 to={feat.path}
                                                                 onClick={() => setHoveredItem(null)}
-                                                                className="group/feat flex flex-col gap-0.5 p-2.5 rounded-lg bg-white border border-slate-100 shadow-sm hover:border-blue-200 hover:shadow-sm transition-all"
+                                                                className="group/feat flex flex-col gap-1 p-3 rounded-xl bg-white border border-transparent shadow-sm hover:border-blue-200 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                                                             >
-                                                                <span className="text-[13px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
-                                                                <span className="text-[12px] text-slate-500 leading-snug">{feat.desc}</span>
-                                                                <span className="text-[11px] font-semibold text-blue-600 mt-1 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
+                                                                <span className="text-[14px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
+                                                                <span className="text-[12px] text-slate-500 leading-relaxed">{feat.desc}</span>
+                                                                <span className="text-[12px] font-bold text-blue-600 mt-1 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
                                                                     Learn More <ArrowRight className="w-3 h-3" />
                                                                 </span>
                                                             </Link>
@@ -144,7 +156,7 @@ export default function Navigation() {
                                                 </div>
 
                                                 {/* Right Column: Highlight Card */}
-                                                <div className="w-[30%] relative group overflow-hidden shrink-0">
+                                                <div className="w-[25%] relative group overflow-hidden shrink-0">
                                                     <div className="absolute inset-0 bg-slate-900">
                                                         {item.dropdown.highlight?.image && (
                                                             <img 
@@ -156,17 +168,17 @@ export default function Navigation() {
                                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
                                                     </div>
                                                     
-                                                    <div className="relative h-full flex flex-col justify-end p-8">
-                                                        <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+                                                    <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
+                                                        <h3 className="text-xl font-bold text-white mb-3 leading-tight">
                                                             {item.dropdown.highlight?.title}
                                                         </h3>
-                                                        <p className="text-sm text-slate-300 mb-6 leading-relaxed">
+                                                        <p className="text-[13px] text-slate-300 mb-6 leading-relaxed">
                                                             {item.dropdown.highlight?.desc}
                                                         </p>
                                                         <Link 
                                                             to={item.dropdown.highlight?.linkPath || '/'}
                                                             onClick={() => setHoveredItem(null)}
-                                                            className="inline-flex items-center justify-center gap-2 bg-white hover:bg-blue-50 text-slate-900 px-4 py-2.5 rounded-lg text-sm font-bold transition-colors w-fit"
+                                                            className="inline-flex items-center justify-center gap-2 bg-white hover:bg-blue-50 text-slate-900 px-5 py-2.5 rounded-lg text-[13px] font-bold transition-colors w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                                                         >
                                                             {item.dropdown.highlight?.linkText}
                                                             <ArrowRight className="w-4 h-4" />

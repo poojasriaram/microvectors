@@ -149,10 +149,10 @@ export default function Industries() {
             </div>
 
             {/* 1. Static Intro Section (Replaces old Hero) */}
-            <section className="relative pt-24 pb-16 overflow-hidden">
+            <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 overflow-hidden">
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                     <Reveal width="100%">
-                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Vertical-Specific Revenue Engineering</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-5">Vertical-Specific Revenue Engineering</h2>
                         <p className="text-xl text-slate-600 leading-relaxed font-medium">
                             TrustGrid AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We don't just provide tools; we architect the entire revenue lifecycle for your specific market nuances.
                         </p>
@@ -161,8 +161,8 @@ export default function Industries() {
             </section>
 
             {/* Industries Grid with Tabs */}
-            <section className="relative z-10 pb-24 mt-12">
-                <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="relative z-10 pb-20 md:pb-24 lg:pb-32">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {industries.map((industry, index) => (
                             <Reveal width="100%" delay={index * 0.1} className="h-full">

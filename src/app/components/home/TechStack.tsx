@@ -12,13 +12,13 @@ const technologies = [
 
 export default function TechStack() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden" id="offerings">
+        <section className="py-20 md:py-24 lg:py-32 bg-white relative overflow-hidden" id="offerings">
             {/* Background elements */}
             <div className="absolute inset-0 bg-dot-slate-200 opacity-50 pointer-events-none"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-20">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
                     <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-semibold text-xs tracking-widest uppercase mb-6 shadow-sm">
                         Technology Infrastructure
                     </div>

@@ -2027,7 +2027,8 @@ export const smNavItems = [
                 {
                     "name": "AI Revenue Acceleration",
                     "path": "/explore/ai-revenue-acceleration",
-                    "icon": "Zap"
+                    "icon": "Zap",
+                    "badge": "Popular"
                 }
             ]
         }
@@ -2059,7 +2060,8 @@ export const smNavItems = [
                 {
                     "name": "Demand Discovery & Acceleration",
                     "path": "/explore/ai-demand-discovery",
-                    "icon": "Search"
+                    "icon": "Search",
+                    "badge": "Featured"
                 },
                 {
                     "name": "AI Brand Acceleration",
@@ -2074,7 +2076,8 @@ export const smNavItems = [
                 {
                     "name": "Autonomous Sales Pilot",
                     "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot"
+                    "icon": "Bot",
+                    "badge": "Enterprise"
                 },
                 {
                     "name": "Hidden Revenue Capture",
@@ -2089,7 +2092,8 @@ export const smNavItems = [
                 {
                     "name": "AI Auto Pilot",
                     "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot"
+                    "icon": "Bot",
+                    "badge": "Enterprise"
                 }
             ]
         }

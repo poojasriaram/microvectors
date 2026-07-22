@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 
 export default function WhyChooseSection() {
     return (
-        <section id="company" className="py-32 bg-white overflow-hidden relative border-t border-slate-200">
+        <section id="company" className="py-20 md:py-24 lg:py-32 bg-white overflow-hidden relative border-t border-slate-200">
             <div className="absolute inset-0 bg-grid-slate-100 opacity-60 pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-1/2 h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 

@@ -1025,10 +1025,10 @@ export default function Offerings() {
 
             <div className="relative z-10">
                 {/* 1. Static Intro Section (Replaces old Hero) */}
-                <section className="relative py-16 overflow-hidden">
+                <section className="relative py-20 md:py-24 overflow-hidden">
                     <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                         <Reveal width="100%">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6">Autonomous Revenue Engineering</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5">Autonomous Revenue Engineering</h2>
                             <p className="text-xl text-slate-600 leading-relaxed font-medium">
                                 TrustGrid AI delivers a comprehensive suite of AI-native offerings designed to modernize the enterprise revenue stack. We transform manual, siloed processes into a unified, predictive engine that accelerates growth at every stage of the customer lifecycle.
                             </p>
@@ -1037,7 +1037,7 @@ export default function Offerings() {
                 </section>
 
                 {/* Platform Overview */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-20 lg:mb-24">
                     <div className="bg-white/80 border border-slate-200/60 rounded-[2.5rem] p-8 lg:p-12 shadow-2xl shadow-indigo-100/50 backdrop-blur-xl relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-transparent to-blue-50/30 opacity-100 pointer-events-none"></div>
                         <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -1101,8 +1101,8 @@ export default function Offerings() {
                 </div>
 
                 {/* Seven Discovery Layers */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-                    <div className="text-center mb-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24 lg:mb-32">
+                    <div className="text-center mb-12 md:mb-16">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
                             Profit Pool Discovery Engine
                         </div>

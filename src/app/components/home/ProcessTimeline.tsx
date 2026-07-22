@@ -13,10 +13,10 @@ const steps = [
 
 export default function ProcessTimeline() {
     return (
-        <section className="py-32 bg-white relative" id="solutions">
+        <section className="py-20 md:py-24 lg:py-32 bg-white relative" id="solutions">
             <div className="absolute inset-0 bg-grid-slate-100 opacity-40 pointer-events-none"></div>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
                     <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-bold text-xs tracking-widest uppercase mb-6 shadow-sm border border-slate-200">
                         Operational Framework
                     </div>

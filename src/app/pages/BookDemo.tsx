@@ -73,7 +73,7 @@ export default function BookDemo() {
     };
 
     return (
-        <div className="pt-24 lg:pt-32 pb-16 min-h-screen bg-slate-50 text-slate-900 overflow-hidden">
+        <div className="pt-20 lg:pt-28 pb-16 min-h-screen bg-slate-50 text-slate-900 overflow-hidden">
             {/* Background Decorative Blobs */}
             <div className="absolute top-0 right-0 -mr-40 -mt-40 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
             <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />

@@ -55,13 +55,13 @@ const services = [
 
 export default function ServicesOverview() {
     return (
-        <section id="capabilities" className="py-32 bg-slate-50 relative overflow-hidden">
+        <section id="capabilities" className="py-20 md:py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
             {/* Subtle background pattern */}
             <div className="absolute inset-0 bg-grid-slate-100 opacity-50 pointer-events-none"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 
-                <div className="text-center max-w-3xl mx-auto mb-20">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ export default function ServicesOverview() {
                     })}
                 </div>
 
-                <div className="flex flex-col items-center justify-center mt-24 pt-12 border-t border-slate-200/60 text-center relative z-10">
+                <div className="flex flex-col items-center justify-center mt-16 md:mt-20 lg:mt-24 pt-10 border-t border-slate-200/60 text-center relative z-10">
                     <p className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-6">Ready to scale your enterprise?</p>
                     <Link to="/book-consultation" className="btn-cta-primary group shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40">
                         Discuss Your Implementation

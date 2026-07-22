@@ -49,7 +49,7 @@ export default function Footer() {
                 <div className="absolute bottom-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[120px] opacity-50"></div>
             </div>
 
-            <div className="w-full mx-auto px-6 lg:px-10 relative z-10">
+            <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 {/* Footer CTA Section */}
                 <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-16 text-center lg:text-left flex flex-col lg:flex-row items-center justify-between gap-8">

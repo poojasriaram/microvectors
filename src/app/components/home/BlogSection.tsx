@@ -34,11 +34,11 @@ const blogs = [
 
 export default function BlogSection() {
     return (
-        <section className="py-32 bg-slate-50 relative overflow-hidden" id="blogs">
+        <section className="py-20 md:py-24 lg:py-32 bg-slate-50 relative overflow-hidden" id="blogs">
             <div className="absolute inset-0 bg-grid-slate-200 opacity-40 pointer-events-none"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 lg:mb-20">
                     <div className="max-w-2xl">
                         <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 font-semibold text-xs tracking-widest uppercase mb-6 shadow-sm border border-blue-100">
                             Knowledge Base
