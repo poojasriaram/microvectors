@@ -67,13 +67,16 @@ export default function Sitemap() {
                     sections: [
                         "Detailed Service Packages",
                         "Relocated Outcome Pages",
-                        "Market Discovery",
-                        "Demand Discovery",
-                        "Value Discovery",
-                        "Channel Discovery",
-                        "Competitive Discovery",
-                        "Customer Discovery",
-                        "Product-Market Fit Discovery"
+                        "Profit Pool Discovery (Parent Offering)",
+                        "  ├─ Market Discovery",
+                        "  ├─ Demand Discovery",
+                        "  ├─ Value Discovery",
+                        "  ├─ Channel Discovery",
+                        "  ├─ Competitive Discovery",
+                        "  ├─ Customer Discovery",
+                        "  ├─ Product-Market Fit Discovery",
+                        "  ├─ B2B Profit Pool Discovery",
+                        "  └─ B2C Profit Pool Discovery"
                     ]
                 },
                 {

@@ -1760,16 +1760,42 @@ export const smNavItems = [
         "name": "Offerings",
         "path": "/offerings",
         "dropdown": {
-            "featured": [
+            "categories": [
                 {
-                    "title": "Sales Intelligence",
-                    "desc": "Real-time deal analytics",
-                    "path": "/explore/sales-intelligence"
+                    "id": "profit-pools",
+                    "title": "Profit Pools",
+                    "desc": "Maximize industry profit share",
+                    "items": [
+                        { "name": "Market Discovery", "path": "/offerings/profit-pool-discovery/market-discovery", "icon": "Search" },
+                        { "name": "Demand Discovery", "path": "/offerings/profit-pool-discovery/demand-discovery", "icon": "Target" },
+                        { "name": "Value Discovery", "path": "/offerings/profit-pool-discovery/value-discovery", "icon": "DollarSign" },
+                        { "name": "Channel Discovery", "path": "/offerings/profit-pool-discovery/channel-discovery", "icon": "Network" },
+                        { "name": "Competitive Discovery", "path": "/offerings/profit-pool-discovery/competitive-discovery", "icon": "ShieldCheck" },
+                        { "name": "Customer Discovery", "path": "/offerings/profit-pool-discovery/customer-discovery", "icon": "Users" },
+                        { "name": "Product-Market Fit Discovery", "path": "/offerings/profit-pool-discovery/product-market-fit-discovery", "icon": "Sparkles" }
+                    ]
                 },
                 {
-                    "title": "RevOps Intelligence",
-                    "desc": "Unified CRM automation",
-                    "path": "/explore/revenue-ops-intelligence"
+                    "id": "ai-growth",
+                    "title": "AI Growth Engines",
+                    "desc": "Automated pipeline & market expansion",
+                    "items": [
+                        { "name": "AI Demand Discovery", "path": "/explore/ai-demand-discovery", "icon": "Search" },
+                        { "name": "AI-Driven Revenue Acceleration", "path": "/explore/revenue-acceleration", "icon": "TrendingUp" },
+                        { "name": "AI-Driven Growth Hacking", "path": "/explore/growth-hacking", "icon": "Rocket" },
+                        { "name": "AI-Driven Performance Marketing", "path": "/explore/performance-marketing", "icon": "BarChart" }
+                    ]
+                },
+                {
+                    "id": "sales-acceleration",
+                    "title": "Sales Acceleration",
+                    "desc": "High-velocity sales execution",
+                    "items": [
+                        { "name": "Enterprise Sales Acceleration", "path": "/explore/enterprise-sales", "icon": "Building2" },
+                        { "name": "Digital & Inside Sales", "path": "/explore/digital-sales", "icon": "Layout" },
+                        { "name": "D2C & High-Velocity Sales", "path": "/explore/d2c-sales", "icon": "ShoppingBag" },
+                        { "name": "BFSI Sales Acceleration", "path": "/explore/bfsi-sales", "icon": "Landmark" }
+                    ]
                 }
             ],
             "highlight": {
@@ -1778,115 +1804,54 @@ export const smNavItems = [
                 "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
                 "linkText": "View All Offerings",
                 "linkPath": "/offerings"
-            },
-            "items": [
-                {
-                    "name": "Market Discovery",
-                    "path": "/offerings/market-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "Demand Discovery",
-                    "path": "/offerings/demand-discovery",
-                    "icon": "Target"
-                },
-                {
-                    "name": "Value Discovery",
-                    "path": "/offerings/value-discovery",
-                    "icon": "DollarSign"
-                },
-                {
-                    "name": "Channel Discovery",
-                    "path": "/offerings/channel-discovery",
-                    "icon": "Network"
-                },
-                {
-                    "name": "Competitive Discovery",
-                    "path": "/offerings/competitive-discovery",
-                    "icon": "ShieldCheck"
-                },
-                {
-                    "name": "Customer Discovery",
-                    "path": "/offerings/customer-discovery",
-                    "icon": "Users"
-                },
-                {
-                    "name": "Product-Market Fit Discovery",
-                    "path": "/offerings/product-market-fit-discovery",
-                    "icon": "Sparkles"
-                },
-                {
-                    "name": "AI Demand Discovery",
-                    "path": "/explore/ai-demand-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "AI-Driven Revenue Acceleration",
-                    "path": "/explore/revenue-acceleration",
-                    "icon": "TrendingUp"
-                },
-                {
-                    "name": "AI-Driven Growth Hacking",
-                    "path": "/explore/growth-hacking",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "AI-Driven Performance Marketing",
-                    "path": "/explore/performance-marketing",
-                    "icon": "BarChart"
-                },
-                {
-                    "name": "Enterprise Sales Acceleration",
-                    "path": "/explore/enterprise-sales",
-                    "icon": "Building2"
-                },
-                {
-                    "name": "Digital & Inside Sales",
-                    "path": "/explore/digital-sales",
-                    "icon": "Layout"
-                },
-                {
-                    "name": "D2C & High-Velocity Sales",
-                    "path": "/explore/d2c-sales",
-                    "icon": "ShoppingBag"
-                },
-                {
-                    "name": "BFSI Sales Acceleration",
-                    "path": "/explore/bfsi-sales",
-                    "icon": "Landmark"
-                }
-            ]
+            }
         }
     },
     {
         "name": "Industries",
         "path": "/industries",
         "dropdown": {
-            "featured": [
+            "categories": [
                 {
-                    "title": "BFSI",
-                    "desc": "Banking & Financial Services",
-                    "path": "/explore/bfsi"
+                    "id": "profit-pools",
+                    "title": "Profit Pools",
+                    "desc": "Targeted sector profit mapping",
+                    "items": [
+                        { "name": "B2B Profit Pool Discovery", "path": "/offerings/profit-pool-discovery/b2b", "icon": "Building2" },
+                        { "name": "B2C Profit Pool Discovery", "path": "/offerings/profit-pool-discovery/b2c", "icon": "ShoppingBag" }
+                    ]
                 },
                 {
-                    "title": "Enterprise",
-                    "desc": "Scalable growth",
-                    "path": "/explore/enterprise-sales"
+                    "id": "finance-enterprise",
+                    "title": "Financial & Enterprise",
+                    "desc": "High-compliance, scale sectors",
+                    "items": [
+                        { "name": "BFSI", "path": "/explore/bfsi", "icon": "Landmark" },
+                        { "name": "Enterprise Sales", "path": "/explore/enterprise-sales", "icon": "Building2" },
+                        { "name": "SaaS & Enterprise Software", "path": "/explore/saas", "icon": "Boxes" },
+                        { "name": "Manufacturing", "path": "/explore/manufacturing", "icon": "Factory" }
+                    ]
                 },
                 {
-                    "title": "B2B",
-                    "desc": "SaaS & Enterprise software",
-                    "path": "/explore/saas"
+                    "id": "retail-consumer",
+                    "title": "Retail & Consumer",
+                    "desc": "Direct to consumer channels",
+                    "items": [
+                        { "name": "E-commerce & D2C", "path": "/explore/ecommerce", "icon": "ShoppingBag" },
+                        { "name": "Consumer Durables", "path": "/explore/consumer-durables", "icon": "Home" },
+                        { "name": "FMCG", "path": "/explore/fmcg", "icon": "Truck" },
+                        { "name": "B2C Sales", "path": "/explore/d2c-sales", "icon": "Layout" }
+                    ]
                 },
                 {
-                    "title": "B2C",
-                    "desc": "High-velocity consumer sales",
-                    "path": "/explore/d2c-sales"
-                },
-                {
-                    "title": "Startup / Early Stage",
-                    "desc": "Growth & MVP validation",
-                    "path": "/explore/crypto-startup"
+                    "id": "emerging",
+                    "title": "Emerging Sectors",
+                    "desc": "Web3, startups, & agile markets",
+                    "items": [
+                        { "name": "Crypto & Web3", "path": "/explore/crypto-industry", "icon": "Coins" },
+                        { "name": "Startup / Early Stage", "path": "/explore/crypto-startup", "icon": "Rocket" },
+                        { "name": "Real Estate", "path": "/explore/real-estate", "icon": "Building" }
+                    ]
                 }
             ],
             "highlight": {
@@ -1895,74 +1860,7 @@ export const smNavItems = [
                 "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
                 "linkText": "Learn More",
                 "linkPath": "/industries"
-            },
-            "items": [
-                {
-                    "name": "BFSI",
-                    "path": "/explore/bfsi",
-                    "icon": "Landmark"
-                },
-                {
-                    "name": "Enterprise",
-                    "path": "/explore/enterprise-sales",
-                    "icon": "Building2"
-                },
-                {
-                    "name": "B2B",
-                    "path": "/explore/saas",
-                    "icon": "Cloud"
-                },
-                {
-                    "name": "B2C",
-                    "path": "/explore/d2c-sales",
-                    "icon": "ShoppingBag"
-                },
-                {
-                    "name": "Startup / Early Stage",
-                    "path": "/explore/crypto-startup",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "E-commerce & D2C",
-                    "path": "/explore/ecommerce",
-                    "icon": "ShoppingBag"
-                },
-                {
-                    "name": "Consumer Durables",
-                    "path": "/explore/consumer-durables",
-                    "icon": "Home"
-                },
-                {
-                    "name": "BFSI & FinTech",
-                    "path": "/explore/bfsi",
-                    "icon": "Landmark"
-                },
-                {
-                    "name": "FMCG",
-                    "path": "/explore/fmcg",
-                    "icon": "Boxes"
-                },
-                {
-                    "name": "SaaS & Enterprise Software",
-                    "path": "/explore/saas",
-                    "icon": "Cloud"
-                },
-                {
-                    "name": "Manufacturing",
-                    "path": "/explore/manufacturing",
-                    "icon": "Factory"
-                },
-                {
-                    "name": "Real Estate",
-                    "path": "/explore/real-estate",
-                    "icon": "Building"
-                },
-                {
-                    "name": "Crypto & Web3",
-                    "path": "/explore/crypto-industry",
-                    "icon": "Coins"
-                }
-            ]
+            }
         }
     },
     {

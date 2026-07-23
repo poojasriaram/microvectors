@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
     Search, Target, TrendingUp, BarChart3, ShieldCheck, Users, Rocket,
-    ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, ChevronRight, HelpCircle, Layers
+    ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, ChevronRight, HelpCircle, Layers,
+    DollarSign, Building2, ShoppingBag, Sparkles, Network
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
 
@@ -37,7 +38,7 @@ interface DiscoveryData {
 export const discoveryPagesData: Record<string, DiscoveryData> = {
     "market-discovery": {
         title: "Market Discovery",
-        route: "/offerings/market-discovery",
+        route: "/offerings/profit-pool-discovery/market-discovery",
         question: "Where is the revenue we haven't mapped?",
         spin: {
             Situation: "Your current TAM/SAM analysis is built on annual reports, analyst forecasts, and internal assumptions — refreshed once per planning cycle.",
@@ -92,7 +93,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "demand-discovery": {
         title: "Demand Discovery",
-        route: "/offerings/demand-discovery",
+        route: "/offerings/profit-pool-discovery/demand-discovery",
         question: "What are customers struggling to articulate they need?",
         spin: {
             Situation: "Your demand generation relies on explicit signals — inbound forms, RFPs, sales conversations. These capture only buyers already in-market.",
@@ -152,7 +153,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "value-discovery": {
         title: "Value Discovery",
-        route: "/offerings/value-discovery",
+        route: "/offerings/profit-pool-discovery/value-discovery",
         question: "How do we prove ROI before the PO is signed?",
         spin: {
             Situation: "Your AI proposals rely on case studies, benchmarks, and projected savings. Procurement demands customer-specific ROI proof.",
@@ -213,7 +214,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "channel-discovery": {
         title: "Channel Discovery",
-        route: "/offerings/channel-discovery",
+        route: "/offerings/profit-pool-discovery/channel-discovery",
         question: "How do we distribute without platform dependency?",
         spin: {
             Situation: "Your AI services or products rely on partner networks, app stores, or algorithm-dependent platforms. A single algorithm change or partner defection threatens 70% of revenue.",
@@ -276,7 +277,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "competitive-discovery": {
         title: "Competitive Discovery",
-        route: "/offerings/competitive-discovery",
+        route: "/offerings/profit-pool-discovery/competitive-discovery",
         question: "How do we win before the RFP is issued?",
         spin: {
             Situation: "Your competitive intelligence is quarterly: win/loss reviews, analyst reports, sales anecdotes. By the time you react, the deal is lost.",
@@ -336,7 +337,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "customer-discovery": {
         title: "Customer Discovery",
-        route: "/offerings/customer-discovery",
+        route: "/offerings/profit-pool-discovery/customer-discovery",
         question: "Who is actually ready to buy AI — and who will waste our time?",
         spin: {
             Situation: "Your ICP is defined by firmographics: company size, industry, revenue. Marketing generates MQLs; sales qualifies. The funnel is linear and noisy.",
@@ -399,7 +400,7 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     },
     "product-market-fit-discovery": {
         title: "Product-Market Fit Discovery",
-        route: "/offerings/product-market-fit-discovery",
+        route: "/offerings/profit-pool-discovery/product-market-fit-discovery",
         question: "How do we stop building features no one uses?",
         spin: {
             Situation: "Your product roadmap is built on customer requests, competitive parity, and engineering capability. Features ship; adoption is assumed.",
@@ -459,6 +460,105 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
                 actionableTakeaway: "Focus product teams exclusively on high-retention, revenue-expanding feature vectors."
             }
         ]
+    },
+    "b2b": {
+        title: "B2B Profit Pool Discovery",
+        route: "/offerings/profit-pool-discovery/b2b",
+        question: "Where are the hidden margin drivers in our enterprise sales cycles?",
+        spin: {
+            Situation: "Enterprise sales involve 8-12 decision makers across procurement, IT, security, and business units, with data fragmented across legacy CRMs and email chains.",
+            Problem: "Deals stall in late stages because key stakeholders remain unengaged, discount pressure erodes margins by 20%, and sales teams focus on low-margin buyers.",
+            Implication: "Sales cycles drag to 9+ months, win rates fall below 30%, and competitive intelligence is only gathered when an RFP is lost, costing millions in lost margin.",
+            NeedPayoff: "A systematic B2B profit pool mapping engine that detects procurement-ready intent, maps stakeholder networks, and identifies pricing leverage to secure full-margin contracts."
+        },
+        frameworks: [
+            "Economic Value to Customer (EVC) — Quantifying clear business value to eliminate discount pressures",
+            "Account Stakeholder Influence Mapping — Tracking influence coefficients of buying committee members",
+            "Contract Value Optimization — Predictive modeling of contract terms, pricing tiers, and renewal margins"
+        ],
+        profitPool: [
+            "Identification of high-margin cross-sell adjacencies within target accounts",
+            "Securing 15-20% higher initial contract value (ACV) through structured value proofing",
+            "Early risk detection to prevent late-stage deal slippage and protect margins"
+        ],
+        metrics: [
+            { category: "Market Sizing", metric: "TAM Accuracy", baseline: "±20%", target: "±3%", frequency: "Quarterly" },
+            { category: "Sales Acceleration", metric: "Win Rate", baseline: "28%", target: "45%", frequency: "Quarterly" },
+            { category: "Sales Acceleration", metric: "ACV Growth", baseline: "—", target: "+25%", frequency: "Annually" },
+            { category: "Sales Acceleration", metric: "Sales Cycle Time", baseline: "10 months", target: "6 months", frequency: "Per deal" },
+            { category: "Financial", metric: "Margin Capture Rate", baseline: "80%", target: "96%", frequency: "Annually" },
+            { category: "Financial", metric: "Discount Reduction", baseline: "22%", target: "8%", frequency: "Quarterly" }
+        ],
+        impact: "$450M enterprise revenue unlocked",
+        treeOfThoughts: [
+            {
+                phase: "Root Analysis (Premise)",
+                thought: "Relying on raw deal volume rather than profit-pool mapping leads to margin erosion from generic discounting.",
+                deduction: "Capital and resources are wasted trying to close low-margin deals with generic proposals.",
+                actionableTakeaway: "Apply account propensity scoring and map early signals of buying committee formation."
+            },
+            {
+                phase: "Branch Evaluation (Exploration)",
+                thought: "Option A: Push generic discounting to close deals faster. Option B: Implement Economic Value to Customer (EVC) framework to justify premium pricing.",
+                deduction: "Option B reduces sales cycles by 40% while preserving a 20-point margin gain.",
+                actionableTakeaway: "Deploy automated value calculators tailored to procurement stakeholder interests."
+            },
+            {
+                phase: "Terminal Synthesis (Decision)",
+                thought: "EVC and Stakeholder mapping reduces sales cycle time by 40% while preserving a 20-point margin gain.",
+                deduction: "CROs and VPs receive high-confidence forecast models reflecting active buyer intent.",
+                actionableTakeaway: "Direct sales execution towards qualified, high-readiness stakeholder accounts."
+            }
+        ]
+    },
+    "b2c": {
+        title: "B2C Profit Pool Discovery",
+        route: "/offerings/profit-pool-discovery/b2c",
+        question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?",
+        spin: {
+            Situation: "B2C acquisition relies on broad demographic ad targeting and dynamic pricing engines trying to convert high traffic volumes with generic journeys.",
+            Problem: "98% of traffic bounces without buying. CAC increases by 50% year-over-year due to ad network bidding inflation. Cart abandonment sits at 75%.",
+            Implication: "Margins are squeezed to near-zero, making long-term growth unsustainable. Ad budgets are wasted on non-converting users while high-value cohorts are ignored.",
+            NeedPayoff: "Real-time user behavior analysis and dynamic cohort personalization that identifies high-LTV buyers instantly and delivers custom checkout funnels."
+        },
+        frameworks: [
+            "Behavioral Cohorting & LTV Modeling — Classifying traffic by active engagement triggers instead of demographics",
+            "Dynamic Funnel Synthesis — Synthesizing micro-personalized customer journeys based on real-time intent",
+            "Price Elasticity Testing — Algorithmic sensitivity modeling to maximize margin without hurting conversion"
+        ],
+        profitPool: [
+            "Capturing incremental margin from high-intent cohorts through targeted upsells",
+            "Optimization of ad spend allocation, reducing CAC for high-value customer acquisitions",
+            "Recovering 15% of lost cart abandonment revenue through real-time path refinement"
+        ],
+        metrics: [
+            { category: "Funnel Analysis", metric: "Conversion Rate", baseline: "1.8%", target: "4.2%", frequency: "Real-time" },
+            { category: "Funnel Analysis", metric: "Cart Abandonment", baseline: "76%", target: "48%", frequency: "Weekly" },
+            { category: "Ad Acquisition", metric: "CAC Reduction", baseline: "—", target: "35%", frequency: "Monthly" },
+            { category: "Customer Value", metric: "LTV:CAC Ratio", baseline: "1.8:1", target: "4.5:1", frequency: "Quarterly" },
+            { category: "Financial", metric: "Margin Capture Rate", baseline: "85%", target: "97%", frequency: "Annually" }
+        ],
+        impact: "$180M consumer margin optimized",
+        treeOfThoughts: [
+            {
+                phase: "Root Analysis (Premise)",
+                thought: "Mass ad-targeting and generic checkout flows lead to customer attrition and rising CAC.",
+                deduction: "Marketing budgets are inefficiently spent on cohorts with low buying potential.",
+                actionableTakeaway: "Incorporate real-time event logging to trigger cohort-specific pricing and navigation paths."
+            },
+            {
+                phase: "Branch Evaluation (Exploration)",
+                thought: "Option A: Increase retargeting budgets. Option B: Deploy real-time behavioral cohorting to personalize high-intent checkouts.",
+                deduction: "Option B lowers CAC by 35% and lifts LTV:CAC ratio by 2.5x.",
+                actionableTakeaway: "Integrate behavioral analytics engines with custom landing page layouts."
+            },
+            {
+                phase: "Terminal Synthesis (Decision)",
+                thought: "Personalizing paths for high-intent cohorts yields a 35% CAC drop and a 3x lift in LTV:CAC ratio.",
+                deduction: "Increases conversions and average order value without increasing advertising costs.",
+                actionableTakeaway: "Automate dynamic checkout options based on instant user engagement cues."
+            }
+        ]
     }
 };
 
@@ -468,6 +568,96 @@ export default function DiscoveryPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [slug]);
+
+    const isParentOverview = !slug || slug === 'profit-pool-discovery';
+
+    if (isParentOverview) {
+        return (
+            <div className="min-h-screen bg-slate-50 text-slate-900 pt-24 lg:pt-32 pb-24">
+                {/* Breadcrumb Navigation */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                    <nav className="flex items-center gap-2 text-sm text-slate-500 font-medium">
+                        <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+                        <ChevronRight className="w-4 h-4" />
+                        <Link to="/offerings" className="hover:text-blue-600 transition-colors">Offerings</Link>
+                        <ChevronRight className="w-4 h-4" />
+                        <span className="text-blue-600 font-bold">Profit Pool Discovery</span>
+                    </nav>
+                </div>
+
+                {/* Hero Header */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                    <Reveal width="100%">
+                        <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+                            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
+                                <Layers className="w-4 h-4 text-blue-400" />
+                                Parent Offering
+                            </div>
+                            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 font-heading leading-tight text-white drop-shadow-md">
+                                Profit Pool Discovery
+                            </h1>
+                            <p className="text-xl sm:text-2xl text-blue-200 font-medium italic mb-8 max-w-3xl">
+                                "Unlocking hidden value, identifying unmapped demand, and capturing high-margin revenue streams."
+                            </p>
+                            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20">
+                                <span className="text-sm text-slate-300 font-medium">Total Strategic Modules:</span>
+                                <span className="text-lg font-bold text-amber-300">9 Specialized Engines</span>
+                            </div>
+                        </div>
+                    </Reveal>
+                </div>
+
+                {/* Sub-Offerings Grid */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <Reveal width="100%">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {[
+                                { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified", icon: Search },
+                                { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%", icon: Target },
+                                { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%", icon: DollarSign },
+                                { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points", icon: Network },
+                                { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%", icon: ShieldCheck },
+                                { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%", icon: Users },
+                                { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year", icon: Sparkles },
+                                { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked", icon: Building2 },
+                                { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized", icon: ShoppingBag }
+                            ].map((disc, idx) => {
+                                const IconComp = disc.icon;
+                                return (
+                                    <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
+                                        <div>
+                                            <div className="flex items-center justify-between mb-4">
+                                                <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full flex items-center gap-1.5">
+                                                    <IconComp className="w-3.5 h-3.5" />
+                                                    Module 0{idx + 1}
+                                                </span>
+                                                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                                                    {disc.impact}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                                {disc.name}
+                                            </h3>
+                                            <p className="text-slate-600 text-sm font-medium italic mb-6">
+                                                "{disc.question}"
+                                            </p>
+                                        </div>
+                                        <Link 
+                                            to={`/offerings/profit-pool-discovery/${disc.slug}`}
+                                            className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
+                                        >
+                                            Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </Link>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </Reveal>
+                </div>
+            </div>
+        );
+    }
 
     const pageSlug = slug || 'market-discovery';
     const data = discoveryPagesData[pageSlug];

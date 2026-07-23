@@ -1103,11 +1103,16 @@ export default function Offerings() {
                 {/* Seven Discovery Layers */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24 lg:mb-32">
                     <div className="text-center mb-12 md:mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+                        <Link 
+                            to="/offerings/profit-pool-discovery"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm hover:bg-indigo-100 transition-colors"
+                        >
                             Profit Pool Discovery Engine
-                        </div>
+                        </Link>
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-heading">
-                            AI Driven Profit Pool Discovery
+                            <Link to="/offerings/profit-pool-discovery" className="hover:text-indigo-600 transition-colors">
+                                AI Driven Profit Pool Discovery
+                            </Link>
                         </h2>
                         <p className="text-xl text-slate-600 max-w-3xl mx-auto font-medium mb-12">
                             Engineering intelligence to uncover revenue others cannot see across B2B and B2C stacks.
@@ -1131,7 +1136,9 @@ export default function Offerings() {
                             { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points" },
                             { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%" },
                             { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%" },
-                            { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year" }
+                            { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year" },
+                            { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked" },
+                            { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized" }
                         ].map((disc, idx) => (
                             <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
                                 <div>
@@ -1151,7 +1158,7 @@ export default function Offerings() {
                                     </p>
                                 </div>
                                 <Link 
-                                    to={`/offerings/${disc.slug}`}
+                                    to={`/offerings/profit-pool-discovery/${disc.slug}`}
                                     className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
                                 >
                                     Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -6,7 +6,7 @@ import {
     FileCode2, Coins, Boxes, Server, Image, TrendingUp, PieChart, Settings, Smile, Layers, DollarSign,
     Brain, CloudRain, Building, AppWindow, Code2, ShieldCheck, Users, HeartPulse, Landmark, ShoppingBag,
     Factory, GraduationCap, Truck, Home, Radio, Wrench, CloudCog, UserPlus, Layout, Search, LifeBuoy, BookOpen,
-    Handshake, Info, Target, FileText, Phone
+    Handshake, Info, Target, FileText, Phone, ChevronRight
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { smNavItems } from '../../data/navigationContent';
@@ -24,6 +24,8 @@ export default function Navigation() {
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [scrolled, setScrolled] = useState(false);
+    const [activeOfferingsCat, setActiveOfferingsCat] = useState("profit-pools");
+    const [activeIndustriesCat, setActiveIndustriesCat] = useState("profit-pools");
     const location = useLocation();
 
     // Handle scroll effect
@@ -95,63 +97,140 @@ export default function Navigation() {
                                             
                                             <div className="flex h-full min-h-[400px]">
                                                 {/* Left Column: Submenu Items */}
+                                                {/* Left Column: Submenu Items */}
                                                 <div className="w-[50%] p-6 lg:p-8 bg-white shrink-0">
                                                     <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
                                                         <span className="w-6 h-px bg-slate-200"></span>
                                                         Explore {item.name}
                                                     </h4>
-                                                    <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                                                        {item.dropdown.items?.map((sub: any, subIdx: number) => {
-                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                            return (
-                                                                <Link 
-                                                                    key={subIdx}
-                                                                    to={sub.path}
-                                                                    onClick={() => setHoveredItem(null)}
-                                                                    className="group/link flex items-center gap-3 p-2.5 bg-white border border-transparent rounded-xl hover:border-blue-100 hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                                                                >
-                                                                    <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
-                                                                        <IconComponent className="w-4 h-4" />
-                                                                    </div>
-                                                                    <div className="flex-1 flex flex-col gap-0.5 min-w-0">
-                                                                        <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
-                                                                    </div>
-                                                                    {sub.badge && (
-                                                                        <span className={`shrink-0 text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded flex items-center
-                                                                            ${sub.badge === 'Featured' ? 'bg-purple-50 text-purple-600 border border-purple-100' : 
-                                                                              sub.badge === 'Popular' ? 'bg-blue-50 text-blue-600 border border-blue-100' : 
-                                                                              sub.badge === 'Enterprise' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' : 
-                                                                              'bg-slate-100 text-slate-600 border border-slate-200'}
-                                                                        `}>
-                                                                            {sub.badge}
-                                                                        </span>
-                                                                    )}
-                                                                </Link>
-                                                            );
-                                                        })}
-                                                    </div>
+                                                    {item.name === "Offerings" && item.dropdown.categories ? (
+                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                                                            {item.dropdown.categories.find((cat: any) => cat.id === activeOfferingsCat)?.items.map((sub: any, subIdx: number) => {
+                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                return (
+                                                                    <Link 
+                                                                        key={subIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setHoveredItem(null)}
+                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                    >
+                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                            <IconComponent className="w-4 h-4" />
+                                                                        </div>
+                                                                        <div className="flex-1 flex flex-col gap-0.5 min-w-0">
+                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    ) : item.name === "Industries" && item.dropdown.categories ? (
+                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                                                            {item.dropdown.categories.find((cat: any) => cat.id === activeIndustriesCat)?.items.map((sub: any, subIdx: number) => {
+                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                return (
+                                                                    <Link 
+                                                                        key={subIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setHoveredItem(null)}
+                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                    >
+                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                            <IconComponent className="w-4 h-4" />
+                                                                        </div>
+                                                                        <div className="flex-1 flex flex-col gap-0.5 min-w-0">
+                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    ) : (
+                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                                                            {item.dropdown.items?.map((sub: any, subIdx: number) => {
+                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                return (
+                                                                    <Link 
+                                                                        key={subIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setHoveredItem(null)}
+                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-transparent rounded-xl hover:border-blue-100 hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                    >
+                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                            <IconComponent className="w-4 h-4" />
+                                                                        </div>
+                                                                        <div className="flex-1 flex flex-col gap-0.5 min-w-0">
+                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                        </div>
+                                                                    </Link>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    )}
                                                 </div>
 
-                                                {/* Middle Column: Featured Services */}
-                                                <div className="w-[25%] p-6 lg:p-8 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0">
+                                                {/* Middle Column: Featured / Profit Pools */}
+                                                <div className="w-[25%] p-6 lg:p-8 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0 overflow-y-auto">
                                                     <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
                                                         Featured
                                                     </h4>
-                                                    <div className="flex flex-col gap-4">
-                                                        {item.dropdown.featured?.map((feat: any, fIdx: number) => (
-                                                            <Link 
-                                                                key={fIdx}
-                                                                to={feat.path}
-                                                                onClick={() => setHoveredItem(null)}
-                                                                className="group/feat flex flex-col gap-1 p-3 rounded-xl bg-white border border-transparent shadow-sm hover:border-blue-200 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                                                            >
-                                                                <span className="text-[14px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
-                                                                <span className="text-[12px] text-slate-500 leading-relaxed">{feat.desc}</span>
-                                                                <span className="text-[12px] font-bold text-blue-600 mt-1 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
-                                                                    Learn More <ArrowRight className="w-3 h-3" />
-                                                                </span>
-                                                            </Link>
-                                                        ))}
+                                                    <div className="flex flex-col gap-2.5">
+                                                        {item.name === "Offerings" && item.dropdown.categories ? (
+                                                            item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                                <button
+                                                                    key={cIdx}
+                                                                    onMouseEnter={() => setActiveOfferingsCat(cat.id)}
+                                                                    onClick={() => setActiveOfferingsCat(cat.id)}
+                                                                    className={`group/feat text-left flex flex-col gap-1 p-3 rounded-xl border transition-all focus:outline-none ${
+                                                                        activeOfferingsCat === cat.id 
+                                                                            ? "bg-blue-600 border-blue-600 shadow-md text-white" 
+                                                                            : "bg-white border-transparent shadow-sm hover:border-blue-200 hover:shadow-md text-slate-900"
+                                                                    }`}
+                                                                >
+                                                                    <span className={`text-[13px] xl:text-[14px] font-bold transition-colors ${activeOfferingsCat === cat.id ? "text-white" : "text-slate-900 group-hover/feat:text-blue-600"}`}>
+                                                                        {cat.title}
+                                                                    </span>
+                                                                    <span className={`text-[11px] xl:text-[12px] leading-snug ${activeOfferingsCat === cat.id ? "text-blue-100" : "text-slate-500"}`}>
+                                                                        {cat.desc}
+                                                                    </span>
+                                                                </button>
+                                                            ))
+                                                        ) : item.name === "Industries" && item.dropdown.categories ? (
+                                                            item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                                <button
+                                                                    key={cIdx}
+                                                                    onMouseEnter={() => setActiveIndustriesCat(cat.id)}
+                                                                    onClick={() => setActiveIndustriesCat(cat.id)}
+                                                                    className={`group/feat text-left flex flex-col gap-1 p-3 rounded-xl border transition-all focus:outline-none ${
+                                                                        activeIndustriesCat === cat.id 
+                                                                            ? "bg-blue-600 border-blue-600 shadow-md text-white" 
+                                                                            : "bg-white border-transparent shadow-sm hover:border-blue-200 hover:shadow-md text-slate-900"
+                                                                    }`}
+                                                                >
+                                                                    <span className={`text-[13px] xl:text-[14px] font-bold transition-colors ${activeIndustriesCat === cat.id ? "text-white" : "text-slate-900 group-hover/feat:text-blue-600"}`}>
+                                                                        {cat.title}
+                                                                    </span>
+                                                                    <span className={`text-[11px] xl:text-[12px] leading-snug ${activeIndustriesCat === cat.id ? "text-blue-100" : "text-slate-500"}`}>
+                                                                        {cat.desc}
+                                                                    </span>
+                                                                </button>
+                                                            ))
+                                                        ) : (
+                                                            item.dropdown.featured?.map((feat: any, fIdx: number) => (
+                                                                <Link 
+                                                                    key={fIdx}
+                                                                    to={feat.path}
+                                                                    onClick={() => setHoveredItem(null)}
+                                                                    className="group/feat flex flex-col gap-1 p-3 rounded-xl bg-white border border-transparent shadow-sm hover:border-blue-200 hover:shadow-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                >
+                                                                    <span className="text-[14px] font-bold text-slate-900 group-hover/feat:text-blue-600 transition-colors">{feat.title}</span>
+                                                                    <span className="text-[12px] text-slate-500 leading-relaxed">{feat.desc}</span>
+                                                                    <span className="text-[12px] font-bold text-blue-600 mt-1 flex items-center gap-1 opacity-0 -translate-x-2 group-hover/feat:opacity-100 group-hover/feat:translate-x-0 transition-all">
+                                                                        Learn More <ArrowRight className="w-3 h-3" />
+                                                                    </span>
+                                                                </Link>
+                                                            ))
+                                                        )}
                                                     </div>
                                                 </div>
 
@@ -241,17 +320,59 @@ export default function Navigation() {
                                 
                                 {item.dropdown && expandedItems.includes(item.name) && (
                                     <div className="pl-4 pb-4 space-y-4">
-                                        <div className="flex flex-col space-y-2 pl-2 border-l-2 border-slate-100">
-                                            {item.dropdown.items?.map((sub: any, subIdx: number) => (
-                                                <Link
-                                                    key={subIdx}
-                                                    to={sub.path}
-                                                    onClick={() => setMobileMenuOpen(false)}
-                                                    className="text-slate-600 font-medium py-1.5 hover:text-blue-600 transition-colors text-sm"
-                                                >
-                                                    {sub.name}
-                                                </Link>
-                                            ))}
+                                        <div className="flex flex-col space-y-3 pl-2 border-l-2 border-slate-100">
+                                            {item.name === "Offerings" && item.dropdown.categories ? (
+                                                <>
+                                                    {item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                        <div key={cIdx} className="mb-3">
+                                                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 mt-1">{cat.title}</div>
+                                                            <div className="flex flex-col space-y-1">
+                                                                {cat.items.map((sub: any, subIdx: number) => (
+                                                                    <Link
+                                                                        key={subIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setMobileMenuOpen(false)}
+                                                                        className="text-slate-600 font-semibold py-1 hover:text-blue-600 transition-colors text-xs block"
+                                                                    >
+                                                                        {sub.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </>
+                                            ) : item.name === "Industries" && item.dropdown.categories ? (
+                                                <>
+                                                    {item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                        <div key={cIdx} className="mb-3">
+                                                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 mt-1">{cat.title}</div>
+                                                            <div className="flex flex-col space-y-1">
+                                                                {cat.items.map((sub: any, subIdx: number) => (
+                                                                    <Link
+                                                                        key={subIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setMobileMenuOpen(false)}
+                                                                        className="text-slate-600 font-semibold py-1 hover:text-blue-600 transition-colors text-xs block"
+                                                                    >
+                                                                        {sub.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </>
+                                            ) : (
+                                                item.dropdown.items?.map((sub: any, subIdx: number) => (
+                                                    <Link
+                                                        key={subIdx}
+                                                        to={sub.path}
+                                                        onClick={() => setMobileMenuOpen(false)}
+                                                        className="text-slate-600 font-semibold py-1.5 hover:text-blue-600 transition-colors text-sm block"
+                                                    >
+                                                        {sub.name}
+                                                    </Link>
+                                                ))
+                                            )}
                                         </div>
                                     </div>
                                 )}

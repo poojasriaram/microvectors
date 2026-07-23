@@ -108,6 +108,15 @@ export default function App() {
               <Route path="/careers" element={<Navigate to="/career" replace />} />
               <Route path="/contact" element={<Navigate to="/book-consultation" replace />} />
               <Route path="/explore/:slug" element={<ServiceDetail />} />
+              <Route path="/offerings/profit-pool-discovery" element={<DiscoveryPage />} />
+              <Route path="/offerings/profit-pool-discovery/:slug" element={<DiscoveryPage />} />
+              <Route path="/offerings/market-discovery" element={<Navigate to="/offerings/profit-pool-discovery/market-discovery" replace />} />
+              <Route path="/offerings/demand-discovery" element={<Navigate to="/offerings/profit-pool-discovery/demand-discovery" replace />} />
+              <Route path="/offerings/value-discovery" element={<Navigate to="/offerings/profit-pool-discovery/value-discovery" replace />} />
+              <Route path="/offerings/channel-discovery" element={<Navigate to="/offerings/profit-pool-discovery/channel-discovery" replace />} />
+              <Route path="/offerings/competitive-discovery" element={<Navigate to="/offerings/profit-pool-discovery/competitive-discovery" replace />} />
+              <Route path="/offerings/customer-discovery" element={<Navigate to="/offerings/profit-pool-discovery/customer-discovery" replace />} />
+              <Route path="/offerings/product-market-fit-discovery" element={<Navigate to="/offerings/profit-pool-discovery/product-market-fit-discovery" replace />} />
               <Route path="/offerings/:slug" element={<DiscoveryPage />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>
