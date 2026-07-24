@@ -1032,88 +1032,68 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
 interface QuestionStep {
     id: string;
     label: string;
-    type: 'text' | 'email' | 'url' | 'select' | 'textarea';
+    type: 'text' | 'select' | 'contact';
     placeholder?: string;
     options?: string[];
     required?: boolean;
 }
 
 const diagnosticSteps: QuestionStep[] = [
-    { id: 'contactName', label: 'What is your contact name?', type: 'text', placeholder: 'Enter your full name...', required: true },
-    { id: 'email', label: 'What is your work email address?', type: 'email', placeholder: 'Enter your work email address...', required: true },
-    { id: 'companyName', label: 'What is your company name?', type: 'text', placeholder: 'Enter your company name...', required: true },
+    { id: 'company_name', label: 'What is your company name?', type: 'text', placeholder: 'Enter your company name...', required: true },
     { id: 'industry', label: 'Which industry do you operate in?', type: 'text', placeholder: 'e.g. SaaS, BFSI, Retail...', required: true },
-    { id: 'companySize', label: 'What is your company size?', type: 'select', options: ['1-10 employees', '11-50 employees', '51-200 employees', '201-500 employees', '501-1000 employees', '1000+ employees'], required: true },
-    { id: 'annualRevenue', label: 'What is your annual revenue?', type: 'select', options: ['< $1M', '$1M - $5M', '$5M - $20M', '$20M - $100M', '$100M+'], required: true },
-    { id: 'website', label: 'What is your website URL?', type: 'url', placeholder: 'https://example.com', required: false },
-    { id: 'geography', label: 'Which geography/market do you serve?', type: 'text', placeholder: 'e.g. North America, Global...', required: true },
-    { id: 'challenges', label: 'What are your current business challenges?', type: 'textarea', placeholder: 'Briefly describe your key pipeline, margin, or sales speed challenges...', required: true },
-    { id: 'objectives', label: 'What are your business objectives?', type: 'textarea', placeholder: 'e.g. Double revenue velocity, identify 3 new profit pools...', required: false },
-    { id: 'tools', label: 'What tools or systems are you currently using?', type: 'text', placeholder: 'e.g. Salesforce, HubSpot, Marketo...', required: false },
-    { id: 'outcome', label: 'What outcome are you expecting?', type: 'textarea', placeholder: 'What specific results are you looking to achieve?', required: false }
+    { id: 'company_size', label: 'What is your company size?', type: 'select', options: ['Startup', 'SMB', 'Mid-Market', 'Enterprise'], required: true },
+    { id: 'challenges', label: 'What is your biggest business challenge today?', type: 'select', options: ['Revenue Growth', 'Customer Acquisition', 'Market Expansion', 'Operational Efficiency', 'AI Adoption', 'Other'], required: true },
+    { id: 'expected_outcomes', label: 'What outcome are you expecting?', type: 'select', options: ['Increase Revenue', 'Reduce Costs', 'Improve Efficiency', 'Discover New Markets', 'Automate Processes'], required: true },
+    { id: 'contact_info', label: 'How can we contact you?', type: 'contact', required: true }
 ];
 
 function DiagnosticForm({ offeringName }: { offeringName: string }) {
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState<Record<string, string>>({
-        contactName: '',
-        email: '',
-        companyName: '',
+        company_name: '',
         industry: '',
-        companySize: '',
-        annualRevenue: '',
-        website: '',
-        geography: '',
+        company_size: '',
         challenges: '',
-        objectives: '',
-        tools: '',
-        outcome: ''
+        expected_outcomes: '',
+        contact_name: '',
+        email: '',
+        phone: ''
     });
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [stepError, setStepError] = useState<string | null>(null);
     const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
 
-    const handleInputChange = (val: string) => {
+    const handleInputChange = (fieldId: string, val: string) => {
         setFormData(prev => ({
             ...prev,
-            [diagnosticSteps[currentStep].id]: val
+            [fieldId]: val
         }));
         setStepError(null);
     };
 
     const validateStep = (): boolean => {
         const step = diagnosticSteps[currentStep];
-        const value = formData[step.id].trim();
-
-        if (step.required && !value) {
-            setStepError(`${step.label.replace('?', '')} is required.`);
-            return false;
-        }
-
-        if (step.type === 'email' && value) {
-            if (!/\S+@\S+\.\S+/.test(value)) {
+        if (step.type === 'contact') {
+            if (!formData.contact_name.trim()) {
+                setStepError("Your name is required.");
+                return false;
+            }
+            if (!formData.email.trim()) {
+                setStepError("Your work email address is required.");
+                return false;
+            }
+            if (!/\S+@\S+\.\S+/.test(formData.email)) {
                 setStepError("Please enter a valid email address.");
                 return false;
             }
+            return true;
         }
 
-        if (step.type === 'url' && value) {
-            try {
-                new URL(value);
-            } catch (_) {
-                if (!value.startsWith('http://') && !value.startsWith('https://')) {
-                    try {
-                        new URL('https://' + value);
-                    } catch (_) {
-                        setStepError("Please enter a valid website URL.");
-                        return false;
-                    }
-                } else {
-                    setStepError("Please enter a valid website URL.");
-                    return false;
-                }
-            }
+        const value = formData[step.id].trim();
+        if (step.required && !value) {
+            setStepError(`${step.label.replace('?', '')} is required.`);
+            return false;
         }
 
         return true;
@@ -1141,22 +1121,34 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
 
     const handleSubmit = async () => {
         setStatus('submitting');
+        const pageUrl = window.location.pathname;
+        const category = pageUrl.includes('/b2c/') ? 'B2C' : 'B2B';
+        const timestamp = new Date().toISOString();
+
+        const payload = {
+            offering: offeringName,
+            category,
+            page_url: pageUrl,
+            timestamp,
+            company_name: formData.company_name,
+            contact_name: formData.contact_name,
+            email: formData.email,
+            phone: formData.phone,
+            industry: formData.industry,
+            company_size: formData.company_size,
+            challenges: formData.challenges,
+            expected_outcomes: formData.expected_outcomes
+        };
+
         try {
             const response = await fetch('/api/diagnostic', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    offering: offeringName
-                })
+                body: JSON.stringify(payload)
             });
 
             const submissions = JSON.parse(localStorage.getItem('diagnostic_submissions') || '[]');
-            submissions.push({
-                ...formData,
-                offering: offeringName,
-                submittedAt: new Date().toISOString()
-            });
+            submissions.push(payload);
             localStorage.setItem('diagnostic_submissions', JSON.stringify(submissions));
 
             if (response.ok) {
@@ -1173,9 +1165,9 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
         return (
             <div className="bg-emerald-50 border border-emerald-200 p-8 sm:p-12 rounded-3xl text-center shadow-xl max-w-2xl mx-auto my-12 animate-in fade-in-50 duration-500">
                 <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
-                <h3 className="text-3xl font-extrabold text-slate-900 mb-3 font-heading">Diagnostic Form Submitted!</h3>
+                <h3 className="text-3xl font-extrabold text-slate-900 mb-3 font-heading">Thank you!</h3>
                 <p className="text-slate-600 font-medium max-w-md mx-auto text-base">
-                    Thank you! Your strategic profile has been captured and stored locally. Our AI revenue agents will review your inputs and custom insights will be prepared.
+                    Our team will review your responses and get back to you shortly.
                 </p>
             </div>
         );
@@ -1194,7 +1186,7 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
                 </div>
                 <div className="text-right">
                     <span className="text-xs font-semibold text-slate-500">
-                        Question {currentStep + 1} of {diagnosticSteps.length}
+                        {currentStep + 1}/{diagnosticSteps.length}
                     </span>
                 </div>
             </div>
@@ -1226,26 +1218,48 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
                                     <button
                                         key={oIdx}
                                         type="button"
-                                        onClick={() => handleInputChange(opt)}
+                                        onClick={() => handleInputChange(step.id, opt)}
                                         className={`w-full text-left px-5 py-4 rounded-xl border text-sm font-semibold transition-all focus:outline-none ${formData[step.id] === opt ? 'bg-blue-600 border-blue-600 text-white shadow-md' : 'bg-slate-50/50 border-slate-200 text-slate-700 hover:border-blue-300 hover:bg-slate-50'}`}
                                     >
                                         {opt}
                                     </button>
                                 ))}
                             </div>
-                        ) : step.type === 'textarea' ? (
-                            <textarea
-                                value={formData[step.id]}
-                                onChange={(e) => handleInputChange(e.target.value)}
-                                placeholder={step.placeholder}
-                                rows={4}
-                                className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium mt-2 resize-none"
-                            />
+                        ) : step.type === 'contact' ? (
+                            <div className="flex flex-col gap-4 mt-2">
+                                <input
+                                    type="text"
+                                    value={formData.contact_name}
+                                    onChange={(e) => handleInputChange('contact_name', e.target.value)}
+                                    placeholder="Your Name *"
+                                    className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium"
+                                />
+                                <input
+                                    type="email"
+                                    value={formData.email}
+                                    onChange={(e) => handleInputChange('email', e.target.value)}
+                                    placeholder="work@company.com *"
+                                    className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium"
+                                />
+                                <input
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                                    placeholder="Phone Number (e.g. +1 (555) 000-0000)"
+                                    className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium"
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            e.preventDefault();
+                                            handleNext();
+                                        }
+                                    }}
+                                />
+                            </div>
                         ) : (
                             <input
-                                type={step.type}
+                                type="text"
                                 value={formData[step.id]}
-                                onChange={(e) => handleInputChange(e.target.value)}
+                                onChange={(e) => handleInputChange(step.id, e.target.value)}
                                 placeholder={step.placeholder}
                                 className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium mt-2"
                                 onKeyDown={(e) => {

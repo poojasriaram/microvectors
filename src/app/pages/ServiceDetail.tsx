@@ -3,19 +3,99 @@ import { servicesData } from '../../data/navigationContent';
 import { ArrowRight, CheckCircle, ChevronRight, Zap, Shield, Rocket } from 'lucide-react';
 import { useEffect } from 'react';
 
+function generateFallbackData(slug: string) {
+    let category = "Capabilities";
+    const path = window.location.pathname;
+    if (path.includes('/solutions/')) category = "Solutions";
+    else if (path.includes('/partners/')) category = "Partners";
+    else if (path.includes('/company/')) category = "Company";
+    else if (path.includes('/crypto/')) category = "Crypto";
+
+    const title = slug
+        .split('-')
+        .map(word => {
+            if (word === 'ai') return 'AI';
+            if (word === 'mvp') return 'MVP';
+            if (word === 'gtm') return 'GTM';
+            if (word === 'sdr') return 'SDR';
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(' ');
+
+    return {
+        title,
+        category,
+        heroDescription: `${title} provides enterprise-grade strategic intelligence and execution systems. Designed for accelerated outcomes and seamless operations.`,
+        features: [
+            {
+                title: "Strategic Design & Optimization",
+                description: `Architecting robust systems tailored for ${title} needs, ensuring high performance, zero downtime, and standard compliance.`,
+                desc: "High-performance custom design architectures."
+            },
+            {
+                title: "Autonomous Execution",
+                description: `Deploying state-of-the-art automated pipelines and intelligent decision loops to scale ${title} without operational overhead.`,
+                desc: "Self-correcting workflow execution engines."
+            },
+            {
+                title: "Enterprise Grade Security",
+                description: "Protected by end-to-end data encryption, real-time threat intelligence, and continuous compliance guardrails.",
+                desc: "Bank-level secure data boundaries."
+            }
+        ],
+        benefits: [
+            "Up to 3.5x improvement in end-to-end process speed.",
+            "70% reduction in manual errors and execution bottlenecks.",
+            "Seamless compatibility with your existing tech stack.",
+            "Fully automated tracking and comprehensive report logs."
+        ],
+        useCases: [
+            {
+                title: `Automated ${title} Intelligence`,
+                description: `Identify patterns and run predictive model simulations to forecast outcomes and mitigate risks proactively.`
+            },
+            {
+                title: "Scale Optimization",
+                description: "Dynamically allocate resources based on load spikes and workflow priority queues."
+            }
+        ],
+        spinFramework: {
+            situation: `Your teams are using manual coordination and legacy tools to operate ${title} pipelines.`,
+            problem: "Siloed data and human errors degrade throughput quality, resulting in margin leaks.",
+            implication: "Competitors deploying automated decision layers scale faster and offer lower price-points, threatening your market share.",
+            needPayoff: `Implementing an autonomous ${title} platform eliminates bottlenecks and increases operational velocity immediately.`
+        },
+        projectLifecycle: [
+            { step: "Audit & Analysis", desc: "Map and benchmark your current operational flows." },
+            { step: "Integration Setup", desc: `Connect our AI agents to your existing ${title} systems.` },
+            { step: "Data Validation", desc: "Run parallel simulation models to verify data integrity." },
+            { step: "Scale & Monitor", desc: "Full automation activation with real-time analytics." }
+        ],
+        faqs: [
+            {
+                question: `How long does it take to integrate ${title}?`,
+                answer: "Most enterprise integrations are fully operational within 2 to 4 weeks, depending on legacy system complexity."
+            },
+            {
+                question: "Is our business data securely handled?",
+                answer: "Yes, we adhere to GDPR and SOC2 compliance. All business telemetry is encrypted in transit and at rest."
+            }
+        ]
+    };
+}
+
 export default function ServiceDetail() {
     const { slug } = useParams<{ slug: string }>();
     
-    // Scroll to top on mount or when slug changes
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [slug]);
 
-    if (!slug || !servicesData[slug]) {
+    if (!slug) {
         return <Navigate to="/" replace />;
     }
 
-    const data = servicesData[slug];
+    const data = servicesData[slug] || generateFallbackData(slug);
 
     return (
         <div className="pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
@@ -75,11 +155,11 @@ export default function ServiceDetail() {
                                         <div key={i} className="bg-white/80 backdrop-blur-md border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-blue-100 transition-all duration-300">
                                             <div className="flex items-start gap-3">
                                                 <div className="mt-0.5 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600">
-                                                    <CheckCircle className="w-4 h-4" />
+                                                    <CheckCircle className="w-4 h-4 animate-in fade-in zoom-in duration-300" />
                                                 </div>
                                                 <div>
                                                     <h4 className="text-sm font-bold text-slate-900 mb-1 leading-tight">{feature.title}</h4>
-                                                    <p className="text-xs text-slate-500 font-medium line-clamp-2 leading-relaxed">{feature.desc}</p>
+                                                    <p className="text-xs text-slate-500 font-medium line-clamp-2 leading-relaxed">{feature.desc || feature.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +208,36 @@ export default function ServiceDetail() {
                 </div>
             </div>
 
-            
+            {/* SPIN Framework Section */}
+            {data.spinFramework && (
+                <div className="bg-slate-900 text-white py-20 lg:py-32 border-y border-slate-800">
+                    <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                        <div className="text-center max-w-3xl mx-auto mb-16">
+                            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 font-heading">The SPIN Framework</h2>
+                            <p className="text-lg text-slate-400 font-medium">How we diagnose and resolve operational constraints.</p>
+                        </div>
+                        <div className="grid md:grid-cols-4 gap-8">
+                            <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-750">
+                                <div className="text-blue-500 font-bold text-lg mb-3 uppercase tracking-wider">Situation</div>
+                                <p className="text-slate-300 font-medium text-sm leading-relaxed">{data.spinFramework.situation}</p>
+                            </div>
+                            <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-750">
+                                <div className="text-amber-500 font-bold text-lg mb-3 uppercase tracking-wider">Problem</div>
+                                <p className="text-slate-300 font-medium text-sm leading-relaxed">{data.spinFramework.problem}</p>
+                            </div>
+                            <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-750">
+                                <div className="text-red-500 font-bold text-lg mb-3 uppercase tracking-wider">Implication</div>
+                                <p className="text-slate-300 font-medium text-sm leading-relaxed">{data.spinFramework.implication}</p>
+                            </div>
+                            <div className="bg-slate-800/50 p-8 rounded-2xl border border-slate-750">
+                                <div className="text-emerald-500 font-bold text-lg mb-3 uppercase tracking-wider">Need-Payoff</div>
+                                <p className="text-slate-300 font-medium text-sm leading-relaxed">{data.spinFramework.needPayoff}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Conditional: Use Cases */}
             {data.useCases && (
                 <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
@@ -144,76 +253,15 @@ export default function ServiceDetail() {
                 </div>
             )}
 
-            {/* Conditional: Technologies */}
-            {data.technologies && (
-                <div className="bg-slate-900 text-white py-20">
-                    <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 text-center">
-                        <h2 className="text-3xl font-bold mb-12 font-heading">Powered by Leading Technologies</h2>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {data.technologies.map((tech, i) => (
-                                <span key={i} className="px-6 py-3 bg-white/10 rounded-full font-bold text-sm hover:bg-blue-600 transition-colors cursor-default">
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Conditional: Architecture Diagrams */}
-            {data.architectureDiagrams && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
-                    <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Reference Architecture</h2>
-                    {data.architectureDiagrams.map((arch, i) => (
-                        <div key={i} className="max-w-5xl mx-auto mb-16 text-center">
-                            <img src={arch.src} alt={arch.title} className="w-full h-auto rounded-3xl shadow-premium mb-8 border border-slate-200" />
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">{arch.title}</h3>
-                            <p className="text-slate-600 text-lg max-w-3xl mx-auto">{arch.description}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
-
-            {/* Conditional: KPIs */}
-            {data.kpis && (
-                <div className="bg-blue-600 text-white py-24">
-                    <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
-                        <div className="grid md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
-                            {data.kpis.map((kpi, i) => (
-                                <div key={i} className="pt-8 md:pt-0">
-                                    <div className="text-5xl lg:text-6xl font-extrabold mb-4 font-heading">{kpi.metric}</div>
-                                    <div className="text-lg font-bold text-blue-100">{kpi.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Conditional: Success Stories */}
-            {data.successStories && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 bg-slate-50 border-y border-slate-100">
-                    <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Proven Success Stories</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {data.successStories.map((story, i) => (
-                            <div key={i} className="p-8 bg-white border border-slate-200 rounded-3xl">
-                                <h3 className="text-2xl font-bold text-slate-900 mb-4">{story.title}</h3>
-                                <p className="text-slate-600 text-lg">{story.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {/* Conditional: Service Models & Project Lifecycle */}
+            {/* Conditional: Service Models & Project Lifecycle (Process Flow) */}
             {(data.serviceModels || data.projectLifecycle) && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 bg-slate-50/50 border-y border-slate-100">
                     {data.serviceModels && (
                         <div className="mb-24">
                             <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Engagement Models</h2>
                             <div className="grid md:grid-cols-3 gap-8">
                                 {data.serviceModels.map((model: any, i: number) => (
-                                    <div key={i} className="p-8 border-2 border-slate-100 hover:border-blue-500 rounded-2xl transition-colors">
+                                    <div key={i} className="p-8 border-2 border-slate-100 hover:border-blue-500 rounded-2xl transition-colors bg-white">
                                         <h3 className="text-xl font-bold text-slate-900 mb-3">{model.title}</h3>
                                         <p className="text-slate-600 font-medium">{model.description}</p>
                                     </div>
@@ -226,10 +274,10 @@ export default function ServiceDetail() {
                             <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Our Delivery Methodology</h2>
                             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {data.projectLifecycle.map((step: any, i: number) => (
-                                    <div key={i} className="relative p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                                    <div key={i} className="relative p-6 bg-white rounded-2xl border border-slate-200">
                                         <div className="text-4xl font-black text-slate-200 mb-4 font-heading">0{i+1}</div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">{step.step}</h3>
-                                        <p className="text-slate-600 text-sm font-medium">{step.desc}</p>
+                                        <p className="text-slate-600 text-sm font-medium">{step.desc || step.description}</p>
                                     </div>
                                 ))}
                             </div>
@@ -249,6 +297,25 @@ export default function ServiceDetail() {
                                 <p className="text-slate-600 font-medium leading-relaxed">{faq.answer}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-blue-600 text-white py-20 lg:py-28 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_50%)]"></div>
+                <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 text-center relative z-10">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-6 font-heading">Ready to Accelerate Your GTM Operations?</h2>
+                    <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 font-medium">
+                        Speak with our enterprise architects to run diagnostic models and map your revenue leakages.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link to="/book-consultation" className="bg-white hover:bg-slate-50 text-blue-600 px-8 py-4 rounded-xl font-bold transition-all text-base shadow-lg">
+                            Get Started Now
+                        </Link>
+                        <Link to="/talk-to-expert" className="bg-blue-700 hover:bg-blue-800 text-white border border-blue-500 px-8 py-4 rounded-xl font-bold transition-all text-base">
+                            Speak with an Expert
+                        </Link>
                     </div>
                 </div>
             </div>

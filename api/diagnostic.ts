@@ -15,29 +15,47 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { companyName, contactName, email, industry, companySize, annualRevenue, website, geography, challenges, objectives } = req.body;
+    const {
+        offering,
+        category,
+        page_url,
+        timestamp,
+        company_name,
+        contact_name,
+        email,
+        phone,
+        industry,
+        company_size,
+        revenue,
+        website,
+        geography,
+        challenges,
+        tools,
+        expected_outcomes
+    } = req.body;
 
-    if (!companyName || !contactName || !email || !industry || !geography || !challenges) {
-        return res.status(400).json({ error: 'Missing required fields' });
-    }
-
-    console.log(`[Diagnostic Submit] Received submission for company: ${companyName}`);
+    console.log(`[Diagnostic Submit] Received submission for company: ${company_name || 'unknown'}`);
 
     try {
         await submitToGoogleScript({
             table: 'Diagnostics',
             fields: {
-                companyName,
-                contactName,
-                email,
-                industry,
-                companySize,
-                annualRevenue,
-                website,
-                geography,
-                challenges,
-                objectives,
-                submitted_at: new Date().toISOString()
+                timestamp: timestamp || new Date().toISOString(),
+                offering: offering || '',
+                category: category || '',
+                page_url: page_url || '',
+                company_name: company_name || '',
+                contact_name: contact_name || '',
+                email: email || '',
+                phone: phone || '',
+                industry: industry || '',
+                company_size: company_size || '',
+                revenue: revenue || '',
+                website: website || '',
+                geography: geography || '',
+                challenges: challenges || '',
+                tools: tools || '',
+                expected_outcomes: expected_outcomes || ''
             }
         });
         console.log('[Diagnostic Submit] Saved successfully.');
