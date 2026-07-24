@@ -25,7 +25,8 @@ export default function Navigation() {
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [scrolled, setScrolled] = useState(false);
     const [activeOfferingsCat, setActiveOfferingsCat] = useState("profit-pools");
-    const [activeIndustriesCat, setActiveIndustriesCat] = useState("profit-pools");
+    const [activeOfferingsSubCat, setActiveOfferingsSubCat] = useState<"b2b" | "b2c">("b2b");
+    const [activeIndustriesCat, setActiveIndustriesCat] = useState("b2b");
     const location = useLocation();
 
     // Handle scroll effect
@@ -97,35 +98,94 @@ export default function Navigation() {
                                             
                                             <div className="flex h-full min-h-[400px]">
                                                 {/* Left Column: Submenu Items */}
-                                                {/* Left Column: Submenu Items */}
-                                                <div className="w-[50%] p-6 lg:p-8 bg-white shrink-0">
-                                                    <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
-                                                        <span className="w-6 h-px bg-slate-200"></span>
-                                                        Explore {item.name}
-                                                    </h4>
+                                                <div className="w-[75%] p-6 lg:p-8 bg-white shrink-0">
+                                                    {!(item.name === "Offerings" && activeOfferingsCat === "profit-pools") && (
+                                                        <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
+                                                            <span className="w-6 h-px bg-slate-200"></span>
+                                                            Explore {item.name}
+                                                        </h4>
+                                                    )}
                                                     {item.name === "Offerings" && item.dropdown.categories ? (
-                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                                                            {item.dropdown.categories.find((cat: any) => cat.id === activeOfferingsCat)?.items.map((sub: any, subIdx: number) => {
-                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                return (
-                                                                    <Link 
-                                                                        key={subIdx}
-                                                                        to={sub.path}
-                                                                        onClick={() => setHoveredItem(null)}
-                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                                                                    >
-                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
-                                                                            <IconComponent className="w-4 h-4" />
-                                                                        </div>
-                                                                        <div className="flex-1 flex flex-col gap-0.5 min-w-0">
-                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
-                                                                        </div>
-                                                                    </Link>
-                                                                );
-                                                            })}
-                                                        </div>
+                                                        activeOfferingsCat === "profit-pools" ? (
+                                                            <div className="grid grid-cols-2 gap-6 h-full">
+                                                                {/* B2B Column */}
+                                                                <div className="flex flex-col min-w-0">
+                                                                    <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-blue-600 mb-3 flex items-center gap-2 border-b pb-2 border-slate-100">
+                                                                        B2B Profit Pools
+                                                                    </h4>
+                                                                    <div className="flex flex-col gap-1.5">
+                                                                        {item.dropdown.categories.find((cat: any) => cat.id === "profit-pools")?.b2bItems.map((sub: any, subIdx: number) => {
+                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                            return (
+                                                                                <Link 
+                                                                                    key={subIdx}
+                                                                                    to={sub.path}
+                                                                                    onClick={() => setHoveredItem(null)}
+                                                                                    className="group/link flex items-center gap-2.5 p-1.5 px-2.5 bg-white border border-slate-50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shrink-0"
+                                                                                >
+                                                                                    <div className="bg-slate-50 text-blue-600 p-1 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                                        <IconComponent className="w-3.5 h-3.5" />
+                                                                                    </div>
+                                                                                    <div className="flex-1 min-w-0">
+                                                                                        <span className="text-[12px] xl:text-[13px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-none truncate block">{sub.name}</span>
+                                                                                    </div>
+                                                                                </Link>
+                                                                            );
+                                                                        })}
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                {/* B2C Column */}
+                                                                <div className="flex flex-col min-w-0 border-l border-slate-100 pl-6">
+                                                                    <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-indigo-600 mb-3 flex items-center gap-2 border-b pb-2 border-slate-100">
+                                                                        B2C Profit Pools
+                                                                    </h4>
+                                                                    <div className="flex flex-col gap-1.5">
+                                                                        {item.dropdown.categories.find((cat: any) => cat.id === "profit-pools")?.b2cItems.map((sub: any, subIdx: number) => {
+                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                            return (
+                                                                                <Link 
+                                                                                    key={subIdx}
+                                                                                    to={sub.path}
+                                                                                    onClick={() => setHoveredItem(null)}
+                                                                                    className="group/link flex items-center gap-2.5 p-1.5 px-2.5 bg-white border border-slate-50 hover:border-indigo-100 rounded-xl hover:shadow-sm hover:bg-slate-50/50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 shrink-0"
+                                                                                >
+                                                                                    <div className="bg-slate-50 text-indigo-600 p-1 rounded-lg group-hover/link:bg-indigo-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                                        <IconComponent className="w-3.5 h-3.5" />
+                                                                                    </div>
+                                                                                    <div className="flex-1 min-w-0">
+                                                                                        <span className="text-[12px] xl:text-[13px] font-semibold text-slate-700 group-hover/link:text-indigo-600 leading-none truncate block">{sub.name}</span>
+                                                                                    </div>
+                                                                                </Link>
+                                                                            );
+                                                                        })}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        ) : (
+                                                            <div className="grid grid-cols-2 gap-2 lg:gap-2.5">
+                                                                {item.dropdown.categories.find((cat: any) => cat.id === activeOfferingsCat)?.items.map((sub: any, subIdx: number) => {
+                                                                    const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                    return (
+                                                                        <Link 
+                                                                            key={subIdx}
+                                                                            to={sub.path}
+                                                                            onClick={() => setHoveredItem(null)}
+                                                                            className="group/link flex items-center gap-2.5 p-1.5 px-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                        >
+                                                                            <div className="bg-slate-50 text-blue-600 p-1 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                                <IconComponent className="w-3.5 h-3.5" />
+                                                                            </div>
+                                                                            <div className="flex-1 flex flex-col gap-0.5 min-w-0">
+                                                                                <span className="text-[12.5px] xl:text-[13.5px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                            </div>
+                                                                        </Link>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        )
                                                     ) : item.name === "Industries" && item.dropdown.categories ? (
-                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                                                        <div className="grid grid-cols-2 gap-2 lg:gap-2.5">
                                                             {item.dropdown.categories.find((cat: any) => cat.id === activeIndustriesCat)?.items.map((sub: any, subIdx: number) => {
                                                                 const IconComponent = Icons[sub.icon] || ArrowRight;
                                                                 return (
@@ -133,20 +193,20 @@ export default function Navigation() {
                                                                         key={subIdx}
                                                                         to={sub.path}
                                                                         onClick={() => setHoveredItem(null)}
-                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                        className="group/link flex items-center gap-2.5 p-1.5 px-2.5 bg-white border border-slate-100/50 hover:border-blue-100 rounded-xl hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                                                                     >
-                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
-                                                                            <IconComponent className="w-4 h-4" />
+                                                                        <div className="bg-slate-50 text-blue-600 p-1 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                            <IconComponent className="w-3.5 h-3.5" />
                                                                         </div>
                                                                         <div className="flex-1 flex flex-col gap-0.5 min-w-0">
-                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                            <span className="text-[12.5px] xl:text-[13.5px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
                                                                         </div>
                                                                     </Link>
                                                                 );
                                                             })}
                                                         </div>
                                                     ) : (
-                                                        <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                                                        <div className="grid grid-cols-2 gap-2 lg:gap-2.5">
                                                             {item.dropdown.items?.map((sub: any, subIdx: number) => {
                                                                 const IconComponent = Icons[sub.icon] || ArrowRight;
                                                                 return (
@@ -154,13 +214,13 @@ export default function Navigation() {
                                                                         key={subIdx}
                                                                         to={sub.path}
                                                                         onClick={() => setHoveredItem(null)}
-                                                                        className="group/link flex items-center gap-3 p-2.5 bg-white border border-transparent rounded-xl hover:border-blue-100 hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                                                        className="group/link flex items-center gap-2.5 p-1.5 px-2.5 bg-white border border-transparent rounded-xl hover:border-blue-100 hover:shadow-sm hover:bg-slate-50 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                                                                     >
-                                                                        <div className="bg-slate-50 text-blue-600 p-2 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
-                                                                            <IconComponent className="w-4 h-4" />
+                                                                        <div className="bg-slate-50 text-blue-600 p-1 rounded-lg group-hover/link:bg-blue-600 group-hover/link:text-white transition-colors shrink-0">
+                                                                            <IconComponent className="w-3.5 h-3.5" />
                                                                         </div>
                                                                         <div className="flex-1 flex flex-col gap-0.5 min-w-0">
-                                                                            <span className="text-[13px] xl:text-[14px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
+                                                                            <span className="text-[12.5px] xl:text-[13.5px] font-semibold text-slate-700 group-hover/link:text-blue-600 leading-tight truncate">{sub.name}</span>
                                                                         </div>
                                                                     </Link>
                                                                 );
@@ -170,7 +230,7 @@ export default function Navigation() {
                                                 </div>
 
                                                 {/* Middle Column: Featured / Profit Pools */}
-                                                <div className="w-[25%] p-6 lg:p-8 bg-slate-50/50 border-l border-r border-slate-100 flex flex-col shrink-0 overflow-y-auto">
+                                                <div className="w-[25%] p-6 lg:p-8 bg-slate-50/50 border-l border-slate-100 flex flex-col shrink-0 overflow-y-auto">
                                                     <h4 className="text-[12px] font-bold uppercase tracking-[0.15em] text-slate-400 mb-5 flex items-center gap-2">
                                                         Featured
                                                     </h4>
@@ -231,37 +291,6 @@ export default function Navigation() {
                                                                 </Link>
                                                             ))
                                                         )}
-                                                    </div>
-                                                </div>
-
-                                                {/* Right Column: Highlight Card */}
-                                                <div className="w-[25%] relative group overflow-hidden shrink-0">
-                                                    <div className="absolute inset-0 bg-slate-900">
-                                                        {item.dropdown.highlight?.image && (
-                                                            <img 
-                                                                src={item.dropdown.highlight.image} 
-                                                                alt={item.dropdown.highlight.title}
-                                                                className="w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
-                                                            />
-                                                        )}
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
-                                                    </div>
-                                                    
-                                                    <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
-                                                        <h3 className="text-xl font-bold text-white mb-3 leading-tight">
-                                                            {item.dropdown.highlight?.title}
-                                                        </h3>
-                                                        <p className="text-[13px] text-slate-300 mb-6 leading-relaxed">
-                                                            {item.dropdown.highlight?.desc}
-                                                        </p>
-                                                        <Link 
-                                                            to={item.dropdown.highlight?.linkPath || '/'}
-                                                            onClick={() => setHoveredItem(null)}
-                                                            className="inline-flex items-center justify-center gap-2 bg-white hover:bg-blue-50 text-slate-900 px-5 py-2.5 rounded-lg text-[13px] font-bold transition-colors w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-                                                        >
-                                                            {item.dropdown.highlight?.linkText}
-                                                            <ArrowRight className="w-4 h-4" />
-                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>

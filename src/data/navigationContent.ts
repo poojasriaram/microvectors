@@ -15,6 +15,366 @@ export interface ServiceData {
 }
 
 export const servicesData: Record<string, ServiceData> = {
+    "ai-intent-lead-gen": {
+        title: "AI Intent-Based Lead Generation",
+        category: "Industries",
+        heroDescription: "Capture active buyer intent in real-time. Target accounts visiting high-value pages, reading comparison articles, or searching for specific solutions before they contact your competitors.",
+        features: [
+            { title: "Real-Time Signal Ingestion", description: "Monitor web activity, social triggers, and custom data streams instantly." }
+        ],
+        benefits: [
+            "Higher quality pipeline generation",
+            "Shorter sales cycle duration"
+        ],
+        faqs: [
+            { question: "How does intent matching work?", answer: "We leverage secure IP lookup and buyer behavior signals to identify interested accounts." }
+        ]
+    },
+    "ai-icp-matching": {
+        title: "AI ICP Matching & Dynamic Scoring",
+        category: "Industries",
+        heroDescription: "Automatically refine your Ideal Customer Profile. Map incoming accounts against historical wins to dynamically score and route high-probability deals.",
+        features: [
+            { title: "Dynamic Propensity Scoring", description: "Score leads continuously based on account fit and firmographic shifts." }
+        ],
+        benefits: [
+            "Increased lead qualification accuracy",
+            "Optimized sales team allocation"
+        ],
+        faqs: [
+            { question: "Can we customize scoring factors?", answer: "Yes, you can adjust weightings for industry, size, and technographics." }
+        ]
+    },
+    "ai-lead-nurturing-autopilot": {
+        title: "AI Lead Nurturing Autopilot",
+        category: "Industries",
+        heroDescription: "Deploy autonomous email and chat nurturing sequences. Our adaptive AI personalizes outreach based on historical customer responses and interest cues.",
+        features: [
+            { title: "Adaptive Sequencing", description: "Sequence emails dynamically matching individual buyer engagement rates." }
+        ],
+        benefits: [
+            "Consistent lead engagement autopilot",
+            "Higher meeting booking conversion"
+        ],
+        faqs: [
+            { question: "Is it compliant with CAN-SPAM/GDPR?", answer: "Yes, double opt-ins and secure unsubscribe headers are fully supported." }
+        ]
+    },
+    "ai-multi-touch-attribution": {
+        title: "AI Multi-Touch Attribution Engine",
+        category: "Industries",
+        heroDescription: "Map marketing touchpoints back to P&L revenue. Optimize your advertising budget allocation using algorithmic fractional credit models.",
+        features: [
+            { title: "Revenue Attributed Insights", description: "Attribute pipeline velocity to specific campaigns, ads, and webinars." }
+        ],
+        benefits: [
+            "Optimized ad spend efficiency",
+            "Transparent ROI reporting"
+        ],
+        faqs: [
+            { question: "Does it support offline touchpoints?", answer: "Yes, sales calls and offline events can be imported via CRM integrations." }
+        ]
+    },
+    "ai-pipeline-velocity": {
+        title: "AI Pipeline Velocity & Next-Best-Action",
+        category: "Industries",
+        heroDescription: "Accelerate deal velocity using next-best-action recommendations. Analyze email threads and meeting notes to identify blockers and nudge deals forward.",
+        features: [
+            { title: "Deal Health Scoring", description: "Assess deal progress using email sentiment and stakeholder response gaps." }
+        ],
+        benefits: [
+            "Shorter sales cycle lengths",
+            "Fewer stalled opportunities"
+        ],
+        faqs: [
+            { question: "How are next actions generated?", answer: "Our models analyze successful deal patterns to suggest next steps." }
+        ]
+    },
+    "abm-autopilot": {
+        title: "AI Account-Based Marketing (ABM) Autopilot",
+        category: "Industries",
+        heroDescription: "Orchestrate end-to-end target account campaigns. Trigger personalized ads, custom landing pages, and automated SDR outreach simultaneously.",
+        features: [
+            { title: "Target Account Ingestion", description: "Sync key target accounts directly from your CRM for custom ABM campaigns." }
+        ],
+        benefits: [
+            "Higher enterprise account penetration",
+            "Seamless marketing and sales alignment"
+        ],
+        faqs: [
+            { question: "Can we segment by account list?", answer: "Yes, you can upload specific lists or auto-generate them using scoring rules." }
+        ]
+    },
+    "competitor-displacement": {
+        title: "AI Competitor Displacement Engine",
+        category: "Industries",
+        heroDescription: "Identify competitor pain points to win back accounts. Detect when accounts search for migration support or complain about rival tools online.",
+        features: [
+            { title: "Competitor Pain Detection", description: "Monitor competitor review sites and search patterns for win-back triggers." }
+        ],
+        benefits: [
+            "Higher competitive win rates",
+            "Targeted replacement messaging"
+        ],
+        faqs: [
+            { question: "Which competitors can we target?", answer: "You can track any major industry competitor with public search keywords." }
+        ]
+    },
+    "ai-sdr-copilot": {
+        title: "AI SDR Co-Pilot / Autopilot",
+        category: "Industries",
+        heroDescription: "Automate prospecting and calendar bookings. Our autonomous SDR assistant drafts outreach, handles objections, and schedules meetings for AEs.",
+        features: [
+            { title: "Objection Resolution Library", description: "Draft context-aware replies to pricing, timing, and feature objections." }
+        ],
+        benefits: [
+            "More booked meetings on autopilot",
+            "Reclaimed sales rep prospecting time"
+        ],
+        faqs: [
+            { question: "Does it sync with Google/Outlook calendars?", answer: "Yes, meetings are booked directly using live calendar availability." }
+        ]
+    },
+    "rql-predictor": {
+        title: "AI Revenue Qualified Lead (RQL) Predictor",
+        category: "Industries",
+        heroDescription: "Predict close probability, deal size, and timelines accurately. Shift from subjective sales gut feelings to data-driven revenue forecasting.",
+        features: [
+            { title: "Predictive Forecast Dashboard", description: "Visualize pipeline revenue predictions with built-in confidence intervals." }
+        ],
+        benefits: [
+            "Accurate board-level forecasting",
+            "Clear prioritization of high-value deals"
+        ],
+        faqs: [
+            { question: "How accurate is the forecast?", answer: "Our models achieve up to 92% forecasting accuracy within 90 days." }
+        ]
+    },
+    "contract-expansion": {
+        title: "AI Contract & Expansion Opportunity Finder",
+        category: "Industries",
+        heroDescription: "Uncover upsell and cross-sell opportunities. Monitor software usage trends to identify accounts that are ready for seat expansion or premium features.",
+        features: [
+            { title: "Usage Threshold Triggers", description: "Trigger alerts when accounts approach user limits or show high-value activity." }
+        ],
+        benefits: [
+            "Increased Net Revenue Retention (NRR)",
+            "Predictable customer expansion pipeline"
+        ],
+        faqs: [
+            { question: "Does it integrate with product analytics?", answer: "Yes, it connects with Mixpanel, Amplitude, Segment, and custom databases." }
+        ]
+    },
+    "omnichannel-lead-gen": {
+        title: "AI Omnichannel Lead Generation",
+        category: "Industries",
+        heroDescription: "Automate campaign execution across social, search, and email. Optimize ad budget distribution in real-time to capture lowest-cost conversions.",
+        features: [
+            { title: "Cross-Platform Ad Manager", description: "Adjust budgets instantly across Google, Meta, LinkedIn, and programmatic networks." }
+        ],
+        benefits: [
+            "Lower cost per lead (CPL)",
+            "Broader campaign audience reach"
+        ],
+        faqs: [
+            { question: "How often are budgets adjusted?", answer: "Our bidding algorithms check performance and adjust budgets hourly." }
+        ]
+    },
+    "personalized-offers": {
+        title: "AI Personalized Offer Generation at Scale",
+        category: "Industries",
+        heroDescription: "Deliver 1:1 dynamic pricing and promotions. Analyze user location, browsing history, and cart value to trigger personalized discounts.",
+        features: [
+            { title: "Dynamic Coupon Triggering", description: "Generate custom checkout coupons matching active user propensity scores." }
+        ],
+        benefits: [
+            "Increased cart conversion rate",
+            "Optimized profit margin preservation"
+        ],
+        faqs: [
+            { question: "Will it hurt brand value?", answer: "Discounts are targeted strictly to high-risk cohorts to protect core pricing." }
+        ]
+    },
+    "behavioral-retargeting": {
+        title: "AI Behavioral Retargeting Autopilot",
+        category: "Industries",
+        heroDescription: "Recover abandoned checkouts automatically. Trigger context-aware emails and SMS messages within minutes of a cart bounce.",
+        features: [
+            { title: "Exit Intent Session Logging", description: "Log exact checkout abandonment events to trigger customized recovery paths." }
+        ],
+        benefits: [
+            "Recovered cart abandonment revenue",
+            "Higher mobile conversion rates"
+        ],
+        faqs: [
+            { question: "What channels are supported?", answer: "We support recovery emails, SMS, push notifications, and social retargeting." }
+        ]
+    },
+    "lookalike-audience": {
+        title: "AI Lookalike Audience Auto-Scaling",
+        category: "Industries",
+        heroDescription: "Replicate your highest-converting buyer cohorts. Automatically feed ad networks with custom seed lists to target high-value profiles.",
+        features: [
+            { title: "Seed List Automation", description: "Update custom audiences daily with details of newly converted customers." }
+        ],
+        benefits: [
+            "Lower ad bidding CAC inflation",
+            "Higher programmatic ad relevance"
+        ],
+        faqs: [
+            { question: "Does it support privacy compliance?", answer: "Yes, customer data is hashed securely before upload to ad networks." }
+        ]
+    },
+    "global-account-penetration": {
+        title: "AI Global Account Penetration",
+        category: "Industries",
+        heroDescription: "Expand enterprise accounts across multiple divisions and regions. Identify parent-subsidiary relationships and maps internal buying circles.",
+        features: [
+            { title: "Division Relationship Mapping", description: "Map enterprise corporate structures to identify warm intro paths." }
+        ],
+        benefits: [
+            "Higher enterprise account contract value",
+            "Faster expansion into global divisions"
+        ],
+        faqs: [
+            { question: "Which directories are supported?", answer: "We pull structures from major corporate registries and LinkedIn lists." }
+        ]
+    },
+    "partnership-opportunity": {
+        title: "AI Strategic Partnership Opportunity Finder",
+        category: "Industries",
+        heroDescription: "Discover high-yield alliance opportunities. Scan ecosystem players, integrators, and distributors to find high-probability partners.",
+        features: [
+            { title: "Partner Profile Assessment", description: "Score potential partners matching target audience overlap." }
+        ],
+        benefits: [
+            "Scalable indirect channel pipeline",
+            "Wider distribution ecosystem"
+        ],
+        faqs: [
+            { question: "How are partners prioritized?", answer: "We analyze alignment in product capability, audience size, and GTM strategy." }
+        ]
+    },
+    "executive-engagement": {
+        title: "AI Executive Engagement Automation",
+        category: "Industries",
+        heroDescription: "Engage C-level executives with automated, board-level ROI proof. Draft custom value cases tailored to specific corporate initiatives.",
+        features: [
+            { title: "Initiative Alignment Engine", description: "Map your software features directly to corporate annual report goals." }
+        ],
+        benefits: [
+            "Higher response rate from C-suite",
+            "Faster executive sign-off cycles"
+        ],
+        faqs: [
+            { question: "How does it read corporate goals?", answer: "We scan public SEC filings, press releases, and earnings transcripts." }
+        ]
+    },
+    "rapid-market-entry": {
+        title: "AI Rapid Market Entry Engine",
+        category: "Industries",
+        heroDescription: "Accelerate speed-to-revenue in new verticals. Deploy pre-configured vertical outreach campaigns and content vectors in days, not months.",
+        features: [
+            { title: "Vertical Content Generator", description: "Auto-generate industry-specific case studies and messaging templates." }
+        ],
+        benefits: [
+            "Faster time-to-market for new segments",
+            "Reduced vertical GTM setup costs"
+        ],
+        faqs: [
+            { question: "Which verticals have pre-built sets?", answer: "We cover SaaS, BFSI, Manufacturing, Healthcare, Retail, and Logistics." }
+        ]
+    },
+    "niche-domination": {
+        title: "AI Niche Market Domination",
+        category: "Industries",
+        heroDescription: "Capture market share in highly concentrated verticals. Map and engage every single key account within specialized niches.",
+        features: [
+            { title: "Niche Account Identification", description: "Discover and catalog 100% of addressable accounts in narrow segments." }
+        ],
+        benefits: [
+            "Dominant market share in vertical",
+            "Eliminated generic messaging waste"
+        ],
+        faqs: [
+            { question: "Is it suitable for micro-niches?", answer: "Yes, it is designed specifically for markets with under 5,000 target accounts." }
+        ]
+    },
+    "lean-team-productivity": {
+        title: "AI Lean Team Productivity Amplifier",
+        category: "Industries",
+        heroDescription: "Multiply sales output without adding headcount. Automate routine prospecting, data entry, and follow-ups to keep teams selling.",
+        features: [
+            { title: "RevOps Task Automation", description: "Eliminate manual CRM entry, status updates, and email logging." }
+        ],
+        benefits: [
+            "10x output from existing sales reps",
+            "Reduced overhead resource costs"
+        ],
+        faqs: [
+            { question: "How much time is reclaimed?", answer: "Sales reps reclaim up to 15 hours per week from administrative tasks." }
+        ]
+    },
+    "zero-to-one-lead-gen": {
+        title: "AI Zero-to-One Lead Generation",
+        category: "Industries",
+        heroDescription: "Automate your first customer acquisition campaigns. Perfect for early-stage companies needing to validate market interest quickly.",
+        features: [
+            { title: "Rapid Outreach Ingestion", description: "Load prospect lists and launch targeted campaigns in under 48 hours." }
+        ],
+        benefits: [
+            "Accelerated path to first customer",
+            "Valuable early buyer feedback loops"
+        ],
+        faqs: [
+            { question: "Does it require prior CRM data?", answer: "No, we can scrape and enrich lead lists from scratch." }
+        ]
+    },
+    "pmf-signal-detection": {
+        title: "AI Product-Market Fit Signal Detection",
+        category: "Industries",
+        heroDescription: "Validate product-market fit using behavioral analytics. Measure user retention, feature adoption, and organic referral velocity.",
+        features: [
+            { title: "PMF Cohort Scoring", description: "Score active cohorts to identify target profiles showing highest retention." }
+        ],
+        benefits: [
+            "Data-driven PMF validation proof",
+            "Clear prioritization of product roadmap"
+        ],
+        faqs: [
+            { question: "How long is the tracking period?", answer: "We recommend a minimum 30-day cohort tracking window." }
+        ]
+    },
+    "founder-sales-automation": {
+        title: "AI Founder-Led Sales Automation",
+        category: "Industries",
+        heroDescription: "Reclaim founder time for product development and strategy. Automate lead scheduling, follow-ups, and baseline contract generation.",
+        features: [
+            { title: "Founder Email Delegation", description: "AI schedules and responds to initial inquiries using founder templates." }
+        ],
+        benefits: [
+            "Reclaimed founder strategy hours",
+            "Consistent professional GTM presence"
+        ],
+        faqs: [
+            { question: "Does it require daily management?", answer: "No, founders only step in once a meeting is booked or terms are reached." }
+        ]
+    },
+    "burn-rate-optimized-lead-capture": {
+        title: "AI Burn-Rate Optimized Lead Capture",
+        category: "Industries",
+        heroDescription: "Maximize customer acquisition per dollar spent. Optimize campaign budgets strictly for high-conversion keywords and low-cost channels.",
+        features: [
+            { title: "Burn-Rate Efficiency Tracker", description: "Track acquisition costs against runway and remaining budgets." }
+        ],
+        benefits: [
+            "Extended corporate financial runway",
+            "Maximum lead volume per dollar"
+        ],
+        faqs: [
+            { question: "How are budgets controlled?", answer: "Algorithms pause low-performing campaigns instantly when daily caps are met." }
+        ]
+    },
 "demand-pulse": {
 
         title: "Demand Pulse",
@@ -1773,6 +2133,24 @@ export const smNavItems = [
                         { "name": "Competitive Discovery", "path": "/offerings/profit-pool-discovery/competitive-discovery", "icon": "ShieldCheck" },
                         { "name": "Customer Discovery", "path": "/offerings/profit-pool-discovery/customer-discovery", "icon": "Users" },
                         { "name": "Product-Market Fit Discovery", "path": "/offerings/profit-pool-discovery/product-market-fit-discovery", "icon": "Sparkles" }
+                    ],
+                    "b2bItems": [
+                        { "name": "B2B Market Discovery", "path": "/offerings/profit-pool-discovery/b2b-market-discovery", "icon": "Search" },
+                        { "name": "B2B Demand Discovery", "path": "/offerings/profit-pool-discovery/b2b-demand-discovery", "icon": "Target" },
+                        { "name": "B2B Value Discovery", "path": "/offerings/profit-pool-discovery/b2b-value-discovery", "icon": "DollarSign" },
+                        { "name": "B2B Channel Discovery", "path": "/offerings/profit-pool-discovery/b2b-channel-discovery", "icon": "Network" },
+                        { "name": "B2B Competitive Discovery", "path": "/offerings/profit-pool-discovery/b2b-competitive-discovery", "icon": "ShieldCheck" },
+                        { "name": "B2B Customer Discovery", "path": "/offerings/profit-pool-discovery/b2b-customer-discovery", "icon": "Users" },
+                        { "name": "B2B Product-Market Fit Discovery", "path": "/offerings/profit-pool-discovery/b2b-product-market-fit-discovery", "icon": "Sparkles" }
+                    ],
+                    "b2cItems": [
+                        { "name": "B2C Market Discovery", "path": "/offerings/profit-pool-discovery/b2c-market-discovery", "icon": "Search" },
+                        { "name": "B2C Demand Discovery", "path": "/offerings/profit-pool-discovery/b2c-demand-discovery", "icon": "Target" },
+                        { "name": "B2C Value Discovery", "path": "/offerings/profit-pool-discovery/b2c-value-discovery", "icon": "DollarSign" },
+                        { "name": "B2C Channel Discovery", "path": "/offerings/profit-pool-discovery/b2c-channel-discovery", "icon": "Network" },
+                        { "name": "B2C Competitive Discovery", "path": "/offerings/profit-pool-discovery/b2c-competitive-discovery", "icon": "ShieldCheck" },
+                        { "name": "B2C Customer Discovery", "path": "/offerings/profit-pool-discovery/b2c-customer-discovery", "icon": "Users" },
+                        { "name": "B2C Product-Market Fit Discovery", "path": "/offerings/profit-pool-discovery/b2c-product-market-fit-discovery", "icon": "Sparkles" }
                     ]
                 },
                 {
@@ -1813,51 +2191,63 @@ export const smNavItems = [
         "dropdown": {
             "categories": [
                 {
-                    "id": "profit-pools",
-                    "title": "Profit Pools",
-                    "desc": "Targeted sector profit mapping",
+                    "id": "b2b",
+                    "title": "B2B Focus",
+                    "desc": "Targeted enterprise pipeline scaling",
                     "items": [
-                        { "name": "B2B Profit Pool Discovery", "path": "/offerings/profit-pool-discovery/b2b", "icon": "Building2" },
-                        { "name": "B2C Profit Pool Discovery", "path": "/offerings/profit-pool-discovery/b2c", "icon": "ShoppingBag" }
+                        { "name": "AI Account-Based Marketing (ABM) Autopilot", "path": "/explore/abm-autopilot", "icon": "Building2" },
+                        { "name": "AI Competitor Displacement Engine", "path": "/explore/competitor-displacement", "icon": "ShieldCheck" },
+                        { "name": "AI SDR Co-Pilot / Autopilot", "path": "/explore/ai-sdr-copilot", "icon": "Bot" },
+                        { "name": "AI Revenue Qualified Lead (RQL) Predictor", "path": "/explore/rql-predictor", "icon": "TrendingUp" },
+                        { "name": "AI Contract & Expansion Opportunity Finder", "path": "/explore/contract-expansion", "icon": "Search" }
                     ]
                 },
                 {
-                    "id": "finance-enterprise",
-                    "title": "Financial & Enterprise",
-                    "desc": "High-compliance, scale sectors",
+                    "id": "b2c",
+                    "title": "B2C Focus",
+                    "desc": "High-velocity consumer acquisition",
                     "items": [
-                        { "name": "BFSI", "path": "/explore/bfsi", "icon": "Landmark" },
-                        { "name": "Enterprise Sales", "path": "/explore/enterprise-sales", "icon": "Building2" },
-                        { "name": "SaaS & Enterprise Software", "path": "/explore/saas", "icon": "Boxes" },
-                        { "name": "Manufacturing", "path": "/explore/manufacturing", "icon": "Factory" }
+                        { "name": "AI Omnichannel Lead Generation", "path": "/explore/omnichannel-lead-gen", "icon": "Network" },
+                        { "name": "AI Personalized Offer Generation at Scale", "path": "/explore/personalized-offers", "icon": "Coins" },
+                        { "name": "AI Behavioral Retargeting Autopilot", "path": "/explore/behavioral-retargeting", "icon": "Activity" },
+                        { "name": "AI Lookalike Audience Auto-Scaling", "path": "/explore/lookalike-audience", "icon": "Users" }
                     ]
                 },
                 {
-                    "id": "retail-consumer",
-                    "title": "Retail & Consumer",
-                    "desc": "Direct to consumer channels",
+                    "id": "enterprise",
+                    "title": "Enterprise / Large Business",
+                    "desc": "Multi-stakeholder, global penetration",
                     "items": [
-                        { "name": "E-commerce & D2C", "path": "/explore/ecommerce", "icon": "ShoppingBag" },
-                        { "name": "Consumer Durables", "path": "/explore/consumer-durables", "icon": "Home" },
-                        { "name": "FMCG", "path": "/explore/fmcg", "icon": "Truck" },
-                        { "name": "B2C Sales", "path": "/explore/d2c-sales", "icon": "Layout" }
+                        { "name": "AI Global Account Penetration", "path": "/explore/global-account-penetration", "icon": "Globe" },
+                        { "name": "AI Strategic Partnership Opportunity Finder", "path": "/explore/partnership-opportunity", "icon": "Handshake" },
+                        { "name": "AI Executive Engagement Automation", "path": "/explore/executive-engagement", "icon": "Briefcase" }
                     ]
                 },
                 {
-                    "id": "emerging",
-                    "title": "Emerging Sectors",
-                    "desc": "Web3, startups, & agile markets",
+                    "id": "mid-market",
+                    "title": "Mid-Market",
+                    "desc": "Accelerated vertical market capture",
                     "items": [
-                        { "name": "Crypto & Web3", "path": "/explore/crypto-industry", "icon": "Coins" },
-                        { "name": "Startup / Early Stage", "path": "/explore/crypto-startup", "icon": "Rocket" },
-                        { "name": "Real Estate", "path": "/explore/real-estate", "icon": "Building" }
+                        { "name": "AI Rapid Market Entry Engine", "path": "/explore/rapid-market-entry", "icon": "Rocket" },
+                        { "name": "AI Niche Market Domination", "path": "/explore/niche-domination", "icon": "Target" },
+                        { "name": "AI Lean Team Productivity Amplifier", "path": "/explore/lean-team-productivity", "icon": "Users" }
+                    ]
+                },
+                {
+                    "id": "startup",
+                    "title": "Startup",
+                    "desc": "Zero-to-one traction & PMF validation",
+                    "items": [
+                        { "name": "AI Zero-to-One Lead Generation", "path": "/explore/zero-to-one-lead-gen", "icon": "Lightbulb" },
+                        { "name": "AI Product-Market Fit Signal Detection", "path": "/explore/pmf-signal-detection", "icon": "Sparkles" },
+                        { "name": "AI Founder-Led Sales Automation", "path": "/explore/founder-sales-automation", "icon": "Bot" },
+                        { "name": "AI Burn-Rate Optimized Lead Capture", "path": "/explore/burn-rate-optimized-lead-capture", "icon": "DollarSign" }
                     ]
                 }
             ],
             "highlight": {
                 "title": "Industry Expertise",
                 "desc": "Tailored revenue acceleration for your specific industry.",
-                "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
                 "linkText": "Learn More",
                 "linkPath": "/industries"
             }

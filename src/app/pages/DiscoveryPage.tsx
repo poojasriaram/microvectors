@@ -6,6 +6,9 @@ import {
     DollarSign, Building2, ShoppingBag, Sparkles, Network
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
+import discoveryLayersImg from '../../assets/image (7).png';
+import b2bImg from '../../assets/1.png';
+import b2cImg from '../../assets/2.png';
 
 interface DiscoveryData {
     title: string;
@@ -559,11 +562,475 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
                 actionableTakeaway: "Automate dynamic checkout options based on instant user engagement cues."
             }
         ]
+    },
+    "b2b-market-discovery": {
+        title: "B2B Market Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-market-discovery",
+        question: "Where is the unmapped enterprise revenue?",
+        spin: {
+            situation: "Your B2B strategy targets broad sectors (e.g. Finance, Healthcare) based on legacy static databases.",
+            problem: "You miss dynamic purchasing triggers like leadership changes, compliance deadlines, or tech stack migrations that indicate immediate buying intent.",
+            implication: "Sales reps waste time on cold accounts, while high-intent prospects buy from competitors who detected their signals first.",
+            needPayoff: "A real-time signal engine that maps accounts with active, unmapped budget for AI transformation."
+        },
+        frameworks: [
+            "B2B Account Buying Signals Tracking",
+            "Buying Committee Intent Signal Ingestion",
+            "High-Readiness Account Scoring Framework"
+        ],
+        profitPool: [
+            "$450M unserved enterprise TAM mapped",
+            "Lead scoring precision lifted by 85%",
+            "4.2x higher opportunity pipeline rate"
+        ],
+        metrics: [
+            { category: "Market", metric: "TAM Precision", baseline: "±25%", target: "±4%", frequency: "Quarterly" },
+            { category: "Efficiency", metric: "Account Conversion", baseline: "12%", target: "38%", frequency: "Monthly" }
+        ],
+        impact: "Enterprise TAM: +45% · Pipeline: +3.2x",
+        treeOfThoughts: [
+            {
+                phase: "Strategic Analysis",
+                thought: "Broad industry classifications mask active buying committees forming inside target accounts.",
+                deduction: "We must prioritize accounts showing active technology stack hiring and expansion signals.",
+                actionableTakeaway: "Target the top 5% highest-scoring accounts showing intent signals this week."
+            }
+        ]
+    },
+    "b2b-demand-discovery": {
+        title: "B2B Demand Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-demand-discovery",
+        question: "How do we sense hidden buying committee intent?",
+        spin: {
+            situation: "B2B sales teams engage only when an inbound form is filled or an RFP is received.",
+            problem: "At that stage, competitors have already spent months shaping the requirements to fit their solution.",
+            implication: "You enter a price-driven bidding war with a sub-30% win rate.",
+            needPayoff: "Algorithmic sensing of shadow IT projects, developer search signals, and employee pain points."
+        },
+        frameworks: [
+            "Stakeholder Latent Pain Modeling",
+            "Shadow IT Usage Pattern Tracking",
+            "Pre-RFP Engagement Strategy"
+        ],
+        profitPool: [
+            "Pipeline growth: +250%",
+            "Engage accounts 6 months prior to RFP",
+            "60% reduction in customer acquisition cost"
+        ],
+        metrics: [
+            { category: "Pipeline", metric: "Pre-RFP Deals Sourced", baseline: "5%", target: "45%", frequency: "Monthly" }
+        ],
+        impact: "Enterprise pipeline: +250% · CAC: -60%",
+        treeOfThoughts: [
+            {
+                phase: "Demand Tracking",
+                thought: "Latent operational bottlenecks inside enterprises generate indirect online search trails.",
+                deduction: "Analyzing developer forum activity and hiring trends predicts software need before official purchase request.",
+                actionableTakeaway: "Alert account teams when target accounts start searching for specialized API integrations."
+            }
+        ]
+    },
+    "b2b-value-discovery": {
+        title: "B2B Value Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-value-discovery",
+        question: "How do we build economic proof for procurement?",
+        spin: {
+            situation: "Proposals focus on feature sets and soft savings that procurement officers dismiss as marketing fluff.",
+            problem: "Deals stall in late-stage reviews because the CFO cannot see the direct impact on the corporate P&L.",
+            implication: "Cycle times stretch to 12+ months and sales teams resort to heavy discounting to close.",
+            needPayoff: "Interactive Economic Value Estimation (EVE) models built from the customer's actual cost structure."
+        },
+        frameworks: [
+            "Economic Value to Customer (EVC) Modeling",
+            "CFO-Level Financial Case Formulation",
+            "Discount Mitigation Strategy"
+        ],
+        profitPool: [
+            "CFO approval rate lifted to 90%",
+            "Initial contract value (ACV) increased by 25%",
+            "Preserving 95% of planned profit margin"
+        ],
+        metrics: [
+            { category: "Financial", metric: "Discount Rate", baseline: "22%", target: "6%", frequency: "Monthly" }
+        ],
+        impact: "CFO Approval: 90% · ACV: +25%",
+        treeOfThoughts: [
+            {
+                phase: "Financial Modeling",
+                thought: "Procurement teams exist to cut software cost unless custom financial proof is presented.",
+                deduction: "We must map every line of savings directly to specific corporate budget codes.",
+                actionableTakeaway: "Deliver custom P&L impact models in the very first executive meeting."
+            }
+        ]
+    },
+    "b2b-channel-discovery": {
+        title: "B2B Channel Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-channel-discovery",
+        question: "How do we scale sales via strategic integrators?",
+        spin: {
+            situation: "Sales rely entirely on direct sales reps, which is expensive and slow to scale globally.",
+            problem: "You miss out on trust networks built by global systems integrators and regional consulting firms.",
+            implication: "Your market coverage is limited, leaving major accounts open to competitors.",
+            needPayoff: "A co-selling intelligence platform that aligns your software with channel partner incentives."
+        },
+        frameworks: [
+            "Co-Selling Account Mapping System",
+            "Channel Partner Incentive Optimization",
+            "Global Integrator Alliance Design"
+        ],
+        profitPool: [
+            "Channel margin contribution: +25 points",
+            "3x increase in partner-sourced revenue",
+            "Market penetration cycle compressed by 50%"
+        ],
+        metrics: [
+            { category: "Channel", metric: "Partner-Sourced Pipeline", baseline: "10%", target: "48%", frequency: "Quarterly" }
+        ],
+        impact: "Channel Margin: +25 pts · Partner pipeline: +3x",
+        treeOfThoughts: [
+            {
+                phase: "Alliance Optimization",
+                thought: "System integrators ignore software recommendations unless it increases their own consulting hours.",
+                deduction: "We should position our software as a driver for $3 of implementation services for every $1 of license.",
+                actionableTakeaway: "Build partner enablement kits highlighting implementation service revenues."
+            }
+        ]
+    },
+    "b2b-competitive-discovery": {
+        title: "B2B Competitive Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-competitive-discovery",
+        question: "How do we influence specifications pre-RFP?",
+        spin: {
+            situation: "Competitive analysis looks at competitor datasheets and website messaging after a deal is lost.",
+            problem: "You fail to counter competitor product positioning during the crucial early advisory stages.",
+            implication: "The final RFP is drafted with requirements that favor your competitor's unique architecture.",
+            needPayoff: "Competitor trap-setting playbooks that educate clients on what questions to ask vendors."
+        },
+        frameworks: [
+            "Pre-RFP Technical Specification Influencing",
+            "Competitor Vulnerability Mapping",
+            "Technical Trap-Setting Architecture"
+        ],
+        profitPool: [
+            "Enterprise win rate increased to 45%",
+            "RFP influence rate lifted from 5% to 60%",
+            "Late-stage competitive displacement minimized"
+        ],
+        metrics: [
+            { category: "Win Rate", metric: "Competitive Win Rate", baseline: "24%", target: "48%", frequency: "Monthly" }
+        ],
+        impact: "Enterprise Win Rate: +35% · RFP Influence: 60%",
+        treeOfThoughts: [
+            {
+                phase: "Competitive Playbook",
+                thought: "If we don't help write the customer's technical requirements, our competitor will.",
+                deduction: "Identify architectural gaps in competitor solutions that translate to customer security risks.",
+                actionableTakeaway: "Equip sponsors with diagnostic question lists that highlight competitor weaknesses."
+            }
+        ]
+    },
+    "b2b-customer-discovery": {
+        title: "B2B Customer Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-customer-discovery",
+        question: "Which key accounts have active budget for AI?",
+        spin: {
+            situation: "Sales reps target accounts based on size or name recognition without knowing their real budget constraints.",
+            problem: "Months are wasted chasing accounts that have zero budget allocated for AI development.",
+            implication: "High-velocity sales reps burn out, and average contract values remain low.",
+            needPayoff: "Budget-ready intent mapping that targets accounts with active AI project funding."
+        },
+        frameworks: [
+            "AI Budget Allocation Tracking",
+            "Target Account Propensity Modeling",
+            "Sales Pipeline Waste Reduction"
+        ],
+        profitPool: [
+            "50% reduction in sales resource waste",
+            "Focusing team on high-likelihood buyers",
+            "ACV growth of 2.8x on targeted accounts"
+        ],
+        metrics: [
+            { category: "Sales Waste", metric: "Unqualified Opportunity Pipeline", baseline: "55%", target: "12%", frequency: "Monthly" }
+        ],
+        impact: "Sales Resource Waste: -50% · ACV: +2.8x",
+        treeOfThoughts: [
+            {
+                phase: "Account Qualification",
+                thought: "Large revenue does not equal willingness to spend on AI innovation.",
+                deduction: "We must analyze public job postings for AI heads and executive innovation statements.",
+                actionableTakeaway: "Prioritize accounts showing senior-level AI hires in the last 90 days."
+            }
+        ]
+    },
+    "b2b-product-market-fit-discovery": {
+        title: "B2B Product-Market Fit Discovery",
+        route: "/offerings/profit-pool-discovery/b2b-product-market-fit-discovery",
+        question: "How do we validate custom roadmap requests?",
+        spin: {
+            situation: "Product teams build custom features promised by sales reps to close individual enterprise deals.",
+            problem: "These features are rarely adopted by the rest of the client base, leading to high maintenance costs.",
+            implication: "R&D resources are drained by technical debt, slowing down the core product roadmap.",
+            needPayoff: "Pre-build simulation and behavioral testing gates for custom enterprise requests."
+        },
+        frameworks: [
+            "Enterprise Feature Demand Validation",
+            "R&D Resource Allocation Gatekeeping",
+            "Net Revenue Retention Alignment"
+        ],
+        profitPool: [
+            "R&D waste reduced by $1.5M/year",
+            "Feature adoption rate lifted to 65%",
+            "Net Revenue Retention boosted to 128%"
+        ],
+        metrics: [
+            { category: "R&D Efficiency", metric: "Feature Adoption Rate", baseline: "18%", target: "65%", frequency: "Quarterly" }
+        ],
+        impact: "R&D Savings: $1.5M/yr · Feature Adoption: 65%",
+        treeOfThoughts: [
+            {
+                phase: "PMF Validation",
+                thought: "Sponsor feature requests must be backed by multi-account commitment before coding starts.",
+                deduction: "A 14-day pre-build signup campaign identifies if a request is a true market need or a one-off request.",
+                actionableTakeaway: "Implement feature signup gates inside the application before coding starts."
+            }
+        ]
+    },
+    "b2c-market-discovery": {
+        title: "B2C Market Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-market-discovery",
+        question: "Where are the high-value consumer niches?",
+        spin: {
+            situation: "B2C campaigns run broad demographic ad campaigns targetting everyone from ages 18-54.",
+            problem: "Ad bidding inflation squeezes product margins, making generic customer acquisition unprofitable.",
+            implication: "CAC rises by 50% YoY, limiting customer acquisition velocity.",
+            needPayoff: "Real-time micro-cohort mapping that identifies high-value consumer niches before competitors bid."
+        },
+        frameworks: [
+            "Consumer Cohort Signal Ingestion",
+            "Ad Network Bid Inflation Hedging",
+            "High-LTV Micro-Segment Prioritization"
+        ],
+        profitPool: [
+            "$200M new niche opportunities found",
+            "CAC reduced by 35%",
+            "LTV:CAC ratio lifted to 4.5:1"
+        ],
+        metrics: [
+            { category: "Ad Spend", metric: "CAC Reduction Rate", baseline: "0%", target: "35%", frequency: "Monthly" }
+        ],
+        impact: "New Niches: $200M · CAC: -35%",
+        treeOfThoughts: [
+            {
+                phase: "Niche Mapping",
+                thought: "demographic targeting is saturated and expensive. Behavioral search patterns are cheaper to target.",
+                deduction: "Consumers searching for specific, unaddressed solutions convert at a 4x higher rate.",
+                actionableTakeaway: "Redirect ad budgets to micro-niche keyword groups immediately."
+            }
+        ]
+    },
+    "b2c-demand-discovery": {
+        title: "B2C Demand Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-demand-discovery",
+        question: "What micro-moment triggers drive search spikes?",
+        spin: {
+            situation: "You launch B2C marketing campaigns based on seasonal plans or fixed calendar events.",
+            problem: "You miss real-time demand triggers caused by social trends, local weather shifts, or news events.",
+            implication: "You spend ad budget when interest is low, and miss high-intent consumer search waves.",
+            needPayoff: "A dynamic demand sensor that links ad bidding directly to online search spikes."
+        },
+        frameworks: [
+            "Real-Time Trend Signal Ingestion",
+            "Dynamic Search Demand Bidding",
+            "Consumer Trend Capture Model"
+        ],
+        profitPool: [
+            "Consumer Traffic Lift of 4x during spikes",
+            "CTR increased from 2% to 8%",
+            "Ad cost savings of 45%"
+        ],
+        metrics: [
+            { category: "Ad Spend", metric: "CTR Lift", baseline: "1.8%", target: "8%", frequency: "Real-time" }
+        ],
+        impact: "Traffic Lift: 4x · CTR: 8%",
+        treeOfThoughts: [
+            {
+                phase: "Trend Analysis",
+                thought: "Viral consumer interest spikes last only 48-72 hours.",
+                deduction: "We must automate ad bidding adjustments based on Google Trends and Twitter spikes.",
+                actionableTakeaway: "Integrate trend api triggers with ad bidding management software."
+            }
+        ]
+    },
+    "b2c-value-discovery": {
+        title: "B2C Value Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-value-discovery",
+        question: "How do we showcase instant value in checkout?",
+        spin: {
+            situation: "Consumers add items to their cart but leave before buying because of a lack of clear benefits.",
+            problem: "Checkout funnels focus on billing details rather than reinforcing trust and purchase value.",
+            implication: "Cart abandonment remains high at 75%, leading to lost marketing budget.",
+            needPayoff: "A checkout optimization engine that dynamically displays reviews, saving proof, and trust seals."
+        },
+        frameworks: [
+            "Checkout Value Reinforcement",
+            "Dynamic Proof Presentation",
+            "Trust Optimization Model"
+        ],
+        profitPool: [
+            "Conversion Rate increased by 85%",
+            "Cart abandonment reduced by 30%",
+            "Average Order Value (AOV) lifted by 18%"
+        ],
+        metrics: [
+            { category: "Funnel", metric: "Cart Abandonment Rate", baseline: "75%", target: "48%", frequency: "Weekly" }
+        ],
+        impact: "Conversion Rate: +85% · Cart Abandonment: -30%",
+        treeOfThoughts: [
+            {
+                phase: "Checkout Optimization",
+                thought: "Consumers experience purchase anxiety the moment they enter their credit card.",
+                deduction: "Displaying customer reviews and shipping guarantees next to the payment field reduces friction.",
+                actionableTakeaway: "A/B test value proof widgets right above the payment button."
+            }
+        ]
+    },
+    "b2c-channel-discovery": {
+        title: "B2C Channel Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-channel-discovery",
+        question: "How do we run direct paths without platform fees?",
+        spin: {
+            situation: "Your B2C brand relies on Amazon or App Store sales, paying up to 30% in platform fees.",
+            problem: "You have zero control over customer data, making it impossible to drive repeat purchases.",
+            implication: "Your customer lifetime value is low, and your margins are controlled by third-party platforms.",
+            needPayoff: "A direct-to-consumer (D2C) checkout path that bypasses traditional app stores."
+        },
+        frameworks: [
+            "Direct-to-Consumer Path Optimization",
+            "App Store Fee Mitigation Strategy",
+            "Customer Relationship Ownership Model"
+        ],
+        profitPool: [
+            "D2C margin: +30 points",
+            "LTV increase of 40% through repeat sales",
+            "Ownership of 100% of customer emails"
+        ],
+        metrics: [
+            { category: "Margin", metric: "Direct Channel Revenue Share", baseline: "15%", target: "65%", frequency: "Quarterly" }
+        ],
+        impact: "D2C Margin: +30 pts · Customer LTV: +40%",
+        treeOfThoughts: [
+            {
+                phase: "Direct GTM",
+                thought: "Paying 30% App Store tax makes consumer software margins unsustainable.",
+                deduction: "We must build a PWA (Progressive Web App) with Stripe checkout to bypass app store policies.",
+                actionableTakeaway: "Migrate high-volume traffic to web-based checkout channels immediately."
+            }
+        ]
+    },
+    "b2c-competitive-discovery": {
+        title: "B2C Competitive Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-competitive-discovery",
+        question: "How do we capture search intent before rivals bid?",
+        spin: {
+            situation: "Ad campaigns target broad keywords where dozens of competitors are bidding prices up.",
+            problem: "You spend your entire margin competing for top search results on generic terms.",
+            implication: "Acquisition becomes unprofitable, and ad networks capture all the profit pool.",
+            needPayoff: "A keyword scanner that targets long-tail search intent with low bidding competition."
+        },
+        frameworks: [
+            "Long-Tail Keyword Opportunity Mapping",
+            "Competitor Ad Spend Signal Detection",
+            "Ad Bid Arbitrage Modeling"
+        ],
+        profitPool: [
+            "Ad efficiency increased by 40%",
+            "Cost-per-click (CPC) reduced by 50%",
+            "Ad campaign ROI lifted from 1.5x to 3.5x"
+        ],
+        metrics: [
+            { category: "Ad Spend", metric: "Average CPC Reduction", baseline: "$1.80", target: "$0.90", frequency: "Monthly" }
+        ],
+        impact: "Ad Efficiency: +40% · CPC: -50%",
+        treeOfThoughts: [
+            {
+                phase: "Search Strategy",
+                thought: "Generic search phrases are dominated by major brands with unlimited ad budgets.",
+                deduction: "Consumers searching for long-tail, hyper-specific terms have higher intent and cost less to acquire.",
+                actionableTakeaway: "Pause broad keyword groups and prioritize long-tail search terms."
+            }
+        ]
+    },
+    "b2c-customer-discovery": {
+        title: "B2C Customer Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-customer-discovery",
+        question: "Which behavioral cohorts convert in minutes?",
+        spin: {
+            situation: "Users are treated as a single demographic group, showing them the same homepage layout.",
+            problem: "You waste ad retargeting budget on users who bounce within 3 seconds and will never buy.",
+            implication: "Your conversion funnel is inefficient, and ad budgets are wasted on non-buyers.",
+            needPayoff: "Real-time cohort identification that targets high-intent visitors with custom offers."
+        },
+        frameworks: [
+            "Real-Time Behavioral Cohorting",
+            "Dynamic User Funnel Personalization",
+            "Conversion Rate Optimization Model"
+        ],
+        profitPool: [
+            "Ad spend waste reduced by 60%",
+            "Targeting high-intent buyers with custom offers",
+            "Funnel conversion rate lifted to 4.2%"
+        ],
+        metrics: [
+            { category: "Funnel", metric: "Visitor-to-Buyer Conversion", baseline: "1.2%", target: "4.2%", frequency: "Real-time" }
+        ],
+        impact: "Ad Waste: -60% · Conversion Rate: +2.5x",
+        treeOfThoughts: [
+            {
+                phase: "Visitor Profiling",
+                thought: "A user who visits the pricing page twice in 2 minutes is 10x more likely to convert.",
+                deduction: "We must trigger live support chat or exit discount popups only for high-intent cohorts.",
+                actionableTakeaway: "Activate real-time behavior tracking script on all key product pages."
+            }
+        ]
+    },
+    "b2c-product-market-fit-discovery": {
+        title: "B2C Product-Market Fit Discovery",
+        route: "/offerings/profit-pool-discovery/b2c-product-market-fit-discovery",
+        question: "Which cart-abandonment loops should we fix?",
+        spin: {
+            situation: "Product analytics look at monthly cart metrics without knowing why consumers abandon.",
+            problem: "You miss checkout failures like broken coupon codes, slow page loads, or confusing shipping options.",
+            implication: "Cart abandonment rate remains stuck at 75%, costing millions in lost revenue.",
+            needPayoff: "Session recording analysis that identifies exact cart abandonment friction points."
+        },
+        frameworks: [
+            "Cart Abandonment Friction Resolution",
+            "Consumer Session Recording Diagnostics",
+            "Abandoned Funnel Revenue Recovery"
+        ],
+        profitPool: [
+            "Recovering 35% of lost cart abandonment revenue",
+            "Identifying 4 main checkout bugs",
+            "Checkout load time reduced by 50%"
+        ],
+        metrics: [
+            { category: "Performance", metric: "Checkout Page Load Time", baseline: "3.5s", target: "1.2s", frequency: "Daily" }
+        ],
+        impact: "Recovered Revenue: +35% · Load Time: -65%",
+        treeOfThoughts: [
+            {
+                phase: "Checkout Performance",
+                thought: "Every additional second of page load time reduces mobile conversions by 20%.",
+                deduction: "Optimizing image assets and third-party scripts on the checkout page is the fastest way to boost revenue.",
+                actionableTakeaway: "Defer all non-essential analytics tracking scripts until after payment confirmation."
+            }
+        ]
     }
 };
 
 export default function DiscoveryPage() {
     const { slug } = useParams<{ slug: string }>();
+    const [activePoolTab, setActivePoolTab] = useState<'overview' | 'b2b' | 'b2c'>('overview');
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -602,56 +1069,146 @@ export default function DiscoveryPage() {
                             </p>
                             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20">
                                 <span className="text-sm text-slate-300 font-medium">Total Strategic Modules:</span>
-                                <span className="text-lg font-bold text-amber-300">9 Specialized Engines</span>
+                                <span className="text-lg font-bold text-amber-300">
+                                    {activePoolTab === 'overview' ? '9 Specialized Engines' : '7 Specialized Engines'}
+                                </span>
                             </div>
                         </div>
                     </Reveal>
+                </div>
+
+                {/* Premium B2B/B2C Tabs & Diagram */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                    <div className="flex justify-center mb-12">
+                        <div className="flex gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-inner">
+                            <button
+                                onClick={() => setActivePoolTab('overview')}
+                                className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                    activePoolTab === 'overview'
+                                        ? 'bg-blue-600 text-white shadow-md'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                }`}
+                            >
+                                Overview
+                            </button>
+                            <button
+                                onClick={() => setActivePoolTab('b2b')}
+                                className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                    activePoolTab === 'b2b'
+                                        ? 'bg-blue-600 text-white shadow-md'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                }`}
+                            >
+                                B2B Profit Pools
+                            </button>
+                            <button
+                                onClick={() => setActivePoolTab('b2c')}
+                                className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                    activePoolTab === 'b2c'
+                                        ? 'bg-blue-600 text-white shadow-md'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                }`}
+                            >
+                                B2C Profit Pools
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex justify-center my-8">
+                        <img 
+                            src={
+                                activePoolTab === 'b2b' 
+                                    ? b2bImg 
+                                    : activePoolTab === 'b2c' 
+                                        ? b2cImg 
+                                        : discoveryLayersImg
+                            } 
+                            alt={
+                                activePoolTab === 'b2b'
+                                    ? "B2B Profit Pool Discovery Layers"
+                                    : activePoolTab === 'b2c'
+                                        ? "B2C Profit Pool Discovery Layers"
+                                        : "AI Driven Profit Pool Discovery Layers"
+                            } 
+                            className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
+                        />
+                    </div>
                 </div>
 
                 {/* Sub-Offerings Grid */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {[
-                                { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified", icon: Search },
-                                { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%", icon: Target },
-                                { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%", icon: DollarSign },
-                                { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points", icon: Network },
-                                { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%", icon: ShieldCheck },
-                                { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%", icon: Users },
-                                { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year", icon: Sparkles },
-                                { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked", icon: Building2 },
-                                { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized", icon: ShoppingBag }
-                            ].map((disc, idx) => {
-                                const IconComp = disc.icon;
-                                return (
-                                    <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
-                                        <div>
-                                            <div className="flex items-center justify-between mb-4">
-                                                <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full flex items-center gap-1.5">
-                                                    <IconComp className="w-3.5 h-3.5" />
-                                                    Module 0{idx + 1}
-                                                </span>
-                                                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
-                                                    {disc.impact}
-                                                </span>
+                            {(() => {
+                                const overviewItems = [
+                                    { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified", icon: Search },
+                                    { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%", icon: Target },
+                                    { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%", icon: DollarSign },
+                                    { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points", icon: Network },
+                                    { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%", icon: ShieldCheck },
+                                    { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%", icon: Users },
+                                    { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year", icon: Sparkles },
+                                    { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked", icon: Building2 },
+                                    { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized", icon: ShoppingBag }
+                                ];
+
+                                const b2bItems = [
+                                    { name: "B2B Market Discovery", slug: "b2b-market-discovery", question: "Where is the unmapped enterprise revenue?", impact: "$450M unserved enterprise TAM mapped", icon: Search },
+                                    { name: "B2B Demand Discovery", slug: "b2b-demand-discovery", question: "How do we sense hidden buying committee intent?", impact: "Enterprise Pipeline: +250%", icon: Target },
+                                    { name: "B2B Value Discovery", slug: "b2b-value-discovery", question: "How do we build economic proof for procurement?", impact: "CFO approval rate: 90%", icon: DollarSign },
+                                    { name: "B2B Channel Discovery", slug: "b2b-channel-discovery", question: "How do we scale sales via strategic integrators?", impact: "Channel margin: +25 points", icon: Network },
+                                    { name: "B2B Competitive Discovery", slug: "b2b-competitive-discovery", question: "How do we influence specifications pre-RFP?", impact: "Enterprise win rate: +35%", icon: ShieldCheck },
+                                    { name: "B2B Customer Discovery", slug: "b2b-customer-discovery", question: "Which key accounts have active budget for AI?", impact: "Sales waste: -50%", icon: Users },
+                                    { name: "B2B Product-Market Fit Discovery", slug: "b2b-product-market-fit-discovery", question: "How do we validate custom roadmap requests?", impact: "R&D savings: $1.5M/year", icon: Sparkles }
+                                ];
+
+                                const b2cItems = [
+                                    { name: "B2C Market Discovery", slug: "b2c-market-discovery", question: "Where are the high-value consumer niches?", impact: "$200M new niche opportunities found", icon: Search },
+                                    { name: "B2C Demand Discovery", slug: "b2c-demand-discovery", question: "What micro-moment triggers drive search spikes?", impact: "Consumer Traffic Lift: 4x", icon: Target },
+                                    { name: "B2C Value Discovery", slug: "b2c-value-discovery", question: "How do we showcase instant value in checkout?", impact: "Conversion Rate: +85%", icon: DollarSign },
+                                    { name: "B2C Channel Discovery", slug: "b2c-channel-discovery", question: "How do we run direct paths without platform fees?", impact: "D2C margin: +30 points", icon: Network },
+                                    { name: "B2C Competitive Discovery", slug: "b2c-competitive-discovery", question: "How do we capture search intent before rivals bid?", impact: "Ad efficiency: +40%", icon: ShieldCheck },
+                                    { name: "B2C Customer Discovery", slug: "b2c-customer-discovery", question: "Which behavioral cohorts convert in minutes?", impact: "Ad waste: -60%", icon: Users },
+                                    { name: "B2C Product-Market Fit Discovery", slug: "b2c-product-market-fit-discovery", question: "Which cart-abandonment loops should we fix?", impact: "Abandoned revenue: -35%", icon: Sparkles }
+                                ];
+
+                                const items = activePoolTab === 'b2b' 
+                                    ? b2bItems 
+                                    : activePoolTab === 'b2c' 
+                                        ? b2cItems 
+                                        : overviewItems;
+
+                                return items.map((disc, idx) => {
+                                    const IconComp = disc.icon;
+                                    return (
+                                        <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
+                                            <div>
+                                                <div className="flex items-center justify-between mb-4">
+                                                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full flex items-center gap-1.5">
+                                                        <IconComp className="w-3.5 h-3.5" />
+                                                        Module 0{idx + 1}
+                                                    </span>
+                                                    <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                                                        {disc.impact}
+                                                    </span>
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                                    {disc.name}
+                                                </h3>
+                                                <p className="text-slate-600 text-sm font-medium italic mb-6">
+                                                    "{disc.question}"
+                                                </p>
                                             </div>
-                                            <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                                {disc.name}
-                                            </h3>
-                                            <p className="text-slate-600 text-sm font-medium italic mb-6">
-                                                "{disc.question}"
-                                            </p>
+                                            <Link 
+                                                to={`/offerings/profit-pool-discovery/${disc.slug}`}
+                                                className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
+                                            >
+                                                Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </Link>
                                         </div>
-                                        <Link 
-                                            to={`/offerings/profit-pool-discovery/${disc.slug}`}
-                                            className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
-                                        >
-                                            Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </Link>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                });
+                            })()}
                         </div>
                     </Reveal>
                 </div>

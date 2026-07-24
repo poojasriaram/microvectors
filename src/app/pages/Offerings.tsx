@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     Check,
@@ -25,9 +25,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { Reveal } from '../components/ui/Reveal';
 import OfferingsCarousel from '../components/OfferingsCarousel';
 import discoveryLayersImg from '../../assets/image (7).png';
+import b2bImg from '../../assets/1.png';
+import b2cImg from '../../assets/2.png';
 
 export default function Offerings() {
     const location = useLocation();
+    const [activePoolTab, setActivePoolTab] = useState<'overview' | 'b2b' | 'b2c'>('overview');
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -1118,53 +1121,131 @@ export default function Offerings() {
                             Engineering intelligence to uncover revenue others cannot see across B2B and B2C stacks.
                         </p>
 
-                        {/* Image (7).png Profit Pool Discovery Diagram */}
+                        {/* Premium B2B/B2C Tabs */}
+                        <div className="flex justify-center mb-8">
+                            <div className="flex gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-inner">
+                                <button
+                                    onClick={() => setActivePoolTab('overview')}
+                                    className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                        activePoolTab === 'overview'
+                                            ? 'bg-blue-600 text-white shadow-md'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                    }`}
+                                >
+                                    Overview
+                                </button>
+                                <button
+                                    onClick={() => setActivePoolTab('b2b')}
+                                    className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                        activePoolTab === 'b2b'
+                                            ? 'bg-blue-600 text-white shadow-md'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                    }`}
+                                >
+                                    B2B Profit Pools
+                                </button>
+                                <button
+                                    onClick={() => setActivePoolTab('b2c')}
+                                    className={`px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${
+                                        activePoolTab === 'b2c'
+                                            ? 'bg-blue-600 text-white shadow-md'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+                                    }`}
+                                >
+                                    B2C Profit Pools
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Image Diagram */}
                         <div className="flex justify-center my-12">
                             <img 
-                                src={discoveryLayersImg} 
-                                alt="AI Driven Profit Pool Discovery Layers" 
+                                src={
+                                    activePoolTab === 'b2b' 
+                                        ? b2bImg 
+                                        : activePoolTab === 'b2c' 
+                                            ? b2cImg 
+                                            : discoveryLayersImg
+                                } 
+                                alt={
+                                    activePoolTab === 'b2b'
+                                        ? "B2B Profit Pool Discovery Layers"
+                                        : activePoolTab === 'b2c'
+                                            ? "B2C Profit Pool Discovery Layers"
+                                            : "AI Driven Profit Pool Discovery Layers"
+                                } 
                                 className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
                             />
                         </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {[
-                            { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified" },
-                            { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%" },
-                            { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%" },
-                            { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points" },
-                            { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%" },
-                            { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%" },
-                            { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year" },
-                            { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked" },
-                            { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized" }
-                        ].map((disc, idx) => (
-                            <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
-                                <div>
-                                    <div className="flex items-center justify-between mb-4">
-                                        <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-                                            Layer 0{idx + 1}
-                                        </span>
-                                        <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
-                                            {disc.impact}
-                                        </span>
+                        {(() => {
+                            const overviewItems = [
+                                { name: "Market Discovery", slug: "market-discovery", question: "Where is the revenue we haven't mapped?", impact: "$300M unserved market identified" },
+                                { name: "Demand Discovery", slug: "demand-discovery", question: "What are customers struggling to articulate they need?", impact: "Pipeline: +300%" },
+                                { name: "Value Discovery", slug: "value-discovery", question: "How do we prove ROI before the PO is signed?", impact: "Deal velocity: +50% · POC conversion: 85%" },
+                                { name: "Channel Discovery", slug: "channel-discovery", question: "How do we distribute without platform dependency?", impact: "Margin: +30 points" },
+                                { name: "Competitive Discovery", slug: "competitive-discovery", question: "How do we win before the RFP is issued?", impact: "Win rate: +25%" },
+                                { name: "Customer Discovery", slug: "customer-discovery", question: "Who is actually ready to buy AI — and who will waste our time?", impact: "CAC: -65%" },
+                                { name: "Product-Market Fit Discovery", slug: "product-market-fit-discovery", question: "How do we stop building features no one uses?", impact: "R&D waste: -$2M/year" },
+                                { name: "B2B Profit Pool Discovery", slug: "b2b", question: "Where are the hidden margin drivers in our enterprise sales cycles?", impact: "$450M enterprise revenue unlocked" },
+                                { name: "B2C Profit Pool Discovery", slug: "b2c", question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?", impact: "$180M consumer margin optimized" }
+                            ];
+
+                            const b2bItems = [
+                                { name: "B2B Market Discovery", slug: "b2b-market-discovery", question: "Where is the unmapped enterprise revenue?", impact: "$450M unserved enterprise TAM mapped" },
+                                { name: "B2B Demand Discovery", slug: "b2b-demand-discovery", question: "How do we sense hidden buying committee intent?", impact: "Enterprise Pipeline: +250%" },
+                                { name: "B2B Value Discovery", slug: "b2b-value-discovery", question: "How do we build economic proof for procurement?", impact: "CFO approval rate: 90%" },
+                                { name: "B2B Channel Discovery", slug: "b2b-channel-discovery", question: "How do we scale sales via strategic integrators?", impact: "Channel margin: +25 points" },
+                                { name: "B2B Competitive Discovery", slug: "b2b-competitive-discovery", question: "How do we influence specifications pre-RFP?", impact: "Enterprise win rate: +35%" },
+                                { name: "B2B Customer Discovery", slug: "b2b-customer-discovery", question: "Which key accounts have active budget for AI?", impact: "Sales waste: -50%" },
+                                { name: "B2B Product-Market Fit Discovery", slug: "b2b-product-market-fit-discovery", question: "How do we validate custom roadmap requests?", impact: "R&D savings: $1.5M/year" }
+                            ];
+
+                            const b2cItems = [
+                                { name: "B2C Market Discovery", slug: "b2c-market-discovery", question: "Where are the high-value consumer niches?", impact: "$200M new niche opportunities found" },
+                                { name: "B2C Demand Discovery", slug: "b2c-demand-discovery", question: "What micro-moment triggers drive search spikes?", impact: "Consumer Traffic Lift: 4x" },
+                                { name: "B2C Value Discovery", slug: "b2c-value-discovery", question: "How do we showcase instant value in checkout?", impact: "Conversion Rate: +85%" },
+                                { name: "B2C Channel Discovery", slug: "b2c-channel-discovery", question: "How do we run direct paths without platform fees?", impact: "D2C margin: +30 points" },
+                                { name: "B2C Competitive Discovery", slug: "b2c-competitive-discovery", question: "How do we capture search intent before rivals bid?", impact: "Ad efficiency: +40%" },
+                                { name: "B2C Customer Discovery", slug: "b2c-customer-discovery", question: "Which behavioral cohorts convert in minutes?", impact: "Ad waste: -60%" },
+                                { name: "B2C Product-Market Fit Discovery", slug: "b2c-product-market-fit-discovery", question: "Which cart-abandonment loops should we fix?", impact: "Abandoned revenue: -35%" }
+                            ];
+
+                            const items = activePoolTab === 'b2b' 
+                                ? b2bItems 
+                                : activePoolTab === 'b2c' 
+                                    ? b2cItems 
+                                    : overviewItems;
+
+                            return items.map((disc, idx) => (
+                                <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between group">
+                                    <div>
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                                                Layer 0{idx + 1}
+                                            </span>
+                                            <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                                                {disc.impact}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                            {disc.name}
+                                        </h3>
+                                        <p className="text-slate-600 text-sm font-medium italic mb-6">
+                                            "{disc.question}"
+                                        </p>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                        {disc.name}
-                                    </h3>
-                                    <p className="text-slate-600 text-sm font-medium italic mb-6">
-                                        "{disc.question}"
-                                    </p>
+                                    <Link 
+                                        to={`/offerings/profit-pool-discovery/${disc.slug}`}
+                                        className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
+                                    >
+                                        Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
                                 </div>
-                                <Link 
-                                    to={`/offerings/profit-pool-discovery/${disc.slug}`}
-                                    className="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-700 transition-colors pt-4 border-t border-slate-100"
-                                >
-                                    Explore Discovery Layer <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
-                        ))}
+                            ));
+                        })()}
                     </div>
                 </div>
 
