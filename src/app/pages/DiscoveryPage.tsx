@@ -7,6 +7,7 @@ import {
     DollarSign, Building2, ShoppingBag, Sparkles, Network
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
+import { submitToSheet } from '../../lib/sheets';
 import discoveryLayersImg from '../../assets/image (7).png';
 import b2bImg from '../../assets/1.png';
 import b2cImg from '../../assets/2.png';
@@ -1135,29 +1136,30 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
     const handleSubmit = async () => {
         setStatus('submitting');
         try {
-            const response = await fetch('/api/diagnostic', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...formData,
-                    offering: offeringName
-                })
+            await submitToSheet('Diagnostic Forms', {
+                "Contact Name": formData.contactName,
+                "Email": formData.email,
+                "Company": formData.companyName,
+                "Geography": formData.geography,
+                "Challenges": formData.challenges,
+                "Offering": offeringName,
+                "Status": "New",
+                "Source": "Diagnostic Form - " + offeringName,
+                "Submitted At": new Date().toISOString()
             });
 
+            // Also save to localStorage as a local backup
             const submissions = JSON.parse(localStorage.getItem('diagnostic_submissions') || '[]');
-            submissions.push({
-                ...formData,
-                offering: offeringName,
-                submittedAt: new Date().toISOString()
-            });
+            submissions.push({ ...formData, offering: offeringName, submittedAt: new Date().toISOString() });
             localStorage.setItem('diagnostic_submissions', JSON.stringify(submissions));
 
-            if (response.ok) {
-                setStatus('success');
-            } else {
-                setStatus('success');
-            }
+            setStatus('success');
         } catch (error) {
+            console.error('[DiagnosticForm] Submission error:', error);
+            // Still save locally and show success to avoid user frustration
+            const submissions = JSON.parse(localStorage.getItem('diagnostic_submissions') || '[]');
+            submissions.push({ ...formData, offering: offeringName, submittedAt: new Date().toISOString() });
+            localStorage.setItem('diagnostic_submissions', JSON.stringify(submissions));
             setStatus('success');
         }
     };
