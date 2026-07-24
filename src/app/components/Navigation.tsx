@@ -27,9 +27,8 @@ export default function Navigation() {
     const [activeOfferingsCat, setActiveOfferingsCat] = useState("profit-pools");
     const [activeOfferingsSubCat, setActiveOfferingsSubCat] = useState<"b2b" | "b2c">("b2b");
     const [activeIndustriesCat, setActiveIndustriesCat] = useState("b2b");
-    const [activeOfferingGroup, setActiveOfferingGroup] = useState("b2b");
+    const [activeOfferingGroup, setActiveOfferingGroup] = useState("profit-pools");
     const [activeIndustryGroup, setActiveIndustryGroup] = useState("b2b");
-    const [activeSubGroup, setActiveSubGroup] = useState("");
     const location = useLocation();
 
     // Handle scroll effect
@@ -71,12 +70,7 @@ export default function Navigation() {
                                 <div
                                     key={item.name}
                                     className="group h-full flex items-center relative"
-                                    onMouseEnter={() => {
-                                        setHoveredItem(item.name);
-                                        if (item.dropdown && item.dropdown.categories && item.dropdown.categories.length > 0) {
-                                            setActiveSubGroup(item.dropdown.categories[0].id);
-                                        }
-                                    }}
+                                    onMouseEnter={() => setHoveredItem(item.name)}
                                     onMouseLeave={() => setHoveredItem(null)}
                                 >
                                     <Link
@@ -95,94 +89,39 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <div
                                             className={`
-                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[900px] xl:w-[1000px] bg-white border border-slate-200 shadow-2xl rounded-[12px]
-                                                transition-all duration-200 ease-out origin-top overflow-hidden flex min-h-[380px] z-50
+                                                absolute top-[calc(100%)] bg-white border border-slate-200 shadow-2xl rounded-[12px]
+                                                transition-all duration-200 ease-out origin-top overflow-hidden flex z-50
+                                                ${(item.name === 'Offerings' || item.name === 'Industries') ? 'w-[850px] min-h-[380px] left-1/2 -translate-x-1/2' : 'w-[300px] flex-col p-2'}
+                                                ${item.name === 'Crypto' ? 'left-0 translate-x-0 origin-top-left' : ''}
+                                                ${(item.name === 'Company' || item.name === 'Partners') ? 'left-auto right-0 translate-x-0 origin-top-right' : ''}
                                                 ${hoveredItem === item.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible pointer-events-none'}
                                             `}
                                         >
                                             {/* Invisible bridge for hover */}
                                             <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
                                             
-                                            {item.name === "Offerings" ? (
-                                                <>
-                                                    {/* Left Panel: Description */}
-                                                    <div className="w-[30%] bg-slate-50 border-r border-slate-100 p-6 flex flex-col justify-center gap-4 shrink-0">
-                                                        <h3 className="text-xl font-bold text-slate-900 font-heading">Profit Pools</h3>
-                                                        <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                                                            Profit Pool Discovery maps uncontested market segments and unlocks hidden enterprise margins. Align your GTM pipeline with high-value buyer cohorts using real-time intent telemetry.
-                                                        </p>
-                                                    </div>
-                                                    
-                                                    {/* Right Panel: B2B & B2C Cards */}
-                                                    <div className="flex-1 bg-white p-6 grid grid-cols-2 gap-6 items-center">
-                                                        {/* B2B Card */}
-                                                        <div className="bg-slate-50/50 hover:bg-slate-50 border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full justify-between">
-                                                            <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-3">
-                                                                <Building2 className="w-5 h-5 text-blue-600" />
-                                                                <h4 className="text-[14px] font-bold text-slate-950 uppercase tracking-wider">B2B Focus</h4>
-                                                            </div>
-                                                            <div className="flex flex-col gap-1">
-                                                                {item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2bItems.map((sub: any, sIdx: number) => {
-                                                                    const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                    return (
-                                                                        <Link
-                                                                            key={sIdx}
-                                                                            to={sub.path}
-                                                                            onClick={() => setHoveredItem(null)}
-                                                                            className="flex items-center gap-2 p-1 px-2 rounded-lg text-[12.5px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-white transition-all hover:translate-x-1 duration-200"
-                                                                        >
-                                                                            <IconComponent className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                                                            <span className="truncate">{sub.name}</span>
-                                                                        </Link>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-
-                                                        {/* B2C Card */}
-                                                        <div className="bg-slate-50/50 hover:bg-slate-50 border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full justify-between">
-                                                            <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-3">
-                                                                <ShoppingBag className="w-5 h-5 text-indigo-600" />
-                                                                <h4 className="text-[14px] font-bold text-slate-950 uppercase tracking-wider">B2C Focus</h4>
-                                                            </div>
-                                                            <div className="flex flex-col gap-1">
-                                                                {item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2cItems.map((sub: any, sIdx: number) => {
-                                                                    const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                    return (
-                                                                        <Link
-                                                                            key={sIdx}
-                                                                            to={sub.path}
-                                                                            onClick={() => setHoveredItem(null)}
-                                                                            className="flex items-center gap-2 p-1 px-2 rounded-lg text-[12.5px] font-semibold text-slate-700 hover:text-indigo-600 hover:bg-white transition-all hover:translate-x-1 duration-200"
-                                                                        >
-                                                                            <IconComponent className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                                                            <span className="truncate">{sub.name}</span>
-                                                                        </Link>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </>
-                                            ) : (
-                                                /* For all other sub-menus: professional two-column menu with categories list on left and selected items centered on right */
+                                            {/* Case 1: Offerings & Industries (two-column layout) */}
+                                            {(item.name === 'Offerings' || item.name === 'Industries') ? (
                                                 <>
                                                     {/* Left Column: Categories List */}
                                                     <div className="w-[35%] bg-slate-50/80 border-r border-slate-100 p-5 flex flex-col gap-1 shrink-0 justify-center">
-                                                        {item.dropdown.categories ? (
+                                                        {item.name === "Offerings" ? (
                                                             <div className="flex flex-col gap-1.5">
-                                                                {item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                                {/* Profit Pools parent item */}
+                                                                <button
+                                                                    onMouseEnter={() => setActiveOfferingGroup("profit-pools")}
+                                                                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeOfferingGroup === 'profit-pools' || activeOfferingGroup === 'b2b' || activeOfferingGroup === 'b2c' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                >
+                                                                    <span>Profit Pools</span>
+                                                                    <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                </button>
+                                                                
+                                                                {/* Other Categories */}
+                                                                {item.dropdown.categories?.filter((cat: any) => cat.id !== "profit-pools").map((cat: any, cIdx: number) => (
                                                                     <button
                                                                         key={cIdx}
-                                                                        onMouseEnter={() => {
-                                                                            if (item.name === "Industries") setActiveIndustryGroup(cat.id);
-                                                                            else setActiveSubGroup(cat.id);
-                                                                        }}
-                                                                        className={`flex items-center justify-between px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all text-left focus:outline-none ${
-                                                                            (item.name === "Industries" ? activeIndustryGroup === cat.id : activeSubGroup === cat.id)
-                                                                                ? 'bg-blue-600 text-white' 
-                                                                                : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'
-                                                                        }`}
+                                                                        onMouseEnter={() => setActiveOfferingGroup(cat.id)}
+                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeOfferingGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
                                                                     >
                                                                         <span>{cat.title}</span>
                                                                         <ChevronRight className="w-3.5 h-3.5 shrink-0" />
@@ -190,53 +129,149 @@ export default function Navigation() {
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            /* Fallback if no categories metadata */
-                                                            <div className="flex flex-col gap-1.5 p-3">
-                                                                <div className="text-[14px] font-bold text-slate-900 leading-tight">
-                                                                    {item.name}
-                                                                </div>
-                                                                <p className="text-[12px] text-slate-500 leading-relaxed">
-                                                                    Explore our {item.name.toLowerCase()} resources, links, and detailed tools.
-                                                                </p>
+                                                            <div className="flex flex-col gap-1.5">
+                                                                {item.dropdown.categories?.map((cat: any, cIdx: number) => (
+                                                                    <button
+                                                                        key={cIdx}
+                                                                        onMouseEnter={() => setActiveIndustryGroup(cat.id)}
+                                                                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeIndustryGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                    >
+                                                                        <span>{cat.title}</span>
+                                                                        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                    </button>
+                                                                ))}
                                                             </div>
                                                         )}
                                                     </div>
 
-                                                    {/* Right Column: Centered Content */}
+                                                    {/* Right Column: Display Centered Content */}
                                                     <div className="flex-1 bg-white p-6 flex flex-col justify-center items-center overflow-y-auto">
-                                                        <div className="w-full max-w-md flex flex-col gap-2">
-                                                            {(() => {
-                                                                let selectedItems = [];
-                                                                if (item.name === "Industries") {
-                                                                    selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeIndustryGroup)?.items || [];
-                                                                } else {
-                                                                    selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeSubGroup)?.items || item.dropdown.items || [];
-                                                                }
-
-                                                                return (
-                                                                    <div className="grid grid-cols-1 gap-1.5 w-full">
-                                                                        {selectedItems.map((sub: any, sIdx: number) => {
-                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                            return (
-                                                                                <Link
-                                                                                    key={sIdx}
-                                                                                    to={sub.path}
-                                                                                    onClick={() => setHoveredItem(null)}
-                                                                                    className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
-                                                                                >
-                                                                                    <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
-                                                                                        <IconComponent className="w-4 h-4" />
+                                                        <div className="w-full max-w-2xl flex flex-col gap-2 justify-center items-center">
+                                                            {item.name === "Offerings" ? (
+                                                                (() => {
+                                                                    if (activeOfferingGroup === "b2b" || activeOfferingGroup === "b2c" || activeOfferingGroup === "profit-pools") {
+                                                                        const b2bItems = item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2bItems || [];
+                                                                        const b2cItems = item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2cItems || [];
+                                                                        
+                                                                        return (
+                                                                            <div className="grid grid-cols-2 gap-8 w-full">
+                                                                                {/* B2B Column */}
+                                                                                <div className="flex flex-col gap-2 min-w-0">
+                                                                                    <h4 className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-blue-600 border-b pb-2 border-slate-100">
+                                                                                        B2B Profit Pools
+                                                                                    </h4>
+                                                                                    <div className="flex flex-col gap-1">
+                                                                                        {b2bItems.map((sub: any, sIdx: number) => {
+                                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                                            return (
+                                                                                                <Link
+                                                                                                    key={sIdx}
+                                                                                                    to={sub.path}
+                                                                                                    onClick={() => setHoveredItem(null)}
+                                                                                                    className="flex items-center gap-2.5 p-1.5 rounded-lg text-[12.5px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                                                >
+                                                                                                    <IconComponent className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                                                                                    <span className="truncate">{sub.name}</span>
+                                                                                                </Link>
+                                                                                            );
+                                                                                        })}
                                                                                     </div>
-                                                                                    <span className="truncate">{sub.name}</span>
-                                                                                </Link>
-                                                                            );
-                                                                        })}
-                                                                    </div>
-                                                                );
-                                                            })()}
+                                                                                </div>
+
+                                                                                {/* B2C Column */}
+                                                                                <div className="flex flex-col gap-2 min-w-0">
+                                                                                    <h4 className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-indigo-600 border-b pb-2 border-slate-100">
+                                                                                        B2C Profit Pools
+                                                                                    </h4>
+                                                                                    <div className="flex flex-col gap-1">
+                                                                                        {b2cItems.map((sub: any, sIdx: number) => {
+                                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                                            return (
+                                                                                                <Link
+                                                                                                    key={sIdx}
+                                                                                                    to={sub.path}
+                                                                                                    onClick={() => setHoveredItem(null)}
+                                                                                                    className="flex items-center gap-2.5 p-1.5 rounded-lg text-[12.5px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                                                >
+                                                                                                    <IconComponent className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                                                                                    <span className="truncate">{sub.name}</span>
+                                                                                                </Link>
+                                                                                            );
+                                                                                        })}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    }
+
+                                                                    const selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeOfferingGroup)?.items || [];
+                                                                    return (
+                                                                        <div className="grid grid-cols-1 gap-1.5 w-full max-w-md">
+                                                                            {selectedItems.map((sub: any, sIdx: number) => {
+                                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                                return (
+                                                                                    <Link
+                                                                                        key={sIdx}
+                                                                                        to={sub.path}
+                                                                                        onClick={() => setHoveredItem(null)}
+                                                                                        className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                                    >
+                                                                                        <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
+                                                                                            <IconComponent className="w-4 h-4" />
+                                                                                        </div>
+                                                                                        <span className="truncate">{sub.name}</span>
+                                                                                    </Link>
+                                                                                );
+                                                                            })}
+                                                                        </div>
+                                                                    );
+                                                                })()
+                                                            ) : (
+                                                                (() => {
+                                                                    const selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeIndustryGroup)?.items || [];
+                                                                    return (
+                                                                        <div className="grid grid-cols-1 gap-1.5 w-full max-w-md">
+                                                                            {selectedItems.map((sub: any, sIdx: number) => {
+                                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                                return (
+                                                                                    <Link
+                                                                                        key={sIdx}
+                                                                                        to={sub.path}
+                                                                                        onClick={() => setHoveredItem(null)}
+                                                                                        className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                                    >
+                                                                                        <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
+                                                                                            <IconComponent className="w-4 h-4" />
+                                                                                        </div>
+                                                                                        <span className="truncate">{sub.name}</span>
+                                                                                    </Link>
+                                                                                );
+                                                                            })}
+                                                                        </div>
+                                                                    );
+                                                                })()
+                                                            )}
                                                         </div>
                                                     </div>
                                                 </>
+                                            ) : (
+                                                /* Case 2: Narrow dropdowns (Crypto, Solutions, Capabilities, Partners, Company) */
+                                                <div className="flex flex-col gap-0.5 w-full">
+                                                    {item.dropdown.items?.map((sub: any, sIdx: number) => {
+                                                        const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                        return (
+                                                            <Link
+                                                                key={sIdx}
+                                                                to={sub.path}
+                                                                onClick={() => setHoveredItem(null)}
+                                                                className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                            >
+                                                                <IconComponent className="w-4 h-4 text-slate-400 shrink-0" />
+                                                                <span className="truncate">{sub.name}</span>
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
                                             )}
                                         </div>
                                     )}

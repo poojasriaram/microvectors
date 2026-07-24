@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import ChatBot from './components/ChatBot';
@@ -115,11 +115,6 @@ export default function App() {
               <Route path="/careers" element={<Navigate to="/career" replace />} />
               <Route path="/contact" element={<Navigate to="/book-consultation" replace />} />
               <Route path="/explore/:slug" element={<ServiceDetail />} />
-              <Route path="/capabilities/:slug" element={<ServiceDetail />} />
-              <Route path="/solutions/:slug" element={<ServiceDetail />} />
-              <Route path="/partners/:slug" element={<ServiceDetail />} />
-              <Route path="/company/:slug" element={<ServiceDetail />} />
-              <Route path="/crypto/:slug" element={<ServiceDetail />} />
               <Route path="/offerings/profit-pool-discovery" element={<DiscoveryPage />} />
               <Route path="/offerings/profit-pool-discovery/:slug" element={<DiscoveryPage />} />
               <Route path="/offerings/market-discovery" element={<Navigate to="/offerings/profit-pool-discovery/market-discovery" replace />} />
