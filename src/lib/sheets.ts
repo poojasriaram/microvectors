@@ -1,62 +1,53 @@
-
-
 /**
- * Submit form data to the backend.
- * 
- * On Vercel (production): Submits via /api/submit which handles
- *   → Google Sheets save
- * 
- * On local dev (fallback): Submits directly to Google Script URL.
+ * submitToSheet — Universal form submission helper for MicroVectors.
+ *
+ * Strategy:
+ *   1. Always tries the Google Apps Script URL directly (works in dev + prod)
+ *   2. Falls back to /api/submit for Vercel server-side handling if needed
+ *
+ * Usage:
+ *   await submitToSheet('Inbound Leads', { "Email": "...", "Name": "..." });
  */
 export const submitToSheet = async (table: string, fields: Record<string, any>) => {
-
     console.log(`[Sheets] Submitting to "${table}"`, fields);
 
-    // Try the Vercel API route first (handles sheets)
-    try {
-        const isLocalDev = !import.meta.env.PROD && window.location.hostname === 'localhost';
-        const apiUrl = import.meta.env.PROD
-            ? '/api/submit'
-            : (import.meta.env.VITE_API_URL || (isLocalDev ? 'http://localhost:3000/api/submit' : '/api/submit'));
+    const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
+    // ── Primary: Direct Google Apps Script (works in dev & prod) ────────────
+    if (GOOGLE_SCRIPT_URL) {
+        try {
+            // We use no-cors because Apps Script doesn't return CORS headers,
+            // but the data IS written to the sheet. The response is opaque.
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify({ table, fields })
+            });
+            console.log(`[Sheets] ✅ Sent to Apps Script: "${table}"`);
+            return { success: true };
+        } catch (scriptError: any) {
+            console.warn('[Sheets] Apps Script unreachable, trying API fallback...', scriptError);
+        }
+    } else {
+        console.warn('[Sheets] VITE_GOOGLE_SCRIPT_URL is not set in .env');
+    }
+
+    // ── Fallback: Vercel /api/submit (production server-side) ───────────────
+    try {
+        const apiUrl = import.meta.env.PROD ? '/api/submit' : 'http://localhost:3000/api/submit';
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ table, fields })
         });
-
         if (response.ok) {
-            const result = await response.json();
-            console.log(`[Sheets] API submission successful.`);
-            return result;
+            console.log(`[Sheets] ✅ API submission successful.`);
+            return await response.json();
         }
-
-        console.warn(`[Sheets] API returned ${response.status}. Falling back to direct script...`);
-    } catch (apiError) {
-        console.warn('[Sheets] Local API unreachable. Falling back to direct Google Script...', apiError);
-    }
-
-    // Fallback: Direct submission to Google Script
-    const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
-
-    if (!GOOGLE_SCRIPT_URL) {
-        console.error("GOOGLE_SCRIPT_URL is missing in .env");
-        throw new Error("Configuration Error: Script URL not found.");
-    }
-
-    try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify({ table, fields })
-        });
-
-        console.log(`[Sheets] Direct script fallback sent`);
-        return { success: true };
-
-    } catch (error: any) {
-        console.error("[Sheets] All submission methods failed:", error);
-        throw new Error("Failed to send data. Please check your connection.");
+        throw new Error(`API returned ${response.status}`);
+    } catch (apiError: any) {
+        console.error('[Sheets] ❌ All submission methods failed:', apiError);
+        throw new Error('Failed to send data. Please check your connection and try again.');
     }
 };
