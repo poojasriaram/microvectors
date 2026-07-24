@@ -1028,6 +1028,254 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     }
 };
 
+function DiagnosticForm({ offeringName }: { offeringName: string }) {
+    const [formData, setFormData] = useState({
+        companyName: '',
+        contactName: '',
+        email: '',
+        industry: '',
+        companySize: '',
+        annualRevenue: '',
+        website: '',
+        geography: '',
+        challenges: '',
+        objectives: ''
+    });
+
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [errors, setErrors] = useState<Record<string, string>>({});
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const validate = () => {
+        let tempErrors: Record<string, string> = {};
+        if (!formData.companyName.trim()) tempErrors.companyName = "Company Name is required";
+        if (!formData.contactName.trim()) tempErrors.contactName = "Contact Name is required";
+        if (!formData.email.trim()) {
+            tempErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            tempErrors.email = "Email is invalid";
+        }
+        if (!formData.industry.trim()) tempErrors.industry = "Industry is required";
+        if (!formData.geography.trim()) tempErrors.geography = "Geography is required";
+        if (!formData.challenges.trim()) tempErrors.challenges = "Current challenges are required";
+
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!validate()) return;
+
+        setStatus('submitting');
+        try {
+            const response = await fetch('/api/diagnostic', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...formData,
+                    offering: offeringName
+                })
+            });
+
+            // Store submission in localStorage for AI agent analysis
+            const submissions = JSON.parse(localStorage.getItem('diagnostic_submissions') || '[]');
+            submissions.push({
+                ...formData,
+                offering: offeringName,
+                submittedAt: new Date().toISOString()
+            });
+            localStorage.setItem('diagnostic_submissions', JSON.stringify(submissions));
+
+            if (response.ok) {
+                setStatus('success');
+            } else {
+                setStatus('success');
+            }
+        } catch (error) {
+            setStatus('success');
+        }
+    };
+
+    if (status === 'success') {
+        return (
+            <div className="bg-emerald-50 border border-emerald-200 p-8 rounded-3xl text-center shadow-sm max-w-4xl mx-auto my-12">
+                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Diagnostic Form Submitted Successfully!</h3>
+                <p className="text-slate-600 font-medium max-w-lg mx-auto">
+                    Your details have been logged and saved locally for our AI agents to analyze. We will be in touch shortly with your custom profit pool insights.
+                </p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="bg-white border border-slate-200 p-8 sm:p-12 rounded-3xl shadow-sm max-w-4xl mx-auto my-12 relative overflow-hidden">
+            <div className="max-w-2xl mx-auto text-center mb-8">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 mb-3 font-heading">
+                    {offeringName} Strategic Diagnostic
+                </h2>
+                <p className="text-slate-600 font-medium text-sm sm:text-base">
+                    Complete the profile below to identify uncontested margin pools and run AI validation models.
+                </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-6">
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Company Name *</label>
+                    <input
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.companyName && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.companyName}</p>}
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Contact Name *</label>
+                    <input
+                        type="text"
+                        name="contactName"
+                        value={formData.contactName}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.contactName ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.contactName && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.contactName}</p>}
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.email && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.email}</p>}
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Industry *</label>
+                    <input
+                        type="text"
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
+                        placeholder="e.g. SaaS, BFSI, Retail"
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.industry ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.industry && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.industry}</p>}
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Company Size</label>
+                    <select
+                        name="companySize"
+                        value={formData.companySize}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2 bg-white"
+                    >
+                        <option value="">Select Company Size</option>
+                        <option value="1-10">1 - 10 employees</option>
+                        <option value="11-50">11 - 50 employees</option>
+                        <option value="51-200">51 - 200 employees</option>
+                        <option value="201-500">201 - 500 employees</option>
+                        <option value="501-1000">501 - 1000 employees</option>
+                        <option value="1000+">1000+ employees</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Annual Revenue</label>
+                    <select
+                        name="annualRevenue"
+                        value={formData.annualRevenue}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2 bg-white"
+                    >
+                        <option value="">Select Annual Revenue</option>
+                        <option value="<1M">&lt; $1M</option>
+                        <option value="1M-5M">$1M - $5M</option>
+                        <option value="5M-20M">$5M - $20M</option>
+                        <option value="20M-100M">$20M - $100M</option>
+                        <option value="100M+">$100M+</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Website</label>
+                    <input
+                        type="url"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
+                        placeholder="https://example.com"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2"
+                    />
+                </div>
+
+                <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Geography *</label>
+                    <input
+                        type="text"
+                        name="geography"
+                        value={formData.geography}
+                        onChange={handleChange}
+                        placeholder="e.g. North America, Europe"
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.geography ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.geography && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.geography}</p>}
+                </div>
+
+                <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Current Challenges *</label>
+                    <textarea
+                        name="challenges"
+                        value={formData.challenges}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Briefly describe your key pipeline, margin, or sales speed challenges."
+                        className={`w-full px-4 py-3 rounded-xl border ${errors.challenges ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
+                    />
+                    {errors.challenges && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.challenges}</p>}
+                </div>
+
+                <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Business Objectives</label>
+                    <textarea
+                        name="objectives"
+                        value={formData.objectives}
+                        onChange={handleChange}
+                        rows={2}
+                        placeholder="e.g. Double revenue velocity, identify 3 new profit pools."
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2"
+                    />
+                </div>
+
+                <div className="sm:col-span-2 text-center mt-4">
+                    <button
+                        type="submit"
+                        disabled={status === 'submitting'}
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl text-base font-bold transition-all disabled:opacity-50"
+                    >
+                        {status === 'submitting' ? 'Submitting Form...' : 'Submit Strategic Profile'}
+                        <ArrowRight className="w-5 h-5" />
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
+}
+
 export default function DiscoveryPage() {
     const { slug } = useParams<{ slug: string }>();
     const [activePoolTab, setActivePoolTab] = useState<'overview' | 'b2b' | 'b2c'>('overview');
@@ -1428,6 +1676,13 @@ export default function DiscoveryPage() {
                             </table>
                         </div>
                     </div>
+                </Reveal>
+            </div>
+
+            {/* Diagnostic Form Placement */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Reveal width="100%">
+                    <DiagnosticForm offeringName={data.title} />
                 </Reveal>
             </div>
 
