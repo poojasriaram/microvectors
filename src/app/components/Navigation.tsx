@@ -282,6 +282,7 @@ export default function Navigation() {
                     <div className="lg:hidden flex items-center relative z-50">
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            aria-label="Toggle mobile menu"
                             className="p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                         >
                             {mobileMenuOpen ? (

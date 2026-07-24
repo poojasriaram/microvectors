@@ -2061,7 +2061,7 @@ export const smNavItems = [
             "highlight": {
                 "title": "High-Velocity Web3",
                 "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
-                "linkText": "Learn More",
+                "linkText": "Explore Solutions",
                 "linkPath": "/crypto"
             },
             "categories": [
@@ -2221,7 +2221,7 @@ export const smNavItems = [
             "highlight": {
                 "title": "Industry Expertise",
                 "desc": "Tailored revenue acceleration for your specific industry.",
-                "linkText": "Learn More",
+                "linkText": "Start Your AI Journey",
                 "linkPath": "/industries"
             }
         }

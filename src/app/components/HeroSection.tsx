@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { motion } from 'framer-motion';
@@ -36,7 +36,7 @@ export default function HeroSection() {
 
           {/* Subheadline with lighter contrast */}
           <p className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto font-medium text-balance">
-            Propel your business on autopilot with <span className="text-slate-800 font-semibold">AI/ML-Powered Sales Growth Automation</span> — from Demand Discovery to Revenue Management.
+            Propel your business on autopilot with <span className="text-slate-800 font-semibold">Artificial Intelligence (AI) & Machine Learning (ML)-Powered Sales Growth Automation</span> — from Demand Discovery to Revenue Management.
           </p>
 
           {/* Minimalist CTAs */}
@@ -57,7 +57,7 @@ export default function HeroSection() {
               variant="outline"
               className="border-slate-200 bg-white/50 backdrop-blur-sm text-slate-700 hover:bg-white hover:border-slate-300 h-14 text-sm tracking-wide uppercase rounded-full px-8 hover:text-slate-900 transition-all font-bold"
             >
-              <Link to="/solutions">View Our Solutions</Link>
+              <Link to="/solutions">Explore AI Solutions</Link>
             </Button>
           </div>
 

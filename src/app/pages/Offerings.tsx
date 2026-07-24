@@ -1158,25 +1158,15 @@ export default function Offerings() {
                         </div>
 
                         {/* Image Diagram */}
-                        <div className="flex justify-center my-12">
-                            <img 
-                                src={
-                                    activePoolTab === 'b2b' 
-                                        ? b2bImg 
-                                        : activePoolTab === 'b2c' 
-                                            ? b2cImg 
-                                            : discoveryLayersImg
-                                } 
-                                alt={
-                                    activePoolTab === 'b2b'
-                                        ? "B2B Profit Pool Discovery Layers"
-                                        : activePoolTab === 'b2c'
-                                            ? "B2C Profit Pool Discovery Layers"
-                                            : "AI Driven Profit Pool Discovery Layers"
-                                } 
-                                className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
-                            />
-                        </div>
+                        {activePoolTab === 'overview' && (
+                            <div className="flex justify-center my-12">
+                                <img 
+                                    src={discoveryLayersImg} 
+                                    alt="AI Driven Profit Pool Discovery Layers"
+                                    className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
+                                />
+                            </div>
+                        )}
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

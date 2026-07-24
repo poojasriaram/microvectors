@@ -6,8 +6,8 @@ const caseStudies = [
     {
         client: 'Global FinTech Corp',
         title: 'Automated Fraud Detection Pipeline',
-        problem: 'High manual review times causing transaction delays and high false positive rates.',
-        solution: 'Deployed a custom Machine Learning model to analyze transaction patterns in real-time.',
+        problem: 'High manual review times caused transaction delays. Experienced high false positive rates.',
+        solution: 'Deployed a custom Machine Learning model. Analyzed transaction patterns in real-time.',
         technologies: 'Python, TensorFlow, AWS SageMaker',
         metrics: [
             { label: 'False Positives', value: '-45%' },
@@ -17,8 +17,8 @@ const caseStudies = [
     {
         client: 'Leading SaaS Provider',
         title: 'AI-Driven Churn Prediction',
-        problem: 'Unable to identify at-risk customers before they cancelled their subscriptions.',
-        solution: 'Implemented predictive analytics on user engagement data to trigger automated retention workflows.',
+        problem: 'Unable to identify at-risk customers. Missed cancellation signals before they occurred.',
+        solution: 'Implemented predictive analytics on user engagement data. Triggered automated retention workflows.',
         technologies: 'Node.js, PostgreSQL, Scikit-learn',
         metrics: [
             { label: 'Churn Rate', value: '-30%' },
@@ -48,12 +48,12 @@ export default function CaseStudiesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-xl transition-all duration-300"
+                            className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                         >
                             <div className="text-sm font-bold text-blue-600 tracking-wider uppercase mb-2">{study.client}</div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-6">{study.title}</h3>
                             
-                            <div className="space-y-6 mb-8">
+                            <div className="space-y-6 mb-8 flex-grow">
                                 <div>
                                     <div className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-2">
                                         <Layers className="w-4 h-4 text-slate-400" /> Problem
@@ -88,7 +88,7 @@ export default function CaseStudiesSection() {
 
                 <div className="text-center mt-12">
                     <Link to="/#case-studies" className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 shadow-sm text-base font-medium rounded-full text-slate-700 bg-white hover:bg-slate-50 transition-colors">
-                        View All Case Studies
+                        View Success Story
                         <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                 </div>

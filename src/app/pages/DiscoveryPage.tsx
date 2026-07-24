@@ -1306,7 +1306,7 @@ export default function DiscoveryPage() {
                         <ChevronRight className="w-4 h-4" />
                         <Link to="/offerings" className="hover:text-blue-600 transition-colors">Offerings</Link>
                         <ChevronRight className="w-4 h-4" />
-                        <span className="text-blue-600 font-bold">Profit Pool Discovery</span>
+                        <span className="text-blue-600 font-bold" title="Identify and capture hidden margin drivers and high-margin revenue streams.">Profit Pool Discovery</span>
                     </nav>
                 </div>
 
@@ -1320,7 +1320,7 @@ export default function DiscoveryPage() {
                                 Parent Offering
                             </div>
                             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 font-heading leading-tight text-white drop-shadow-md">
-                                Profit Pool Discovery
+                                <span title="Identify and capture hidden margin drivers and high-margin revenue streams.">Profit Pool Discovery</span>
                             </h1>
                             <p className="text-xl sm:text-2xl text-blue-200 font-medium italic mb-8 max-w-3xl">
                                 "Unlocking hidden value, identifying unmapped demand, and capturing high-margin revenue streams."
@@ -1331,12 +1331,21 @@ export default function DiscoveryPage() {
                                     {activePoolTab === 'overview' ? '9 Specialized Engines' : '7 Specialized Engines'}
                                 </span>
                             </div>
+                            <div className="flex flex-wrap items-center gap-4 mt-8">
+                                <Link to="/book-consultation" className="inline-flex items-center justify-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base rounded-xl transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40">
+                                    Discover Your Next Profit Pool
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Link>
+                                <a href="#modules" className="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base rounded-xl transition-all backdrop-blur-md">
+                                    Explore Modules
+                                </a>
+                            </div>
                         </div>
                     </Reveal>
                 </div>
 
                 {/* Premium B2B/B2C Tabs & Diagram */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                <div id="modules" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center scroll-mt-24">
                     <div className="flex justify-center mb-12">
                         <div className="flex gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/50 shadow-inner">
                             <button
@@ -1372,29 +1381,19 @@ export default function DiscoveryPage() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center my-8">
-                        <img 
-                            src={
-                                activePoolTab === 'b2b' 
-                                    ? b2bImg 
-                                    : activePoolTab === 'b2c' 
-                                        ? b2cImg 
-                                        : discoveryLayersImg
-                            } 
-                            alt={
-                                activePoolTab === 'b2b'
-                                    ? "B2B Profit Pool Discovery Layers"
-                                    : activePoolTab === 'b2c'
-                                        ? "B2C Profit Pool Discovery Layers"
-                                        : "AI Driven Profit Pool Discovery Layers"
-                            } 
-                            className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
-                        />
-                    </div>
+                    {activePoolTab === 'overview' && (
+                        <div className="flex justify-center my-8">
+                            <img 
+                                src={discoveryLayersImg} 
+                                alt="AI Driven Profit Pool Discovery Layers"
+                                className="w-full max-w-5xl h-auto rounded-[2rem] shadow-2xl border border-slate-200/80 hover:shadow-indigo-200/50 transition-all duration-300"
+                            />
+                        </div>
+                    )}
                 </div>
 
                 {/* Sub-Offerings Grid */}
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                     <Reveal width="100%">
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {(() => {
@@ -1467,6 +1466,73 @@ export default function DiscoveryPage() {
                                     );
                                 });
                             })()}
+                        </div>
+                    </Reveal>
+
+                    <div className="text-center mt-12">
+                        <Link to="/book-consultation" className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-colors shadow-lg">
+                            Talk to an AI Consultant
+                            <ArrowRight className="ml-2 w-5 h-5" />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Trust Metrics Section */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                    <Reveal width="100%">
+                        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xl text-center">
+                            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-8 tracking-tight">
+                                Trusted by Leading Enterprises
+                            </h2>
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                                <div>
+                                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">150+</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Projects Delivered</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">25+</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Industries Served</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">92%</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Client Retention</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl sm:text-5xl font-black text-blue-600 mb-2">$10M+</div>
+                                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Revenue Generated</div>
+                                </div>
+                            </div>
+                            <Link to="/#case-studies" className="inline-flex items-center justify-center px-6 py-3 border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-xl transition-colors">
+                                See Client Success Stories
+                                <ArrowRight className="ml-2 w-4 h-4" />
+                            </Link>
+                        </div>
+                    </Reveal>
+                </div>
+
+                {/* Opportunity Assessment Section (Urgency Banner) */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                    <Reveal width="100%">
+                        <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-8">
+                            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+                            <div className="max-w-2xl">
+                                <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+                                    Limited Opportunity
+                                </span>
+                                <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 text-white">
+                                    Get Your Free AI Opportunity Assessment
+                                </h2>
+                                <p className="text-lg text-slate-300 mb-2">
+                                    Discover Hidden Revenue Opportunities in 30 Minutes.
+                                </p>
+                                <p className="text-sm text-amber-400 font-semibold">
+                                    Note: Limited to 10 Enterprise Consultations Per Month.
+                                </p>
+                            </div>
+                            <Link to="/book-consultation" className="shrink-0 inline-flex items-center justify-center px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base rounded-xl transition-all shadow-lg shadow-blue-500/20">
+                                Talk to Our AI Experts Today
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Link>
                         </div>
                     </Reveal>
                 </div>

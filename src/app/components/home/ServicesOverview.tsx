@@ -7,49 +7,57 @@ const services = [
         icon: BrainCircuit,
         title: 'AI Solutions',
         description: 'Deploy advanced machine learning models and predictive AI to solve complex enterprise challenges.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Explore AI'
     },
     {
         icon: Cpu,
         title: 'Enterprise Automation',
         description: 'Streamline operations and reduce manual workloads with intelligent process automation pipelines.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Automate Now'
     },
     {
         icon: Code2,
         title: 'Custom Software Development',
         description: 'Build scalable, secure, and bespoke software applications tailored to your business needs.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Build Custom'
     },
     {
         icon: Cloud,
         title: 'Cloud Services',
         description: 'Migrate, manage, and optimize your enterprise infrastructure on scalable cloud platforms.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Scale Infrastructure'
     },
     {
         icon: ShieldCheck,
         title: 'Cyber Security',
         description: 'Protect your digital assets with enterprise-grade threat detection and compliance frameworks.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Secure Assets'
     },
     {
         icon: Server,
         title: 'IT Services',
         description: 'Comprehensive IT management, support, and infrastructure modernization for growing teams.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Modernize IT'
     },
     {
         icon: Bot,
         title: 'AI Agents',
         description: 'Integrate autonomous digital agents to handle customer interactions and repetitive workflows 24/7.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Deploy Agents'
     },
     {
         icon: Headset,
         title: 'ITES & BPO Services',
         description: 'Outsource critical business processes with technology-enabled services and global support teams.',
-        link: '/#solutions'
+        link: '/#solutions',
+        cta: 'Outsource Processes'
     }
 ];
 
@@ -111,7 +119,7 @@ export default function ServicesOverview() {
                                 <p className="text-slate-600 mb-8 flex-grow leading-relaxed text-lg relative z-10 font-medium">{service.description}</p>
                                 
                                 <Link to={service.link} className="inline-flex items-center text-sm font-bold text-blue-600 group-hover:text-indigo-600 mt-auto uppercase tracking-wide relative z-10 w-max">
-                                    Learn More
+                                    {service.cta}
                                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                                 </Link>
 
