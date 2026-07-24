@@ -2058,60 +2058,33 @@ export const smNavItems = [
         "name": "Crypto",
         "path": "/crypto",
         "dropdown": {
-            "featured": [
-                {
-                    "title": "Web3 Ecosystems",
-                    "desc": "L1 & L2 protocol scaling",
-                    "path": "/explore/crypto-demand-discovery"
-                },
-                {
-                    "title": "DeFi Platforms",
-                    "desc": "Sustainable liquidity",
-                    "path": "/explore/crypto-growth"
-                }
-            ],
             "highlight": {
                 "title": "High-Velocity Web3",
                 "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
-                "image": "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=400&q=80",
                 "linkText": "Learn More",
                 "linkPath": "/crypto"
             },
-            "items": [
+            "categories": [
                 {
-                    "name": "Crypto Revenue Acceleration",
-                    "path": "/explore/crypto-revenue",
-                    "icon": "TrendingUp"
+                    "id": "crypto-growth",
+                    "title": "Growth & Revenue",
+                    "desc": "Accelerate revenue in Web3 ecosystems",
+                    "items": [
+                        { "name": "Crypto Revenue Acceleration", "path": "/explore/crypto-revenue", "icon": "TrendingUp" },
+                        { "name": "Crypto Performance Revenue", "path": "/explore/crypto-performance", "icon": "Coins" },
+                        { "name": "Crypto Growth Acceleration", "path": "/explore/crypto-growth", "icon": "Rocket" }
+                    ]
                 },
                 {
-                    "name": "Crypto Demand Discovery",
-                    "path": "/explore/crypto-demand-discovery",
-                    "icon": "Search"
-                },
-                {
-                    "name": "Crypto Performance Revenue",
-                    "path": "/explore/crypto-performance",
-                    "icon": "Coins"
-                },
-                {
-                    "name": "Crypto Growth Acceleration",
-                    "path": "/explore/crypto-growth",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "Market Validation Intelligence",
-                    "path": "/explore/crypto-market-validation",
-                    "icon": "Target"
-                },
-                {
-                    "name": "Customer Journey Intelligence",
-                    "path": "/explore/crypto-journey",
-                    "icon": "MapPin"
-                },
-                {
-                    "name": "Startup MVP Acceleration",
-                    "path": "/explore/crypto-startup",
-                    "icon": "Lightbulb"
+                    "id": "crypto-intelligence",
+                    "title": "Intelligence & Discovery",
+                    "desc": "Market insights for Web3 ventures",
+                    "items": [
+                        { "name": "Crypto Demand Discovery", "path": "/explore/crypto-demand-discovery", "icon": "Search" },
+                        { "name": "Market Validation Intelligence", "path": "/explore/crypto-market-validation", "icon": "Target" },
+                        { "name": "Customer Journey Intelligence", "path": "/explore/crypto-journey", "icon": "MapPin" },
+                        { "name": "Startup MVP Acceleration", "path": "/explore/crypto-startup", "icon": "Lightbulb" }
+                    ]
                 }
             ]
         }
@@ -2257,66 +2230,34 @@ export const smNavItems = [
         "name": "Solutions",
         "path": "/solutions",
         "dropdown": {
-            "featured": [
-                {
-                    "title": "AI Business Strategy",
-                    "desc": "Market intelligence",
-                    "path": "/explore/ai-business-strategy"
-                },
-                {
-                    "title": "AI Auto Sales Pilot",
-                    "desc": "Autonomous agents",
-                    "path": "/explore/ai-auto-sales-pilot"
-                }
-            ],
             "highlight": {
                 "title": "Comprehensive Solutions",
                 "desc": "End-to-end AI-driven growth solutions for enterprises.",
-                "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
                 "linkText": "View Solutions",
                 "linkPath": "/solutions"
             },
-            "items": [
+            "categories": [
                 {
-                    "name": "AI Business Growth Strategy",
-                    "path": "/explore/ai-business-strategy",
-                    "icon": "TrendingUp"
+                    "id": "strategy",
+                    "title": "Strategy & Growth",
+                    "desc": "Market intelligence and growth planning",
+                    "items": [
+                        { "name": "AI Business Growth Strategy", "path": "/explore/ai-business-strategy", "icon": "TrendingUp" },
+                        { "name": "AI Market Strategy & Demand", "path": "/explore/ai-market-strategy", "icon": "Target" },
+                        { "name": "AI-Driven Growth Hacking", "path": "/explore/growth-hacking", "icon": "Rocket" },
+                        { "name": "AI-Driven Performance Marketing", "path": "/explore/performance-marketing", "icon": "BarChart" }
+                    ]
                 },
                 {
-                    "name": "AI Market Strategy & Demand",
-                    "path": "/explore/ai-market-strategy",
-                    "icon": "Target"
-                },
-                {
-                    "name": "AI-Driven Growth Hacking",
-                    "path": "/explore/growth-hacking",
-                    "icon": "Rocket"
-                },
-                {
-                    "name": "AI-Driven Performance Marketing",
-                    "path": "/explore/performance-marketing",
-                    "icon": "BarChart"
-                },
-                {
-                    "name": "AI Auto Sales Pilot",
-                    "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot"
-                },
-                {
-                    "name": "AI Sales Process Optimization",
-                    "path": "/explore/sales-optimization",
-                    "icon": "Settings"
-                },
-                {
-                    "name": "AI Revenue Operations",
-                    "path": "/explore/ai-revenue-operations",
-                    "icon": "Server"
-                },
-                {
-                    "name": "AI Revenue Acceleration",
-                    "path": "/explore/ai-revenue-acceleration",
-                    "icon": "Zap",
-                    "badge": "Popular"
+                    "id": "sales-ops",
+                    "title": "Sales & Operations",
+                    "desc": "Autonomous sales execution and revenue ops",
+                    "items": [
+                        { "name": "AI Auto Sales Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" },
+                        { "name": "AI Sales Process Optimization", "path": "/explore/sales-optimization", "icon": "Settings" },
+                        { "name": "AI Revenue Operations", "path": "/explore/ai-revenue-operations", "icon": "Server" },
+                        { "name": "AI Revenue Acceleration", "path": "/explore/ai-revenue-acceleration", "icon": "Zap" }
+                    ]
                 }
             ]
         }
@@ -2325,63 +2266,33 @@ export const smNavItems = [
         "name": "Capabilities",
         "path": "/capabilities",
         "dropdown": {
-            "featured": [
-                {
-                    "title": "Demand Discovery & Acceleration",
-                    "desc": "Predictive deal intelligence",
-                    "path": "/explore/ai-demand-discovery"
-                },
-                {
-                    "title": "Autonomous Sales Pilot",
-                    "desc": "AI sales agents",
-                    "path": "/explore/ai-auto-sales-pilot"
-                }
-            ],
             "highlight": {
                 "title": "Activate Your Autonomous Growth Engine",
                 "desc": "Predictive Deal Intelligence & Autonomous Agents.",
-                "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80",
                 "linkText": "View Engines",
                 "linkPath": "/capabilities"
             },
-            "items": [
+            "categories": [
                 {
-                    "name": "Demand Discovery & Acceleration",
-                    "path": "/explore/ai-demand-discovery",
-                    "icon": "Search",
-                    "badge": "Featured"
+                    "id": "intelligence",
+                    "title": "Demand & Intelligence",
+                    "desc": "Predictive deal and demand signals",
+                    "items": [
+                        { "name": "Demand Discovery & Acceleration", "path": "/explore/ai-demand-discovery", "icon": "Search" },
+                        { "name": "Hidden Revenue Capture", "path": "/hidden-revenue-capture", "icon": "TrendingUp" },
+                        { "name": "AI Revenue Acceleration", "path": "/explore/revenue-acceleration", "icon": "Zap" }
+                    ]
                 },
                 {
-                    "name": "AI Brand Acceleration",
-                    "path": "/ai-brand-acceleration",
-                    "icon": "Sparkles"
-                },
-                {
-                    "name": "AI Reputation Acceleration",
-                    "path": "/ai-reputation-acceleration",
-                    "icon": "ShieldCheck"
-                },
-                {
-                    "name": "Autonomous Sales Pilot",
-                    "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot",
-                    "badge": "Enterprise"
-                },
-                {
-                    "name": "Hidden Revenue Capture",
-                    "path": "/hidden-revenue-capture",
-                    "icon": "TrendingUp"
-                },
-                {
-                    "name": "AI Revenue Acceleration",
-                    "path": "/explore/revenue-acceleration",
-                    "icon": "Zap"
-                },
-                {
-                    "name": "AI Auto Pilot",
-                    "path": "/explore/ai-auto-sales-pilot",
-                    "icon": "Bot",
-                    "badge": "Enterprise"
+                    "id": "brand-reputation",
+                    "title": "Brand & Reputation",
+                    "desc": "AI-driven brand and reputation engines",
+                    "items": [
+                        { "name": "AI Brand Acceleration", "path": "/ai-brand-acceleration", "icon": "Sparkles" },
+                        { "name": "AI Reputation Acceleration", "path": "/ai-reputation-acceleration", "icon": "ShieldCheck" },
+                        { "name": "Autonomous Sales Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" },
+                        { "name": "AI Auto Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" }
+                    ]
                 }
             ]
         }
@@ -2390,45 +2301,23 @@ export const smNavItems = [
         "name": "Partners",
         "path": "/partners",
         "dropdown": {
-            "featured": [
-                {
-                    "title": "Solution Partners",
-                    "desc": "Implementation experts",
-                    "path": "/explore/solution-partners"
-                },
-                {
-                    "title": "Technology Partners",
-                    "desc": "Platform integrations",
-                    "path": "/explore/technology-partners"
-                }
-            ],
             "highlight": {
                 "title": "Global Partner Ecosystem",
                 "desc": "Co-sell and build next-gen AI revenue systems together.",
-                "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80",
                 "linkText": "Become a Partner",
                 "linkPath": "/partners"
             },
-            "items": [
+            "categories": [
                 {
-                    "name": "Partner Program Overview",
-                    "path": "/explore/partner-overview",
-                    "icon": "Handshake"
-                },
-                {
-                    "name": "Solution Partners",
-                    "path": "/explore/solution-partners",
-                    "icon": "Building2"
-                },
-                {
-                    "name": "Technology Partners",
-                    "path": "/explore/technology-partners",
-                    "icon": "Cpu"
-                },
-                {
-                    "name": "Referral Partners",
-                    "path": "/explore/referral-partners",
-                    "icon": "UserPlus"
+                    "id": "partner-types",
+                    "title": "Partner Types",
+                    "desc": "Different ways to partner with us",
+                    "items": [
+                        { "name": "Partner Program Overview", "path": "/explore/partner-overview", "icon": "Handshake" },
+                        { "name": "Solution Partners", "path": "/explore/solution-partners", "icon": "Building2" },
+                        { "name": "Technology Partners", "path": "/explore/technology-partners", "icon": "Cpu" },
+                        { "name": "Referral Partners", "path": "/explore/referral-partners", "icon": "UserPlus" }
+                    ]
                 }
             ]
         }
@@ -2437,55 +2326,32 @@ export const smNavItems = [
         "name": "Company",
         "path": "/company",
         "dropdown": {
-            "featured": [
-                {
-                    "title": "About Us",
-                    "desc": "Our mission and vision",
-                    "path": "/about"
-                },
-                {
-                    "title": "Careers",
-                    "desc": "Join our team",
-                    "path": "/careers"
-                }
-            ],
             "highlight": {
                 "title": "Trustgrid AI",
                 "desc": "We are engineering growth and automating scale.",
-                "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80",
                 "linkText": "Meet the Team",
                 "linkPath": "/company"
             },
-            "items": [
+            "categories": [
                 {
-                    "name": "About Us",
-                    "path": "/about",
-                    "icon": "Info"
+                    "id": "about",
+                    "title": "About Us",
+                    "desc": "Who we are and what drives us",
+                    "items": [
+                        { "name": "About Us", "path": "/about", "icon": "Info" },
+                        { "name": "Mission", "path": "/mission", "icon": "Target" },
+                        { "name": "Leadership & Culture", "path": "/leadership", "icon": "Users" },
+                        { "name": "Our Offices", "path": "/offices", "icon": "MapPin" }
+                    ]
                 },
                 {
-                    "name": "Mission",
-                    "path": "/mission",
-                    "icon": "Target"
-                },
-                {
-                    "name": "Leadership & Culture",
-                    "path": "/leadership",
-                    "icon": "Users"
-                },
-                {
-                    "name": "Our Offices",
-                    "path": "/offices",
-                    "icon": "MapPin"
-                },
-                {
-                    "name": "Careers",
-                    "path": "/careers",
-                    "icon": "Briefcase"
-                },
-                {
-                    "name": "Contact Us",
-                    "path": "/book-consultation",
-                    "icon": "Phone"
+                    "id": "connect",
+                    "title": "Connect",
+                    "desc": "Careers, contact, and partnership",
+                    "items": [
+                        { "name": "Careers", "path": "/careers", "icon": "Briefcase" },
+                        { "name": "Contact Us", "path": "/book-consultation", "icon": "Phone" }
+                    ]
                 }
             ]
         }

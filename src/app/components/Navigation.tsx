@@ -29,6 +29,7 @@ export default function Navigation() {
     const [activeIndustriesCat, setActiveIndustriesCat] = useState("b2b");
     const [activeOfferingGroup, setActiveOfferingGroup] = useState("profit-pools");
     const [activeIndustryGroup, setActiveIndustryGroup] = useState("b2b");
+    const [activeMenuCat, setActiveMenuCat] = useState<Record<string, string>>({});
     const location = useLocation();
 
     // Handle scroll effect
@@ -100,7 +101,7 @@ export default function Navigation() {
                                             {/* Invisible bridge for hover */}
                                             <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
                                             
-                                            {/* Left Column: Categories / Highlight info */}
+                                            {/* Left Column: Categories */}
                                             <div className="w-[35%] bg-slate-50/80 border-r border-slate-100 p-5 flex flex-col gap-1.5 shrink-0 justify-center">
                                                 {item.name === "Offerings" ? (
                                                     <div className="flex flex-col gap-1.5">
@@ -123,18 +124,22 @@ export default function Navigation() {
                                                             </button>
                                                         ))}
                                                     </div>
-                                                ) : item.name === "Industries" ? (
+                                                ) : item.dropdown.categories ? (
                                                     <div className="flex flex-col gap-1.5">
-                                                        {item.dropdown.categories?.map((cat: any, cIdx: number) => (
-                                                            <button
-                                                                key={cIdx}
-                                                                onMouseEnter={() => setActiveIndustryGroup(cat.id)}
-                                                                className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeIndustryGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
-                                                            >
-                                                                <span>{cat.title}</span>
-                                                                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-                                                            </button>
-                                                        ))}
+                                                        {item.dropdown.categories.map((cat: any, cIdx: number) => {
+                                                            const menuKey = item.name;
+                                                            const activeCat = activeMenuCat[menuKey] ?? item.dropdown.categories[0]?.id;
+                                                            return (
+                                                                <button
+                                                                    key={cIdx}
+                                                                    onMouseEnter={() => setActiveMenuCat(prev => ({ ...prev, [menuKey]: cat.id }))}
+                                                                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeCat === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                >
+                                                                    <span>{cat.title}</span>
+                                                                    <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                </button>
+                                                            );
+                                                        })}
                                                     </div>
                                                 ) : (
                                                     <div className="flex flex-col gap-3 p-4">
@@ -230,11 +235,13 @@ export default function Navigation() {
                                                                 </div>
                                                             );
                                                         })()
-                                                    ) : item.name === "Industries" ? (
+                                                    ) : item.dropdown.categories ? (
                                                         (() => {
-                                                            const selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeIndustryGroup)?.items || [];
+                                                            const menuKey = item.name;
+                                                            const activeCatId = activeMenuCat[menuKey] ?? item.dropdown.categories[0]?.id;
+                                                            const selectedItems = item.dropdown.categories.find((cat: any) => cat.id === activeCatId)?.items || [];
                                                             return (
-                                                                <div className="grid grid-cols-1 gap-1.5 w-full max-w-md">
+                                                                <div className="grid grid-cols-1 gap-1.5 w-full max-w-md animate-in fade-in-50 duration-300">
                                                                     {selectedItems.map((sub: any, sIdx: number) => {
                                                                         const IconComponent = Icons[sub.icon] || ArrowRight;
                                                                         return (
@@ -254,26 +261,7 @@ export default function Navigation() {
                                                                 </div>
                                                             );
                                                         })()
-                                                    ) : (
-                                                        <div className="grid grid-cols-1 gap-1.5 w-full max-w-md animate-in fade-in-50 duration-300">
-                                                            {item.dropdown.items?.map((sub: any, sIdx: number) => {
-                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                return (
-                                                                    <Link
-                                                                        key={sIdx}
-                                                                        to={sub.path}
-                                                                        onClick={() => setHoveredItem(null)}
-                                                                        className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
-                                                                    >
-                                                                        <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
-                                                                            <IconComponent className="w-4 h-4" />
-                                                                        </div>
-                                                                        <span className="truncate">{sub.name}</span>
-                                                                    </Link>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                    )}
+                                                    ) : null}
                                                 </div>
                                             </div>
                                         </div>
@@ -329,64 +317,34 @@ export default function Navigation() {
                                     )}
                                 </div>
                                 
-                                {item.dropdown && expandedItems.includes(item.name) && (
-                                    <div className="pl-4 pb-4 space-y-4">
-                                        <div className="flex flex-col space-y-3 pl-2 border-l-2 border-slate-100">
-                                            {item.name === "Offerings" && item.dropdown.categories ? (
-                                                <>
-                                                    {item.dropdown.categories.map((cat: any, cIdx: number) => (
-                                                        <div key={cIdx} className="mb-3">
-                                                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 mt-1">{cat.title}</div>
-                                                            <div className="flex flex-col space-y-1">
-                                                                {cat.items.map((sub: any, subIdx: number) => (
-                                                                    <Link
-                                                                        key={subIdx}
-                                                                        to={sub.path}
-                                                                        onClick={() => setMobileMenuOpen(false)}
-                                                                        className="text-slate-600 font-semibold py-1 hover:text-blue-600 transition-colors text-xs block"
-                                                                    >
-                                                                        {sub.name}
-                                                                    </Link>
+                                            {item.dropdown && expandedItems.includes(item.name) && (
+                                                <div className="pl-4 pb-4 space-y-4">
+                                                    <div className="flex flex-col space-y-3 pl-2 border-l-2 border-slate-100">
+                                                        {item.dropdown.categories ? (
+                                                            <>
+                                                                {item.dropdown.categories.map((cat: any, cIdx: number) => (
+                                                                    <div key={cIdx} className="mb-3">
+                                                                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 mt-1">{cat.title}</div>
+                                                                        <div className="flex flex-col space-y-1">
+                                                                            {cat.items.map((sub: any, subIdx: number) => (
+                                                                                <Link
+                                                                                    key={subIdx}
+                                                                                    to={sub.path}
+                                                                                    onClick={() => setMobileMenuOpen(false)}
+                                                                                    className="text-slate-600 font-semibold py-1 hover:text-blue-600 transition-colors text-xs block"
+                                                                                >
+                                                                                    {sub.name}
+                                                                                </Link>
+                                                                            ))}
+                                                                        </div>
+                                                                    </div>
                                                                 ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            ) : item.name === "Industries" && item.dropdown.categories ? (
-                                                <>
-                                                    {item.dropdown.categories.map((cat: any, cIdx: number) => (
-                                                        <div key={cIdx} className="mb-3">
-                                                            <div className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 mt-1">{cat.title}</div>
-                                                            <div className="flex flex-col space-y-1">
-                                                                {cat.items.map((sub: any, subIdx: number) => (
-                                                                    <Link
-                                                                        key={subIdx}
-                                                                        to={sub.path}
-                                                                        onClick={() => setMobileMenuOpen(false)}
-                                                                        className="text-slate-600 font-semibold py-1 hover:text-blue-600 transition-colors text-xs block"
-                                                                    >
-                                                                        {sub.name}
-                                                                    </Link>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            ) : (
-                                                item.dropdown.items?.map((sub: any, subIdx: number) => (
-                                                    <Link
-                                                        key={subIdx}
-                                                        to={sub.path}
-                                                        onClick={() => setMobileMenuOpen(false)}
-                                                        className="text-slate-600 font-semibold py-1.5 hover:text-blue-600 transition-colors text-sm block"
-                                                    >
-                                                        {sub.name}
-                                                    </Link>
-                                                ))
+                                                            </>
+                                                        ) : null}
+                                                    </div>
+                                                </div>
                                             )}
-                                        </div>
-                                    </div>
-                                )}
+
                             </div>
                         ))}
                     </div>
