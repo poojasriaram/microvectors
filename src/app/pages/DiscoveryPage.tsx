@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Search, Target, TrendingUp, BarChart3, ShieldCheck, Users, Rocket,
     ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, ChevronRight, HelpCircle, Layers,
@@ -1028,51 +1029,117 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
     }
 };
 
+interface QuestionStep {
+    id: string;
+    label: string;
+    type: 'text' | 'email' | 'url' | 'select' | 'textarea';
+    placeholder?: string;
+    options?: string[];
+    required?: boolean;
+}
+
+const diagnosticSteps: QuestionStep[] = [
+    { id: 'contactName', label: 'What is your contact name?', type: 'text', placeholder: 'Enter your full name...', required: true },
+    { id: 'email', label: 'What is your work email address?', type: 'email', placeholder: 'Enter your work email address...', required: true },
+    { id: 'companyName', label: 'What is your company name?', type: 'text', placeholder: 'Enter your company name...', required: true },
+    { id: 'industry', label: 'Which industry do you operate in?', type: 'text', placeholder: 'e.g. SaaS, BFSI, Retail...', required: true },
+    { id: 'companySize', label: 'What is your company size?', type: 'select', options: ['1-10 employees', '11-50 employees', '51-200 employees', '201-500 employees', '501-1000 employees', '1000+ employees'], required: true },
+    { id: 'annualRevenue', label: 'What is your annual revenue?', type: 'select', options: ['< $1M', '$1M - $5M', '$5M - $20M', '$20M - $100M', '$100M+'], required: true },
+    { id: 'website', label: 'What is your website URL?', type: 'url', placeholder: 'https://example.com', required: false },
+    { id: 'geography', label: 'Which geography/market do you serve?', type: 'text', placeholder: 'e.g. North America, Global...', required: true },
+    { id: 'challenges', label: 'What are your current business challenges?', type: 'textarea', placeholder: 'Briefly describe your key pipeline, margin, or sales speed challenges...', required: true },
+    { id: 'objectives', label: 'What are your business objectives?', type: 'textarea', placeholder: 'e.g. Double revenue velocity, identify 3 new profit pools...', required: false },
+    { id: 'tools', label: 'What tools or systems are you currently using?', type: 'text', placeholder: 'e.g. Salesforce, HubSpot, Marketo...', required: false },
+    { id: 'outcome', label: 'What outcome are you expecting?', type: 'textarea', placeholder: 'What specific results are you looking to achieve?', required: false }
+];
+
 function DiagnosticForm({ offeringName }: { offeringName: string }) {
-    const [formData, setFormData] = useState({
-        companyName: '',
+    const [currentStep, setCurrentStep] = useState(0);
+    const [formData, setFormData] = useState<Record<string, string>>({
         contactName: '',
         email: '',
+        companyName: '',
         industry: '',
         companySize: '',
         annualRevenue: '',
         website: '',
         geography: '',
         challenges: '',
-        objectives: ''
+        objectives: '',
+        tools: '',
+        outcome: ''
     });
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [stepError, setStepError] = useState<string | null>(null);
+    const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+    const handleInputChange = (val: string) => {
+        setFormData(prev => ({
+            ...prev,
+            [diagnosticSteps[currentStep].id]: val
+        }));
+        setStepError(null);
     };
 
-    const validate = () => {
-        let tempErrors: Record<string, string> = {};
-        if (!formData.companyName.trim()) tempErrors.companyName = "Company Name is required";
-        if (!formData.contactName.trim()) tempErrors.contactName = "Contact Name is required";
-        if (!formData.email.trim()) {
-            tempErrors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            tempErrors.email = "Email is invalid";
+    const validateStep = (): boolean => {
+        const step = diagnosticSteps[currentStep];
+        const value = formData[step.id].trim();
+
+        if (step.required && !value) {
+            setStepError(`${step.label.replace('?', '')} is required.`);
+            return false;
         }
-        if (!formData.industry.trim()) tempErrors.industry = "Industry is required";
-        if (!formData.geography.trim()) tempErrors.geography = "Geography is required";
-        if (!formData.challenges.trim()) tempErrors.challenges = "Current challenges are required";
 
-        setErrors(tempErrors);
-        return Object.keys(tempErrors).length === 0;
+        if (step.type === 'email' && value) {
+            if (!/\S+@\S+\.\S+/.test(value)) {
+                setStepError("Please enter a valid email address.");
+                return false;
+            }
+        }
+
+        if (step.type === 'url' && value) {
+            try {
+                new URL(value);
+            } catch (_) {
+                if (!value.startsWith('http://') && !value.startsWith('https://')) {
+                    try {
+                        new URL('https://' + value);
+                    } catch (_) {
+                        setStepError("Please enter a valid website URL.");
+                        return false;
+                    }
+                } else {
+                    setStepError("Please enter a valid website URL.");
+                    return false;
+                }
+            }
+        }
+
+        return true;
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!validate()) return;
+    const handleNext = () => {
+        if (!validateStep()) return;
 
+        if (currentStep < diagnosticSteps.length - 1) {
+            setDirection('forward');
+            setCurrentStep(prev => prev + 1);
+            setStepError(null);
+        } else {
+            handleSubmit();
+        }
+    };
+
+    const handlePrev = () => {
+        if (currentStep > 0) {
+            setDirection('backward');
+            setCurrentStep(prev => prev - 1);
+            setStepError(null);
+        }
+    };
+
+    const handleSubmit = async () => {
         setStatus('submitting');
         try {
             const response = await fetch('/api/diagnostic', {
@@ -1084,7 +1151,6 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
                 })
             });
 
-            // Store submission in localStorage for AI agent analysis
             const submissions = JSON.parse(localStorage.getItem('diagnostic_submissions') || '[]');
             submissions.push({
                 ...formData,
@@ -1105,184 +1171,133 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
 
     if (status === 'success') {
         return (
-            <div className="bg-emerald-50 border border-emerald-200 p-8 rounded-3xl text-center shadow-sm max-w-4xl mx-auto my-12">
-                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Diagnostic Form Submitted Successfully!</h3>
-                <p className="text-slate-600 font-medium max-w-lg mx-auto">
-                    Your details have been logged and saved locally for our AI agents to analyze. We will be in touch shortly with your custom profit pool insights.
+            <div className="bg-emerald-50 border border-emerald-200 p-8 sm:p-12 rounded-3xl text-center shadow-xl max-w-2xl mx-auto my-12 animate-in fade-in-50 duration-500">
+                <CheckCircle2 className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
+                <h3 className="text-3xl font-extrabold text-slate-900 mb-3 font-heading">Diagnostic Form Submitted!</h3>
+                <p className="text-slate-600 font-medium max-w-md mx-auto text-base">
+                    Thank you! Your strategic profile has been captured and stored locally. Our AI revenue agents will review your inputs and custom insights will be prepared.
                 </p>
             </div>
         );
     }
 
+    const step = diagnosticSteps[currentStep];
+    const progressPercent = Math.round(((currentStep + 1) / diagnosticSteps.length) * 100);
+
     return (
-        <div className="bg-white border border-slate-200 p-8 sm:p-12 rounded-3xl shadow-sm max-w-4xl mx-auto my-12 relative overflow-hidden">
-            <div className="max-w-2xl mx-auto text-center mb-8">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-950 mb-3 font-heading">
-                    {offeringName} Strategic Diagnostic
-                </h2>
-                <p className="text-slate-600 font-medium text-sm sm:text-base">
-                    Complete the profile below to identify uncontested margin pools and run AI validation models.
-                </p>
+        <div className="bg-white border border-slate-200/80 p-8 sm:p-12 rounded-3xl shadow-xl max-w-2xl mx-auto my-12 relative overflow-hidden flex flex-col min-h-[420px]">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                <div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
+                        {offeringName} Diagnostic
+                    </span>
+                </div>
+                <div className="text-right">
+                    <span className="text-xs font-semibold text-slate-500">
+                        Question {currentStep + 1} of {diagnosticSteps.length}
+                    </span>
+                </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 gap-6">
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Company Name *</label>
-                    <input
-                        type="text"
-                        name="companyName"
-                        value={formData.companyName}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.companyName ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.companyName && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.companyName}</p>}
-                </div>
+            <div className="w-full bg-slate-100 h-1.5 rounded-full mb-8 overflow-hidden">
+                <div 
+                    className="bg-blue-600 h-full rounded-full transition-all duration-300 ease-out"
+                    style={{ width: `${progressPercent}%` }}
+                />
+            </div>
 
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Contact Name *</label>
-                    <input
-                        type="text"
-                        name="contactName"
-                        value={formData.contactName}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.contactName ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.contactName && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.contactName}</p>}
-                </div>
-
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.email && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.email}</p>}
-                </div>
-
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Industry *</label>
-                    <input
-                        type="text"
-                        name="industry"
-                        value={formData.industry}
-                        onChange={handleChange}
-                        placeholder="e.g. SaaS, BFSI, Retail"
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.industry ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.industry && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.industry}</p>}
-                </div>
-
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Company Size</label>
-                    <select
-                        name="companySize"
-                        value={formData.companySize}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2 bg-white"
+            <div className="flex-grow flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentStep}
+                        initial={{ opacity: 0, x: direction === 'forward' ? 50 : -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: direction === 'forward' ? -50 : 50 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
+                        className="w-full flex flex-col gap-4"
                     >
-                        <option value="">Select Company Size</option>
-                        <option value="1-10">1 - 10 employees</option>
-                        <option value="11-50">11 - 50 employees</option>
-                        <option value="51-200">51 - 200 employees</option>
-                        <option value="201-500">201 - 500 employees</option>
-                        <option value="501-1000">501 - 1000 employees</option>
-                        <option value="1000+">1000+ employees</option>
-                    </select>
-                </div>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight font-heading">
+                            {step.label}
+                        </h2>
 
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Annual Revenue</label>
-                    <select
-                        name="annualRevenue"
-                        value={formData.annualRevenue}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2 bg-white"
-                    >
-                        <option value="">Select Annual Revenue</option>
-                        <option value="<1M">&lt; $1M</option>
-                        <option value="1M-5M">$1M - $5M</option>
-                        <option value="5M-20M">$5M - $20M</option>
-                        <option value="20M-100M">$20M - $100M</option>
-                        <option value="100M+">$100M+</option>
-                    </select>
-                </div>
+                        {step.type === 'select' ? (
+                            <div className="flex flex-col gap-2 mt-4">
+                                {step.options?.map((opt, oIdx) => (
+                                    <button
+                                        key={oIdx}
+                                        type="button"
+                                        onClick={() => handleInputChange(opt)}
+                                        className={`w-full text-left px-5 py-4 rounded-xl border text-sm font-semibold transition-all focus:outline-none ${formData[step.id] === opt ? 'bg-blue-600 border-blue-600 text-white shadow-md' : 'bg-slate-50/50 border-slate-200 text-slate-700 hover:border-blue-300 hover:bg-slate-50'}`}
+                                    >
+                                        {opt}
+                                    </button>
+                                ))}
+                            </div>
+                        ) : step.type === 'textarea' ? (
+                            <textarea
+                                value={formData[step.id]}
+                                onChange={(e) => handleInputChange(e.target.value)}
+                                placeholder={step.placeholder}
+                                rows={4}
+                                className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium mt-2 resize-none"
+                            />
+                        ) : (
+                            <input
+                                type={step.type}
+                                value={formData[step.id]}
+                                onChange={(e) => handleInputChange(e.target.value)}
+                                placeholder={step.placeholder}
+                                className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base font-medium mt-2"
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        handleNext();
+                                    }
+                                }}
+                            />
+                        )}
+                    </motion.div>
+                </AnimatePresence>
 
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Website</label>
-                    <input
-                        type="url"
-                        name="website"
-                        value={formData.website}
-                        onChange={handleChange}
-                        placeholder="https://example.com"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2"
-                    />
-                </div>
+                {stepError && (
+                    <div className="flex items-center gap-2 mt-4 text-red-500 text-xs font-bold uppercase tracking-wider">
+                        <AlertTriangle className="w-4 h-4 shrink-0" />
+                        <span>{stepError}</span>
+                    </div>
+                )}
+            </div>
 
-                <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Geography *</label>
-                    <input
-                        type="text"
-                        name="geography"
-                        value={formData.geography}
-                        onChange={handleChange}
-                        placeholder="e.g. North America, Europe"
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.geography ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.geography && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.geography}</p>}
-                </div>
+            <div className="flex items-center justify-between border-t border-slate-100 pt-6 mt-8">
+                <button
+                    type="button"
+                    onClick={handlePrev}
+                    disabled={currentStep === 0}
+                    className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-colors disabled:opacity-30 disabled:pointer-events-none"
+                >
+                    Previous
+                </button>
 
-                <div className="sm:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Current Challenges *</label>
-                    <textarea
-                        name="challenges"
-                        value={formData.challenges}
-                        onChange={handleChange}
-                        rows={3}
-                        placeholder="Briefly describe your key pipeline, margin, or sales speed challenges."
-                        className={`w-full px-4 py-3 rounded-xl border ${errors.challenges ? 'border-red-500 focus:ring-red-500' : 'border-slate-200 focus:ring-blue-500'} focus:outline-none focus:ring-2`}
-                    />
-                    {errors.challenges && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.challenges}</p>}
-                </div>
-
-                <div className="sm:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Business Objectives</label>
-                    <textarea
-                        name="objectives"
-                        value={formData.objectives}
-                        onChange={handleChange}
-                        rows={2}
-                        placeholder="e.g. Double revenue velocity, identify 3 new profit pools."
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-blue-500 focus:outline-none focus:ring-2"
-                    />
-                </div>
-
-                <div className="sm:col-span-2 text-center mt-4">
-                    <button
-                        type="submit"
-                        disabled={status === 'submitting'}
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl text-base font-bold transition-all disabled:opacity-50"
-                    >
-                        {status === 'submitting' ? 'Submitting Form...' : 'Submit Strategic Profile'}
-                        <ArrowRight className="w-5 h-5" />
-                    </button>
-                </div>
-            </form>
+                <button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={status === 'submitting'}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-bold transition-all disabled:opacity-50"
+                >
+                    {currentStep === diagnosticSteps.length - 1 ? (status === 'submitting' ? 'Submitting...' : 'Submit Profile') : 'Next Question'}
+                    <ArrowRight className="w-4 h-4" />
+                </button>
+            </div>
         </div>
     );
 }
 
 export default function DiscoveryPage() {
-    const { slug } = useParams<{ slug: string }>();
+    const { type, slug } = useParams<{ type?: string; slug: string }>();
     const [activePoolTab, setActivePoolTab] = useState<'overview' | 'b2b' | 'b2c'>('overview');
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [slug]);
+    }, [slug, type]);
 
     const isParentOverview = !slug || slug === 'profit-pool-discovery';
 
@@ -1464,7 +1479,7 @@ export default function DiscoveryPage() {
         );
     }
 
-    const pageSlug = slug || 'market-discovery';
+    const pageSlug = type ? `${type}-${slug}` : (slug || 'market-discovery');
     const data = discoveryPagesData[pageSlug];
 
     if (!data) {

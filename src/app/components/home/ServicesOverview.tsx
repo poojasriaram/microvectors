@@ -72,7 +72,7 @@ export default function ServicesOverview() {
                             Enterprise Capabilities
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight drop-shadow-sm">
-                            Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">AI Solutions</span>
+                            Trusted <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Enterprise Ecosystem</span>
                         </h2>
                         <p className="text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
                             Our integrated suite of autonomous tools designed to accelerate your revenue pipeline from first touch to expansion.

@@ -27,6 +27,8 @@ export default function Navigation() {
     const [activeOfferingsCat, setActiveOfferingsCat] = useState("profit-pools");
     const [activeOfferingsSubCat, setActiveOfferingsSubCat] = useState<"b2b" | "b2c">("b2b");
     const [activeIndustriesCat, setActiveIndustriesCat] = useState("b2b");
+    const [activeOfferingGroup, setActiveOfferingGroup] = useState("b2b");
+    const [activeIndustryGroup, setActiveIndustryGroup] = useState("b2b");
     const location = useLocation();
 
     // Handle scroll effect
@@ -87,80 +89,160 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <div
                                             className={`
-                                                absolute top-[calc(100%)] left-0 w-[300px] bg-white border border-slate-200 shadow-xl rounded-[12px] p-2
-                                                transition-all duration-200 ease-out origin-top-left
+                                                absolute top-[calc(100%)] left-1/2 -translate-x-1/2 w-[850px] bg-white border border-slate-200 shadow-2xl rounded-[12px]
+                                                transition-all duration-200 ease-out origin-top overflow-hidden flex min-h-[380px] z-50
                                                 ${hoveredItem === item.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible pointer-events-none'}
                                             `}
                                         >
                                             {/* Invisible bridge for hover */}
                                             <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
                                             
-                                            <div className="flex flex-col gap-0.5">
-                                                {item.dropdown.categories ? (
-                                                    (() => {
-                                                        const groups: any[] = [];
-                                                        item.dropdown.categories.forEach((cat: any) => {
-                                                            if (cat.id === "profit-pools") {
-                                                                groups.push({
-                                                                    id: "b2b-profit-pools",
-                                                                    title: "B2B Profit Pools",
-                                                                    items: cat.b2bItems
-                                                                });
-                                                                groups.push({
-                                                                    id: "b2c-profit-pools",
-                                                                    title: "B2C Profit Pools",
-                                                                    items: cat.b2cItems
-                                                                });
-                                                            } else {
-                                                                groups.push(cat);
-                                                            }
-                                                        });
-
-                                                        return groups.map((grp: any, grpIdx: number) => (
-                                                            <div key={grpIdx} className="group/category relative">
-                                                                <div className="flex items-center justify-between px-3 py-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all cursor-pointer">
-                                                                    <span>{grp.title}</span>
-                                                                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/category:translate-x-0.5 transition-transform" />
-                                                                </div>
-                                                                
-                                                                {/* Flyout Submenu */}
-                                                                <div className="absolute top-0 left-full ml-1 w-[300px] bg-white border border-slate-200 shadow-xl rounded-[12px] p-2 transition-all duration-150 origin-top opacity-0 invisible group-hover/category:opacity-100 group-hover/category:visible">
-                                                                    <div className="flex flex-col gap-0.5">
-                                                                        {grp.items?.map((sub: any, sIdx: number) => {
-                                                                            const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                                            return (
-                                                                                <Link
-                                                                                    key={sIdx}
-                                                                                    to={sub.path}
-                                                                                    onClick={() => setHoveredItem(null)}
-                                                                                    className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12.5px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
-                                                                                >
-                                                                                    <IconComponent className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                                                                                    <span className="truncate">{sub.name}</span>
-                                                                                </Link>
-                                                                            );
-                                                                        })}
-                                                                    </div>
-                                                                </div>
+                                            {/* Left Column: Categories List */}
+                                            <div className="w-[35%] bg-slate-50/80 border-r border-slate-100 p-5 flex flex-col gap-1 shrink-0 justify-center">
+                                                {item.name === "Offerings" ? (
+                                                    <div className="flex flex-col gap-1.5">
+                                                        {/* Profit Pools parent item */}
+                                                        <div className="flex flex-col gap-1">
+                                                            <div className="px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-400">
+                                                                Profit Pools
                                                             </div>
-                                                        ));
-                                                    })()
-                                                ) : (
-                                                    item.dropdown.items?.map((sub: any, sIdx: number) => {
-                                                        const IconComponent = Icons[sub.icon] || ArrowRight;
-                                                        return (
-                                                            <Link
-                                                                key={sIdx}
-                                                                to={sub.path}
-                                                                onClick={() => setHoveredItem(null)}
-                                                                className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                            <div className="pl-2 flex flex-col gap-1">
+                                                                <button
+                                                                    onMouseEnter={() => setActiveOfferingGroup("b2b")}
+                                                                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all text-left focus:outline-none ${activeOfferingGroup === 'b2b' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                >
+                                                                    <span>B2B Profit Pools</span>
+                                                                    <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                </button>
+                                                                <button
+                                                                    onMouseEnter={() => setActiveOfferingGroup("b2c")}
+                                                                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all text-left focus:outline-none ${activeOfferingGroup === 'b2c' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                >
+                                                                    <span>B2C Profit Pools</span>
+                                                                    <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        {/* Other Categories */}
+                                                        {item.dropdown.categories?.filter((cat: any) => cat.id !== "profit-pools").map((cat: any, cIdx: number) => (
+                                                            <button
+                                                                key={cIdx}
+                                                                onMouseEnter={() => setActiveOfferingGroup(cat.id)}
+                                                                className={`flex items-center justify-between px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all text-left focus:outline-none ${activeOfferingGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
                                                             >
-                                                                <IconComponent className="w-4 h-4 text-slate-400 shrink-0" />
-                                                                <span className="truncate">{sub.name}</span>
-                                                            </Link>
-                                                        );
-                                                    })
+                                                                <span>{cat.title}</span>
+                                                                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                ) : item.name === "Industries" ? (
+                                                    <div className="flex flex-col gap-1.5">
+                                                        {item.dropdown.categories?.map((cat: any, cIdx: number) => (
+                                                            <button
+                                                                key={cIdx}
+                                                                onMouseEnter={() => setActiveIndustryGroup(cat.id)}
+                                                                className={`flex items-center justify-between px-3 py-2 rounded-lg text-[13.5px] font-semibold transition-all text-left focus:outline-none ${activeIndustryGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                            >
+                                                                <span>{cat.title}</span>
+                                                                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    /* Solutions, Partners, Company, etc. */
+                                                    <div className="flex flex-col gap-1.5 p-3">
+                                                        <div className="text-[14px] font-bold text-slate-900 leading-tight">
+                                                            {item.name}
+                                                        </div>
+                                                        <p className="text-[12px] text-slate-500 leading-relaxed">
+                                                            Explore our {item.name.toLowerCase()} resources, links, and detailed tools.
+                                                        </p>
+                                                    </div>
                                                 )}
+                                            </div>
+
+                                            {/* Right Column: Display Centered Content */}
+                                            <div className="flex-1 bg-white p-6 flex flex-col justify-center items-center overflow-y-auto">
+                                                <div className="w-full max-w-md flex flex-col gap-2">
+                                                    {item.name === "Offerings" ? (
+                                                        (() => {
+                                                            let selectedItems: any[] = [];
+                                                            if (activeOfferingGroup === "b2b") {
+                                                                selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2bItems || [];
+                                                            } else if (activeOfferingGroup === "b2c") {
+                                                                selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === "profit-pools")?.b2cItems || [];
+                                                            } else {
+                                                                selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeOfferingGroup)?.items || [];
+                                                            }
+
+                                                            return (
+                                                                <div className="grid grid-cols-1 gap-1.5 w-full">
+                                                                    {selectedItems.map((sub: any, sIdx: number) => {
+                                                                        const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                        return (
+                                                                            <Link
+                                                                                key={sIdx}
+                                                                                to={sub.path}
+                                                                                onClick={() => setHoveredItem(null)}
+                                                                                className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                            >
+                                                                                <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
+                                                                                    <IconComponent className="w-4 h-4" />
+                                                                                </div>
+                                                                                <span className="truncate">{sub.name}</span>
+                                                                            </Link>
+                                                                        );
+                                                                    })}
+                                                                </div>
+                                                            );
+                                                        })()
+                                                    ) : item.name === "Industries" ? (
+                                                        (() => {
+                                                            const selectedItems = item.dropdown.categories?.find((cat: any) => cat.id === activeIndustryGroup)?.items || [];
+                                                            return (
+                                                                <div className="grid grid-cols-1 gap-1.5 w-full">
+                                                                    {selectedItems.map((sub: any, sIdx: number) => {
+                                                                        const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                        return (
+                                                                            <Link
+                                                                                key={sIdx}
+                                                                                to={sub.path}
+                                                                                onClick={() => setHoveredItem(null)}
+                                                                                className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                            >
+                                                                                <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
+                                                                                    <IconComponent className="w-4 h-4" />
+                                                                                </div>
+                                                                                <span className="truncate">{sub.name}</span>
+                                                                            </Link>
+                                                                        );
+                                                                    })}
+                                                                </div>
+                                                            );
+                                                        })()
+                                                    ) : (
+                                                        /* Solutions, Partners, Company items listed directly */
+                                                        <div className="grid grid-cols-1 gap-1.5 w-full">
+                                                            {item.dropdown.items?.map((sub: any, sIdx: number) => {
+                                                                const IconComponent = Icons[sub.icon] || ArrowRight;
+                                                                return (
+                                                                    <Link
+                                                                        key={sIdx}
+                                                                        to={sub.path}
+                                                                        onClick={() => setHoveredItem(null)}
+                                                                        className="flex items-center gap-3 p-2 rounded-lg text-[13px] font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-all hover:translate-x-1 duration-200"
+                                                                    >
+                                                                        <div className="bg-slate-50 text-blue-600 p-1.5 rounded-lg shrink-0">
+                                                                            <IconComponent className="w-4 h-4" />
+                                                                        </div>
+                                                                        <span className="truncate">{sub.name}</span>
+                                                                    </Link>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     )}

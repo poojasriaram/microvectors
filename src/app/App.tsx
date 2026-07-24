@@ -60,6 +60,13 @@ const PageLoader = () => (
   </div>
 );
 
+function NavigateToIndustriesSection() {
+  const { slug } = useParams<{ slug: string }>();
+  let section = slug || 'startup-early-stage';
+  if (slug === 'startup') section = 'startup-early-stage';
+  return <Navigate to={`/industries?section=${section}`} replace />;
+}
+
 export default function App() {
   return (
     <Router>
@@ -117,6 +124,8 @@ export default function App() {
               <Route path="/offerings/competitive-discovery" element={<Navigate to="/offerings/profit-pool-discovery/competitive-discovery" replace />} />
               <Route path="/offerings/customer-discovery" element={<Navigate to="/offerings/profit-pool-discovery/customer-discovery" replace />} />
               <Route path="/offerings/product-market-fit-discovery" element={<Navigate to="/offerings/profit-pool-discovery/product-market-fit-discovery" replace />} />
+              <Route path="/offerings/:type/:slug" element={<DiscoveryPage />} />
+              <Route path="/industries/:slug" element={<NavigateToIndustriesSection />} />
               <Route path="/offerings/:slug" element={<DiscoveryPage />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />
             </Routes>
