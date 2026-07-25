@@ -1,79 +1,94 @@
-import { HeartPulse, Landmark, Factory, ShoppingCart, GraduationCap, Truck, Rocket, Building2, Landmark as GovIcon } from 'lucide-react';
+import { 
+    Briefcase, Factory, ShoppingBag, Landmark, Code, Rocket, Building2, 
+    HeartPulse, GraduationCap, ShoppingCart, Home, Zap, ArrowRight 
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const industries = [
     {
-        icon: HeartPulse,
-        title: 'Healthcare',
-        useCases: 'Patient Data Management, Telehealth Platforms, Predictive Diagnostics',
-        technologies: 'AI & ML, Cloud Infrastructure, IoT',
-        benefits: 'Enhanced patient care, secure EHR compliance, reduced operational costs',
-        link: '/#industries'
-    },
-    {
-        icon: Landmark,
-        title: 'Finance',
-        useCases: 'Fraud Detection, Algorithmic Trading, Automated KYC',
-        technologies: 'Machine Learning, Blockchain, Data Engineering',
-        benefits: 'Risk mitigation, personalized banking experiences, regulatory compliance',
-        link: '/#industries'
+        icon: Briefcase,
+        title: 'Service Industries',
+        useCases: 'Consulting, Healthcare, Education, Hospitality, Logistics',
+        focus: 'Reputation building + lead generation through trust audits.',
+        link: '/industries?section=service-industries'
     },
     {
         icon: Factory,
-        title: 'Manufacturing',
-        useCases: 'Predictive Maintenance, Supply Chain Automation, Digital Twins',
-        technologies: 'IoT, Cloud Computing, Automation',
-        benefits: 'Minimized downtime, optimized inventory, accelerated production cycles',
-        link: '/#industries'
+        title: 'Industrial Industries',
+        useCases: 'Manufacturing, Utilities, Infrastructure, Supply Chain, Construction, Energy, Automotive, Chemicals, Textiles, Heavy Machinery',
+        focus: 'Compliance, disaster vulnerability audits, operational risk coverage, and digital procurement outreach.',
+        link: '/industries?section=industrial-industries'
     },
     {
-        icon: ShoppingCart,
-        title: 'Retail',
-        useCases: 'Inventory Forecasting, Personalized Recommendations, POS Systems',
-        technologies: 'Generative AI, Web Technologies, Data Analytics',
-        benefits: 'Higher conversion rates, improved customer retention, streamlined ops',
-        link: '/#industries'
+        icon: ShoppingBag,
+        title: 'D2C Companies',
+        useCases: 'Consumer Brands, E‑commerce, Lifestyle Products, Food & Beverages, Fashion, Electronics',
+        focus: 'Digital brand acceleration, customer trust, cyber protection, influencer campaigns.',
+        link: '/industries?section=d2c-companies'
     },
     {
-        icon: GraduationCap,
-        title: 'Education',
-        useCases: 'E-Learning Platforms, Automated Grading, Student Analytics',
-        technologies: 'Cloud Computing, Web Technologies, AI',
-        benefits: 'Scalable learning environments, personalized education paths',
-        link: '/#industries'
+        icon: Landmark,
+        title: 'FinTech & Lending',
+        useCases: 'Digital Lending, NBFCs, Payment Platforms, Wealth Management, Insurance Tech',
+        focus: 'Cybersecurity audits, regulatory compliance, liability protection, trust‑building with investors.',
+        link: '/industries?section=fintech-lending'
     },
     {
-        icon: Truck,
-        title: 'Logistics',
-        useCases: 'Route Optimization, Fleet Management, Real-time Tracking',
-        technologies: 'Data Engineering, Automation, Cloud',
-        benefits: 'Reduced delivery times, fuel efficiency, transparent tracking',
-        link: '/#industries'
+        icon: Code,
+        title: 'SaaS Products',
+        useCases: 'Software Platforms, AI Tools, Cloud Solutions, Productivity Apps, Enterprise SaaS',
+        focus: 'Customer outreach, penetration testing, credibility building, subscription growth.',
+        link: '/industries?section=saas-products'
     },
     {
         icon: Rocket,
         title: 'Startups',
-        useCases: 'MVP Development, Scalable Architectures, Growth Hacking',
-        technologies: 'Web Technologies, Cloud Computing, AI APIs',
-        benefits: 'Faster time-to-market, agile iterations, cost-effective scaling',
-        link: '/#industries'
+        useCases: 'Early‑stage ventures across all sectors',
+        focus: 'Affordable liability insurance, investor confidence, growth resilience, digital lead generation.',
+        link: '/industries?section=startups'
     },
     {
         icon: Building2,
         title: 'Enterprises',
-        useCases: 'Legacy Modernization, ERP Integrations, Corporate Portals',
-        technologies: 'Enterprise Platforms, Cyber Security, Cloud',
-        benefits: 'Silo reduction, global scalability, robust security frameworks',
-        link: '/#industries'
+        useCases: 'Large corporates and established firms',
+        focus: 'End‑to‑end liability coverage, automation of sales hunting, sector‑specific solutions, global compliance.',
+        link: '/industries?section=enterprises'
     },
     {
-        icon: GovIcon,
-        title: 'Government',
-        useCases: 'Smart City Infrastructure, Citizen Portals, Secure Data Vaults',
-        technologies: 'Cyber Security, Data Engineering, Enterprise Platforms',
-        benefits: 'Enhanced public service delivery, strict compliance, data sovereignty',
-        link: '/#industries'
+        icon: HeartPulse,
+        title: 'Healthcare & Life Sciences',
+        useCases: 'Hospitals, Clinics, Pharma, Diagnostics, Biotech',
+        focus: 'Compliance audits, patient data protection, disaster readiness.',
+        link: '/industries?section=healthcare-life-sciences'
+    },
+    {
+        icon: GraduationCap,
+        title: 'Education & EdTech',
+        useCases: 'Schools, Universities, Online Learning Platforms',
+        focus: 'Reputation acceleration, digital trust, cyber safety for student data.',
+        link: '/industries?section=education-edtech'
+    },
+    {
+        icon: ShoppingCart,
+        title: 'Retail & FMCG',
+        useCases: 'Supermarkets, Consumer Goods, Lifestyle Chains',
+        focus: 'Digital lead generation, customer trust, cyber audits for POS systems.',
+        link: '/industries?section=retail-fmcg'
+    },
+    {
+        icon: Home,
+        title: 'Real Estate & Construction',
+        useCases: 'Developers, Builders, Smart Infrastructure Projects',
+        focus: 'Compliance, disaster audits, investor confidence.',
+        link: '/industries?section=real-estate-construction'
+    },
+    {
+        icon: Zap,
+        title: 'Energy & Utilities',
+        useCases: 'Power, Renewable Energy, Oil & Gas',
+        focus: 'Operational risk audits, compliance, disaster resilience.',
+        link: '/industries?section=energy-utilities'
     }
 ];
 
@@ -84,57 +99,65 @@ export default function IndustriesSection() {
             <div className="absolute inset-0 pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-bold text-xs tracking-widest uppercase mb-4 shadow-xs">
+                        Sector Specific Solutions
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5 tracking-tight text-slate-900 font-heading">
                         Built for Complex Industries
                     </h2>
-                    <p className="text-lg text-slate-600">
-                        Our autonomous models and enterprise architectures are tailored to industry-specific data and compliance needs.
+                    <p className="text-lg text-slate-600 font-medium">
+                        Tailored compliance, risk mitigation, reputation building, and digital outreach for your specific industry sector.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-                    {industries.map((industry, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <Link 
-                                to={industry.link}
-                                className="group flex flex-col h-full p-8 rounded-3xl bg-white border border-slate-200 hover:border-blue-300 transition-all duration-300 relative overflow-hidden shadow-sm hover:shadow-md"
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {industries.map((industry, index) => {
+                        const Icon = industry.icon;
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="bg-white rounded-[20px] p-8 border border-slate-200/80 shadow-xs hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between group"
                             >
-                                {/* Hover Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                
-                                <div className="relative z-10 flex-grow">
-                                    <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-blue-50 transition-colors duration-300 border border-slate-200 group-hover:border-blue-200">
-                                        <industry.icon className="w-6 h-6 text-slate-500 group-hover:text-blue-600 transition-colors duration-300" />
+                                <div>
+                                    <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-xs">
+                                        <Icon className="w-6 h-6" />
                                     </div>
                                     
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-6 group-hover:text-blue-700 transition-colors">{industry.title}</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors font-heading">
+                                        {industry.title}
+                                    </h3>
                                     
-                                    <div className="space-y-4">
-                                        <div>
-                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Use Cases</div>
-                                            <div className="text-sm text-slate-700 font-medium leading-relaxed">{industry.useCases}</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Technologies</div>
-                                            <div className="text-sm text-blue-700 font-medium leading-relaxed">{industry.technologies}</div>
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-1">Benefits</div>
-                                            <div className="text-sm text-slate-700 font-medium leading-relaxed">{industry.benefits}</div>
-                                        </div>
+                                    <div className="mb-4">
+                                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">Sectors Covered</span>
+                                        <p className="text-xs text-slate-600 font-medium leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                            {industry.useCases}
+                                        </p>
+                                    </div>
+                                    
+                                    <div className="mb-6">
+                                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-blue-600 block mb-1">Core Focus</span>
+                                        <p className="text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
+                                            {industry.focus}
+                                        </p>
                                     </div>
                                 </div>
-                            </Link>
-                        </motion.div>
-                    ))}
+
+                                <Link
+                                    to={industry.link}
+                                    className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors pt-4 border-t border-slate-100 group-hover:gap-3"
+                                >
+                                    <span>Explore Sector Solutions</span>
+                                    <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

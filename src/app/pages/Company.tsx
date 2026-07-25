@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
     Target,
@@ -20,6 +20,7 @@ import LeadershipSection from '../components/LeadershipSection';
 
 export default function Company() {
     const location = useLocation();
+    const [activeCompanyCat, setActiveCompanyCat] = useState<string>('all');
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Search, Target, TrendingUp, BarChart3, ShieldCheck, Users, Rocket,
     ArrowRight, CheckCircle2, AlertTriangle, Lightbulb, ChevronRight, HelpCircle, Layers,
-    DollarSign, Building2, ShoppingBag, Sparkles, Network
+    DollarSign, Building2, ShoppingBag, Sparkles, Network, Landmark
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
 import { submitToSheet } from '../../lib/sheets';
@@ -1027,6 +1027,270 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
                 actionableTakeaway: "Defer all non-essential analytics tracking scripts until after payment confirmation."
             }
         ]
+    },
+    "ai-demand-discovery": {
+        title: "AI Demand Discovery",
+        route: "/offerings/ai-growth/ai-demand-discovery",
+        question: "How do we sense hidden buying signals across web and dark social?",
+        spin: {
+            situation: "Your demand generation relies on inbound forms and active sales conversations.",
+            problem: "67% of enterprise AI demand is latent: employees using shadow tools, compliance officers scrambling for governance.",
+            implication: "You capture only 30% of addressable market pipeline.",
+            needPayoff: "Surface latent demand before competitors reach the prospect."
+        },
+        frameworks: [
+            "Voice of Customer Deep Mining",
+            "Derived Demand Tracking",
+            "FOMO & Competitive Pressure Modeling"
+        ],
+        profitPool: [
+            "12,400+ intent signals captured monthly",
+            "Pipeline growth: +300%",
+            "Engage prospects 6 months pre-RFP"
+        ],
+        metrics: [
+            { category: "Demand", metric: "Latent Intent Surfaced", baseline: "15%", target: "67%", frequency: "Monthly" }
+        ],
+        impact: "Pipeline: +300% · Latent Intent: 67%",
+        treeOfThoughts: [
+            {
+                phase: "Demand Sensing",
+                thought: "Shadow tool usage and forum activity indicate upcoming corporate procurement requirements.",
+                deduction: "Automated intent tracking identifies enterprise buying committees early.",
+                actionableTakeaway: "Deploy real-time buyer signal ingestion across active account profiles."
+            }
+        ]
+    },
+    "revenue-acceleration": {
+        title: "AI-Driven Revenue Acceleration",
+        route: "/offerings/ai-growth/revenue-acceleration",
+        question: "How do we compress deal cycles and scale revenue velocity?",
+        spin: {
+            situation: "Sales teams spend 65% of their working hours on manual task administration.",
+            problem: "40% of pipeline deals stall indefinitely due to unhandled friction.",
+            implication: "Forecast accuracy drops below 70% and win rates erode.",
+            needPayoff: "Autonomous sales orchestration that dynamically moves deals forward."
+        },
+        frameworks: [
+            "Predictive Opportunity Prioritization",
+            "Autonomous Sales Workflows",
+            "Conversational AI Deal Acceleration"
+        ],
+        profitPool: [
+            "4-6x faster sales velocity",
+            "35-50% shorter sales cycles",
+            "85%+ forecast accuracy"
+        ],
+        metrics: [
+            { category: "Sales Velocity", metric: "Deal Cycle Compression", baseline: "90 days", target: "45 days", frequency: "Monthly" }
+        ],
+        impact: "Sales Velocity: +4x · Win Rate: +35%",
+        treeOfThoughts: [
+            {
+                phase: "Velocity Optimization",
+                thought: "Predictive deal health scoring pinpoints exactly when a deal is stalling.",
+                deduction: "Triggering automated objection resolution nudges buyers forward without rep overhead.",
+                actionableTakeaway: "Activate predictive deal scoring across all active CRM opportunities."
+            }
+        ]
+    },
+    "growth-hacking": {
+        title: "AI-Driven Growth Hacking",
+        route: "/offerings/ai-growth/growth-hacking",
+        question: "How do we run rapid multi-channel experiments to acquire buyers at scale?",
+        spin: {
+            situation: "Traditional growth experiments take weeks to configure, test, and analyze.",
+            problem: "High campaign setup costs slow down iteration speed and limit channel expansion.",
+            implication: "Competitors test 10x faster and capture emerging acquisition channels first.",
+            needPayoff: "Autonomous growth loops that test messaging, audiences, and offers continuously."
+        },
+        frameworks: [
+            "Autonomous Growth Loop Engineering",
+            "Algorithmic Audience Discovery",
+            "Rapid Experimentation Flywheel"
+        ],
+        profitPool: [
+            "2.5x higher conversion rate",
+            "40% CAC payback reduction",
+            "Continuous multi-channel acquisition"
+        ],
+        metrics: [
+            { category: "Growth", metric: "Experiment Iteration Speed", baseline: "1/month", target: "20/week", frequency: "Weekly" }
+        ],
+        impact: "Conversion Lift: 2.5x · CAC: -40%",
+        treeOfThoughts: [
+            {
+                phase: "Growth Experimentation",
+                thought: "AI agents can generate and test 50 messaging variants simultaneously.",
+                deduction: "Budget automatically flows to top-performing ad vectors within 4 hours.",
+                actionableTakeaway: "Automate dynamic copy and image generation across active channels."
+            }
+        ]
+    },
+    "performance-marketing": {
+        title: "AI-Driven Performance Marketing",
+        route: "/offerings/ai-growth/performance-marketing",
+        question: "How do we optimize programmatic ad budgets in real-time across channels?",
+        spin: {
+            situation: "Ad budgets are allocated manually across Google, LinkedIn, and Meta based on historical reports.",
+            problem: "Hourly CPM fluctuations and ad fatigue waste 30%+ of ad budget.",
+            implication: "CAC inflates while marketing attribution remains opaque.",
+            needPayoff: "Algorithmic budget re-allocation that checks performance and adjusts bids hourly."
+        },
+        frameworks: [
+            "Hourly Ad Bid Arbitrage",
+            "Multi-Touch Attribution Engine",
+            "Dynamic Persona Ad Personalization"
+        ],
+        profitPool: [
+            "90%+ attribution accuracy",
+            "35% lower customer acquisition cost",
+            "3x return on ad spend (ROAS)"
+        ],
+        metrics: [
+            { category: "Ad Performance", metric: "Return on Ad Spend (ROAS)", baseline: "1.2x", target: "3.5x", frequency: "Real-time" }
+        ],
+        impact: "ROAS: +300% · CAC: -35%",
+        treeOfThoughts: [
+            {
+                phase: "Ad Optimization",
+                thought: "Hourly bid adjustments prevent budget waste on low-converting time slots.",
+                deduction: "Cross-platform attribution models isolate the exact campaigns driving revenue.",
+                actionableTakeaway: "Deploy automated hourly ad bidding triggers on all major ad platforms."
+            }
+        ]
+    },
+    "enterprise-sales": {
+        title: "Enterprise Sales Acceleration",
+        route: "/offerings/sales-acceleration/enterprise-sales",
+        question: "How do we navigate 10+ stakeholder buying committees in enterprise deals?",
+        spin: {
+            situation: "Enterprise deals involve legal, procurement, IT, and business stakeholders.",
+            problem: "Sales reps engage only 1-2 champions, leaving 80% of the buying committee unaddressed.",
+            implication: "Late-stage procurement blocks and unexpected stakeholder vetoes kill deals.",
+            needPayoff: "Full-committee influence mapping and customized stakeholder value proofing."
+        },
+        frameworks: [
+            "Account Stakeholder Influence Mapping",
+            "Economic Value to Customer (EVC)",
+            "Procurement Risk Mitigation"
+        ],
+        profitPool: [
+            "35% higher enterprise win rate",
+            "CFO approval rate: 90%",
+            "Average Contract Value (ACV) growth: +25%"
+        ],
+        metrics: [
+            { category: "Enterprise", metric: "Committee Engagement Coverage", baseline: "20%", target: "85%", frequency: "Quarterly" }
+        ],
+        impact: "Enterprise Win Rate: +35% · ACV: +25%",
+        treeOfThoughts: [
+            {
+                phase: "Enterprise Navigation",
+                thought: "Procurement requires clear line-item P&L savings proof to approve contracts.",
+                deduction: "Delivering customized financial models early converts procurement from blocker to sponsor.",
+                actionableTakeaway: "Build custom EVC financial calculators for every target enterprise opportunity."
+            }
+        ]
+    },
+    "digital-sales": {
+        title: "Digital & Inside Sales Acceleration",
+        route: "/offerings/sales-acceleration/digital-sales",
+        question: "How do we systemize inside sales motions without manual rep entry?",
+        spin: {
+            situation: "Inside sales reps spend hours drafting initial emails and logging CRM updates.",
+            problem: "Follow-up delays cause prospect interest to cool rapidly.",
+            implication: "MQL-to-SQL conversion stays stuck below 15%.",
+            needPayoff: "Autonomous SDR co-pilots that handle prospecting, follow-ups, and calendar booking."
+        },
+        frameworks: [
+            "Autonomous SDR Co-Pilot",
+            "Cadence Personalization Autopilot",
+            "Real-Time Objection Resolution"
+        ],
+        profitPool: [
+            "10x output from existing sales reps",
+            "15 hours/week saved per SDR",
+            "3x increase in qualified booked meetings"
+        ],
+        metrics: [
+            { category: "Productivity", metric: "Booked Meetings per Rep", baseline: "8/month", target: "28/month", frequency: "Monthly" }
+        ],
+        impact: "Rep Productivity: +10x · SDR Meetings: +300%",
+        treeOfThoughts: [
+            {
+                phase: "Inside Sales Automation",
+                thought: "Instant follow-up within 5 minutes increases meeting booking probability by 9x.",
+                deduction: "AI agents handling initial inquiries guarantee 24/7 immediate responses.",
+                actionableTakeaway: "Enable automated SDR response playbooks for all inbound leads."
+            }
+        ]
+    },
+    "d2c-sales": {
+        title: "D2C & High-Velocity Sales Acceleration",
+        route: "/offerings/sales-acceleration/d2c-sales",
+        question: "How do we maximize instant checkout conversions for high-volume buyers?",
+        spin: {
+            situation: "High-volume D2C traffic encounters static checkout pages with high bounce rates.",
+            problem: "75% of buyers abandon cart due to friction or lack of instant trust proof.",
+            implication: "CAC inflation squeezes direct-to-consumer profit margins.",
+            needPayoff: "Dynamic checkout personalization that adapts in real-time to visitor behavior."
+        },
+        frameworks: [
+            "Behavioral Checkout Personalization",
+            "Cart Abandonment Friction Resolution",
+            "Dynamic Social Proof Engine"
+        ],
+        profitPool: [
+            "Cart abandonment reduced by 35%",
+            "85% conversion rate improvement",
+            "D2C margin expanded by +30 points"
+        ],
+        metrics: [
+            { category: "D2C Conversion", metric: "Cart Abandonment Rate", baseline: "75%", target: "48%", frequency: "Real-time" }
+        ],
+        impact: "Conversion: +85% · Cart Abandonment: -35%",
+        treeOfThoughts: [
+            {
+                phase: "D2C Checkout",
+                thought: "Removing payment friction and displaying live social proof increases conversion instantly.",
+                deduction: "A/B testing dynamic trust elements pinpoints optimal checkout layouts.",
+                actionableTakeaway: "Implement dynamic trust and shipping widgets on checkout pages."
+            }
+        ]
+    },
+    "bfsi-sales": {
+        title: "BFSI Sales Acceleration",
+        route: "/offerings/sales-acceleration/bfsi-sales",
+        question: "How do we execute compliant, high-trust sales in regulated financial services?",
+        spin: {
+            situation: "Financial services sales face strict compliance, audit, and security requirements.",
+            problem: "Manual compliance reviews delay deal execution by weeks.",
+            implication: "High-net-worth prospects drop out during lengthy onboarding cycles.",
+            needPayoff: "SOC2 and ISO 27001 compliant automated sales workflows."
+        },
+        frameworks: [
+            "Regulatory Compliance Automation",
+            "Audit-Ready Lead Attribution",
+            "Secure Banking Funnel Architecture"
+        ],
+        profitPool: [
+            "100% compliance pass rate",
+            "45% reduction in onboarding friction",
+            "Higher high-net-worth customer retention"
+        ],
+        metrics: [
+            { category: "BFSI Compliance", metric: "Onboarding Cycle Time", baseline: "30 days", target: "5 days", frequency: "Monthly" }
+        ],
+        impact: "Compliance Pass: 100% · Processing Time: -45%",
+        treeOfThoughts: [
+            {
+                phase: "BFSI Compliance",
+                thought: "Automating document verification within a secure vault speeds up account opening.",
+                deduction: "Compliant automated workflows prevent deal drop-offs while satisfying auditors.",
+                actionableTakeaway: "Deploy single-tenant secure onboarding modules for financial leads."
+            }
+        ]
     }
 };
 
@@ -1286,9 +1550,296 @@ function DiagnosticForm({ offeringName }: { offeringName: string }) {
     );
 }
 
+function ConsolidatedOfferingsView({ mode }: { mode: 'b2b' | 'b2c' | 'ai-growth' | 'sales-acceleration' }) {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            const rawHash = location.hash.substring(1);
+            setTimeout(() => {
+                const el = document.getElementById(rawHash);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 150);
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [location.hash, mode]);
+
+    const isB2B = mode === 'b2b';
+
+    const titleMap: Record<string, string> = {
+        'b2b': "B2B Focus & Profit Pools",
+        'b2c': "B2C Focus & Profit Pools",
+        'ai-growth': "AI Growth Suite",
+        'sales-acceleration': "Sales Acceleration Suite"
+    };
+
+    const badgeMap: Record<string, string> = {
+        'b2b': "B2B Autonomous Revenue Engine",
+        'b2c': "High-Velocity B2C Growth Suite",
+        'ai-growth': "Autonomous Pipeline & Expansion Engine",
+        'sales-acceleration': "High-Velocity Sales Execution Suite"
+    };
+
+    const descMap: Record<string, string> = {
+        'b2b': "Unified B2B Architecture: All 7 autonomous AI revenue, demand sensing, and pipeline execution engines consolidated on a single enterprise platform.",
+        'b2c': "Unified B2C Architecture: All 7 high-velocity consumer acquisition, offer personalization, and margin expansion engines consolidated on a single enterprise platform.",
+        'ai-growth': "Unified AI Growth Architecture: All 4 predictive pipeline, performance marketing, and revenue acceleration engines consolidated on a single enterprise platform.",
+        'sales-acceleration': "Unified Sales Execution Architecture: All 4 enterprise, inside sales, D2C, and BFSI acceleration engines consolidated on a single enterprise platform."
+    };
+
+    const title = titleMap[mode] || "Enterprise Solutions";
+    const badgeText = badgeMap[mode] || "Enterprise Suite";
+    const heroDesc = descMap[mode] || "Consolidated Architecture.";
+
+    let modules: Array<{ key: string; id: string; aliases?: string[]; name: string; icon: any }> = [];
+
+    if (mode === 'b2b') {
+        modules = [
+            { key: "b2b-market-discovery", id: "market-discovery", aliases: ["ai-revenue-acceleration", "revenue-acceleration"], name: "B2B Market Discovery / Revenue Acceleration", icon: Search },
+            { key: "b2b-demand-discovery", id: "demand-discovery", aliases: ["ai-sales-acceleration", "sales-acceleration"], name: "B2B Demand Discovery / Sales Acceleration", icon: Target },
+            { key: "b2b-value-discovery", id: "value-discovery", aliases: ["ai-growth-engine", "growth-engine"], name: "B2B Value Discovery / Growth Engine", icon: DollarSign },
+            { key: "b2b-channel-discovery", id: "channel-discovery", aliases: ["ai-lead-generation", "lead-generation"], name: "B2B Channel Discovery / Lead Generation", icon: Network },
+            { key: "b2b-competitive-discovery", id: "competitive-discovery", aliases: ["ai-demand-discovery"], name: "B2B Competitive Discovery / Pre-RFP Sensing", icon: ShieldCheck },
+            { key: "b2b-customer-discovery", id: "customer-discovery", aliases: ["ai-customer-intelligence"], name: "B2B Customer Discovery / Account Intelligence", icon: Users },
+            { key: "b2b-product-market-fit-discovery", id: "product-market-fit-discovery", aliases: ["ai-automation", "product-market-fit"], name: "B2B Product-Market Fit / Roadmap Validation", icon: Sparkles }
+        ];
+    } else if (mode === 'b2c') {
+        modules = [
+            { key: "b2c-market-discovery", id: "market-discovery", aliases: ["ai-revenue-acceleration", "revenue-acceleration"], name: "B2C Market Discovery / Revenue Acceleration", icon: Search },
+            { key: "b2c-demand-discovery", id: "demand-discovery", aliases: ["ai-sales-acceleration", "sales-acceleration"], name: "B2C Demand Discovery / Sales Acceleration", icon: Target },
+            { key: "b2c-value-discovery", id: "value-discovery", aliases: ["ai-growth-engine", "growth-engine"], name: "B2C Value Discovery / Growth Engine", icon: DollarSign },
+            { key: "b2c-channel-discovery", id: "channel-discovery", aliases: ["ai-lead-generation", "lead-generation"], name: "B2C Channel Discovery / Lead Generation", icon: Network },
+            { key: "b2c-competitive-discovery", id: "competitive-discovery", aliases: ["ai-demand-discovery"], name: "B2C Competitive Discovery / Keyword Arbitrage", icon: ShieldCheck },
+            { key: "b2c-customer-discovery", id: "customer-discovery", aliases: ["ai-customer-intelligence"], name: "B2C Customer Discovery / Cohort Intelligence", icon: Users },
+            { key: "b2c-product-market-fit-discovery", id: "product-market-fit-discovery", aliases: ["ai-automation", "product-market-fit"], name: "B2C Product-Market Fit / Cart Abandonment Resolution", icon: Sparkles }
+        ];
+    } else if (mode === 'ai-growth') {
+        modules = [
+            { key: "ai-demand-discovery", id: "ai-demand-discovery", aliases: ["demand-discovery"], name: "AI Demand Discovery Engine", icon: Search },
+            { key: "revenue-acceleration", id: "revenue-acceleration", aliases: ["ai-revenue-acceleration"], name: "AI-Driven Revenue Acceleration", icon: TrendingUp },
+            { key: "growth-hacking", id: "growth-hacking", aliases: ["ai-growth-hacking"], name: "AI-Driven Growth Hacking", icon: Rocket },
+            { key: "performance-marketing", id: "performance-marketing", aliases: ["ai-performance-marketing"], name: "AI-Driven Performance Marketing", icon: BarChart3 }
+        ];
+    } else if (mode === 'sales-acceleration') {
+        modules = [
+            { key: "enterprise-sales", id: "enterprise-sales", aliases: ["enterprise"], name: "Enterprise Sales Acceleration", icon: Building2 },
+            { key: "digital-sales", id: "digital-sales", aliases: ["digital"], name: "Digital & Inside Sales Acceleration", icon: Layers },
+            { key: "d2c-sales", id: "d2c-sales", aliases: ["d2c"], name: "D2C & High-Velocity Sales Acceleration", icon: ShoppingBag },
+            { key: "bfsi-sales", id: "bfsi-sales", aliases: ["bfsi"], name: "BFSI Sales Acceleration", icon: Landmark }
+        ];
+    }
+
+    return (
+        <div className="min-h-screen bg-slate-50 text-slate-900 pt-24 lg:pt-32 pb-24">
+            {/* Breadcrumb Navigation */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                <nav className="flex items-center gap-2 text-sm text-slate-500 font-medium">
+                    <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
+                    <ChevronRight className="w-4 h-4" />
+                    <Link to="/offerings" className="hover:text-blue-600 transition-colors">Offerings</Link>
+                    <ChevronRight className="w-4 h-4" />
+                    <span className="text-blue-600 font-bold">{title}</span>
+                </nav>
+            </div>
+
+            {/* Hero Header */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+                <Reveal width="100%">
+                    <div className={`rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden ${isB2B ? 'bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900' : 'bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900'}`}>
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
+                            <Building2 className="w-4 h-4 text-blue-400" />
+                            {badgeText}
+                        </div>
+                        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 font-heading leading-tight text-white drop-shadow-md">
+                            {title}
+                        </h1>
+                        <p className="text-lg sm:text-xl text-slate-300 font-medium max-w-3xl mb-8 leading-relaxed">
+                            {heroDesc}
+                        </p>
+                        <div className="flex flex-wrap items-center gap-4">
+                            <a href="#market-discovery" className="inline-flex items-center justify-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-base rounded-xl transition-all shadow-lg shadow-blue-500/20">
+                                Explore All 7 Engines
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </a>
+                            <Link to="/book-consultation" className="inline-flex items-center justify-center px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base rounded-xl transition-all backdrop-blur-md">
+                                Talk to an Expert
+                            </Link>
+                        </div>
+                    </div>
+                </Reveal>
+            </div>
+
+            {/* All 7 Offering Sections */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {modules.map((mod, idx) => {
+                    const data = discoveryPagesData[mod.key];
+                    if (!data) return null;
+                    const IconComp = mod.icon;
+
+                    return (
+                        <section key={idx} id={mod.id} className="mb-24 scroll-mt-28 relative bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-lg overflow-hidden">
+                            {/* Additional Invisible Anchor Divs for Aliases */}
+                            {mod.aliases?.map(alias => (
+                                <div key={alias} id={alias} className="absolute -top-28 left-0 pointer-events-none" />
+                            ))}
+
+                            {/* Engine Header */}
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-100 pb-8 mb-8">
+                                <div>
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-xs font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200/60 px-3.5 py-1 rounded-full flex items-center gap-1.5">
+                                            <IconComp className="w-4 h-4 text-blue-600" />
+                                            Engine 0{idx + 1}
+                                        </span>
+                                        <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/60">
+                                            {data.impact}
+                                        </span>
+                                    </div>
+                                    <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+                                        {data.title}
+                                    </h2>
+                                    <p className="text-lg text-slate-600 italic mt-2 font-medium">
+                                        "{data.question}"
+                                    </p>
+                                </div>
+                                <div className="shrink-0">
+                                    <Link to="/book-consultation" className="inline-flex items-center justify-center px-5 py-3 bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm rounded-xl transition-all shadow-md">
+                                        Activate Engine
+                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                    </Link>
+                                </div>
+                            </div>
+
+                            {/* SPIN Matrix */}
+                            <div className="mb-10">
+                                <h3 className="text-lg font-bold text-slate-900 mb-4 font-heading flex items-center gap-2">
+                                    <Target className="w-5 h-5 text-blue-600" />
+                                    SPIN Matrix Analysis
+                                </h3>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Situation</div>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Situation || data?.spin?.situation || ''}</p>
+                                    </div>
+                                    <div className="bg-rose-50/50 p-5 rounded-2xl border border-rose-100">
+                                        <div className="text-xs font-bold text-rose-500 uppercase tracking-widest mb-1">Problem</div>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Problem || data?.spin?.problem || ''}</p>
+                                    </div>
+                                    <div className="bg-amber-50/50 p-5 rounded-2xl border border-amber-100">
+                                        <div className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1">Implication</div>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Implication || data?.spin?.implication || ''}</p>
+                                    </div>
+                                    <div className="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
+                                        <div className="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-1">Need-Payoff</div>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.NeedPayoff || data?.spin?.needPayoff || ''}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Frameworks & Profit Pool Grid */}
+                            <div className="grid lg:grid-cols-2 gap-6 mb-10">
+                                <div className="bg-slate-50/70 p-6 rounded-2xl border border-slate-100">
+                                    <h4 className="text-base font-bold text-slate-900 mb-4 font-heading flex items-center gap-2">
+                                        <Lightbulb className="w-5 h-5 text-amber-500" />
+                                        Applied Frameworks
+                                    </h4>
+                                    <ul className="space-y-3">
+                                        {data.frameworks.map((fw, fIdx) => (
+                                            <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
+                                                <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                                                <span>{fw}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="bg-emerald-50/30 p-6 rounded-2xl border border-emerald-100/60">
+                                    <h4 className="text-base font-bold text-slate-900 mb-4 font-heading flex items-center gap-2">
+                                        <TrendingUp className="w-5 h-5 text-emerald-500" />
+                                        Profit Pool Capture Points
+                                    </h4>
+                                    <ul className="space-y-3">
+                                        {data.profitPool.map((pp, pIdx) => (
+                                            <li key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm font-bold text-slate-800">
+                                                <Rocket className="w-4 h-4 text-emerald-600 mt-0.5 shrink-0" />
+                                                <span>{pp}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Metrics Summary Table */}
+                            {data.metrics && data.metrics.length > 0 && (
+                                <div className="mb-6">
+                                    <h4 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+                                        <BarChart3 className="w-4 h-4 text-blue-600" />
+                                        Performance & Revenue Metrics
+                                    </h4>
+                                    <div className="overflow-x-auto rounded-2xl border border-slate-200">
+                                        <table className="w-full text-left text-xs font-medium border-collapse">
+                                            <thead>
+                                                <tr className="bg-slate-50 border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
+                                                    <th className="py-3 px-4">Category</th>
+                                                    <th className="py-3 px-4">Metric</th>
+                                                    <th className="py-3 px-4 text-center">Baseline</th>
+                                                    <th className="py-3 px-4 text-center">Target</th>
+                                                    <th className="py-3 px-4 text-right">Frequency</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody className="divide-y divide-slate-100 text-slate-700">
+                                                {data.metrics.map((m, mIdx) => (
+                                                    <tr key={mIdx} className="hover:bg-slate-50/60">
+                                                        <td className="py-3 px-4 font-bold text-slate-900">{m.category}</td>
+                                                        <td className="py-3 px-4 font-semibold text-blue-900">{m.metric}</td>
+                                                        <td className="py-3 px-4 text-center text-slate-500">{m.baseline}</td>
+                                                        <td className="py-3 px-4 text-center font-bold text-emerald-600 bg-emerald-50/40">{m.target}</td>
+                                                        <td className="py-3 px-4 text-right text-slate-500">{m.frequency}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+
+            {/* Bottom Assessment Callout */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+                <Reveal width="100%">
+                    <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 sm:p-12 text-white text-center shadow-xl">
+                        <h2 className="text-2xl sm:text-4xl font-extrabold mb-4 font-heading">Ready to Deploy Your Consolidated {isB2B ? 'B2B' : 'B2C'} Engine?</h2>
+                        <p className="text-base sm:text-lg text-blue-100 mb-8 max-w-2xl mx-auto font-medium">
+                            Schedule a 45-minute revenue architecture session with our AI strategy team.
+                        </p>
+                        <Link 
+                            to="/book-consultation"
+                            className="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-500 px-8 py-4 rounded-xl text-base font-bold transition-all shadow-lg hover:-translate-y-0.5"
+                        >
+                            Schedule Strategic Audit
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </div>
+                </Reveal>
+            </div>
+        </div>
+    );
+}
+
 export default function DiscoveryPage() {
     const { type, slug } = useParams<{ type?: string; slug: string }>();
     const [activePoolTab, setActivePoolTab] = useState<'overview' | 'b2b' | 'b2c'>('overview');
+
+    if (slug === 'b2b' || slug === 'b2c' || slug === 'ai-growth' || slug === 'sales-acceleration') {
+        return <ConsolidatedOfferingsView mode={slug as any} />;
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -1540,8 +2091,11 @@ export default function DiscoveryPage() {
         );
     }
 
-    const pageSlug = type ? `${type}-${slug}` : (slug || 'market-discovery');
-    const data = discoveryPagesData[pageSlug];
+    let pageSlug = slug || 'market-discovery';
+    if (type && type !== 'profit-pool-discovery' && discoveryPagesData[`${type}-${slug}`]) {
+        pageSlug = `${type}-${slug}`;
+    }
+    const data = discoveryPagesData[pageSlug] || discoveryPagesData[slug];
 
     if (!data) {
         return (

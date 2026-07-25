@@ -50,8 +50,8 @@ export default function Navigation() {
     };
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b h-16 lg:h-[72px] flex items-center ${scrolled ? 'bg-white shadow-sm border-slate-200' : 'bg-white border-slate-100'}`}>
-            <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-full relative">
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b h-16 lg:h-[72px] flex items-center ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-slate-200/80' : 'bg-white/90 backdrop-blur-md border-slate-100'}`}>
+            <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px] h-full relative">
                 <div className="flex items-center justify-between h-full">
                     {/* Logo */}
                     <div className="flex-shrink-0 relative z-50">
@@ -105,39 +105,49 @@ export default function Navigation() {
                                             <div className="w-[35%] bg-slate-50/80 border-r border-slate-100 p-5 flex flex-col gap-1.5 shrink-0 justify-center">
                                                 {item.name === "Offerings" ? (
                                                     <div className="flex flex-col gap-1.5">
-                                                        <button
+                                                        <Link
+                                                            to="/offerings/profit-pool-discovery"
+                                                            onClick={() => setHoveredItem(null)}
                                                             onMouseEnter={() => setActiveOfferingGroup("profit-pools")}
                                                             className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeOfferingGroup === 'profit-pools' || activeOfferingGroup === 'b2b' || activeOfferingGroup === 'b2c' ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
                                                         >
                                                             <span>Profit Pools</span>
                                                             <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-                                                        </button>
+                                                        </Link>
                                                         
-                                                        {item.dropdown.categories?.filter((cat: any) => cat.id !== "profit-pools").map((cat: any, cIdx: number) => (
-                                                            <button
-                                                                key={cIdx}
-                                                                onMouseEnter={() => setActiveOfferingGroup(cat.id)}
-                                                                className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeOfferingGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
-                                                            >
-                                                                <span>{cat.title}</span>
-                                                                <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-                                                            </button>
-                                                        ))}
+                                                        {item.dropdown.categories?.filter((cat: any) => cat.id !== "profit-pools").map((cat: any, cIdx: number) => {
+                                                            const targetPath = cat.path || `/offerings/${cat.id}`;
+                                                            return (
+                                                                <Link
+                                                                    key={cIdx}
+                                                                    to={targetPath}
+                                                                    onClick={() => setHoveredItem(null)}
+                                                                    onMouseEnter={() => setActiveOfferingGroup(cat.id)}
+                                                                    className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeOfferingGroup === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
+                                                                >
+                                                                    <span>{cat.title}</span>
+                                                                    <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                                                                </Link>
+                                                            );
+                                                        })}
                                                     </div>
                                                 ) : item.dropdown.categories ? (
                                                     <div className="flex flex-col gap-1.5">
                                                         {item.dropdown.categories.map((cat: any, cIdx: number) => {
                                                             const menuKey = item.name;
                                                             const activeCat = activeMenuCat[menuKey] ?? item.dropdown.categories[0]?.id;
+                                                            const targetPath = cat.path || `/${item.name.toLowerCase()}/${cat.id}`;
                                                             return (
-                                                                <button
+                                                                <Link
                                                                     key={cIdx}
+                                                                    to={targetPath}
+                                                                    onClick={() => setHoveredItem(null)}
                                                                     onMouseEnter={() => setActiveMenuCat(prev => ({ ...prev, [menuKey]: cat.id }))}
                                                                     className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-[13.5px] font-bold transition-all text-left focus:outline-none ${activeCat === cat.id ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 hover:translate-x-1'}`}
                                                                 >
                                                                     <span>{cat.title}</span>
                                                                     <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-                                                                </button>
+                                                                </Link>
                                                             );
                                                         })}
                                                     </div>
@@ -166,9 +176,13 @@ export default function Navigation() {
                                                                     <div className="grid grid-cols-2 gap-8 w-full">
                                                                         {/* B2B Column */}
                                                                         <div className="flex flex-col gap-2 min-w-0">
-                                                                            <h4 className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-blue-600 border-b pb-2 border-slate-100">
+                                                                            <Link
+                                                                                to="/offerings/b2b"
+                                                                                onClick={() => setHoveredItem(null)}
+                                                                                className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-blue-600 border-b pb-2 border-slate-100 block hover:text-blue-800 hover:border-blue-300 transition-colors"
+                                                                            >
                                                                                 B2B Profit Pools
-                                                                            </h4>
+                                                                            </Link>
                                                                             <div className="flex flex-col gap-1">
                                                                                 {b2bItems.map((sub: any, sIdx: number) => {
                                                                                     const IconComponent = Icons[sub.icon] || ArrowRight;
@@ -189,9 +203,13 @@ export default function Navigation() {
 
                                                                         {/* B2C Column */}
                                                                         <div className="flex flex-col gap-2 min-w-0">
-                                                                            <h4 className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-indigo-600 border-b pb-2 border-slate-100">
+                                                                            <Link
+                                                                                to="/offerings/b2c"
+                                                                                onClick={() => setHoveredItem(null)}
+                                                                                className="text-[12px] font-extrabold uppercase tracking-[0.15em] text-indigo-600 border-b pb-2 border-slate-100 block hover:text-indigo-800 hover:border-indigo-300 transition-colors"
+                                                                            >
                                                                                 B2C Profit Pools
-                                                                            </h4>
+                                                                            </Link>
                                                                             <div className="flex flex-col gap-1">
                                                                                 {b2cItems.map((sub: any, sIdx: number) => {
                                                                                     const IconComponent = Icons[sub.icon] || ArrowRight;

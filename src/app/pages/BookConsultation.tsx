@@ -20,6 +20,8 @@ export default function BookConsultation() {
         window.scrollTo(0, 0);
     }, []);
 
+    const [consultationCategory, setConsultationCategory] = useState<string>('growth-strategy');
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -28,7 +30,7 @@ export default function BookConsultation() {
         company: '',
         jobTitle: '',
         revenue: '',
-        interest: '',
+        interest: 'Growth & Revenue Strategy',
         message: '',
         date: '',
         time: ''
@@ -152,7 +154,6 @@ export default function BookConsultation() {
                     <div className="lg:w-1/2">
                         <Reveal width="100%" delay={0.2}>
                             <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 p-8 sm:p-12 relative overflow-hidden ring-1 ring-slate-900/5 mx-auto w-full max-w-lg lg:max-w-none hover:shadow-3xl transition-shadow duration-500">
-
                                 {submitted ? (
                                     <div className="absolute inset-0 z-20 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 animate-in fade-in zoom-in duration-300">
                                         <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6 shadow-sm border border-green-100 animate-bounce">

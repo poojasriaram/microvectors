@@ -13,28 +13,64 @@ import {
     AlertCircle,
     Brain,
     Rocket,
-    Shield
+    Shield,
+    X,
+    Sparkles,
+    AlertTriangle,
+    TrendingUp
 } from 'lucide-react';
+import { Button } from '../components/ui/button';
 import { Reveal } from '../components/ui/Reveal';
 
 export default function Solutions() {
     const location = useLocation();
+    const [activeSolutionCat, setActiveSolutionCat] = useState<string>('all');
+    const [selectedModalSolution, setSelectedModalSolution] = useState<any | null>(null);
 
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
-        const section = params.get('section');
+        const sectionParam = params.get('section');
+        const hashParam = location.hash ? location.hash.substring(1) : '';
+        const rawTarget = sectionParam || hashParam;
 
-        if (section) {
+        if (rawTarget) {
+            const aliasMap: Record<string, string> = {
+                'strategy': 'strategy-anchor',
+                'sales-ops': 'sales-ops-anchor',
+                'intelligence': 'intelligence-anchor',
+                'brand-reputation': 'brand-reputation-anchor',
+                'ai-business-strategy': 'ai-business-growth-strategy',
+                'ai-market-strategy': 'ai-market-strategy-demand-intelligence',
+                'growth-hacking': 'ai-driven-growth-hacking-engine',
+                'performance-marketing': 'ai-driven-performance-marketing',
+                'ai-auto-sales-pilot': 'ai-auto-sales-pilot-autonomous-sales-agents',
+                'sales-optimization': 'ai-sales-process-optimization',
+                'ai-revenue-operations': 'ai-revenue-operations-ai-revops',
+                'ai-revenue-acceleration': 'ai-revenue-acceleration-expansion',
+                'revenue-acceleration': 'ai-revenue-acceleration-expansion',
+                'ai-demand-discovery': 'ai-market-strategy-demand-intelligence',
+                'hidden-revenue-capture': 'ai-revenue-acceleration-expansion',
+                'ai-brand-acceleration': 'ai-business-growth-strategy',
+                'ai-reputation-acceleration': 'ai-sales-process-optimization'
+            };
+
+            const targetId = aliasMap[rawTarget.toLowerCase()] || rawTarget.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+            if (['strategy', 'sales-ops', 'intelligence', 'brand-reputation'].includes(rawTarget.toLowerCase())) {
+                setActiveSolutionCat(rawTarget.toLowerCase());
+            }
+
             setTimeout(() => {
-                const elementId = section.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                const element = document.getElementById(elementId);
+                const element = document.getElementById(targetId) || document.getElementById(rawTarget);
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             }, 100);
+        } else {
+            window.scrollTo(0, 0);
         }
-    }, [location]);
+    }, [location.search, location.hash]);
 
     const solutions = [
         {
@@ -156,16 +192,47 @@ export default function Solutions() {
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <Reveal width="100%">
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-slate-900 leading-[1.1]">
-                            AI Strategy, Growth, <br className="hidden sm:block" />
-                            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                                Sales & Revenue Solutions
-                            </span>
-                        </h1>
-                        <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-                            Our solutions are designed as modular, composable AI systems that together
-                            form a complete revenue operating architecture.
-                        </p>
+                        {(() => {
+                            const hash = location.hash.substring(1) || '';
+                            const solutionTitleMap: Record<string, { title: string; subtitle: string }> = {
+                                'strategy': {
+                                    title: "Strategy & Growth Solutions",
+                                    subtitle: "Predictive ICP modeling, demand forecasting, growth hacking, and market prioritization engineered for enterprise scaling."
+                                },
+                                'sales-ops': {
+                                    title: "Sales & Operations Solutions",
+                                    subtitle: "Autonomous sales pilot execution, RevOps data orchestration, process optimization, and sales velocity acceleration."
+                                },
+                                'intelligence': {
+                                    title: "Demand & Intelligence Solutions",
+                                    subtitle: "Intent signal discovery, hidden revenue capture, pre-RFP sensing, and predictive deal intelligence."
+                                },
+                                'brand-reputation': {
+                                    title: "Brand & Reputation Solutions",
+                                    subtitle: "AI-driven brand positioning, continuous trust audit acceleration, and automated reputation defense systems."
+                                }
+                            };
+
+                            const info = solutionTitleMap[hash] || {
+                                title: "AI Strategy, Growth & Revenue Solutions",
+                                subtitle: "Modular, composable AI revenue systems engineered to automate growth execution across the entire enterprise revenue lifecycle."
+                            };
+
+                            return (
+                                <>
+                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
+                                        <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                                        {hash ? `Solution Suite: ${info.title}` : "Enterprise Revenue Architecture"}
+                                    </div>
+                                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight text-slate-900 leading-[1.1] font-heading">
+                                        {info.title}
+                                    </h1>
+                                    <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+                                        {info.subtitle}
+                                    </p>
+                                </>
+                            );
+                        })()}
                     </Reveal>
                 </div>
             </div>
@@ -175,10 +242,25 @@ export default function Solutions() {
                 <div className="flex flex-col gap-8">
                     {solutions.map((solution, index) => {
                         const Icon = solution.icon;
+                        const mainId = solution.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                        const aliasMap: Record<number, string[]> = {
+                            0: ['strategy', 'strategy-anchor', 'ai-business-strategy', 'ai-brand-acceleration'],
+                            1: ['intelligence', 'intelligence-anchor', 'ai-market-strategy', 'ai-demand-discovery'],
+                            2: ['growth-hacking'],
+                            3: ['performance-marketing'],
+                            4: ['sales-ops', 'sales-ops-anchor', 'ai-auto-sales-pilot'],
+                            5: ['sales-optimization', 'ai-reputation-acceleration'],
+                            6: ['ai-revenue-operations'],
+                            7: ['brand-reputation', 'brand-reputation-anchor', 'ai-revenue-acceleration', 'revenue-acceleration', 'hidden-revenue-capture']
+                        };
+                        const aliases = aliasMap[index] || [];
 
                         return (
                             <Reveal key={index} width="100%" delay={index * 0.1}>
-                                <div id={solution.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="group relative scroll-mt-32">
+                                {aliases.map(a => (
+                                    <div key={a} id={a} className="scroll-mt-32" />
+                                ))}
+                                <div id={mainId} className="group relative scroll-mt-32">
                                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-100 to-purple-100 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     <div className="relative bg-white border border-slate-200 rounded-2xl p-6 lg:p-8 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-lg">
                                         <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -309,6 +391,15 @@ export default function Solutions() {
                                                     </div>
                                                 )}
 
+                                                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                                    <button
+                                                        onClick={() => setSelectedModalSolution(solution)}
+                                                        className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                                                    >
+                                                        <span>Explore Solution Specification</span>
+                                                        <ArrowRight className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -319,6 +410,91 @@ export default function Solutions() {
                     })}
                 </div>
             </div>
+
+            {/* Detailed Solution Specification Modal (Like Offerings) */}
+            {selectedModalSolution && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+                    <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+                        <button
+                            onClick={() => setSelectedModalSolution(null)}
+                            className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <div className="flex items-center gap-3">
+                            <div className="p-3.5 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600">
+                                <selectedModalSolution.icon className="w-7 h-7" />
+                            </div>
+                            <div>
+                                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Solution Architecture Spec</span>
+                                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{selectedModalSolution.title}</h3>
+                            </div>
+                        </div>
+
+                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                            {selectedModalSolution.tagline}
+                        </p>
+
+                        {selectedModalSolution.details.offerings && (
+                            <div className="bg-blue-50/60 p-6 rounded-2xl border border-blue-100">
+                                <h4 className="text-sm font-bold uppercase tracking-wider text-blue-900 mb-2 flex items-center gap-2">
+                                    <Zap className="w-4 h-4 text-blue-600" />
+                                    Core System Capabilities
+                                </h4>
+                                <p className="text-sm text-slate-700 font-medium leading-relaxed">
+                                    {selectedModalSolution.details.offerings[0]}
+                                </p>
+                            </div>
+                        )}
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {selectedModalSolution.details.situations && (
+                                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                    <h4 className="text-sm font-bold uppercase tracking-wider text-amber-700 mb-3 flex items-center gap-2">
+                                        <AlertTriangle className="w-4 h-4 text-amber-600" />
+                                        Common Operational Triggers
+                                    </h4>
+                                    <ul className="space-y-2">
+                                        {selectedModalSolution.details.situations.map((sit: string, idx: number) => (
+                                            <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
+                                                <span>{sit}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
+                            {selectedModalSolution.details.outcomes && (
+                                <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-200">
+                                    <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-800 mb-3 flex items-center gap-2">
+                                        <TrendingUp className="w-4 h-4 text-emerald-600" />
+                                        Verified Target Outcomes
+                                    </h4>
+                                    <ul className="space-y-2">
+                                        {selectedModalSolution.details.outcomes.map((o: string, idx: number) => (
+                                            <li key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-emerald-900">
+                                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                                                <span>{o}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-100">
+                            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-full flex-1">
+                                <Link to="/book-consultation">Deploy {selectedModalSolution.title}</Link>
+                            </Button>
+                            <Button asChild variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 font-bold px-6 py-3 rounded-full flex-1">
+                                <Link to="/talk-to-expert">Talk to Solution Architect</Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* CTA Section - Compact */}
             <div className="py-20 relative overflow-hidden bg-white border-t border-slate-200">

@@ -4,7 +4,15 @@ import {
     Zap,
     Users,
     CheckCircle2,
-    BarChart3
+    BarChart3,
+    X,
+    Building2,
+    Cpu,
+    UserPlus,
+    ArrowRight,
+    Sparkles,
+    AlertTriangle,
+    TrendingUp
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
 import { Button } from '../components/ui/button';
@@ -15,6 +23,8 @@ import { Textarea } from '../components/ui/textarea';
 import { submitToSheet } from '../../lib/sheets';
 
 export default function Partners() {
+    const [activePartnerCat, setActivePartnerCat] = useState<string>('all');
+    const [selectedModalPartner, setSelectedModalPartner] = useState<any | null>(null);
     useEffect(() => {
         document.title = "Partners | TrustGrid AI";
     }, []);
@@ -184,7 +194,14 @@ export default function Partners() {
                                             </div>
                                             <div>
                                                 <h4 className="text-lg font-bold text-slate-900">{prog.title}</h4>
-                                                <p className="text-slate-600">{prog.desc}</p>
+                                                <p className="text-slate-600 mb-2">{prog.desc}</p>
+                                                <button
+                                                    onClick={() => setSelectedModalPartner(prog)}
+                                                    className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                                                >
+                                                    <span>Explore Program Specification</span>
+                                                    <ArrowRight className="w-3.5 h-3.5" />
+                                                </button>
                                             </div>
                                         </div>
                                     ))}
@@ -338,6 +355,67 @@ export default function Partners() {
                     </Reveal>
                 </div>
             </section>
+
+            {/* Detailed Partner Specification Modal (Like Offerings) */}
+            {selectedModalPartner && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
+                    <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+                        <button
+                            onClick={() => setSelectedModalPartner(null)}
+                            className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <div className="flex items-center gap-3">
+                            <div className="p-3.5 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600">
+                                <Handshake className="w-7 h-7" />
+                            </div>
+                            <div>
+                                <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Partner Program Specification</span>
+                                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">{selectedModalPartner.title}</h3>
+                            </div>
+                        </div>
+
+                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                            {selectedModalPartner.desc}
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                                <h4 className="text-sm font-bold uppercase tracking-wider text-blue-900 mb-3 flex items-center gap-2">
+                                    <Sparkles className="w-4 h-4 text-blue-600" />
+                                    Program Benefits
+                                </h4>
+                                <ul className="space-y-2 text-sm text-slate-700 font-medium">
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Tiered margin sharing & recurring commissions</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Dedicated partner success manager</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Joint GTM & co-marketing collateral</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Technical & solution architecture support</li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-emerald-50/50 p-6 rounded-2xl border border-emerald-200">
+                                <h4 className="text-sm font-bold uppercase tracking-wider text-emerald-800 mb-3 flex items-center gap-2">
+                                    <TrendingUp className="w-4 h-4 text-emerald-600" />
+                                    Expected ROI
+                                </h4>
+                                <ul className="space-y-2 text-sm font-bold text-emerald-900">
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> 20-35% revenue share on closed deals</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Accelerated client deal velocity</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Enhanced account retention & expansion</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-100">
+                            <a href="#partner-form" onClick={() => setSelectedModalPartner(null)} className="flex-1">
+                                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-full">Apply for {selectedModalPartner.title}</Button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

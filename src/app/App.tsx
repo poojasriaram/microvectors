@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import ChatBot from './components/ChatBot';
@@ -37,10 +37,10 @@ const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const AIBrandAcceleration = lazy(() => import('./pages/AIBrandAcceleration'));
 const AIReputationAcceleration = lazy(() => import('./pages/AIReputationAcceleration'));
-const HiddenRevenueCapture = lazy(() => import('./pages/HiddenRevenueCapture'));
 const DiscoveryPage = lazy(() => import('./pages/DiscoveryPage'));
 const CookieConsent = lazy(() => import('./components/CookieConsent'));
 import TabExitPopup from './components/TabExitPopup';
+import { servicesData } from '../data/navigationContent';
 
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useTrafficAnalysis } from '../hooks/useTrafficAnalysis';
@@ -62,9 +62,34 @@ const PageLoader = () => (
 
 function NavigateToIndustriesSection() {
   const { slug } = useParams<{ slug: string }>();
-  let section = slug || 'startup-early-stage';
-  if (slug === 'startup') section = 'startup-early-stage';
-  return <Navigate to={`/industries?section=${section}`} replace />;
+  if (slug && servicesData[slug]) {
+    return <ServiceDetail />;
+  }
+  return <Industries />;
+}
+
+function NavigateToExploreSection() {
+  const { slug } = useParams<{ slug: string }>();
+  if (slug && servicesData[slug]) {
+    return <ServiceDetail />;
+  }
+  if (slug?.startsWith('crypto-')) {
+    return <Navigate to={`/crypto#${slug}`} replace />;
+  }
+  return <ServiceDetail />;
+}
+
+function NavigateToOfferingSection() {
+  const { type, slug } = useParams<{ type: string; slug: string }>();
+  if (type === 'b2b' || type === 'b2c' || type === 'ai-growth' || type === 'sales-acceleration') {
+    return <Navigate to={`/offerings/${type}#${slug}`} replace />;
+  }
+  return <DiscoveryPage />;
+}
+
+function NavigateToSolutionsSection() {
+  const { slug } = useParams<{ slug: string }>();
+  return <Navigate to={`/solutions#${slug}`} replace />;
 }
 
 export default function App() {
@@ -81,7 +106,8 @@ export default function App() {
               <Route path="/crypto" element={<Crypto />} />
               <Route path="/outcomes" element={<Outcomes />} />
               <Route path="/solutions" element={<Solutions />} />
-              <Route path="/capabilities" element={<Capabilities />} />
+              <Route path="/solutions/:slug" element={<NavigateToSolutionsSection />} />
+              <Route path="/capabilities" element={<Navigate to="/solutions" replace />} />
               <Route path="/industries" element={<Industries />} />
               <Route path="/offerings" element={<Offerings />} />
               <Route path="/resources" element={<Resources />} />
@@ -96,25 +122,25 @@ export default function App() {
               <Route path="/partners" element={<Partners />} />
               <Route path="/career" element={<Career />} />
               <Route path="/talk-to-expert" element={<TalkToExpert />} />
-              <Route path="/ai-demand-discovery" element={<AIDemandDiscovery />} />
-              <Route path="/ai-lead-generation" element={<AILeadGeneration />} />
-              <Route path="/ai-lead-nurturing" element={<AILeadNurturing />} />
-              <Route path="/ai-mvp-validation" element={<AIMVPValidation />} />
-              <Route path="/ai-lead-sales-transformation" element={<AILeadSalesTransformation />} />
-              <Route path="/ai-revenue-operations" element={<AIRevenueOperations />} />
-              <Route path="/ai-revenue-acceleration" element={<AIRevenueAcceleration />} />
+              <Route path="/ai-demand-discovery" element={<Navigate to="/solutions#ai-demand-discovery" replace />} />
+              <Route path="/ai-lead-generation" element={<Navigate to="/offerings/b2b#channel-discovery" replace />} />
+              <Route path="/ai-lead-nurturing" element={<Navigate to="/offerings/b2b#demand-discovery" replace />} />
+              <Route path="/ai-mvp-validation" element={<Navigate to="/offerings/b2b#product-market-fit-discovery" replace />} />
+              <Route path="/ai-lead-sales-transformation" element={<Navigate to="/offerings/b2b#sales-acceleration" replace />} />
+              <Route path="/ai-revenue-operations" element={<Navigate to="/solutions#ai-revenue-operations" replace />} />
+              <Route path="/ai-revenue-acceleration" element={<Navigate to="/solutions#ai-revenue-acceleration" replace />} />
               <Route path="/behaviour-analytics" element={<BehaviourAnalytics />} />
               <Route path="/pricing" element={<Pricing />} />
-              <Route path="/ai-brand-acceleration" element={<AIBrandAcceleration />} />
-              <Route path="/ai-reputation-acceleration" element={<AIReputationAcceleration />} />
-              <Route path="/hidden-revenue-capture" element={<HiddenRevenueCapture />} />
-              <Route path="/about" element={<Navigate to="/company" replace />} />
-              <Route path="/mission" element={<Navigate to="/company" replace />} />
-              <Route path="/leadership" element={<Navigate to="/company" replace />} />
-              <Route path="/offices" element={<Navigate to="/company" replace />} />
+              <Route path="/ai-brand-acceleration" element={<Navigate to="/solutions#ai-brand-acceleration" replace />} />
+              <Route path="/ai-reputation-acceleration" element={<Navigate to="/solutions#ai-reputation-acceleration" replace />} />
+              <Route path="/hidden-revenue-capture" element={<Navigate to="/solutions#hidden-revenue-capture" replace />} />
+              <Route path="/about" element={<Navigate to="/company#about" replace />} />
+              <Route path="/mission" element={<Navigate to="/company#mission" replace />} />
+              <Route path="/leadership" element={<Navigate to="/company#leadership" replace />} />
+              <Route path="/offices" element={<Navigate to="/company#offices" replace />} />
               <Route path="/careers" element={<Navigate to="/career" replace />} />
               <Route path="/contact" element={<Navigate to="/book-consultation" replace />} />
-              <Route path="/explore/:slug" element={<ServiceDetail />} />
+              <Route path="/explore/:slug" element={<NavigateToExploreSection />} />
               <Route path="/offerings/profit-pool-discovery" element={<DiscoveryPage />} />
               <Route path="/offerings/profit-pool-discovery/:slug" element={<DiscoveryPage />} />
               <Route path="/offerings/market-discovery" element={<Navigate to="/offerings/profit-pool-discovery/market-discovery" replace />} />
@@ -124,7 +150,7 @@ export default function App() {
               <Route path="/offerings/competitive-discovery" element={<Navigate to="/offerings/profit-pool-discovery/competitive-discovery" replace />} />
               <Route path="/offerings/customer-discovery" element={<Navigate to="/offerings/profit-pool-discovery/customer-discovery" replace />} />
               <Route path="/offerings/product-market-fit-discovery" element={<Navigate to="/offerings/profit-pool-discovery/product-market-fit-discovery" replace />} />
-              <Route path="/offerings/:type/:slug" element={<DiscoveryPage />} />
+              <Route path="/offerings/:type/:slug" element={<NavigateToOfferingSection />} />
               <Route path="/industries/:slug" element={<NavigateToIndustriesSection />} />
               <Route path="/offerings/:slug" element={<DiscoveryPage />} />
               <Route path="/products" element={<Navigate to="/demand-pulse" replace />} />

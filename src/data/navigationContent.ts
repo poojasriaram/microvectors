@@ -2069,21 +2069,23 @@ export const smNavItems = [
                     "id": "crypto-growth",
                     "title": "Growth & Revenue",
                     "desc": "Accelerate revenue in Web3 ecosystems",
+                    "path": "/crypto#crypto-growth",
                     "items": [
-                        { "name": "Crypto Revenue Acceleration", "path": "/explore/crypto-revenue", "icon": "TrendingUp" },
-                        { "name": "Crypto Performance Revenue", "path": "/explore/crypto-performance", "icon": "Coins" },
-                        { "name": "Crypto Growth Acceleration", "path": "/explore/crypto-growth", "icon": "Rocket" }
+                        { "name": "Crypto Revenue Acceleration", "path": "/crypto#crypto-revenue", "icon": "TrendingUp" },
+                        { "name": "Crypto Performance Revenue", "path": "/crypto#crypto-performance", "icon": "Coins" },
+                        { "name": "Crypto Growth Acceleration", "path": "/crypto#crypto-growth", "icon": "Rocket" }
                     ]
                 },
                 {
                     "id": "crypto-intelligence",
                     "title": "Intelligence & Discovery",
                     "desc": "Market insights for Web3 ventures",
+                    "path": "/crypto#crypto-intelligence",
                     "items": [
-                        { "name": "Crypto Demand Discovery", "path": "/explore/crypto-demand-discovery", "icon": "Search" },
-                        { "name": "Market Validation Intelligence", "path": "/explore/crypto-market-validation", "icon": "Target" },
-                        { "name": "Customer Journey Intelligence", "path": "/explore/crypto-journey", "icon": "MapPin" },
-                        { "name": "Startup MVP Acceleration", "path": "/explore/crypto-startup", "icon": "Lightbulb" }
+                        { "name": "Crypto Demand Discovery", "path": "/crypto#crypto-demand-discovery", "icon": "Search" },
+                        { "name": "Market Validation Intelligence", "path": "/crypto#crypto-market-validation", "icon": "Target" },
+                        { "name": "Customer Journey Intelligence", "path": "/crypto#crypto-journey", "icon": "MapPin" },
+                        { "name": "Startup MVP Acceleration", "path": "/crypto#crypto-startup", "icon": "Lightbulb" }
                     ]
                 }
             ]
@@ -2129,23 +2131,25 @@ export const smNavItems = [
                 {
                     "id": "ai-growth",
                     "title": "AI Growth Engines",
+                    "path": "/offerings/ai-growth",
                     "desc": "Automated pipeline & market expansion",
                     "items": [
-                        { "name": "AI Demand Discovery", "path": "/explore/ai-demand-discovery", "icon": "Search" },
-                        { "name": "AI-Driven Revenue Acceleration", "path": "/explore/revenue-acceleration", "icon": "TrendingUp" },
-                        { "name": "AI-Driven Growth Hacking", "path": "/explore/growth-hacking", "icon": "Rocket" },
-                        { "name": "AI-Driven Performance Marketing", "path": "/explore/performance-marketing", "icon": "BarChart" }
+                        { "name": "AI Demand Discovery", "path": "/offerings/ai-growth/ai-demand-discovery", "icon": "Search" },
+                        { "name": "AI-Driven Revenue Acceleration", "path": "/offerings/ai-growth/revenue-acceleration", "icon": "TrendingUp" },
+                        { "name": "AI-Driven Growth Hacking", "path": "/offerings/ai-growth/growth-hacking", "icon": "Rocket" },
+                        { "name": "AI-Driven Performance Marketing", "path": "/offerings/ai-growth/performance-marketing", "icon": "BarChart" }
                     ]
                 },
                 {
                     "id": "sales-acceleration",
                     "title": "Sales Acceleration",
+                    "path": "/offerings/sales-acceleration",
                     "desc": "High-velocity sales execution",
                     "items": [
-                        { "name": "Enterprise Sales Acceleration", "path": "/explore/enterprise-sales", "icon": "Building2" },
-                        { "name": "Digital & Inside Sales", "path": "/explore/digital-sales", "icon": "Layout" },
-                        { "name": "D2C & High-Velocity Sales", "path": "/explore/d2c-sales", "icon": "ShoppingBag" },
-                        { "name": "BFSI Sales Acceleration", "path": "/explore/bfsi-sales", "icon": "Landmark" }
+                        { "name": "Enterprise Sales Acceleration", "path": "/offerings/sales-acceleration/enterprise-sales", "icon": "Building2" },
+                        { "name": "Digital & Inside Sales", "path": "/offerings/sales-acceleration/digital-sales", "icon": "Layout" },
+                        { "name": "D2C & High-Velocity Sales", "path": "/offerings/sales-acceleration/d2c-sales", "icon": "ShoppingBag" },
+                        { "name": "BFSI Sales Acceleration", "path": "/offerings/sales-acceleration/bfsi-sales", "icon": "Landmark" }
                     ]
                 }
             ],
@@ -2167,61 +2171,80 @@ export const smNavItems = [
                     "id": "b2b",
                     "title": "B2B Focus",
                     "desc": "Targeted enterprise pipeline scaling",
+                    "path": "/industries/b2b",
                     "items": [
-                        { "name": "AI Account-Based Marketing (ABM) Autopilot", "path": "/explore/abm-autopilot", "icon": "Building2" },
-                        { "name": "AI Competitor Displacement Engine", "path": "/explore/competitor-displacement", "icon": "ShieldCheck" },
-                        { "name": "AI SDR Co-Pilot / Autopilot", "path": "/explore/ai-sdr-copilot", "icon": "Bot" },
-                        { "name": "AI Revenue Qualified Lead (RQL) Predictor", "path": "/explore/rql-predictor", "icon": "TrendingUp" },
-                        { "name": "AI Contract & Expansion Opportunity Finder", "path": "/explore/contract-expansion", "icon": "Search" }
+                        { "name": "AI Account-Based Marketing (ABM) Autopilot", "path": "/industries/b2b#abm-autopilot", "icon": "Building2" },
+                        { "name": "AI Competitor Displacement Engine", "path": "/industries/b2b#competitor-displacement", "icon": "ShieldCheck" },
+                        { "name": "AI SDR Co-Pilot / Autopilot", "path": "/industries/b2b#ai-sdr-copilot", "icon": "Bot" },
+                        { "name": "AI Revenue Qualified Lead (RQL) Predictor", "path": "/industries/b2b#rql-predictor", "icon": "TrendingUp" },
+                        { "name": "AI Contract & Expansion Opportunity Finder", "path": "/industries/b2b#contract-expansion", "icon": "Search" }
                     ]
                 },
                 {
                     "id": "b2c",
                     "title": "B2C Focus",
                     "desc": "High-velocity consumer acquisition",
+                    "path": "/industries/b2c",
                     "items": [
-                        { "name": "AI Omnichannel Lead Generation", "path": "/explore/omnichannel-lead-gen", "icon": "Network" },
-                        { "name": "AI Personalized Offer Generation at Scale", "path": "/explore/personalized-offers", "icon": "Coins" },
-                        { "name": "AI Behavioral Retargeting Autopilot", "path": "/explore/behavioral-retargeting", "icon": "Activity" },
-                        { "name": "AI Lookalike Audience Auto-Scaling", "path": "/explore/lookalike-audience", "icon": "Users" }
+                        { "name": "AI Omnichannel Lead Generation", "path": "/industries/b2c#omnichannel-lead-gen", "icon": "Network" },
+                        { "name": "AI Personalized Offer Generation at Scale", "path": "/industries/b2c#personalized-offers", "icon": "Coins" },
+                        { "name": "AI Behavioral Retargeting Autopilot", "path": "/industries/b2c#behavioral-retargeting", "icon": "Activity" },
+                        { "name": "AI Lookalike Audience Auto-Scaling", "path": "/industries/b2c#lookalike-audience", "icon": "Users" }
                     ]
                 },
                 {
                     "id": "enterprise",
                     "title": "Enterprise / Large Business",
                     "desc": "Multi-stakeholder, global penetration",
+                    "path": "/industries/enterprise",
                     "items": [
-                        { "name": "AI Global Account Penetration", "path": "/explore/global-account-penetration", "icon": "Globe" },
-                        { "name": "AI Strategic Partnership Opportunity Finder", "path": "/explore/partnership-opportunity", "icon": "Handshake" },
-                        { "name": "AI Executive Engagement Automation", "path": "/explore/executive-engagement", "icon": "Briefcase" }
+                        { "name": "AI Global Account Penetration", "path": "/industries/enterprise#global-account-penetration", "icon": "Globe" },
+                        { "name": "AI Strategic Partnership Opportunity Finder", "path": "/industries/enterprise#partnership-opportunity", "icon": "Handshake" },
+                        { "name": "AI Executive Engagement Automation", "path": "/industries/enterprise#executive-engagement", "icon": "Briefcase" }
                     ]
                 },
                 {
                     "id": "mid-market",
                     "title": "Mid-Market",
                     "desc": "Accelerated vertical market capture",
+                    "path": "/industries/mid-market",
                     "items": [
-                        { "name": "AI Rapid Market Entry Engine", "path": "/explore/rapid-market-entry", "icon": "Rocket" },
-                        { "name": "AI Niche Market Domination", "path": "/explore/niche-domination", "icon": "Target" },
-                        { "name": "AI Lean Team Productivity Amplifier", "path": "/explore/lean-team-productivity", "icon": "Users" }
+                        { "name": "AI Rapid Market Entry Engine", "path": "/industries/mid-market#rapid-market-entry", "icon": "Rocket" },
+                        { "name": "AI Niche Market Domination", "path": "/industries/mid-market#niche-domination", "icon": "Target" },
+                        { "name": "AI Lean Team Productivity Amplifier", "path": "/industries/mid-market#lean-team-productivity", "icon": "Users" }
                     ]
                 },
                 {
                     "id": "startup",
                     "title": "Startup",
                     "desc": "Zero-to-one traction & PMF validation",
+                    "path": "/industries/startup",
                     "items": [
-                        { "name": "AI Zero-to-One Lead Generation", "path": "/explore/zero-to-one-lead-gen", "icon": "Lightbulb" },
-                        { "name": "AI Product-Market Fit Signal Detection", "path": "/explore/pmf-signal-detection", "icon": "Sparkles" },
-                        { "name": "AI Founder-Led Sales Automation", "path": "/explore/founder-sales-automation", "icon": "Bot" },
-                        { "name": "AI Burn-Rate Optimized Lead Capture", "path": "/explore/burn-rate-optimized-lead-capture", "icon": "DollarSign" }
+                        { "name": "AI Zero-to-One Lead Generation", "path": "/industries/startup#zero-to-one-lead-gen", "icon": "Lightbulb" },
+                        { "name": "AI Product-Market Fit Signal Detection", "path": "/industries/startup#pmf-signal-detection", "icon": "Sparkles" },
+                        { "name": "AI Founder-Led Sales Automation", "path": "/industries/startup#founder-sales-automation", "icon": "Bot" },
+                        { "name": "AI Burn-Rate Optimized Lead Capture", "path": "/industries/startup#burn-rate-optimized-lead-capture", "icon": "DollarSign" }
+                    ]
+                },
+                {
+                    "id": "specialized-sectors",
+                    "title": "Specialized Sectors",
+                    "desc": "Service, Industrial, FinTech, SaaS, Healthcare & Energy",
+                    "path": "/industries/specialized-sectors",
+                    "items": [
+                        { "name": "Service & Industrial Industries", "path": "/industries/specialized-sectors#service-industrial", "icon": "Briefcase" },
+                        { "name": "D2C Companies & Retail FMCG", "path": "/industries/specialized-sectors#d2c-retail", "icon": "ShoppingBag" },
+                        { "name": "FinTech, Lending & SaaS Products", "path": "/industries/specialized-sectors#fintech-saas", "icon": "Landmark" },
+                        { "name": "Healthcare & Life Sciences", "path": "/industries/specialized-sectors#healthcare-life-sciences", "icon": "HeartPulse" },
+                        { "name": "Education & EdTech", "path": "/industries/specialized-sectors#education-edtech", "icon": "GraduationCap" },
+                        { "name": "Real Estate, Construction & Energy", "path": "/industries/specialized-sectors#real-estate-energy", "icon": "Zap" }
                     ]
                 }
             ],
             "highlight": {
-                "title": "Industry Expertise",
-                "desc": "Tailored revenue acceleration for your specific industry.",
-                "linkText": "Start Your AI Journey",
+                "title": "Industry Focus",
+                "desc": "Sector-specific solutions tailored for your regulatory and growth needs.",
+                "linkText": "Explore All Industries",
                 "linkPath": "/industries"
             }
         }
@@ -2232,7 +2255,7 @@ export const smNavItems = [
         "dropdown": {
             "highlight": {
                 "title": "Comprehensive Solutions",
-                "desc": "End-to-end AI-driven growth solutions for enterprises.",
+                "desc": "End-to-end AI-driven growth capabilities & solutions for enterprises.",
                 "linkText": "View Solutions",
                 "linkPath": "/solutions"
             },
@@ -2241,57 +2264,46 @@ export const smNavItems = [
                     "id": "strategy",
                     "title": "Strategy & Growth",
                     "desc": "Market intelligence and growth planning",
+                    "path": "/solutions/strategy",
                     "items": [
-                        { "name": "AI Business Growth Strategy", "path": "/explore/ai-business-strategy", "icon": "TrendingUp" },
-                        { "name": "AI Market Strategy & Demand", "path": "/explore/ai-market-strategy", "icon": "Target" },
-                        { "name": "AI-Driven Growth Hacking", "path": "/explore/growth-hacking", "icon": "Rocket" },
-                        { "name": "AI-Driven Performance Marketing", "path": "/explore/performance-marketing", "icon": "BarChart" }
+                        { "name": "AI Business Growth Strategy", "path": "/solutions/strategy#ai-business-strategy", "icon": "TrendingUp" },
+                        { "name": "AI Market Strategy & Demand", "path": "/solutions/strategy#ai-market-strategy", "icon": "Target" },
+                        { "name": "AI-Driven Growth Hacking", "path": "/solutions/strategy#growth-hacking", "icon": "Rocket" },
+                        { "name": "AI-Driven Performance Marketing", "path": "/solutions/strategy#performance-marketing", "icon": "BarChart" }
                     ]
                 },
                 {
                     "id": "sales-ops",
                     "title": "Sales & Operations",
                     "desc": "Autonomous sales execution and revenue ops",
+                    "path": "/solutions/sales-ops",
                     "items": [
-                        { "name": "AI Auto Sales Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" },
-                        { "name": "AI Sales Process Optimization", "path": "/explore/sales-optimization", "icon": "Settings" },
-                        { "name": "AI Revenue Operations", "path": "/explore/ai-revenue-operations", "icon": "Server" },
-                        { "name": "AI Revenue Acceleration", "path": "/explore/ai-revenue-acceleration", "icon": "Zap" }
+                        { "name": "AI Auto Sales Pilot", "path": "/solutions/sales-ops#ai-auto-sales-pilot", "icon": "Bot" },
+                        { "name": "AI Sales Process Optimization", "path": "/solutions/sales-ops#sales-optimization", "icon": "Settings" },
+                        { "name": "AI Revenue Operations", "path": "/solutions/sales-ops#ai-revenue-operations", "icon": "Server" },
+                        { "name": "AI Revenue Acceleration", "path": "/solutions/sales-ops#ai-revenue-acceleration", "icon": "Zap" }
                     ]
-                }
-            ]
-        }
-    },
-    {
-        "name": "Capabilities",
-        "path": "/capabilities",
-        "dropdown": {
-            "highlight": {
-                "title": "Activate Your Autonomous Growth Engine",
-                "desc": "Predictive Deal Intelligence & Autonomous Agents.",
-                "linkText": "View Engines",
-                "linkPath": "/capabilities"
-            },
-            "categories": [
+                },
                 {
                     "id": "intelligence",
                     "title": "Demand & Intelligence",
                     "desc": "Predictive deal and demand signals",
+                    "path": "/solutions/intelligence",
                     "items": [
-                        { "name": "Demand Discovery & Acceleration", "path": "/explore/ai-demand-discovery", "icon": "Search" },
-                        { "name": "Hidden Revenue Capture", "path": "/hidden-revenue-capture", "icon": "TrendingUp" },
-                        { "name": "AI Revenue Acceleration", "path": "/explore/revenue-acceleration", "icon": "Zap" }
+                        { "name": "Demand Discovery & Acceleration", "path": "/solutions/intelligence#ai-demand-discovery", "icon": "Search" },
+                        { "name": "Hidden Revenue Capture", "path": "/solutions/intelligence#hidden-revenue-capture", "icon": "TrendingUp" },
+                        { "name": "AI Revenue Acceleration", "path": "/solutions/intelligence#revenue-acceleration", "icon": "Zap" }
                     ]
                 },
                 {
                     "id": "brand-reputation",
                     "title": "Brand & Reputation",
                     "desc": "AI-driven brand and reputation engines",
+                    "path": "/solutions/brand-reputation",
                     "items": [
-                        { "name": "AI Brand Acceleration", "path": "/ai-brand-acceleration", "icon": "Sparkles" },
-                        { "name": "AI Reputation Acceleration", "path": "/ai-reputation-acceleration", "icon": "ShieldCheck" },
-                        { "name": "Autonomous Sales Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" },
-                        { "name": "AI Auto Pilot", "path": "/explore/ai-auto-sales-pilot", "icon": "Bot" }
+                        { "name": "AI Brand Acceleration", "path": "/solutions/brand-reputation#ai-brand-acceleration", "icon": "Sparkles" },
+                        { "name": "AI Reputation Acceleration", "path": "/solutions/brand-reputation#ai-reputation-acceleration", "icon": "ShieldCheck" },
+                        { "name": "Autonomous Sales Pilot", "path": "/solutions/brand-reputation#ai-auto-sales-pilot", "icon": "Bot" }
                     ]
                 }
             ]
@@ -2312,11 +2324,12 @@ export const smNavItems = [
                     "id": "partner-types",
                     "title": "Partner Types",
                     "desc": "Different ways to partner with us",
+                    "path": "/partners",
                     "items": [
-                        { "name": "Partner Program Overview", "path": "/explore/partner-overview", "icon": "Handshake" },
-                        { "name": "Solution Partners", "path": "/explore/solution-partners", "icon": "Building2" },
-                        { "name": "Technology Partners", "path": "/explore/technology-partners", "icon": "Cpu" },
-                        { "name": "Referral Partners", "path": "/explore/referral-partners", "icon": "UserPlus" }
+                        { "name": "Partner Program Overview", "path": "/partners#overview", "icon": "Handshake" },
+                        { "name": "Solution Partners", "path": "/partners#solution-partners", "icon": "Building2" },
+                        { "name": "Technology Partners", "path": "/partners#technology-partners", "icon": "Cpu" },
+                        { "name": "Referral Partners", "path": "/partners#referral-partners", "icon": "UserPlus" }
                     ]
                 }
             ]
@@ -2337,11 +2350,12 @@ export const smNavItems = [
                     "id": "about",
                     "title": "About Us",
                     "desc": "Who we are and what drives us",
+                    "path": "/company",
                     "items": [
-                        { "name": "About Us", "path": "/about", "icon": "Info" },
-                        { "name": "Mission", "path": "/mission", "icon": "Target" },
-                        { "name": "Leadership & Culture", "path": "/leadership", "icon": "Users" },
-                        { "name": "Our Offices", "path": "/offices", "icon": "MapPin" }
+                        { "name": "About Us", "path": "/company#about", "icon": "Info" },
+                        { "name": "Mission", "path": "/company#mission", "icon": "Target" },
+                        { "name": "Leadership & Culture", "path": "/company#leadership", "icon": "Users" },
+                        { "name": "Our Offices", "path": "/company#offices", "icon": "MapPin" }
                     ]
                 },
                 {
