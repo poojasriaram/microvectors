@@ -212,7 +212,7 @@ export default function Sitemap() {
             </div>
 
             {/* Main Content */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="space-y-12">
                     {sitemapData.map((section, index) => (
                         <div key={index} className="bg-white p-8 lg:p-10 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all hover:border-blue-200 group">

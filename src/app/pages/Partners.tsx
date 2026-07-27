@@ -101,7 +101,7 @@ export default function Partners() {
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
                     <Reveal width="100%">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
                             <Handshake className="w-4 h-4 text-blue-600" />
@@ -129,7 +129,7 @@ export default function Partners() {
 
             {/* 2. Why Partner Section */}
             <section id="why-partner" className="py-24 bg-slate-50 relative" style={{ scrollMarginTop: '80px' }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-slate-900">Why Partner with Us?</h2>
                         <p className="text-slate-600 text-xl font-medium max-w-2xl mx-auto">Unlock new revenue streams and deliver exceptional value.</p>
@@ -171,7 +171,7 @@ export default function Partners() {
 
             {/* 3. Partner Categories */}
             <section id="partner-programs" className="py-24 bg-white relative" style={{ scrollMarginTop: '80px' }}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <Reveal width="100%">
                             <div>

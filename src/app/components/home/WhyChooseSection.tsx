@@ -12,7 +12,7 @@ export default function WhyChooseSection() {
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
                     
-                    {/* Left: Operational System Board */}
+                    {/* Left: Operational System Board with Real Corporate Tech Image */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -20,35 +20,39 @@ export default function WhyChooseSection() {
                         transition={{ duration: 0.8 }}
                         className="relative"
                     >
-                        <div className="relative rounded-3xl border border-slate-200 bg-slate-50/80 backdrop-blur-2xl p-8 shadow-xl">
-                            <h3 className="text-[10px] font-extrabold text-blue-600 mb-8 font-mono tracking-widest uppercase flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
-                                // Enterprise Delivery Model
-                            </h3>
-                            <div className="space-y-4">
-                                <div className="p-5 bg-white rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors shadow-sm flex items-center justify-between">
-                                    <div>
-                                        <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wider font-mono">Global Infrastructure</div>
-                                        <div className="text-sm font-bold text-slate-900 mt-1">Multi-Region Deployment</div>
-                                    </div>
-                                    <span className="text-emerald-600 font-mono text-[10px] uppercase font-bold flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">● Scalable</span>
+                        <div className="relative rounded-3xl border border-slate-200 bg-slate-900 overflow-hidden shadow-2xl group">
+                            {/* Real Image */}
+                            <div className="relative h-64 sm:h-72 overflow-hidden">
+                                <img 
+                                    src="/images/home-why-choose.png" 
+                                    alt="MicroVectors Corporate AI Intelligence Center"
+                                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                                <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-700 text-xs font-bold text-blue-400 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
+                                    AI Command Hub
                                 </div>
-                                <div className="p-5 bg-white rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors shadow-sm flex items-center justify-between">
-                                    <div>
-                                        <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wider font-mono">Security & Compliance</div>
-                                        <div className="text-sm font-bold text-slate-900 mt-1">ISO & SOC2 Standards</div>
+                            </div>
+
+                            {/* Content overlay inside card */}
+                            <div className="p-6 sm:p-8 bg-slate-900/95 border-t border-slate-800">
+                                <h3 className="text-[10px] font-extrabold text-blue-400 mb-4 font-mono tracking-widest uppercase flex items-center gap-2">
+                                    // Enterprise Autonomous Infrastructure
+                                </h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div className="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700/60">
+                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase font-mono">Global Scale</div>
+                                        <div className="text-xs font-bold text-white mt-0.5">Multi-Region Cloud</div>
                                     </div>
-                                    <span className="text-emerald-600 font-mono text-[10px] uppercase font-bold flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">● Verified</span>
-                                </div>
-                                <div className="p-5 bg-white rounded-2xl border border-slate-100 hover:border-blue-100 transition-colors shadow-sm flex items-center justify-between">
-                                    <div>
-                                        <div className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wider font-mono">AI Models</div>
-                                        <div className="text-sm font-bold text-slate-900 mt-1">Custom Enterprise LLMs</div>
+                                    <div className="p-3.5 bg-slate-800/80 rounded-xl border border-slate-700/60">
+                                        <div className="text-[10px] text-slate-400 font-extrabold uppercase font-mono">Compliance</div>
+                                        <div className="text-xs font-bold text-white mt-0.5">SOC2 & ISO Certified</div>
                                     </div>
-                                    <span className="text-blue-600 font-mono text-[10px] uppercase font-bold flex items-center gap-1 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">↑ 99.9%</span>
                                 </div>
                             </div>
                         </div>
+
                         {/* Floating Stat */}
                         <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-200 z-20 hidden md:block">
                             <div className="text-4xl font-black text-blue-600 mb-1">10<span className="text-blue-400">+</span></div>

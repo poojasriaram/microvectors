@@ -82,7 +82,7 @@ export default function Company() {
                             TrustGrid AI is the foundational revenue acceleration platform helping modern organizations build predictable pipeline, close deals faster, and scale ARR using artificial intelligence.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
                             <Link to="/book-consultation">
                                 <Button className="bg-slate-900 hover:bg-slate-800 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg hover:-translate-y-0.5 transition-all w-full sm:w-auto">
                                     Book a Consultation
@@ -93,6 +93,26 @@ export default function Company() {
                                     Talk to a Revenue Expert
                                 </Button>
                             </Link>
+                        </div>
+
+                        {/* Real World Company Headquarters Showcase */}
+                        <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+                            <img 
+                                src="/images/company-hero.png" 
+                                alt="MicroVectors Global Headquarters & AI Intelligence Command Center"
+                                className="w-full h-[400px] md:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                            <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row items-start md:items-center justify-between text-left gap-4 bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl border border-slate-700/60">
+                                <div>
+                                    <div className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono">Global Innovation Hub</div>
+                                    <h3 className="text-xl font-bold text-white mt-1">Autonomous Revenue Intelligence Operating System</h3>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-semibold rounded-full">SOC2 Certified</span>
+                                    <span className="px-3 py-1 bg-blue-500/20 border border-blue-500/40 text-blue-300 text-xs font-semibold rounded-full">Fortune 500 Trusted</span>
+                                </div>
+                            </div>
                         </div>
                     </Reveal>
                 </div>

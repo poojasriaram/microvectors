@@ -190,7 +190,7 @@ export default function Solutions() {
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <Reveal width="100%">
                         {(() => {
                             const hash = location.hash.substring(1) || '';
@@ -238,7 +238,7 @@ export default function Solutions() {
             </div>
 
             {/* Solutions Grid - Compact & Clean */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
                 <div className="flex flex-col gap-8">
                     {solutions.map((solution, index) => {
                         const Icon = solution.icon;

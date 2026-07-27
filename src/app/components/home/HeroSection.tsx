@@ -100,43 +100,59 @@ export default function HeroSection() {
                         </motion.div>
                     </div>
 
-                    {/* Right Column: Premium Enterprise Bento Grid */}
-                    <div className="lg:col-span-5 relative w-full lg:h-[600px] perspective-1000">
+                    {/* Right Column: Premium Enterprise Platform Preview with Real Image */}
+                    <div className="lg:col-span-5 relative w-full lg:h-[580px] perspective-1000">
                         <motion.div 
-                            initial={{ opacity: 0, scale: 0.95, rotateY: 10 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="w-full h-full relative"
+                            className="w-full h-full relative flex items-center justify-center"
                         >
-                            {/* Main Metrics Card */}
-                            <div className="absolute top-0 right-0 w-full md:w-[90%] bg-white rounded-3xl border border-slate-200 shadow-xl p-8 z-20 backdrop-blur-xl">
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div>
-                                        <div className="text-3xl font-black text-blue-600 mb-1">5×</div>
-                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Sales Velocity</div>
+                            {/* Dashboard Image Frame */}
+                            <div className="relative w-full rounded-2xl overflow-hidden border border-slate-700/20 shadow-2xl bg-slate-900 group transition-all duration-500 hover:shadow-blue-500/20">
+                                {/* Header bar */}
+                                <div className="bg-slate-900/90 backdrop-blur-md px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                                    <div className="flex items-center space-x-2">
+                                        <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                        <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                        <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                    </div>
+                                    <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
+                                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        microvectors.ai/revenue-os
+                                    </div>
+                                    <div className="text-xs text-slate-500 font-semibold">Live System</div>
+                                </div>
+
+                                {/* Platform Real Image */}
+                                <img 
+                                    src="/images/home-hero-dashboard.png" 
+                                    alt="MicroVectors Autonomous AI Revenue Engine Dashboard"
+                                    className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]" 
+                                />
+
+                                {/* Floating Stat Badge 1 */}
+                                <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-xl p-3 shadow-xl flex items-center gap-3">
+                                    <div className="p-2.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400">
+                                        <TrendingUp className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <div className="text-3xl font-black text-indigo-600 mb-1">1000×</div>
-                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Faster Automation</div>
+                                        <div className="text-sm font-bold text-white">5.4× ARR Velocity</div>
+                                        <div className="text-[11px] text-slate-400">Real-time pipeline automation</div>
+                                    </div>
+                                </div>
+
+                                {/* Floating Stat Badge 2 */}
+                                <div className="absolute top-16 right-4 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-xl p-3 shadow-xl flex items-center gap-3">
+                                    <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                                        <Zap className="w-5 h-5" />
                                     </div>
                                     <div>
-                                        <div className="text-3xl font-black text-emerald-600 mb-1">27%</div>
-                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Churn Reduction</div>
-                                    </div>
-                                    <div>
-                                        <div className="text-3xl font-black text-purple-600 mb-1">2.3×</div>
-                                        <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">Conversion Lift</div>
+                                        <div className="text-sm font-bold text-white">1,000+ Signals/sec</div>
+                                        <div className="text-[11px] text-slate-400">Autonomous Intent Engine</div>
                                     </div>
                                 </div>
                             </div>
-
-
-                            {/* Security Badge Card */}
-                            <div className="absolute top-48 left-0 w-32 h-32 bg-white rounded-3xl border border-slate-200 shadow-lg p-4 z-10 flex flex-col items-center justify-center text-center transform -translate-x-12 -rotate-6">
-                                <ShieldCheck className="w-10 h-10 text-blue-600 mb-2" />
-                                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider leading-tight">Enterprise<br/>Grade</span>
-                            </div>
-
                         </motion.div>
                     </div>
 

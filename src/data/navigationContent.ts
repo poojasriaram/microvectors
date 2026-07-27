@@ -2055,43 +2055,6 @@ export const smNavItems = [
         "path": "/"
     },
     {
-        "name": "Crypto",
-        "path": "/crypto",
-        "dropdown": {
-            "highlight": {
-                "title": "High-Velocity Web3",
-                "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
-                "linkText": "Explore Solutions",
-                "linkPath": "/crypto"
-            },
-            "categories": [
-                {
-                    "id": "crypto-growth",
-                    "title": "Growth & Revenue",
-                    "desc": "Accelerate revenue in Web3 ecosystems",
-                    "path": "/crypto#crypto-growth",
-                    "items": [
-                        { "name": "Crypto Revenue Acceleration", "path": "/crypto#crypto-revenue", "icon": "TrendingUp" },
-                        { "name": "Crypto Performance Revenue", "path": "/crypto#crypto-performance", "icon": "Coins" },
-                        { "name": "Crypto Growth Acceleration", "path": "/crypto#crypto-growth", "icon": "Rocket" }
-                    ]
-                },
-                {
-                    "id": "crypto-intelligence",
-                    "title": "Intelligence & Discovery",
-                    "desc": "Market insights for Web3 ventures",
-                    "path": "/crypto#crypto-intelligence",
-                    "items": [
-                        { "name": "Crypto Demand Discovery", "path": "/crypto#crypto-demand-discovery", "icon": "Search" },
-                        { "name": "Market Validation Intelligence", "path": "/crypto#crypto-market-validation", "icon": "Target" },
-                        { "name": "Customer Journey Intelligence", "path": "/crypto#crypto-journey", "icon": "MapPin" },
-                        { "name": "Startup MVP Acceleration", "path": "/crypto#crypto-startup", "icon": "Lightbulb" }
-                    ]
-                }
-            ]
-        }
-    },
-    {
         "name": "Offerings",
         "path": "/offerings",
         "dropdown": {
@@ -2304,6 +2267,43 @@ export const smNavItems = [
                         { "name": "AI Brand Acceleration", "path": "/solutions/brand-reputation#ai-brand-acceleration", "icon": "Sparkles" },
                         { "name": "AI Reputation Acceleration", "path": "/solutions/brand-reputation#ai-reputation-acceleration", "icon": "ShieldCheck" },
                         { "name": "Autonomous Sales Pilot", "path": "/solutions/brand-reputation#ai-auto-sales-pilot", "icon": "Bot" }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "Crypto",
+        "path": "/crypto",
+        "dropdown": {
+            "highlight": {
+                "title": "High-Velocity Web3",
+                "desc": "Built for High-Velocity Web3 & Crypto Ecosystems.",
+                "linkText": "Explore Solutions",
+                "linkPath": "/crypto"
+            },
+            "categories": [
+                {
+                    "id": "crypto-growth",
+                    "title": "Growth & Revenue",
+                    "desc": "Accelerate revenue in Web3 ecosystems",
+                    "path": "/crypto#crypto-growth",
+                    "items": [
+                        { "name": "Crypto Revenue Acceleration", "path": "/crypto#crypto-revenue", "icon": "TrendingUp" },
+                        { "name": "Crypto Performance Revenue", "path": "/crypto#crypto-performance", "icon": "Coins" },
+                        { "name": "Crypto Growth Acceleration", "path": "/crypto#crypto-growth", "icon": "Rocket" }
+                    ]
+                },
+                {
+                    "id": "crypto-intelligence",
+                    "title": "Intelligence & Discovery",
+                    "desc": "Market insights for Web3 ventures",
+                    "path": "/crypto#crypto-intelligence",
+                    "items": [
+                        { "name": "Crypto Demand Discovery", "path": "/crypto#crypto-demand-discovery", "icon": "Search" },
+                        { "name": "Market Validation Intelligence", "path": "/crypto#crypto-market-validation", "icon": "Target" },
+                        { "name": "Customer Journey Intelligence", "path": "/crypto#crypto-journey", "icon": "MapPin" },
+                        { "name": "Startup MVP Acceleration", "path": "/crypto#crypto-startup", "icon": "Lightbulb" }
                     ]
                 }
             ]

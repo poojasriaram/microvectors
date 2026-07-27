@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueAcceleration() {
     useEffect(() => {
-        document.title = "AI Revenue Acceleration ™ 2.0 | TrustGrid AI";
+        document.title = "AI Revenue Acceleration ™ 2.0 | MicroVectors";
         window.scrollTo(0, 0);
     }, []);
 
@@ -170,8 +170,8 @@ export default function AIRevenueAcceleration() {
                     <div className="absolute inset-0 bg-white/40 bg-gradient-to-b from-white/90 via-white/30 to-white/90"></div>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
                         <Zap className="w-4 h-4 text-blue-600" />
                         <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent uppercase tracking-wider">Revenue Auto-Pilot 2.0</span>
                     </div>
@@ -188,19 +188,46 @@ export default function AIRevenueAcceleration() {
                         <span className="text-blue-600 italic underline decoration-blue-100 underline-offset-8">From "AI Tools" to Autonomous Revenue Owners.</span>
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
                         <Link to="/book-consultation">
-                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold italic">
+                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold italic">
                                 ACTIVATE AUTO-PILOT
                             </Button>
                         </Link>
+                    </div>
+
+                    {/* Real-World Autonomous Sales Engine Showcase */}
+                    <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group">
+                        <img 
+                            src="/images/revenue-acceleration-engine.png" 
+                            alt="MicroVectors Autonomous AI Sales Engine Command Center" 
+                            className="w-full h-[420px] md:h-[520px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row items-start md:items-center justify-between text-left gap-4 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
+                            <div>
+                                <div className="text-xs font-bold text-blue-400 font-mono uppercase tracking-widest flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                                    Autonomous Revenue OS v2.0
+                                </div>
+                                <h3 className="text-xl font-bold text-white mt-1">Multi-Agent Deal Velocity & Pipeline Execution Platform</h3>
+                            </div>
+                            <div className="flex items-center gap-4 text-xs font-mono text-slate-300">
+                                <div className="px-3 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-lg text-blue-400 font-bold">
+                                    67% Stall Progression Rate
+                                </div>
+                                <div className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-400 font-bold">
+                                    94% Friction Reduction
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Core Agent Architecture Section */}
             <section className="py-24 bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-blue-600 font-bold uppercase tracking-widest mb-4">Core Agent Architecture</h2>
                         <h3 className="text-4xl md:text-5xl font-black text-slate-900 italic">The Six Levels of Agent Autonomy</h3>
@@ -209,7 +236,7 @@ export default function AIRevenueAcceleration() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {agentTypes.map((agent, i) => (
-                            <div key={i} className="p-8 bg-slate-50 border border-slate-100 rounded-3xl hover:bg-white hover:shadow-2xl transition-all duration-300 group">
+                            <div key={i} className="p-8 bg-slate-50 border border-slate-100 rounded-[20px] hover:bg-white hover:shadow-2xl transition-all duration-300 group">
                                 <div className="w-12 h-12 bg-slate-900 group-hover:bg-blue-600 text-white rounded-xl flex items-center justify-center mb-6 transition-colors shadow-lg">
                                     <Bot className="w-6 h-6" />
                                 </div>
@@ -225,7 +252,7 @@ export default function AIRevenueAcceleration() {
 
             {/* Deep-Dive Offerings Section */}
             <section className="py-24 bg-slate-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-20">
                         <h2 className="text-blue-600 font-bold uppercase tracking-widest mb-4">Deep-Dive Offerings</h2>
                         <h3 className="text-5xl font-black text-slate-900">8 Autonomous Pillars for Growth</h3>
@@ -234,7 +261,7 @@ export default function AIRevenueAcceleration() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {offerings.map((offering, i) => (
-                            <div key={i} className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
+                            <div key={i} className="bg-white p-8 rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
                                 <div className="mb-6">
                                     <offering.icon className="w-10 h-10 text-blue-600" />
                                 </div>
@@ -276,7 +303,7 @@ export default function AIRevenueAcceleration() {
                                         <td className="p-8 text-slate-400 font-bold">{row.before}</td>
                                         <td className="p-8 text-blue-600 font-black text-lg">{row.after}</td>
                                         <td className="p-8">
-                                            <span className="px-5 py-2 bg-green-100 text-green-700 text-sm font-black rounded-full shadow-sm">
+                                            <span className="px-5 py-2 bg-green-100 text-green-700 text-sm font-black rounded-xl shadow-sm">
                                                 {row.impact}
                                             </span>
                                         </td>
@@ -290,7 +317,7 @@ export default function AIRevenueAcceleration() {
 
             {/* Segment Packaging Section */}
             <section className="py-24 bg-slate-950 text-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-20 text-center">
                         <h3 className="text-4xl md:text-5xl font-black italic mb-6">Enhanced Segment Positioning</h3>
                         <p className="text-slate-400 max-w-2xl mx-auto font-medium">Tailored autonomous systems for every stage of market growth.</p>
@@ -322,7 +349,7 @@ export default function AIRevenueAcceleration() {
 
             {/* Human-AI Collaboration Section */}
             <section className="py-24 bg-white overflow-hidden relative border-y border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid lg:grid-cols-2 gap-20 items-center">
                         <div>
                             <h2 className="text-blue-600 font-bold uppercase tracking-widest mb-6">The Strategic Insight</h2>
@@ -347,7 +374,7 @@ export default function AIRevenueAcceleration() {
                             </div>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full"></div>
+                            <div className="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-xl"></div>
                             <div className="relative p-12 bg-slate-900 rounded-[3rem] shadow-2xl border border-white/10 text-center">
                                 <Users2 className="w-20 h-20 text-blue-400 mx-auto mb-8" />
                                 <p className="text-6xl font-black text-white mb-4 italic">67%</p>
@@ -363,7 +390,7 @@ export default function AIRevenueAcceleration() {
 
             {/* Why This is Different Section */}
             <section className="py-24 bg-white border-b border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 italic tracking-tighter">Beyond "AI Assisted"</h2>
                         <p className="text-slate-500 font-bold mt-4 italic uppercase tracking-widest text-sm">Revenue Ownership vs. Task Assistance</p>
@@ -378,15 +405,15 @@ export default function AIRevenueAcceleration() {
                             { label: "Learning", trad: "Static models requiring updates", auto: "Self-optimizing A/B testing", impact: "22% conversion improvement" },
                             { label: "Integration", trad: "Fragmented point solutions", auto: "Unified Revenue System", impact: "Single source of truth" }
                         ].map((item, i) => (
-                            <div key={i} className="p-8 rounded-3xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl transition-all group">
+                            <div key={i} className="p-8 rounded-[20px] border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl transition-all group">
                                 <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 group-hover:text-blue-500 transition-colors">{item.label}</p>
                                 <div className="space-y-4 mb-6">
                                     <div className="flex gap-3">
-                                        <div className="w-1.5 h-1.5 bg-slate-200 mt-1.5 rounded-full" />
+                                        <div className="w-1.5 h-1.5 bg-slate-200 mt-1.5 rounded-xl" />
                                         <p className="text-sm text-slate-400 font-medium">Traditional: {item.trad}</p>
                                     </div>
                                     <div className="flex gap-3">
-                                        <div className="w-1.5 h-1.5 bg-blue-500 mt-1.5 rounded-full" />
+                                        <div className="w-1.5 h-1.5 bg-blue-500 mt-1.5 rounded-xl" />
                                         <p className="text-sm text-slate-900 font-bold italic">Autonomous: {item.auto}</p>
                                     </div>
                                 </div>
@@ -412,8 +439,8 @@ export default function AIRevenueAcceleration() {
                             { year: "Q4 2026", title: "AI-to-AI Negotiations", desc: "Procurement and sales agents engaging in autonomous negotiations within set guardrails." },
                             { year: "2027", title: "Predictive Market Making", desc: "Agents shaping demand through autonomous content creation and thought leadership." }
                         ].map((item, i) => (
-                            <div key={i} className="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm flex gap-8 items-start hover:shadow-md transition-shadow">
-                                <span className="bg-slate-900 text-white px-4 py-1 rounded-full text-xs font-black shrink-0">{item.year}</span>
+                            <div key={i} className="p-8 bg-white rounded-[20px] border border-slate-200 shadow-sm flex gap-8 items-start hover:shadow-md transition-shadow">
+                                <span className="bg-slate-900 text-white px-4 py-1 rounded-xl text-xs font-black shrink-0">{item.year}</span>
                                 <div>
                                     <h4 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h4>
                                     <p className="text-slate-600 font-medium">{item.desc}</p>
@@ -436,7 +463,7 @@ export default function AIRevenueAcceleration() {
                         <span className="text-slate-400 italic font-medium">restructure your entire revenue operating model today.</span>
                     </p>
                     <Link to="/book-consultation">
-                        <Button className="bg-slate-900 hover:bg-black text-white text-xl px-16 py-10 h-auto rounded-full font-black shadow-2xl transition-all hover:scale-105 flex items-center gap-6 mx-auto group">
+                        <Button className="bg-slate-900 hover:bg-black text-white text-xl px-16 py-10 h-auto rounded-xl font-black shadow-2xl transition-all hover:scale-105 flex items-center gap-6 mx-auto group">
                             DEPLOY REVENUE AGENTS <ArrowRight className="w-8 h-8 shrink-0 group-hover:translate-x-2 transition-transform" />
                         </Button>
                     </Link>

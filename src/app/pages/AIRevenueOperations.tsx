@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueOperations() {
     useEffect(() => {
-        document.title = "AI Revenue Operations (AROS) | TrustGrid AI";
+        document.title = "AI Revenue Operations (AROS) | MicroVectors";
         window.scrollTo(0, 0);
     }, []);
 
@@ -174,8 +174,8 @@ export default function AIRevenueOperations() {
                     <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80"></div>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
                         <Zap className="w-4 h-4 text-blue-600" />
                         <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent uppercase tracking-wider">AROS: Agentic Revenue Operating System</span>
                     </div>
@@ -193,12 +193,12 @@ export default function AIRevenueOperations() {
 
                     <div className="flex flex-col sm:flex-row gap-5 justify-center">
                         <Link to="/book-consultation">
-                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold">
+                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-7 text-xl h-auto rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1 font-bold">
                                 Activate AROS Swarm
                             </Button>
                         </Link>
                         <Link to="/talk-to-expert">
-                            <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 px-10 py-7 text-xl h-auto rounded-full backdrop-blur-sm transition-all font-bold">
+                            <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 px-10 py-7 text-xl h-auto rounded-xl backdrop-blur-sm transition-all font-bold">
                                 View Architecture
                             </Button>
                         </Link>
@@ -208,17 +208,17 @@ export default function AIRevenueOperations() {
 
             {/* Metrics Section */}
             <section className="py-24 bg-white border-y border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                         {metrics.map((m, i) => (
-                            <div key={i} className="p-8 bg-slate-50 border border-slate-100 rounded-3xl relative group overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/10">
+                            <div key={i} className="p-8 bg-slate-50 border border-slate-100 rounded-[20px] relative group overflow-hidden transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-blue-500/10">
                                 <div className="absolute top-0 right-0 p-2 text-blue-500/5 group-hover:text-blue-500/10 transition-colors">
                                     <TrendingUp className="w-16 h-16" />
                                 </div>
                                 <p className="text-slate-500 text-sm font-bold uppercase tracking-widest mb-2">{m.label}</p>
                                 <div className="flex items-baseline gap-2">
                                     <h3 className="text-3xl font-black text-blue-600">{m.aros}</h3>
-                                    <span className="text-xs text-green-700 font-bold bg-green-100 px-2.5 py-1 rounded-full">{m.multiplier}</span>
+                                    <span className="text-xs text-green-700 font-bold bg-green-100 px-2.5 py-1 rounded-xl">{m.multiplier}</span>
                                 </div>
                                 <p className="text-slate-400 text-xs mt-3 font-semibold uppercase">vs {m.traditional} (Traditional)</p>
                             </div>
@@ -231,16 +231,16 @@ export default function AIRevenueOperations() {
             <div className="space-y-0">
                 {phases.map((phase, pIdx) => (
                     <section key={pIdx} className={`py-24 ${pIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}>
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="mb-16">
-                                <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-widest uppercase mb-4">{phase.title}</span>
+                                <span className="inline-block px-4 py-1 rounded-xl bg-blue-100 text-blue-700 text-xs font-bold tracking-widest uppercase mb-4">{phase.title}</span>
                                 <h3 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight">{phase.subtitle}</h3>
                             </div>
 
                             <div className="grid md:grid-cols-2 gap-10">
                                 {phase.agents.map((agent, aIdx) => (
-                                    <div key={aIdx} className="bg-white p-10 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 transition-all group-hover:scale-150 group-hover:bg-blue-100/50"></div>
+                                    <div key={aIdx} className="bg-white p-10 rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-xl -mr-16 -mt-16 transition-all group-hover:scale-150 group-hover:bg-blue-100/50"></div>
 
                                         <div className="relative z-10">
                                             <div className="w-16 h-16 bg-slate-900 border-4 border-slate-50 text-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:rotate-6 transition-all duration-500">
@@ -252,7 +252,7 @@ export default function AIRevenueOperations() {
                                             <div className="space-y-4">
                                                 {agent.workflows.map((flow, fIdx) => (
                                                     <div key={fIdx} className="flex gap-4 items-start group/flow">
-                                                        <div className="mt-1.5 w-2 h-2 rounded-full bg-blue-500 group-hover/flow:scale-125 transition-all" />
+                                                        <div className="mt-1.5 w-2 h-2 rounded-xl bg-blue-500 group-hover/flow:scale-125 transition-all" />
                                                         <p className="text-slate-600 font-medium leading-relaxed">{flow}</p>
                                                     </div>
                                                 ))}
@@ -269,7 +269,7 @@ export default function AIRevenueOperations() {
             {/* Tech Stack / Architecture */}
             <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.5),transparent_50%)]"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl md:text-5xl font-black mb-6">The Agentic Stack</h2>
                         <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">Built on a foundation of proprietary AI orchestration and global intelligence layers.</p>
@@ -282,7 +282,7 @@ export default function AIRevenueOperations() {
                             { icon: Zap, label: "Action", items: ["n8n Workflow Engine", "Playwright Automation", "Stripe Billing APIs"] },
                             { icon: Shield, label: "Governance", items: ["LangSmith Performance", "W&B Model Monitoring", "Compliance Guardrails"] }
                         ].map((stack, i) => (
-                            <div key={i} className="p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl hover:border-blue-500/50 transition-all group">
+                            <div key={i} className="p-10 rounded-[20px] border border-white/10 bg-white/5 backdrop-blur-xl hover:border-blue-500/50 transition-all group">
                                 <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
                                     <stack.icon className="w-8 h-8 text-blue-400 group-hover:text-white" />
                                 </div>
@@ -290,7 +290,7 @@ export default function AIRevenueOperations() {
                                 <ul className="space-y-4">
                                     {stack.items.map((item, ii) => (
                                         <li key={ii} className="text-slate-400 font-medium text-sm flex items-center gap-2">
-                                            <div className="w-1 h-1 bg-blue-500 rounded-full" />
+                                            <div className="w-1 h-1 bg-blue-500 rounded-xl" />
                                             {item}
                                         </li>
                                     ))}
@@ -305,7 +305,7 @@ export default function AIRevenueOperations() {
             <section className="py-32 bg-slate-50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 opacity-50"></div>
                 <div className="max-w-5xl mx-auto text-center px-4 relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-blue-600 text-white text-xs font-bold mb-8">
+                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-xl bg-blue-600 text-white text-xs font-bold mb-8">
                         <Zap className="w-3 h-3 fill-current" />
                         <span>READY TO SCALE?</span>
                     </div>
@@ -313,7 +313,7 @@ export default function AIRevenueOperations() {
                     <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">Join the elite enterprises moving from manual sales to autonomous agent swarms.</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link to="/book-consultation">
-                            <Button className="bg-slate-900 hover:bg-black text-white text-xl px-12 py-8 h-auto rounded-full font-bold shadow-2xl transition-all hover:-translate-y-1 flex items-center gap-3">
+                            <Button className="bg-slate-900 hover:bg-black text-white text-xl px-12 py-8 h-auto rounded-xl font-bold shadow-2xl transition-all hover:-translate-y-1 flex items-center gap-3">
                                 Start Your Swarm <ArrowRight className="w-6 h-6" />
                             </Button>
                         </Link>

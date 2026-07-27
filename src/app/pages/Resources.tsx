@@ -34,11 +34,11 @@ export default function Resources() {
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <Reveal width="100%">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-700 uppercase tracking-widest mb-8">
                             <BookOpen className="w-4 h-4 text-blue-600" />
-                            <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Resources Hub</span>
+                            Resources Hub
                         </div>
 
                         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
@@ -48,14 +48,14 @@ export default function Resources() {
                             </span>
                         </h1>
                         <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium mb-10">
-                            TrustGrid AI is building a comprehensive knowledge hub for modern revenue leaders. Our resources are designed to help founders, CROs, and revenue teams build predictable, scalable growth engines.
+                            MicroVectors is building a comprehensive knowledge hub for modern revenue leaders. Our resources are designed to help founders, CROs, and revenue teams build predictable, scalable growth engines.
                         </p>
                     </Reveal>
                 </div>
             </div>
 
             {/* Resources Categories Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-24">
                 <Reveal width="100%">
                     <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">What You’ll Find Here</h2>
                 </Reveal>
@@ -76,8 +76,8 @@ export default function Resources() {
             </div>
 
             {/* Designed For Section */}
-            <div className="bg-slate-50 py-20 mb-20 border-y border-slate-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-slate-50 py-20 lg:py-28 border-y border-slate-200">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Built For</h2>
                         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -100,21 +100,19 @@ export default function Resources() {
             </div>
 
             {/* CTA Section */}
-            <div className="max-w-4xl mx-auto px-4 pb-20 text-center">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28 text-center">
                 <Reveal width="100%">
-                    <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden">
+                    <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 rounded-[20px] p-12 text-white shadow-2xl border border-white/10 relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
                         <div className="relative z-10">
                             <h2 className="text-3xl font-bold mb-8">Start Building Your Revenue Engine</h2>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Button className="bg-white text-blue-900 hover:bg-slate-50 px-8 py-6 h-auto text-lg font-bold shadow-lg">
-                                    Explore Resources
-                                </Button>
-                                <Link to="/book-consultation">
-                                    <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20 px-8 py-6 h-auto text-lg backdrop-blur-sm">
-                                        Book for Consultation
-                                    </Button>
+                                <Link to="/offerings" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-blue-900/50 hover:-translate-y-0.5">
+                                    Explore Offerings
+                                </Link>
+                                <Link to="/book-consultation" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-200">
+                                    Book Consultation
                                 </Link>
                             </div>
                         </div>

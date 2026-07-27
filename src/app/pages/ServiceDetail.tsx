@@ -18,9 +18,9 @@ export default function ServiceDetail() {
     const data = servicesData[slug];
 
     return (
-        <div className="pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
+        <div className="pt-32 lg:pt-40 pb-20 lg:pb-28 overflow-hidden">
             {/* Breadcrumbs */}
-            <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 mb-8">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                 <div className="flex items-center text-sm text-slate-500 font-medium">
                     <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
                     <ChevronRight className="w-4 h-4 mx-2" />
@@ -31,7 +31,7 @@ export default function ServiceDetail() {
             </div>
 
             {/* Hero Section */}
-            <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 mb-20 lg:mb-32">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-20 lg:mb-28">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-bold mb-6">
@@ -52,8 +52,8 @@ export default function ServiceDetail() {
                         </div>
                     </div>
                     <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
-                        <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-premium h-full min-h-[400px] flex flex-col justify-center relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-[24px] transform rotate-3 scale-105 -z-10"></div>
+                        <div className="bg-white border border-slate-100 rounded-[24px] p-8 shadow-premium h-full min-h-[400px] flex flex-col justify-center relative overflow-hidden group">
                             <div className="absolute inset-0 bg-grid-slate-100/[0.2] bg-[size:20px_20px]"></div>
                             
                             <div className="absolute -top-32 -right-32 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-60 mix-blend-multiply group-hover:bg-blue-100 transition-colors duration-700"></div>
@@ -72,7 +72,7 @@ export default function ServiceDetail() {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     {data.features?.slice(0, 4).map((feature: any, i: number) => (
-                                        <div key={i} className="bg-white/80 backdrop-blur-md border border-slate-100 p-5 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-blue-100 transition-all duration-300">
+                                        <div key={i} className="bg-white/80 backdrop-blur-md border border-slate-100 p-5 rounded-[20px] shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-blue-100 transition-all duration-300">
                                             <div className="flex items-start gap-3">
                                                 <div className="mt-0.5 w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600">
                                                     <CheckCircle className="w-4 h-4" />
@@ -92,8 +92,8 @@ export default function ServiceDetail() {
             </div>
 
             {/* Features & Benefits */}
-            <div className="bg-slate-50 border-y border-slate-100 py-20 lg:py-32">
-                <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+            <div className="bg-slate-50 border-y border-slate-100 py-20 lg:py-28">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
                         <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 font-heading">Key Capabilities</h2>
                         <p className="text-lg text-slate-600 font-medium">Discover how our targeted approach to {data.title} can transform your operations.</p>
@@ -101,7 +101,7 @@ export default function ServiceDetail() {
 
                     <div className="grid md:grid-cols-3 gap-8 mb-24">
                         {data.features.map((feature, idx) => (
-                            <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-premium transition-all duration-300 group">
+                            <div key={idx} className="bg-white p-8 rounded-[20px] border border-slate-200 shadow-sm hover:shadow-premium transition-all duration-300 group">
                                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all">
                                     {idx === 0 ? <Zap className="w-6 h-6" /> : idx === 1 ? <Rocket className="w-6 h-6" /> : <Shield className="w-6 h-6" />}
                                 </div>
@@ -112,7 +112,7 @@ export default function ServiceDetail() {
                     </div>
 
                     {/* Benefits Grid */}
-                    <div className="bg-white rounded-3xl border border-slate-200 p-8 lg:p-12 shadow-sm">
+                    <div className="bg-white rounded-[24px] border border-slate-200 p-8 lg:p-12 shadow-sm">
                         <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">Business Benefits</h3>
                         <div className="grid sm:grid-cols-2 gap-6">
                             {data.benefits.map((benefit, idx) => (
@@ -131,11 +131,11 @@ export default function ServiceDetail() {
             
             {/* Conditional: Use Cases */}
             {data.useCases && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                <div className="py-20 lg:py-28 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold mb-8 text-slate-900 text-center font-heading">Key Use Cases</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {data.useCases.map((uc, i) => (
-                            <div key={i} className="p-8 border border-slate-200 rounded-2xl bg-white shadow-sm hover:border-blue-300 transition-colors">
+                            <div key={i} className="p-8 border border-slate-200 rounded-[20px] bg-white shadow-sm hover:border-blue-300 transition-colors">
                                 <h3 className="text-xl font-bold text-slate-900 mb-3">{uc.title}</h3>
                                 <p className="text-slate-600 font-medium">{uc.description}</p>
                             </div>
@@ -146,8 +146,8 @@ export default function ServiceDetail() {
 
             {/* Conditional: Technologies */}
             {data.technologies && (
-                <div className="bg-slate-900 text-white py-20">
-                    <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 text-center">
+                <div className="bg-slate-900 text-white py-20 lg:py-28">
+                    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-3xl font-bold mb-12 font-heading">Powered by Leading Technologies</h2>
                         <div className="flex flex-wrap justify-center gap-4">
                             {data.technologies.map((tech, i) => (
@@ -162,11 +162,11 @@ export default function ServiceDetail() {
 
             {/* Conditional: Architecture Diagrams */}
             {data.architectureDiagrams && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                <div className="py-20 lg:py-28 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Reference Architecture</h2>
                     {data.architectureDiagrams.map((arch, i) => (
                         <div key={i} className="max-w-5xl mx-auto mb-16 text-center">
-                            <img src={arch.src} alt={arch.title} className="w-full h-auto rounded-3xl shadow-premium mb-8 border border-slate-200" />
+                            <img src={arch.src} alt={arch.title} className="w-full h-auto rounded-[24px] shadow-premium mb-8 border border-slate-200" />
                             <h3 className="text-2xl font-bold text-slate-900 mb-4">{arch.title}</h3>
                             <p className="text-slate-600 text-lg max-w-3xl mx-auto">{arch.description}</p>
                         </div>
@@ -176,8 +176,8 @@ export default function ServiceDetail() {
 
             {/* Conditional: KPIs */}
             {data.kpis && (
-                <div className="bg-blue-600 text-white py-24">
-                    <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                <div className="bg-blue-600 text-white py-20 lg:py-28">
+                    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="grid md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
                             {data.kpis.map((kpi, i) => (
                                 <div key={i} className="pt-8 md:pt-0">
@@ -192,11 +192,11 @@ export default function ServiceDetail() {
 
             {/* Conditional: Success Stories */}
             {data.successStories && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 bg-slate-50 border-y border-slate-100">
+                <div className="py-20 lg:py-28 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-100">
                     <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Proven Success Stories</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {data.successStories.map((story, i) => (
-                            <div key={i} className="p-8 bg-white border border-slate-200 rounded-3xl">
+                            <div key={i} className="p-8 bg-white border border-slate-200 rounded-[20px]">
                                 <h3 className="text-2xl font-bold text-slate-900 mb-4">{story.title}</h3>
                                 <p className="text-slate-600 text-lg">{story.description}</p>
                             </div>
@@ -207,13 +207,13 @@ export default function ServiceDetail() {
 
             {/* Conditional: Service Models & Project Lifecycle */}
             {(data.serviceModels || data.projectLifecycle) && (
-                <div className="py-20 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+                <div className="py-20 lg:py-28 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     {data.serviceModels && (
                         <div className="mb-24">
                             <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Engagement Models</h2>
                             <div className="grid md:grid-cols-3 gap-8">
                                 {data.serviceModels.map((model: any, i: number) => (
-                                    <div key={i} className="p-8 border-2 border-slate-100 hover:border-blue-500 rounded-2xl transition-colors">
+                                    <div key={i} className="p-8 border-2 border-slate-100 hover:border-blue-500 rounded-[20px] transition-colors">
                                         <h3 className="text-xl font-bold text-slate-900 mb-3">{model.title}</h3>
                                         <p className="text-slate-600 font-medium">{model.description}</p>
                                     </div>
@@ -226,7 +226,7 @@ export default function ServiceDetail() {
                             <h2 className="text-3xl font-bold mb-12 text-slate-900 text-center font-heading">Our Delivery Methodology</h2>
                             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {data.projectLifecycle.map((step: any, i: number) => (
-                                    <div key={i} className="relative p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                                    <div key={i} className="relative p-6 bg-slate-50 rounded-[20px] border border-slate-200">
                                         <div className="text-4xl font-black text-slate-200 mb-4 font-heading">0{i+1}</div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">{step.step}</h3>
                                         <p className="text-slate-600 text-sm font-medium">{step.desc}</p>
@@ -239,12 +239,12 @@ export default function ServiceDetail() {
             )}
 
             {/* FAQs */}
-            <div className="py-20 lg:py-32 max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+            <div className="py-20 lg:py-28 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-12 text-center font-heading">Frequently Asked Questions</h2>
                     <div className="space-y-6">
                         {data.faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-6 lg:p-8 hover:border-blue-200 transition-colors">
+                            <div key={idx} className="bg-white border border-slate-200 rounded-[20px] p-6 lg:p-8 hover:border-blue-200 transition-colors">
                                 <h4 className="text-xl font-bold text-slate-900 mb-3">{faq.question}</h4>
                                 <p className="text-slate-600 font-medium leading-relaxed">{faq.answer}</p>
                             </div>

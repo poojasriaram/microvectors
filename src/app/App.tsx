@@ -34,12 +34,15 @@ const AIRevenueOperations = lazy(() => import('./pages/AIRevenueOperations'));
 const AIRevenueAcceleration = lazy(() => import('./pages/AIRevenueAcceleration'));
 const BehaviourAnalytics = lazy(() => import('./pages/BehaviourAnalytics'));
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
+const ServicePage = lazy(() => import('./pages/ServicePage'));
 const Pricing = lazy(() => import('./pages/Pricing'));
 const AIBrandAcceleration = lazy(() => import('./pages/AIBrandAcceleration'));
 const AIReputationAcceleration = lazy(() => import('./pages/AIReputationAcceleration'));
 const DiscoveryPage = lazy(() => import('./pages/DiscoveryPage'));
 const CookieConsent = lazy(() => import('./components/CookieConsent'));
 import TabExitPopup from './components/TabExitPopup';
+import StickyCtaBar from './components/StickyCtaBar';
+import WhatsAppWidget from './components/WhatsAppWidget';
 import { servicesData } from '../data/navigationContent';
 
 import { useAnalytics } from '../hooks/useAnalytics';
@@ -111,6 +114,19 @@ export default function App() {
               <Route path="/industries" element={<Industries />} />
               <Route path="/offerings" element={<Offerings />} />
               <Route path="/resources" element={<Resources />} />
+              {/* ── New consolidated service routes ── */}
+              <Route path="/services" element={<Navigate to="/offerings" replace />} />
+              <Route path="/services/ai-growth-engine" element={<ServicePage />} />
+              <Route path="/services/revenue-acceleration" element={<ServicePage />} />
+              <Route path="/services/lead-generation" element={<ServicePage />} />
+              <Route path="/services/demand-discovery" element={<ServicePage />} />
+              <Route path="/services/customer-discovery" element={<ServicePage />} />
+              <Route path="/services/competitive-discovery" element={<ServicePage />} />
+              <Route path="/services/product-market-fit" element={<ServicePage />} />
+              {/* ── New top-level routes ── */}
+              <Route path="/about" element={<Navigate to="/company" replace />} />
+              <Route path="/case-studies" element={<Navigate to="/#case-studies" replace />} />
+              <Route path="/blog" element={<Navigate to="/resources" replace />} />
               <Route path="/company" element={<Company />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
@@ -161,6 +177,8 @@ export default function App() {
         <ChatBot />
         <CookieConsent />
         <TabExitPopup />
+        <StickyCtaBar />
+        <WhatsAppWidget />
         <Footer />
       </div>
     </Router>

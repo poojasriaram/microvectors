@@ -123,6 +123,27 @@ export default function BookDemo() {
                             </Reveal>
                         </div>
 
+                        {/* Real-World Interactive Demo Workspace Visual */}
+                        <Reveal width="100%" delay={0.25}>
+                            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+                                <img 
+                                    src="/images/book-demo-preview.png" 
+                                    alt="MicroVectors Interactive AI Platform Consultation & Live Demo Session" 
+                                    className="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-left">
+                                    <div>
+                                        <span className="text-[10px] font-mono font-bold text-blue-400 uppercase tracking-widest">Interactive Session</span>
+                                        <h4 className="text-sm font-bold text-white mt-0.5">Live AI Co-Pilot & Revenue Architecture Review</h4>
+                                    </div>
+                                    <span className="px-2.5 py-1 bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-mono font-bold rounded-full">
+                                        30-Min Session
+                                    </span>
+                                </div>
+                            </div>
+                        </Reveal>
+
                         <div className="pt-8 border-t border-slate-200/60">
                             <Reveal width="100%" delay={0.3}>
                                 <div className="flex items-center gap-5">

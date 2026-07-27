@@ -1,65 +1,162 @@
-import { Quote } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
     {
-        quote: "MicroVectors transformed our entire Go-To-Market motion. We saw a 300% increase in pipeline velocity within the first quarter.",
+        quote: "MicroVectors transformed our entire Go-To-Market motion. We saw a 300% increase in pipeline velocity within the first quarter. The AI-driven approach completely changed how we think about revenue generation.",
         author: "Sarah Jenkins",
-        role: "CRO, FinTech Enterprise",
-        company: "Vanguard Pay"
+        role: "Chief Revenue Officer",
+        company: "Vanguard Pay",
+        industry: "FinTech Enterprise",
+        rating: 5
     },
     {
-        quote: "The autonomous sales reps handle 80% of our initial discovery calls. It's like having a 24/7 sales floor that never misses a beat.",
+        quote: "The autonomous sales reps handle 80% of our initial discovery calls. It's like having a 24/7 sales floor that never misses a beat. Our team now spends time where it actually matters — closing deals.",
         author: "David Chen",
-        role: "VP of Sales, SaaS Logistics",
-        company: "ShipFlow"
+        role: "VP of Sales",
+        company: "ShipFlow",
+        industry: "SaaS Logistics",
+        rating: 5
     },
     {
-        quote: "Their predictive revenue models are uncannily accurate. We can finally forecast our quarterly targets with 98% precision.",
+        quote: "Their predictive revenue models are uncannily accurate. We can finally forecast our quarterly targets with 98% precision — a complete game-changer for our board communications.",
         author: "Elena Rodriguez",
         role: "RevOps Director",
-        company: "CloudScale Systems"
+        company: "CloudScale Systems",
+        industry: "Enterprise SaaS",
+        rating: 5
+    },
+    {
+        quote: "We found $1.8M in hidden upsell opportunities in the first 60 days. The ROI on the MicroVectors engagement paid for itself within the first month.",
+        author: "Michael Torres",
+        role: "CFO",
+        company: "ScalePoint",
+        industry: "B2B Platform",
+        rating: 5
+    },
+    {
+        quote: "Demand Discovery uncovered a $300M unserved market that we've since entered and captured 40% share in. The intelligence was simply unavailable anywhere else.",
+        author: "Priya Nair",
+        role: "Chief Strategy Officer",
+        company: "Apex Logistics",
+        industry: "Enterprise Logistics",
+        rating: 5
+    },
+    {
+        quote: "Our Series A closed at 2× target valuation after we could present quantitative PMF evidence from MicroVectors' intelligence platform. It was the most impactful investment we made pre-funding.",
+        author: "Aisha Mensah",
+        role: "CEO & Co-Founder",
+        company: "HealthLoop",
+        industry: "HealthTech",
+        rating: 5
     }
 ];
 
 export default function TestimonialsSection() {
+    const [page, setPage] = useState(0);
+    const perPage = 3;
+    const totalPages = Math.ceil(testimonials.length / perPage);
+    const visible = testimonials.slice(page * perPage, page * perPage + perPage);
+
     return (
-        <section className="py-20 md:py-24 lg:py-32 bg-white border-t border-slate-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight drop-shadow-sm">
-                            Proven by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Enterprise Leaders</span>
+        <section className="py-20 md:py-24 lg:py-32 bg-slate-50 border-t border-slate-100 overflow-hidden">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+                    <div>
+                        <div className="text-xs font-extrabold text-blue-600 uppercase tracking-widest mb-3">Client Success</div>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-heading">
+                            Proven by{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                                Enterprise Leaders
+                            </span>
                         </h2>
-                    </motion.div>
+                    </div>
+
+                    {/* Pagination controls */}
+                    <div className="flex items-center gap-3 shrink-0">
+                        <span className="text-sm font-medium text-slate-500">{page + 1} / {totalPages}</span>
+                        <button
+                            onClick={() => setPage(p => Math.max(0, p - 1))}
+                            disabled={page === 0}
+                            className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                            aria-label="Previous testimonials"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))}
+                            disabled={page === totalPages - 1}
+                            className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                            aria-label="Next testimonials"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                            className="bg-slate-50 rounded-3xl p-10 border border-slate-100 relative group hover:bg-white hover:shadow-premium-hover hover:border-blue-100 card-hover-lift transition-all duration-300"
-                        >
-                            <Quote className="w-10 h-10 text-blue-200 mb-6 group-hover:text-blue-500 transition-colors duration-300" />
-                            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-10">
-                                "{testimonial.quote}"
-                            </p>
-                            
-                            <div className="pt-6 border-t border-slate-200/60 group-hover:border-blue-100 transition-colors duration-300">
-                                <div className="font-bold text-slate-900">{testimonial.author}</div>
-                                <div className="text-sm text-slate-500 font-medium mb-1">{testimonial.role}</div>
-                                <div className="text-xs font-bold text-blue-600 uppercase tracking-wide">{testimonial.company}</div>
+                {/* Cards */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={page}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                    >
+                        {visible.map((testimonial, index) => (
+                            <div
+                                key={index}
+                                className="bg-white rounded-[20px] p-8 border border-slate-200 relative group hover:border-blue-200 hover:shadow-xl transition-all duration-300 flex flex-col"
+                            >
+                                {/* Stars */}
+                                <div className="flex gap-1 mb-5">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                                    ))}
+                                </div>
+
+                                {/* Quote icon */}
+                                <Quote className="w-8 h-8 text-blue-100 group-hover:text-blue-200 transition-colors mb-3 shrink-0" />
+
+                                {/* Quote text */}
+                                <p className="text-slate-700 font-medium leading-relaxed mb-6 text-sm flex-1">
+                                    "{testimonial.quote}"
+                                </p>
+
+                                {/* Author */}
+                                <div className="pt-5 border-t border-slate-100 group-hover:border-blue-50 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        {/* Avatar initials */}
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0">
+                                            <span className="text-white text-sm font-extrabold">
+                                                {testimonial.author.split(' ').map(n => n[0]).join('')}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-slate-900 text-sm">{testimonial.author}</div>
+                                            <div className="text-xs text-slate-500">{testimonial.role}</div>
+                                            <div className="text-xs font-bold text-blue-600 mt-0.5">{testimonial.company} · {testimonial.industry}</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </motion.div>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
+
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mt-10">
+                    {[...Array(totalPages)].map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setPage(i)}
+                            className={`rounded-full transition-all duration-300 ${i === page ? 'w-8 h-2.5 bg-blue-600' : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'}`}
+                            aria-label={`Go to page ${i + 1}`}
+                        />
                     ))}
                 </div>
             </div>

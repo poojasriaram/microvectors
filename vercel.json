@@ -19,11 +19,24 @@
             ]
         },
         {
-            "source": "/(.*)\\.(webp|avif|png|jpg|jpeg|svg|gif|woff2?|css|js)",
+            "source": "/(.*)\\.(?:webp|avif|png|jpg|jpeg|svg|gif|woff2?|css|js)",
             "headers": [
                 { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
             ]
         }
+    ],
+    "redirects": [
+        { "source": "/about", "destination": "/company", "permanent": false },
+        { "source": "/blog", "destination": "/resources", "permanent": false },
+        { "source": "/offerings/profit-pool-discovery/market-discovery", "destination": "/services/demand-discovery", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/demand-discovery", "destination": "/services/demand-discovery", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/value-discovery", "destination": "/services/revenue-acceleration", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/channel-discovery", "destination": "/services/lead-generation", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/competitive-discovery", "destination": "/services/competitive-discovery", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/customer-discovery", "destination": "/services/customer-discovery", "permanent": true },
+        { "source": "/offerings/profit-pool-discovery/product-market-fit-discovery", "destination": "/services/product-market-fit", "permanent": true },
+        { "source": "/offerings/ai-growth/:path*", "destination": "/services/ai-growth-engine", "permanent": true },
+        { "source": "/offerings/sales-acceleration/:path*", "destination": "/services/revenue-acceleration", "permanent": true }
     ],
     "rewrites": [
         {

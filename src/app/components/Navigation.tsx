@@ -90,11 +90,13 @@ export default function Navigation() {
                                     {item.dropdown && (
                                         <div
                                             className={`
-                                                absolute top-[calc(100%)] w-[850px] bg-white border border-slate-200 shadow-2xl rounded-[12px]
+                                                absolute top-[calc(100%)] w-[820px] max-w-[calc(100vw-32px)] bg-white border border-slate-200 shadow-2xl rounded-[12px]
                                                 transition-all duration-200 ease-out origin-top overflow-hidden flex min-h-[380px] z-50
-                                                ${item.name === 'Crypto' ? 'left-0 translate-x-0 origin-top-left' : ''}
+                                                ${item.name === 'Offerings' ? 'left-0 translate-x-0 origin-top-left' : ''}
+                                                ${item.name === 'Industries' ? 'left-[-80px] xl:left-[-60px] translate-x-0 origin-top-left' : ''}
+                                                ${item.name === 'Solutions' ? 'left-[-180px] xl:left-[-140px] translate-x-0 origin-top-left' : ''}
+                                                ${item.name === 'Crypto' ? 'left-[-240px] xl:left-[-200px] translate-x-0 origin-top-left' : ''}
                                                 ${(item.name === 'Company' || item.name === 'Partners') ? 'left-auto right-0 translate-x-0 origin-top-right' : ''}
-                                                ${!(item.name === 'Crypto' || item.name === 'Company' || item.name === 'Partners') ? 'left-1/2 -translate-x-1/2' : ''}
                                                 ${hoveredItem === item.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible pointer-events-none'}
                                             `}
                                         >
@@ -289,10 +291,14 @@ export default function Navigation() {
                         })}
                     </div>
 
-                    {/* CTA Button */}
-                    <div className="hidden lg:flex items-center relative z-50">
-                        <Link to="/book-consultation" className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors shadow-sm">
-                            Contact Us
+                    {/* Persistent CTA Button — GOVNICS style */}
+                    <div className="hidden lg:flex items-center gap-3 relative z-50">
+                        <Link
+                            to="/book-consultation"
+                            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 shadow-md shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-px group"
+                        >
+                            Book Consultation
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
                     </div>
 

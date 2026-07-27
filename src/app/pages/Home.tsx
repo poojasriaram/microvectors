@@ -11,6 +11,7 @@ import CaseStudiesSection from '../components/home/CaseStudiesSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import BlogSection from '../components/home/BlogSection';
 import FinalCTASection from '../components/home/FinalCTASection';
+import TrustSection from '../components/TrustSection';
 
 export default function Home() {
     const location = useLocation();
@@ -35,7 +36,9 @@ export default function Home() {
             <TechStack />
             {/* 8. Business Outcomes */}
             <ProcessTimeline />
-            {/* 9. Case Studies */}
+            {/* 9. Trust Stats */}
+            <TrustSection />
+            {/* 10. Case Studies */}
             <CaseStudiesSection />
             {/* 10. Testimonials */}
             <TestimonialsSection />

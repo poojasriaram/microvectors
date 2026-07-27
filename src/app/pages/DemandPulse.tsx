@@ -38,7 +38,7 @@ export default function DemandPulse() {
                         “Generate High-Intent, Revenue-Ready Demand 24/7—1000X Faster, Smarter, and Always On.”
                     </p>
 
-                    <div className="flex flex-col sm:flex-rowjustify-center items-center gap-6 justify-center">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 justify-center mb-16">
                         <button className="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white text-lg font-bold rounded-full shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)] transition-all transform hover:scale-105 hover:shadow-[0_0_60px_-10px_rgba(37,99,235,0.6)] flex items-center gap-3 group">
                             Deploy DemandPulse
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -47,6 +47,28 @@ export default function DemandPulse() {
                             <PlayCircle className="w-5 h-5 text-blue-600" />
                             Watch Consulting Preview
                         </button>
+                    </div>
+
+                    {/* Real-World Demand Pulse Intent Dashboard */}
+                    <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+                        <img 
+                            src="/images/demand-pulse-dashboard.png" 
+                            alt="MicroVectors DemandPulse Autonomous Buyer Intent Radar & Signals Dashboard" 
+                            className="w-full h-[400px] md:h-[480px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row items-start md:items-center justify-between text-left gap-4 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
+                            <div>
+                                <div className="text-xs font-bold text-blue-400 font-mono uppercase tracking-widest flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                                    DemandPulse Signal Radar
+                                </div>
+                                <h3 className="text-xl font-bold text-white mt-1">Autonomous Buyer Intent & Dark Social Signal Decoder</h3>
+                            </div>
+                            <span className="px-3.5 py-1.5 bg-blue-600/20 border border-blue-500/40 text-blue-300 text-xs font-mono font-bold rounded-full">
+                                1,000+ Signal Inputs/Sec
+                            </span>
+                        </div>
                     </div>
                 </div>
 

@@ -26,7 +26,8 @@ import {
     Sparkles,
     Briefcase,
     HeartPulse,
-    GraduationCap
+    GraduationCap,
+    Target
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card';
@@ -40,32 +41,111 @@ import { verticalsContent } from '../../data/verticalsContent';
 export default function Industries() {
     const location = useLocation();
     const [selectedModalIndustry, setSelectedModalIndustry] = useState<any | null>(null);
+    const [activeCategory, setActiveCategory] = useState<string>('all');
 
-    const pathSlug = location.pathname.replace(/^\/industries\/?/, '').trim();
-    const params = new URLSearchParams(location.search);
-    const currentSection = pathSlug || params.get('section') || '';
+    const categories = [
+        { id: 'all', name: 'All Verticals' },
+        { id: 'b2b', name: 'B2B Focus' },
+        { id: 'b2c', name: 'B2C Focus' },
+        { id: 'enterprise', name: 'Enterprise' },
+        { id: 'mid-market', name: 'Mid-Market' },
+        { id: 'startup', name: 'Startups' },
+        { id: 'specialized-sectors', name: 'Specialized Sectors' }
+    ];
 
     useEffect(() => {
-        const hashParam = location.hash ? location.hash.substring(1) : '';
-        const rawTarget = currentSection || hashParam;
+        const pathSlug = location.pathname.replace(/^\/industries\/?/, '').trim().toLowerCase();
+        const params = new URLSearchParams(location.search);
+        const sectionParam = params.get('section')?.toLowerCase() || '';
+        const hashParam = location.hash ? location.hash.substring(1).toLowerCase() : '';
 
-        if (rawTarget) {
-            const aliasMap: Record<string, string> = {
-                'b2b': 'b2b-focus',
-                'b2c': 'b2c-focus',
-                'enterprise': 'enterprises',
-                'mid-market': 'mid-market-focus',
-                'startup': 'startups',
-                'specialized-sectors': 'service-industries'
+        const aliasCategoryMap: Record<string, string> = {
+            'b2b': 'b2b',
+            'b2b-focus': 'b2b',
+            'b2c': 'b2c',
+            'b2c-focus': 'b2c',
+            'enterprise': 'enterprise',
+            'enterprises': 'enterprise',
+            'mid-market': 'mid-market',
+            'mid-market-focus': 'mid-market',
+            'startup': 'startup',
+            'startups': 'startup',
+            'specialized-sectors': 'specialized-sectors',
+            'service-industries': 'specialized-sectors',
+            'industrial-industries': 'specialized-sectors',
+            'd2c-companies': 'specialized-sectors',
+            'fintech-lending': 'specialized-sectors',
+            'saas-products': 'specialized-sectors',
+
+            // Item hash handles to category
+            'abm-autopilot': 'b2b',
+            'competitor-displacement': 'b2b',
+            'ai-sdr-copilot': 'b2b',
+            'rql-predictor': 'b2b',
+            'contract-expansion': 'b2b',
+
+            'omnichannel-lead-gen': 'b2c',
+            'personalized-offers': 'b2c',
+            'behavioral-retargeting': 'b2c',
+            'lookalike-audience': 'b2c',
+
+            'global-account-penetration': 'enterprise',
+            'partnership-opportunity': 'enterprise',
+            'executive-engagement': 'enterprise',
+
+            'rapid-market-entry': 'mid-market',
+            'niche-domination': 'mid-market',
+            'lean-team-productivity': 'mid-market',
+
+            'zero-to-one-lead-gen': 'startup',
+            'pmf-signal-detection': 'startup',
+            'founder-sales-automation': 'startup',
+            'burn-rate-optimized-lead-capture': 'startup',
+
+            'service-industrial': 'specialized-sectors',
+            'd2c-retail': 'specialized-sectors',
+            'fintech-saas': 'specialized-sectors',
+            'healthcare-life-sciences': 'specialized-sectors',
+            'education-edtech': 'specialized-sectors',
+            'real-estate-energy': 'specialized-sectors'
+        };
+
+        let cat = aliasCategoryMap[pathSlug] || aliasCategoryMap[sectionParam] || aliasCategoryMap[hashParam] || 'all';
+        if (['b2b', 'b2c', 'enterprise', 'mid-market', 'startup', 'specialized-sectors'].includes(pathSlug)) {
+            cat = pathSlug;
+        }
+        setActiveCategory(cat);
+
+        const pageTitleMap: Record<string, string> = {
+            'b2b': 'B2B Focus Architecture | MicroVectors Industry Solutions',
+            'b2c': 'B2C Focus Architecture | MicroVectors Industry Solutions',
+            'enterprise': 'Enterprise & Large Business Suite | MicroVectors Industry Solutions',
+            'mid-market': 'Mid-Market Growth Architecture | MicroVectors Industry Solutions',
+            'startup': 'Startup Traction Suite | MicroVectors Industry Solutions',
+            'specialized-sectors': 'Specialized Sector Architecture | MicroVectors Industry Solutions',
+            'all': 'Vertical-Specific Revenue Engineering | MicroVectors Industry Solutions'
+        };
+        document.title = pageTitleMap[cat] || pageTitleMap['all'];
+
+        const targetKey = hashParam || sectionParam || (pathSlug && pathSlug !== 'industries' && !['b2b', 'b2c', 'enterprise', 'mid-market', 'startup', 'specialized-sectors'].includes(pathSlug) ? pathSlug : '');
+
+        if (targetKey) {
+            const aliasElementMap: Record<string, string> = {
+                'b2b': 'b2b',
+                'b2c': 'b2c',
+                'enterprise': 'enterprise',
+                'mid-market': 'mid-market',
+                'startup': 'startup',
+                'specialized-sectors': 'specialized-sectors'
             };
-            const targetId = aliasMap[rawTarget.toLowerCase()] || rawTarget.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            const targetId = aliasElementMap[targetKey] || targetKey;
 
             setTimeout(() => {
-                const element = document.getElementById(targetId) || document.getElementById(rawTarget);
+                const element = document.getElementById(targetId);
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 100);
+            }, 150);
         } else {
             window.scrollTo(0, 0);
         }
@@ -75,6 +155,7 @@ export default function Industries() {
         // B2B Focus Vertical Cards
         {
             title: "AI Account-Based Marketing (ABM) Autopilot",
+            slugId: "abm-autopilot",
             vertical: "b2b",
             icon: <Target className="w-6 h-6" />,
             color: "blue",
@@ -91,6 +172,7 @@ export default function Industries() {
         },
         {
             title: "AI Competitor Displacement Engine",
+            slugId: "competitor-displacement",
             vertical: "b2b",
             icon: <TrendingUp className="w-6 h-6" />,
             color: "indigo",
@@ -107,6 +189,7 @@ export default function Industries() {
         },
         {
             title: "AI SDR Co-Pilot / Autopilot",
+            slugId: "ai-sdr-copilot",
             vertical: "b2b",
             icon: <Rocket className="w-6 h-6" />,
             color: "purple",
@@ -123,6 +206,7 @@ export default function Industries() {
         },
         {
             title: "AI Revenue Qualified Lead (RQL) Predictor",
+            slugId: "rql-predictor",
             vertical: "b2b",
             icon: <BarChart3 className="w-6 h-6" />,
             color: "cyan",
@@ -139,6 +223,7 @@ export default function Industries() {
         },
         {
             title: "AI Contract & Expansion Opportunity Finder",
+            slugId: "contract-expansion",
             vertical: "b2b",
             icon: <Zap className="w-6 h-6" />,
             color: "amber",
@@ -157,6 +242,7 @@ export default function Industries() {
         // B2C Focus Vertical Cards
         {
             title: "AI Omnichannel Lead Generation",
+            slugId: "omnichannel-lead-gen",
             vertical: "b2c",
             icon: <ShoppingBag className="w-6 h-6" />,
             color: "pink",
@@ -173,6 +259,7 @@ export default function Industries() {
         },
         {
             title: "AI Personalized Offer Generation at Scale",
+            slugId: "personalized-offers",
             vertical: "b2c",
             icon: <Sparkles className="w-6 h-6" />,
             color: "purple",
@@ -189,6 +276,7 @@ export default function Industries() {
         },
         {
             title: "AI Behavioral Retargeting Autopilot",
+            slugId: "behavioral-retargeting",
             vertical: "b2c",
             icon: <TrendingUp className="w-6 h-6" />,
             color: "blue",
@@ -205,6 +293,7 @@ export default function Industries() {
         },
         {
             title: "AI Lookalike Audience Auto-Scaling",
+            slugId: "lookalike-audience",
             vertical: "b2c",
             icon: <Briefcase className="w-6 h-6" />,
             color: "teal",
@@ -223,6 +312,7 @@ export default function Industries() {
         // Enterprise Vertical Cards
         {
             title: "AI Global Account Penetration",
+            slugId: "global-account-penetration",
             vertical: "enterprise",
             icon: <Building2 className="w-6 h-6" />,
             color: "blue",
@@ -239,6 +329,7 @@ export default function Industries() {
         },
         {
             title: "AI Strategic Partnership Opportunity Finder",
+            slugId: "partnership-opportunity",
             vertical: "enterprise",
             icon: <Building2 className="w-6 h-6" />,
             color: "indigo",
@@ -255,6 +346,7 @@ export default function Industries() {
         },
         {
             title: "AI Executive Engagement Automation",
+            slugId: "executive-engagement",
             vertical: "enterprise",
             icon: <Briefcase className="w-6 h-6" />,
             color: "purple",
@@ -273,6 +365,7 @@ export default function Industries() {
         // Mid-Market Vertical Cards
         {
             title: "AI Rapid Market Entry Engine",
+            slugId: "rapid-market-entry",
             vertical: "mid-market",
             icon: <Rocket className="w-6 h-6" />,
             color: "teal",
@@ -289,6 +382,7 @@ export default function Industries() {
         },
         {
             title: "AI Niche Market Domination",
+            slugId: "niche-domination",
             vertical: "mid-market",
             icon: <Target className="w-6 h-6" />,
             color: "amber",
@@ -305,6 +399,7 @@ export default function Industries() {
         },
         {
             title: "AI Lean Team Productivity Amplifier",
+            slugId: "lean-team-productivity",
             vertical: "mid-market",
             icon: <Zap className="w-6 h-6" />,
             color: "cyan",
@@ -323,6 +418,7 @@ export default function Industries() {
         // Startup Vertical Cards
         {
             title: "AI Zero-to-One Lead Generation",
+            slugId: "zero-to-one-lead-gen",
             vertical: "startup",
             icon: <Lightbulb className="w-6 h-6" />,
             color: "amber",
@@ -339,6 +435,7 @@ export default function Industries() {
         },
         {
             title: "AI Product-Market Fit Signal Detection",
+            slugId: "pmf-signal-detection",
             vertical: "startup",
             icon: <Sparkles className="w-6 h-6" />,
             color: "purple",
@@ -355,6 +452,7 @@ export default function Industries() {
         },
         {
             title: "AI Founder-Led Sales Automation",
+            slugId: "founder-sales-automation",
             vertical: "startup",
             icon: <Rocket className="w-6 h-6" />,
             color: "blue",
@@ -371,6 +469,7 @@ export default function Industries() {
         },
         {
             title: "AI Burn-Rate Optimized Lead Capture",
+            slugId: "burn-rate-optimized-lead-capture",
             vertical: "startup",
             icon: <Coins className="w-6 h-6" />,
             color: "emerald",
@@ -389,6 +488,7 @@ export default function Industries() {
         // Specialized Sectors Vertical Cards
         {
             title: "Service Industries",
+            slugId: "service-industrial",
             vertical: "specialized-sectors",
             icon: <Briefcase className="w-6 h-6" />,
             color: "blue",
@@ -405,6 +505,7 @@ export default function Industries() {
         },
         {
             title: "Industrial Industries",
+            slugId: "industrial-industries",
             vertical: "specialized-sectors",
             icon: <Factory className="w-6 h-6" />,
             color: "teal",
@@ -421,6 +522,7 @@ export default function Industries() {
         },
         {
             title: "D2C Companies",
+            slugId: "d2c-retail",
             vertical: "specialized-sectors",
             icon: <ShoppingBag className="w-6 h-6" />,
             color: "pink",
@@ -437,6 +539,7 @@ export default function Industries() {
         },
         {
             title: "FinTech & Lending",
+            slugId: "fintech-saas",
             vertical: "specialized-sectors",
             icon: <Landmark className="w-6 h-6" />,
             color: "indigo",
@@ -453,6 +556,7 @@ export default function Industries() {
         },
         {
             title: "SaaS Products",
+            slugId: "saas-products",
             vertical: "specialized-sectors",
             icon: <Code className="w-6 h-6" />,
             color: "cyan",
@@ -469,6 +573,7 @@ export default function Industries() {
         },
         {
             title: "Healthcare & Life Sciences",
+            slugId: "healthcare-life-sciences",
             vertical: "specialized-sectors",
             icon: <HeartPulse className="w-6 h-6" />,
             color: "emerald",
@@ -485,6 +590,7 @@ export default function Industries() {
         },
         {
             title: "Education & EdTech",
+            slugId: "education-edtech",
             vertical: "specialized-sectors",
             icon: <GraduationCap className="w-6 h-6" />,
             color: "purple",
@@ -501,6 +607,7 @@ export default function Industries() {
         },
         {
             title: "Retail & FMCG",
+            slugId: "retail-fmcg",
             vertical: "specialized-sectors",
             icon: <ShoppingCart className="w-6 h-6" />,
             color: "orange",
@@ -517,6 +624,7 @@ export default function Industries() {
         },
         {
             title: "Real Estate & Construction",
+            slugId: "real-estate-energy",
             vertical: "specialized-sectors",
             icon: <Home className="w-6 h-6" />,
             color: "teal",
@@ -533,6 +641,7 @@ export default function Industries() {
         },
         {
             title: "Energy & Utilities",
+            slugId: "energy-utilities",
             vertical: "specialized-sectors",
             icon: <Zap className="w-6 h-6" />,
             color: "orange",
@@ -577,6 +686,10 @@ export default function Industries() {
                     <Reveal width="100%">
                         {(() => {
                             const sectionTitleMap: Record<string, { title: string; subtitle: string }> = {
+                                'all': {
+                                    title: "Vertical-Specific Revenue Engineering",
+                                    subtitle: "TrustGrid AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We architect the entire revenue lifecycle for your specific market nuances."
+                                },
                                 'b2b': {
                                     title: "B2B Focus Architecture",
                                     subtitle: "Targeted account intelligence, automated SDR copilots, competitor displacement, and pipeline acceleration engineered for enterprise B2B."
@@ -623,23 +736,48 @@ export default function Industries() {
                                 }
                             };
 
-                            const headingInfo = sectionTitleMap[currentSection] || {
-                                title: "Vertical-Specific Revenue Engineering",
-                                subtitle: "TrustGrid AI provides deep industry-specific expertise, integrating autonomous demand engines with vertical growth mechanics. We architect the entire revenue lifecycle for your specific market nuances."
-                            };
+                            const headingInfo = sectionTitleMap[activeCategory] || sectionTitleMap['all'];
 
                             return (
                                 <>
                                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-6">
                                         <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-                                        {currentSection ? `Industry Focus: ${headingInfo.title}` : "Enterprise Vertical Architecture"}
+                                        {activeCategory !== 'all' ? `Industry Focus: ${headingInfo.title}` : "Enterprise Vertical Architecture"}
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-5 tracking-tight font-heading">
                                         {headingInfo.title}
                                     </h1>
-                                    <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-3xl mx-auto">
+                                    <p className="text-lg md:text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">
                                         {headingInfo.subtitle}
                                     </p>
+                                    
+                                    {/* Real-World Industry Intelligence Visual Grid */}
+                                    <div className="grid md:grid-cols-2 gap-6 mt-12 text-left">
+                                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+                                            <img 
+                                                src="/images/industry-fintech.png" 
+                                                alt="Fintech & Enterprise Banking Intelligence System"
+                                                className="w-full h-56 object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                            <div className="absolute bottom-4 left-4 right-4">
+                                                <span className="px-2.5 py-1 bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold rounded-full font-mono">FINTECH & FINANCIAL SERVICES</span>
+                                                <h4 className="text-base font-bold text-white mt-1">Bank-Grade Compliance & Fraud Defense</h4>
+                                            </div>
+                                        </div>
+                                        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+                                            <img 
+                                                src="/images/industry-healthcare.png" 
+                                                alt="Healthcare & Life Sciences AI Analytics System"
+                                                className="w-full h-56 object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                            <div className="absolute bottom-4 left-4 right-4">
+                                                <span className="px-2.5 py-1 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold rounded-full font-mono">HEALTHCARE & BIOTECH</span>
+                                                <h4 className="text-base font-bold text-white mt-1">HIPAA Verified Patient Outcome Analytics</h4>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </>
                             );
                         })()}
@@ -647,26 +785,22 @@ export default function Industries() {
                 </div>
             </section>
 
-            {/* Industries Grid with Tabs */}
+
+            {/* Industries Grid */}
             <section className="relative z-10 pb-20 md:pb-24 lg:pb-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {(() => {
-                            const filteredIndustries = currentSection ? industries.filter(ind => {
-                                if (currentSection === 'b2b' || currentSection === 'b2b-focus') return ind.vertical === 'b2b';
-                                if (currentSection === 'b2c' || currentSection === 'b2c-focus') return ind.vertical === 'b2c';
-                                if (currentSection === 'enterprise' || currentSection === 'enterprises') return ind.vertical === 'enterprise';
-                                if (currentSection === 'mid-market' || currentSection === 'mid-market-focus') return ind.vertical === 'mid-market';
-                                if (currentSection === 'startup' || currentSection === 'startups') return ind.vertical === 'startup';
-                                if (currentSection === 'specialized-sectors') return ind.vertical === 'specialized-sectors';
-                                return true;
-                            }) : industries;
+                            const filteredIndustries = activeCategory && activeCategory !== 'all'
+                                ? industries.filter(ind => ind.vertical === activeCategory)
+                                : industries;
 
                             return filteredIndustries.map((industry, index) => {
                                 const mainId = industry.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                                 const aliasId = mainId.replace('-focus', '').replace('enterprises', 'enterprise').replace('startups', 'startup');
                                 return (
                                     <Reveal key={industry.title} width="100%" delay={index * 0.1} className="h-full">
+                                    {industry.slugId && <div id={industry.slugId} className="scroll-mt-32" />}
                                     <div id={aliasId} className="scroll-mt-32" />
                                     <Card id={mainId} className="flex flex-col h-full hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 border-slate-200/60 bg-white/80 backdrop-blur-xl group hover:-translate-y-2 overflow-hidden scroll-mt-32 ring-1 ring-slate-200/50 hover:ring-blue-200/50">
                                     <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${industry.color === 'blue' ? 'from-blue-500 to-indigo-500' :

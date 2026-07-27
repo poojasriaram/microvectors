@@ -1,12 +1,12 @@
 
 import { useEffect } from 'react';
-import { Button } from '../components/ui/button';
-import { Zap, RefreshCw } from 'lucide-react';
+import { ArrowRight, Zap, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Reveal } from '../components/ui/Reveal';
 
 export default function AILeadSalesTransformation() {
     useEffect(() => {
-        document.title = "AI Sales Transformation | TrustGrid AI";
+        document.title = "AI Sales Transformation | MicroVectors";
         window.scrollTo(0, 0);
     }, []);
 
@@ -22,84 +22,62 @@ export default function AILeadSalesTransformation() {
     return (
         <div className="min-h-screen bg-white font-sans text-slate-900">
             {/* Hero Section */}
-            <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden bg-slate-900">
-                {/* Background Slideshow */}
-                <div className="absolute inset-0 z-0">
-                    <style>{`
-                        @keyframes fadeZoom {
-                            0% { opacity: 0; transform: scale(1); }
-                            5% { opacity: 1; transform: scale(1.05); }
-                            20% { opacity: 1; transform: scale(1.1); }
-                            25% { opacity: 0; transform: scale(1.15); }
-                            100% { opacity: 0; transform: scale(1); }
-                        }
-                        .animate-slide-1 { animation: fadeZoom 25s infinite 0s; }
-                        .animate-slide-2 { animation: fadeZoom 25s infinite 5s; }
-                        .animate-slide-3 { animation: fadeZoom 25s infinite 10s; }
-                        .animate-slide-4 { animation: fadeZoom 25s infinite 15s; }
-                        .animate-slide-5 { animation: fadeZoom 25s infinite 20s; }
-                    `}</style>
-
-                    {[
-                        "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80",
-                        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
-                    ].map((img, idx) => (
-                        <div
-                            key={idx}
-                            className={`absolute inset-0 bg-cover bg-center opacity-0 animate-slide-${idx + 1}`}
-                            
-                        />
-                    ))}
-
-                    <div className="absolute inset-0 bg-white/30 bg-gradient-to-b from-white/80 via-white/20 to-white/80"></div>
+            <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-50 border-b border-slate-200">
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.04] mix-blend-multiply" />
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: 'linear-gradient(to right, #cbd5e1 1px, transparent 1px), linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)',
+                        backgroundSize: '4rem 4rem', opacity: 0.2
+                    }} />
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/8 rounded-full blur-[120px]" />
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 pt-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-blue-100/60 shadow-[0_2px_10px_-4px_rgba(59,130,246,0.3)] text-blue-700 text-sm font-bold mb-8 backdrop-blur-sm animate-fade-in-up">
-                        <Zap className="w-4 h-4 text-blue-600" />
-                        <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Digital Sales Evolution</span>
-                    </div>
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <Reveal>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-700 uppercase tracking-widest mb-8">
+                            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" /><span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" /></span>
+                            Digital Sales Evolution
+                        </div>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 tracking-tight leading-[1.1] text-slate-900 drop-shadow-sm">
-                        Revolutionize Your Sales with <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                            AI-Driven Transformation
-                        </span>
-                    </h1>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight leading-[1.05] text-slate-900">
+                            Revolutionize Your Sales with{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                                AI-Driven Transformation
+                            </span>
+                        </h1>
 
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-                        Analyze, optimize, and scale your sales operations. Replace intuition with intelligence and manual tasks with automated workflows.
-                    </p>
+                        <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                            Analyze, optimize, and scale your sales operations. Replace intuition with intelligence and manual tasks with automated workflows.
+                        </p>
 
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                        <Link to="/book-consultation">
-                            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-10 py-6 text-lg h-auto rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all hover:-translate-y-1">
-                                Transform Your Sales
-                            </Button>
+                        <Link
+                            to="/book-consultation"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-blue-600/40 hover:-translate-y-0.5 group"
+                        >
+                            Transform Your Sales
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    </div>
+                    </Reveal>
                 </div>
             </section>
 
             {/* Features Grid */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-slate-900 mb-4">Modernize Your Method</h2>
-                        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Equip your team with the tools they need to win in a digital-first world.</p>
+            <section className="py-20 lg:py-28 bg-white">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                        <div className="text-xs font-extrabold text-blue-600 uppercase tracking-widest mb-4">Capabilities</div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-4 font-heading">Modernize Your Method</h2>
+                        <p className="text-lg text-slate-600 font-medium">Equip your team with the tools they need to win in a digital-first world.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-6">
                         {features.map((feature, idx) => (
-                            <div key={idx} className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-6 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                            <div key={idx} className="p-7 rounded-[20px] bg-slate-50 border border-slate-200 hover:border-blue-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-5 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                                     <RefreshCw className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature}</h3>
-                                <p className="text-slate-600">Drive behavior change and operational efficiency with data-backed coaching and process automation.</p>
+                                <h3 className="text-base font-bold text-slate-900 mb-2">{feature}</h3>
+                                <p className="text-slate-500 text-sm leading-relaxed">Drive behavior change and operational efficiency with data-backed coaching and process automation.</p>
                             </div>
                         ))}
                     </div>
@@ -107,15 +85,21 @@ export default function AILeadSalesTransformation() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-slate-900 text-white">
-                <div className="max-w-4xl mx-auto text-center px-4">
-                    <h2 className="text-4xl font-bold mb-6">Future-Proof Your Revenue</h2>
-                    <p className="text-xl text-blue-100 mb-10">Stay ahead of the curve. Adapt to changing buyer behaviors and market dynamics with an agile, AI-powered sales engine.</p>
-                    <Link to="/book-consultation">
-                        <Button className="bg-white text-blue-900 hover:bg-blue-50 text-lg px-8 py-4 h-auto rounded-full font-bold">
-                            Book for Consultation
-                        </Button>
-                    </Link>
+            <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #3b82f6 0%, transparent 60%), radial-gradient(circle at 70% 50%, #6366f1 0%, transparent 60%)' }} />
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <div className="text-xs font-extrabold text-blue-400 uppercase tracking-widest mb-4">Get Started</div>
+                    <h2 className="text-3xl md:text-4xl font-extrabold font-heading mb-6">Future-Proof Your Revenue</h2>
+                    <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">Stay ahead of the curve. Adapt to changing buyer behaviors and market dynamics with an agile, AI-powered sales engine.</p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/book-consultation" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all duration-200 shadow-lg shadow-blue-900/50 hover:-translate-y-0.5 group">
+                            Book Consultation
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                        <Link to="/talk-to-expert" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white/10 text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-200">
+                            Talk to an Expert
+                        </Link>
+                    </div>
                 </div>
             </section>
         </div>

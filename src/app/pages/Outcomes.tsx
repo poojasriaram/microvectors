@@ -48,7 +48,7 @@ export default function Outcomes() {
                     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply"></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <div className="text-center max-w-4xl mx-auto">
                             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-[1.1]">
@@ -58,6 +58,33 @@ export default function Outcomes() {
                             <p className="text-xl sm:text-2xl text-slate-600 mb-10 font-medium leading-relaxed max-w-3xl mx-auto">
                                 See how TrustGrid AI helps enterprises accelerate pipeline, close deals faster, reduce costs, and scale revenue with predictable growth.
                             </p>
+
+                            {/* Real-World Outcomes ROI & Revenue Dashboard Showcase */}
+                            <div className="relative max-w-5xl mx-auto mt-12 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+                                <img 
+                                    src="/images/outcomes-metrics.png" 
+                                    alt="MicroVectors Executive ROI Metrics & Revenue Growth Acceleration Dashboard" 
+                                    className="w-full h-[400px] md:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                <div className="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row items-start md:items-center justify-between text-left gap-4 bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800">
+                                    <div>
+                                        <div className="text-xs font-bold text-emerald-400 font-mono uppercase tracking-widest flex items-center gap-2">
+                                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                            Verified Benchmark Report
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mt-1">Enterprise ARR Growth & Pipeline Velocity Analytics</h3>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <span className="px-3.5 py-1.5 bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-mono font-bold rounded-full">
+                                            10× Average ROI
+                                        </span>
+                                        <span className="px-3.5 py-1.5 bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-mono font-bold rounded-full">
+                                            54-Day Sales Cycle
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="flex flex-col sm:flex-row gap-5 justify-center">
                                 <Link to="/book-consultation">
                                     <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-7 h-auto shadow-[0_10px_30px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_40px_rgba(37,99,235,0.3)] transition-all rounded-full font-bold">
@@ -77,7 +104,7 @@ export default function Outcomes() {
 
             {/* Section 1: Revenue Impact Overview */}
             <div className="bg-slate-50 py-20 border-y border-slate-200 mb-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">Proven Revenue Results Across Industries</h2>
@@ -111,7 +138,7 @@ export default function Outcomes() {
 
             {/* AI-Powered Growth & Revenue Engines Section */}
             <div className="bg-white pb-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
                     <span className="px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-bold text-sm uppercase tracking-wider border border-blue-100 mb-4 inline-block">
                         AI Growth Architecture
                     </span>
@@ -133,7 +160,7 @@ export default function Outcomes() {
 
             {/* AI-Driven Sales Acceleration Section */}
             <div className="bg-white pb-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
                     <span className="px-4 py-2 rounded-full bg-purple-50 text-purple-700 font-bold text-sm uppercase tracking-wider border border-purple-100 mb-4 inline-block">
                         Sales Acceleration
                     </span>
@@ -154,7 +181,7 @@ export default function Outcomes() {
             </div>
 
             {/* Section 2: Customer Success Stories */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mb-20">
                 <Reveal width="100%">
                     <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Customer Success Stories</h2>
                 </Reveal>
@@ -259,7 +286,7 @@ export default function Outcomes() {
 
             {/* Section 3: Platform-Level Outcomes */}
             <div className="bg-slate-900 py-20 mb-20 text-white border-y border-slate-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <Reveal width="100%">
                         <h2 className="text-3xl font-bold text-center mb-12 text-white">Platform-Wide Business Impact</h2>
                     </Reveal>
