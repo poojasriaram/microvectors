@@ -1,8 +1,7 @@
 import {
     Radio, Crosshair, Radar, Users, Map, Share2, Search, LayoutDashboard,
-    Zap, CheckCircle2, Target, BarChart3, TrendingUp, Globe,
-    Activity, ArrowRight, Shield, Rocket
-} from 'lucide-react';
+         
+       } from 'lucide-react';
 
 export const demandDiscoveryData = {
     title: "AI-Powered Demand Discovery Engine",

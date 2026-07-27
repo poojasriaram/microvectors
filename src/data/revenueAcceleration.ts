@@ -1,8 +1,7 @@
 import {
-    Target, TrendingUp, Compass, BarChart3, Navigation, Zap, Lightbulb, MessageSquare,
-    Settings, RefreshCw, FileText, Activity, Layers, Users, Globe, Shield, Database,
-    Cpu, Lock, Search, Share2, PieChart, Box, Truck, Rocket, Gauge, CheckCircle
-} from 'lucide-react';
+    Target, TrendingUp,  BarChart3,  Zap,  MessageSquare,
+    Settings, RefreshCw,       
+           Rocket,  } from 'lucide-react';
 
 export const revenueAccelerationData = {
     title: "AI-Powered Revenue Acceleration",

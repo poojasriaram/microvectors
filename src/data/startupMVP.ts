@@ -1,8 +1,7 @@
 import {
     Rocket, Target, Lightbulb, ListFilter, MessageSquare,
-    TrendingUp, LayoutDashboard, Search, CheckCircle2,
-    XCircle, Zap, Shield
-} from 'lucide-react';
+    TrendingUp, LayoutDashboard,  
+      } from 'lucide-react';
 
 export const startupMVPData = {
     title: "AI Startup MVP Acceleration Engine",

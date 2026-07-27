@@ -11,7 +11,7 @@ import {
     Users,
     Activity,
     Target,
-    Shield,
+    
     Globe,
     Grid,
     Cpu,
@@ -19,8 +19,7 @@ import {
     DollarSign,
     Gift,
     Clock,
-    Scale
-} from 'lucide-react';
+    } from 'lucide-react';
 
 export const cryptoContent = [
     {
@@ -142,7 +141,7 @@ export const cryptoContent = [
     },
     {
         title: "AI Growth Acceleration Engine",
-        tagline: "Scale Winning Strategies with AI-Led Experimentation.",
+        tagline: "Winning Strategies with AI-Led Experimentation.",
         description: "Crypto growth is often driven by intuition and rapid experiments. This engine replaces guesswork with AI-led experimentation, identifying scalable growth levers across acquisition, activation, liquidity, and retention.",
         icon: Rocket,
         metrics: [
@@ -155,7 +154,7 @@ export const cryptoContent = [
             { title: "Growth Experiment Intelligence", icon: Activity },
             { title: "Funnel Breakpoint Detection", icon: Target },
             { title: "Liquidity & Adoption Levers", icon: TrendingUp },
-            { title: "Scale Readiness Scoring", icon: CheckCircle2 }
+            { title: "Readiness Scoring", icon: CheckCircle2 }
         ],
         verticalTabs: [
             { title: "Centralized Exchange (CEX)", content: "A/B testing for trading incentives; scale scoring. Impact: 5X faster cycles; 30-50% retention boost.", icon: BarChart3 },
@@ -163,7 +162,7 @@ export const cryptoContent = [
             { title: "Wallet Services", content: "Predictive funnels for user loops. Impact: 5X speed; 30-50% conversion uplift.", icon: Wallet },
             { title: "DeFi Lending/Borrowing", content: "Levers for yield adjustments. Impact: 40% cost reduction; better scaling.", icon: TrendingUp },
             { title: "NFT Marketplace", content: "A/B for community incentives. Impact: 5X cycles; 30-50% retention.", icon: Shop },
-            { title: "ICO/IDO/IEO", content: "Scale readiness for token strategies. Impact: 40% lower costs; faster ecosystem build.", icon: Rocket },
+            { title: "ICO/IDO/IEO", content: "readiness for token strategies. Impact: 40% lower costs; faster ecosystem build.", icon: Rocket },
             { title: "Mining/Staking Operations", content: "Adoption levers for rewards. Impact: 5X speed; 30-50% growth.", icon: Cpu },
             { title: "Crypto Payment Gateways", content: "Funnel optimization for integrations. Impact: 40% reduction; exponential users.", icon: DollarSign },
             { title: "Yield Farming / Aggregators", content: "Experiment frameworks for yields. Impact: 5X faster; 30-50% retention.", icon: Activity }
@@ -172,7 +171,7 @@ export const cryptoContent = [
             title: "Who Needs Growth Acceleration?",
             audience: [
                 "Post-Launch Projects hitting a growth plateau",
-                "Scale-up DAOs managing growth treasuries",
+                "-up DAOs managing growth treasuries",
                 "Ecosystem funds supporting portfolio project",
                 "Founders looking for repeatable growth loops"
             ],

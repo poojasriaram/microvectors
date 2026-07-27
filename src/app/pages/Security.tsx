@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ArrowLeft, Shield, Lock, Server, CheckCircle, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

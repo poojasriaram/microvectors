@@ -1,8 +1,7 @@
 import {
     Activity, Tag, UserCheck, MessageSquare, Globe, Swords,
-    LayoutDashboard, CheckCircle2, Search, Target, TrendingUp,
-    Shield, Zap, Minimize2
-} from 'lucide-react';
+    LayoutDashboard,    
+      } from 'lucide-react';
 
 export const marketValidationData = {
     title: "AI Market Validation Intelligence Engine",

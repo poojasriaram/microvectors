@@ -1,8 +1,7 @@
 import {
     Map, AlertOctagon, User, GitMerge, Lightbulb,
-    Workflow, Layout, CheckCircle2, Search, Target, TrendingUp,
-    Shield, Zap, Radio
-} from 'lucide-react';
+    Workflow, Layout,    
+      } from 'lucide-react';
 
 export const customerJourneyData = {
     title: "AI Customer Journey Intelligence Engine",

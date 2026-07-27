@@ -1,7 +1,7 @@
 import {
     BarChart2, Target, MousePointer, PieChart, PenTool,
-    Layers, Zap, Monitor, TrendingUp, Users, ArrowUpRight,
-    Search, Share2
+     Zap, Monitor,   
+     Share2
 } from 'lucide-react';
 
 export const performanceMarketingData = {

@@ -10,7 +10,7 @@ import {
     TrendingUp
 } from 'lucide-react';
 import { Reveal } from '../components/ui/Reveal';
-import { Button } from '../components/ui/button';
+import { } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
 export default function Resources() {

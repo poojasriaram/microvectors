@@ -15,7 +15,7 @@ import {
     Rocket,
     Shield,
     X,
-    Sparkles,
+    
     AlertTriangle,
     TrendingUp
 } from 'lucide-react';
@@ -24,7 +24,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function Solutions() {
     const location = useLocation();
-    const [activeSolutionCat, setActiveSolutionCat] = useState<string>('all');
+    
     const [selectedModalSolution, setSelectedModalSolution] = useState<any | null>(null);
 
 
@@ -58,7 +58,7 @@ export default function Solutions() {
             const targetId = aliasMap[rawTarget.toLowerCase()] || rawTarget.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
             if (['strategy', 'sales-ops', 'intelligence', 'brand-reputation'].includes(rawTarget.toLowerCase())) {
-                setActiveSolutionCat(rawTarget.toLowerCase());
+                // Category setting removed
             }
 
             setTimeout(() => {

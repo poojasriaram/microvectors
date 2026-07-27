@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Reveal } from '../components/ui/Reveal';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export default function Pricing() {
     const location = useLocation();

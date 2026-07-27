@@ -1,7 +1,6 @@
 import {
     Users, Scan, Share2, TrendingUp, CheckCircle, RotateCcw,
-    Settings, FastForward, Target, BarChart, UserCheck, Play, ArrowUpRight
-} from 'lucide-react';
+    Settings, FastForward,     } from 'lucide-react';
 
 export const leadGenerationData = {
     title: "AI-Driven Lead Generation Acceleration",

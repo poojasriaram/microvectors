@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 
-interface ContextTrigger {
+
+export interface ContextTrigger {
     id: string; // The ID of the section/block
     name: string; // Readable name for the user
     triggerCount: number; // To track if we've already triggered for this session

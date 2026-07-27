@@ -46,10 +46,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/market-discovery",
         question: "Where is the revenue we haven't mapped?",
         spin: {
-            Situation: "Your current TAM/SAM analysis is built on annual reports, analyst forecasts, and internal assumptions — refreshed once per planning cycle.",
-            Problem: "Markets shift in weeks, not years. By the time your strategy deck is approved, the opportunity has moved or been captured by a faster competitor.",
-            Implication: "You enter markets already saturated, miss $300M+ white spaces, and allocate capital to shrinking segments while high-growth adjacencies go unserved.",
-            NeedPayoff: "Dynamic market sizing that updates continuously, identifies uncontested spaces, and quantifies entry timing before competitors react."
+            situation: "Your current TAM/SAM analysis is built on annual reports, analyst forecasts, and internal assumptions — refreshed once per planning cycle.",
+            problem: "Markets shift in weeks, not years. By the time your strategy deck is approved, the opportunity has moved or been captured by a faster competitor.",
+            implication: "You enter markets already saturated, miss $300M+ white spaces, and allocate capital to shrinking segments while high-growth adjacencies go unserved.",
+            needPayoff: "Dynamic market sizing that updates continuously, identifies uncontested spaces, and quantifies entry timing before competitors react."
         },
         frameworks: [
             "Jobs-to-be-Done (JTBD) — What \"job\" is your customer hiring AI to do that no one serves?",
@@ -101,10 +101,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/demand-discovery",
         question: "What are customers struggling to articulate they need?",
         spin: {
-            Situation: "Your demand generation relies on explicit signals — inbound forms, RFPs, sales conversations. These capture only buyers already in-market.",
-            Problem: "67% of enterprise AI demand is latent: employees using shadow tools, compliance officers scrambling for governance, operations leaders tolerating inefficiency because \"no solution exists.\"",
-            Implication: "Your pipeline is 30% of what it could be. Competitors with better demand sensing capture the \"unarticulated need\" before you know it exists. Sales cycles stretch to 18 months because you're educating, not fulfilling.",
-            NeedPayoff: "Surface latent demand before it becomes explicit — engage buyers 6-9 months earlier, when relationship and solution design advantages are still yours to claim."
+            situation: "Your demand generation relies on explicit signals — inbound forms, RFPs, sales conversations. These capture only buyers already in-market.",
+            problem: "67% of enterprise AI demand is latent: employees using shadow tools, compliance officers scrambling for governance, operations leaders tolerating inefficiency because \"no solution exists.\"",
+            implication: "Your pipeline is 30% of what it could be. Competitors with better demand sensing capture the \"unarticulated need\" before you know it exists. Sales cycles stretch to 18 months because you're educating, not fulfilling.",
+            needPayoff: "Surface latent demand before it becomes explicit — engage buyers 6-9 months earlier, when relationship and solution design advantages are still yours to claim."
         },
         frameworks: [
             "Voice of Customer (VoC) Deep Mining — Analyze support tickets, call transcripts, and employee behavior patterns for \"problem statements without solutions\"",
@@ -161,10 +161,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/value-discovery",
         question: "How do we prove ROI before the PO is signed?",
         spin: {
-            Situation: "Your AI proposals rely on case studies, benchmarks, and projected savings. Procurement demands customer-specific ROI proof.",
-            Problem: "60% of AI deals stall at procurement because value is \"soft\" — efficiency, innovation, strategic positioning. CFOs kill projects without hard numbers tied to their P&L.",
-            Implication: "POCs fail to convert. \"Pilot purgatory\" consumes 12-18 months. Sales cycles extend. Win rates drop against vendors who can quantify value in the customer's language.",
-            NeedPayoff: "Customer-specific value quantification delivered in the first sales conversation — economic, time, quality, risk, and strategic value modeled to their actual data."
+            situation: "Your AI proposals rely on case studies, benchmarks, and projected savings. Procurement demands customer-specific ROI proof.",
+            problem: "60% of AI deals stall at procurement because value is \"soft\" — efficiency, innovation, strategic positioning. CFOs kill projects without hard numbers tied to their P&L.",
+            implication: "POCs fail to convert. \"Pilot purgatory\" consumes 12-18 months. Sales cycles extend. Win rates drop against vendors who can quantify value in the customer's language.",
+            needPayoff: "Customer-specific value quantification delivered in the first sales conversation — economic, time, quality, risk, and strategic value modeled to their actual data."
         },
         frameworks: [
             "Economic Value Estimation (EVE) — Build the business case from customer's cost structure, not vendor benchmarks",
@@ -222,10 +222,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/channel-discovery",
         question: "How do we distribute without platform dependency?",
         spin: {
-            Situation: "Your AI services or products rely on partner networks, app stores, or algorithm-dependent platforms. A single algorithm change or partner defection threatens 70% of revenue.",
-            Problem: "Platform dependency creates margin compression (8-12% net), unpredictable visibility, and zero customer relationship ownership. You're renting your distribution.",
-            Implication: "Competitors with owned channels capture 2-3x margin on equivalent offerings. Your growth ceiling is set by someone else's API or policy team.",
-            NeedPayoff: "Algorithm-resilient distribution architecture with owned channels, productized service automation, and partner intelligence that optimizes — not replaces — your go-to-market."
+            situation: "Your AI services or products rely on partner networks, app stores, or algorithm-dependent platforms. A single algorithm change or partner defection threatens 70% of revenue.",
+            problem: "Platform dependency creates margin compression (8-12% net), unpredictable visibility, and zero customer relationship ownership. You're renting your distribution.",
+            implication: "Competitors with owned channels capture 2-3x margin on equivalent offerings. Your growth ceiling is set by someone else's API or policy team.",
+            needPayoff: "Algorithm-resilient distribution architecture with owned channels, productized service automation, and partner intelligence that optimizes — not replaces — your go-to-market."
         },
         frameworks: [
             "Channel Mix Optimization — Model owned vs. earned vs. paid vs. partner contribution to margin and control",
@@ -285,10 +285,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/competitive-discovery",
         question: "How do we win before the RFP is issued?",
         spin: {
-            Situation: "Your competitive intelligence is quarterly: win/loss reviews, analyst reports, sales anecdotes. By the time you react, the deal is lost.",
-            Problem: "Competitors launch features, drop prices, or shift messaging in days. Your battlecards are outdated before they're printed. Response time averages 2-3 weeks.",
-            Implication: "You win on price, not value. Premium positioning erodes. Deals lost to \"surprise\" competitors cost $2M+ annually. Market share shifts before your next board meeting.",
-            NeedPayoff: "Real-time competitive sensing with automated response playbooks — detect moves in hours, counter in days, maintain premium pricing through superior positioning intelligence."
+            situation: "Your competitive intelligence is quarterly: win/loss reviews, analyst reports, sales anecdotes. By the time you react, the deal is lost.",
+            problem: "Competitors launch features, drop prices, or shift messaging in days. Your battlecards are outdated before they're printed. Response time averages 2-3 weeks.",
+            implication: "You win on price, not value. Premium positioning erodes. Deals lost to \"surprise\" competitors cost $2M+ annually. Market share shifts before your next board meeting.",
+            needPayoff: "Real-time competitive sensing with automated response playbooks — detect moves in hours, counter in days, maintain premium pricing through superior positioning intelligence."
         },
         frameworks: [
             "Competitive Early Warning System — Monitor pricing, messaging, hiring, patent filings, and product releases across 50+ signal types",
@@ -345,10 +345,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/customer-discovery",
         question: "Who is actually ready to buy AI — and who will waste our time?",
         spin: {
-            Situation: "Your ICP is defined by firmographics: company size, industry, revenue. Marketing generates MQLs; sales qualifies. The funnel is linear and noisy.",
-            Problem: "50% of \"target\" accounts lack AI readiness: no data infrastructure, no executive sponsor, no change appetite. SDRs burn 60% of capacity on accounts that will never convert this year.",
-            Implication: "$1.2M+ in wasted sales capacity annually. CAC inflates 3x above benchmark. Marketing ROI is unmeasurable because the targeting is wrong, not the messaging.",
-            NeedPayoff: "Segment by AI readiness, behavioral signals, and psychographic alignment — prioritize the 20% of accounts with 80% conversion probability, and personalize engagement to their specific maturity and values."
+            situation: "Your ICP is defined by firmographics: company size, industry, revenue. Marketing generates MQLs; sales qualifies. The funnel is linear and noisy.",
+            problem: "50% of \"target\" accounts lack AI readiness: no data infrastructure, no executive sponsor, no change appetite. SDRs burn 60% of capacity on accounts that will never convert this year.",
+            implication: "$1.2M+ in wasted sales capacity annually. CAC inflates 3x above benchmark. Marketing ROI is unmeasurable because the targeting is wrong, not the messaging.",
+            needPayoff: "Segment by AI readiness, behavioral signals, and psychographic alignment — prioritize the 20% of accounts with 80% conversion probability, and personalize engagement to their specific maturity and values."
         },
         frameworks: [
             "Technographic + Digital Maturity Scoring — Assess stack, data quality, and cloud posture as readiness predictors",
@@ -408,10 +408,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/product-market-fit-discovery",
         question: "How do we stop building features no one uses?",
         spin: {
-            Situation: "Your product roadmap is built on customer requests, competitive parity, and engineering capability. Features ship; adoption is assumed.",
-            Problem: "70% of AI features are never used. $3M+ in annual R&D waste. Feature bloat confuses users. Engineering velocity slows maintaining unused code.",
-            Implication: "Churn rises 30% above benchmark as users fail to find value. Competitors with leaner, validated offerings win on simplicity. Your roadmap becomes a graveyard of good intentions.",
-            NeedPayoff: "Validate features before build with simulated user behavior, cohort retention prediction, and rapid prototyping — ship only what users will adopt, pay for, and expand."
+            situation: "Your product roadmap is built on customer requests, competitive parity, and engineering capability. Features ship; adoption is assumed.",
+            problem: "70% of AI features are never used. $3M+ in annual R&D waste. Feature bloat confuses users. Engineering velocity slows maintaining unused code.",
+            implication: "Churn rises 30% above benchmark as users fail to find value. Competitors with leaner, validated offerings win on simplicity. Your roadmap becomes a graveyard of good intentions.",
+            needPayoff: "Validate features before build with simulated user behavior, cohort retention prediction, and rapid prototyping — ship only what users will adopt, pay for, and expand."
         },
         frameworks: [
             "Wizard of Oz Testing — Simulate AI features with human backend to validate demand before model training",
@@ -471,10 +471,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/b2b",
         question: "Where are the hidden margin drivers in our enterprise sales cycles?",
         spin: {
-            Situation: "Enterprise sales involve 8-12 decision makers across procurement, IT, security, and business units, with data fragmented across legacy CRMs and email chains.",
-            Problem: "Deals stall in late stages because key stakeholders remain unengaged, discount pressure erodes margins by 20%, and sales teams focus on low-margin buyers.",
-            Implication: "Sales cycles drag to 9+ months, win rates fall below 30%, and competitive intelligence is only gathered when an RFP is lost, costing millions in lost margin.",
-            NeedPayoff: "A systematic B2B profit pool mapping engine that detects procurement-ready intent, maps stakeholder networks, and identifies pricing leverage to secure full-margin contracts."
+            situation: "Enterprise sales involve 8-12 decision makers across procurement, IT, security, and business units, with data fragmented across legacy CRMs and email chains.",
+            problem: "Deals stall in late stages because key stakeholders remain unengaged, discount pressure erodes margins by 20%, and sales teams focus on low-margin buyers.",
+            implication: "Sales cycles drag to 9+ months, win rates fall below 30%, and competitive intelligence is only gathered when an RFP is lost, costing millions in lost margin.",
+            needPayoff: "A systematic B2B profit pool mapping engine that detects procurement-ready intent, maps stakeholder networks, and identifies pricing leverage to secure full-margin contracts."
         },
         frameworks: [
             "Economic Value to Customer (EVC) — Quantifying clear business value to eliminate discount pressures",
@@ -521,10 +521,10 @@ export const discoveryPagesData: Record<string, DiscoveryData> = {
         route: "/offerings/profit-pool-discovery/b2c",
         question: "How do we identify and capture micro-segment margins in high-velocity consumer paths?",
         spin: {
-            Situation: "B2C acquisition relies on broad demographic ad targeting and dynamic pricing engines trying to convert high traffic volumes with generic journeys.",
-            Problem: "98% of traffic bounces without buying. CAC increases by 50% year-over-year due to ad network bidding inflation. Cart abandonment sits at 75%.",
-            Implication: "Margins are squeezed to near-zero, making long-term growth unsustainable. Ad budgets are wasted on non-converting users while high-value cohorts are ignored.",
-            NeedPayoff: "Real-time user behavior analysis and dynamic cohort personalization that identifies high-LTV buyers instantly and delivers custom checkout funnels."
+            situation: "B2C acquisition relies on broad demographic ad targeting and dynamic pricing engines trying to convert high traffic volumes with generic journeys.",
+            problem: "98% of traffic bounces without buying. CAC increases by 50% year-over-year due to ad network bidding inflation. Cart abandonment sits at 75%.",
+            implication: "Margins are squeezed to near-zero, making long-term growth unsustainable. Ad budgets are wasted on non-converting users while high-value cohorts are ignored.",
+            needPayoff: "Real-time user behavior analysis and dynamic cohort personalization that identifies high-LTV buyers instantly and delivers custom checkout funnels."
         },
         frameworks: [
             "Behavioral Cohorting & LTV Modeling — Classifying traffic by active engagement triggers instead of demographics",
@@ -1723,19 +1723,19 @@ function ConsolidatedOfferingsView({ mode }: { mode: 'b2b' | 'b2c' | 'ai-growth'
                                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                     <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100">
                                         <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Situation</div>
-                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Situation || data?.spin?.situation || ''}</p>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.situation || data?.spin?.situation || ''}</p>
                                     </div>
                                     <div className="bg-rose-50/50 p-5 rounded-2xl border border-rose-100">
                                         <div className="text-xs font-bold text-rose-500 uppercase tracking-widest mb-1">Problem</div>
-                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Problem || data?.spin?.problem || ''}</p>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.problem || data?.spin?.problem || ''}</p>
                                     </div>
                                     <div className="bg-amber-50/50 p-5 rounded-2xl border border-amber-100">
                                         <div className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-1">Implication</div>
-                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.Implication || data?.spin?.implication || ''}</p>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.implication || data?.spin?.implication || ''}</p>
                                     </div>
                                     <div className="bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
                                         <div className="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-1">Need-Payoff</div>
-                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.NeedPayoff || data?.spin?.needPayoff || ''}</p>
+                                        <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">{data?.spin?.needPayoff || data?.spin?.needPayoff || ''}</p>
                                     </div>
                                 </div>
                             </div>
@@ -2155,7 +2155,7 @@ export default function DiscoveryPage() {
                             <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
                                 <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Situation
                             </h3>
-                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.Situation || data.spin.situation}</p>
+                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.situation || data.spin.situation}</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
@@ -2163,7 +2163,7 @@ export default function DiscoveryPage() {
                             <h3 className="text-xl font-bold text-rose-600 mb-3 flex items-center gap-2">
                                 <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Problem
                             </h3>
-                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.Problem || data.spin.problem}</p>
+                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.problem || data.spin.problem}</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
@@ -2171,7 +2171,7 @@ export default function DiscoveryPage() {
                             <h3 className="text-xl font-bold text-amber-600 mb-3 flex items-center gap-2">
                                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Implication
                             </h3>
-                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.Implication || data.spin.implication}</p>
+                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.implication || data.spin.implication}</p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
@@ -2179,7 +2179,7 @@ export default function DiscoveryPage() {
                             <h3 className="text-xl font-bold text-emerald-600 mb-3 flex items-center gap-2">
                                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Need-Payoff
                             </h3>
-                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.NeedPayoff || data.spin.needPayoff}</p>
+                            <p className="text-slate-600 text-sm font-medium leading-relaxed">{data.spin.needPayoff || data.spin.needPayoff}</p>
                         </div>
                     </div>
                 </Reveal>

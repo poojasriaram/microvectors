@@ -1,8 +1,7 @@
 import {
     FlaskConical, Repeat, Layers, UserCheck, Shield, TrendingUp,
-    LayoutDashboard, Zap, Activity, Users, Anchor, CheckCircle2,
-    Target
-} from 'lucide-react';
+    LayoutDashboard,     
+    } from 'lucide-react';
 
 export const growthAccelerationData = {
     title: "AI Growth Acceleration Engine",

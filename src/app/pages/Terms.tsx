@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowLeft, FileText, CheckCircle2, Shield, AlertTriangle } from 'lucide-react';
+
+import { ArrowLeft, FileText,   AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Terms() {

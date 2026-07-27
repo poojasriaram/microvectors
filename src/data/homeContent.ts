@@ -1,7 +1,7 @@
 import {
-    Target, TrendingUp, Compass, BarChart3, Navigation, Zap, Lightbulb, MessageSquare,
+    Target, TrendingUp, Compass, BarChart3,  Zap, Lightbulb, MessageSquare,
     Settings, RefreshCw, FileText, Activity, Layers, Users, Globe, Shield, Database,
-    Cpu, Lock, Search, Share2, PieChart, Box, Truck, Calendar
+    Cpu, Lock, Search, Share2,  Box, Truck, Calendar
 } from 'lucide-react';
 
 export interface ConversionBlockData {
