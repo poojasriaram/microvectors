@@ -44,7 +44,7 @@ export default function BlogSection() {
                             Knowledge Base
                         </div>
                         <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight drop-shadow-sm">
-                            Latest from MicroVectors
+                            Latest from ProfitMachines
                         </h2>
                         <p className="text-xl text-slate-600 font-medium">
                             Insights, trends, and thought leadership on enterprise AI and digital transformation.

@@ -6,7 +6,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function AILeadSalesTransformation() {
     useEffect(() => {
-        document.title = "AI Sales Transformation | MicroVectors";
+        document.title = "AI Sales Transformation | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 

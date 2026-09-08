@@ -128,7 +128,7 @@ export default function BookDemo() {
                             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
                                 <img 
                                     src="/images/book-demo-preview.png" 
-                                    alt="MicroVectors Interactive AI Platform Consultation & Live Demo Session" 
+                                    alt="ProfitMachines Interactive AI Platform Consultation & Live Demo Session" 
                                     className="w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>

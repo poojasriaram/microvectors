@@ -1,5 +1,5 @@
 /**
- * submitToSheet — Universal form submission helper for MicroVectors.
+ * submitToSheet — Universal form submission helper for ProfitMachines.
  *
  * Strategy:
  *   1. Always tries the Google Apps Script URL directly (works in dev + prod)

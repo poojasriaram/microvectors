@@ -63,7 +63,7 @@ export default function Outcomes() {
                             <div className="relative max-w-5xl mx-auto mt-12 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
                                 <img 
                                     src="/images/outcomes-metrics.png" 
-                                    alt="MicroVectors Executive ROI Metrics & Revenue Growth Acceleration Dashboard" 
+                                    alt="ProfitMachines Executive ROI Metrics & Revenue Growth Acceleration Dashboard" 
                                     className="w-full h-[400px] md:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>

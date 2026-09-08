@@ -119,7 +119,7 @@ export default function HeroSection() {
                                     </div>
                                     <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
                                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                                        microvectors.ai/revenue-os
+                                        profitmachines.ai/revenue-os
                                     </div>
                                     <div className="text-xs text-slate-500 font-semibold">Live System</div>
                                 </div>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                                 {/* Platform Real Image */}
                                 <img 
                                     src="/images/home-hero-dashboard.png" 
-                                    alt="MicroVectors Autonomous AI Revenue Engine Dashboard"
+                                    alt="ProfitMachines Autonomous AI Revenue Engine Dashboard"
                                     className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]" 
                                 />
 

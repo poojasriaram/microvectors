@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppWidget() {
     const number = '919876543210'; // Replace with real WhatsApp number
-    const message = "Hi MicroVectors, I'd like to discuss my revenue growth goals.";
+    const message = "Hi ProfitMachines, I'd like to discuss my revenue growth goals.";
     const href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 
     return (
@@ -10,7 +10,7 @@ export default function WhatsAppWidget() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat with MicroVectors on WhatsApp"
+            aria-label="Chat with ProfitMachines on WhatsApp"
             className="fixed bottom-24 right-5 z-40 group flex items-center gap-2.5 transition-all duration-300"
         >
             {/* Tooltip label */}

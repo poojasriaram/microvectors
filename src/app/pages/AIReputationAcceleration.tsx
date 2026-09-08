@@ -7,7 +7,7 @@ export default function AIReputationAcceleration() {
     const location = useLocation();
 
     useEffect(() => {
-        document.title = "AI Reputation Acceleration | MicroVectors";
+        document.title = "AI Reputation Acceleration | ProfitMachines";
         window.scrollTo(0, 0);
     }, [location]);
 

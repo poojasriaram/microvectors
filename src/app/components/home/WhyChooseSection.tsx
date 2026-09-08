@@ -25,7 +25,7 @@ export default function WhyChooseSection() {
                             <div className="relative h-64 sm:h-72 overflow-hidden">
                                 <img 
                                     src="/images/home-why-choose.png" 
-                                    alt="MicroVectors Corporate AI Intelligence Center"
+                                    alt="ProfitMachines Corporate AI Intelligence Center"
                                     className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>

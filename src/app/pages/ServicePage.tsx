@@ -199,12 +199,12 @@ export default function ServicePage() {
                 </div>
             </section>
 
-            {/* ── 5. Why MicroVectors ──────────────────────────────────── */}
+            {/* ── 5. Why ProfitMachines ──────────────────────────────────── */}
             <section className="py-20 lg:py-28 bg-white">
                 <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <div className="text-xs font-extrabold text-blue-600 uppercase tracking-widest mb-4">Why MicroVectors</div>
+                            <div className="text-xs font-extrabold text-blue-600 uppercase tracking-widest mb-4">Why ProfitMachines</div>
                             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-6 font-heading">{data.whyTitle}</h2>
                             <p className="text-lg text-slate-600 leading-relaxed mb-10 font-medium">{data.whyText}</p>
                             <div className="space-y-4">
@@ -508,7 +508,7 @@ export default function ServicePage() {
                         Ready to Transform Your {data.title}?
                     </h2>
                     <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Talk to our experts and discover how MicroVectors can accelerate your revenue growth in 90 days.
+                        Talk to our experts and discover how ProfitMachines can accelerate your revenue growth in 90 days.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link

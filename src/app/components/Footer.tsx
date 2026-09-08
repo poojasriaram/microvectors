@@ -61,7 +61,7 @@ export default function Footer() {
                         <Link to="/book-consultation" className="btn-cta-primary w-full sm:w-auto">
                             Book Free Consultation
                         </Link>
-                        <a href="mailto:connect@trustgrid.ai" className="btn-cta-secondary text-slate-300 border-white/20 hover:bg-white/10 hover:border-white/30 hover:text-white w-full sm:w-auto">
+                        <a href="mailto:connect@profitmachines.com" className="btn-cta-secondary text-slate-300 border-white/20 hover:bg-white/10 hover:border-white/30 hover:text-white w-full sm:w-auto">
                             Email Us Directly
                         </a>
                     </div>
@@ -77,8 +77,8 @@ export default function Footer() {
                             <Link to="/" className="inline-block mb-1">
                                 <div className="flex items-center gap-2">
                                     <div className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-0.5 font-heading">
-                                        <span>Micro</span>
-                                        <span className="text-blue-500">Vectors</span>
+                                        <span>Profit</span>
+                                        <span className="text-blue-500">Machines</span>
                                     </div>
                                 </div>
                             </Link>
@@ -87,11 +87,11 @@ export default function Footer() {
                             </p>
 
                             <div className="space-y-4 mb-8">
-                                <a href="mailto:connect@microvectors.com" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
+                                <a href="mailto:connect@profitmachines.com" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
                                         <Mail className="w-4 h-4" />
                                     </div>
-                                    <span className="font-medium text-sm tracking-wide">connect@microvectors.com</span>
+                                    <span className="font-medium text-sm tracking-wide">connect@profitmachines.com</span>
                                 </a>
                                 <a href="tel:+919513288612" className="group flex items-center gap-4 text-slate-400 hover:text-white transition-colors duration-300">
                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-600 transition-all">
@@ -280,7 +280,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/10 mt-6">
                     <p className="text-xs text-slate-400 font-medium tracking-wide">
-                        &copy; {new Date().getFullYear()} TrustGrid AI. All rights reserved.
+                        &copy; {new Date().getFullYear()} ProfitMachines. All rights reserved.
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-medium text-slate-400">
                         {['Privacy Policy', 'Terms of Service', 'Security', 'Copyright', 'Cookies', 'Sitemap'].map((item, i) => {

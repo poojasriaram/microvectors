@@ -53,7 +53,7 @@ export default function DemandPulse() {
                     <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
                         <img 
                             src="/images/demand-pulse-dashboard.png" 
-                            alt="MicroVectors DemandPulse Autonomous Buyer Intent Radar & Signals Dashboard" 
+                            alt="ProfitMachines DemandPulse Autonomous Buyer Intent Radar & Signals Dashboard" 
                             className="w-full h-[400px] md:h-[480px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>

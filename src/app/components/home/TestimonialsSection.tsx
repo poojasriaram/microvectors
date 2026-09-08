@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
     {
-        quote: "MicroVectors transformed our entire Go-To-Market motion. We saw a 300% increase in pipeline velocity within the first quarter. The AI-driven approach completely changed how we think about revenue generation.",
+        quote: "ProfitMachines transformed our entire Go-To-Market motion. We saw a 300% increase in pipeline velocity within the first quarter. The AI-driven approach completely changed how we think about revenue generation.",
         author: "Sarah Jenkins",
         role: "Chief Revenue Officer",
         company: "Vanguard Pay",
@@ -28,7 +28,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "We found $1.8M in hidden upsell opportunities in the first 60 days. The ROI on the MicroVectors engagement paid for itself within the first month.",
+        quote: "We found $1.8M in hidden upsell opportunities in the first 60 days. The ROI on the ProfitMachines engagement paid for itself within the first month.",
         author: "Michael Torres",
         role: "CFO",
         company: "ScalePoint",
@@ -44,7 +44,7 @@ const testimonials = [
         rating: 5
     },
     {
-        quote: "Our Series A closed at 2× target valuation after we could present quantitative PMF evidence from MicroVectors' intelligence platform. It was the most impactful investment we made pre-funding.",
+        quote: "Our Series A closed at 2× target valuation after we could present quantitative PMF evidence from ProfitMachines' intelligence platform. It was the most impactful investment we made pre-funding.",
         author: "Aisha Mensah",
         role: "CEO & Co-Founder",
         company: "HealthLoop",

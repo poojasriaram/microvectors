@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueOperations() {
     useEffect(() => {
-        document.title = "AI Revenue Operations (AROS) | MicroVectors";
+        document.title = "AI Revenue Operations (AROS) | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 

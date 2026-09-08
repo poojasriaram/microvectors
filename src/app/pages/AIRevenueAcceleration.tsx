@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AIRevenueAcceleration() {
     useEffect(() => {
-        document.title = "AI Revenue Acceleration ™ 2.0 | MicroVectors";
+        document.title = "AI Revenue Acceleration ™ 2.0 | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 
@@ -200,7 +200,7 @@ export default function AIRevenueAcceleration() {
                     <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group">
                         <img 
                             src="/images/revenue-acceleration-engine.png" 
-                            alt="MicroVectors Autonomous AI Sales Engine Command Center" 
+                            alt="ProfitMachines Autonomous AI Sales Engine Command Center" 
                             className="w-full h-[420px] md:h-[520px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>

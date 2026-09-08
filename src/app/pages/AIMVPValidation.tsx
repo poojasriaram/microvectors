@@ -6,7 +6,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function AIMVPValidation() {
     useEffect(() => {
-        document.title = "AI MVP Validation | MicroVectors";
+        document.title = "AI MVP Validation | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 

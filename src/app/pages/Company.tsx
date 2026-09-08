@@ -99,7 +99,7 @@ export default function Company() {
                         <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
                             <img 
                                 src="/images/company-hero.png" 
-                                alt="MicroVectors Global Headquarters & AI Intelligence Command Center"
+                                alt="ProfitMachines Global Headquarters & AI Intelligence Command Center"
                                 className="w-full h-[400px] md:h-[500px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>

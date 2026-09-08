@@ -7,7 +7,7 @@ export default function AIBrandAcceleration() {
     const location = useLocation();
 
     useEffect(() => {
-        document.title = "AI Brand Acceleration | MicroVectors";
+        document.title = "AI Brand Acceleration | ProfitMachines";
         window.scrollTo(0, 0);
     }, [location]);
 

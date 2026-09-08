@@ -115,7 +115,7 @@ export default function Pricing() {
                             </div>
                             <div>
                                 <h4 className="font-bold text-slate-900 mb-2">Do I need to replace my existing CRM?</h4>
-                                <p className="text-slate-600">No. MicroVectors integrates seamlessly with Salesforce, HubSpot, and other major platforms to act as an intelligence layer on top of your existing data.</p>
+                                <p className="text-slate-600">No. ProfitMachines integrates seamlessly with Salesforce, HubSpot, and other major platforms to act as an intelligence layer on top of your existing data.</p>
                             </div>
                         </div>
                     </Reveal>
