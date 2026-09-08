@@ -52,7 +52,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             "Revenue intelligence dashboard for C-suite visibility"
         ],
         overviewTitle: "What is the AI Growth Engine?",
-        overviewText: "The AI Growth Engine is MicroVectors' flagship platform that combines demand discovery, predictive scoring, autonomous outreach, and pipeline acceleration into a single always-on revenue operating system.",
+        overviewText: "The AI Growth Engine is ProfitMachines' flagship platform that combines demand discovery, predictive scoring, autonomous outreach, and pipeline acceleration into a single always-on revenue operating system.",
         overviewSub: "Unlike point solutions, the engine learns from every interaction and continuously optimises across the full funnel — from first impression to closed-won.",
         overviewCards: [
             { icon: "Brain", title: "Predictive Intelligence", desc: "AI models that identify high-propensity buyers before they raise their hand" },
@@ -79,7 +79,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Talent Scarcity", desc: "Exceptional sales talent is scarce and expensive — AI augmentation multiplies the output of existing teams." },
             { title: "Global Expansion", desc: "Entering new markets requires localised intelligence that generalised platforms cannot provide." }
         ],
-        whyTitle: "Why MicroVectors' AI Growth Engine?",
+        whyTitle: "Why ProfitMachines' AI Growth Engine?",
         whyText: "We don't sell software — we deploy outcomes. Our engine is tuned to your industry, your ICP, and your existing tech stack from day one.",
         whyPoints: [
             { title: "Integrated by Design", desc: "Native connectors to Salesforce, HubSpot, Outreach, Gong, and 40+ enterprise tools" },
@@ -121,7 +121,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Platform Integration & Configuration", desc: "Native connectors are deployed to your existing stack. Custom models are trained on your historical conversion data.", duration: "Week 3–4" },
             { title: "Pilot Launch & Validation", desc: "A controlled pilot runs across a segment of your pipeline. We validate signal quality, conversion rates, and attribution accuracy.", duration: "Week 5–6" },
             { title: "Full Deployment & Optimisation", desc: "The engine goes live across all channels. Weekly model retraining and bi-weekly strategy reviews keep performance climbing.", duration: "Week 7–12" },
-            { title: "Continuous Growth Management", desc: "Ongoing management, reporting, and quarterly strategy reviews with your dedicated MicroVectors revenue team.", duration: "Ongoing" }
+            { title: "Continuous Growth Management", desc: "Ongoing management, reporting, and quarterly strategy reviews with your dedicated ProfitMachines revenue team.", duration: "Ongoing" }
         ],
         techStack: ["GPT-4 Turbo", "Salesforce Einstein", "HubSpot", "Clearbit", "6sense", "Bombora", "Outreach", "Gong", "AWS", "Snowflake", "dbt", "Tableau"],
         benefitsTitle: "Business Benefits You'll Measure",
@@ -197,7 +197,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Professional Services", desc: "Expanding account revenue through project completion signals and strategic relationship intelligence." },
             { title: "Healthcare & Life Sciences", desc: "Navigating long procurement cycles with precision outreach timed to budget cycles." }
         ],
-        whyTitle: "Why MicroVectors for Revenue Acceleration?",
+        whyTitle: "Why ProfitMachines for Revenue Acceleration?",
         whyText: "Our approach combines data science, sales psychology, and enterprise-grade AI infrastructure to unlock the revenue that's already within reach.",
         whyPoints: [
             { title: "Full Funnel Visibility", desc: "Single unified view across marketing, sales, and customer success data streams" },
@@ -390,7 +390,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Regulatory-Constrained Industries", desc: "Healthcare, BFSI, and education markets require sector-specific demand mapping with compliance guardrails." },
             { title: "Global GTM Planning", desc: "Multi-market demand discovery requires a global data infrastructure that traditional research firms cannot provide." }
         ],
-        whyTitle: "Why MicroVectors for Demand Discovery?",
+        whyTitle: "Why ProfitMachines for Demand Discovery?",
         whyText: "We turn market intelligence from a quarterly PDF into a living, queryable intelligence platform your GTM team accesses daily.",
         whyPoints: [
             { title: "Continuous Signal Monitoring", desc: "300M+ demand signals analysed daily across web, social, firmographic, and intent networks" },
@@ -486,7 +486,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Healthcare", desc: "Mapping patient or provider decision journeys with privacy-compliant, HIPAA-safe intelligence." },
             { title: "Education & EdTech", desc: "Understanding learner personas and institutional buyer journeys across complex procurement cycles." }
         ],
-        whyTitle: "Why MicroVectors for Customer Discovery?",
+        whyTitle: "Why ProfitMachines for Customer Discovery?",
         whyText: "We build customer intelligence that your entire organisation can act on — not just read in a report.",
         whyPoints: [
             { title: "Behavioural Data Foundation", desc: "Real purchase, engagement, and usage data — not survey responses" },
@@ -582,7 +582,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Global Competition", desc: "Monitoring competitive moves across multiple geographies with different market dynamics." },
             { title: "Talent War Intelligence", desc: "Understanding competitor hiring patterns to anticipate product roadmap and go-to-market moves." }
         ],
-        whyTitle: "Why MicroVectors for Competitive Discovery?",
+        whyTitle: "Why ProfitMachines for Competitive Discovery?",
         whyText: "We turn competitive intelligence from a periodic research project into a daily strategic advantage for your sales and GTM teams.",
         whyPoints: [
             { title: "50+ Signals Per Competitor", desc: "Pricing, product, messaging, hiring, funding, partnerships, and customer reviews — all monitored continuously" },
@@ -678,7 +678,7 @@ export const servicesPageData: Record<string, ServicePageData> = {
             { title: "Platform & Marketplace Products", desc: "Understanding two-sided PMF across both supply and demand, with distinct signals for each." },
             { title: "International Expansion", desc: "Validating that PMF achieved in one market genuinely transfers to new geographies with different buyer behaviours." }
         ],
-        whyTitle: "Why MicroVectors for PMF Intelligence?",
+        whyTitle: "Why ProfitMachines for PMF Intelligence?",
         whyText: "We've helped companies across 20+ industries navigate from pre-PMF to confident scaling — and our AI models know exactly which signals matter at each stage.",
         whyPoints: [
             { title: "20+ PMF Signal Tracking", desc: "Retention curves, NPS cohorts, usage depth, expansion revenue, and word-of-mouth — all measured simultaneously" },

@@ -117,13 +117,13 @@ export default function Industries() {
         setActiveCategory(cat);
 
         const pageTitleMap: Record<string, string> = {
-            'b2b': 'B2B Focus Architecture | MicroVectors Industry Solutions',
-            'b2c': 'B2C Focus Architecture | MicroVectors Industry Solutions',
-            'enterprise': 'Enterprise & Large Business Suite | MicroVectors Industry Solutions',
-            'mid-market': 'Mid-Market Growth Architecture | MicroVectors Industry Solutions',
-            'startup': 'Startup Traction Suite | MicroVectors Industry Solutions',
-            'specialized-sectors': 'Specialized Sector Architecture | MicroVectors Industry Solutions',
-            'all': 'Vertical-Specific Revenue Engineering | MicroVectors Industry Solutions'
+            'b2b': 'B2B Focus Architecture | ProfitMachines Industry Solutions',
+            'b2c': 'B2C Focus Architecture | ProfitMachines Industry Solutions',
+            'enterprise': 'Enterprise & Large Business Suite | ProfitMachines Industry Solutions',
+            'mid-market': 'Mid-Market Growth Architecture | ProfitMachines Industry Solutions',
+            'startup': 'Startup Traction Suite | ProfitMachines Industry Solutions',
+            'specialized-sectors': 'Specialized Sector Architecture | ProfitMachines Industry Solutions',
+            'all': 'Vertical-Specific Revenue Engineering | ProfitMachines Industry Solutions'
         };
         document.title = pageTitleMap[cat] || pageTitleMap['all'];
 

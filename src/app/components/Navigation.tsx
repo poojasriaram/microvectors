@@ -57,7 +57,7 @@ export default function Navigation() {
                     <div className="flex-shrink-0 relative z-50">
                         <Link to="/" className="flex items-center gap-2 group">
                             <div className="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
-                                <span>Micro</span><span className="text-blue-600">Vectors</span>
+                                <span>Profit</span><span className="text-blue-600">Machines</span>
                             </div>
                         </Link>
                     </div>

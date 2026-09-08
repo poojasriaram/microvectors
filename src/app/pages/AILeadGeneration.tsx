@@ -6,7 +6,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function AILeadGeneration() {
     useEffect(() => {
-        document.title = "AI Lead Generation | MicroVectors";
+        document.title = "AI Lead Generation | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 

@@ -7,7 +7,7 @@ export default function HiddenRevenueCapture() {
     const location = useLocation();
 
     useEffect(() => {
-        document.title = "Hidden Revenue Capture | MicroVectors";
+        document.title = "Hidden Revenue Capture | ProfitMachines";
         window.scrollTo(0, 0);
     }, [location]);
 

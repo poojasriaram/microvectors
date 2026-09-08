@@ -6,7 +6,7 @@ import { Reveal } from '../components/ui/Reveal';
 
 export default function AILeadNurturing() {
     useEffect(() => {
-        document.title = "AI Lead Nurturing | MicroVectors";
+        document.title = "AI Lead Nurturing | ProfitMachines";
         window.scrollTo(0, 0);
     }, []);
 

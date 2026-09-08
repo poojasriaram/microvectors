@@ -42,7 +42,7 @@ export default function StickyCtaBar() {
                     <div className="flex items-center gap-3 flex-1 sm:flex-none justify-center sm:justify-end">
                         {/* WhatsApp quick link */}
                         <a
-                            href="https://wa.me/919876543210?text=Hi%20MicroVectors%2C%20I'd%20like%20to%20discuss%20my%20growth%20goals."
+                            href="https://wa.me/919876543210?text=Hi%20ProfitMachines%2C%20I'd%20like%20to%20discuss%20my%20growth%20goals."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-sm rounded-lg transition-colors duration-200 shrink-0"

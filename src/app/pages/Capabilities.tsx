@@ -127,7 +127,7 @@ export default function Capabilities() {
                             </span>
                         </h1>
                         <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-                            MicroVectors is not a collection of tools – it's an autonomous revenue OS that continuously learns and acts across the full customer lifecycle.
+                            ProfitMachines is not a collection of tools – it's an autonomous revenue OS that continuously learns and acts across the full customer lifecycle.
                         </p>
                     </Reveal>
                 </div>
